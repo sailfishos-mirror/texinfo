@@ -250,9 +250,9 @@ In float
 
 
 Tag Table:
-Ref: An anchor0
-Ref: float anchor109
-Ref: Anchor in footnote292
+Ref: An anchor27
+Ref: float anchor136
+Ref: Anchor in footnote319
 
 End Tag Table
 

@@ -4059,7 +4059,7 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 
 2     !
 . . ? @
-**************
+*******
 
 3 @ { } \\ #
 ***********
@@ -4107,7 +4107,7 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 ****************************************************
 
 18 [f--ile1] Image description""\\.
-**********************************
+**********
 
 19  @ {} . 
 ***********
@@ -5214,7 +5214,7 @@ File: ,  Node:     ! . . ? @,  Next: @ { } \\ #,  Prev: { },  Up: Top
 
 2     !
 . . ? @
-**************
+*******
 
 
 File: ,  Node: @ { } \\ #,  Next: LaTeX TeX , ... ...,  Prev:     ! . . ? @,  Up: Top
@@ -5310,7 +5310,7 @@ File: ,  Node: the someone <someone@somewher> <no_explain@there>,  Next: [f--ile
 File: ,  Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ],  Next:  @ {} . ,  Prev: the someone <someone@somewher> <no_explain@there>,  Up: Top
 
 18 [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]
-*******************************************************************************
+**********
 
 
 File: ,  Node:  @ {} . ,  Next: cite asis in @w b in r SC *str* t VAR dfn i,  Prev: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ],  Up: Top
@@ -5457,34 +5457,34 @@ Tag Table:
 Node: Top27
 Node: { }751
 Node:     ! . . ? @830
-Node: @ { } \\ #934
-Node: LaTeX TeX , ... ...1049
-Node: error→ € ¡1181
-Node: ª º ¿1291
-Node: a b a sunny day å1387
-Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð þ1522
-Node: ä ẽ î â à é ç ē e̊ e̋ ę1691
-Node: ė ĕ e̲ ẹ ě ȷ e͡e1853
-Node: ı Ḕ Ḉ1983
-Node: “ ” ‘ ’ „ ‚2081
-Node: « » « » ‹ ›2186
-Node: `` \'\' --- -- ` \'2302
-Node: AAA (fff) AAA BBB2426
-Node: CCC (rrr) CCC DDD2566
-Node: the someone <someone@somewher> <no_explain@there>2739
-Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3039
-Node:  @ {} . 3388
-Node: cite asis in @w b in r SC *str* t VAR dfn i3591
-Node: env code option samp command file C-x <ESC>3835
-Node: 8.27in4097
-Node: sansserif slanted4231
-Node: indicateurl4355
-Node: _{g}H 3^{rd}4477
-Node: <http://somewhere_aaa> text (url) ls4616
-Node: • © ≡5776
-Node: ≥ ≤ → ↦ −5884
-Node: ⋆ £ ⊣ ® ⇒6018
-Node: ° Þ6150
+Node: @ { } \\ #927
+Node: LaTeX TeX , ... ...1042
+Node: error→ € ¡1174
+Node: ª º ¿1284
+Node: a b a sunny day å1380
+Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð þ1515
+Node: ä ẽ î â à é ç ē e̊ e̋ ę1684
+Node: ė ĕ e̲ ẹ ě ȷ e͡e1846
+Node: ı Ḕ Ḉ1976
+Node: “ ” ‘ ’ „ ‚2074
+Node: « » « » ‹ ›2179
+Node: `` \'\' --- -- ` \'2295
+Node: AAA (fff) AAA BBB2419
+Node: CCC (rrr) CCC DDD2559
+Node: the someone <someone@somewher> <no_explain@there>2732
+Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3032
+Node:  @ {} . 3312
+Node: cite asis in @w b in r SC *str* t VAR dfn i3515
+Node: env code option samp command file C-x <ESC>3759
+Node: 8.27in4021
+Node: sansserif slanted4155
+Node: indicateurl4279
+Node: _{g}H 3^{rd}4401
+Node: <http://somewhere_aaa> text (url) ls4540
+Node: • © ≡5700
+Node: ≥ ≤ → ↦ −5808
+Node: ⋆ £ ⊣ ® ⇒5942
+Node: ° Þ6074
 
 End Tag Table
 

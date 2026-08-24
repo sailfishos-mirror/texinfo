@@ -978,6 +978,19 @@ HHH
 @image{figure, , , ,txt} JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
 @end flushright
 '],
+['quoted_xref_in_flushright',
+'@node Top
+@top top
+
+@node a:@comma{}b
+@chapter a:@comma{}b
+
+@flushright
+before
+Some @ref{a:@comma{}b} after
+more text
+@end flushright
+'],
 ['empty_copying_not_ended',
 '
 @copying

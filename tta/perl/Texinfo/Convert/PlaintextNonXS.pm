@@ -144,12 +144,12 @@ foreach my $def_command (keys(%def_commands)) {
 #            Also holds a container, an objects that does the counting
 #            of columns, actual indentation.  In general, it is better not
 #            to have formatters in parallel, but it may happen.
-# count_context: holds the bytes count, the lines count and the location
-#            of the commands that have their byte count or lines count
-#            recorded.  It is set for out of document formatting to avoid
-#            counting some converted text, but it is also set when it has
-#            to be modified afterwards, for aligned commands or multitable
-#            cells for example.
+# count_context: holds the lines count of the index commands and the
+#            stream of converted text and anchors.
+#            It is set for out of document formatting to avoid
+#            counting lines in that case and keep converted output separate,
+#            but it is also set when it has to be modified afterwards, for
+#            aligned commands or multitable cells for example.
 # document_context: Used to keep track if we are in a multitable and gather
 #                   authors elements in quotations.
 
@@ -417,10 +417,9 @@ sub conversion_initialization($;$) {
 
   $self->{'context'} = [];
   $self->{'format_context'} = [];
-  push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
-                                     'target_locations' => [],
+  push @{$self->{'count_context'}}, {'lines' => 0,
                                      'index_entry_locations' => [],
-                                     'result' => ''
+                                     'pending_text' => [['']],
   };
 
   $self->{'seenmenus'} = {};
@@ -573,6 +572,8 @@ sub conversion_finalization($) {
   if ($count_contexts_nr > 0) {
     splice(@{$self->{'count_context'}}, 0, $count_contexts_nr);
   }
+
+  delete $self->{'target_locations'};
 }
 
 sub count_context_bug_message($$$) {
@@ -599,14 +600,13 @@ sub convert_tree($$) {
 
   my $old_context = $self->{'count_context'}->[-1];
 
-  my $new_context = {'lines' => 0, 'bytes' => 0,
-                    'target_locations' => [],
+  my $new_context = {'lines' => 0,
                     'index_entry_locations' => [],
-                    'result' => '' };
+                    'pending_text' => [['']]};
   push @{$self->{'count_context'}}, $new_context;
 
   _convert($self, $root);
-  my $result = _stream_result($self);
+  my $result = $self->{'count_context'}->[-1]->{'pending_text'};
 
   pop @{$self->{'count_context'}};
 
@@ -634,7 +634,7 @@ sub convert_output_unit($$) {
   _adjust_final_locations($self);
   $self->count_context_bug_message('footnotes ', $output_unit);
 
-  return _stream_yield_result($self);
+  return;
 }
 
 sub convert($$) {
@@ -649,8 +649,8 @@ sub convert($$) {
   $self->register_output_units_lists([$output_units]);
 
   foreach my $output_unit (@$output_units) {
-    my $node_text = convert_output_unit($self, $output_unit);
-    $result .= $node_text;
+    convert_output_unit($self, $output_unit);
+    $result .= _stream_final_result($self);
   }
 
   $self->conversion_finalization();
@@ -766,7 +766,8 @@ sub output($$) {
     }
 
     foreach my $output_unit (@$output_units) {
-      my $output_unit_text = $self->convert_output_unit($output_unit);
+      $self->convert_output_unit($output_unit);
+      my $output_unit_text = _stream_final_result($self);
       $output .= $self->write_or_return($output_unit_text, $fh);
     }
     # Do not close STDOUT now.
@@ -819,7 +820,8 @@ sub output($$) {
       } else {
         $file_fh = $files_filehandle{$output_unit_filename};
       }
-      my $output_unit_text = $self->convert_output_unit($output_unit);
+      $self->convert_output_unit($output_unit);
+      my $output_unit_text = _stream_final_result($self);
       print $file_fh $output_unit_text;
       $self->{'file_counters'}->{$output_unit_filename}--;
       if ($self->{'file_counters'}->{$output_unit_filename} == 0) {
@@ -999,17 +1001,13 @@ sub _add_lines_count($$) {
   $self->{'count_context'}->[-1]->{'lines'} += $lines_count;
 }
 
-# Save the line and byte offset of $ELEMENT.
 sub add_target_location($$) {
   my ($self, $element) = @_;
 
-  my $location = {
-        'lines' => $self->{'count_context'}->[-1]->{'lines'},
-        'bytes' => _stream_byte_count($self),
-        'target_element' => $element
-  };
-  push @{$self->{'count_context'}->[-1]->{'target_locations'}}, $location;
-  return $location;
+  my $count_context = $self->{'count_context'}->[-1];
+  push @{$count_context->{'pending_text'}}, [undef, $element], [''];
+
+  return;
 }
 
 # Used at the end of an output unit.  Decrement any location line counters
@@ -1050,25 +1048,14 @@ sub _stream_reset($) {
   my ($self) = @_;
 
   my $count_context = $self->{'count_context'}->[-1];
-
-  delete $count_context->{'pending_text'};
-  $count_context->{'result'} = '';
+  $count_context->{'pending_text'} = [['']];
 }
 
 sub _stream_output($$) {
   my ($self, $text) = @_;
 
   my $count_context = $self->{'count_context'}->[-1];
-
-  if (!defined($count_context->{'pending_text'})) {
-    $count_context->{'pending_text'} = '';
-  }
-  $count_context->{'pending_text'} .= $text;
-
-  #if (!defined($count_context->{'pending_text'})) {
-  #  $count_context->{'pending_text'} = [''];
-  #}
-  #$count_context->{'pending_text'}->[-1] .= $text;
+  $count_context->{'pending_text'}->[-1]->[0] .= $text;
   return;
 }
 
@@ -1115,8 +1102,27 @@ sub _stream_output_add_next($$) {
   return;
 }
 
+# the SELF argument is used to find the method in the Info module
+sub _pending_to_text($$) {
+  my ($self, $pending) = @_;
 
-sub _stream_encode($$) {
+  my $result = '';
+  foreach my $pending_string (@$pending) {
+    if (defined($pending_string->[0])) {
+      $result .= $pending_string->[0];
+    }
+  }
+  return $result;
+}
+
+sub _stream_to_text($) {
+  my $self = shift;
+
+  my $count_context = $self->{'count_context'}->[-1];
+  return _pending_to_text($self, $count_context->{'pending_text'});
+}
+
+sub _encode_string($$) {
   my ($self, $string) = @_;
 
   if ($self->{'encoding_disabled'}) {
@@ -1147,61 +1153,67 @@ sub _stream_encode($$) {
   return $self->{'encoding_object'}->encode($string);
 }
 
-sub _stream_byte_count($) {
-  my $self = shift;
+sub _stream_encode($$) {
+  my ($self, $pending) = @_;
 
-  my $count_context = $self->{'count_context'}->[-1];
-
-  if (defined($count_context->{'pending_text'})
-        and $count_context->{'pending_text'} ne '') {
-    if (!$count_context->{'encoding_disabled'}) {
-      my $new_encoded
-        = _stream_encode($self, $count_context->{'pending_text'});
-      $count_context->{'pending_text'} = '';
-      $count_context->{'result'} .= $new_encoded;
-      $count_context->{'bytes'} += length($new_encoded);
+  if (!$self->{'encoding_disabled'}
+      and !defined($self->{'encoding_object'})) {
+    my $encoding
+      = Texinfo::Common::processing_output_encoding(
+                               $self->{'output_encoding_name'});
+    # TODO currently encoding cannot be ascii unless directly
+    # specified as OUTPUT_ENCODING_NAME customization variable as
+    # ascii documentencoding is mapped to us-ascii as input encoding
+    # (either explicitly in C or through Encode mime_name in Perl)
+    # and then us-ascii is mapped to iso-8859-1 output perl encoding
+    # through Texinfo::Common::encoding_name_conversion_map.
+    if (!defined($encoding) or $encoding eq 'ascii') {
+      $self->{'encoding_disabled'} = 1;
     } else {
-      $count_context->{'result'} .= $count_context->{'pending_text'};
-      $count_context->{'pending_text'} = '';
-      $count_context->{'bytes'} = -1;
+      my $Encode_encoding_object = Encode::find_encoding($encoding);
+      if (!defined($Encode_encoding_object)) {
+        Carp::croak "Unknown encoding '$encoding'";
+      }
+      $self->{'encoding_object'} = $Encode_encoding_object;
     }
   }
-  return $count_context->{'bytes'};
+
+  my $string = '';
+  my $bytes = 0;
+  foreach my $pending_string (@$pending) {
+    if (defined($pending_string->[0])) {
+      if ($self->{'encoding_disabled'}) {
+        $string .= $pending_string->[0];
+        if (exists($self->{'target_locations'})) {
+          $self->{'bytes'} += length($pending_string->[0]);
+        }
+      } else {
+        my $encoded = $self->{'encoding_object'}->encode($pending_string->[0]);
+        $string .= $encoded;
+        if (exists($self->{'target_locations'})) {
+          $self->{'bytes'} += length($encoded);
+        }
+      }
+    } elsif (defined($self->{'target_locations'})) {
+      push @{$self->{'target_locations'}}, {
+               'target_element' => $pending_string->[1],
+               'bytes' => $self->{'bytes'}
+      };
+    }
+  }
+
+  return $string;
 }
 
-
-# Add an already-encoded string to the output.
-sub _stream_output_encoded($$) {
-  my ($self, $encoded) = @_;
+sub _stream_final_result($) {
+  my $self = shift;
 
   my $count_context = $self->{'count_context'}->[-1];
 
-  _stream_byte_count($self); # flush pending
-
-  $count_context->{'result'} .= $encoded;
-  $count_context->{'bytes'} += length($encoded);
-
-  return;
-}
-
-sub _stream_result($) {
-  my $self = shift;
-
-  _stream_byte_count($self); # flush pending
-
-  my $result = $self->{'count_context'}->[-1]->{'result'};
-  return defined($result) ? $result : '';
-}
-
-# Like _stream_result, but do not keep the result.
-sub _stream_yield_result($) {
-  my $self = shift;
-
-  _stream_byte_count($self); # flush pending
-
-  my $result = $self->{'count_context'}->[-1]->{'result'};
-  undef $self->{'count_context'}->[-1]->{'result'};
-  return defined($result) ? $result : '';
+  my $new_encoded
+    = _stream_encode($self, $count_context->{'pending_text'});
+  $count_context->{'pending_text'} = [['']];
+  return $new_encoded;
 }
 
 sub convert_line($$;$$) {
@@ -1217,14 +1229,30 @@ sub convert_line($$;$$) {
   return;
 }
 
+# for debugging
+sub _debug_print_pending($) {
+  my $pending_texts = shift;
+
+  my @strings;
+  foreach my $pending (@$pending_texts) {
+    if (defined($pending->[0])) {
+      push @strings, $pending->[0];
+    } else {
+      push @strings,
+        Texinfo::Convert::Texinfo::convert_to_texinfo($pending->[1]);
+    }
+  }
+  return "$pending_texts ".join('|', @strings);
+}
+
 # convert with a line formatter in a new count context, not changing
 # the current context.  return the result of the conversion.
 sub convert_line_new_context($$;$$$) {
   my ($self, $converted, $indent_length, $indent_length_next,
       $formatter_conf) = @_;
 
-  push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
-                                     'encoding_disabled' => 1};
+  push @{$self->{'count_context'}}, {'lines' => 0,
+                                     'pending_text' => [['']]};
   my $formatter = new_formatter($self, 'line',
                                 $indent_length, $indent_length_next,
                                 $formatter_conf);
@@ -1232,7 +1260,7 @@ sub convert_line_new_context($$;$$$) {
   _convert($self, $converted);
   my $end = Texinfo::Convert::Paragraph::end($formatter->{'container'});
   _stream_output($self, $end);
-  my $result = _stream_result($self);
+  my $pending_text = $self->{'count_context'}->[-1]->{'pending_text'};
   my $count = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
 
   # Should always be 0 for well-formed input?
@@ -1242,46 +1270,13 @@ sub convert_line_new_context($$;$$$) {
 
   die if (!scalar(@{$self->{'count_context'}}));
 
-  return ($result, $count, $end_line_count);
-}
-
-# Used occasionally for already encoded output
-sub _decode($$) {
-  my ($self, $encoded) = @_;
-
-  if (!defined($self->{'encoding_object'})) {
-    return $encoded; # probably wrong
-  } else {
-    my $decoded = $self->{'encoding_object'}->decode($encoded);
-    return $decoded;
-  }
-}
-
-# Occasionally, we need to find the width of a string after it has
-# already been encoded.  Use of this should be minimised for performance.
-sub _string_width_encoded($$) {
-  my ($self, $encoded) = @_;
-
-  if (!defined($self->{'encoding_object'})) {
-    return Texinfo::Convert::Unicode::string_width($encoded);
-  } else {
-    my $decoded = $self->{'encoding_object'}->decode($encoded);
-    return Texinfo::Convert::Unicode::string_width($decoded);
-  }
+  return ($pending_text, $count, $end_line_count);
 }
 
 sub _update_locations_counts($$$) {
   my ($self, $parent_counts, $counts) = @_;
 
-  my $bytes = $parent_counts->{'bytes'};
   my $lines = $parent_counts->{'lines'};
-
-  foreach my $location (@{$counts->{'target_locations'}}) {
-    $location->{'bytes'} += $bytes;
-    $location->{'lines'} += $lines;
-  }
-  push @{$parent_counts->{'target_locations'}},
-       @{$counts->{'target_locations'}};
 
   foreach my $location (@{$counts->{'index_entry_locations'}}) {
     $location->{'lines'} += $lines;
@@ -1296,24 +1291,21 @@ sub _update_locations_counts($$$) {
 sub _add_newline_if_needed($) {
   my $self = shift;
 
-  # The "bytes" pragma makes length and substr quicker for Perl strings that
-  # may possibly contain UTF-8 sequences.  Since we are only checking for
-  # ASCII newline at the end of the string, this does not change the result.
-  use bytes;
-
-  if (defined($self->{'count_context'}->[-1]->{'pending_text'})
-    and length($self->{'count_context'}->[-1]->{'pending_text'}) >= 2
-    and substr($self->{'count_context'}->[-1]->{'pending_text'}, -2)
-          ne "\n\n") {
-    _stream_output($self, "\n");
-    _add_lines_count($self, 1);
-  } else {
-    my $result = _stream_result($self);
-    # NB \z matches end of string, whereas $ can match *before* a newline
-    # at the end of a string.
-    if ($result ne '' and $result ne "\n" and $result !~ /\n\n\z/) {
-      _stream_output($self, "\n");
-      _add_lines_count($self, 1);
+  my $pending_texts = $self->{'count_context'}->[-1]->{'pending_text'};
+  my $nr_pending = scalar(@{$pending_texts});
+  if ($nr_pending > 0) {
+    my $pending_text = '';
+    for (my $i = $nr_pending - 1; $i >= 0; $i--) {
+      if (defined($pending_texts->[$i]->[0])) {
+        $pending_text = $pending_texts->[$i]->[0] . $pending_text;
+        if (length($pending_text) >= 2) {
+          if (substr($pending_text, -2) ne "\n\n") {
+            _stream_output($self, "\n");
+            _add_lines_count($self, 1);
+          }
+          return;
+        }
+      }
     }
   }
 
@@ -1324,17 +1316,23 @@ sub _add_newline_if_needed($) {
 sub _ensure_end_of_line($) {
   my $self = shift;
 
-  my $result = _stream_result($self);
+  my $pending_texts = $self->{'count_context'}->[-1]->{'pending_text'};
 
-  return if !defined($result) or $result eq '';
-
-  if (substr($result, -1) ne "\n") {
-    _stream_output($self, "\n");
-    _add_lines_count($self, 1);
-    $self->{'text_element_context'}->[-1]->{'counter'} = 0;
+  my $nr_pending = scalar(@$pending_texts);
+  for (my $i = $nr_pending - 1; $i >= 0; $i--) {
+    if (defined($pending_texts->[$i]->[0])
+        and $pending_texts->[$i]->[0] ne '') {
+      if ($pending_texts->[$i]->[0] !~ /\n\z/) {
+        $pending_texts->[$i]->[0] .= "\n";
+        _add_lines_count($self, 1);
+        $self->{'text_element_context'}->[-1]->{'counter'} = 0;
+      }
+      return;
+    }
   }
   return;
 }
+
 
 my $node_names_formatter;
 
@@ -1354,8 +1352,8 @@ sub node_name($$) {
                                        'contents' => [$label_element]});
 
     my ($result, $width);
-    push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
-                                     'encoding_disabled' => 1};
+    push @{$self->{'count_context'}}, {'lines' => 0,
+                                     'pending_text' => [['']]};
     if (!defined($node_names_formatter)) {
       # FIXME $self could affect the result through frenchspacing
       $node_names_formatter = new_formatter($self, 'line', 0, undef,
@@ -1367,7 +1365,7 @@ sub node_name($$) {
     _convert($self, $node_text);
     _stream_output_count_nl($self,
       Texinfo::Convert::Paragraph::add_pending_word($formatter->{'container'}));
-    $result = _stream_result($self);
+    $result = _stream_to_text($self);
     $width = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
 
     # reset counters
@@ -1406,11 +1404,12 @@ sub _cache_node_names($$) {
     my $node_text = Texinfo::TreeElement::new({'type' => '_code',
                                        'contents' => [$label_element]});
 
-    push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
+    push @{$self->{'count_context'}}, {'lines' => 0,
+                                       'pending_text' => [['']]};
     _convert($self, $node_text);
     _stream_output_count_nl($self,
       Texinfo::Convert::Paragraph::add_pending_word($formatter->{'container'}));
-    my $result = _stream_result($self);
+    my $result = _stream_to_text($self);
     my $width = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
 
     pop @{$self->{'count_context'}};
@@ -1579,20 +1578,9 @@ sub _compute_spaces_align_line($$$;$) {
   return $prepended_spaces;
 }
 
-# readjustment only needed for bytes, ie for anchors and floats
-sub _align_lines($$$$$$) {
-  my ($self, $text_encoded, $max_column, $direction,
-      $target_locations, $images) = @_;
+sub _align_lines($$$$$) {
+  my ($self, $pending_texts, $max_column, $direction, $images) = @_;
 
-  my $result = '';
-
-  my $updated_locations = {};
-  if (defined($target_locations) and scalar(@$target_locations)) {
-    # gather lines where there are locations.
-    foreach my $location (@$target_locations) {
-      push @{$updated_locations->{$location->{'lines'}}}, $location;
-    }
-  }
   my $images_marks = {};
   if (defined($images) and scalar(@$images)) {
     foreach my $image (@$images) {
@@ -1610,17 +1598,30 @@ sub _align_lines($$$$$$) {
     }
   }
 
-  my $delta_bytes = 0;
   my $line_index = 0;
   my $image;
   my $image_lines_count;
   my $image_prepended_spaces;
-  foreach my $line (split /^/, $text_encoded) {
-    my $line_bytes_begin = 0;
-    my $line_bytes_end = 0;
-    my $removed_line_bytes_end = 0;
-    my $removed_line_bytes_begin = 0;
-
+  my @lines;
+  my $current_line = [];
+  foreach my $pending_text (@$pending_texts) {
+    if (defined($pending_text->[0])) {
+      foreach my $line (split /^/, $pending_text->[0]) {
+        push @$current_line, [$line];
+        if ($line =~ /\n$/) {
+          push @lines, $current_line;
+          $current_line = [];
+        }
+      }
+    } else {
+      push @$current_line, $pending_text;
+    }
+  }
+  if (scalar(@$current_line) > 0) {
+    push @lines, $current_line;
+  }
+  my $result = [];
+  foreach my $line (@lines) {
     my ($new_image, $new_image_prepended_spaces);
     if (exists($images_marks->{$line_index})) {
       $new_image = $images_marks->{$line_index};
@@ -1636,25 +1637,49 @@ sub _align_lines($$$$$$) {
     }
 
     if (!defined($image)) {
-      my $chomped = chomp($line);
-      $removed_line_bytes_end -= length($chomped);
-      $line =~ s/^(\s*)//;
-      $removed_line_bytes_begin -= length($1);
-      $line =~ s/(\s*)$//;
-      $removed_line_bytes_end -= length($1);
-      my $line_width = _string_width_encoded($self, $line);
-      if ($line_width == 0) {
-        $result .= "\n";
-        $line_bytes_end += length("\n");
-      } else {
+      my @leading_anchors;
+      my @trailing_anchors;
+      while (scalar(@$line)) {
+        my $pending_text = $line->[0];
+        if (defined($pending_text->[0])) {
+          $pending_text->[0] =~ s/^(\s*)//;
+          if ($pending_text->[0] eq '') {
+            shift @$line;
+          } else {
+            last;
+          }
+        } else {
+          my $anchor = shift @$line;
+          push @leading_anchors, $anchor;
+        }
+      }
+      while (scalar(@$line)) {
+        my $pending_text = $line->[-1];
+        if (defined($pending_text->[0])) {
+          $pending_text->[0] =~ s/(\s*)$//;
+          if ($pending_text->[0] eq '') {
+            pop @$line;
+          } else {
+            chomp($pending_text->[0]);
+            last;
+          }
+        } else {
+          my $anchor = pop @$line;
+          unshift @trailing_anchors, $anchor;
+        }
+      }
+      my $line_width = _pending_texts_width($line);
+      push @$result, @leading_anchors;
+      if ($line_width > 0) {
         my $prepended_spaces
          = _compute_spaces_align_line($line_width, $max_column, $direction);
-        $result .= ' ' x $prepended_spaces . $line ."\n";
-        $line_bytes_begin += length(' ' x $prepended_spaces);
-        $line_bytes_end += length("\n");
+        push @$result, [' ' x $prepended_spaces];
+        push @$result, @$line;
       }
+      push @$result, @trailing_anchors;
+      push @$result, ["\n"];
     } else {
-      my $line_width = _string_width_encoded($self, $line);
+      my $line_width = _pending_texts_width($line);
       $image_lines_count++;
       my $prepended_spaces = $image_prepended_spaces;
       # adjust if there is something else that the image on the first or
@@ -1665,8 +1690,7 @@ sub _align_lines($$$$$$) {
         $prepended_spaces -= $line_width - $image->{'image_width'};
         $prepended_spaces = 0 if ($prepended_spaces < 0);
       }
-      $result .= ' ' x $prepended_spaces . $line;
-      $line_bytes_begin += length(' ' x $prepended_spaces);
+      push @$result, [' ' x $prepended_spaces], @$line;
       if ($new_image) {
         $image = $new_image;
         $image_prepended_spaces = $new_image_prepended_spaces;
@@ -1677,25 +1701,17 @@ sub _align_lines($$$$$$) {
       }
     }
 
-    if ($updated_locations->{$line_index}) {
-      foreach my $location (@{$updated_locations->{$line_index}}) {
-        $location->{'bytes'} += $line_bytes_begin + $removed_line_bytes_begin
-                                + $delta_bytes;
-      }
-    }
-    $delta_bytes += $line_bytes_begin + $line_bytes_end
-             + $removed_line_bytes_begin + $removed_line_bytes_end;
     $line_index++;
   }
   return $result;
 }
 
-sub _align_environment($$$$) {
-  my ($self, $result, $max, $align) = @_;
+sub _align_environment($$$) {
+  my ($self, $max, $align) = @_;
 
   my $counts = pop @{$self->{'count_context'}};
-  $result = _align_lines($self, $result, $max,
-              $align, $counts->{'target_locations'}, $counts->{'images'});
+  my $result = _align_lines($self, $counts->{'pending_text'}, $max,
+              $align, $counts->{'images'});
 
   _update_locations_counts($self, $self->{'count_context'}->[-1],
                            $counts);
@@ -1745,6 +1761,7 @@ sub format_contents($$$) {
       my $arguments_line = $section->{'contents'}->[0];
       my $line_arg = $arguments_line->{'contents'}->[0];
 
+      # TODO code common to heading_text
       my $section_title_tree;
       if (defined($section->{'extra'}->{'section_heading_number'})
           and ($self->get_conf('NUMBER_SECTIONS')
@@ -1764,10 +1781,11 @@ sub format_contents($$$) {
       } else {
         $section_title_tree = $line_arg;
       }
-      my ($text, undef) = $self->convert_line_new_context(
+      my ($pending, undef, undef) = $self->convert_line_new_context(
        Texinfo::TreeElement::new({'contents' => [$section_title_tree],
                                   'type' => '_frenchspacing'}));
-      chomp ($text);
+      my $text = _pending_to_text($self, $pending);
+      chomp($text);
       $text .= "\n";
       _stream_output($self, $text);
       $lines_count++;
@@ -1968,12 +1986,12 @@ sub process_printindex($$;$) {
     # Convert entry text in a new context in order to capture result.
     my $entry_text;
 
-    push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
-    $self->{'count_context'}->[-1]->{'encoding_disabled'} = 1;
+    push @{$self->{'count_context'}}, {'lines' => 0,
+                                       'pending_text' => [['']]};
     _convert($self, $entry_tree);
     _stream_output_count_nl($self,
                    Texinfo::Convert::Paragraph::end($formatter->{'container'}));
-    $entry_text = _stream_result($self);
+    $entry_text = _stream_to_text($self);
     pop @{$self->{'count_context'}};
 
     next if ($entry_text !~ /\S/);
@@ -2066,12 +2084,14 @@ sub process_printindex($$;$) {
       # it is likely that there is more than one such entry
       if (!$self->{'outside_of_any_node_text'}) {
         my $tree = $self->cdt('(outside of any node)');
-        my ($node_text, $width)
+        my ($pending, $width, undef)
           = $self->convert_line_new_context($tree);
-        $self->{'outside_of_any_node_text'} = $node_text;
+        $self->{'outside_of_any_node_text'} = $pending;
         $self->{'outside_of_any_node_text_width'} = $width;
       }
-      _stream_output($self, $self->{'outside_of_any_node_text'});
+      # empty text after to avoid modifications of outside_of_any_node_text
+      push @{$self->{'count_context'}->[-1]->{'pending_text'}},
+               @{$self->{'outside_of_any_node_text'}}, [''];
       $line_width += $self->{'outside_of_any_node_text_width'};
 
       # TODO when outside of sectioning commands this message was already
@@ -2107,7 +2127,7 @@ sub process_printindex($$;$) {
           $node_name = $pre_quote . $node_name . $post_quote;
         }
       }
-      _stream_output_encoded($self, $node_name);
+      _stream_output($self, $node_name);
       $line_width += $width;
     }
     _stream_output($self, '.');
@@ -2512,45 +2532,81 @@ my %underline_symbol = (
   4 => '.'
 );
 
+sub _pending_is_spaces($) {
+  my $pending_texts = shift;
+
+  foreach my $pending (@$pending_texts) {
+    if (defined($pending->[0]) and $pending->[0] =~ /\S/) {
+      return 0;
+    }
+  }
+  return 1;
+}
+
+sub _pending_is_empty($) {
+  my $pending_texts = shift;
+
+  foreach my $pending (@$pending_texts) {
+    if (defined($pending->[0]) and $pending->[0] ne '') {
+      return 0;
+    }
+  }
+  return 1;
+}
+
+sub _pending_texts_width($) {
+  my $pending_texts = shift;
+
+  my $width = 0;
+  foreach my $pending (@$pending_texts) {
+    if (defined($pending->[0]) and $pending->[0] ne '') {
+      $width += Texinfo::Convert::Unicode::string_width($pending->[0]);
+    }
+  }
+  return $width;
+}
+
 # Return the text of an underlined heading, possibly indented.
-sub _text_heading($$$;$$) {
-  my ($self, $current, $heading_element, $numbered, $indented_len) = @_;
+sub _text_heading($$$;$$$) {
+  my ($self, $current, $heading_element, $numbered, $indented_len,
+      $no_last_new_line) = @_;
 
   my $number;
   if (exists($current->{'extra'})
       and defined($current->{'extra'}->{'section_heading_number'})
       and ($numbered or !defined($numbered))) {
-    $number = $current->{'extra'}->{'section_heading_number'};
+    $number = Texinfo::TreeElement::new({
+                'text' => $current->{'extra'}->{'section_heading_number'}});
   }
 
-  my ($heading, undef) = $self->convert_line_new_context(
-    Texinfo::TreeElement::new({'type' => '_frenchspacing',
-                               'contents' => [$heading_element]}));
+  my $heading_e = Texinfo::TreeElement::new({'type' => '_frenchspacing',
+                               'contents' => [$heading_element]});
 
-  # TODO call Convert::Utils add_heading_number?
-  my $text;
+  my $tree;
   if (defined($number)) {
     if ($current->{'cmdname'} eq 'appendix'
         and $current->{'extra'}->{'section_level'} == 1) {
-      $text = $self->cdt_string(
+      $tree = $self->cdt(
                  'Appendix {number} {section_title}',
-                 {'number' => $number, 'section_title' => $heading});
+                 {'number' => $number, 'section_title' => $heading_e});
     } else {
-      $text = $self->cdt_string(
+      $tree = $self->cdt(
                  '{number} {section_title}',
-                 {'number' => $number, 'section_title' => $heading});
+                 {'number' => $number, 'section_title' => $heading_e});
     }
   } else {
-    $text = $heading;
+    $tree = $heading_e;
   }
-  return '' if ($text !~ /\S/);
-  my $columns = Texinfo::Convert::Unicode::string_width($text);
-  my $result = $text ."\n";
-  if (defined($indented_len)) {
-    if ($indented_len < 0) {
-      $indented_len = 0;
-    }
-    $result .= (' ' x $indented_len);
+
+  my ($pending, $columns, undef)
+     = $self->convert_line_new_context($tree);
+
+  return [] if (_pending_is_spaces($pending));
+
+  push @$pending, ["\n"];
+
+  if (defined($indented_len) and $indented_len > 0) {
+    push @$pending, [' ' x $indented_len];
   } else {
     $indented_len = 0;
   }
@@ -2563,9 +2619,11 @@ sub _text_heading($$$;$$) {
   }
   # $text is indented if indented_len is set, so $indented_len needs to
   # be subtracted to have the width of the heading only.
-  $result .= ($underline_symbol{$section_level}
-                x ($columns - $indented_len))."\n";
-  return $result;
+  my $underlined_text = ($underline_symbol{$section_level}
+                x ($columns - $indented_len));
+  $underlined_text .= "\n" if (!$no_last_new_line);
+  push @$pending, [$underlined_text];
+  return $pending;
 }
 
 sub _get_form_feeds($) {
@@ -2873,23 +2931,8 @@ sub _convert($$) {
              $preformatted_context_commands{$self->{'context'}->[-1]})) {
           _stream_output_add_text($self, "\n");
         } else {
-          # inlined below for efficiency
-          #_add_newline_if_needed($self);
-
-          use bytes;
-          if (defined($self->{'count_context'}->[-1]->{'pending_text'})
-            and length($self->{'count_context'}->[-1]->{'pending_text'}) >= 2
-            and substr($self->{'count_context'}->[-1]->{'pending_text'}, -2)
-                  ne "\n\n") {
-            _stream_output($self, "\n");
-            _add_lines_count($self, 1);
-          } else {
-            my $result = _stream_result($self);
-            if ($result ne '' and $result ne "\n" and $result !~ /\n\n\z/) {
-              _stream_output($self, "\n");
-              _add_lines_count($self, 1);
-            }
-          }
+          # TODO was inlined before for efficiency
+          _add_newline_if_needed($self);
         }
         return;
       # ignoreable spaces
@@ -2929,20 +2972,8 @@ sub _convert($$) {
           $text = _process_text_internal($text);
         }
 
-        # inlined below for efficiency
-        #_stream_output_add_text($self, $text));
-
-        my $container = $formatter->{'container'};
-        my $output = add_text($container, $text);
-
-        my $count_context = $self->{'count_context'}->[-1];
-        my $count = Texinfo::Convert::Paragraph::end_line_count($container);
-        $count_context->{'lines'} += $count;
-
-        if (!defined($count_context->{'pending_text'})) {
-          $count_context->{'pending_text'} = '';
-        }
-        $count_context->{'pending_text'} .= $output;
+        # TODO was inlined before for efficiency
+        _stream_output_add_text($self, $text);
       }
     } elsif (defined($type) and $type eq 'spaces_before_paragraph') {
       my $indent = $self->get_conf('paragraphindent');
@@ -3466,10 +3497,9 @@ sub _convert($$) {
             # add an empty word so that following spaces aren't lost
             add_next($formatter->{'container'}, '');
             # math rendered as an image, push a count to capture content
-            push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
-                                               'encoding_disabled' => 1,
+            push @{$self->{'count_context'}}, {'lines' => 0,
                                                'index_entry_locations' => [],
-                                               'target_locations' => []};
+                                               'pending_text' => [['']]};
           }
           _convert($self, Texinfo::TreeElement::new({'type' => '_frenchspacing',
            'contents' => [Texinfo::TreeElement::new({'type' => '_code',
@@ -3479,13 +3509,13 @@ sub _convert($$) {
             # flush @math, including spaces
             _stream_output_count_nl($self,
                        add_pending_word($formatter->{'container'}, 1));
-            my $result = _stream_result($self);
+            my $math_text = _stream_to_text($self);
             # TODO add locations in counts to current counts context?
             # (see _align_environment)
             my $counts = pop @{$self->{'count_context'}};
             my ($image, $lines_count) = _insert_image($self,
                   $self->{'elements_images'}->{$element}->{'filename'},
-                  $result,
+                  $math_text,
                   $self->{'elements_images'}->{$element}->{'dpi'},
                   $self->{'elements_images'}->{$element}->{'depth'});
             _add_lines_count($self, $lines_count);
@@ -3502,9 +3532,8 @@ sub _convert($$) {
                                       'cmdname' => 'titlefont'}),
                             $element->{'contents'}->[0],
                             $self->get_conf('NUMBER_SECTIONS'),
-               $self->{'format_context'}->[-1]->{'context_indent_len'});
-          $result =~ s/\n$//; # final newline has its own tree element
-          _stream_output($self, $result);
+               $self->{'format_context'}->[-1]->{'context_indent_len'}, 1);
+          push @{$self->{'count_context'}->[-1]->{'pending_text'}}, @$result;
           _add_lines_count($self, 1);
         }
         return;
@@ -3627,10 +3656,9 @@ sub _convert($$) {
           # formatted content
           if (exists($self->{'elements_images'})
               and exists($self->{'elements_images'}->{$element})) {
-            push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
-                                               'encoding_disabled' => 1,
+            push @{$self->{'count_context'}}, {'lines' => 0,
                                                'index_entry_locations' => [],
-                                                   'target_locations' => []};
+                                               'pending_text' => [['']]};
           }
         }
       }
@@ -3643,10 +3671,10 @@ sub _convert($$) {
           my $prepended = $self->cdt('@b{{quotation_arg}:} ',
                                 {'quotation_arg' => $block_line_arg});
           $prepended->{'type'} = '_frenchspacing';
-          #_convert($self, $prepended);
-          my ($converted, $width, $extra_lines)
+          my ($quotation_arg, $width, $extra_lines)
             = $self->convert_line_new_context($prepended);
-          _stream_output($self, $converted);
+          push @{$self->{'count_context'}->[-1]->{'pending_text'}},
+                                                        @$quotation_arg;
           $self->{'count_context'}->[-1]->{'lines'} += $extra_lines;
 
           $self->{'text_element_context'}->[-1]->{'counter'} += $width;
@@ -3677,7 +3705,7 @@ sub _convert($$) {
                   and $content->{'type'} eq 'bracketed_arg') {
                 my $column_size = 0;
                 if (exists($content->{'contents'})) {
-                  my ($formatted_prototype, $width)
+                  my (undef, $width)
                       = $self->convert_line_new_context($content, 0);
                   $column_size = $width;
                 }
@@ -3755,8 +3783,9 @@ sub _convert($$) {
                            $self->get_conf('NUMBER_SECTIONS'),
                      $self->{'format_context'}->[-1]->{'context_indent_len'});
         _add_newline_if_needed($self);
-        _stream_output($self, $heading_underlined);
-        if ($heading_underlined ne '') {
+        push @{$self->{'count_context'}->[-1]->{'pending_text'}},
+                                                    @$heading_underlined;
+        if (!_pending_is_empty($heading_underlined)) {
           _add_lines_count($self, 2);
           _add_newline_if_needed($self);
         }
@@ -3823,19 +3852,18 @@ sub _convert($$) {
              'paragraph_count' => 0,
              'context_indent_len' => 0 };
       push @{$self->{'text_element_context'}}, {'max' => $cell_width - 2 };
-      push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
+      push @{$self->{'count_context'}}, {'lines' => 0,
                                                'index_entry_locations' => [],
-                                                   'target_locations' => []};
+                                               'pending_text' => [['']]};
       $cell = 1;
     # not block commands and not brace commands
     } elsif (exists($def_commands{$cmdname})) {
       _convert_def_line($self, $element);
       return;
     } elsif ($cmdname eq 'center') {
-      _stream_byte_count($self);
-      push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
+      push @{$self->{'count_context'}}, {'lines' => 0,
                                          'index_entry_locations' => [],
-                                         'target_locations' => []};
+                                         'pending_text' => [['']]};
       if (exists($element->{'contents'}->[0]->{'contents'})) {
         $self->convert_line(
              {'type' => '_frenchspacing',
@@ -3843,11 +3871,11 @@ sub _convert($$) {
              0);
       }
       _ensure_end_of_line($self);
-      my $result = _stream_result($self);
-      if ($result ne '') {
-        $result = _align_environment($self, $result,
+      if (!_pending_is_empty(
+                 $self->{'count_context'}->[-1]->{'pending_text'})) {
+        my $result = _align_environment($self,
                       $self->{'text_element_context'}->[-1]->{'max'}, 'center');
-        _stream_output_encoded($self, $result);
+        push @{$self->{'count_context'}->[-1]->{'pending_text'}}, @$result;
       } else {
         # it has to be done here, as it is done in _align_environment above
         pop @{$self->{'count_context'}};
@@ -4084,10 +4112,9 @@ sub _convert($$) {
       push @{$self->{'formatters'}}, $paragraph;
       $self->{'format_context'}->[-1]->{'paragraph_count'}++;
       if ($self->{'context'}->[-1] eq 'flushright') {
-        _stream_byte_count($self);
-        push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
+        push @{$self->{'count_context'}}, {'lines' => 0,
                                            'index_entry_locations' => [],
-                                           'target_locations' => []};
+                                           'pending_text' => [['']]};
       }
     } elsif ($type eq 'preformatted'
              or $type eq 'rawpreformatted') {
@@ -4099,10 +4126,9 @@ sub _convert($$) {
         $preformatted = new_formatter($self, 'unfilled');
         push @{$self->{'formatters'}}, $preformatted;
         if ($self->{'context'}->[-1] eq 'flushright') {
-          _stream_byte_count($self);
-          push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
+          push @{$self->{'count_context'}}, {'lines' => 0,
                                            'index_entry_locations' => [],
-                                             'target_locations' => []};
+                                           'pending_text' => [['']]};
         }
       }
     } elsif ($type eq 'def_line') {
@@ -4126,15 +4152,15 @@ sub _convert($$) {
           $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
           $self->{'formatters'}->[-1]->{'no_added_eol'} = 1;
 
-          push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
-                                             'encoding_disabled' => 1};
+          push @{$self->{'count_context'}}, {'lines' => 0,
+                                             'pending_text' => [['']]};
           _convert($self, Texinfo::TreeElement::new({'type' => '_code',
                                               'contents' => [$content]}));
 
           _stream_output_count_nl($self,
                         Texinfo::Convert::Paragraph::add_pending_word
                           ($formatter->{'container'}, 1));
-          my $node_text = _stream_result($self);
+          my $node_text = _stream_to_text($self);
           pop @{$self->{'count_context'}};
 
           delete $self->{'formatters'}->[-1]->{'suppress_styles'};
@@ -4172,13 +4198,13 @@ sub _convert($$) {
           my ($pre_quote, $post_quote);
           $self->{'formatters'}->[-1]->{'no_added_eol'} = 1;
 
-          push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
-                                             'encoding_disabled' => 1};
+          push @{$self->{'count_context'}}, {'lines' => 0,
+                                             'pending_text' => [['']]};
           _convert($self, $content);
           _stream_output_count_nl($self,
                         Texinfo::Convert::Paragraph::add_pending_word
                           ($formatter->{'container'}, 1));
-          my $entry_name = _stream_result($self);
+          my $entry_name = _stream_to_text($self);
           pop @{$self->{'count_context'}};
 
           delete $self->{'formatters'}->[-1]->{'no_added_eol'};
@@ -4402,101 +4428,118 @@ sub _convert($$) {
       my $max_lines = 0;
       my $indent_len
            = $self->{'format_context'}->[-1]->{'context_indent_len'};
-      foreach my $cell_text (@{$self->{'format_context'}->[-1]->{'row'}}) {
+      my $row_counts = {'index_entry_locations' => []};
+      foreach my $cell_count (
+                   @{$self->{'format_context'}->[-1]->{'row_cell_counts'}}) {
         $cell_beginnings[$cell_idx] = $cell_beginning;
         my $cell_width
            = $self->{'format_context'}->[-1]->{'columns_size'}->[$cell_idx];
         $cell_width = 2 if (!defined($cell_width));
         $cell_beginning += $cell_width +1;
-        $cell_lines[$cell_idx] = [ split /^/, $cell_text ];
+
+        push @{$row_counts->{'index_entry_locations'}},
+             @{$cell_count->{'index_entry_locations'}};
+
+        my $pending_texts = $cell_count->{'pending_text'};
+        my @lines;
+        my $current_line = [];
+        # TODO same code in _align_lines
+        foreach my $pending_text (@$pending_texts) {
+          if (defined($pending_text->[0])) {
+            foreach my $line (split /^/, $pending_text->[0]) {
+              push @$current_line, [$line];
+              if ($line =~ /\n$/) {
+                push @lines, $current_line;
+                $current_line = [];
+              }
+            }
+          } else {
+            push @$current_line, $pending_text;
+          }
+        }
+        if (scalar(@$current_line) > 0) {
+          push @lines, $current_line;
+        }
+
+        $cell_lines[$cell_idx] = \@lines;
         $max_lines = scalar(@{$cell_lines[$cell_idx]})
           if (scalar(@{$cell_lines[$cell_idx]}) > $max_lines);
         $cell_idx++;
       }
 
-      $cell_idx = 0;
-      my $cell_updated_locations = [];
-      my $row_counts = {'target_locations' => [],
-                        'index_entry_locations' => []};
-      foreach my $cell_locations (@{$self->{'format_context'}->[-1]
-                                                  ->{'row_cell_counts'}}) {
-        foreach my $location (@{$cell_locations->{'target_locations'}}) {
-          $cell_updated_locations->[$cell_idx] = {}
-            if (!$cell_updated_locations->[$cell_idx]);
-          push @{$cell_updated_locations->[$cell_idx]->{$location->{'lines'}}},
-                 $location;
-          $max_lines = $location->{'lines'}+1
-                            if ($location->{'lines'}+1 > $max_lines);
-        }
-        push @{$row_counts->{'target_locations'}},
-             @{$cell_locations->{'target_locations'}};
-        push @{$row_counts->{'index_entry_locations'}},
-             @{$cell_locations->{'index_entry_locations'}};
-        $cell_idx++;
-      }
-
       # this is used to keep track of the last cell with content.
-      my $max_cell_nr = scalar(@{$self->{'format_context'}->[-1]->{'row'}});
-      # bytes added because of the addition of spaces when formatting cells
-      my $bytes_count = 0;
-      my $result = '';
-      my $line;
+      my $max_cell_nr
+        = scalar(@{$self->{'format_context'}->[-1]->{'row_cell_counts'}});
+      my $result = [];
       for (my $line_idx = 0; $line_idx < $max_lines; $line_idx++) {
         my $line_width = $indent_len;
-        $line = '';
         # determine the last cell index in the line, to fill spaces in
         # cells preceding that cell on the line
         my $last_cell = 0;
         for (my $cell_idx = 0; $cell_idx < $max_cell_nr; $cell_idx++) {
           $last_cell = $cell_idx+1
-            if (defined($cell_lines[$cell_idx]->[$line_idx])
-                or ($cell_updated_locations->[$cell_idx]
-                    and defined($cell_updated_locations->[$cell_idx]->{$line_idx})));
+            if (defined($cell_lines[$cell_idx]->[$line_idx]));
         }
+        my $indent_done;
 
         for (my $cell_idx = 0; $cell_idx < $last_cell; $cell_idx++) {
-          my $cell_text = $cell_lines[$cell_idx]->[$line_idx];
-          if (defined($cell_text)) {
-            chomp($cell_text);
-            if ($line eq '' and $cell_text ne '') {
-              $line = ' ' x $indent_len;
-              $bytes_count += length($line);
+          if (defined($cell_lines[$cell_idx]->[$line_idx])) {
+            my $cell_line = [@{$cell_lines[$cell_idx]->[$line_idx]}];
+            # remove end of line
+            my @trailing_anchors;
+            while (scalar(@$cell_line)) {
+              my $pending_text = $cell_line->[-1];
+              if (defined($pending_text->[0])) {
+                if ($pending_text->[0] eq '') {
+                  pop @$cell_line;
+                } else {
+                  chomp($pending_text->[0]);
+                  last;
+                }
+              } else {
+                my $anchor = pop @$cell_line;
+                unshift @trailing_anchors, $anchor;
+              }
             }
-            $line .= $cell_text;
-            $bytes_count += length($cell_text);
-            $line_width += _string_width_encoded($self, $cell_text);
-          }
-          if ($cell_updated_locations->[$cell_idx]
-              and defined($cell_updated_locations->[$cell_idx]->{$line_idx})) {
-            foreach my $location (@{$cell_updated_locations->[$cell_idx]->{$line_idx}}) {
-              $location->{'bytes'} = $bytes_count;
+            push @$cell_line, @trailing_anchors;
+
+            # add to results while computing width
+            foreach my $pending_text (@$cell_line) {
+              if (defined($pending_text->[0])) {
+                if ($pending_text->[0] ne '') {
+                  if (not $indent_done) {
+                    push @$result, [' ' x $indent_len];
+                    $indent_done = 1;
+                  }
+                  $line_width
+              += Texinfo::Convert::Unicode::string_width($pending_text->[0]);
+                  push @$result, $pending_text;
+                }
+              } else {
+                push @$result, $pending_text;
+              }
             }
           }
           if ($cell_idx+1 < $last_cell) {
             if ($line_width < $indent_len + $cell_beginnings[$cell_idx+1]) {
-              if ($line eq '') {
-                $line = ' ' x $indent_len;
-                $bytes_count += length($line);
+              if (not $indent_done) {
+                push @$result, [' ' x $indent_len];
+                $indent_done = 1;
               }
               my $spaces = ' '
                   x ($indent_len + $cell_beginnings[$cell_idx+1] - $line_width);
               $line_width += length($spaces);
-              $line .= $spaces;
-              $bytes_count += length($spaces);
+              push @$result, [$spaces];
             }
           }
         }
-        $line .= "\n";
-        $bytes_count++;
-        $result .= $line;
+        push @$result, ["\n"];
       }
       if ($self->{'format_context'}->[-1]->{'item_command'} eq 'headitem') {
         # at this point cell_beginning is at the beginning of
         # the cell following the end of the table -> full width
         my $line = (' ' x $indent_len) . ('-' x $cell_beginning) . "\n";
-        # correct, but unneeded as not used for correction of locations
-        #$bytes_count += length($line);
-        $result .= $line;
+        push @$result, [$line];
         $max_lines++;
       }
 
@@ -4504,12 +4547,13 @@ sub _convert($$) {
                                $row_counts);
 
       $self->{'count_context'}->[-1]->{'lines'} += $max_lines;
-      $self->{'format_context'}->[-1]->{'row'} = [];
       $self->{'format_context'}->[-1]->{'row_cell_counts'} = [];
-      _stream_output_encoded($self, $result);
+      push @{$self->{'count_context'}->[-1]->{'pending_text'}},
+              @$result;
     } elsif ($type eq 'before_node_section') {
       _ensure_end_of_line($self);
-      $self->{'text_before_first_node'} = _stream_result($self);
+      my $text = _stream_to_text($self);
+      $self->{'text_before_first_node'} = _encode_string($self, $text);
     }
   }
   # close paragraphs and preformatted
@@ -4517,10 +4561,9 @@ sub _convert($$) {
     _stream_output_count_nl($self,
                Texinfo::Convert::Paragraph::end($paragraph->{'container'}));
     if ($self->{'context'}->[-1] eq 'flushright') {
-      my $result = _stream_result($self);
-      $result = _align_environment($self, $result,
+      my $result = _align_environment($self,
         $self->{'text_element_context'}->[-1]->{'max'}, 'right');
-      _stream_output_encoded($self, $result);
+      push @{$self->{'count_context'}->[-1]->{'pending_text'}}, @$result;
     }
     destroy_formatter(pop @{$self->{'formatters'}});
     delete $self->{'text_element_context'}->[-1]->{'counter'};
@@ -4532,21 +4575,20 @@ sub _convert($$) {
     _ensure_end_of_line($self);
 
     if ($self->{'context'}->[-1] eq 'flushright') {
-      my $result = _stream_result($self);
-      $result = _align_environment($self, $result,
+      my $result = _align_environment($self,
                       $self->{'text_element_context'}->[-1]->{'max'}, 'right');
-      _stream_output_encoded($self, $result);
+      push @{$self->{'count_context'}->[-1]->{'pending_text'}}, @$result;
     } elsif ($self->{'context'}->[-1] eq 'displaymath'
              and exists($self->{'elements_images'})
              and exists($self->{'elements_images'}->{$element})) {
-      my $result = _stream_result($self);
+      my $math_text = _stream_to_text($self);
       my $counts = pop @{$self->{'count_context'}};
       # TODO add locations in counts to current counts context?
       # (see _align_environment)
       my ($image, $lines_count)
          = _insert_image($self,
                          $self->{'elements_images'}->{$element}->{'filename'},
-                         $result,
+                         $math_text,
                          $self->{'elements_images'}->{$element}->{'dpi'});
       # NB we don't output the below-baseline depth for @displaymath as
       # it does not need to be aligned with surrounding text.
@@ -4575,9 +4617,9 @@ sub _convert($$) {
           = Texinfo::Convert::Converter::float_name_caption($self, $element);
         if (defined($prepended)) {
           $prepended->{'type'} = '_frenchspacing';
-          my ($float_number, $columns)
+          my ($pending, $columns, undef)
             = $self->convert_line_new_context($prepended);
-          _stream_output($self, $float_number);
+          push @{$self->{'count_context'}->[-1]->{'pending_text'}}, @$pending;
 
           $self->{'text_element_context'}->[-1]->{'counter'} += $columns;
         }
@@ -4648,11 +4690,8 @@ sub _convert($$) {
     if (exists($format_context_commands{$cmdname})) {
       pop @{$self->{'format_context'}};
     } elsif ($cell) {
-      my $result = _stream_result($self);
-
       pop @{$self->{'format_context'}};
       pop @{$self->{'text_element_context'}};
-      push @{$self->{'format_context'}->[-1]->{'row'}}, $result;
       my $cell_counts = pop @{$self->{'count_context'}};
       push @{$self->{'format_context'}->[-1]->{'row_cell_counts'}},
            $cell_counts;

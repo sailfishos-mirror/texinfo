@@ -196,9 +196,9 @@ after anchor
                                     Second anchor in text after anchor.
 
 Tag Table:
-Ref: anchor in flushleft99
-Ref: anchor in flushright607
-Ref: second anchor in flushright677
+Ref: anchor in flushleft126
+Ref: anchor in flushright575
+Ref: second anchor in flushright704
 
 End Tag Table
 

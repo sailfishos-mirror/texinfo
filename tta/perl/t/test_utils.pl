@@ -368,18 +368,10 @@ sub _convert($$$) {
   if ($do_convert) {
     $result = $converter->convert($document);
     $converter->converter_remove_output_units();
-    ## forget the error messages of the first conversion
-    #$converter->get_converter_errors();
-    #$result = $converter->convert($document);
-    #$converter->converter_remove_output_units();
   } else {
     $result = $converter->output($document);
     close_files($converter);
     $converter->converter_remove_output_units();
-    ## forget the error messages of the first conversion
-    #$converter->get_converter_errors();
-    #$result = $converter->output($document);
-    #close_files($converter);
     $result = undef if (defined($result) and ($result eq ''));
   }
 

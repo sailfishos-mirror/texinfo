@@ -289,9 +289,9 @@ Ref to anchor *note An anchor::
 
 
 Tag Table:
-Ref: An anchor0
-Ref: float anchor109
-Ref: Anchor in footnote400
+Ref: An anchor27
+Ref: float anchor136
+Ref: Anchor in footnote427
 
 End Tag Table
 

@@ -108,27 +108,27 @@ sub _open_info_file($$) {
 sub _info_header($$$) {
   my ($self, $input_basefile, $output_filename) = @_;
 
-  push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
+  push @{$self->{'count_context'}}, {'lines' => 0,
                                      'index_entry_locations' => [],
-                                     'target_locations' => []};
+                                     'pending_text' => [['']]};
 
   my $paragraph = Texinfo::Convert::Paragraph::new();
-  my $result = add_text($paragraph, "This is ");
+  my $para_text = add_text($paragraph, "This is ");
   # This ensures that spaces in file are kept.
-  $result .= add_next($paragraph, $output_filename);
+  $para_text .= add_next($paragraph, $output_filename);
   my $program = $self->get_conf('PROGRAM');
   my $version = $self->get_conf('PACKAGE_VERSION');
   if (defined($program) and $program ne '') {
-    $result .=
+    $para_text .=
         add_text($paragraph, ", produced by $program version $version from ");
   } else {
-    $result .= add_text($paragraph, ", produced from ");
+    $para_text .= add_text($paragraph, ", produced from ");
   }
-  $result .= add_next($paragraph, $input_basefile);
-  $result .= add_text($paragraph, '.');
-  $result .= Texinfo::Convert::Paragraph::end($paragraph);
-  $result .= "\n";
-  $self->_stream_output($result, $paragraph);
+  $para_text .= add_next($paragraph, $input_basefile);
+  $para_text .= add_text($paragraph, '.');
+  $para_text .= Texinfo::Convert::Paragraph::end($paragraph);
+  $para_text .= "\n";
+  $self->_stream_output($para_text);
   Texinfo::Convert::Paragraph::destroy($paragraph);
 
   my $global_commands;
@@ -149,9 +149,12 @@ sub _info_header($$$) {
     foreach my $command (@{$global_commands->{'dircategory_direntry'}}) {
       if ($command->{'cmdname'} eq 'dircategory') {
         if (exists($command->{'contents'}->[0]->{'contents'})) {
-          my ($converted, undef) = $self->convert_line_new_context(
+          my ($pending, undef) = $self->convert_line_new_context(
                                             $command->{'contents'}->[0]);
-          $self->_stream_output("INFO-DIR-SECTION " . $converted . "\n");
+          $self->_stream_output("INFO-DIR-SECTION ");
+          push @{$self->{'count_context'}->[-1]->{'pending_text'}},
+                 @$pending;
+          $self->_stream_output("\n");
         }
       } elsif ($command->{'cmdname'} eq 'direntry') {
         $self->_stream_output("START-INFO-DIR-ENTRY\n");
@@ -162,7 +165,7 @@ sub _info_header($$$) {
     $self->{'ignored_commands'}->{'direntry'} = 1;
   }
   $self->_add_newline_if_needed();
-  $result = $self->_stream_result();
+  my $result = $self->_stream_final_result();
   pop @{$self->{'count_context'}};
 
   return $result;
@@ -213,6 +216,10 @@ sub output($$) {
   } else {
     $self->{'encoding_disabled'} = 1;
   }
+
+  # not initialized in plaintext
+  $self->{'target_locations'} = [];
+  $self->{'bytes'} = 0;
 
   my $global_commands;
   if (exists($self->{'document'})) {
@@ -326,21 +333,11 @@ sub output($$) {
     } else {
       $self->converter_document_warn(__("document without nodes"));
     }
-    #my $old_context = $self->{'count_context'}->[-1];
-    #my $new_context =
-    #  {'lines' => $old_context->{'lines'}, 'bytes' => $old_context->{'bytes'},
-    #   'locations' => [], 'result' => '' };
-    #push @{$self->{'count_context'}}, $new_context;
 
     my $root = $document->tree();
     $self->_convert($root);
     $self->process_footnotes();
-    my $root_output = $self->_stream_result();
-    #pop @{$self->{'count_context'}};
-
-    #@{$old_context->{'locations'}}
-    #  = ( @{$old_context->{'locations'}}, @{$new_context->{'locations'}} );
-    #$old_context->{'lines'} += $new_context->{'lines'};
+    my $root_output = $self->_stream_final_result();
 
     my $output = $header.$root_output;
     if (defined($fh)) {
@@ -384,12 +381,10 @@ sub output($$) {
     $out_file_nr = 1;
     my $first_node_seen = 0;
     my $split_size = $self->get_conf('SPLIT_SIZE');
-    $self->{'count_context'}->[-1]->{'bytes'} += $header_bytes;
     foreach my $output_unit (@$output_units) {
       if ($first_node_seen
           and defined($split_size)
-          and $self->{'count_context'}->[-1]->{'bytes'} >
-                                              $out_file_nr * $split_size
+          and $self->{'bytes'} > $out_file_nr * $split_size
           and defined($fh)) {
         # Split the output into an additional output file.
         my $close_error;
@@ -452,17 +447,16 @@ sub output($$) {
           return undef;
         }
         print $fh $complete_header;
-        $self->{'count_context'}->[-1]->{'bytes'} += $complete_header_bytes;
+        $self->{'bytes'} += $complete_header_bytes;
         push @indirect_files, [$output_filename.'-'.$out_file_nr,
-                               $self->{'count_context'}->[-1]->{'bytes'}];
+                               $self->{'bytes'}];
         #print STDERR join(' --> ', @{$indirect_files[-1]}) ."\n";
       }
 
-      my $node_text = $self->convert_output_unit($output_unit);
-      if ($node_text !~ /\n\n$/) {
-        $node_text .= "\n";
-        $self->{'count_context'}->[-1]->{'bytes'}++;
-      }
+      $self->convert_output_unit($output_unit);
+      $self->_add_newline_if_needed();
+      my $node_text = $self->_stream_final_result();
+
       if (!$first_node_seen) {
         # We are outputting the first node.
         $first_node_seen = 1;
@@ -510,15 +504,18 @@ sub output($$) {
     }
   }
 
+  # FIXME we assume ASCII compatible encoding in the Info format, the labels
+  # and numbers are not encoded.  Also the coding information is at the end
+  # which make it difficult to fix that.
   $tag_text .= "\x{1F}\nTag Table:\n";
   if ($out_file_nr > 1) {
     $tag_text .=  "(Indirect)\n";
   }
   # This may happen for anchors in @insertcopying
   my %seen_anchors;
-  foreach my $location
-         (@{$self->{'count_context'}->[-1]->{'target_locations'}}) {
+  foreach my $location (@{$self->{'target_locations'}}) {
     my $element = $location->{'target_element'};
+
     next unless (exists($element->{'extra'})
                  and $element->{'extra'}->{'is_target'});
     my $prefix;
@@ -545,7 +542,8 @@ sub output($$) {
       $prefix = 'Ref';
     }
 
-    $tag_text .=  "$prefix: $label_text\x{7F}$location->{'bytes'}\n";
+    $tag_text .=  "$prefix: ".$self->_encode_string($label_text)
+                                      ."\x{7F}$location->{'bytes'}\n";
   }
   $tag_text .=  "\x{1F}\nEnd Tag Table\n";
 
@@ -724,8 +722,8 @@ sub format_ref($$$) {
     # Convert line for sole purpose of checking if the output contains
     # a colon.  Output may differ slightly from the current formatting
     # context (e.g if inside @sc) but this should not make a difference.
-    my ($name_text_checked, undef) = $self->convert_line_new_context($name);
-
+    my ($pending, undef) = $self->convert_line_new_context($name);
+    my $name_text_checked = $self->_pending_to_text($pending);
     my $quoting_required = 0;
     if ($name_text_checked =~ /:/m) {
       if ($self->{'info_special_chars_warning'}) {
@@ -791,12 +789,13 @@ sub format_ref($$$) {
     $self->{'silent'} = 0 if (!defined($self->{'silent'}));
     $self->{'silent'}++;
 
-    ($node_name, undef) = $self->convert_line_new_context(
+    my ($pending, undef) = $self->convert_line_new_context(
         Texinfo::TreeElement::new({'type' => '_code',
                                    'contents' => [$label_element]}),
                                    0, undef,
                                   {'suppress_styles' => 1,
                                     'no_added_eol' => 1});
+    $node_name = $self->_pending_to_text($pending);
     $self->{'silent'}--;
   } else {
     $node_name = '';
@@ -951,7 +950,7 @@ sub format_node($$;$) {
     if ($self->{'info_special_chars_warning'}) {
       $self->plaintext_line_warn($self, sprintf(__(
                  "\@node name should not contain `,': %s"),
-                     $self->_decode($node_text)), $node->{'source_info'});
+                     $node_text), $node->{'source_info'});
     }
     if ($self->{'info_special_chars_quote'}) {
       $pre_quote = "\x{7f}";
@@ -959,7 +958,7 @@ sub format_node($$;$) {
     }
   }
 
-  $self->_stream_output_encoded($pre_quote . $node_text . $post_quote);
+  $self->_stream_output($pre_quote . $node_text . $post_quote);
 
   if (!defined($node_relations)) {
     my $nodes_list = $self->{'document'}->nodes_list();
@@ -997,7 +996,7 @@ sub format_node($$;$) {
               and $node_direction->{'extra'}->{'manual_content'}) {
             $self->plaintext_line_warn($self, sprintf(__(
                  "\@node %s name should not contain `,': %s"),
-                                     $direction, $self->_decode($node_text)),
+                                           $direction, $node_text),
                              $node->{'source_info'});
           }
           if ($self->{'info_special_chars_quote'}) {
@@ -1005,7 +1004,7 @@ sub format_node($$;$) {
             $post_quote = $pre_quote;
           }
         }
-        $self->_stream_output_encoded($pre_quote . $node_text . $post_quote);
+        $self->_stream_output($pre_quote . $node_text . $post_quote);
       }
     } elsif ($direction eq 'Up'
              and $node->{'extra'}->{'identifier'} eq 'Top') {

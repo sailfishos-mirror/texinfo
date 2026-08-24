@@ -320,11 +320,11 @@ $result_headings_list{'line_breaks'} = '';
 
 $result_converted{'plaintext'}->{'line_breaks'} = 'a
 top
-****
+***
 
 1 a
 chapter
-**********
+*******
 
                                in center
                               line break
