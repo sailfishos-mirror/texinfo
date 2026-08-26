@@ -1,5 +1,24 @@
 2026-08-26 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm
+	(collect_pending_texts_lines, _align_lines, _convert): add
+	collect_pending_texts_lines with common code of _align_lines and
+	_convert.
+
+	tta/C/convert/convert_to_plaintext.c (clear_pending_texts)
+	(stream_encode, plaintext_add_target_location)
+	(add_newline_if_needed, ensure_end_of_line, pending_to_text)
+	(pending_texts_width, collect_pending_texts_lines, align_lines)
+	(pending_is_spaces, pending_is_empty, convert_to_plaintext_internal),
+	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (add_target_location)
+	(_pending_to_text, _stream_encode, _debug_print_pending)
+	(_add_newline_if_needed, _ensure_end_of_line)
+	(collect_pending_texts_lines, _align_lines, _pending_is_spaces)
+	(_pending_is_empty, _pending_texts_width, _convert): put anchor in the
+	current pending text instead of in a distinct one.
+
+2026-08-26 Patrice Dumas  <pertusus@free.fr>
+
 	C implementation mix anchors and text in pending text and fixes
 
 	* (tta/perl/Texinfo/Convert/Converter.pm): do not count newlines in

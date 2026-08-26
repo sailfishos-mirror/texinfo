@@ -171,14 +171,13 @@ debug_print_pending (const PENDING_TEXT_LIST *pending_texts)
   for (i = 0; i < pending_texts->number; i++)
     {
       const PENDING_TEXT *pending_text = &pending_texts->list[i];
-      if (!pending_text->anchor)
-        {
-          text_append_n (&t, pending_text->text.text, pending_text->text.end);
-        }
-      else
+      text_append_n (&t, pending_text->text.text, pending_text->text.end);
+      if (pending_text->anchor)
         {
           char *texi = convert_to_texinfo (pending_text->anchor);
+          text_append_n (&t, "[", 1);
           text_append (&t, texi);
+          text_append_n (&t, "]", 1);
           free (texi);
         }
       if (i < pending_texts->number -1)
@@ -877,10 +876,8 @@ clear_pending_texts (PENDING_TEXT_LIST *pending_texts)
   for (i = 0; i < pending_texts->number; i++)
     {/* TODO find a way to reuse the memory of the TEXT? */
       PENDING_TEXT *pending_text = &pending_texts->list[i];
-      if (pending_text->anchor)
-        pending_text->anchor = 0;
-      else
-        text_destroy (&pending_text->text);
+      pending_text->anchor = 0;
+      text_destroy (&pending_text->text);
     }
   pending_texts->number = 0;
 }
@@ -1158,39 +1155,33 @@ stream_encode (CONVERTER *self, PENDING_TEXT_LIST *pending_texts, TEXT *result)
   for (i = 0; i < pending_texts->number; i++)
     {
       PENDING_TEXT *pending_text = &pending_texts->list[i];
-      if (!pending_text->anchor)
+      if (!self_plaintext->encoding_object)
         {
-          if (!self_plaintext->encoding_object)
-            {
-              text_append_n (result, pending_text->text.text,
-                             pending_text->text.end);
-              if (self_plaintext->target_locations)
-                self_plaintext->bytes += pending_text->text.end;
-            }
-          else
-            {
-              char *converted_text
-                = encode_with_iconv (self_plaintext->encoding_object->iconv,
-                                     pending_text->text.text, 0, ieh_error, 0);
-              size_t len = strlen (converted_text);
-              text_append_n (result, converted_text, len);
-              free (converted_text);
-              if (self_plaintext->target_locations)
-                self_plaintext->bytes += len;
-            }
-          text_reset (&pending_text->text);
+          text_append_n (result, pending_text->text.text,
+                         pending_text->text.end);
+          if (self_plaintext->target_locations)
+            self_plaintext->bytes += pending_text->text.end;
         }
       else
         {
+          char *converted_text
+            = encode_with_iconv (self_plaintext->encoding_object->iconv,
+                                 pending_text->text.text, 0, ieh_error, 0);
+          size_t len = strlen (converted_text);
+          text_append_n (result, converted_text, len);
+          free (converted_text);
           if (self_plaintext->target_locations)
-            {
-              TARGET_LOCATION target_location;
-              target_location.target_element = pending_text->anchor;
-              target_location.bytes = self_plaintext->bytes;
+            self_plaintext->bytes += len;
+        }
+      text_reset (&pending_text->text);
+      if (self_plaintext->target_locations && pending_text->anchor)
+        {
+          TARGET_LOCATION target_location;
+          target_location.target_element = pending_text->anchor;
+          target_location.bytes = self_plaintext->bytes;
 
-              add_(target_location) (self_plaintext->target_locations,
-                                     target_location);
-            }
+          add_(target_location) (self_plaintext->target_locations,
+                                 target_location);
           pending_text->anchor = 0;
         }
     }
@@ -1219,14 +1210,24 @@ plaintext_add_target_location (CONVERTER *self, const ELEMENT *element)
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   COUNT_CONTEXT *count_context
     = top_(count_context) (&self_plaintext->count_context);
-  PENDING_TEXT anchor = { 0 };
-  PENDING_TEXT next_text = { 0 };
+  PENDING_TEXT *top_pending_text
+    = top_(pending_text) (&count_context->pending_text);
+  if (!top_pending_text->anchor)
+    top_pending_text->anchor = element;
+  else
+    {
+      PENDING_TEXT anchor = { 0 };
 
-  anchor.anchor = element;
+      anchor.anchor = element;
+      text_init (&anchor.text);
+      text_append (&anchor.text, "");
+      add_(pending_text) (&count_context->pending_text, anchor);
+   }
+
+  PENDING_TEXT next_text = { 0 };
   text_init (&next_text.text);
   text_append (&next_text.text, "");
 
-  add_(pending_text) (&count_context->pending_text, anchor);
   add_(pending_text) (&count_context->pending_text, next_text);
 }
 
@@ -1321,23 +1322,20 @@ add_newline_if_needed (CONVERTER *self)
       for (nr = pending_texts->number; nr > 0; nr--)
         {
           PENDING_TEXT *pending_text = &pending_texts->list[nr -1];
-          if (!pending_text->anchor)
+          TEXT *pending = &pending_text->text;
+          end_idx = pending->end;
+          while (nl_to_find && end_idx > 0)
             {
-              TEXT *pending = &pending_text->text;
-              end_idx = pending->end;
-              while (nl_to_find && end_idx > 0)
+              if (pending->text[end_idx -1] == '\n')
                 {
-                  if (pending->text[end_idx -1] == '\n')
-                    {
-                      nl_to_find--;
-                      end_idx--;
-                    }
-                  else
-                    break;
+                  nl_to_find--;
+                  end_idx--;
                 }
-              if (end_idx > 0)
+              else
                 break;
             }
+          if (end_idx > 0)
+            break;
         }
       if (nl_to_find > 0 && end_idx > 0)
         {
@@ -1361,22 +1359,19 @@ ensure_end_of_line (CONVERTER *self)
       for (nr = pending_texts->number; nr > 0; nr--)
         {
           PENDING_TEXT *pending_text = &pending_texts->list[nr -1];
-          if (!pending_text->anchor)
+          TEXT *t_pending = &pending_text->text;
+          if (t_pending->end > 0)
             {
-              TEXT *t_pending = &pending_text->text;
-              if (t_pending->end > 0)
+              if (t_pending->text[t_pending->end -1] != '\n')
                 {
-                  if (t_pending->text[t_pending->end -1] != '\n')
-                    {
-                      TEXT_CONTEXT *text_element_context
-                        = top_(text_element_context) (
-                                  &self_plaintext->text_element_context);
-                      text_append_n (t_pending, "\n", 1);
-                      add_lines_count (self, 1);
-                      text_element_context->counter = 0;
-                    }
-                  return;
+                  TEXT_CONTEXT *text_element_context
+                    = top_(text_element_context) (
+                              &self_plaintext->text_element_context);
+                  text_append_n (t_pending, "\n", 1);
+                  add_lines_count (self, 1);
+                  text_element_context->counter = 0;
                 }
+              return;
             }
         }
     }
@@ -1393,13 +1388,10 @@ pending_to_text (const PENDING_TEXT_LIST *pending_texts)
   for (i = 0; i < pending_texts->number; i++)
     {
       PENDING_TEXT *pending_text = &pending_texts->list[i];
-      if (!pending_text->anchor)
-        {
-          text_append_n (&t, pending_text->text.text, pending_text->text.end);
-          text_reset (&pending_text->text);
-        }
-      else
-        pending_text->anchor = 0;
+      text_append_n (&t, pending_text->text.text, pending_text->text.end);
+
+      text_reset (&pending_text->text);
+      pending_text->anchor = 0;
     }
   return t.text;
 }
@@ -1820,8 +1812,7 @@ pending_texts_width (const PENDING_TEXT_LIST *pending_texts)
   for (i = 0; i < pending_texts->number; i++)
     {
       PENDING_TEXT *pending_text = &pending_texts->list[i];
-      if (!pending_text->anchor)
-        width += string_width_multibyte (pending_text->text.text);
+      width += string_width_multibyte (pending_text->text.text);
     }
   return width;
 }
@@ -1890,37 +1881,54 @@ collect_pending_texts_lines (PENDING_TEXT_LIST_LINES *pending_text_lines,
   for (i = 0; i < pending_texts->number; i++)
     {
       PENDING_TEXT *pending_text = &pending_texts->list[i];
-      if (!pending_text->anchor)
+      TEXT *t = &pending_text->text;
+
+      if (t->end == 0)
         {
-          const char *p = pending_text->text.text;
-          while (*p)
+          if (pending_text->anchor)
             {
-              int line_len = strcspn (p, "\n");
-              int end_line = 0;
-              if (*(p + line_len) == '\n')
-                {
-                  line_len++;
-                  end_line = 1;
-                }
-              PENDING_TEXT line_pending_text = { 0 };
-              text_init (&line_pending_text.text);
-              text_append_n (&line_pending_text.text, p, line_len);
-              add_(pending_text) (&current_line, line_pending_text);
-              p += line_len;
-              if (end_line)
-                {
-                  add_(pending_text_line) (pending_text_lines,
-                                           current_line);
-                  memset (&current_line, 0, sizeof (PENDING_TEXT_LIST));
-                }
+              add_(pending_text) (&current_line, *pending_text);
+              pending_text->anchor = 0;
             }
-          text_reset (&pending_text->text);
+          continue;
         }
-      else
+
+      PENDING_TEXT *last_pending_end_line = 0;
+      const char *p = t->text;
+      while (*p)
         {
-          add_(pending_text) (&current_line, *pending_text);
+          int line_len = strcspn (p, "\n");
+          int end_line = 0;
+          if (*(p + line_len) == '\n')
+            {
+              line_len++;
+              end_line = 1;
+            }
+          PENDING_TEXT line_pending_text = { 0 };
+          text_init (&line_pending_text.text);
+          text_append_n (&line_pending_text.text, p, line_len);
+          add_(pending_text) (&current_line, line_pending_text);
+          p += line_len;
+          if (end_line)
+            {
+              last_pending_end_line = top_(pending_text) (&current_line);
+              add_(pending_text_line) (pending_text_lines,
+                                       current_line);
+              memset (&current_line, 0, sizeof (PENDING_TEXT_LIST));
+            }
+        }
+      if (pending_text->anchor)
+        {
+          PENDING_TEXT * last_pending;
+          if (current_line.number == 0)
+            last_pending = last_pending_end_line;
+          else
+            last_pending = top_(pending_text) (&current_line);
+          last_pending->anchor = pending_text->anchor;
           pending_text->anchor = 0;
         }
+
+      text_reset (t);
     }
   if (current_line.number > 0)
     {
@@ -1987,63 +1995,45 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
 
       if (!image)
         {
-          static CONST_ELEMENT_LIST trailing_anchors;
           for (j = 0; j < line->number; j++)
             {
               PENDING_TEXT *pending_text = &line->list[j];
-              if (!pending_text->anchor)
+              TEXT *t = &pending_text->text;
+              size_t leading_spaces
+                 = strspn (t->text, whitespace_chars);
+              if (leading_spaces < t->end)
                 {
-                  TEXT *t = &pending_text->text;
-                  size_t leading_spaces
-                    = strspn (t->text, whitespace_chars);
-                  if (leading_spaces < t->end)
-                    {
-                      size_t remaining = t->end - leading_spaces;
-                      char *tmp
-                        = strndup (t->text + leading_spaces,
-                                   remaining);
-                      text_reset (t);
-                      text_append_n (t, tmp, remaining);
-                      free (tmp);
-                      break;
-                    }
-                  else
-                    text_reset (t);
+                  size_t remaining = t->end - leading_spaces;
+                  char *tmp = strndup (t->text + leading_spaces,
+                                       remaining);
+                  text_reset (t);
+                  text_append_n (t, tmp, remaining);
+                  free (tmp);
+                  break;
                 }
-              else
-                {
-                  add_(pending_text) (&result, *pending_text);
-                  pending_text->anchor = 0;
-                }
+              else if (leading_spaces > 0)
+                text_reset (t);
             }
           for (j = line->number; j > 0; j--)
             {
               PENDING_TEXT *pending_text = &line->list[j -1];
-              if (!pending_text->anchor)
+              TEXT *t = &pending_text->text;
+              if (t->end > 0)
                 {
-                  TEXT *t = &pending_text->text;
-                  if (t->end > 0)
+                  size_t l;
+                  for (l = t->end; l > 0; l--)
                     {
-                      size_t l;
-                      for (l = t->end; l > 0; l--)
+                      if (strchr (whitespace_chars,
+                                  t->text[l-1]))
                         {
-                          if (strchr (whitespace_chars,
-                                      t->text[l-1]))
-                            {
-                              t->text[l-1] = '\0';
-                              t->end--;
-                            }
-                          else
-                            break;
+                          t->text[l-1] = '\0';
+                          t->end--;
                         }
-                      if (t->end > 0)
+                      else
                         break;
                     }
-                }
-              else
-                {
-                  add_(const_element) (&trailing_anchors, pending_text->anchor);
-                  pending_text->anchor = 0;
+                  if (t->end > 0)
+                    break;
                 }
             }
 
@@ -2065,30 +2055,9 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
               for (j = 0; j < line->number; j++)
                 {
                   PENDING_TEXT *pending_text = &line->list[j];
-                  if (!pending_text->anchor)
-                    {
-                      if (pending_text->text.end > 0)
-                        {
-                          add_(pending_text) (&result, *pending_text);
-                          memset (&pending_text->text, 0, sizeof (TEXT));
-                        }
-                    }
-                  else
-                    {
-                      add_(pending_text) (&result, *pending_text);
-                      pending_text->anchor = 0;
-                    }
+                  add_(pending_text) (&result, *pending_text);
+                  memset (pending_text, 0, sizeof (PENDING_TEXT));
                 }
-            }
-          if (trailing_anchors.number > 0)
-            {
-              for (j = trailing_anchors.number; j > 0; j--)
-                {
-                  PENDING_TEXT pending_text = { 0 };
-                  pending_text.anchor = trailing_anchors.list[j - 1];
-                  add_(pending_text) (&result, pending_text);
-                }
-              trailing_anchors.number = 0;
             }
         }
       else
@@ -2096,18 +2065,15 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
           for (j = line->number; j > 0; j--)
             {
               PENDING_TEXT *pending_text = &line->list[j -1];
-              if (!pending_text->anchor)
+              TEXT *t = &pending_text->text;
+              if (t->end > 0)
                 {
-                  TEXT *t = &pending_text->text;
-                  if (t->end > 0)
+                  if (t->text[t->end -1] == '\n')
                     {
-                      if (t->text[t->end -1] == '\n')
-                        {
-                          t->text[t->end -1] = '\0';
-                          t->end--;
-                        }
-                      break;
+                      t->text[t->end -1] = '\0';
+                      t->end--;
                     }
+                  break;
                 }
             }
           int line_width = pending_texts_width (line);
@@ -3536,12 +3502,9 @@ pending_is_spaces (const PENDING_TEXT_LIST *pending_texts)
   for (i = 0; i < pending_texts->number; i++)
     {
       const PENDING_TEXT *pending_text = &pending_texts->list[i];
-      if (!pending_text->anchor)
-        {
-          if (strspn (pending_text->text.text, whitespace_chars)
+      if (strspn (pending_text->text.text, whitespace_chars)
                                              != pending_text->text.end)
-            return 0;
-        }
+        return 0;
     }
   return 1;
 }
@@ -3554,11 +3517,8 @@ pending_is_empty (const PENDING_TEXT_LIST *pending_texts)
   for (i = 0; i < pending_texts->number; i++)
     {
       const PENDING_TEXT *pending_text = &pending_texts->list[i];
-      if (!pending_text->anchor)
-        {
-          if (pending_text->text.end != 0)
-            return 0;
-        }
+      if (pending_text->text.end != 0)
+        return 0;
     }
   return 1;
 }
@@ -6634,52 +6594,40 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                       for (j = cell_line->number; j > 0; j--)
                         {
                           PENDING_TEXT *pending_text = &cell_line->list[j -1];
-                          if (!pending_text->anchor)
+                          TEXT *t = &pending_text->text;
+                          if (t->end > 0)
                             {
-                              TEXT *t = &pending_text->text;
-                              if (t->end > 0)
+                              if (t->text[t->end -1] == '\n')
                                 {
-                                  if (t->text[t->end -1] == '\n')
-                                    {
-                                      t->text[t->end -1] = '\0';
-                                      t->end--;
-                                    }
-                                  break;
+                                  t->text[t->end -1] = '\0';
+                                  t->end--;
                                 }
+                              break;
                             }
                         }
 
                       for (j = 0; j < cell_line->number; j++)
                         {
                           PENDING_TEXT *pending_text = &cell_line->list[j];
-                          if (!pending_text->anchor)
+                          TEXT *t = &pending_text->text;
+                          if (t->end > 0 || pending_text->anchor)
                             {
-                              TEXT *t = &pending_text->text;
-                              if (t->end > 0)
+                              if (!indent_done)
                                 {
-                                  if (!indent_done)
+                                  if (indent_len > 0)
                                     {
-                                      if (indent_len > 0)
-                                        {
-                                          PENDING_TEXT spaces = { 0 };
-                                          text_init (&spaces.text);
-                                          for (k = 0; k < indent_len; k++)
-                                            text_append_n (&spaces.text, " ", 1);
-                                          add_(pending_text) (result, spaces);
-                                          indent_done = 1;
-                                        }
+                                      PENDING_TEXT spaces = { 0 };
+                                      text_init (&spaces.text);
+                                      for (k = 0; k < indent_len; k++)
+                                        text_append_n (&spaces.text, " ", 1);
+                                      add_(pending_text) (result, spaces);
+                                      indent_done = 1;
                                     }
-                                  line_width += string_width_multibyte (
-                                                                   t->text);
-                                  add_(pending_text) (result, *pending_text);
-                                  memset (t, 0, sizeof (TEXT));
                                 }
                             }
-                          else
-                            {
-                              add_(pending_text) (result, *pending_text);
-                              pending_text->anchor = 0;
-                            }
+                          line_width += string_width_multibyte (t->text);
+                          add_(pending_text) (result, *pending_text);
+                          memset (pending_text, 0, sizeof (PENDING_TEXT));
                         }
                     }
                   if (cell_idx+1 < last_cell)
@@ -6756,11 +6704,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           for (i = 0; i < pending_texts->number; i++)
             {
               PENDING_TEXT *pending_text = &pending_texts->list[i];
-              if (!pending_text->anchor)
-                {
-                  TEXT *t = &pending_text->text;
-                  text_append_n (&text, t->text, t->end);
-                }
+              TEXT *t = &pending_text->text;
+              text_append_n (&text, t->text, t->end);
             }
 
           /* TODO could be more efficient to reuse text directly if there

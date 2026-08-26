@@ -998,8 +998,12 @@ sub add_target_location($$) {
   my ($self, $element) = @_;
 
   my $count_context = $self->{'count_context'}->[-1];
-  push @{$count_context->{'pending_text'}}, [undef, $element], [''];
-
+  if (scalar($count_context->{'pending_text'}->[-1] == 1)) {
+    push @{$count_context->{'pending_text'}->[-1]}, $element;
+  } else {
+    push @{$count_context->{'pending_text'}}, ['', $element];
+  }
+  push @{$count_context->{'pending_text'}}, [''];
   return;
 }
 
@@ -1101,9 +1105,7 @@ sub _pending_to_text($$) {
 
   my $result = '';
   foreach my $pending_string (@$pending) {
-    if (defined($pending_string->[0])) {
-      $result .= $pending_string->[0];
-    }
+    $result .= $pending_string->[0];
   }
   return $result;
 }
@@ -1130,20 +1132,20 @@ sub _stream_encode($$) {
 
   my $string = '';
   foreach my $pending_string (@$pending) {
-    if (defined($pending_string->[0])) {
-      if (!exists($self->{'encoding_object'})) {
-        $string .= $pending_string->[0];
-        if (exists($self->{'target_locations'})) {
-          $self->{'bytes'} += length($pending_string->[0]);
-        }
-      } else {
-        my $encoded = $self->{'encoding_object'}->encode($pending_string->[0]);
-        $string .= $encoded;
-        if (exists($self->{'target_locations'})) {
-          $self->{'bytes'} += length($encoded);
-        }
+    if (!exists($self->{'encoding_object'})) {
+      $string .= $pending_string->[0];
+      if (exists($self->{'target_locations'})) {
+        $self->{'bytes'} += length($pending_string->[0]);
       }
-    } elsif (defined($self->{'target_locations'})) {
+    } else {
+      my $encoded = $self->{'encoding_object'}->encode($pending_string->[0]);
+      $string .= $encoded;
+      if (exists($self->{'target_locations'})) {
+        $self->{'bytes'} += length($encoded);
+      }
+    }
+    if (defined($self->{'target_locations'})
+        and defined($pending_string->[1])) {
       push @{$self->{'target_locations'}}, {
                'target_element' => $pending_string->[1],
                'bytes' => $self->{'bytes'}
@@ -1184,12 +1186,12 @@ sub _debug_print_pending($) {
 
   my @strings;
   foreach my $pending (@$pending_texts) {
-    if (defined($pending->[0])) {
-      push @strings, $pending->[0];
-    } else {
-      push @strings,
-        Texinfo::Convert::Texinfo::convert_to_texinfo($pending->[1]);
+    my $result = $pending->[0];
+    if (defined($pending->[1])) {
+      $result .= '['
+        . Texinfo::Convert::Texinfo::convert_to_texinfo($pending->[1]).']';
     }
+    push @strings, $result;
   }
   return #"$pending_texts ".
           join('|', @strings);
@@ -1246,15 +1248,13 @@ sub _add_newline_if_needed($) {
   if ($nr_pending > 0) {
     my $pending_text = '';
     for (my $i = $nr_pending - 1; $i >= 0; $i--) {
-      if (defined($pending_texts->[$i]->[0])) {
-        $pending_text = $pending_texts->[$i]->[0] . $pending_text;
-        if (length($pending_text) >= 2) {
-          if (substr($pending_text, -2) ne "\n\n") {
-            _stream_output($self, "\n");
-            _add_lines_count($self, 1);
-          }
-          return;
+      $pending_text = $pending_texts->[$i]->[0] . $pending_text;
+      if (length($pending_text) >= 2) {
+        if (substr($pending_text, -2) ne "\n\n") {
+          _stream_output($self, "\n");
+          _add_lines_count($self, 1);
         }
+        return;
       }
     }
   }
@@ -1270,8 +1270,7 @@ sub _ensure_end_of_line($) {
 
   my $nr_pending = scalar(@$pending_texts);
   for (my $i = $nr_pending - 1; $i >= 0; $i--) {
-    if (defined($pending_texts->[$i]->[0])
-        and $pending_texts->[$i]->[0] ne '') {
+    if ($pending_texts->[$i]->[0] ne '') {
       if ($pending_texts->[$i]->[0] !~ /\n\z/) {
         $pending_texts->[$i]->[0] .= "\n";
         _add_lines_count($self, 1);
@@ -1528,6 +1527,41 @@ sub _compute_spaces_align_line($$$;$) {
   return $prepended_spaces;
 }
 
+sub collect_pending_texts_lines($) {
+  my $pending_texts = shift;
+
+  my @lines;
+  my $current_line = [];
+  foreach my $pending_text (@$pending_texts) {
+    my @pending_lines;
+    if ($pending_text->[0] eq '') {
+      # need a separate case, as split does not return an empty string.
+      # keep empty cells or aligned text only if there is an anchor
+      if (defined($pending_text->[1])) {
+        push @pending_lines, $pending_text;
+      }
+    } else {
+      @pending_lines = map {[$_]} split(/^/, $pending_text->[0]);
+
+      if (defined($pending_text->[1])) {
+        my $last_pending_line = $pending_lines[-1];
+        push @$last_pending_line, $pending_text->[1];
+      }
+    }
+    foreach my $pending_line (@pending_lines) {
+      push @$current_line, $pending_line;
+      if ($pending_line->[0] =~ /\n$/) {
+        push @lines, $current_line;
+        $current_line = [];
+      }
+    }
+  }
+  if (scalar(@$current_line) > 0) {
+    push @lines, $current_line;
+  }
+  return \@lines;
+}
+
 sub _align_lines($$$$$) {
   my ($self, $pending_texts, $max_column, $direction, $images) = @_;
 
@@ -1548,31 +1582,14 @@ sub _align_lines($$$$$) {
     }
   }
 
-  my @lines;
-  my $current_line = [];
-  foreach my $pending_text (@$pending_texts) {
-    if (defined($pending_text->[0])) {
-      foreach my $line (split /^/, $pending_text->[0]) {
-        push @$current_line, [$line];
-        if ($line =~ /\n$/) {
-          push @lines, $current_line;
-          $current_line = [];
-        }
-      }
-    } else {
-      push @$current_line, $pending_text;
-    }
-  }
-  if (scalar(@$current_line) > 0) {
-    push @lines, $current_line;
-  }
+  my $lines = collect_pending_texts_lines($pending_texts);
 
   my $line_index = 0;
   my $image;
   my $image_lines_count;
   my $image_prepended_spaces;
   my $result = [];
-  foreach my $line (@lines) {
+  foreach my $line (@$lines) {
     my ($new_image, $new_image_prepended_spaces);
     if (exists($images_marks->{$line_index})) {
       $new_image = $images_marks->{$line_index};
@@ -1588,34 +1605,19 @@ sub _align_lines($$$$$) {
     }
 
     if (!defined($image)) {
-      my @trailing_anchors;
-      while (scalar(@$line)) {
-        my $pending_text = $line->[0];
-        if (defined($pending_text->[0])) {
-          $pending_text->[0] =~ s/^(\s*)//;
-          if ($pending_text->[0] eq '') {
-            shift @$line;
-          } else {
-            last;
-          }
-        } else {
-          my $anchor = shift @$line;
-          push @$result, $anchor;
+      for (my $j = 0; $j < scalar(@$line); $j++) {
+        my $pending_text = $line->[$j];
+        $pending_text->[0] =~ s/^(\s*)//;
+        if ($pending_text->[0] ne '') {
+          last;
         }
       }
-      while (scalar(@$line)) {
-        my $pending_text = $line->[-1];
-        if (defined($pending_text->[0])) {
-          $pending_text->[0] =~ s/(\s*)$//;
-          if ($pending_text->[0] eq '') {
-            pop @$line;
-          } else {
-            chomp($pending_text->[0]);
-            last;
-          }
-        } else {
-          my $anchor = pop @$line;
-          unshift @trailing_anchors, $anchor;
+      for (my $j = scalar(@$line); $j > 0; $j--) {
+        my $pending_text = $line->[$j -1];
+        chomp($pending_text->[0]);
+        $pending_text->[0] =~ s/(\s*)$//;
+        if ($pending_text->[0] ne '') {
+          last;
         }
       }
       my $line_width = _pending_texts_width($line);
@@ -1627,17 +1629,14 @@ sub _align_lines($$$$$) {
         }
         push @$result, @$line;
       }
-      push @$result, @trailing_anchors;
     } else {
       for (my $j = scalar(@$line); $j > 0; $j--) {
         my $pending_text = $line->[$j -1];
-        if (defined($pending_text->[0])) {
-          if ($pending_text->[0] eq '') {
-            next;
-          }
-          chomp($pending_text->[0]);
-          last;
+        if ($pending_text->[0] eq '') {
+          next;
         }
+        chomp($pending_text->[0]);
+        last;
       }
       my $line_width = _pending_texts_width($line);
       $image_lines_count++;
@@ -2514,7 +2513,7 @@ sub _pending_is_spaces($) {
   my $pending_texts = shift;
 
   foreach my $pending (@$pending_texts) {
-    if (defined($pending->[0]) and $pending->[0] =~ /\S/) {
+    if ($pending->[0] =~ /\S/) {
       return 0;
     }
   }
@@ -2525,7 +2524,7 @@ sub _pending_is_empty($) {
   my $pending_texts = shift;
 
   foreach my $pending (@$pending_texts) {
-    if (defined($pending->[0]) and $pending->[0] ne '') {
+    if ($pending->[0] ne '') {
       return 0;
     }
   }
@@ -2537,7 +2536,7 @@ sub _pending_texts_width($) {
 
   my $width = 0;
   foreach my $pending (@$pending_texts) {
-    if (defined($pending->[0]) and $pending->[0] ne '') {
+    if ($pending->[0] ne '') {
       $width += Texinfo::Convert::Unicode::string_width($pending->[0]);
     }
   }
@@ -4393,27 +4392,10 @@ sub _convert($$) {
              @{$cell_count->{'index_entry_locations'}};
 
         my $pending_texts = $cell_count->{'pending_text'};
-        my @lines;
-        my $current_line = [];
-        # TODO same code in _align_lines
-        foreach my $pending_text (@$pending_texts) {
-          if (defined($pending_text->[0])) {
-            foreach my $line (split /^/, $pending_text->[0]) {
-              push @$current_line, [$line];
-              if ($line =~ /\n$/) {
-                push @lines, $current_line;
-                $current_line = [];
-              }
-            }
-          } else {
-            push @$current_line, $pending_text;
-          }
-        }
-        if (scalar(@$current_line) > 0) {
-          push @lines, $current_line;
-        }
 
-        $cell_lines[$cell_idx] = \@lines;
+        my $lines = collect_pending_texts_lines($pending_texts);
+
+        $cell_lines[$cell_idx] = $lines;
         $max_lines = scalar(@{$cell_lines[$cell_idx]})
           if (scalar(@{$cell_lines[$cell_idx]}) > $max_lines);
         $cell_idx++;
@@ -4433,43 +4415,35 @@ sub _convert($$) {
             if (defined($cell_lines[$cell_idx]->[$line_idx]));
         }
         my $indent_done;
+        if ($indent_len <= 0) {
+          $indent_done = 1;
+        }
 
         for (my $cell_idx = 0; $cell_idx < $last_cell; $cell_idx++) {
           if (defined($cell_lines[$cell_idx]->[$line_idx])) {
             my $cell_line = [@{$cell_lines[$cell_idx]->[$line_idx]}];
             # remove end of line
-            my @trailing_anchors;
-            while (scalar(@$cell_line)) {
-              my $pending_text = $cell_line->[-1];
-              if (defined($pending_text->[0])) {
-                if ($pending_text->[0] eq '') {
-                  pop @$cell_line;
-                } else {
-                  chomp($pending_text->[0]);
-                  last;
-                }
-              } else {
-                my $anchor = pop @$cell_line;
-                unshift @trailing_anchors, $anchor;
+            for (my $j = scalar(@$cell_line); $j > 0; $j--) {
+              my $pending_text = $cell_line->[$j -1];
+              if ($pending_text->[0] eq '') {
+                next;
               }
+              chomp($pending_text->[0]);
+              last;
             }
-            push @$cell_line, @trailing_anchors;
 
             # add to results while computing width
             foreach my $pending_text (@$cell_line) {
-              if (defined($pending_text->[0])) {
-                if ($pending_text->[0] ne '') {
-                  if (not $indent_done) {
-                    push @$result, [' ' x $indent_len];
-                    $indent_done = 1;
-                  }
-                  $line_width
-              += Texinfo::Convert::Unicode::string_width($pending_text->[0]);
-                  push @$result, $pending_text;
+              if ($pending_text->[0] ne ''
+                  or defined($pending_text->[1])) {
+                if (not $indent_done) {
+                  push @$result, [' ' x $indent_len];
+                  $indent_done = 1;
                 }
-              } else {
-                push @$result, $pending_text;
               }
+              $line_width
+                += Texinfo::Convert::Unicode::string_width($pending_text->[0]);
+              push @$result, $pending_text;
             }
           }
           if ($cell_idx+1 < $last_cell) {
