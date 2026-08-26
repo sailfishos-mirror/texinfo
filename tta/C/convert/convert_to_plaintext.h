@@ -3,6 +3,7 @@
 #define CONVERT_TO_PLAINTEXT_H
 
 #include "command_ids.h"
+#include "tree.h"
 #include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"
@@ -28,11 +29,11 @@
 #define PF_non_quoted_when_nested   0x8000
 #define PF_index_style              0x00010000
 
-typedef struct STRING_COUNT_LINE_COUNT {
-    char *string;
+typedef struct PENDING_TEXT_COUNT_LINE_COUNT {
+    PENDING_TEXT_LIST pending_text;
     int width;
     int line_count;
-} STRING_COUNT_LINE_COUNT;
+} PENDING_TEXT_COUNT_LINE_COUNT;
 
 void plaintext_format_setup (enum converter_format format);
 
@@ -40,8 +41,8 @@ CONVERTER_INITIALIZATION_INFO *plaintext_converter_defaults
                                 (enum converter_format format,
                                  const CONVERTER_INITIALIZATION_INFO *conf);
 
-char *plaintext_convert_output_unit (CONVERTER *self,
-                                     const OUTPUT_UNIT *output_unit);
+void plaintext_convert_output_unit (CONVERTER *self,
+                                    const OUTPUT_UNIT *output_unit);
 char *plaintext_output (CONVERTER *self, DOCUMENT *document);
 
 char *plaintext_convert (CONVERTER *self, DOCUMENT *document);
@@ -67,16 +68,20 @@ void plaintext_process_printindex (CONVERTER *self,
 char *plaintext_image_formatted_text (CONVERTER *self, const ELEMENT *element,
                                       const char *basefile, const char *text);
 
+void plaintext_setup_output_encoding (CONVERTER *self);
+void plaintext_encode_string (CONVERTER *self, const char *text, TEXT *result);
+
 void plaintext_add_image (CONVERTER *self, const ELEMENT *element,
                      int lines_count, int image_width, int no_align);
 void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
 /* TODO add plaintext_ prefix for all the functions? */
+void push_count_context (COUNT_CONTEXT_STACK *stack,
+                         COUNT_CONTEXT count_context);
 void stream_output (CONVERTER *self, const char *text);
-void stream_output_encoded (CONVERTER *self, const char *encoded);
 void stream_output_add_text (CONVERTER *self, const char *text);
 void stream_output_add_next (CONVERTER *self, const char *text);
-const char *stream_result (CONVERTER *self);
-char *stream_yield_result (CONVERTER *self);
+char *pending_to_text (const PENDING_TEXT_LIST *pending_texts);
+void stream_final_result (CONVERTER *self, TEXT *result);
 
 void plaintext_add_target_location (CONVERTER *self, const ELEMENT *element);
 void plaintext_convert_line (CONVERTER *self, const ELEMENT *converted,
@@ -85,7 +90,7 @@ void plaintext_convert_line_new_context (CONVERTER *self,
                           const ELEMENT *converted,
                           int indent_length, int indent_length_next,
                           int suppress_styles, int no_added_eol,
-                          STRING_COUNT_LINE_COUNT *output);
+                          PENDING_TEXT_COUNT_LINE_COUNT *output);
 
 void pop_count_context (COUNT_CONTEXT_STACK *stack);
 void add_newline_if_needed (CONVERTER *self);

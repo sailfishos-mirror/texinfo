@@ -1572,11 +1572,12 @@ sub txt_image_text($$$) {
       my $result = '';
       my $max_width = 0;
       while (<$filehandle>) {
+        $result .= $_;
+        chomp($_);
         my $width = Texinfo::Convert::Unicode::string_width($_);
         if ($width > $max_width) {
           $max_width = $width;
         }
-        $result .= $_;
       }
       if (!close ($filehandle)) {
         my $decoded_file_name = $txt_file;

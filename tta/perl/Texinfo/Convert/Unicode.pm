@@ -622,6 +622,8 @@ sub check_unicode_point_conversion($;$) {
 
 # string length size taking into account that east asian characters
 # may take 2 spaces.
+# NOTE beware of a difference with the C function string_width_multibyte,
+# newline is one character here, not zero.
 sub string_width($) {
   my $string = shift;
 

@@ -1,8 +1,106 @@
+2026-08-26 Patrice Dumas  <pertusus@free.fr>
+
+	C implementation mix anchors and text in pending text and fixes
+
+	* (tta/perl/Texinfo/Convert/Converter.pm): do not count newlines in
+	text image width.
+
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_align_lines),
+	tta/C/convert/convert_to_plaintext.c (align_lines): remove
+	end of line before processing line with image, and readd end of line
+	at the end of the line.
+
+	* tta/C/convert/convert_to_info.c (info_header, info_format_ref)
+	(info_format_node), tta/C/convert/convert_to_plaintext.c
+	(destroy_count_context, push_count_context, clear_pending_texts)
+	(plaintext_conversion_finalization, stream_reset, stream_output)
+	(plaintext_add_target_location, plaintext_convert_line_new_context)
+	(update_locations_counts, add_newline_if_needed, ensure_end_of_line)
+	(pending_to_text, stream_to_text, plaintext_convert_node_name)
+	(plaintext_cache_node_names, merge_pending_texts)
+	(merge_pending_with_parent, pending_texts_width)
+	(PENDING_TEXT_LIST_LINES, LINE_IMAGE_LIST, reallocate_line_image_for)
+	(collect_pending_texts_lines, align_lines, plaintext_format_contents)
+	(plaintext_process_printindex, pending_is_spaces, pending_is_empty)
+	(text_heading, convert_to_plaintext_internal),
+	tta/C/convert/convert_to_plaintext.h (PENDING_TEXT_COUNT_LINE_COUNT),
+	tta/C/main/plaintext_converter_state.h (TARGET_LOCATION_LIST)
+	(PENDING_TEXT, PENDING_TEXT_LIST, COUNT_CONTEXT, FORMAT_CONTEXT)
+	(PLAINTEXT_CONVERTER_STATE): put both text and anchors in
+	count_context pending_text.  Add pending_is_spaces, pending_is_empty,
+	pending_texts_width, pending_to_text and stream_to_text to manage the
+	resulting array by following the text without considering anchors,
+	update add_newline_if_needed and ensure_end_of_line.  Never encode the
+	result when formatting in a count_context, instead return the
+	pending_text and merge with parent, update convert_line_new_context,
+	align_lines, and update callers.  Remove bytes and target_locations
+	from count_context.  Initialize pending_text in push_count_context,
+	use this function instead of add_(pending_text) in most cases.  In
+	text_heading have a tree returned by translation.  Remove
+	stream_byte_count, stream_output_encoded, stream_result,
+	stream_yield_result, string_width_encoded, LINE_TARGET_IMAGE,
+	LINE_TARGET_IMAGE_LIST, reallocate_line_target_image_for, LINE_TARGET,
+	LINE_TARGET_LIST, reallocate_line_target_for, CELLS_LINE_TARGET,
+	reallocate_cells_line_target_for, STRING_COUNT_LINE_COUNT.
+
+	* tta/C/convert/convert_to_info.c (info_header, info_output),
+	tta/C/convert/convert_to_plaintext.c (TARGET_LOCATION_LIST)
+	(plaintext_conversion_finalization, plaintext_encode_string)
+	(stream_encode, stream_final_result, plaintext_convert_output_unit)
+	(plaintext_output, plaintext_convert, plaintext_convert_tree),
+	tta/C/main/plaintext_converter_state.h (PLAINTEXT_CONVERTER_STATE):
+	pass TEXT in argument of info_header, use TEXT for header and output
+	unit formatting result.  Rename stream_encode as encode_string and
+	modify stream_encode to encode and count bytes.  Encode result and
+	count bytes in top level only, with stream_final_result or
+	plaintext_encode_string.  Count bytes for Info only.
+
+	* tta/perl/Texinfo/Convert/InfoNonXS.pm (output),
+	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_setup_output_encoding)
+	(conversion_initialization, conversion_finalization, convert) (output,
+	_encode_string, _stream_encode), tta/C/convert/convert_to_info.c
+	(info_output), tta/C/convert/convert_to_plaintext.c
+	(plaintext_setup_output_encoding, plaintext_conversion_initialization)
+	(plaintext_conversion_finalization, plaintext_output)
+	(plaintext_convert): add _setup_output_encoding or
+	plaintext_setup_output_encoding to setup encoding_object.  Use
+	encoding_object being set as encoding being enabled or disabled.
+	Remove encoding_disabled.  Call _setup_output_encoding early if
+	encoding is to be possibly set.
+
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm
+	(_section_element_heading, format_contents, _text_heading),
+	tta/C/convert/convert_to_plaintext.c (section_element_heading)
+	(plaintext_format_contents, text_heading): add
+	_section_element_heading based on code common of _text_heading and
+	format_contents.
+
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm (convert_tree): move
+	around.
+
+	* tta/C/convert/convert_to_info.c (info_output): add new line after
+	output unit formatting in normal conversion context.
+
+	* tta/C/convert/convert_to_info.c (info_header): use
+	a different variable name for the paragraph text at the beginning.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): handle empty @strong for error
+	message.
+
+	* tta/C/convert/convert_to_info.c (info_format_image_element): fix
+	no_align setting.
+
+	* tta/C/convert/convert_to_info.c (info_format_image): do not show alt
+	if empty.
+
+2026-08-24 Patrice Dumas  <pertusus@free.fr>
+
 2026-08-24 Patrice Dumas  <pertusus@free.fr>
 
 	mix anchors and text in pending text and encode only at top level
 
-	* tta/perl/Texinfo/Convert/InfoNonXS.pm (_open_info_file)
+	* tta/perl/Texinfo/Convert/InfoNonXS.pm (_info_header)
 	(format_node), tta/perl/Texinfo/Convert/PlaintextNonXS.pm
 	(conversion_initialization, add_target_location, _stream_reset)
 	(_stream_output, _pending_to_text, _stream_to_text)
@@ -20,9 +118,9 @@
 	from count_context.  Always initialize pending_text.  In _text_heading
 	have a tree returned by translation.  Remove _stream_byte_count,
 	_stream_output_encoded, _stream_result, _stream_yield_result, _decode,
-	_string_width_encoded
+	_string_width_encoded.
 
-	* tta/perl/Texinfo/Convert/InfoNonXS.pm (_open_info_file, output),
+	* tta/perl/Texinfo/Convert/InfoNonXS.pm (_info_header, output),
 	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (conversion_finalization)
 	(convert_output_unit, convert_tree, convert, output, _encode_string)
 	(_stream_encode, _stream_final_result): rename _stream_encode as
@@ -34,7 +132,7 @@
 	* tta/perl/Texinfo/Convert/InfoNonXS.pm (output): add new line after
 	output unit formatting in normal conversion context.
 
-	* tta/perl/Texinfo/Convert/InfoNonXS.pm (_open_info_file): use
+	* tta/perl/Texinfo/Convert/InfoNonXS.pm (_info_header): use
 	a different variable name for the paragraph text at the beginning.
 
 	* tta/perl/Makefile.tres, tta/perl/t/info_tests.t

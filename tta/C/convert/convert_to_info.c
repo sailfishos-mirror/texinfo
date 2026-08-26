@@ -136,54 +136,54 @@ open_info_file (CONVERTER *self, const char *filename,
   return file_fh;
 }
 
-static char *
+static void
 info_header (CONVERTER *self, const char *input_basefile,
-             const char *output_filename)
+             const char *output_filename, TEXT *header_text)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   COUNT_CONTEXT info_header_count_context = { 0 };
   const char *program = self->conf->PROGRAM.o.string;
   const char *version = self->conf->PACKAGE_VERSION.o.string;
   const char *end_para_text;
-  TEXT result;
+  TEXT para_text;
   TEXT new_text;
-  char *header_text;
 
-  add_(count_context) (&self_plaintext->count_context,
-                       info_header_count_context);
+  /* TODO need for a separate context? */
+  push_count_context (&self_plaintext->count_context,
+                      info_header_count_context);
 
-  /* int paragraph = */
   para_new ();
-  text_init (&result);
+  text_init (&para_text);
 
   new_text = para_add_text ("This is ", 8);
-  text_append_n (&result, new_text.text, new_text.end);
+  text_append_n (&para_text, new_text.text, new_text.end);
   /* This ensures that spaces in file are kept. */
   new_text = para_add_next (output_filename, strlen (output_filename), 0);
-  text_append_n (&result, new_text.text, new_text.end);
+  text_append_n (&para_text, new_text.text, new_text.end);
   if (program && strcmp (program, ""))
     {
       char *program_version;
       xasprintf (&program_version, ", produced by %s version %s from ",
                  program, version);
       new_text = para_add_text (program_version, strlen (program_version));
-      text_append_n (&result, new_text.text, new_text.end);
+      text_append_n (&para_text, new_text.text, new_text.end);
       free (program_version);
     }
   else
     {
-      new_text = para_add_text (", produced from ", 16);
-      text_append_n (&result, new_text.text, new_text.end);
+      const char *str = ", produced from ";
+      new_text = para_add_text (str, strlen (str));
+      text_append_n (&para_text, new_text.text, new_text.end);
     }
   new_text = para_add_next (input_basefile, strlen (input_basefile), 0);
-  text_append_n (&result, new_text.text, new_text.end);
+  text_append_n (&para_text, new_text.text, new_text.end);
   new_text = para_add_text (".", 1);
   end_para_text = para_end ();
-  text_append (&result, end_para_text);
-  text_append_n (&result, "\n", 1);
-  stream_output (self, result.text);
+  text_append (&para_text, end_para_text);
+  text_append_n (&para_text, "\n", 1);
+  stream_output (self, para_text.text);
   para_destroy ();
-  free (result.text);
+  free (para_text.text);
 
   if (self->document->global_commands.copying)
     {
@@ -214,12 +214,14 @@ info_header (CONVERTER *self, const char *input_basefile,
               const ELEMENT *line_arg = command->e.c->contents.list[0];
               if (line_arg->e.c->contents.number > 0)
                 {
-                  STRING_COUNT_LINE_COUNT direntry_text;
+                  PENDING_TEXT_COUNT_LINE_COUNT direntry_arg;
                   stream_output (self, "INFO-DIR-SECTION ");
+                  /* TODO why a new context? */
                   plaintext_convert_line_new_context (self, line_arg,
-                                             -1, -1, -1, -1, &direntry_text);
-                  stream_output (self, direntry_text.string);
-                  free (direntry_text.string);
+                                             -1, -1, -1, -1, &direntry_arg);
+                  char *direntry_text
+                     = pending_to_text (&direntry_arg.pending_text);
+                  stream_output (self, direntry_text);
                   stream_output (self, "\n");
                 }
             }
@@ -235,11 +237,9 @@ info_header (CONVERTER *self, const char *input_basefile,
     }
   add_newline_if_needed (self);
 
-  header_text = stream_yield_result (self);
+  stream_final_result (self, header_text);
 
   pop_count_context (&self_plaintext->count_context);
-
-  return header_text;
 }
 
 static const char *STDIN_DOCU_NAME = "stdin";
@@ -270,10 +270,9 @@ info_output (CONVERTER *self, DOCUMENT *document)
     = plaintext_get_informative_global_commands();
   const char *default_bcp47_locale;
   const char *preamble_bcp47_locale;
-  char *header = 0;
+  TEXT header;
   /* header + text between setfilename and first node */
   TEXT complete_header;
-  size_t header_bytes;
   int out_file_nr = 0;
   char *encoded_outfile_name = 0;
   char *encoded_new_filename = 0;
@@ -283,15 +282,22 @@ info_output (CONVERTER *self, DOCUMENT *document)
   char *preamble_documentlanguage = 0;
   char *preamble_documentscript = 0;
   char *preamble_documentlanguagevariant = 0;
-  COUNT_CONTEXT *count_context;
   C_HASHMAP *seen_anchors;
+  TEXT node_text;
 
   plaintext_conversion_initialization (self, document);
 
+  self_plaintext->target_locations
+    = (TARGET_LOCATION_LIST *) malloc (sizeof (TARGET_LOCATION_LIST));
+  memset (self_plaintext->target_locations, 0,
+          sizeof (TARGET_LOCATION_LIST));
+
   text_init (&result);
   text_append (&result, "");
+  text_init (&header);
   text_init (&complete_header);
   text_init (&tag_text);
+  text_init (&node_text);
 
   memset (&indirect_files, 0, sizeof (INDIRECT_FILE_OFFSET_LIST));
 
@@ -368,9 +374,9 @@ info_output (CONVERTER *self, DOCUMENT *document)
                            self->conf->OUTPUT_ENCODING_NAME.o.string,
                                               &output_conversions);
         }
+
+      plaintext_setup_output_encoding (self);
     }
-  else
-    self_plaintext->encoding_disabled = 1;
 
   default_bcp47_locale = current_bcp47_locale (self);
 
@@ -416,8 +422,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
         }
     }
 
-  header = info_header (self, input_basefile, output_filename);
-  header_bytes = strlen (header);
+  info_header (self, input_basefile, output_filename, &header);
 
   output_units_descriptor = split_by_node (document);
   output_units = retrieve_output_units (document, output_units_descriptor);
@@ -477,12 +482,6 @@ info_output (CONVERTER *self, DOCUMENT *document)
     {
       GLOBAL_INFO *document_info = 0;
       ELEMENT *root = document->tree;
-      const char *root_output;
-       /*
-      COUNT_CONTEXT *old_context
-        = top_(count_context) (&self_plaintext->count_context);
-      COUNT_CONTEXT new_context = { 0 };
-        */
 
       document_info = &document->global_info;
       if (document_info && document_info->input_file_name)
@@ -498,31 +497,25 @@ info_output (CONVERTER *self, DOCUMENT *document)
       else
         message_list_document_warn (&self->error_messages, self->conf,
                                          0, "document without nodes");
-       /*
-      new_context.bytes = old_context->bytes;
-      new_context.lines = old_context->lines;
-        */
       convert_to_plaintext_internal (self, root);
       plaintext_process_footnotes (self, 0);
-      root_output = stream_result (self);
+      stream_final_result (self, &node_text);
 
       write_or_return (conversion, encoded_outfile_name, file_fh, &result,
-                       header);
+                       header.text);
       /* cast to drop const */
       write_or_return (conversion, encoded_outfile_name, file_fh, &result,
-                       (char *)root_output);
+                       node_text.text);
     }
   else
     {
       const ELEMENT *top_target_element = 0;
       const ELEMENT *top_node = 0;
-      COUNT_CONTEXT *count_context;
       size_t i;
       int first_node_seen = 0;
       int split_size = self->conf->SPLIT_SIZE.o.integer;
-      size_t node_text_len;
 
-      text_append (&complete_header, header);
+      text_append_n (&complete_header, header.text, header.end);
 
       if (identifiers_target_number (&document->identifiers_target))
         {
@@ -553,19 +546,15 @@ info_output (CONVERTER *self, DOCUMENT *document)
         }
 
       out_file_nr = 1;
-      count_context
-        = top_(count_context) (&self_plaintext->count_context);
 
-      count_context->bytes += header_bytes;
       for (i = 0; i < output_units->number; i++)
         {
           const OUTPUT_UNIT *output_unit = output_units->list[i];
-          char *node_text;
           INDIRECT_FILE_OFFSET indirect_file_offset;
 
           if (first_node_seen
               && split_size > 0
-              && count_context->bytes > out_file_nr * (size_t) split_size
+              && self_plaintext->bytes > out_file_nr * (size_t) split_size
               && file_fh)
             {
               /* Split the output into an additional output file. */
@@ -668,26 +657,16 @@ info_output (CONVERTER *self, DOCUMENT *document)
               write_or_return (conversion, encoded_new_filename, file_fh,
                                &result, complete_header.text);
 
-              count_context->bytes += complete_header.end;
+              self_plaintext->bytes += complete_header.end;
 
-              indirect_file_offset.offset = count_context->bytes;
+              indirect_file_offset.offset = self_plaintext->bytes;
               indirect_file_offset.indirect_file = strdup (new_output_file);
               add_(indirect_files) (&indirect_files, indirect_file_offset);
             }
 
-          node_text = plaintext_convert_output_unit (self, output_unit);
-          node_text_len = strlen (node_text);
-          if (node_text_len < 2
-              || node_text[node_text_len -1] != '\n'
-              || node_text[node_text_len -2] != '\n')
-            {
-              char *tmp = node_text;
-              char *new_node_text;
-              xasprintf (&new_node_text, "%s%s", node_text, "\n");
-              node_text = new_node_text;
-              free (tmp);
-              count_context->bytes++;
-            }
+          plaintext_convert_output_unit (self, output_unit);
+          add_newline_if_needed (self);
+          stream_final_result (self, &node_text);
 
           if (!first_node_seen)
             {
@@ -695,7 +674,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
               first_node_seen = 1;
 
               write_or_return (conversion, encoded_new_filename, file_fh,
-                               &result, header);
+                               &result, header.text);
 
      /* When the first node was converted in convert_output_unit above, the
         text before the first node (type 'before_node_section') was saved in
@@ -708,8 +687,8 @@ info_output (CONVERTER *self, DOCUMENT *document)
             }
 
           write_or_return (conversion, encoded_new_filename, file_fh,
-                           &result, node_text);
-          free (node_text);
+                           &result, node_text.text);
+          text_reset (&node_text);
         }
     }
 
@@ -754,14 +733,14 @@ info_output (CONVERTER *self, DOCUMENT *document)
   if (out_file_nr > 1)
     text_append_n (&tag_text, "(Indirect)\n", 11);
 
-  count_context = top_(count_context) (&self_plaintext->count_context);
+  seen_anchors = new_c_hashmap (self_plaintext->target_locations->number);
+  TEXT converted_label;
+  text_init (&converted_label);
 
-  seen_anchors = new_c_hashmap (count_context->target_locations.number);
-
-  for (j = 0; j < count_context->target_locations.number; j++)
+  for (j = 0; j < self_plaintext->target_locations->number; j++)
     {
       const ELEMENT *element
-        = count_context->target_locations.list[j]->target_element;
+        = self_plaintext->target_locations->list[j].target_element;
       STRING_WITH_WIDTH node_name_width;
       const char *prefix;
       const char *label_text;
@@ -797,16 +776,21 @@ info_output (CONVERTER *self, DOCUMENT *document)
       else
         prefix = "Ref";
 
+      plaintext_encode_string (self, label_text, &converted_label);
+
       text_printf (&tag_text, "%s: %s\x7F%zu\n", prefix,
-                   label_text,
-                   count_context->target_locations.list[j]->bytes);
+                   converted_label.text,
+                   self_plaintext->target_locations->list[j].bytes);
 
       free (node_name_width.string);
-   }
+      text_reset (&converted_label);
+    }
   text_append_n (&tag_text, "\x1F\nEnd Tag Table\n", 16);
 
   clear_c_hashmap (seen_anchors);
   free (seen_anchors);
+
+  free (converted_label.text);
 
 
   const char *coding = 0;
@@ -871,7 +855,8 @@ info_output (CONVERTER *self, DOCUMENT *document)
   free (encoded_outfile_name);
   free (new_output_file);
   free (encoded_new_filename);
-  free (header);
+  free (header.text);
+  free (node_text.text);
 
   for (i = 0; i < 5; i++)
     {
@@ -1041,10 +1026,11 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
   /* Convert line for sole purpose of checking if the output contains
      a colon.  Output may differ slightly from the current formatting
      context (e.g if inside @sc) but this should not make a difference. */
-          STRING_COUNT_LINE_COUNT name_text_checked;
+          PENDING_TEXT_COUNT_LINE_COUNT name_texts;
           plaintext_convert_line_new_context (self, name, -1, -1, -1, -1,
-                                              &name_text_checked);
-          if (strpbrk (name_text_checked.string, ":"))
+                                              &name_texts);
+          char *name_text_checked = pending_to_text (&name_texts.pending_text);
+          if (strpbrk (name_text_checked, ":"))
             {
               if (warn_special_char)
                 message_list_command_warn (&self->error_messages,
@@ -1056,8 +1042,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
               if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
                 name_quoting_required = 1;
             }
-
-          free (name_text_checked.string);
+          free (name_text_checked);
         }
 
     /* do the actual output of name */
@@ -1132,7 +1117,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
     }
   else if (label_element)
     {
-      STRING_COUNT_LINE_COUNT node_text_checked;
+      PENDING_TEXT_COUNT_LINE_COUNT node_texts;
       ELEMENT *node_code_element = new_element (ET__code);
       add_to_contents_as_array (node_code_element,
                                 (ELEMENT *)label_element);
@@ -1140,10 +1125,10 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
       self_plaintext->silent++;
       plaintext_convert_line_new_context (self, node_code_element,
                                            -1, -1, 1, 1,
-                                          &node_text_checked);
+                                          &node_texts);
       self_plaintext->silent--;
       destroy_element (node_code_element);
-      node_name = node_text_checked.string;
+      node_name = pending_to_text (&node_texts.pending_text);
       need_free_node_name = 1;
     }
   else
@@ -1408,10 +1393,10 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
         }
     }
   if (quoting_required)
-    stream_output_encoded (self, node_quote);
-  stream_output_encoded (self, node_text.string);
+    stream_output (self, node_quote);
+  stream_output (self, node_text.string);
   if (quoting_required)
-    stream_output_encoded (self, node_quote);
+    stream_output (self, node_quote);
   free (node_text.string);
 
   if (!node_relations)
@@ -1499,10 +1484,10 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
                     }
                 }
               if (quoting_required)
-                stream_output_encoded (self, node_quote);
-              stream_output_encoded (self, node_text.string);
+                stream_output (self, node_quote);
+              stream_output (self, node_text.string);
               if (quoting_required)
-                stream_output_encoded (self, node_quote);
+                stream_output (self, node_quote);
               free (node_text.string);
             }
         }
@@ -1589,7 +1574,7 @@ info_format_image (CONVERTER *self, const char *image_file,
    if (depth > 0)
      text_printf (&result, " depth=%d", depth);
 
-  if (alt)
+  if (alt && strcmp (alt, ""))
     {
       text_append_n (&result, " alt=\"", 6);
       protect_image_string (alt, &result);
@@ -1714,11 +1699,11 @@ info_format_image_element (CONVERTER *self, const ELEMENT *element,
           else
             result->string = image_string;
 
-          no_align = 0;
+          no_align = 1;
         }
       else
         {
-          no_align = 1;
+          no_align = 0;
           result->string = plaintext_image_formatted_text (self, element,
                                                        basefile, text);
         }

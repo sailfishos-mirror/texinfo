@@ -2940,7 +2940,7 @@ xml_comment (CONVERTER *converter, const char *text)
   text_append_n (&result, "<!--", 4);
   while (*p)
     {
-      char *q = strchr (p, '-');
+      const char *q = strchr (p, '-');
       if (q)
         {
           if (q - p)

@@ -147,37 +147,37 @@ $result_sectioning_root{'multiline_image_and_align'} = '';
 $result_headings_list{'multiline_image_and_align'} = '';
 
 
-$result_converted{'plaintext'}->{'multiline_image_and_align'} = '                               1  A  B  
-                               2  C  D
-                               3  E  F
+$result_converted{'plaintext'}->{'multiline_image_and_align'} = '                                1  A  B  
+                                2  C  D
+                                3  E  F
 
-                        CCCC   1  A  B  
-                               2  C  D
-                               3  E  F
+                         CCCC   1  A  B  
+                                2  C  D
+                                3  E  F
 
 fffffffffffffffffffffffffffffffffffffff   1  A  B  
-                               2  C  D
-                               3  E  F
+                                2  C  D
+                                3  E  F
 
-                        dddd   1  A  B  
-                               2  C  D
-                           3  E  F iiiii
+                         dddd   1  A  B  
+                                2  C  D
+                            3  E  F iiiii
 
                                                                     AAA
-                                                             1  A  B  
-                                                             2  C  D
-                                                             3  E  F
+                                                              1  A  B  
+                                                              2  C  D
+                                                              3  E  F
 
-                                                       BBB   1  A  B  
-                                                             2  C  D
-                                              3  E  F gggg   1  A  B  
-                                                             2  C  D
-                                                             3  E  F
+                                                        BBB   1  A  B  
+                                                              2  C  D
+                                               3  E  F gggg   1  A  B  
+                                                              2  C  D
+                                                              3  E  F
 
                                                                     HHH
-                                                             1  A  B  
-                                                             2  C  D
-                        3  E  F JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
+                                                              1  A  B  
+                                                              2  C  D
+                         3  E  F JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
 ';
 
 1;

@@ -213,8 +213,8 @@ sub output($$) {
       $self->conversion_finalization();
       return undef;
     }
-  } else {
-    $self->{'encoding_disabled'} = 1;
+
+    $self->_setup_output_encoding();
   }
 
   # not initialized in plaintext

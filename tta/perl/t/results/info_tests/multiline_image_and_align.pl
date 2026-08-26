@@ -335,37 +335,37 @@ $result_headings_list{'multiline_image_and_align'} = '';
 
 $result_converted{'info'}->{'multiline_image_and_align'} = 'This is , produced from .
 
-                               1  A  B  
-                               2  C  D
-                               3  E  F
+                                1  A  B  
+                                2  C  D
+                                3  E  F
 
-                        CCCC   1  A  B  
-                               2  C  D
-                               3  E  F
+                         CCCC   1  A  B  
+                                2  C  D
+                                3  E  F
 
 fffffffffffffffffffffffffffffffffffffff   1  A  B  
-                               2  C  D
-                               3  E  F
+                                2  C  D
+                                3  E  F
 
-                        dddd   1  A  B  
-                               2  C  D
-                           3  E  F iiiii
+                         dddd   1  A  B  
+                                2  C  D
+                            3  E  F iiiii
 
                                                                     AAA
-                                                             1  A  B  
-                                                             2  C  D
-                                                             3  E  F
+                                                              1  A  B  
+                                                              2  C  D
+                                                              3  E  F
 
-                                                       BBB   1  A  B  
-                                                             2  C  D
-                                              3  E  F gggg   1  A  B  
-                                                             2  C  D
-                                                             3  E  F
+                                                        BBB   1  A  B  
+                                                              2  C  D
+                                               3  E  F gggg   1  A  B  
+                                                              2  C  D
+                                                              3  E  F
 
                                                                     HHH
-                                                             1  A  B  
-                                                             2  C  D
-                        3  E  F JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
+                                                              1  A  B  
+                                                              2  C  D
+                         3  E  F JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
 
  [image src="figure.txt" text="  1  A  B  
   2  C  D

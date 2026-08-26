@@ -407,6 +407,28 @@ sub converter_defaults($;$) {
   return \%defaults;
 }
 
+sub _setup_output_encoding($) {
+  my $self = shift;
+
+  my $encoding
+      = Texinfo::Common::processing_output_encoding(
+                               $self->{'output_encoding_name'});
+  # TODO currently encoding cannot be ascii unless directly
+  # specified as OUTPUT_ENCODING_NAME customization variable as
+  # ascii documentencoding is mapped to us-ascii as input encoding
+  # (either explicitly in C or through Encode mime_name in Perl)
+  # and then us-ascii is mapped to iso-8859-1 output perl encoding
+  # through Texinfo::Common::encoding_name_conversion_map.
+  if (!defined($encoding) or $encoding eq 'ascii') {
+    return;
+  }
+  my $Encode_encoding_object = Encode::find_encoding($encoding);
+  if (!defined($Encode_encoding_object)) {
+    Carp::croak "Unknown encoding '$encoding'";
+  }
+  $self->{'encoding_object'} = $Encode_encoding_object;
+}
+
 sub conversion_initialization($;$) {
   my ($self, $document) = @_;
 
@@ -482,6 +504,8 @@ sub conversion_initialization($;$) {
   if (defined($self->get_conf('CLOSE_DOUBLE_QUOTE_SYMBOL'))) {
     $self->{'close_double_quote'} = $self->get_conf('CLOSE_DOUBLE_QUOTE_SYMBOL');
   }
+
+  delete $self->{'encoding_object'};
 
   # some caching to avoid calling get_conf
   $self->{'ascii_glyph'} = $self->get_conf('ASCII_GLYPH');
@@ -559,10 +583,6 @@ sub conversion_finalization($) {
 
   $self->pop_top_formatter();
 
-  if ($self->{'encoding_disabled'}) {
-    delete $self->{'encoding_disabled'};
-  }
-
   my $count_contexts_nr = scalar(@{$self->{'count_context'}});
   if ($count_contexts_nr != 1) {
     $self->present_bug_message("Remaining count_context at finalization (".
@@ -594,31 +614,6 @@ sub count_context_bug_message($$$) {
   }
 }
 
-# Never called
-sub convert_tree($$) {
-  my ($self, $root) = @_;
-
-  my $old_context = $self->{'count_context'}->[-1];
-
-  my $new_context = {'lines' => 0,
-                    'index_entry_locations' => [],
-                    'pending_text' => [['']]};
-  push @{$self->{'count_context'}}, $new_context;
-
-  _convert($self, $root);
-  my $result = $self->{'count_context'}->[-1]->{'pending_text'};
-
-  pop @{$self->{'count_context'}};
-
-  if (defined($old_context)) {
-    _update_locations_counts($self, $old_context, $new_context);
-
-    $old_context->{'lines'} += $new_context->{'lines'};
-  }
-
-  return $result;
-}
-
 sub convert_output_unit($$) {
   my ($self, $output_unit) = @_;
 
@@ -641,7 +636,6 @@ sub convert($$) {
   my ($self, $document) = @_;
 
   $self->conversion_initialization($document);
-  $self->{'encoding_disabled'} = 1;
 
   my $result = '';
 
@@ -717,8 +711,7 @@ sub output($$) {
     $self->set_output_units_files($output_units, $output_file,
                                    $destination_directory,
                                    $output_filename, $document_name);
-  } else {
-    $self->{'encoding_disabled'} = 1;
+    _setup_output_encoding($self);
   }
 
   # Now do the output
@@ -1125,64 +1118,20 @@ sub _stream_to_text($) {
 sub _encode_string($$) {
   my ($self, $string) = @_;
 
-  if ($self->{'encoding_disabled'}) {
+  if (!exists($self->{'encoding_object'})) {
     return $string;
+  } else {
+    return $self->{'encoding_object'}->encode($string);
   }
-
-  if (!defined($self->{'encoding_object'})) {
-    my $encoding
-      = Texinfo::Common::processing_output_encoding(
-                               $self->{'output_encoding_name'});
-    # TODO currently encoding cannot be ascii unless directly
-    # specified as OUTPUT_ENCODING_NAME customization variable as
-    # ascii documentencoding is mapped to us-ascii as input encoding
-    # (either explicitly in C or through Encode mime_name in Perl)
-    # and then us-ascii is mapped to iso-8859-1 output perl encoding
-    # through Texinfo::Common::encoding_name_conversion_map.
-    if (!defined($encoding) or $encoding eq 'ascii') {
-      $self->{'encoding_disabled'} = 1;
-      return $string;
-    }
-    my $Encode_encoding_object = Encode::find_encoding($encoding);
-    if (!defined($Encode_encoding_object)) {
-      Carp::croak "Unknown encoding '$encoding'";
-    }
-    $self->{'encoding_object'} = $Encode_encoding_object;
-  }
-
-  return $self->{'encoding_object'}->encode($string);
 }
 
 sub _stream_encode($$) {
   my ($self, $pending) = @_;
 
-  if (!$self->{'encoding_disabled'}
-      and !defined($self->{'encoding_object'})) {
-    my $encoding
-      = Texinfo::Common::processing_output_encoding(
-                               $self->{'output_encoding_name'});
-    # TODO currently encoding cannot be ascii unless directly
-    # specified as OUTPUT_ENCODING_NAME customization variable as
-    # ascii documentencoding is mapped to us-ascii as input encoding
-    # (either explicitly in C or through Encode mime_name in Perl)
-    # and then us-ascii is mapped to iso-8859-1 output perl encoding
-    # through Texinfo::Common::encoding_name_conversion_map.
-    if (!defined($encoding) or $encoding eq 'ascii') {
-      $self->{'encoding_disabled'} = 1;
-    } else {
-      my $Encode_encoding_object = Encode::find_encoding($encoding);
-      if (!defined($Encode_encoding_object)) {
-        Carp::croak "Unknown encoding '$encoding'";
-      }
-      $self->{'encoding_object'} = $Encode_encoding_object;
-    }
-  }
-
   my $string = '';
-  my $bytes = 0;
   foreach my $pending_string (@$pending) {
     if (defined($pending_string->[0])) {
-      if ($self->{'encoding_disabled'}) {
+      if (!exists($self->{'encoding_object'})) {
         $string .= $pending_string->[0];
         if (exists($self->{'target_locations'})) {
           $self->{'bytes'} += length($pending_string->[0]);
@@ -1242,7 +1191,8 @@ sub _debug_print_pending($) {
         Texinfo::Convert::Texinfo::convert_to_texinfo($pending->[1]);
     }
   }
-  return "$pending_texts ".join('|', @strings);
+  return #"$pending_texts ".
+          join('|', @strings);
 }
 
 # convert with a line formatter in a new count context, not changing
@@ -1598,10 +1548,6 @@ sub _align_lines($$$$$) {
     }
   }
 
-  my $line_index = 0;
-  my $image;
-  my $image_lines_count;
-  my $image_prepended_spaces;
   my @lines;
   my $current_line = [];
   foreach my $pending_text (@$pending_texts) {
@@ -1620,6 +1566,11 @@ sub _align_lines($$$$$) {
   if (scalar(@$current_line) > 0) {
     push @lines, $current_line;
   }
+
+  my $line_index = 0;
+  my $image;
+  my $image_lines_count;
+  my $image_prepended_spaces;
   my $result = [];
   foreach my $line (@lines) {
     my ($new_image, $new_image_prepended_spaces);
@@ -1637,7 +1588,6 @@ sub _align_lines($$$$$) {
     }
 
     if (!defined($image)) {
-      my @leading_anchors;
       my @trailing_anchors;
       while (scalar(@$line)) {
         my $pending_text = $line->[0];
@@ -1650,7 +1600,7 @@ sub _align_lines($$$$$) {
           }
         } else {
           my $anchor = shift @$line;
-          push @leading_anchors, $anchor;
+          push @$result, $anchor;
         }
       }
       while (scalar(@$line)) {
@@ -1669,16 +1619,26 @@ sub _align_lines($$$$$) {
         }
       }
       my $line_width = _pending_texts_width($line);
-      push @$result, @leading_anchors;
       if ($line_width > 0) {
         my $prepended_spaces
          = _compute_spaces_align_line($line_width, $max_column, $direction);
-        push @$result, [' ' x $prepended_spaces];
+        if ($prepended_spaces > 0) {
+          push @$result, [' ' x $prepended_spaces];
+        }
         push @$result, @$line;
       }
       push @$result, @trailing_anchors;
-      push @$result, ["\n"];
     } else {
+      for (my $j = scalar(@$line); $j > 0; $j--) {
+        my $pending_text = $line->[$j -1];
+        if (defined($pending_text->[0])) {
+          if ($pending_text->[0] eq '') {
+            next;
+          }
+          chomp($pending_text->[0]);
+          last;
+        }
+      }
       my $line_width = _pending_texts_width($line);
       $image_lines_count++;
       my $prepended_spaces = $image_prepended_spaces;
@@ -1688,9 +1648,11 @@ sub _align_lines($$$$$) {
            or $image_lines_count == $image->{'lines_count'})
           and $line_width > $image->{'image_width'}) {
         $prepended_spaces -= $line_width - $image->{'image_width'};
-        $prepended_spaces = 0 if ($prepended_spaces < 0);
       }
-      push @$result, [' ' x $prepended_spaces], @$line;
+      if ($prepended_spaces > 0) {
+        push @$result, [' ' x $prepended_spaces];
+      }
+      push @$result, @$line;
       if ($new_image) {
         $image = $new_image;
         $image_prepended_spaces = $new_image_prepended_spaces;
@@ -1700,6 +1662,8 @@ sub _align_lines($$$$$) {
         $image_prepended_spaces = undef;
       }
     }
+
+    push @$result, ["\n"];
 
     $line_index++;
   }
@@ -1722,6 +1686,38 @@ sub _align_environment($$$) {
 
 sub format_warn_strong_note($) {
   return 0;
+}
+
+sub _section_element_heading($$$$) {
+  my ($self, $section_element, $heading_element, $numbered) = @_;
+
+  my $heading_e = Texinfo::TreeElement::new({'type' => '_frenchspacing',
+                               'contents' => [$heading_element]});
+
+  my $tree;
+  if (exists($section_element->{'extra'})
+      and defined($section_element->{'extra'}->{'section_heading_number'})
+      and ($numbered or !defined($numbered))) {
+    my $number = Texinfo::TreeElement::new({
+              'text' => $section_element->{'extra'}->{'section_heading_number'}});
+
+    if ($section_element->{'cmdname'} eq 'appendix'
+        and $section_element->{'extra'}->{'section_level'} == 1) {
+      $tree = $self->cdt(
+                 'Appendix {number} {section_title}',
+                 {'number' => $number, 'section_title' => $heading_e});
+    } else {
+      $tree = $self->cdt(
+                 '{number} {section_title}',
+                 {'number' => $number, 'section_title' => $heading_e});
+    }
+  } else {
+    $tree = $heading_e;
+  }
+
+  my ($pending, $columns, undef)
+     = $self->convert_line_new_context($tree);
+  return ($pending, $columns);
 }
 
 # format @contents or @shortcontents
@@ -1761,29 +1757,11 @@ sub format_contents($$$) {
       my $arguments_line = $section->{'contents'}->[0];
       my $line_arg = $arguments_line->{'contents'}->[0];
 
-      # TODO code common to heading_text
-      my $section_title_tree;
-      if (defined($section->{'extra'}->{'section_heading_number'})
-          and ($self->get_conf('NUMBER_SECTIONS')
-               or !defined($self->get_conf('NUMBER_SECTIONS')))) {
-        if ($section->{'cmdname'} eq 'appendix'
-            and $section->{'extra'}->{'section_level'} == 1) {
-          $section_title_tree = $self->cdt('Appendix {number} {section_title}',
-               {'number' => Texinfo::TreeElement::new({'text'
-                      => $section->{'extra'}->{'section_heading_number'}}),
-                'section_title' => $line_arg});
-        } else {
-          $section_title_tree = $self->cdt('{number} {section_title}',
-               {'number' => Texinfo::TreeElement::new({'text'
-                      => $section->{'extra'}->{'section_heading_number'}}),
-                'section_title' => $line_arg});
-        }
-      } else {
-        $section_title_tree = $line_arg;
-      }
-      my ($pending, undef, undef) = $self->convert_line_new_context(
-       Texinfo::TreeElement::new({'contents' => [$section_title_tree],
-                                  'type' => '_frenchspacing'}));
+      my ($pending, undef)
+        = _section_element_heading($self, $section, $line_arg,
+                  ($self->get_conf('NUMBER_SECTIONS')
+                   or !defined($self->get_conf('NUMBER_SECTIONS'))));
+
       my $text = _pending_to_text($self, $pending);
       chomp($text);
       $text .= "\n";
@@ -2571,35 +2549,9 @@ sub _text_heading($$$;$$$) {
   my ($self, $current, $heading_element, $numbered, $indented_len,
       $no_last_new_line) = @_;
 
-  my $number;
-  if (exists($current->{'extra'})
-      and defined($current->{'extra'}->{'section_heading_number'})
-      and ($numbered or !defined($numbered))) {
-    $number = Texinfo::TreeElement::new({
-                'text' => $current->{'extra'}->{'section_heading_number'}});
-  }
-
-  my $heading_e = Texinfo::TreeElement::new({'type' => '_frenchspacing',
-                               'contents' => [$heading_element]});
-
-  my $tree;
-  if (defined($number)) {
-    if ($current->{'cmdname'} eq 'appendix'
-        and $current->{'extra'}->{'section_level'} == 1) {
-      $tree = $self->cdt(
-                 'Appendix {number} {section_title}',
-                 {'number' => $number, 'section_title' => $heading_e});
-    } else {
-      $tree = $self->cdt(
-                 '{number} {section_title}',
-                 {'number' => $number, 'section_title' => $heading_e});
-    }
-  } else {
-    $tree = $heading_e;
-  }
-
-  my ($pending, $columns, undef)
-     = $self->convert_line_new_context($tree);
+  my ($pending, $columns)
+     = _section_element_heading($self, $current, $heading_element,
+                           ($numbered or !defined($numbered)));
 
   return [] if (_pending_is_spaces($pending));
 
@@ -4702,6 +4654,36 @@ sub _convert($$) {
   }
 
   return;
+}
+
+# Never called
+sub convert_tree($$) {
+  my ($self, $root) = @_;
+
+  my $old_context = $self->{'count_context'}->[-1];
+
+  my $new_context = {'lines' => 0,
+                    'index_entry_locations' => [],
+                    'pending_text' => [['']]};
+  push @{$self->{'count_context'}}, $new_context;
+
+  _convert($self, $root);
+  my $pending_texts = $self->{'count_context'}->[-1]->{'pending_text'};
+
+  pop @{$self->{'count_context'}};
+
+  push @{$self->{'count_context'}->[-1]->{'pending_text'}},
+           @$pending_texts;
+
+  my $result = _stream_final_result($self);
+
+  if (defined($old_context)) {
+    _update_locations_counts($self, $old_context, $new_context);
+
+    $old_context->{'lines'} += $new_context->{'lines'};
+  }
+
+  return $result;
 }
 
 1;

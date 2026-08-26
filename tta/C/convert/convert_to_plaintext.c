@@ -154,25 +154,58 @@ reset_count_context_stack (COUNT_CONTEXT_STACK *stack)
 def_list_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT, 2);
 def_stack_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT);
 
-def_list_fns(TARGET_LOCATION_LIST, target_location, TARGET_LOCATION *, 5);
+def_list_fns(TARGET_LOCATION_LIST, target_location, TARGET_LOCATION, 5);
 
 def_list_fns(INDEX_ENTRY_LINE_COUNT_LIST, index_entry_location, int *, 5);
 
 def_list_fns(IMAGE_LOCATION_INFO_LIST, image_location, IMAGE_LOCATION_INFO, 3);
 
+char *
+debug_print_pending (const PENDING_TEXT_LIST *pending_texts)
+{
+  size_t i;
+  TEXT t;
+
+  text_init (&t);
+
+  for (i = 0; i < pending_texts->number; i++)
+    {
+      const PENDING_TEXT *pending_text = &pending_texts->list[i];
+      if (!pending_text->anchor)
+        {
+          text_append_n (&t, pending_text->text.text, pending_text->text.end);
+        }
+      else
+        {
+          char *texi = convert_to_texinfo (pending_text->anchor);
+          text_append (&t, texi);
+          free (texi);
+        }
+      if (i < pending_texts->number -1)
+        text_append_n (&t, "|", 1);
+    }
+  return t.text;
+}
+
 static void
 destroy_count_context (COUNT_CONTEXT *ctxt)
 {
   size_t i;
-  text_destroy (&ctxt->pending_text);
-  text_destroy (&ctxt->result);
+
+       /*
+  if (ctxt->pending_text.number > 0)
+    {
+      char *remaining_text = debug_print_pending (&ctxt->pending_text);
+      fprintf (stderr, "BUG? remaining pending text '%s'\n", remaining_text);
+      free (remaining_text);
+    }
+        */
+  for (i = 0; i < ctxt->pending_text.number; i++)
+    text_destroy (&ctxt->pending_text.list[i].text);
+  free (ctxt->pending_text.list);
 
   /* this should only happen for the main document count context
      as locations inside should have been transferred */
-  for (i = 0; i < ctxt->target_locations.number; i++)
-    free (ctxt->target_locations.list[i]);
-  free (ctxt->target_locations.list);
-
   for (i = 0; i < ctxt->index_entry_locations.number; i++)
     free (ctxt->index_entry_locations.list[i]);
   free (ctxt->index_entry_locations.list);
@@ -197,6 +230,17 @@ clear_count_context_stack (COUNT_CONTEXT_STACK *stack)
     pop_count_context (stack);
 }
 
+void
+push_count_context (COUNT_CONTEXT_STACK *stack, COUNT_CONTEXT count_context)
+{
+  PENDING_TEXT pending_text = { 0 };
+  text_init (&pending_text.text);
+  text_append (&pending_text.text, "");
+
+  add_(pending_text) (&count_context.pending_text, pending_text);
+
+  add_(count_context) (stack, count_context);
+}
 
 
 
@@ -221,6 +265,9 @@ def_stack_fns(UPPER_CASE_STACK, upper_case, UPPER_CASE);
 
 def_list_fns(QUOTATION_AUTHORS_LIST, quotations_authors, CONST_ELEMENT_LIST, 1);
 def_stack_fns(QUOTATION_AUTHORS_LIST, quotations_authors, CONST_ELEMENT_LIST);
+
+def_list_fns(PENDING_TEXT_LIST, pending_text, PENDING_TEXT, 5);
+def_stack_fns(PENDING_TEXT_LIST, pending_text, PENDING_TEXT);
 
 enum formatter_type {
   formatter_paragraph,
@@ -729,13 +776,29 @@ plaintext_format_setup (enum converter_format format)
 }
 
 void
+plaintext_setup_output_encoding (CONVERTER *self)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+
+  if (self->conf->OUTPUT_ENCODING_NAME.o.string
+      && strcmp (self->conf->OUTPUT_ENCODING_NAME.o.string, "utf-8")
+      && strcmp (self->conf->OUTPUT_ENCODING_NAME.o.string, "ascii"))
+    {
+      self_plaintext->encoding_object
+           = get_encoding_conversion (
+                            self->conf->OUTPUT_ENCODING_NAME.o.string,
+                                            &output_conversions);
+    }
+}
+
+void
 plaintext_conversion_initialization (CONVERTER *self, DOCUMENT *document)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
 
   COUNT_CONTEXT bottom_count_context = { 0 };
-  add_(count_context) (&self_plaintext->count_context,
-                       bottom_count_context);
+  push_count_context (&self_plaintext->count_context,
+                      bottom_count_context);
 
   converter_set_document (self, document);
 
@@ -788,6 +851,8 @@ plaintext_conversion_initialization (CONVERTER *self, DOCUMENT *document)
     }
   /* TODO ... */
 
+  self_plaintext->encoding_object = 0;
+
   /* it is an error to have index entries outside of nodes, so there
      is no point optimizing the size of the hash */
   init_c_hashmap (&self_plaintext->index_entries_no_node, 10);
@@ -803,6 +868,21 @@ plaintext_conversion_initialization (CONVERTER *self, DOCUMENT *document)
 
   /* _Root_context in Perl, in C use CM_NONE */
   push_top_formatter (self, CM_NONE);
+}
+
+static void
+clear_pending_texts (PENDING_TEXT_LIST *pending_texts)
+{
+  size_t i;
+  for (i = 0; i < pending_texts->number; i++)
+    {/* TODO find a way to reuse the memory of the TEXT? */
+      PENDING_TEXT *pending_text = &pending_texts->list[i];
+      if (pending_text->anchor)
+        pending_text->anchor = 0;
+      else
+        text_destroy (&pending_text->text);
+    }
+  pending_texts->number = 0;
 }
 
 void
@@ -827,15 +907,13 @@ plaintext_conversion_finalization (CONVERTER *self)
   clear_c_hashmap (&self_plaintext->seen_node_descriptions);
   clear_c_hashmap (&self_plaintext->seenmenus);
 
-  free (self_plaintext->outside_of_any_node_text);
-  self_plaintext->outside_of_any_node_text = 0;
+  if (self_plaintext->outside_of_any_node_text)
+    clear_pending_texts (self_plaintext->outside_of_any_node_text);
   self_plaintext->outside_of_any_node_text_width = 0;
   self_plaintext->current_node = 0;
 
   free (self_plaintext->text_before_first_node);
   self_plaintext->text_before_first_node = 0;
-
-  self_plaintext->encoding_disabled = 0;
 
   if (self->sorted_index_names.number > 0)
     {
@@ -848,6 +926,13 @@ plaintext_conversion_finalization (CONVERTER *self)
   for (i = 0; i < self_plaintext->added_element.number; i++)
     destroy_element_and_children (self_plaintext->added_element.list[i]);
   self_plaintext->added_element.number = 0;
+
+  if (self_plaintext->target_locations)
+    {
+      free (self_plaintext->target_locations->list);
+      free (self_plaintext->target_locations);
+      self_plaintext->target_locations = 0;
+    }
 }
 
 /* Also set in plaintext_paragraph.c */
@@ -979,12 +1064,16 @@ plaintext_add_image (CONVERTER *self, const ELEMENT *element,
 static void
 stream_reset (CONVERTER *self)
 {
+  size_t i;
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   COUNT_CONTEXT *count_context
     = top_(count_context) (&self_plaintext->count_context);
 
-  text_reset (&count_context->pending_text);
-  text_reset (&count_context->result);
+  for (i = 0; i < count_context->pending_text.number; i++)
+    {
+      text_reset (&count_context->pending_text.list[i].text);
+      count_context->pending_text.list[i].anchor = 0;
+    }
 }
 
 void
@@ -993,8 +1082,14 @@ stream_output (CONVERTER *self, const char *text)
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   COUNT_CONTEXT *count_context
     = top_(count_context) (&self_plaintext->count_context);
+  PENDING_TEXT *pending_text
+    = top_(pending_text) (&count_context->pending_text);
 
-  text_append (&count_context->pending_text, text);
+  text_append (&pending_text->text, text);
+  /*
+  fprintf (stderr, "STREAM '%s' => '%s'\n", text,
+              debug_print_pending (&count_context->pending_text));
+   */
 }
 
 static void
@@ -1030,122 +1125,91 @@ stream_output_add_next (CONVERTER *self, const char *text)
   stream_output_count_nl (self, result.text);
 }
 
-static size_t
-stream_encode (CONVERTER *self, const char *text, TEXT *result)
+void
+plaintext_encode_string (CONVERTER *self, const char *text, TEXT *result)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   char *converted_text;
   size_t len;
 
-  if (self_plaintext->encoding_disabled)
+  if (self_plaintext->encoding_object)
+    {
+      converted_text
+        = encode_with_iconv (self_plaintext->encoding_object->iconv,
+                                      (char *)text, 0, ieh_error, 0);
+
+      len = strlen (converted_text);
+      text_append_n (result, converted_text, len);
+      free (converted_text);
+    }
+  else
     {
       len = strlen (text);
       text_append_n (result, text, len);
-      return len;
     }
-
-  if (!self_plaintext->encoding_object)
-    {
-      if (self->conf->OUTPUT_ENCODING_NAME.o.string
-          && strcmp (self->conf->OUTPUT_ENCODING_NAME.o.string, "utf-8")
-          && strcmp (self->conf->OUTPUT_ENCODING_NAME.o.string, "ascii"))
-        {
-          self_plaintext->encoding_object
-           = get_encoding_conversion (
-                            self->conf->OUTPUT_ENCODING_NAME.o.string,
-                                            &output_conversions);
-        }
-      else
-        {
-          self_plaintext->encoding_disabled = 1;
-          len = strlen (text);
-          text_append_n (result, text, len);
-          return len;
-        }
-    }
-  converted_text = encode_with_iconv (self_plaintext->encoding_object->iconv,
-                                      (char *)text, 0, ieh_error, 0);
-  len = strlen (converted_text);
-  text_append_n (result, converted_text, len);
-  free (converted_text);
-  return len;
 }
 
-static size_t
-stream_byte_count (CONVERTER *self)
+static void
+stream_encode (CONVERTER *self, PENDING_TEXT_LIST *pending_texts, TEXT *result)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
-  COUNT_CONTEXT *count_context
-    = top_(count_context) (&self_plaintext->count_context);
+  size_t i;
 
-  if (count_context->pending_text.end > 0)
+  for (i = 0; i < pending_texts->number; i++)
     {
-      if (!count_context->encoding_disabled)
+      PENDING_TEXT *pending_text = &pending_texts->list[i];
+      if (!pending_text->anchor)
         {
-          size_t len = stream_encode (self, count_context->pending_text.text,
-                                      &count_context->result);
-          count_context->bytes += len;
+          if (!self_plaintext->encoding_object)
+            {
+              text_append_n (result, pending_text->text.text,
+                             pending_text->text.end);
+              if (self_plaintext->target_locations)
+                self_plaintext->bytes += pending_text->text.end;
+            }
+          else
+            {
+              char *converted_text
+                = encode_with_iconv (self_plaintext->encoding_object->iconv,
+                                     pending_text->text.text, 0, ieh_error, 0);
+              size_t len = strlen (converted_text);
+              text_append_n (result, converted_text, len);
+              free (converted_text);
+              if (self_plaintext->target_locations)
+                self_plaintext->bytes += len;
+            }
+          text_reset (&pending_text->text);
         }
       else
         {
-          text_append_n (&count_context->result,
-                         count_context->pending_text.text,
-                         count_context->pending_text.end);
-          count_context->bytes = -1;
-        }
-      text_reset (&count_context->pending_text);
-    }
+          if (self_plaintext->target_locations)
+            {
+              TARGET_LOCATION target_location;
+              target_location.target_element = pending_text->anchor;
+              target_location.bytes = self_plaintext->bytes;
 
-  return count_context->bytes;
+              add_(target_location) (self_plaintext->target_locations,
+                                     target_location);
+            }
+          pending_text->anchor = 0;
+        }
+    }
 }
 
 void
-stream_output_encoded (CONVERTER *self, const char *encoded)
+stream_final_result (CONVERTER *self, TEXT *result)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   COUNT_CONTEXT *count_context
     = top_(count_context) (&self_plaintext->count_context);
 
-  /* flush pending */
-  stream_byte_count (self);
-
-  text_append (&count_context->result, encoded);
-  count_context->bytes += strlen (encoded);
-}
-
-/* NOTE the returned string changes with new text streamed and is destroyed
-   after popping the count context.  Therefore this function should only
-   be used if the result is handled shortly after calling.  Otherwise
-   stream_yield_result should be used.
- */
-const char *
-stream_result (CONVERTER *self)
-{
-  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
-  COUNT_CONTEXT *count_context
-    = top_(count_context) (&self_plaintext->count_context);
-
-  /* flush pending */
-  stream_byte_count (self);
-
-  const char *result = count_context->result.text;
-  return result ? result : "";
-}
-
-/* Like stream_result, but do not keep the result. */
-/* Return value to be freed by caller. */
-char *
-stream_yield_result (CONVERTER *self)
-{
-  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
-  COUNT_CONTEXT *count_context
-    = top_(count_context) (&self_plaintext->count_context);
-
-  /* flush pending */
-  stream_byte_count (self);
-
-  char *result = text_yield (&count_context->result);
-  return result ? result : strdup ("");
+  stream_encode (self, &count_context->pending_text, result);
+  count_context->pending_text.number = 0;
+  PENDING_TEXT new_pending_text = { 0 };
+  text_init (&new_pending_text.text);
+  text_append (&new_pending_text.text, "");
+  /* FIXME replace allocated memory, find a way to reuse instead */
+  add_(pending_text) (&count_context->pending_text, new_pending_text);
 }
 
 /* Save the line and byte offset of $ELEMENT. */
@@ -1155,15 +1219,15 @@ plaintext_add_target_location (CONVERTER *self, const ELEMENT *element)
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   COUNT_CONTEXT *count_context
     = top_(count_context) (&self_plaintext->count_context);
+  PENDING_TEXT anchor = { 0 };
+  PENDING_TEXT next_text = { 0 };
 
-  TARGET_LOCATION *location = (TARGET_LOCATION *)
-        malloc (sizeof (TARGET_LOCATION));
+  anchor.anchor = element;
+  text_init (&next_text.text);
+  text_append (&next_text.text, "");
 
-  location->lines = count_context->lines;
-  location->target_element = element;
-  location->bytes = stream_byte_count (self);
-
-  add_(target_location) (&count_context->target_locations, location);
+  add_(pending_text) (&count_context->pending_text, anchor);
+  add_(pending_text) (&count_context->pending_text, next_text);
 }
 
 void
@@ -1190,10 +1254,9 @@ plaintext_convert_line_new_context (CONVERTER *self,
                           const ELEMENT *converted,
                           int indent_length, int indent_length_next,
                           int suppress_styles, int no_added_eol,
-                          STRING_COUNT_LINE_COUNT *output)
+                          PENDING_TEXT_COUNT_LINE_COUNT *output)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
-  /* TODO encoding_disabled is set in Perl */
   COUNT_CONTEXT new_count_context = { 0 };
   FORMATTER formatter = new_formatter(self, formatter_line, indent_length,
                                       indent_length_next);
@@ -1203,14 +1266,17 @@ plaintext_convert_line_new_context (CONVERTER *self,
     formatter.no_added_eol = no_added_eol;
   const char *end_line;
 
-  add_(count_context) (&self_plaintext->count_context, new_count_context);
+  push_count_context (&self_plaintext->count_context, new_count_context);
   push_formatter (self, &formatter);
 
   convert_to_plaintext_internal (self, converted);
   end_line = para_end ();
   stream_output (self, end_line);
 
-  output->string = stream_yield_result (self);
+  COUNT_CONTEXT *count_context
+    = top_(count_context) (&self_plaintext->count_context);
+  output->pending_text = count_context->pending_text;
+  memset (&count_context->pending_text, 0, sizeof (PENDING_TEXT_LIST));
   output->width = para_counter ();
   output->line_count = new_count_context.lines;
 
@@ -1219,25 +1285,12 @@ plaintext_convert_line_new_context (CONVERTER *self,
   pop_count_context (&self_plaintext->count_context);
 }
 
-/* TODO decode */
-
 static void
 update_locations_counts (CONVERTER *self, COUNT_CONTEXT *parent_counts,
                          COUNT_CONTEXT *counts)
 {
-  size_t bytes = parent_counts->bytes;
   int lines = parent_counts->lines;
   size_t i;
-
-  for (i = 0; i < counts->target_locations.number; i++)
-    {
-      TARGET_LOCATION *location = counts->target_locations.list[i];
-      location->bytes += bytes;
-      location->lines += lines;
-
-      add_(target_location) (&parent_counts->target_locations, location);
-    }
-  counts->target_locations.number = 0;
 
   for (i = 0; i < counts->index_entry_locations.number; i++)
     {
@@ -1258,27 +1311,38 @@ add_newline_if_needed (CONVERTER *self)
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   COUNT_CONTEXT *count_context
         = top_(count_context) (&self_plaintext->count_context);
+  PENDING_TEXT_LIST *pending_texts = &count_context->pending_text;
 
-  TEXT *pending = &count_context->pending_text;
-
-  if (pending->end >=2
-      && (pending->text[pending->end -1] != '\n'
-          || pending->text[pending->end -2] != '\n'))
+  if (pending_texts->number > 0)
     {
-      stream_output (self, "\n");
-      add_lines_count (self, 1);
-    }
-  else
-    {
-      const char *result = stream_result (self);
-      if (strcmp (result, "") && strcmp (result, "\n"))
+      int nl_to_find = 2;
+      size_t nr;
+      size_t end_idx = 0;
+      for (nr = pending_texts->number; nr > 0; nr--)
         {
-          size_t len = strlen (result);
-          if (len < 2 || result[len -1] != '\n' || result[len -2] != '\n')
+          PENDING_TEXT *pending_text = &pending_texts->list[nr -1];
+          if (!pending_text->anchor)
             {
-              stream_output (self, "\n");
-              add_lines_count (self, 1);
+              TEXT *pending = &pending_text->text;
+              end_idx = pending->end;
+              while (nl_to_find && end_idx > 0)
+                {
+                  if (pending->text[end_idx -1] == '\n')
+                    {
+                      nl_to_find--;
+                      end_idx--;
+                    }
+                  else
+                    break;
+                }
+              if (end_idx > 0)
+                break;
             }
+        }
+      if (nl_to_find > 0 && end_idx > 0)
+        {
+          stream_output (self, "\n");
+          add_lines_count (self, 1);
         }
     }
 }
@@ -1286,26 +1350,68 @@ add_newline_if_needed (CONVERTER *self)
 static void
 ensure_end_of_line (CONVERTER *self)
 {
-  const char *result = stream_result (self);
-  size_t len;
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  COUNT_CONTEXT *count_context
+        = top_(count_context) (&self_plaintext->count_context);
+  PENDING_TEXT_LIST *pending_texts = &count_context->pending_text;
 
-  if (!result)
-    return;
-
-  len = strlen (result);
-
-  if (!len)
-    return;
-
-  if (result[len -1] != '\n')
+  if (pending_texts->number > 0)
     {
-      PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
-      TEXT_CONTEXT *text_element_context
-        = top_(text_element_context) (&self_plaintext->text_element_context);
-      stream_output (self, "\n");
-      add_lines_count (self, 1);
-      text_element_context->counter = 0;
+      size_t nr;
+      for (nr = pending_texts->number; nr > 0; nr--)
+        {
+          PENDING_TEXT *pending_text = &pending_texts->list[nr -1];
+          if (!pending_text->anchor)
+            {
+              TEXT *t_pending = &pending_text->text;
+              if (t_pending->end > 0)
+                {
+                  if (t_pending->text[t_pending->end -1] != '\n')
+                    {
+                      TEXT_CONTEXT *text_element_context
+                        = top_(text_element_context) (
+                                  &self_plaintext->text_element_context);
+                      text_append_n (t_pending, "\n", 1);
+                      add_lines_count (self, 1);
+                      text_element_context->counter = 0;
+                    }
+                  return;
+                }
+            }
+        }
     }
+}
+
+char *
+pending_to_text (const PENDING_TEXT_LIST *pending_texts)
+{
+  size_t i;
+  TEXT t;
+
+  text_init (&t);
+
+  for (i = 0; i < pending_texts->number; i++)
+    {
+      PENDING_TEXT *pending_text = &pending_texts->list[i];
+      if (!pending_text->anchor)
+        {
+          text_append_n (&t, pending_text->text.text, pending_text->text.end);
+          text_reset (&pending_text->text);
+        }
+      else
+        pending_text->anchor = 0;
+    }
+  return t.text;
+}
+
+char *
+stream_to_text (CONVERTER *self)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  COUNT_CONTEXT *count_context
+        = top_(count_context) (&self_plaintext->count_context);
+
+  return pending_to_text (&count_context->pending_text);
 }
 
 static FORMATTER *node_names_formatter;
@@ -1319,7 +1425,6 @@ plaintext_convert_node_name (CONVERTER *self, const ELEMENT *element,
   ELEMENT *node_text;
   const char *pending_word;
   char *result;
-  /* TODO encoding_disabled is set in Perl */
   COUNT_CONTEXT new_count_context = { 0 };
 
   if (!label_element)
@@ -1341,19 +1446,21 @@ plaintext_convert_node_name (CONVERTER *self, const ELEMENT *element,
       node_names_formatter->no_added_eol = 1;
     }
 
-  add_(count_context) (&self_plaintext->count_context, new_count_context);
+  push_count_context (&self_plaintext->count_context, new_count_context);
   push_formatter (self, node_names_formatter);
 
   convert_to_plaintext_internal (self, node_text);
   pending_word = para_add_pending_word (0);
   stream_output_count_nl (self, pending_word);
-  result = stream_yield_result (self);
+  result = stream_to_text (self);
   result = normalize_top_node_name (result);
   string_result->width = para_counter ();
 
   para_end_line ();
   destroy_element (node_text);
 
+  /* TODO destroy count context, or set to reuse.
+     Text has already been reset */
   pop_count_context (&self_plaintext->count_context);
   pop_formatter (self, 1);
 
@@ -1433,12 +1540,12 @@ plaintext_cache_node_names (CONVERTER *self, NODE_RELATIONS_LIST *nodes_list)
       /* cast to drop const */
       add_to_contents_as_array (node_text, (ELEMENT *)label_element);
 
-      add_(count_context) (&self_plaintext->count_context, count_context);
+      push_count_context (&self_plaintext->count_context, count_context);
 
       convert_to_plaintext_internal (self, node_text);
       pending_word = para_add_pending_word (0);
       stream_output_count_nl (self, pending_word);
-      result = stream_yield_result (self);
+      result = stream_to_text (self);
       result = normalize_top_node_name (result);
       node_name->width = para_counter ();
       node_name->string = result;
@@ -1446,6 +1553,8 @@ plaintext_cache_node_names (CONVERTER *self, NODE_RELATIONS_LIST *nodes_list)
       /* reset counters */
       para_end_line ();
 
+      /* TODO destroy count context, or set to reuse
+         Text has already been reset */
       pop_count_context (&self_plaintext->count_context);
 
       pop_element_from_contents (node_text);
@@ -1678,6 +1787,45 @@ plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
   pop_formatter (self, 0);
 }
 
+static void
+merge_pending_texts (PENDING_TEXT_LIST *dst_pending_texts,
+                     PENDING_TEXT_LIST *source)
+{
+  size_t i;
+  for (i = 0; i < source->number; i++)
+    {
+      add_(pending_text) (dst_pending_texts, source->list[i]);
+      memset (&source->list[i], 0, sizeof (PENDING_TEXT));
+    }
+  source->number = 0;
+}
+
+static void
+merge_pending_with_parent (CONVERTER *self,
+                           PENDING_TEXT_LIST *pending_texts)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  COUNT_CONTEXT *count_context
+    = top_(count_context) (&self_plaintext->count_context);
+  PENDING_TEXT_LIST *parent_pending_texts = &count_context->pending_text;
+  merge_pending_texts (parent_pending_texts, pending_texts);
+}
+
+static size_t
+pending_texts_width (const PENDING_TEXT_LIST *pending_texts)
+{
+  size_t i;
+  size_t width = 0;
+
+  for (i = 0; i < pending_texts->number; i++)
+    {
+      PENDING_TEXT *pending_text = &pending_texts->list[i];
+      if (!pending_text->anchor)
+        width += string_width_multibyte (pending_text->text.text);
+    }
+  return width;
+}
+
 enum align_directions {
    AD_right,
    AD_center,
@@ -1700,64 +1848,95 @@ compute_spaces_align_line (int line_width, int max_column,
   return prepended_spaces;
 }
 
+def_list_type(PENDING_TEXT_LIST_LINES, PENDING_TEXT_LIST);
+decl_list_fns(PENDING_TEXT_LIST_LINES, pending_text_line, PENDING_TEXT_LIST);
+def_list_fns(PENDING_TEXT_LIST_LINES, pending_text_line, PENDING_TEXT_LIST, 3);
+
 def_list_type(IMAGE_LOCATION_POINTER_LIST, IMAGE_LOCATION_INFO *);
 decl_list_fns(IMAGE_LOCATION_POINTER_LIST, image_location_ptr,
               IMAGE_LOCATION_INFO *);
 def_list_fns(IMAGE_LOCATION_POINTER_LIST, image_location_ptr,
               IMAGE_LOCATION_INFO *, 5);
 
-typedef struct LINE_TARGET_IMAGE {
-    TARGET_LOCATION_LIST locations;
-    IMAGE_LOCATION_POINTER_LIST images;
-} LINE_TARGET_IMAGE;
-
-typedef struct LINE_TARGET_IMAGE_LIST {
+typedef struct LINE_IMAGE_LIST {
      size_t space;
-     LINE_TARGET_IMAGE *list;
-} LINE_TARGET_IMAGE_LIST;
+     IMAGE_LOCATION_POINTER_LIST *list;
+} LINE_IMAGE_LIST;
 
 static void
-reallocate_line_target_image_for (LINE_TARGET_IMAGE_LIST *list,
-                                  size_t n)
+reallocate_line_image_for (LINE_IMAGE_LIST *list, size_t n)
 {
   if (list->space < n)
     {
       size_t new_space = n + 5;
-      list->list = realloc (list->list, new_space * sizeof (LINE_TARGET_IMAGE));
+      list->list = realloc (list->list,
+                            new_space * sizeof (IMAGE_LOCATION_POINTER_LIST));
       if (!list->list)
         fatal ("realloc failed");
 
       memset (&list->list[list->space], 0, (new_space - list->space)
-                               * sizeof (LINE_TARGET_IMAGE));
+                               * sizeof (IMAGE_LOCATION_POINTER_LIST));
       list->space = new_space;
     }
 }
 
-/* readjustment only needed for bytes, ie for anchors and floats */
-static char *
-align_lines (CONVERTER *self, const char *text_encoded, int max_column,
-             enum align_directions direction,
-             TARGET_LOCATION_LIST *target_locations,
+/* while collecting, the input pending texts are reset */
+static void
+collect_pending_texts_lines (PENDING_TEXT_LIST_LINES *pending_text_lines,
+                             PENDING_TEXT_LIST *pending_texts)
+{
+  size_t i;
+  PENDING_TEXT_LIST current_line = { 0 };
+  for (i = 0; i < pending_texts->number; i++)
+    {
+      PENDING_TEXT *pending_text = &pending_texts->list[i];
+      if (!pending_text->anchor)
+        {
+          const char *p = pending_text->text.text;
+          while (*p)
+            {
+              int line_len = strcspn (p, "\n");
+              int end_line = 0;
+              if (*(p + line_len) == '\n')
+                {
+                  line_len++;
+                  end_line = 1;
+                }
+              PENDING_TEXT line_pending_text = { 0 };
+              text_init (&line_pending_text.text);
+              text_append_n (&line_pending_text.text, p, line_len);
+              add_(pending_text) (&current_line, line_pending_text);
+              p += line_len;
+              if (end_line)
+                {
+                  add_(pending_text_line) (pending_text_lines,
+                                           current_line);
+                  memset (&current_line, 0, sizeof (PENDING_TEXT_LIST));
+                }
+            }
+          text_reset (&pending_text->text);
+        }
+      else
+        {
+          add_(pending_text) (&current_line, *pending_text);
+          pending_text->anchor = 0;
+        }
+    }
+  if (current_line.number > 0)
+    {
+      add_(pending_text_line) (pending_text_lines, current_line);
+    }
+}
+
+static PENDING_TEXT_LIST
+align_lines (CONVERTER *self, int max_column, enum align_directions direction,
+             PENDING_TEXT_LIST *pending_texts,
              IMAGE_LOCATION_INFO_LIST *images)
 {
   size_t i;
-  TEXT result;
-  text_init (&result);
-  text_append (&result, "");
-
-  static LINE_TARGET_IMAGE_LIST line_info;
+  static LINE_IMAGE_LIST line_info;
 
   int max_lines = 0;
-
-  for (i = 0; i < target_locations->number; i++)
-    {
-      TARGET_LOCATION *location = target_locations->list[i];
-      int lines = location->lines;
-      reallocate_line_target_image_for (&line_info, lines+1);
-      if (lines > max_lines)
-        max_lines = lines;
-      add_(target_location) (&line_info.list[lines].locations, location);
-    }
 
   for (i = 0; i < images->number; i++)
     {
@@ -1765,35 +1944,35 @@ align_lines (CONVERTER *self, const char *text_encoded, int max_column,
       if (image_info->lines_count > 1)
         {
           int lines = image_info->lines;
-          reallocate_line_target_image_for (&line_info, lines+1);
+          reallocate_line_image_for (&line_info, lines+1);
           if (lines > max_lines)
             max_lines = lines;
-          add_(image_location_ptr) (&line_info.list[lines].images, image_info);
+          add_(image_location_ptr) (&line_info.list[lines], image_info);
         }
     }
 
-  int delta_bytes = 0;
+  PENDING_TEXT_LIST_LINES pending_text_lines;
+  memset (&pending_text_lines, 0, sizeof (PENDING_TEXT_LIST_LINES));
+  collect_pending_texts_lines (&pending_text_lines, pending_texts);
+
   int line_index = 0;
   IMAGE_LOCATION_INFO *image = 0;
   int image_lines_count;
   int image_prepended_spaces;
-  const char *p = text_encoded;
-  while (1)
+  PENDING_TEXT_LIST result = { 0 };
+  for (i = 0; i < pending_text_lines.number; i++)
     {
-      int j;
-      int line_len = strcspn (p, "\n");
-      int line_bytes_begin = 0;
-      int line_bytes_end = 0;
-      int removed_line_bytes_end = 0;
-      int removed_line_bytes_begin = 0;
+      size_t j;
       IMAGE_LOCATION_INFO *new_image;
       int new_image_prepended_spaces;
+      PENDING_TEXT_LIST *line = &pending_text_lines.list[i];
 
-      reallocate_line_target_image_for (&line_info, line_index+1);
+      reallocate_line_image_for (&line_info, line_index+1);
 
-      if (line_info.list[line_index].images.number)
+      if (line_info.list[line_index].number)
         {
-          new_image = line_info.list[line_index].images.list[0];
+          new_image = line_info.list[line_index].list[0];
+          image_lines_count = 0;
           new_image_prepended_spaces
             = compute_spaces_align_line (new_image->image_width, max_column,
                                          direction, new_image->no_align);
@@ -1803,80 +1982,135 @@ align_lines (CONVERTER *self, const char *text_encoded, int max_column,
               image_prepended_spaces = new_image_prepended_spaces;
               new_image = 0;
             }
-          line_info.list[line_index].images.number = 0;
+          line_info.list[line_index].number = 0;
         }
 
       if (!image)
         {
-          int line_width = -1;
-          if (*(p + line_len) == '\n')
+          static CONST_ELEMENT_LIST trailing_anchors;
+          for (j = 0; j < line->number; j++)
             {
-              removed_line_bytes_end = 1;
-              line_len++;
-            }
-          removed_line_bytes_begin = strspn (p, whitespace_chars);
-          if (removed_line_bytes_begin >= line_len)
-            {
-              removed_line_bytes_begin = line_len;
-              line_width = 0;
-            }
-          else
-            {
-              while (strchr (whitespace_chars,
-                         *(p + line_len -1 - removed_line_bytes_end)))
+              PENDING_TEXT *pending_text = &line->list[j];
+              if (!pending_text->anchor)
                 {
-                  removed_line_bytes_end++;
-                  if (removed_line_bytes_end == line_len)
-                    {/* this cannot actually happen as it would have
-                        been handled when removing leading spaces */
-                      line_width = 0;
+                  TEXT *t = &pending_text->text;
+                  size_t leading_spaces
+                    = strspn (t->text, whitespace_chars);
+                  if (leading_spaces < t->end)
+                    {
+                      size_t remaining = t->end - leading_spaces;
+                      char *tmp
+                        = strndup (t->text + leading_spaces,
+                                   remaining);
+                      text_reset (t);
+                      text_append_n (t, tmp, remaining);
+                      free (tmp);
                       break;
+                    }
+                  else
+                    text_reset (t);
+                }
+              else
+                {
+                  add_(pending_text) (&result, *pending_text);
+                  pending_text->anchor = 0;
+                }
+            }
+          for (j = line->number; j > 0; j--)
+            {
+              PENDING_TEXT *pending_text = &line->list[j -1];
+              if (!pending_text->anchor)
+                {
+                  TEXT *t = &pending_text->text;
+                  if (t->end > 0)
+                    {
+                      size_t l;
+                      for (l = t->end; l > 0; l--)
+                        {
+                          if (strchr (whitespace_chars,
+                                      t->text[l-1]))
+                            {
+                              t->text[l-1] = '\0';
+                              t->end--;
+                            }
+                          else
+                            break;
+                        }
+                      if (t->end > 0)
+                        break;
+                    }
+                }
+              else
+                {
+                  add_(const_element) (&trailing_anchors, pending_text->anchor);
+                  pending_text->anchor = 0;
+                }
+            }
+
+          size_t line_width = pending_texts_width (line);
+
+          if (line_width > 0)
+            {
+              int prepended_spaces = compute_spaces_align_line (line_width,
+                                                 max_column, direction, 0);
+              if (prepended_spaces > 0)
+                {
+                  int l;
+                  PENDING_TEXT new_pending_text = { 0 };
+                  text_init (&new_pending_text.text);
+                  for (l = 0; l < prepended_spaces; l++)
+                    text_append_n (&new_pending_text.text, " ", 1);
+                  add_(pending_text) (&result, new_pending_text);
+                }
+              for (j = 0; j < line->number; j++)
+                {
+                  PENDING_TEXT *pending_text = &line->list[j];
+                  if (!pending_text->anchor)
+                    {
+                      if (pending_text->text.end > 0)
+                        {
+                          add_(pending_text) (&result, *pending_text);
+                          memset (&pending_text->text, 0, sizeof (TEXT));
+                        }
+                    }
+                  else
+                    {
+                      add_(pending_text) (&result, *pending_text);
+                      pending_text->anchor = 0;
                     }
                 }
             }
-          if (line_width == 0)
+          if (trailing_anchors.number > 0)
             {
-              text_append_n (&result, "\n", 1);
-              line_bytes_end += 1;
-            }
-          else
-            {
-              const char *q = p + removed_line_bytes_begin;
-              int string_len = line_len - removed_line_bytes_begin
-                                                  - removed_line_bytes_end;
-              char *string = strndup (q, string_len);
-              line_width = string_width_multibyte (string);
-              free (string);
-              int prepended_spaces
-               = compute_spaces_align_line (line_width, max_column,
-                                            direction, 0);
-              for (j = 0; j < prepended_spaces; j++)
-                text_append_n (&result, " ", 1);
-              text_append_n (&result, q, string_len);
-              text_append_n (&result, "\n", 1);
-              line_bytes_begin += prepended_spaces;
-              line_bytes_end += 1;
+              for (j = trailing_anchors.number; j > 0; j--)
+                {
+                  PENDING_TEXT pending_text = { 0 };
+                  pending_text.anchor = trailing_anchors.list[j - 1];
+                  add_(pending_text) (&result, pending_text);
+                }
+              trailing_anchors.number = 0;
             }
         }
       else
         {
-          char *line_str = 0;
-          int line_width;
-          const char *line_for_width;
-
-          if (*(p + line_len) == '\n')
+          for (j = line->number; j > 0; j--)
             {
-              line_len++;
-              line_str = strndup (p, line_len);
-              line_for_width = line_str;
+              PENDING_TEXT *pending_text = &line->list[j -1];
+              if (!pending_text->anchor)
+                {
+                  TEXT *t = &pending_text->text;
+                  if (t->end > 0)
+                    {
+                      if (t->text[t->end -1] == '\n')
+                        {
+                          t->text[t->end -1] = '\0';
+                          t->end--;
+                        }
+                      break;
+                    }
+                }
             }
-          else
-            line_for_width = p;
-
-          line_width = string_width_multibyte (line_for_width);
-
-          free (line_str);
-
+          int line_width = pending_texts_width (line);
           image_lines_count++;
           int prepended_spaces = image_prepended_spaces;
      /* adjust if there is something else that the image on the first or
@@ -1886,13 +2120,17 @@ align_lines (CONVERTER *self, const char *text_encoded, int max_column,
               && line_width > image->image_width)
             {
               prepended_spaces -= line_width - image->image_width;
-              if (prepended_spaces < 0)
-                prepended_spaces = 0;
-              for (j = 0; j < prepended_spaces; j++)
-                text_append_n (&result, " ", 1);
-              text_append_n (&result, p, line_len);
-              line_bytes_begin += prepended_spaces;
             }
+          if (prepended_spaces > 0)
+            {
+              PENDING_TEXT spaces = { 0 };
+              text_init (&spaces.text);
+              int l;
+              for (l = 0; l < prepended_spaces; l++)
+                text_append_n (&spaces.text, " ", 1);
+              add_(pending_text) (&result, spaces);
+            }
+          merge_pending_texts (&result, line);
           if (new_image)
             {
               image = new_image;
@@ -1905,26 +2143,13 @@ align_lines (CONVERTER *self, const char *text_encoded, int max_column,
               image_prepended_spaces = -1;
             }
         }
-      if (line_info.list[line_index].locations.number)
-        {
-          size_t i;
-          for (i = 0; i < line_info.list[line_index].locations.number; i++)
-            {
-              TARGET_LOCATION *location
-                = line_info.list[line_index].locations.list[i];
-              location->bytes += line_bytes_begin - removed_line_bytes_begin
-                                 + delta_bytes;
-            }
-          line_info.list[line_index].locations.number = 0;
-        }
-      delta_bytes += line_bytes_begin + line_bytes_end
-                     - removed_line_bytes_begin - removed_line_bytes_end;
-
-      p += line_len;
-      if (!*p)
-        break;
+      PENDING_TEXT new_nl = { 0 };
+      text_init (&new_nl.text);
+      text_append_n (&new_nl.text, "\n", 1);
+      add_(pending_text) (&result, new_nl);
       line_index++;
     }
+  free (pending_text_lines.list);
 
   /* not sure that it can happen as the lines should have been collected
      in the same count context, but be safe */
@@ -1932,19 +2157,16 @@ align_lines (CONVERTER *self, const char *text_encoded, int max_column,
     {
       for (; line_index <= max_lines; line_index++)
         {
-          if (line_info.list[line_index].locations.number)
-            line_info.list[line_index].locations.number = 0;
-
-          if (line_info.list[line_index].images.number)
-            line_info.list[line_index].images.number = 0;
+          if (line_info.list[line_index].number)
+            line_info.list[line_index].number = 0;
         }
     }
 
-  return result.text;
+  return result;
 }
 
-static char *
-align_environment (CONVERTER *self, const char *text_encoded, int max,
+static PENDING_TEXT_LIST
+align_environment (CONVERTER *self, int max,
                    enum align_directions direction)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
@@ -1954,9 +2176,9 @@ align_environment (CONVERTER *self, const char *text_encoded, int max,
     = &self_plaintext->count_context.list[
                          self_plaintext->count_context.number -2];
 
-  char *result = align_lines (self, text_encoded, max, direction,
-                        &count_context->target_locations,
-                        &count_context->images);
+  PENDING_TEXT_LIST result
+    = align_lines (self, max, direction, &count_context->pending_text,
+                   &count_context->images);
 
   update_locations_counts (self, parent_count_context, count_context);
 
@@ -1964,6 +2186,60 @@ align_environment (CONVERTER *self, const char *text_encoded, int max,
 
   pop_count_context (&self_plaintext->count_context);
   return result;
+}
+
+static void
+section_element_heading (CONVERTER *self, const ELEMENT *section_element,
+                         ELEMENT *heading_element, int numbered,
+                         PENDING_TEXT_COUNT_LINE_COUNT *section_text)
+{
+  const char *section_number
+   = lookup_extra_string (section_element, AI_key_section_heading_number);
+  int numbered_section = (section_number && numbered);
+  int status;
+  int section_level = lookup_extra_integer (section_element,
+                                       AI_key_section_level, &status);
+  ELEMENT *heading_e = new_element (ET__frenchspacing);
+  ELEMENT *section_title_tree;
+
+  if (numbered_section)
+    {
+      NAMED_STRING_ELEMENT_LIST *replaced_substrings
+        = new_named_string_element_list ();
+      ELEMENT *e_number = new_text_element (ET_normal_text);
+      ELEMENT *section_title_copy = copy_element_tree (heading_element, 0);
+      add_to_contents_as_array (heading_e, section_title_copy);
+
+      add_element_to_named_string_element_list (
+                          replaced_substrings, "section_title",
+                          heading_e);
+      text_append (e_number->e.text, section_number);
+      add_element_to_named_string_element_list (
+                          replaced_substrings, "number", e_number);
+
+      if (section_element->e.c->cmd == CM_appendix && section_level == 1)
+          section_title_tree
+              = cdt_tree ("Appendix {number} {section_title}",
+                                  self, replaced_substrings, 0);
+      else
+        section_title_tree = cdt_tree ("{number} {section_title}",
+                                         self, replaced_substrings, 0);
+
+      destroy_named_string_element_list (replaced_substrings);
+    }
+  else
+   {
+     section_title_tree = heading_e;
+     add_to_contents_as_array (section_title_tree, heading_element);
+   }
+
+  plaintext_convert_line_new_context (self, section_title_tree,
+                                                  -1, -1, -1, -1,
+                                                  section_text);
+  if (numbered_section)
+    destroy_element_and_children (section_title_tree);
+  else
+    destroy_element (section_title_tree);
 }
 
 void
@@ -2005,15 +2281,10 @@ plaintext_format_contents (CONVERTER *self, SECTIONING_ROOT *sectioning_root,
           const ELEMENT *section = section_relations->element;
           const ELEMENT *arguments_line = section->e.c->contents.list[0];
           ELEMENT *line_arg = arguments_line->e.c->contents.list[0];
-          ELEMENT *section_title_tree;
-          ELEMENT *section_title_element = new_element (ET__frenchspacing);
-          int numbered_section;
           int status;
           int section_level = lookup_extra_integer (section,
                                        AI_key_section_level, &status);
-          const char *section_number
-           = lookup_extra_string (section, AI_key_section_heading_number);
-          STRING_COUNT_LINE_COUNT section_text;
+          PENDING_TEXT_COUNT_LINE_COUNT section_text;
 
           int repeat_count = 2 * (section_level - (root_level+1));
           if (repeat_count > 0)
@@ -2023,52 +2294,16 @@ plaintext_format_contents (CONVERTER *self, SECTIONING_ROOT *sectioning_root,
                 stream_output (self, " ");
             }
 
-          numbered_section = (section_number
-             && self->conf->NUMBER_SECTIONS.o.integer != 0);
+          section_element_heading (self, section, line_arg,
+                            self->conf->NUMBER_SECTIONS.o.integer != 0,
+                            &section_text);
 
-          if (numbered_section)
-            {
-              NAMED_STRING_ELEMENT_LIST *replaced_substrings
-                = new_named_string_element_list ();
-              ELEMENT *e_number = new_text_element (ET_normal_text);
-              ELEMENT *section_title_copy = copy_element_tree (line_arg, 0);
-
-              add_element_to_named_string_element_list (
-                          replaced_substrings, "section_title",
-                          section_title_copy);
-              text_append (e_number->e.text, section_number);
-              add_element_to_named_string_element_list (
-                          replaced_substrings, "number", e_number);
-
-              if (section->e.c->cmd == CM_appendix && section_level == 1)
-                  section_title_tree
-                      = cdt_tree ("Appendix {number} {section_title}",
-                                  self, replaced_substrings, 0);
-              else
-                section_title_tree = cdt_tree ("{number} {section_title}",
-                                             self, replaced_substrings, 0);
-
-              destroy_named_string_element_list (replaced_substrings);
-            }
-          else
-            section_title_tree = line_arg;
-
-          add_to_contents_as_array (section_title_element,
-                                    section_title_tree);
-
-          plaintext_convert_line_new_context (self, section_title_element,
-                                                  -1, -1, -1, -1,
-                                                  &section_text);
-          if (numbered_section)
-            destroy_element_and_children (section_title_element);
-          else
-            destroy_element (section_title_element);
-
-          stream_output (self, section_text.string);
-          if (section_text.string[strlen (section_text.string) -1] != '\n')
+          char *text = pending_to_text (&section_text.pending_text);
+          stream_output (self, text);
+          if (text[strlen (text) -1] != '\n')
             stream_output (self, "\n");
           lines_count++;
-          free (section_text.string);
+          free (text);
 
           if (section_relations->section_children
               && section_relations->section_children->number > 0
@@ -2384,14 +2619,11 @@ plaintext_process_printindex (CONVERTER *self,
         }
 
       /* Convert entry text in a new context in order to capture result. */
-      add_(count_context) (&self_plaintext->count_context, new_count_context);
-      /* TODO
-        $self->{'count_context'}->[-1]->{'encoding_disabled'} = 1;
-       */
+      push_count_context (&self_plaintext->count_context, new_count_context);
       convert_to_plaintext_internal (self, entry_tree_element);
       end_result = para_end ();
       stream_output_count_nl (self, end_result);
-      entry_text = stream_yield_result (self);
+      entry_text = stream_to_text (self);
       pop_count_context (&self_plaintext->count_context);
 
       if (entry_text[strspn (entry_text, whitespace_chars)] == '\0')
@@ -2539,20 +2771,36 @@ plaintext_process_printindex (CONVERTER *self,
              it is likely that there is more than one such entry */
           if (!self_plaintext->outside_of_any_node_text)
             {
+              self_plaintext->outside_of_any_node_text
+                = (PENDING_TEXT_LIST *) malloc (sizeof (PENDING_TEXT_LIST));
               ELEMENT *tree = cdt_tree ("(outside of any node)",
                                         self, 0 ,0);
-              STRING_COUNT_LINE_COUNT node_text;
+              PENDING_TEXT_COUNT_LINE_COUNT node_text;
               plaintext_convert_line_new_context (self, tree,
                                                   -1, -1, -1, -1,
                                                   &node_text);
 
-              self_plaintext->outside_of_any_node_text = node_text.string;
+              *self_plaintext->outside_of_any_node_text
+                 = node_text.pending_text;
               self_plaintext->outside_of_any_node_text_width
                  = node_text.width;
 
               destroy_element_and_children (tree);
             }
-          stream_output (self, self_plaintext->outside_of_any_node_text);
+          COUNT_CONTEXT *count_context
+             = top_(count_context) (&self_plaintext->count_context);
+          PENDING_TEXT_LIST *pending_texts = &count_context->pending_text;
+          size_t i;
+          for (i = 0; i < self_plaintext->outside_of_any_node_text->number;
+               i++)
+            {
+              PENDING_TEXT *pending_text
+                = &self_plaintext->outside_of_any_node_text->list[i];
+              PENDING_TEXT pending_text_copy = { 0 };
+              text_append_n (&pending_text_copy.text, pending_text->text.text,
+                             pending_text->text.end);
+              add_(pending_text) (pending_texts, pending_text_copy);
+            }
           line_width += self_plaintext->outside_of_any_node_text_width;
     /* TODO when outside of sectioning commands this message was already
        done by the Parser.
@@ -2646,11 +2894,11 @@ plaintext_process_printindex (CONVERTER *self,
             }
 
           if (quoting_required)
-            stream_output_encoded (self, node_quote);
-          stream_output_encoded (self, node_name.string);
+            stream_output (self, node_quote);
+          stream_output (self, node_name.string);
           line_width += node_name.width;
           if (quoting_required)
-            stream_output_encoded (self, node_quote);
+            stream_output (self, node_quote);
 
           free (node_name.string);
         }
@@ -3280,15 +3528,49 @@ plaintext_insert_image (CONVERTER *self, const char *image_file,
   result->line_count = line_count;
 }
 
+static int
+pending_is_spaces (const PENDING_TEXT_LIST *pending_texts)
+{
+  size_t i;
+
+  for (i = 0; i < pending_texts->number; i++)
+    {
+      const PENDING_TEXT *pending_text = &pending_texts->list[i];
+      if (!pending_text->anchor)
+        {
+          if (strspn (pending_text->text.text, whitespace_chars)
+                                             != pending_text->text.end)
+            return 0;
+        }
+    }
+  return 1;
+}
+
+static int
+pending_is_empty (const PENDING_TEXT_LIST *pending_texts)
+{
+  size_t i;
+
+  for (i = 0; i < pending_texts->number; i++)
+    {
+      const PENDING_TEXT *pending_text = &pending_texts->list[i];
+      if (!pending_text->anchor)
+        {
+          if (pending_text->text.end != 0)
+            return 0;
+        }
+    }
+  return 1;
+}
+
 static const char * const underline_symbol[] = {"*", "*", "=", "-", "."};
 
-static char *
+static PENDING_TEXT_LIST
 text_heading (CONVERTER *self, const ELEMENT *current,
               const ELEMENT *heading_element, int numbered,
-              int indented_len)
+              int indented_len, int no_last_new_line)
 {
-  STRING_COUNT_LINE_COUNT section_text;
-  ELEMENT *frenchspacing_e = new_element (ET__frenchspacing);
+  PENDING_TEXT_COUNT_LINE_COUNT section_text;
   int section_level_status;
   int sec_level
     = lookup_extra_integer (current, AI_key_section_level,
@@ -3296,43 +3578,30 @@ text_heading (CONVERTER *self, const ELEMENT *current,
   int k;
   int columns;
 
-  int debug_level = 0;
-  if (self->conf->DEBUG.o.integer > 0)
-    debug_level = self->conf->DEBUG.o.integer;
-
   /* cast to drop const */
-  add_to_contents_as_array (frenchspacing_e, (ELEMENT *)heading_element);
+  section_element_heading (self, current, (ELEMENT *)heading_element, numbered,
+                           &section_text);
 
-  plaintext_convert_line_new_context (self, frenchspacing_e,
-                                                  -1, -1, -1, -1,
-                                                  &section_text);
-  destroy_element (frenchspacing_e);
-
-  char *text = add_heading_number (current, section_text.string,
-                                   numbered, self->current_lang_translations,
-                                   debug_level);
-
-  free (section_text.string);
-
-  columns = string_width_multibyte (text);
-
-  if (text[strspn (text, whitespace_chars)] == '\0')
+  if (pending_is_spaces (&section_text.pending_text))
     {
-      free (text);
-      return 0;
+      PENDING_TEXT_LIST result = { 0 };
+      return result;
     }
 
-  TEXT result;
-  text_init (&result);
+  PENDING_TEXT_LIST result = section_text.pending_text;
 
-  text_append (&result, text);
-  free (text);
-  text_append_n (&result, "\n", 1);
+  PENDING_TEXT added_nl = { 0 };
+  text_append_n (&added_nl.text, "\n", 1);
+  add_(pending_text) (&result, added_nl);
+
+  columns = section_text.width;
 
   if (indented_len > 0)
     {
+      PENDING_TEXT spaces = { 0 };
       for (k = 0; k < indented_len; k++)
-        text_append_n (&result, " ", 1);
+        text_append_n (&spaces.text, " ", 1);
+      add_(pending_text) (&result, spaces);
     }
   else
     indented_len = 0;
@@ -3342,11 +3611,16 @@ text_heading (CONVERTER *self, const ELEMENT *current,
 
   const char *underline_char = underline_symbol[sec_level];
 
-  for (k = 0; k < columns - indented_len; k++)
-    text_append_n (&result, underline_char, 1);
-  text_append_n (&result, "\n", 1);
+  PENDING_TEXT underlined_text = { 0 };
 
-  return result.text;
+  for (k = 0; k < columns - indented_len; k++)
+    text_append_n (&underlined_text.text, underline_char, 1);
+
+  if (!no_last_new_line)
+    text_append_n (&underlined_text.text, "\n", 1);
+
+  add_(pending_text) (&result, underlined_text);
+  return result;
 }
 
 static char *
@@ -3688,67 +3962,6 @@ convert_def_line (CONVERTER *self, const ELEMENT *element)
       TEXT_CONTEXT *text_element_context
        = top_(text_element_context) (&self_plaintext->text_element_context);
       text_element_context->counter = 0;
-    }
-}
-
-typedef struct LINE_TARGET {
-    TARGET_LOCATION_LIST locations;
-} LINE_TARGET;
-
-typedef struct LINE_TARGET_LIST {
-     size_t space;
-     LINE_TARGET *list;
-} LINE_TARGET_LIST;
-
-static void
-reallocate_line_target_for (LINE_TARGET_LIST *list, size_t n)
-{
-  if (list->space < n)
-    {
-      size_t new_space = n + 5;
-      list->list = realloc (list->list, new_space * sizeof (LINE_TARGET));
-      if (!list->list)
-        fatal ("realloc failed");
-
-      memset (&list->list[list->space], 0, (new_space - list->space)
-                               * sizeof (LINE_TARGET));
-      list->space = new_space;
-    }
-}
-
-/* list (one per cell) of LINE_TARGET_LIST (one list per line) */
-typedef struct CELLS_LINE_TARGET {
-    /* index corresponds to cell index in rows */
-    LINE_TARGET_LIST *list;
-    size_t space;
-} CELLS_LINE_TARGET;
-
-static void
-reallocate_cells_line_target_for (CELLS_LINE_TARGET *list,
-                                  int **cell_beginnings,
-                                  STRING_LIST **cell_lines, size_t n)
-{
-  if (list->space < n)
-    {
-      size_t new_space = n;
-      list->list = realloc (list->list, new_space * sizeof (LINE_TARGET_LIST));
-      if (!list->list)
-        fatal ("realloc failed");
-      memset (&list->list[list->space], 0, (new_space - list->space)
-                               * sizeof (LINE_TARGET_LIST));
-
-      *cell_beginnings = (int *) realloc (*cell_beginnings, sizeof (int) * n);
-      if (!*cell_beginnings)
-        fatal ("realloc failed");
-
-      *cell_lines = (STRING_LIST *) realloc (*cell_lines,
-                                             sizeof (STRING_LIST) * n);
-      if (!*cell_lines)
-        fatal ("realloc failed");
-      memset (&(*cell_lines[list->space]), 0, (new_space - list->space)
-                             * sizeof (STRING_LIST));
-
-      list->space = new_space;
     }
 }
 
@@ -4236,29 +4449,31 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 }
 
               if (element->e.c->contents.number != 0)
-                convert_to_plaintext_internal (self,
-                                               element->e.c->contents.list[0]);
-
-              if (cmd == CM_strong
-                  && element->e.c->contents.list[0]->e.c->contents.number > 0
-                  && self_plaintext->warn_strong_note
-                  && !self_plaintext->silent)
                 {
-                  const ELEMENT *strong_arg
-                   = element->e.c->contents.list[0]->e.c->contents.list[0];
-                  if (type_data[strong_arg->type].flags & TF_text
-                      && strong_arg->e.text->end >= 5
-                      && !strncasecmp (strong_arg->e.text->text, "Note", 4)
-                      && strchr (whitespace_chars,
-                                 *(strong_arg->e.text->text +4)))
-                    {
-                      message_list_command_warn (&self->error_messages,
-                          (self->conf && self->conf->DEBUG.o.integer > 0),
-                           element, 0,
-    "@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that");
-                    }
-               }
+                  const ELEMENT *brace_container
+                            = element->e.c->contents.list[0];
+                  convert_to_plaintext_internal (self, brace_container);
 
+                  if (cmd == CM_strong
+                      && brace_container->e.c->contents.number > 0
+                      && self_plaintext->warn_strong_note
+                      && !self_plaintext->silent)
+                    {
+                      const ELEMENT *strong_arg
+                        = brace_container->e.c->contents.list[0];
+                      if (type_data[strong_arg->type].flags & TF_text
+                          && strong_arg->e.text->end >= 5
+                          && !strncasecmp (strong_arg->e.text->text, "Note", 4)
+                          && strchr (whitespace_chars,
+                                 *(strong_arg->e.text->text +4)))
+                        {
+                          message_list_command_warn (&self->error_messages,
+                              (self->conf && self->conf->DEBUG.o.integer > 0),
+                               element, 0,
+    "@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that");
+                        }
+                    }
+                }
               if (text_after)
                 {
                   TEXT added = para_add_next (text_after,
@@ -4807,7 +5022,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   if (element_image->filename)
                     {
                       COUNT_CONTEXT count_context = { 0 };
-                      /* TODO 'encoding_disabled' => 1, */
 
                       /* flush before @math, including spaces */
                       const char *pending_word = para_add_pending_word (1);
@@ -4818,7 +5032,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                       para_add_next ("", 0, 0);
 
            /* math rendered as an image, push a count to capture content */
-                      add_(count_context) (&self_plaintext->count_context,
+                      push_count_context (&self_plaintext->count_context,
                                            count_context);
                     }
                 }
@@ -4840,20 +5054,20 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               if (element_image && element_image->filename)
                 {
                   STRING_LINE_COUNT image_result;
-                  char *result;
+                  char *math_text;
                    /* flush @math, including spaces */
                   const char *pending_word = para_add_pending_word (1);
                   stream_output_count_nl (self, pending_word);
 
-                  result = stream_yield_result (self);
+                  math_text = stream_to_text (self);
 
                   pop_count_context (&self_plaintext->count_context);
 
                   plaintext_insert_image (self, element_image->filename,
-                             result,
+                             math_text,
                              element_image->dpi, element_image->depth,
                              &image_result);
-                  free (result);
+                  free (math_text);
                   add_lines_count (self, image_result.line_count);
                   stream_output (self, image_result.string);
                   free (image_result.string);
@@ -4874,16 +5088,13 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   add_extra_integer (titlefont_with_level,
                                      AI_key_section_level, 0);
 
-                  char *result = text_heading (self, titlefont_with_level,
+                  PENDING_TEXT_LIST result
+                                 = text_heading (self, titlefont_with_level,
                                        element->e.c->contents.list[0],
                                 self->conf->NUMBER_SECTIONS.o.integer,
-                                top_format_context->context_indent_len);
-                  size_t len = strlen (result);
-                  if (result[len -1] == '\n')
-                    result[len -1] = '\0';
-                  stream_output (self, result);
+                                top_format_context->context_indent_len, 1);
+                  merge_pending_with_parent (self, &result);
                   add_lines_count (self, 1);
-                  free (result);
                   destroy_element (titlefont_with_level);
                 }
               return;
@@ -5102,11 +5313,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                       if (element_image->filename)
                         {
                           COUNT_CONTEXT count_context = { 0 };
-                          /* TODO 'encoding_disabled' => 1, */
-
           /* displaymath rendered as an image, push a count to capture
              formatted content */
-                         add_(count_context) (&self_plaintext->count_context,
+                          push_count_context (&self_plaintext->count_context,
                                                         count_context);
                         }
                     }
@@ -5125,6 +5334,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               ELEMENT *block_line_arg = arguments_line->e.c->contents.list[0];
               if (!empty_spaces_argument (block_line_arg))
                 {
+                  /* TODO why a separate count context? */
                   COUNT_CONTEXT *count_context
                     = top_(count_context) (&self_plaintext->count_context);
                   ELEMENT *prepended;
@@ -5132,7 +5342,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                     = new_named_string_element_list ();
                   ELEMENT *quotation_arg_copy
                                = copy_element_tree (block_line_arg, 0);
-                  STRING_COUNT_LINE_COUNT quotation_arg_counts;
+                  PENDING_TEXT_COUNT_LINE_COUNT quotation_arg_counts;
 
                   add_element_to_named_string_element_list (
                                    replaced_substrings, "quotation_arg",
@@ -5146,15 +5356,17 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   plaintext_convert_line_new_context (self, prepended,
                                                   -1, -1, -1, -1,
                                                   &quotation_arg_counts);
-                  stream_output (self, quotation_arg_counts.string);
+                  merge_pending_with_parent (self,
+                                        &quotation_arg_counts.pending_text);
 
+                  count_context
+                    = top_(count_context) (&self_plaintext->count_context);
                   count_context->lines += quotation_arg_counts.line_count;
                   TEXT_CONTEXT *text_element_context
                     = top_(text_element_context) (
                                     &self_plaintext->text_element_context);
                   text_element_context->counter += quotation_arg_counts.width;
 
-                  free (quotation_arg_counts.string);
                   destroy_element_and_children (prepended);
                   destroy_named_string_element_list (replaced_substrings);
                 }
@@ -5214,12 +5426,12 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                               int column_size = 0;
                               if (content->e.c->contents.number)
                                 {
-                                  STRING_COUNT_LINE_COUNT prototype;
+                                  PENDING_TEXT_COUNT_LINE_COUNT prototype;
                                   plaintext_convert_line_new_context (self,
                                                 content, 0, -1, -1, -1,
                                                   &prototype);
                                   column_size = prototype.width;
-                                  free (prototype.string);
+                                  /* TODO free prototype.pending_text */
                                 }
                               top_format_context->columns_size[columns_size_nr]
                                 = column_size +2;
@@ -5320,20 +5532,20 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           over one line */
               FORMAT_CONTEXT *top_format_context
                 = top_(format_context) (&self_plaintext->format_context);
-              char *heading_underlined
+              PENDING_TEXT_LIST heading_underlined
                 = text_heading (self, element, heading_element,
                                 self->conf->NUMBER_SECTIONS.o.integer,
-                                top_format_context->context_indent_len);
+                                top_format_context->context_indent_len, 0);
+              int empty_heading = pending_is_empty (&heading_underlined);
 
               add_newline_if_needed (self);
-              stream_output (self, heading_underlined);
+              merge_pending_with_parent (self, &heading_underlined);
 
-              if (strcmp (heading_underlined, ""))
+              if (! empty_heading)
                 {
                   add_lines_count (self, 2);
                   add_newline_if_needed (self);
                 }
-              free (heading_underlined);
             }
           FORMAT_CONTEXT *top_format_context
             = top_(format_context) (&self_plaintext->format_context);
@@ -5457,7 +5669,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           text_element_context.max = cell_width - 2;
           add_(text_element_context) (&self_plaintext->text_element_context,
                                       text_element_context);
-          add_(count_context) (&self_plaintext->count_context,
+          push_count_context (&self_plaintext->count_context,
                                count_context);
           cell = 1;
         }
@@ -5468,10 +5680,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         }
       else if (cmd == CM_center)
         {
-          stream_byte_count (self);
           COUNT_CONTEXT count_context = { 0 };
-          add_(count_context) (&self_plaintext->count_context,
-                               count_context);
+          push_count_context (&self_plaintext->count_context,
+                              count_context);
 
           ELEMENT *line_arg = element->e.c->contents.list[0];
           if (line_arg->e.c->contents.number)
@@ -5483,18 +5694,18 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             }
 
           ensure_end_of_line (self);
-          const char *initial_result = stream_result (self);
-
-          if (strcmp (initial_result, ""))
+          COUNT_CONTEXT *top_count_context
+           = top_(count_context) (&self_plaintext->count_context);
+          if (! pending_is_empty (&top_count_context->pending_text))
             {
               TEXT_CONTEXT *text_element_context
                 = top_(text_element_context) (
                          &self_plaintext->text_element_context);
-              char *result = align_environment (self, initial_result,
+              PENDING_TEXT_LIST result
+                           = align_environment (self,
                                                 text_element_context->max,
                                                 AD_center);
-               stream_output_encoded (self, result);
-               free (result);
+              merge_pending_with_parent (self, &result);
             }
           else
      /* it has to be done here, as it is done in _align_environment above */
@@ -5877,9 +6088,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
           if (context_cmd == CM_flushright)
             {
-              stream_byte_count (self);
               COUNT_CONTEXT count_context = { 0 };
-              add_(count_context) (&self_plaintext->count_context,
+              push_count_context (&self_plaintext->count_context,
                                    count_context);
             }
         }
@@ -5900,9 +6110,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
               if (context_cmd == CM_flushright)
                 {
-                  stream_byte_count (self);
                   COUNT_CONTEXT count_context = { 0 };
-                  add_(count_context) (&self_plaintext->count_context,
+                  push_count_context (&self_plaintext->count_context,
                                        count_context);
                 }
             }
@@ -5935,7 +6144,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   char *node_text;
                   int node_quoting_required = 0;
 
-                  /* TODO 'encoding_disabled' => 1 */
                   COUNT_CONTEXT count_context = { 0 };
 
                   menu_entry_node = content;
@@ -5945,7 +6153,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   formatter->suppress_styles = 1;
                   formatter->no_added_eol = 1;
 
-                  add_(count_context) (&self_plaintext->count_context,
+                  push_count_context (&self_plaintext->count_context,
                                        count_context);
 
                   add_to_contents_as_array (entry_node, (ELEMENT *)content);
@@ -5956,7 +6164,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   pending_word = para_add_pending_word (1);
                   stream_output_count_nl (self, pending_word);
 
-                  node_text = stream_yield_result (self);
+                  node_text = stream_to_text (self);
                   pop_count_context (&self_plaintext->count_context);
 
                   formatter
@@ -6010,14 +6218,13 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   char *entry_name;
                   int name_quoting_required = 0;
 
-                  /* TODO 'encoding_disabled' => 1 */
                   COUNT_CONTEXT count_context = { 0 };
 
                   FORMATTER *formatter
                     = top_(formatter) (&self_plaintext->formatters);
                   formatter->no_added_eol = 1;
 
-                  add_(count_context) (&self_plaintext->count_context,
+                  push_count_context (&self_plaintext->count_context,
                                        count_context);
 
                   convert_to_plaintext_internal (self, content);
@@ -6025,7 +6232,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   pending_word = para_add_pending_word (1);
                   stream_output_count_nl (self, pending_word);
 
-                  entry_name = stream_yield_result (self);
+                  entry_name = stream_to_text (self);
                   pop_count_context (&self_plaintext->count_context);
 
                   formatter
@@ -6348,35 +6555,29 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         {
           COUNT_CONTEXT *count_context
            = top_(count_context) (&self_plaintext->count_context);
-          static CELLS_LINE_TARGET cell_updated_locations;
-          size_t i;
-          static TEXT result;
+          int i;
           FORMAT_CONTEXT *top_format
             = top_(format_context) (&self_plaintext->format_context);
           COUNT_CONTEXT row_count = { 0 };
+          int max_cell_nr = top_format->row_cell_counts.number;
      /* beginning of cell in character width based on column sizes given
         in the specification of the table. */
-          static int *cell_beginnings;
-     /* array of lines in each cell, already formatted using the max limit
-        on line length per column, for each cell. */
-          static STRING_LIST *cell_lines;
-          /* @multitable in @footnote in @multitable is not ok */
-          /* reallocate all the static data */
-          reallocate_cells_line_target_for (&cell_updated_locations,
-                                            &cell_beginnings,
-                                            &cell_lines,
-                                            top_format->row.number);
+          int *cell_beginnings = (int *) malloc (max_cell_nr * sizeof (int));
+     /* array of lines in each cell, with pending text gathered with the
+        max limit on line length per column, for each cell. */
+          PENDING_TEXT_LIST_LINES *cell_lines
+            = (PENDING_TEXT_LIST_LINES *) malloc (max_cell_nr
+                                    * sizeof (PENDING_TEXT_LIST_LINES));
+          memset (cell_lines, 0, max_cell_nr
+                                  * sizeof (PENDING_TEXT_LIST_LINES));
           int cell_beginning = 0;
      /* number maximum of line for the cells in this row */
           int max_lines = 0;
           int indent_len = top_format->context_indent_len;
-          static TEXT row_result;
-          text_reset (&row_result);
+          PENDING_TEXT_LIST *result = &count_context->pending_text;
 
-          for (i = 0; i < top_format->row.number; i++)
+          for (i = 0; i < max_cell_nr; i++)
             {
-              const char *cell_text = top_format->row.list[i];
-              const char *p = cell_text;
               cell_beginnings[i] = cell_beginning;
               int cell_width;
               int cell_idx = i;
@@ -6385,75 +6586,41 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               else
                 cell_width = 2;
               cell_beginning += cell_width + 1;
-              while (*p)
-                {
-                  size_t line_len = strcspn (p, "\n");
-                  int has_eol = 0;
-                  if (*(p + line_len) == '\n')
-                    has_eol = 1;
-                  text_reset (&result);
-                  text_append_n (&result, p, line_len);
-                  /* store without end of lines */
-                  add_string (&cell_lines[i], result.text);
-                  p += line_len + has_eol;
-                }
+
+              size_t j;
+              COUNT_CONTEXT *cell_locations
+                = &top_format->row_cell_counts.list[i];
+              for (j = 0; j < cell_locations->index_entry_locations.number;
+                          j++)
+                add_(index_entry_location) (&row_count.index_entry_locations,
+                          cell_locations->index_entry_locations.list[j]);
+
+              free (cell_locations->index_entry_locations.list);
+
+              collect_pending_texts_lines (&cell_lines[i],
+                                           &cell_locations->pending_text);
+
               int cell_lines_nr = cell_lines[i].number;
               if (cell_lines_nr > max_lines)
                 max_lines = cell_lines_nr;
             }
 
-          for (i = 0; i < top_format->row.number; i++)
-            {
-              COUNT_CONTEXT *cell_locations
-                = &top_format->row_cell_counts.list[i];
-              LINE_TARGET_LIST *cell_line_targets
-                = &cell_updated_locations.list[i];
-              reallocate_line_target_for (cell_line_targets, max_lines);
-              size_t j;
-              for (j = 0; j < cell_locations->target_locations.number; j++)
-                {
-                  TARGET_LOCATION *location
-                    = cell_locations->target_locations.list[j];
-                  if (location->lines + 1 > max_lines)
-                    {
-                      size_t l;
-                      max_lines = location->lines + 1;
-                      for (l = 0; l <= j; l++)
-                        reallocate_line_target_for (
-                         &cell_updated_locations.list[l], max_lines);
-                    }
-                  add_(target_location) (
-                     &cell_line_targets->list[location->lines].locations,
-                                         location);
-                  add_(target_location) (&row_count.target_locations, location);
-                }
-              for (j = 0; j < cell_locations->index_entry_locations.number;
-                          j++)
-                add_(index_entry_location) (&row_count.index_entry_locations,
-                          cell_locations->index_entry_locations.list[j]);
-              free (cell_locations->target_locations.list);
-              free (cell_locations->index_entry_locations.list);
-            }
-     /* this is used to keep track of the last cell with content. */
-          int max_cell_nr = top_format->row.number;
-          int bytes_count = 0;
           int line_idx;
           for (line_idx = 0; line_idx < max_lines; line_idx++)
             {
               int k;
-              text_reset (&result);
-              text_append (&result, "");
               int line_width = indent_len;
               int cell_idx;
+              int indent_done = 0;
+              if (indent_len == 0)
+                indent_done = 1;
               /*
                determine the last cell index in the line, to fill spaces in
                cells preceding that cell on the line */
               int last_cell = 0;
               for (cell_idx = 0; cell_idx < max_cell_nr; cell_idx++)
                 {
-                  if (cell_lines[cell_idx].number >= (unsigned int)line_idx +1
-                      || cell_updated_locations.list[cell_idx]
-                                   .list[line_idx].locations.number > 0)
+                  if (cell_lines[cell_idx].number >= (unsigned int)line_idx +1)
                      last_cell = cell_idx+1;
                 }
 
@@ -6461,29 +6628,59 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 {
                   if (cell_lines[cell_idx].number >= (unsigned int)line_idx +1)
                     {
-                      const char *cell_text
-                        = cell_lines[cell_idx].list[line_idx];
-                      int cell_len = strlen (cell_text);
-                      if (result.end == 0 && cell_len != 0)
+                      PENDING_TEXT_LIST *cell_line
+                        = &cell_lines[cell_idx].list[line_idx];
+                      size_t j;
+                      for (j = cell_line->number; j > 0; j--)
                         {
-                          for (k = 0; k < indent_len; k++)
-                            text_append_n (&result, " ", 1);
-                          bytes_count += indent_len;
+                          PENDING_TEXT *pending_text = &cell_line->list[j -1];
+                          if (!pending_text->anchor)
+                            {
+                              TEXT *t = &pending_text->text;
+                              if (t->end > 0)
+                                {
+                                  if (t->text[t->end -1] == '\n')
+                                    {
+                                      t->text[t->end -1] = '\0';
+                                      t->end--;
+                                    }
+                                  break;
+                                }
+                            }
                         }
-                      text_append_n (&result, cell_text, cell_len);
-                      bytes_count += cell_len;
-                      line_width += string_width_multibyte (cell_text);
-                    }
-                  if (cell_updated_locations.list[cell_idx]
-                                   .list[line_idx].locations.number > 0)
-                    {
-                      TARGET_LOCATION_LIST *locations
-                        = &cell_updated_locations.list[cell_idx]
-                                   .list[line_idx].locations;
-                      for (i = 0; i < locations->number; i++)
-                        locations->list[i]->bytes = bytes_count;
 
-                      locations->number = 0;
+                      for (j = 0; j < cell_line->number; j++)
+                        {
+                          PENDING_TEXT *pending_text = &cell_line->list[j];
+                          if (!pending_text->anchor)
+                            {
+                              TEXT *t = &pending_text->text;
+                              if (t->end > 0)
+                                {
+                                  if (!indent_done)
+                                    {
+                                      if (indent_len > 0)
+                                        {
+                                          PENDING_TEXT spaces = { 0 };
+                                          text_init (&spaces.text);
+                                          for (k = 0; k < indent_len; k++)
+                                            text_append_n (&spaces.text, " ", 1);
+                                          add_(pending_text) (result, spaces);
+                                          indent_done = 1;
+                                        }
+                                    }
+                                  line_width += string_width_multibyte (
+                                                                   t->text);
+                                  add_(pending_text) (result, *pending_text);
+                                  memset (t, 0, sizeof (TEXT));
+                                }
+                            }
+                          else
+                            {
+                              add_(pending_text) (result, *pending_text);
+                              pending_text->anchor = 0;
+                            }
+                        }
                     }
                   if (cell_idx+1 < last_cell)
                     {
@@ -6491,62 +6688,87 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                                     + cell_beginnings[cell_idx+1])
                         {
                           int spaces_nr;
-                          if (result.end == 0)
+                          if (!indent_done)
                             {
+                              PENDING_TEXT spaces = { 0 };
+                              text_init (&spaces.text);
                               for (k = 0; k < indent_len; k++)
-                                text_append_n (&result, " ", 1);
-                              bytes_count += indent_len;
+                                text_append_n (&spaces.text, " ", 1);
+                              add_(pending_text) (result, spaces);
+                              indent_done = 1;
                             }
                           spaces_nr = indent_len
                                          + cell_beginnings[cell_idx+1]
                                          - line_width;
-
-                          for (k = 0; k < spaces_nr; k++)
-                            text_append_n (&result, " ", 1);
+                          if (spaces_nr > 0)
+                            {
+                              PENDING_TEXT spaces = { 0 };
+                              text_init (&spaces.text);
+                              for (k = 0; k < spaces_nr; k++)
+                                text_append_n (&spaces.text, " ", 1);
+                              add_(pending_text) (result, spaces);
+                            }
                           line_width += spaces_nr;
-                          bytes_count += spaces_nr;
                         }
                     }
                 }
-              text_append_n (&result, "\n", 1);
-              bytes_count += 1;
-              text_append_n (&row_result, result.text, result.end);
+              PENDING_TEXT new_nl = { 0 };
+              text_init (&new_nl.text);
+              text_append_n (&new_nl.text, "\n", 1);
+              add_(pending_text) (result, new_nl);
             }
-
-          for (i = 0; i < top_format->row.number; i++)
-            clear_strings_list (&cell_lines[i]);
+          free (cell_beginnings);
+          free (cell_lines);
 
           if (top_format->item_command == CM_headitem)
             {
               int k;
+              PENDING_TEXT head_line = { 0 };
         /* at this point cell_beginning is at the beginning of
            the cell following the end of the table -> full width */
               for (k = 0; k < indent_len; k++)
-                text_append_n (&row_result, " ", 1);
+                text_append_n (&head_line.text, " ", 1);
               for (k = 0; k < cell_beginning; k++)
-                text_append_n (&row_result, "-", 1);
-              text_append_n (&row_result, "\n", 1);
+                text_append_n (&head_line.text, "-", 1);
+              text_append_n (&head_line.text, "\n", 1);
+              add_(pending_text) (result, head_line);
               max_lines++;
             }
           update_locations_counts (self, count_context, &row_count);
-          free (row_count.target_locations.list);
           free (row_count.index_entry_locations.list);
 
           count_context->lines += max_lines;
 
-          clear_strings_list (&top_format->row);
+          /* FIXME verify deallocation/possibility of reuse */
           top_format->row_cell_counts.number = 0;
-
-          stream_output_encoded (self, row_result.text);
         }
       else if (type == ET_before_node_section)
         {
-          const char *result;
+          TEXT result;
+          TEXT text;
+          text_init (&text);
+          text_init (&result);
 
           ensure_end_of_line (self);
-          result = stream_result (self);
+          COUNT_CONTEXT *count_context
+            = top_(count_context) (&self_plaintext->count_context);
+          PENDING_TEXT_LIST *pending_texts = &count_context->pending_text;
+          for (i = 0; i < pending_texts->number; i++)
+            {
+              PENDING_TEXT *pending_text = &pending_texts->list[i];
+              if (!pending_text->anchor)
+                {
+                  TEXT *t = &pending_text->text;
+                  text_append_n (&text, t->text, t->end);
+                }
+            }
 
-          self_plaintext->text_before_first_node = strdup (result);
+          /* TODO could be more efficient to reuse text directly if there
+             is no encoding */
+          plaintext_encode_string (self, text.text, &result);
+          free (text.text);
+
+          self_plaintext->text_before_first_node = result.text;
         }
     }
 
@@ -6561,12 +6783,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
       if (context_cmd == CM_flushright)
         {
-          const char *initial_result = stream_result (self);
-          char *result = align_environment (self, initial_result,
+          PENDING_TEXT_LIST result = align_environment (self,
                                             text_element_context->max,
                                             AD_right);
-          stream_output_encoded (self, result);
-          free (result);
+          merge_pending_with_parent (self, &result);
         }
 
       text_element_context->counter = 0;
@@ -6588,17 +6808,15 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
       if (context_cmd == CM_flushright)
         {
-          const char *initial_result = stream_result (self);
-          char *result = align_environment (self, initial_result,
+          PENDING_TEXT_LIST result = align_environment (self,
                                             text_element_context->max,
                                             AD_right);
-          stream_output_encoded (self, result);
-          free (result);
+          merge_pending_with_parent (self, &result);
         }
       else if (context_cmd == CM_displaymath
                && self_plaintext->element_images)
         {
-          char *result = stream_yield_result (self);
+          char *math_text = stream_to_text (self);
           MATH_ELEMENT_IMAGE *element_image
            = &self_plaintext->element_images->displaymath_images.list[
                 self_plaintext->element_images->displaymath_index];
@@ -6618,7 +6836,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               pop_count_context (&self_plaintext->count_context);
 
               plaintext_insert_image (self, element_image->filename,
-                             result,
+                             math_text,
                              element_image->dpi, element_image->depth,
                              &image_result);
 
@@ -6628,7 +6846,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               stream_output (self, image_result.string);
               free (image_result.string);
            }
-         free (result);
+         free (math_text);
 
          self_plaintext->element_images->displaymath_index++;
        }
@@ -6669,17 +6887,16 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
               if (prepended)
                 {
-                  STRING_COUNT_LINE_COUNT float_result;
+                  PENDING_TEXT_COUNT_LINE_COUNT float_result;
                   prepended->type = ET__frenchspacing;
                   plaintext_convert_line_new_context (self, prepended,
                                                       -1, -1, -1, -1,
                                                       &float_result);
-                  stream_output (self, float_result.string);
+                  merge_pending_with_parent (self, &float_result.pending_text);
                   TEXT_CONTEXT *text_element_context
                     = top_(text_element_context) (
                                   &self_plaintext->text_element_context);
                   text_element_context->counter += float_result.width;
-                  free (float_result.string);
                   destroy_element_and_children (prepended);
                 }
               if (caption_element)
@@ -6739,7 +6956,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           FORMAT_CONTEXT *top_format_context
             = top_(format_context) (&self_plaintext->format_context);
           free (top_format_context->columns_size);
-          free (top_format_context->row.list);
           free (top_format_context->row_cell_counts.list);
         }
       else if (command_data[cmd].flags & CF_root
@@ -6818,17 +7034,15 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         {
           COUNT_CONTEXT *count_context
             = top_(count_context) (&self_plaintext->count_context);
-          const char *result = stream_result (self);
           pop_(format_context) (&self_plaintext->format_context);
           FORMAT_CONTEXT *top_format_context
             = top_(format_context) (&self_plaintext->format_context);
-          add_string (&top_format_context->row, result);
+          /* do not call push_count_context, as it changes the value */
           add_(count_context) (&top_format_context->row_cell_counts,
                                *count_context);
-          count_context->target_locations.number = 0;
-          count_context->target_locations.list = 0;
-          count_context->index_entry_locations.number = 0;
-          count_context->index_entry_locations.list = 0;
+          memset (&count_context->pending_text, 0, sizeof (PENDING_TEXT));
+          memset (&count_context->index_entry_locations, 0,
+                  sizeof (INDEX_ENTRY_LINE_COUNT_LIST));
           pop_count_context (&self_plaintext->count_context);
           pop_(text_element_context) (&self_plaintext->text_element_context);
         }
@@ -6841,6 +7055,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           top_format_context->paragraph_count++;
         }
     }
+
   return;
 }
 
@@ -6973,7 +7188,7 @@ adjust_final_locations (CONVERTER *self)
     }
 }
 
-char *
+void
 plaintext_convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit)
 {
   stream_reset (self);
@@ -6992,8 +7207,6 @@ plaintext_convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit)
   plaintext_process_footnotes (self, output_unit);
 
   adjust_final_locations (self);
-
-  return stream_yield_result (self);
 }
 
 char *
@@ -7015,7 +7228,7 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
   size_t output_units_descriptor = 0;
   OUTPUT_UNIT_LIST *output_units;
   const NODE_RELATIONS_LIST *nodes_list;
-  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  TEXT output_unit_result;
 
   plaintext_conversion_initialization (self, document);
 
@@ -7107,9 +7320,8 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
       set_output_units_files (self, output_units, output_file,
                               destination_directory, output_filename,
                               document_name);
+      plaintext_setup_output_encoding (self);
     }
-  else
-    self_plaintext->encoding_disabled = 1;
 
   /* Now do the output */
 
@@ -7188,11 +7400,12 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
 
       for (i = 0; i < output_units->number; i++)
         {
+          text_reset (&output_unit_result);
           OUTPUT_UNIT *output_unit = output_units->list[i];
-          char *node_text = plaintext_convert_output_unit (self, output_unit);
+          plaintext_convert_output_unit (self, output_unit);
+          stream_final_result (self, &output_unit_result);
           write_or_return (conversion, encoded_outfile_name,
-                           file_fh, &result, node_text);
-          free (node_text);
+                           file_fh, &result, output_unit_result.text);
         }
   /* Do not close STDOUT now such that the file descriptor is not reused
      by open, which uses the lowest-numbered file descriptor not open,
@@ -7211,6 +7424,7 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
             }
         }
 
+      free (output_unit_result.text);
       free (encoded_outfile_name);
       free (outfile_name);
     }
@@ -7235,7 +7449,7 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
             = self->output_unit_file_indices[output_unit->index];
           FILE_NAME_PATH_COUNTER *unit_file
             = &self->output_unit_files.list[file_index];
-          char *node_text = plaintext_convert_output_unit (self, output_unit);
+          plaintext_convert_output_unit (self, output_unit);
           unit_file->counter--;
 
           if (!unit_file->first_unit)
@@ -7243,8 +7457,7 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
               unit_file->first_unit = output_unit;
               text_init (&unit_file->body);
             }
-          text_append (&unit_file->body, node_text);
-          free (node_text);
+          stream_final_result (self, &unit_file->body);
 
           /* TODO in Perl, file is opened when first encountered
              not when counter is 0.  Probably best to align Perl
@@ -7364,14 +7577,12 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
 char *
 plaintext_convert (CONVERTER *self, DOCUMENT *document)
 {
-  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   size_t output_units_descriptor;
   OUTPUT_UNIT_LIST *output_units;
   size_t i;
   TEXT result;
 
   plaintext_conversion_initialization (self, document);
-  self_plaintext->encoding_disabled = 1;
 
   output_units_descriptor = split_by_node (document);
   output_units = retrieve_output_units (document, output_units_descriptor);
@@ -7381,9 +7592,8 @@ plaintext_convert (CONVERTER *self, DOCUMENT *document)
   for (i = 0; i < output_units->number; i++)
     {
       const OUTPUT_UNIT *output_unit = output_units->list[i];
-      char *node_text = plaintext_convert_output_unit (self, output_unit);
-      text_append (&result, node_text);
-      free (node_text);
+      plaintext_convert_output_unit (self, output_unit);
+      stream_final_result (self, &result);
     }
 
   free_output_unit_list (output_units);
@@ -7404,19 +7614,25 @@ plaintext_convert_tree (CONVERTER *self, const ELEMENT *tree)
   COUNT_CONTEXT *parent_counts
     = top_(count_context) (&self_plaintext->count_context);
   COUNT_CONTEXT *counts;
-  char *result;
+  PENDING_TEXT_LIST pending_texts;
+  TEXT result;
 
   COUNT_CONTEXT count_context = { 0 };
-  add_(count_context) (&self_plaintext->count_context, count_context);
+  push_count_context (&self_plaintext->count_context, count_context);
 
   convert_to_plaintext_internal (self, tree);
-  result = stream_yield_result (self);
 
   counts = top_(count_context) (&self_plaintext->count_context);
+  pending_texts = counts->pending_text;
+  memset (&counts->pending_text, 0, sizeof (PENDING_TEXT_LIST));
 
   update_locations_counts (self, parent_counts, counts);
 
   pop_count_context (&self_plaintext->count_context);
 
-  return result;
+  merge_pending_texts (&parent_counts->pending_text, &pending_texts);
+
+  stream_final_result (self, &result);
+
+  return result.text;
 }

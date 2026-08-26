@@ -78,14 +78,13 @@ decl_list_fns(DOCUMENT_CONTEXT_STACK, document_context, DOCUMENT_CONTEXT);
 decl_stack_fns(DOCUMENT_CONTEXT_STACK, document_context, DOCUMENT_CONTEXT);
 
 typedef struct TARGET_LOCATION {
-    int lines;
     const ELEMENT *target_element;
     size_t bytes;
 } TARGET_LOCATION;
 
-def_list_type(TARGET_LOCATION_LIST, TARGET_LOCATION *);
+def_list_type(TARGET_LOCATION_LIST, TARGET_LOCATION);
 /* TODO or in convert_to_plaintext.h */
-decl_list_fns(TARGET_LOCATION_LIST, target_location, TARGET_LOCATION *);
+decl_list_fns(TARGET_LOCATION_LIST, target_location, TARGET_LOCATION);
 
 /* better not base on INDEX_ENTRY_LOCATION as it is another type */
 def_list_type(INDEX_ENTRY_LINE_COUNT_LIST, int *);
@@ -101,17 +100,20 @@ typedef struct IMAGE_LOCATION_INFO {
 def_list_type(IMAGE_LOCATION_INFO_LIST, IMAGE_LOCATION_INFO);
 decl_list_fns(IMAGE_LOCATION_INFO_LIST, image_location, IMAGE_LOCATION_INFO);
 
+typedef struct PENDING_TEXT {
+    TEXT text;
+    const ELEMENT *anchor;
+} PENDING_TEXT;
+
+def_list_type(PENDING_TEXT_LIST, PENDING_TEXT);
+decl_list_fns(PENDING_TEXT_LIST, pending_text, PENDING_TEXT);
+
 typedef struct COUNT_CONTEXT {
     size_t lines;
-    size_t bytes;
     /* converted text in internal encoding (utf-8) */
-    TEXT pending_text;
-    /* converted text converted to output encoding */
-    TEXT result;
-    TARGET_LOCATION_LIST target_locations;
+    PENDING_TEXT_LIST pending_text;
     INDEX_ENTRY_LINE_COUNT_LIST index_entry_locations;
     IMAGE_LOCATION_INFO_LIST images;
-    int encoding_disabled;
 } COUNT_CONTEXT;
 
 def_list_type(COUNT_CONTEXT_STACK, COUNT_CONTEXT);
@@ -126,7 +128,6 @@ typedef struct FORMAT_CONTEXT {
     enum command_id cmd;
     int paragraph_count;
     int context_indent_len;
-    STRING_LIST row;
     COUNT_CONTEXT_STACK row_cell_counts;
     int paragraph_counts;
     int columns_size_nr;
@@ -213,7 +214,6 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
     int to_utf8;
     /* */
     PLAINTEXT_COMMAND_STRUCT commands_data[BUILTIN_CMD_NUMBER];
-    int encoding_disabled; /* if set, do not try to use an encoding object */
     int in_copying_header;
     int silent;
 
@@ -229,8 +229,10 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
     PENDING_FOOTNOTE_LIST pending_footnotes;
     /* cache "outside of any node" translated string for use in
        printindex formatting */
-    char *outside_of_any_node_text;
+    PENDING_TEXT_LIST *outside_of_any_node_text;
     int outside_of_any_node_text_width;
+    size_t bytes;
+    TARGET_LOCATION_LIST *target_locations;
     /* register index entries warned as being outside of any node to avoid
        warning twice */
     C_HASHMAP index_entries_no_node;

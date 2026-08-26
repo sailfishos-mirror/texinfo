@@ -377,6 +377,8 @@ to_upper_or_lower_multibyte (const char *text, int lower_or_upper)
   return result;
 }
 
+/* NOTE beware of a difference with the Perl function string_width,
+   newline is a zero width character here, not one. */
 int
 string_width_multibyte (const char *text)
 {
