@@ -1231,20 +1231,23 @@ plaintext_add_target_location (CONVERTER *self, const ELEMENT *element)
   add_(pending_text) (&count_context->pending_text, next_text);
 }
 
-void
+int
 plaintext_convert_line (CONVERTER *self, const ELEMENT *converted,
                         int indent_length, int indent_length_next)
 {
   FORMATTER formatter = new_formatter(self, formatter_line, indent_length,
                                       indent_length_next);
   const char *end_line;
+  int width;
 
   push_formatter (self, &formatter);
   convert_to_plaintext_internal (self, converted);
   end_line = para_end ();
+  width = para_counter ();
   stream_output (self, end_line);
   para_destroy ();
   pop_formatter (self, 0);
+  return width;
 }
 
 /* convert with a line formatter in a new count context, not changing
@@ -2741,15 +2744,15 @@ plaintext_process_printindex (CONVERTER *self,
                 = (PENDING_TEXT_LIST *) malloc (sizeof (PENDING_TEXT_LIST));
               ELEMENT *tree = cdt_tree ("(outside of any node)",
                                         self, 0 ,0);
-              PENDING_TEXT_COUNT_LINE_COUNT node_text;
+              PENDING_TEXT_COUNT_LINE_COUNT outside_node_text;
               plaintext_convert_line_new_context (self, tree,
                                                   -1, -1, -1, -1,
-                                                  &node_text);
+                                             &outside_node_text);
 
               *self_plaintext->outside_of_any_node_text
-                 = node_text.pending_text;
+                 = outside_node_text.pending_text;
               self_plaintext->outside_of_any_node_text_width
-                 = node_text.width;
+                 = outside_node_text.width;
 
               destroy_element_and_children (tree);
             }
@@ -3525,7 +3528,7 @@ pending_is_empty (const PENDING_TEXT_LIST *pending_texts)
 
 static const char * const underline_symbol[] = {"*", "*", "=", "-", "."};
 
-static PENDING_TEXT_LIST
+static int
 text_heading (CONVERTER *self, const ELEMENT *current,
               const ELEMENT *heading_element, int numbered,
               int indented_len, int no_last_new_line)
@@ -3543,25 +3546,18 @@ text_heading (CONVERTER *self, const ELEMENT *current,
                            &section_text);
 
   if (pending_is_spaces (&section_text.pending_text))
-    {
-      PENDING_TEXT_LIST result = { 0 };
-      return result;
-    }
+    return 0;
 
-  PENDING_TEXT_LIST result = section_text.pending_text;
+  merge_pending_with_parent (self, &section_text.pending_text);
 
-  PENDING_TEXT added_nl = { 0 };
-  text_append_n (&added_nl.text, "\n", 1);
-  add_(pending_text) (&result, added_nl);
+  stream_output (self, "\n");
 
   columns = section_text.width;
 
   if (indented_len > 0)
     {
-      PENDING_TEXT spaces = { 0 };
       for (k = 0; k < indented_len; k++)
-        text_append_n (&spaces.text, " ", 1);
-      add_(pending_text) (&result, spaces);
+        stream_output (self, " ");
     }
   else
     indented_len = 0;
@@ -3571,16 +3567,13 @@ text_heading (CONVERTER *self, const ELEMENT *current,
 
   const char *underline_char = underline_symbol[sec_level];
 
-  PENDING_TEXT underlined_text = { 0 };
-
   for (k = 0; k < columns - indented_len; k++)
-    text_append_n (&underlined_text.text, underline_char, 1);
+    stream_output (self, underline_char);
 
   if (!no_last_new_line)
-    text_append_n (&underlined_text.text, "\n", 1);
+    stream_output (self, "\n");
 
-  add_(pending_text) (&result, underlined_text);
-  return result;
+  return 1;
 }
 
 static char *
@@ -5048,12 +5041,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   add_extra_integer (titlefont_with_level,
                                      AI_key_section_level, 0);
 
-                  PENDING_TEXT_LIST result
-                                 = text_heading (self, titlefont_with_level,
-                                       element->e.c->contents.list[0],
+                  text_heading (self, titlefont_with_level,
+                                element->e.c->contents.list[0],
                                 self->conf->NUMBER_SECTIONS.o.integer,
                                 top_format_context->context_indent_len, 1);
-                  merge_pending_with_parent (self, &result);
                   add_lines_count (self, 1);
                   destroy_element (titlefont_with_level);
                 }
@@ -5294,15 +5285,12 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               ELEMENT *block_line_arg = arguments_line->e.c->contents.list[0];
               if (!empty_spaces_argument (block_line_arg))
                 {
-                  /* TODO why a separate count context? */
-                  COUNT_CONTEXT *count_context
-                    = top_(count_context) (&self_plaintext->count_context);
                   ELEMENT *prepended;
                   NAMED_STRING_ELEMENT_LIST *replaced_substrings
                     = new_named_string_element_list ();
                   ELEMENT *quotation_arg_copy
                                = copy_element_tree (block_line_arg, 0);
-                  PENDING_TEXT_COUNT_LINE_COUNT quotation_arg_counts;
+                  int width;
 
                   add_element_to_named_string_element_list (
                                    replaced_substrings, "quotation_arg",
@@ -5313,19 +5301,12 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                                   self, replaced_substrings, 0);
                   prepended->type = ET__frenchspacing;
 
-                  plaintext_convert_line_new_context (self, prepended,
-                                                  -1, -1, -1, -1,
-                                                  &quotation_arg_counts);
-                  merge_pending_with_parent (self,
-                                        &quotation_arg_counts.pending_text);
+                  width = plaintext_convert_line (self, prepended, -1, -1);
 
-                  count_context
-                    = top_(count_context) (&self_plaintext->count_context);
-                  count_context->lines += quotation_arg_counts.line_count;
                   TEXT_CONTEXT *text_element_context
                     = top_(text_element_context) (
                                     &self_plaintext->text_element_context);
-                  text_element_context->counter += quotation_arg_counts.width;
+                  text_element_context->counter += width;
 
                   destroy_element_and_children (prepended);
                   destroy_named_string_element_list (replaced_substrings);
@@ -5488,20 +5469,17 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
           if (heading_element)
             {
+              add_newline_if_needed (self);
        /* @* leads to an end of line, underlying appears on the line below
           over one line */
               FORMAT_CONTEXT *top_format_context
                 = top_(format_context) (&self_plaintext->format_context);
-              PENDING_TEXT_LIST heading_underlined
+              int not_empty
                 = text_heading (self, element, heading_element,
                                 self->conf->NUMBER_SECTIONS.o.integer,
                                 top_format_context->context_indent_len, 0);
-              int empty_heading = pending_is_empty (&heading_underlined);
 
-              add_newline_if_needed (self);
-              merge_pending_with_parent (self, &heading_underlined);
-
-              if (! empty_heading)
+              if (not_empty)
                 {
                   add_lines_count (self, 2);
                   add_newline_if_needed (self);
@@ -6832,16 +6810,14 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
               if (prepended)
                 {
-                  PENDING_TEXT_COUNT_LINE_COUNT float_result;
                   prepended->type = ET__frenchspacing;
-                  plaintext_convert_line_new_context (self, prepended,
-                                                      -1, -1, -1, -1,
-                                                      &float_result);
-                  merge_pending_with_parent (self, &float_result.pending_text);
+                  int width = plaintext_convert_line (self, prepended, -1, -1);
+
                   TEXT_CONTEXT *text_element_context
                     = top_(text_element_context) (
                                   &self_plaintext->text_element_context);
-                  text_element_context->counter += float_result.width;
+                  text_element_context->counter += width;
+
                   destroy_element_and_children (prepended);
                 }
               if (caption_element)

@@ -108,10 +108,6 @@ sub _open_info_file($$) {
 sub _info_header($$$) {
   my ($self, $input_basefile, $output_filename) = @_;
 
-  push @{$self->{'count_context'}}, {'lines' => 0,
-                                     'index_entry_locations' => [],
-                                     'pending_text' => [['']]};
-
   my $paragraph = Texinfo::Convert::Paragraph::new();
   my $para_text = add_text($paragraph, "This is ");
   # This ensures that spaces in file are kept.
@@ -149,11 +145,8 @@ sub _info_header($$$) {
     foreach my $command (@{$global_commands->{'dircategory_direntry'}}) {
       if ($command->{'cmdname'} eq 'dircategory') {
         if (exists($command->{'contents'}->[0]->{'contents'})) {
-          my ($pending, undef) = $self->convert_line_new_context(
-                                            $command->{'contents'}->[0]);
           $self->_stream_output("INFO-DIR-SECTION ");
-          push @{$self->{'count_context'}->[-1]->{'pending_text'}},
-                 @$pending;
+          $self->convert_line($command->{'contents'}->[0]);
           $self->_stream_output("\n");
         }
       } elsif ($command->{'cmdname'} eq 'direntry') {
@@ -166,7 +159,6 @@ sub _info_header($$$) {
   }
   $self->_add_newline_if_needed();
   my $result = $self->_stream_final_result();
-  pop @{$self->{'count_context'}};
 
   return $result;
 }

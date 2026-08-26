@@ -1052,7 +1052,13 @@ sub _stream_output($$) {
   my ($self, $text) = @_;
 
   my $count_context = $self->{'count_context'}->[-1];
-  $count_context->{'pending_text'}->[-1]->[0] .= $text;
+  my $pending_text = $count_context->{'pending_text'}->[-1];
+  $pending_text->[0] .= $text;
+
+  if (defined($pending_text->[1])) {
+    confess("anchor location modified by adding: '$text'");
+  }
+
   return;
 }
 
@@ -1176,8 +1182,9 @@ sub convert_line($$;$$) {
   _convert($self, $converted);
   _stream_output($self,
                  Texinfo::Convert::Paragraph::end($formatter->{'container'}));
+  my $count = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
   destroy_formatter(pop @{$self->{'formatters'}});
-  return;
+  return $count;
 }
 
 # for debugging
@@ -2543,7 +2550,7 @@ sub _pending_texts_width($) {
   return $width;
 }
 
-# Return the text of an underlined heading, possibly indented.
+# Stream the text of an underlined heading, possibly indented.
 sub _text_heading($$$;$$$) {
   my ($self, $current, $heading_element, $numbered, $indented_len,
       $no_last_new_line) = @_;
@@ -2552,12 +2559,14 @@ sub _text_heading($$$;$$$) {
      = _section_element_heading($self, $current, $heading_element,
                            ($numbered or !defined($numbered)));
 
-  return [] if (_pending_is_spaces($pending));
+  return 0 if (_pending_is_spaces($pending));
 
-  push @$pending, ["\n"];
+  push @{$self->{'count_context'}->[-1]->{'pending_text'}}, @$pending;
+
+  _stream_output($self, "\n");
 
   if (defined($indented_len) and $indented_len > 0) {
-    push @$pending, [' ' x $indented_len];
+    _stream_output($self, ' ' x $indented_len);
   } else {
     $indented_len = 0;
   }
@@ -2573,8 +2582,8 @@ sub _text_heading($$$;$$$) {
   my $underlined_text = ($underline_symbol{$section_level}
                 x ($columns - $indented_len));
   $underlined_text .= "\n" if (!$no_last_new_line);
-  push @$pending, [$underlined_text];
-  return $pending;
+  _stream_output($self, $underlined_text);
+  return 1;
 }
 
 sub _get_form_feeds($) {
@@ -3478,13 +3487,12 @@ sub _convert($$) {
         return;
       } elsif ($cmdname eq 'titlefont') {
         if (!Texinfo::Common::empty_spaces_argument($element)) {
-          my $result = _text_heading($self,
+          _text_heading($self,
            Texinfo::TreeElement::new({'extra' => {'section_level' => 0},
                                       'cmdname' => 'titlefont'}),
                             $element->{'contents'}->[0],
                             $self->get_conf('NUMBER_SECTIONS'),
                $self->{'format_context'}->[-1]->{'context_indent_len'}, 1);
-          push @{$self->{'count_context'}->[-1]->{'pending_text'}}, @$result;
           _add_lines_count($self, 1);
         }
         return;
@@ -3622,11 +3630,7 @@ sub _convert($$) {
           my $prepended = $self->cdt('@b{{quotation_arg}:} ',
                                 {'quotation_arg' => $block_line_arg});
           $prepended->{'type'} = '_frenchspacing';
-          my ($quotation_arg, $width, $extra_lines)
-            = $self->convert_line_new_context($prepended);
-          push @{$self->{'count_context'}->[-1]->{'pending_text'}},
-                                                        @$quotation_arg;
-          $self->{'count_context'}->[-1]->{'lines'} += $extra_lines;
+          my $width = $self->convert_line($prepended);
 
           $self->{'text_element_context'}->[-1]->{'counter'} += $width;
         }
@@ -3727,16 +3731,14 @@ sub _convert($$) {
       }
 
       if (defined($heading_element)) {
+        _add_newline_if_needed($self);
         # @* leads to an end of line, underlying appears on the line below
-        # over one line
-        my $heading_underlined =
+        # over the last part of the line
+        my $not_empty =
              _text_heading($self, $element, $heading_element,
                            $self->get_conf('NUMBER_SECTIONS'),
                      $self->{'format_context'}->[-1]->{'context_indent_len'});
-        _add_newline_if_needed($self);
-        push @{$self->{'count_context'}->[-1]->{'pending_text'}},
-                                                    @$heading_underlined;
-        if (!_pending_is_empty($heading_underlined)) {
+        if ($not_empty) {
           _add_lines_count($self, 2);
           _add_newline_if_needed($self);
         }
@@ -4543,11 +4545,8 @@ sub _convert($$) {
           = Texinfo::Convert::Converter::float_name_caption($self, $element);
         if (defined($prepended)) {
           $prepended->{'type'} = '_frenchspacing';
-          my ($pending, $columns, undef)
-            = $self->convert_line_new_context($prepended);
-          push @{$self->{'count_context'}->[-1]->{'pending_text'}}, @$pending;
-
-          $self->{'text_element_context'}->[-1]->{'counter'} += $columns;
+          my $width = $self->convert_line($prepended);
+          $self->{'text_element_context'}->[-1]->{'counter'} += $width;
         }
         if (defined($caption)) {
           $self->{'format_context'}->[-1]->{'paragraph_count'} = 0;

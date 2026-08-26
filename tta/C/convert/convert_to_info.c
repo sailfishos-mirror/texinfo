@@ -141,16 +141,11 @@ info_header (CONVERTER *self, const char *input_basefile,
              const char *output_filename, TEXT *header_text)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
-  COUNT_CONTEXT info_header_count_context = { 0 };
   const char *program = self->conf->PROGRAM.o.string;
   const char *version = self->conf->PACKAGE_VERSION.o.string;
   const char *end_para_text;
   TEXT para_text;
   TEXT new_text;
-
-  /* TODO need for a separate context? */
-  push_count_context (&self_plaintext->count_context,
-                      info_header_count_context);
 
   para_new ();
   text_init (&para_text);
@@ -214,14 +209,8 @@ info_header (CONVERTER *self, const char *input_basefile,
               const ELEMENT *line_arg = command->e.c->contents.list[0];
               if (line_arg->e.c->contents.number > 0)
                 {
-                  PENDING_TEXT_COUNT_LINE_COUNT direntry_arg;
                   stream_output (self, "INFO-DIR-SECTION ");
-                  /* TODO why a new context? */
-                  plaintext_convert_line_new_context (self, line_arg,
-                                             -1, -1, -1, -1, &direntry_arg);
-                  char *direntry_text
-                     = pending_to_text (&direntry_arg.pending_text);
-                  stream_output (self, direntry_text);
+                  plaintext_convert_line (self, line_arg, -1, -1);
                   stream_output (self, "\n");
                 }
             }
@@ -238,8 +227,6 @@ info_header (CONVERTER *self, const char *input_basefile,
   add_newline_if_needed (self);
 
   stream_final_result (self, header_text);
-
-  pop_count_context (&self_plaintext->count_context);
 }
 
 static const char *STDIN_DOCU_NAME = "stdin";
@@ -1293,6 +1280,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
                            "`.' or `,' must follow @xref");
                 }
             }
+          /* TODO call streaming functions directly */
           added_full_stop_text_elt = new_text_element (ET_other_text);
           text_append_n (added_full_stop_text_elt->e.text, ".", 1);
           convert_to_plaintext_internal (self, added_full_stop_text_elt);

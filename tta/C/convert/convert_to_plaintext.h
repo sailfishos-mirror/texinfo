@@ -84,8 +84,8 @@ char *pending_to_text (const PENDING_TEXT_LIST *pending_texts);
 void stream_final_result (CONVERTER *self, TEXT *result);
 
 void plaintext_add_target_location (CONVERTER *self, const ELEMENT *element);
-void plaintext_convert_line (CONVERTER *self, const ELEMENT *converted,
-                             int indent_length, int indent_length_next);
+int plaintext_convert_line (CONVERTER *self, const ELEMENT *converted,
+                            int indent_length, int indent_length_next);
 void plaintext_convert_line_new_context (CONVERTER *self,
                           const ELEMENT *converted,
                           int indent_length, int indent_length_next,
