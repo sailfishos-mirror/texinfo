@@ -883,6 +883,13 @@ clear_pending_texts (PENDING_TEXT_LIST *pending_texts)
   pending_texts->number = 0;
 }
 
+static void
+free_pending_texts (PENDING_TEXT_LIST *pending_texts)
+{
+  clear_pending_texts (pending_texts);
+  free (pending_texts->list);
+}
+
 void
 plaintext_conversion_finalization (CONVERTER *self)
 {
@@ -906,8 +913,11 @@ plaintext_conversion_finalization (CONVERTER *self)
   clear_c_hashmap (&self_plaintext->seenmenus);
 
   if (self_plaintext->outside_of_any_node_text)
-    clear_pending_texts (self_plaintext->outside_of_any_node_text);
-  self_plaintext->outside_of_any_node_text_width = 0;
+    {
+      free (self_plaintext->outside_of_any_node_text);
+      self_plaintext->outside_of_any_node_text = 0;
+      self_plaintext->outside_of_any_node_text_width = 0;
+    }
   self_plaintext->current_node = 0;
 
   free (self_plaintext->text_before_first_node);
@@ -2741,8 +2751,6 @@ plaintext_process_printindex (CONVERTER *self,
              it is likely that there is more than one such entry */
           if (!self_plaintext->outside_of_any_node_text)
             {
-              self_plaintext->outside_of_any_node_text
-                = (PENDING_TEXT_LIST *) malloc (sizeof (PENDING_TEXT_LIST));
               ELEMENT *tree = cdt_tree ("(outside of any node)",
                                         self, 0 ,0);
               PENDING_TEXT_COUNT_LINE_COUNT outside_node_text;
@@ -2750,27 +2758,15 @@ plaintext_process_printindex (CONVERTER *self,
                                                   -1, -1, -1, -1,
                                              &outside_node_text);
 
-              *self_plaintext->outside_of_any_node_text
-                 = outside_node_text.pending_text;
+              self_plaintext->outside_of_any_node_text
+                 = pending_to_text (&outside_node_text.pending_text);
               self_plaintext->outside_of_any_node_text_width
                  = outside_node_text.width;
 
+              free_pending_texts (&outside_node_text.pending_text);
               destroy_element_and_children (tree);
             }
-          COUNT_CONTEXT *count_context
-             = top_(count_context) (&self_plaintext->count_context);
-          PENDING_TEXT_LIST *pending_texts = &count_context->pending_text;
-          size_t i;
-          for (i = 0; i < self_plaintext->outside_of_any_node_text->number;
-               i++)
-            {
-              PENDING_TEXT *pending_text
-                = &self_plaintext->outside_of_any_node_text->list[i];
-              PENDING_TEXT pending_text_copy = { 0 };
-              text_append_n (&pending_text_copy.text, pending_text->text.text,
-                             pending_text->text.end);
-              add_(pending_text) (pending_texts, pending_text_copy);
-            }
+          stream_output (self, self_plaintext->outside_of_any_node_text);
           line_width += self_plaintext->outside_of_any_node_text_width;
     /* TODO when outside of sectioning commands this message was already
        done by the Parser.

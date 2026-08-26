@@ -229,7 +229,7 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
     PENDING_FOOTNOTE_LIST pending_footnotes;
     /* cache "outside of any node" translated string for use in
        printindex formatting */
-    PENDING_TEXT_LIST *outside_of_any_node_text;
+    char *outside_of_any_node_text;
     int outside_of_any_node_text_width;
     size_t bytes;
     TARGET_LOCATION_LIST *target_locations;

@@ -2070,12 +2070,10 @@ sub process_printindex($$;$) {
         my $tree = $self->cdt('(outside of any node)');
         my ($pending, $width, undef)
           = $self->convert_line_new_context($tree);
-        $self->{'outside_of_any_node_text'} = $pending;
+        $self->{'outside_of_any_node_text'} = _pending_to_text($self, $pending);
         $self->{'outside_of_any_node_text_width'} = $width;
       }
-      # empty text after to avoid modifications of outside_of_any_node_text
-      push @{$self->{'count_context'}->[-1]->{'pending_text'}},
-               @{$self->{'outside_of_any_node_text'}}, [''];
+      _stream_output($self, $self->{'outside_of_any_node_text'});
       $line_width += $self->{'outside_of_any_node_text_width'};
 
       # TODO when outside of sectioning commands this message was already
