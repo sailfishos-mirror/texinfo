@@ -1831,6 +1831,19 @@ pending_texts_width (const PENDING_TEXT_LIST *pending_texts)
   return width;
 }
 
+static int
+pending_text_has_anchor (const PENDING_TEXT_LIST *pending_texts)
+{
+  size_t i;
+  for (i = 0; i < pending_texts->number; i++)
+    {
+      PENDING_TEXT *pending_text = &pending_texts->list[i];
+      if (pending_text->anchor)
+        return 1;
+    }
+  return 0;
+}
+
 enum align_directions {
    AD_right,
    AD_center,
@@ -1903,11 +1916,12 @@ collect_pending_texts_lines (PENDING_TEXT_LIST_LINES *pending_text_lines,
             {
               add_(pending_text) (&current_line, *pending_text);
               pending_text->anchor = 0;
+              memset (t, 0, sizeof (TEXT));
             }
           continue;
         }
 
-      PENDING_TEXT *last_pending_end_line = 0;
+      PENDING_TEXT *last_pending = 0;
       const char *p = t->text;
       while (*p)
         {
@@ -1922,10 +1936,10 @@ collect_pending_texts_lines (PENDING_TEXT_LIST_LINES *pending_text_lines,
           text_init (&line_pending_text.text);
           text_append_n (&line_pending_text.text, p, line_len);
           add_(pending_text) (&current_line, line_pending_text);
+          last_pending = top_(pending_text) (&current_line);
           p += line_len;
           if (end_line)
             {
-              last_pending_end_line = top_(pending_text) (&current_line);
               add_(pending_text_line) (pending_text_lines,
                                        current_line);
               memset (&current_line, 0, sizeof (PENDING_TEXT_LIST));
@@ -1933,15 +1947,9 @@ collect_pending_texts_lines (PENDING_TEXT_LIST_LINES *pending_text_lines,
         }
       if (pending_text->anchor)
         {
-          PENDING_TEXT * last_pending;
-          if (current_line.number == 0)
-            last_pending = last_pending_end_line;
-          else
-            last_pending = top_(pending_text) (&current_line);
           last_pending->anchor = pending_text->anchor;
           pending_text->anchor = 0;
         }
-
       text_reset (t);
     }
   if (current_line.number > 0)
@@ -1950,7 +1958,7 @@ collect_pending_texts_lines (PENDING_TEXT_LIST_LINES *pending_text_lines,
     }
 }
 
-static PENDING_TEXT_LIST
+static void
 align_lines (CONVERTER *self, int max_column, enum align_directions direction,
              PENDING_TEXT_LIST *pending_texts,
              IMAGE_LOCATION_INFO_LIST *images)
@@ -1977,11 +1985,15 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
   memset (&pending_text_lines, 0, sizeof (PENDING_TEXT_LIST_LINES));
   collect_pending_texts_lines (&pending_text_lines, pending_texts);
 
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  COUNT_CONTEXT *top_count_context
+           = top_(count_context) (&self_plaintext->count_context);
+  PENDING_TEXT_LIST *result = &top_count_context->pending_text;
+
   int line_index = 0;
   IMAGE_LOCATION_INFO *image = 0;
   int image_lines_count;
   int image_prepended_spaces;
-  PENDING_TEXT_LIST result = { 0 };
   for (i = 0; i < pending_text_lines.number; i++)
     {
       size_t j;
@@ -2052,25 +2064,30 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
             }
 
           size_t line_width = pending_texts_width (line);
+          int has_anchor = 0;
+          if (line_width == 0)
+            has_anchor = pending_text_has_anchor (line);
 
-          if (line_width > 0)
+          if (line_width > 0 || has_anchor)
             {
               int prepended_spaces = compute_spaces_align_line (line_width,
                                                  max_column, direction, 0);
               if (prepended_spaces > 0)
                 {
                   int l;
-                  PENDING_TEXT new_pending_text = { 0 };
-                  text_init (&new_pending_text.text);
                   for (l = 0; l < prepended_spaces; l++)
-                    text_append_n (&new_pending_text.text, " ", 1);
-                  add_(pending_text) (&result, new_pending_text);
+                    stream_output (self, " ");
                 }
-              for (j = 0; j < line->number; j++)
+              merge_pending_texts (result, line);
+              if (result->list[result->number -1].anchor)
                 {
-                  PENDING_TEXT *pending_text = &line->list[j];
-                  add_(pending_text) (&result, *pending_text);
-                  memset (pending_text, 0, sizeof (PENDING_TEXT));
+         /* add an empty text if the last pending is the anchor such that
+            it does not have its location modified */
+                  PENDING_TEXT pending_text = { 0 };
+                  text_init (&pending_text.text);
+                  text_append (&pending_text.text, "");
+
+                  add_(pending_text) (result, pending_text);
                 }
             }
         }
@@ -2103,14 +2120,11 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
             }
           if (prepended_spaces > 0)
             {
-              PENDING_TEXT spaces = { 0 };
-              text_init (&spaces.text);
               int l;
               for (l = 0; l < prepended_spaces; l++)
-                text_append_n (&spaces.text, " ", 1);
-              add_(pending_text) (&result, spaces);
+                stream_output (self, " ");
             }
-          merge_pending_texts (&result, line);
+          merge_pending_texts (result, line);
           if (new_image)
             {
               image = new_image;
@@ -2123,10 +2137,7 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
               image_prepended_spaces = -1;
             }
         }
-      PENDING_TEXT new_nl = { 0 };
-      text_init (&new_nl.text);
-      text_append_n (&new_nl.text, "\n", 1);
-      add_(pending_text) (&result, new_nl);
+      stream_output (self, "\n");
       line_index++;
     }
   free (pending_text_lines.list);
@@ -2141,31 +2152,34 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
             line_info.list[line_index].number = 0;
         }
     }
-
-  return result;
 }
 
-static PENDING_TEXT_LIST
+static void
 align_environment (CONVERTER *self, int max,
                    enum align_directions direction)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+
+  /* save aligned environment count context in align_count_context */
   COUNT_CONTEXT *count_context
         = top_(count_context) (&self_plaintext->count_context);
-  COUNT_CONTEXT *parent_count_context
-    = &self_plaintext->count_context.list[
-                         self_plaintext->count_context.number -2];
-
-  PENDING_TEXT_LIST result
-    = align_lines (self, max, direction, &count_context->pending_text,
-                   &count_context->images);
-
-  update_locations_counts (self, parent_count_context, count_context);
-
-  parent_count_context->lines += count_context->lines;
+  COUNT_CONTEXT align_count_context = *count_context;
+  /* zero such that nothing is destroyed upon popping the context */
+  memset (count_context, 0, sizeof (COUNT_CONTEXT));
 
   pop_count_context (&self_plaintext->count_context);
-  return result;
+
+  align_lines (self, max, direction, &align_count_context.pending_text,
+               &align_count_context.images);
+
+  COUNT_CONTEXT *parent_count_context
+    = top_(count_context) (&self_plaintext->count_context);
+  update_locations_counts (self, parent_count_context, &align_count_context);
+
+  parent_count_context->lines += align_count_context.lines;
+
+  /* can now destroy the saved count context */
+  destroy_count_context (&align_count_context);
 }
 
 static void
@@ -5630,11 +5644,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               TEXT_CONTEXT *text_element_context
                 = top_(text_element_context) (
                          &self_plaintext->text_element_context);
-              PENDING_TEXT_LIST result
-                           = align_environment (self,
-                                                text_element_context->max,
-                                                AD_center);
-              merge_pending_with_parent (self, &result);
+              align_environment (self, text_element_context->max,
+                                 AD_center);
             }
           else
      /* it has to be done here, as it is done in _align_environment above */
@@ -6696,12 +6707,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
       enum command_id context_cmd = *top_(command) (&self_plaintext->context);
 
       if (context_cmd == CM_flushright)
-        {
-          PENDING_TEXT_LIST result = align_environment (self,
-                                            text_element_context->max,
-                                            AD_right);
-          merge_pending_with_parent (self, &result);
-        }
+        align_environment (self, text_element_context->max, AD_right);
 
       text_element_context->counter = 0;
       para_destroy ();
@@ -6721,12 +6727,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
       ensure_end_of_line (self);
 
       if (context_cmd == CM_flushright)
-        {
-          PENDING_TEXT_LIST result = align_environment (self,
-                                            text_element_context->max,
-                                            AD_right);
-          merge_pending_with_parent (self, &result);
-        }
+        align_environment (self, text_element_context->max, AD_right);
       else if (context_cmd == CM_displaymath
                && self_plaintext->element_images)
         {

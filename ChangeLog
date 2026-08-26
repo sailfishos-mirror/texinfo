@@ -1,5 +1,33 @@
 2026-08-26 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm (add_target_location):
+	fix typo in code.
+
+	* tta/C/convert/convert_to_plaintext.c (pending_text_has_anchor)
+	(align_lines), tta/perl/Texinfo/Convert/PlaintextNonXS.pm
+	(_align_lines, _pending_text_has_anchor): check if there is a trailing
+	anchor in an empty line that needs to be kept, and add an empty
+	pending text after the last pending text if it is associated to an
+	anchor.
+
+	* tta/C/convert/convert_to_plaintext.c (align_lines)
+	(align_environment, convert_to_plaintext_internal),
+	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_align_lines)
+	(_align_environment, _convert): add to parent count context pending 
+	texts directly in align_lines.  Do not return anything.  Use
+	stream_output when possible.  In C, in align_environment, this
+	requires saving the aligned environment count context first before
+	popping it and calling align_lines.
+
+	* tta/C/convert/convert_to_plaintext.c (collect_pending_texts_lines):
+	zero TEXT that has been transferred.  Simpler code for association of
+	anchor to pending text.
+
+	* tta/perl/Makefile.tres, tta/perl/t/info_tests.t
+	(anchor_after_text_in_flushright): add test.
+
+2026-08-26 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_plaintext.c (free_pending_texts): add.
 
 	* tta/C/convert/convert_to_plaintext.c

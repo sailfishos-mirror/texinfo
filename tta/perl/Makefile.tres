@@ -1099,6 +1099,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/indices/unknown_then_known_index_entry.pl \
   t/results/indices/w_lines_count.pl \
   t/results/indices/wrong_synindex.pl \
+  t/results/info_tests/anchor_after_text_in_flushright.pl \
   t/results/info_tests/anchor_and_spaces.pl \
   t/results/info_tests/anchor_in_command.pl \
   t/results/info_tests/before_node_and_section.pl \

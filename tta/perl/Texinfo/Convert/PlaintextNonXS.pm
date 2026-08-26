@@ -998,7 +998,7 @@ sub add_target_location($$) {
   my ($self, $element) = @_;
 
   my $count_context = $self->{'count_context'}->[-1];
-  if (scalar($count_context->{'pending_text'}->[-1] == 1)) {
+  if (scalar(@{$count_context->{'pending_text'}->[-1]}) == 1) {
     push @{$count_context->{'pending_text'}->[-1]}, $element;
   } else {
     push @{$count_context->{'pending_text'}}, ['', $element];
@@ -1595,7 +1595,6 @@ sub _align_lines($$$$$) {
   my $image;
   my $image_lines_count;
   my $image_prepended_spaces;
-  my $result = [];
   foreach my $line (@$lines) {
     my ($new_image, $new_image_prepended_spaces);
     if (exists($images_marks->{$line_index})) {
@@ -1628,13 +1627,30 @@ sub _align_lines($$$$$) {
         }
       }
       my $line_width = _pending_texts_width($line);
-      if ($line_width > 0) {
+      # NOTE a lone @anchor is followed by a spaces_after_close_brace
+      # ignored type containing the end of line,
+      # such that the end of line is removed.  Therefore the @anchor is
+      # on the same line as the next text.  If there is an end of line,
+      # it is outside of a paragraph and therefore converted as if not in
+      # an aligned environment, which is also ok.  Therefore has_anchor
+      # can only be set with text on the line before the anchor, followed
+      # by an empty line.
+      my $has_anchor = 0;
+      if ($line_width == 0) {
+        $has_anchor = _pending_text_has_anchor($line);
+      }
+      if ($line_width > 0 || $has_anchor) {
         my $prepended_spaces
          = _compute_spaces_align_line($line_width, $max_column, $direction);
         if ($prepended_spaces > 0) {
-          push @$result, [' ' x $prepended_spaces];
+          _stream_output($self, ' ' x $prepended_spaces);
         }
-        push @$result, @$line;
+        push @{$self->{'count_context'}->[-1]->{'pending_text'}}, @$line;
+        if (defined($line->[-1]->[1])) {
+          # add an empty text if the last pending is the anchor such that
+          # it does not have its location modified
+          push @{$self->{'count_context'}->[-1]->{'pending_text'}}, [''];
+        }
       }
     } else {
       for (my $j = scalar(@$line); $j > 0; $j--) {
@@ -1656,9 +1672,9 @@ sub _align_lines($$$$$) {
         $prepended_spaces -= $line_width - $image->{'image_width'};
       }
       if ($prepended_spaces > 0) {
-        push @$result, [' ' x $prepended_spaces];
+        _stream_output($self, ' ' x $prepended_spaces);
       }
-      push @$result, @$line;
+      push @{$self->{'count_context'}->[-1]->{'pending_text'}}, @$line;
       if ($new_image) {
         $image = $new_image;
         $image_prepended_spaces = $new_image_prepended_spaces;
@@ -1669,25 +1685,23 @@ sub _align_lines($$$$$) {
       }
     }
 
-    push @$result, ["\n"];
+    _stream_output($self, "\n");
 
     $line_index++;
   }
-  return $result;
 }
 
 sub _align_environment($$$) {
   my ($self, $max, $align) = @_;
 
   my $counts = pop @{$self->{'count_context'}};
-  my $result = _align_lines($self, $counts->{'pending_text'}, $max,
-              $align, $counts->{'images'});
+  _align_lines($self, $counts->{'pending_text'}, $max,
+               $align, $counts->{'images'});
 
   _update_locations_counts($self, $self->{'count_context'}->[-1],
                            $counts);
 
   $self->{'count_context'}->[-1]->{'lines'} += $counts->{'lines'};
-  return $result;
 }
 
 sub format_warn_strong_note($) {
@@ -2541,6 +2555,17 @@ sub _pending_texts_width($) {
     }
   }
   return $width;
+}
+
+sub _pending_text_has_anchor($) {
+  my $pending_texts = shift;
+
+  foreach my $pending (@$pending_texts) {
+    if (defined($pending->[1])) {
+      return 1;
+    }
+  }
+  return 0;
 }
 
 # Stream the text of an underlined heading, possibly indented.
@@ -3819,9 +3844,8 @@ sub _convert($$) {
       _ensure_end_of_line($self);
       if (!_pending_is_empty(
                  $self->{'count_context'}->[-1]->{'pending_text'})) {
-        my $result = _align_environment($self,
-                      $self->{'text_element_context'}->[-1]->{'max'}, 'center');
-        push @{$self->{'count_context'}->[-1]->{'pending_text'}}, @$result;
+        _align_environment($self,
+                   $self->{'text_element_context'}->[-1]->{'max'}, 'center');
       } else {
         # it has to be done here, as it is done in _align_environment above
         pop @{$self->{'count_context'}};
@@ -4482,9 +4506,8 @@ sub _convert($$) {
     _stream_output_count_nl($self,
                Texinfo::Convert::Paragraph::end($paragraph->{'container'}));
     if ($self->{'context'}->[-1] eq 'flushright') {
-      my $result = _align_environment($self,
+      _align_environment($self,
         $self->{'text_element_context'}->[-1]->{'max'}, 'right');
-      push @{$self->{'count_context'}->[-1]->{'pending_text'}}, @$result;
     }
     destroy_formatter(pop @{$self->{'formatters'}});
     delete $self->{'text_element_context'}->[-1]->{'counter'};
@@ -4496,9 +4519,8 @@ sub _convert($$) {
     _ensure_end_of_line($self);
 
     if ($self->{'context'}->[-1] eq 'flushright') {
-      my $result = _align_environment($self,
+      _align_environment($self,
                       $self->{'text_element_context'}->[-1]->{'max'}, 'right');
-      push @{$self->{'count_context'}->[-1]->{'pending_text'}}, @$result;
     } elsif ($self->{'context'}->[-1] eq 'displaymath'
              and exists($self->{'elements_images'})
              and exists($self->{'elements_images'}->{$element})) {

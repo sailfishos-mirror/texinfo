@@ -939,6 +939,15 @@ after anchor
 Second anchor in text @anchor{second anchor in flushright} after anchor.
 @end flushright
 '],
+['anchor_after_text_in_flushright',
+'@node Top
+
+@flushright
+something
+@anchor{point}
+
+@end flushright
+'],
 # if this test is changed, the corresponding test in t/plaintext_tests.t
 # should be changed too
 ['multiline_image_and_align',
