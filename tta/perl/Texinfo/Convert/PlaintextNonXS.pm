@@ -4423,7 +4423,7 @@ sub _convert($$) {
       # this is used to keep track of the last cell with content.
       my $max_cell_nr
         = scalar(@{$self->{'format_context'}->[-1]->{'row_cell_counts'}});
-      my $result = [];
+      my $result = $self->{'count_context'}->[-1]->{'pending_text'};
       for (my $line_idx = 0; $line_idx < $max_lines; $line_idx++) {
         my $line_width = $indent_len;
         # determine the last cell index in the line, to fill spaces in
@@ -4456,6 +4456,9 @@ sub _convert($$) {
               if ($pending_text->[0] ne ''
                   or defined($pending_text->[1])) {
                 if (not $indent_done) {
+                  # Do not use _stream_output, as we never know if there
+                  # is an anchor from the end of a cell in the previous
+                  # text.
                   push @$result, [' ' x $indent_len];
                   $indent_done = 1;
                 }
@@ -4484,7 +4487,7 @@ sub _convert($$) {
         # at this point cell_beginning is at the beginning of
         # the cell following the end of the table -> full width
         my $line = (' ' x $indent_len) . ('-' x $cell_beginning) . "\n";
-        push @$result, [$line];
+        _stream_output($self, $line);
         $max_lines++;
       }
 
@@ -4493,8 +4496,6 @@ sub _convert($$) {
 
       $self->{'count_context'}->[-1]->{'lines'} += $max_lines;
       $self->{'format_context'}->[-1]->{'row_cell_counts'} = [];
-      push @{$self->{'count_context'}->[-1]->{'pending_text'}},
-              @$result;
     } elsif ($type eq 'before_node_section') {
       _ensure_end_of_line($self);
       my $text = _stream_to_text($self);

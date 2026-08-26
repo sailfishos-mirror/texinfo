@@ -6498,6 +6498,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           int i;
           FORMAT_CONTEXT *top_format
             = top_(format_context) (&self_plaintext->format_context);
+          /* used to register the index entry locations and pass them
+             to the parent, not for conversion */
           COUNT_CONTEXT row_count = { 0 };
           int max_cell_nr = top_format->row_cell_counts.number;
      /* beginning of cell in character width based on column sizes given
@@ -6545,6 +6547,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 max_lines = cell_lines_nr;
             }
 
+          /* In the following loop, we do not use stream_output for added
+             spaces and newlines because we never know if there is
+             a trailing anchor at the end of the previous cell or line */
           int line_idx;
           for (line_idx = 0; line_idx < max_lines; line_idx++)
             {
@@ -6651,15 +6656,13 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           if (top_format->item_command == CM_headitem)
             {
               int k;
-              PENDING_TEXT head_line = { 0 };
         /* at this point cell_beginning is at the beginning of
            the cell following the end of the table -> full width */
               for (k = 0; k < indent_len; k++)
-                text_append_n (&head_line.text, " ", 1);
+                stream_output (self, " ");
               for (k = 0; k < cell_beginning; k++)
-                text_append_n (&head_line.text, "-", 1);
-              text_append_n (&head_line.text, "\n", 1);
-              add_(pending_text) (result, head_line);
+                stream_output (self, "-");
+              stream_output (self, "\n");
               max_lines++;
             }
           update_locations_counts (self, count_context, &row_count);
