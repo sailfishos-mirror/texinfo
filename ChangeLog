@@ -1,5 +1,20 @@
 2026-08-26 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_info.c (info_format_anchor),
+	tta/C/convert/convert_to_plaintext.c (PLAINTEXT_FORMAT_FUNCTIONS)
+	(plaintext_format_anchor, plaintext_functions)
+	(convert_to_plaintext_internal), tta/perl/Texinfo/Convert/InfoNonXS.pm
+	(format_anchor), tta/perl/Texinfo/Convert/PlaintextNonXS.pm
+	(format_anchor, _convert): rename _anchor as format_anchor, move
+	definition to Info converter, the plaintext implementation being a
+	no-op.  Add dispatch information in C.
+
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm (process_footnotes),
+	tta/C/convert/convert_to_plaintext.c (plaintext_process_footnotes):
+	create a footnote anchor only if target_locations are output.
+
+2026-08-26 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_plaintext.c (plaintext_convert_line),
 	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (convert_line):
 	return converted text width.

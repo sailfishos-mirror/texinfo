@@ -863,6 +863,18 @@ info_output (CONVERTER *self, DOCUMENT *document)
 /* formatting functions differing from Plaintext formatting functions. */
 
 void
+info_format_anchor (CONVERTER *self, const ELEMENT *anchor)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+
+  if (! (self_plaintext->multiple_pass || self_plaintext->in_copying_header))
+    {
+      plaintext_add_target_location (self, anchor);
+      info_format_error_outside_of_any_node (self, anchor);
+    }
+}
+
+void
 info_format_contents (CONVERTER *self, SECTIONING_ROOT *sectioning_root,
                            enum command_id contents_or_shortcontents_cmd)
 {

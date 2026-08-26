@@ -609,6 +609,15 @@ sub format_error_outside_of_any_node($$) {
   }
 }
 
+sub format_anchor($$) {
+  my ($self, $anchor) = @_;
+
+  if (!($self->{'multiple_pass'} or $self->{'in_copying_header'})) {
+    $self->add_target_location($anchor);
+    $self->format_error_outside_of_any_node($anchor);
+  }
+}
+
 sub format_ref($$$) {
   my ($self, $cmdname, $element) = @_;
 

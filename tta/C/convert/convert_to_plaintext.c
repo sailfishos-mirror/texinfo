@@ -125,6 +125,7 @@ static PLAINTEXT_COMMAND_STRUCT plaintext_commands_data[BUILTIN_CMD_NUMBER];
 /* dispatch of formatting functions that are either for plaintext or
    Info output.  The table is below, after the functions definitions */
 typedef struct PLAINTEXT_FORMAT_FUNCTIONS {
+    void (* format_anchor) (CONVERTER *self, const ELEMENT *anchor);
     void (* format_contents) (CONVERTER *self,
                                SECTIONING_ROOT *sectioning_root,
                                enum command_id contents_or_shortcontents_cmd);
@@ -1698,7 +1699,7 @@ plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
         footnote node taken into account.  Not really problematic as
         nested footnotes are not right. */
 
-          if (label_element)
+          if (label_element && self_plaintext->target_locations)
             {
               char *footnote_anchor_id;
 
@@ -3289,16 +3290,8 @@ plaintext_format_error_outside_of_any_node (CONVERTER *self,
 }
 
 static void
-anchor (CONVERTER *self, const ELEMENT *anchor)
+plaintext_format_anchor (CONVERTER *self, const ELEMENT *anchor)
 {
-  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
-
-  if (! (self_plaintext->multiple_pass || self_plaintext->in_copying_header))
-    {
-      plaintext_add_target_location (self, anchor);
-      plaintext_functions[self->format]
-                  .format_error_outside_of_any_node (self, anchor);
-    }
 }
 
 char *
@@ -3423,6 +3416,7 @@ plaintext_format_image (CONVERTER *self, const char *image_file,
    enum converter_format */
 static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[] = {
   {
+   &plaintext_format_anchor,
    &plaintext_format_contents,
    &plaintext_format_error_outside_of_any_node,
    &plaintext_format_image,
@@ -3432,6 +3426,7 @@ static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[] = {
    &plaintext_format_ref,
   },
   {
+   &info_format_anchor,
    &info_format_contents,
    &info_format_error_outside_of_any_node,
    &info_format_image,
@@ -4846,7 +4841,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             {
               const char *pending_word = para_add_pending_word (0);
               stream_output_count_nl (self, pending_word);
-              anchor (self, element);
+              plaintext_functions[self->format].format_anchor (self, element);
               return;
             }
           else if (command_data[cmd].other_flags & CF_explained)
@@ -5390,7 +5385,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               add_newline_if_needed (self);
               if (argument_line->e.c->contents.number >= 2
           && argument_line->e.c->contents.list[0]->e.c->contents.number)
-                anchor (self, element);
+                plaintext_functions[self->format].format_anchor (self, element);
             }
           else if (cmd == CM_cartouche)
             {

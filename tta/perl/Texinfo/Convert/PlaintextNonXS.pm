@@ -1470,7 +1470,7 @@ sub process_footnotes($;$) {
       # element, while the pxref will point to the name with the
       # footnote node taken into account.  Not really problematic as
       # nested footnotes are not right.
-      if (defined($label_element)) {
+      if (defined($label_element) and defined($self->{'target_locations'})) {
         my $footnote_anchor_postfix = "-Footnote-$footnote_number";
         my $footnote_anchor_arg
           = Texinfo::Common::non_leading_trailing_tree($label_element);
@@ -2383,16 +2383,11 @@ sub format_node($$;$) {
 
 # no error in plaintext
 sub format_error_outside_of_any_node($$) {
-  my ($self, $element) = @_;
+#  my ($self, $element) = @_;
 }
 
-sub _anchor($$) {
-  my ($self, $anchor) = @_;
-
-  if (!($self->{'multiple_pass'} or $self->{'in_copying_header'})) {
-    $self->add_target_location($anchor);
-    $self->format_error_outside_of_any_node($anchor);
-  }
+sub format_anchor($$) {
+#  my ($self, $anchor) = @_;
 }
 
 my $listoffloat_entry_length = 41;
@@ -3389,7 +3384,7 @@ sub _convert($$) {
       } elsif ($cmdname eq 'anchor' or $cmdname eq 'namedanchor') {
         _stream_output_count_nl($self,
                                 add_pending_word($formatter->{'container'}));
-        _anchor($self, $element);
+        $self->format_anchor($element);
         return;
       } elsif (exists($explained_commands{$cmdname})) {
         if (exists($element->{'contents'})
@@ -3677,7 +3672,7 @@ sub _convert($$) {
         if (exists($argument_line->{'contents'})
             and scalar(@{$argument_line->{'contents'}}) >= 2
             and exists($argument_line->{'contents'}->[1]->{'contents'})) {
-          _anchor($self, $element);
+          $self->format_anchor($element);
         }
       } elsif ($cmdname eq 'cartouche') {
         # arguments_line type element
