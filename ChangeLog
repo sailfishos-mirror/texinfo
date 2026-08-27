@@ -1,3 +1,13 @@
+2026-08-27 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/converter.c (write_or_return): add a text_len argument
+	that is used if there is no encoding conversion.  Update callers.
+
+	* tta/C/convert/convert_to_info.c (info_output),
+	tta/C/convert/convert_to_plaintext.c (plaintext_output): do not setup
+	conversion to output encoding, it is already done.  Pass length to
+	write_or_return.
+
 2026-08-26 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_convert): set the

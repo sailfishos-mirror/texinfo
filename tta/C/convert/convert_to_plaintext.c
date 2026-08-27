@@ -7139,7 +7139,6 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
   FILE *file_fh = 0;
   char *encoded_destination_directory;
   int succeeded;
-  const ENCODING_CONVERSION *conversion = 0;
   TEXT result;
   size_t output_units_descriptor = 0;
   OUTPUT_UNIT_LIST *output_units;
@@ -7302,26 +7301,15 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
       else if (self->conf->DEBUG.o.integer > 0)
         fprintf (stderr, "DO No pages, string output\n");
 
-      if (file_fh)
-        {
-          if (self->conf->OUTPUT_ENCODING_NAME.o.string
-           && strcmp (self->conf->OUTPUT_ENCODING_NAME.o.string, "utf-8"))
-            {
-              conversion
-                 = get_encoding_conversion (
-                           self->conf->OUTPUT_ENCODING_NAME.o.string,
-                                              &output_conversions);
-            }
-        }
-
       for (i = 0; i < output_units->number; i++)
         {
           text_reset (&output_unit_result);
           OUTPUT_UNIT *output_unit = output_units->list[i];
           plaintext_convert_output_unit (self, output_unit);
           stream_final_result (self, &output_unit_result);
-          write_or_return (conversion, encoded_outfile_name,
-                           file_fh, &result, output_unit_result.text);
+          write_or_return (0, encoded_outfile_name,
+                           file_fh, &result, output_unit_result.text,
+                           output_unit_result.end);
         }
   /* Do not close STDOUT now such that the file descriptor is not reused
      by open, which uses the lowest-numbered file descriptor not open,
@@ -7349,15 +7337,6 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
       if (self->conf->DEBUG.o.integer > 0)
         fprintf (stderr, "DO Elements with filenames\n");
 
-      if (self->conf->OUTPUT_ENCODING_NAME.o.string
-          && strcmp (self->conf->OUTPUT_ENCODING_NAME.o.string, "utf-8"))
-        {
-          conversion
-                 = get_encoding_conversion (
-                           self->conf->OUTPUT_ENCODING_NAME.o.string,
-                                              &output_conversions);
-        }
-
       for (i = 0; i < output_units->number; i++)
         {
           OUTPUT_UNIT *output_unit = output_units->list[i];
@@ -7365,7 +7344,9 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
             = self->output_unit_file_indices[output_unit->index];
           FILE_NAME_PATH_COUNTER *unit_file
             = &self->output_unit_files.list[file_index];
+
           plaintext_convert_output_unit (self, output_unit);
+
           unit_file->counter--;
 
           if (!unit_file->first_unit)
@@ -7373,6 +7354,7 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
               unit_file->first_unit = output_unit;
               text_init (&unit_file->body);
             }
+
           stream_final_result (self, &unit_file->body);
 
           /* TODO in Perl, file is opened when first encountered
@@ -7411,25 +7393,12 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
 
               if (unit_file->body.end)
                 {
-                  char *result;
-                  size_t res_len;
                   size_t write_len;
                   TEXT *text = &unit_file->body;
+                  size_t res_len = text->end;
 
-                  if (conversion)
-                    {
-                      result = encode_with_iconv (conversion->iconv,
-                                          text->text, 0, ieh_error, 0);
-                      res_len = strlen (result);
-                    }
-                  else
-                    {
-                      result = text->text;
-                      res_len = text->end;
-                    }
-                  write_len = fwrite (result, sizeof (char), res_len, file_fh);
-                  if (conversion)
-                    free (result);
+                  write_len = fwrite (text->text, sizeof (char),
+                                      res_len, file_fh);
                   if (write_len != res_len)
                     { /* register error message instead? */
                       fprintf (stderr, "ERROR: write to %s failed (%zu/%zu)\n",

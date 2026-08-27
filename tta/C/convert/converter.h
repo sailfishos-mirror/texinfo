@@ -175,7 +175,8 @@ char *node_information_filename (CONVERTER *self, const char *normalized,
 
 void write_or_return (const ENCODING_CONVERSION *conversion,
                  const char *encoded_out_filepath,
-                 FILE *file_fh, TEXT *result, char *text);
+                 FILE *file_fh, TEXT *result, char *text,
+                 size_t text_len);
 
 void id_to_filename (CONVERTER *self, char **id_ref);
 TARGET_FILENAME *normalized_sectioning_command_filename (CONVERTER *self,

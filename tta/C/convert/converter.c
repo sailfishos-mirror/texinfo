@@ -753,10 +753,12 @@ converter_conversion_initialization (CONVERTER *converter, DOCUMENT *document)
 /* output fo $fh if defined, otherwise return the text. */
 /* NOTE TEXT should not be modified (by iconv), but it cannot be marked
    as const if the iconv call does not have a const in prototype */
+/* if the TEXT contains NUL, TEXT_LEN should be specified */
 void
 write_or_return (const ENCODING_CONVERSION *conversion,
                  const char *encoded_out_filepath,
-                 FILE *file_fh, TEXT *result, char *text)
+                 FILE *file_fh, TEXT *result, char *text,
+                 size_t text_len)
 {
   if (file_fh)
     {
@@ -774,7 +776,10 @@ write_or_return (const ENCODING_CONVERSION *conversion,
       else
         {
           result = text;
-          res_len = strlen (text);
+          if (text_len == 0)
+            res_len = strlen (text);
+          else
+            res_len = text_len;
         }
       write_len = fwrite (result, sizeof (char),
                           res_len, file_fh);
@@ -788,7 +793,12 @@ write_or_return (const ENCODING_CONVERSION *conversion,
         }
     }
   else
-    text_append (result, text);
+    {
+      if (text_len == 0)
+        text_append (result, text);
+      else
+        text_append_n (result, text, text_len);
+    }
 }
 
 char *
@@ -913,7 +923,7 @@ converter_output_tree (CONVERTER *converter, DOCUMENT *document,
       if (output_beginning)
         {
           write_or_return (conversion, encoded_out_filepath,
-                           file_fh, &result, output_beginning);
+                           file_fh, &result, output_beginning, 0);
           free (output_beginning);
         }
     }
@@ -921,7 +931,7 @@ converter_output_tree (CONVERTER *converter, DOCUMENT *document,
   if (tree_result)
     {
       write_or_return (conversion, encoded_out_filepath,
-                       file_fh, &result, tree_result);
+                       file_fh, &result, tree_result, 0);
       free (tree_result);
     }
 
@@ -931,7 +941,7 @@ converter_output_tree (CONVERTER *converter, DOCUMENT *document,
       if (output_end)
         {
           write_or_return (conversion, encoded_out_filepath,
-                           file_fh, &result, output_end);
+                           file_fh, &result, output_end, 0);
           free (output_end);
         }
     }

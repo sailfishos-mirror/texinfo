@@ -247,7 +247,6 @@ info_output (CONVERTER *self, DOCUMENT *document)
   FILE *file_fh = 0;
   char *encoded_destination_directory;
   int succeeded;
-  const ENCODING_CONVERSION *conversion = 0;
   TEXT result;
   size_t output_units_descriptor = 0;
   OUTPUT_UNIT_LIST *output_units;
@@ -351,15 +350,6 @@ info_output (CONVERTER *self, DOCUMENT *document)
         {
           status = 0;
           goto finalization;
-        }
-
-      if (self->conf->OUTPUT_ENCODING_NAME.o.string
-        && strcmp (self->conf->OUTPUT_ENCODING_NAME.o.string, "utf-8"))
-        {
-          conversion
-                 = get_encoding_conversion (
-                           self->conf->OUTPUT_ENCODING_NAME.o.string,
-                                              &output_conversions);
         }
 
       plaintext_setup_output_encoding (self);
@@ -488,11 +478,11 @@ info_output (CONVERTER *self, DOCUMENT *document)
       plaintext_process_footnotes (self, 0);
       stream_final_result (self, &node_text);
 
-      write_or_return (conversion, encoded_outfile_name, file_fh, &result,
-                       header.text);
+      write_or_return (0, encoded_outfile_name, file_fh, &result,
+                       header.text, header.end);
       /* cast to drop const */
-      write_or_return (conversion, encoded_outfile_name, file_fh, &result,
-                       node_text.text);
+      write_or_return (0, encoded_outfile_name, file_fh, &result,
+                       node_text.text, node_text.end);
     }
   else
     {
@@ -641,8 +631,9 @@ info_output (CONVERTER *self, DOCUMENT *document)
                   goto finalization;
                 }
 
-              write_or_return (conversion, encoded_new_filename, file_fh,
-                               &result, complete_header.text);
+              write_or_return (0, encoded_new_filename, file_fh,
+                               &result, complete_header.text,
+                               complete_header.end);
 
               self_plaintext->bytes += complete_header.end;
 
@@ -660,8 +651,8 @@ info_output (CONVERTER *self, DOCUMENT *document)
               /* We are outputting the first node. */
               first_node_seen = 1;
 
-              write_or_return (conversion, encoded_new_filename, file_fh,
-                               &result, header.text);
+              write_or_return (0, encoded_new_filename, file_fh,
+                               &result, header.text, header.end);
 
      /* When the first node was converted in convert_output_unit above, the
         text before the first node (type 'before_node_section') was saved in
@@ -673,8 +664,8 @@ info_output (CONVERTER *self, DOCUMENT *document)
                              self_plaintext->text_before_first_node);
             }
 
-          write_or_return (conversion, encoded_new_filename, file_fh,
-                           &result, node_text.text);
+          write_or_return (0, encoded_new_filename, file_fh,
+                           &result, node_text.text, node_text.end);
           text_reset (&node_text);
         }
     }
@@ -804,8 +795,8 @@ info_output (CONVERTER *self, DOCUMENT *document)
       text_append_n (&tag_text, "End:\n", 5);
     }
 
-  write_or_return (conversion, encoded_outfile_name, file_fh, &result,
-                   tag_text.text);
+  write_or_return (0, encoded_outfile_name, file_fh, &result,
+                   tag_text.text, tag_text.end);
 
   if (file_fh && strcmp (output_file, "-"))
     {

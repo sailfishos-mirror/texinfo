@@ -257,7 +257,7 @@ rawtext_output (CONVERTER *converter, DOCUMENT *document)
                                               &output_conversions);
         }
       write_or_return (conversion, encoded_out_filepath,
-                       file_fh, 0, result);
+                       file_fh, 0, result, 0);
       free (result);
 
       /* Do not close STDOUT now such that the file descriptor is not reused
