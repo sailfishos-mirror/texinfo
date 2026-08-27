@@ -186,19 +186,27 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
 }
 #undef ADD
 
-/* Return value to be freed by caller. */
-char *
-convert_to_texinfo (const ELEMENT *e)
+TEXT
+convert_to_texinfo_text (const ELEMENT *e)
 {
   TEXT result;
+  text_init (&result);
 
   if (!e)
-    return strdup ("");
-  text_init (&result);
+    return result;
+
   /* in case of a document without any content expanded, for instance
      containing only containers, we still want to output an empty string */
   text_append (&result, "");
   convert_to_texinfo_internal (e, &result);
+  return result;
+}
+
+/* Return value to be freed by caller. */
+char *
+convert_to_texinfo (const ELEMENT *e)
+{
+  TEXT result = convert_to_texinfo_text (e);
   return result.text;
 }
 
@@ -212,13 +220,13 @@ convert_contents_to_texinfo (const ELEMENT *e)
 
   if (non_empty)
     {
-      char *result;
+      TEXT result;
       ELEMENT *tmp = new_element (ET_NONE);
       insert_slice_into_contents (tmp, 0, e, arg_indices.start,
                                   arg_indices.end +1);
-      result = convert_to_texinfo (tmp);
+      result = convert_to_texinfo_text (tmp);
       destroy_element (tmp);
-      return result;
+      return result.text;
     }
   else
     return 0;

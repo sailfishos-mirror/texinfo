@@ -349,7 +349,7 @@ html_translate_convert_tree_append (const char *string,
 
 /* EXPLANATION is used for debugging */
 /* returned string to be freed by the caller */
-char *
+TEXT
 html_convert_tree_explanation (CONVERTER *self, const ELEMENT *tree,
                                const char *explanation)
 {
@@ -358,12 +358,12 @@ html_convert_tree_explanation (CONVERTER *self, const ELEMENT *tree,
 
   html_convert_tree_append (self, tree, &result, explanation);
 
-  return result.text;
+  return result;
 }
 
 /* follows the common API for converters */
 /* returned string to be freed by the caller */
-char *
+TEXT
 html_convert_tree (CONVERTER *self, const ELEMENT *tree)
 {
   return html_convert_tree_explanation (self, tree, 0);
@@ -380,7 +380,7 @@ html_convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
                                           enum command_id block_cmd)
 {
   const char *multiple_pass_str = "";
-  char *result;
+  TEXT result;
   char *explanation;
   char *context_string_str;
 
@@ -409,7 +409,7 @@ html_convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
   free (context_string_str);
   html_pop_document_context (self);
 
-  return result;
+  return result.text;
 }
 
 /* NOTE these switches are not done in perl, so the only perl functions
@@ -424,7 +424,7 @@ html_convert_css_string (CONVERTER *self, const ELEMENT *element,
   char *css_string_context_str;
   char *context_string_str;
   char *explanation;
-  char *result;
+  TEXT result;
 
   void (* saved_current_format_protect_text) (const char *text, TEXT *result);
   FORMATTING_REFERENCE *saved_formatting_references
@@ -470,7 +470,7 @@ html_convert_css_string (CONVERTER *self, const ELEMENT *element,
   self_html->current_types_conversion_function = saved_types_conversion_function;
   self_html->current_format_protect_text = saved_current_format_protect_text;
 
-  return result;
+  return result.text;
 }
 
 
@@ -577,9 +577,10 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
                  html_conversion_context_type_names[reset_context]);
       if (reset_context == HCC_type_normal)
         {
-          translation_result
+          TEXT result
              = html_convert_tree_explanation (self, translated_tree,
                                               explanation);
+          translation_result = result.text;
         }
       else if (reset_context == HCC_type_preformatted)
         {
@@ -587,9 +588,10 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
           /* there does not seems to be anything simpler... */
           html_new_document_context (self, context, 0, 0, 0);
           html_open_command_update_context (self, preformatted_cmd);
-          translation_result
+          TEXT result
               = html_convert_tree_explanation (self, translated_tree,
                                                explanation);
+          translation_result = result.text;
           html_convert_command_update_context (self, preformatted_cmd);
           html_pop_document_context (self);
         }
@@ -597,9 +599,10 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
         {
           html_new_document_context (self, context, CTXF_string, 0, 0);
 
-          translation_result
+          TEXT result
              = html_convert_tree_explanation (self, translated_tree,
                                               explanation);
+          translation_result = result.text;
           html_pop_document_context (self);
         }
       else /* reset_context == HCC_type_css_string */
@@ -2003,7 +2006,7 @@ convert_convert_output_unit_internal (CONVERTER *self, TEXT *result,
   free (explanation);
 }
 
-char *
+TEXT
 html_convert_convert (CONVERTER *self, const ELEMENT *root)
 {
   HTML_CONVERTER_STATE *self_html = self->html_converter;
@@ -2042,7 +2045,7 @@ html_convert_convert (CONVERTER *self, const ELEMENT *root)
 
   memset (&self_html->current_filename, 0, sizeof (FILE_NUMBER_NAME));
 
-  return result.text;
+  return result;
 }
 
 int
@@ -2215,7 +2218,7 @@ convert_output_output_unit_internal (CONVERTER *self,
   return 1;
 }
 
-char *
+TEXT
 html_convert_output (CONVERTER *self, const ELEMENT *root,
                      const char *output_file, const char *destination_directory,
                      const char *output_filename, const char *document_name)
@@ -2248,14 +2251,13 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
 
   free (encoded_destination_directory);
 
-  if (!succeeded)
-    return 0;
-
   text_init (&result);
+
+  if (!succeeded)
+    return result;
+
   text_init (&text);
-
   text_append (&result, "");
-
 
   if (!strlen (output_file))
     {
@@ -2354,13 +2356,10 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
   memset (&self_html->current_filename, 0, sizeof (FILE_NUMBER_NAME));
   free (text.text);
 
-  if (status)
-    return result.text;
-  else
-    {
-      free (result.text);
-      return 0;
-    }
+  if (!status)
+    text_destroy (&result);
+
+  return result;
 }
 
 

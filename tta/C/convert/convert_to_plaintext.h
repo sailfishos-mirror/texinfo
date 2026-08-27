@@ -43,11 +43,11 @@ CONVERTER_INITIALIZATION_INFO *plaintext_converter_defaults
 
 void plaintext_convert_output_unit (CONVERTER *self,
                                     const OUTPUT_UNIT *output_unit);
-char *plaintext_output (CONVERTER *self, DOCUMENT *document);
+TEXT plaintext_output (CONVERTER *self, DOCUMENT *document);
 
-char *plaintext_convert (CONVERTER *self, DOCUMENT *document);
+TEXT plaintext_convert (CONVERTER *self, DOCUMENT *document);
 
-char *plaintext_convert_tree (CONVERTER *self, const ELEMENT *tree);
+TEXT plaintext_convert_tree (CONVERTER *self, const ELEMENT *tree);
 
 void plaintext_free_converter (CONVERTER *self);
 void plaintext_converter_initialize (CONVERTER *self);

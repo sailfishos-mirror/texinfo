@@ -1085,6 +1085,18 @@ stream_reset (CONVERTER *self)
 }
 
 void
+stream_output_n (CONVERTER *self, const char *text, size_t n)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  COUNT_CONTEXT *count_context
+    = top_(count_context) (&self_plaintext->count_context);
+  PENDING_TEXT *pending_text
+    = top_(pending_text) (&count_context->pending_text);
+
+  text_append_n (&pending_text->text, text, n);
+}
+
+void
 stream_output (CONVERTER *self, const char *text)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
@@ -2528,7 +2540,7 @@ plaintext_process_printindex (CONVERTER *self,
     {
       /* FIXME nothing is actually streamed because of the first \x00 that
          terminates the string */
-      stream_output (self, "\x00\x08[index\x00\x08]\n");
+      stream_output_n (self, "\x00\x08[index\x00\x08]\n", 12);
       add_lines_count (self, 1);
     }
 
@@ -7125,7 +7137,7 @@ plaintext_convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit)
   adjust_final_locations (self);
 }
 
-char *
+TEXT
 plaintext_output (CONVERTER *self, DOCUMENT *document)
 {
   size_t i;
@@ -7448,18 +7460,15 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
       free (paths[i]);
     }
 
-  if (status)
-    return result.text;
-  else
-    {
-      free (result.text);
-      return 0;
-    }
+  if (!status)
+    text_destroy (&result);
+
+  return result;
 }
 
 /* ALTIMP: Texinfo:Convert::Plaintext::convert */
 /* never called from C, called from XS for t/?*.t tests */
-char *
+TEXT
 plaintext_convert (CONVERTER *self, DOCUMENT *document)
 {
   size_t output_units_descriptor;
@@ -7487,12 +7496,12 @@ plaintext_convert (CONVERTER *self, DOCUMENT *document)
 
   plaintext_conversion_finalization (self);
 
-  return result.text;
+  return result;
 }
 
 /* Never called */
 /* Return value to be freed by caller. */
-char *
+TEXT
 plaintext_convert_tree (CONVERTER *self, const ELEMENT *tree)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
@@ -7519,5 +7528,5 @@ plaintext_convert_tree (CONVERTER *self, const ELEMENT *tree)
 
   stream_final_result (self, &result);
 
-  return result.text;
+  return result;
 }

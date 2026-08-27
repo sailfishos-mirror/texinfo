@@ -32,6 +32,7 @@
 
 #undef context
 
+#include "text.h"
 #include "element_types.h"
 #include "command_ids.h"
 #include "tree_types.h"
@@ -256,7 +257,7 @@ output (SV *converter_in, SV *document_in)
         DOCUMENT *document;
         char *paths[5];
         int status;
-        char *result = 0;
+        TEXT result;
         int i;
         const char *output_file;
         const char *destination_directory;
@@ -269,6 +270,8 @@ output (SV *converter_in, SV *document_in)
         html_conversion_initialization (self, "_output", document);
 
         html_pass_conversion_initialization (self, converter_in);
+
+        text_init (&result);
 
         status = html_setup_output (self, paths);
         if (!status)
@@ -323,10 +326,10 @@ output (SV *converter_in, SV *document_in)
             build_html_formatting_state (self);
           }
 
-        if (!result)
+        if (!result.text)
           goto finalization;
 
-        if (strlen (result) && !strlen (output_file))
+        if (result.end > 0 && !strlen (output_file))
           {
             if (self->conf->TEST.o.integer <= 0 )
               {
@@ -339,8 +342,7 @@ output (SV *converter_in, SV *document_in)
           }
 
         /* output to a file only */
-        non_perl_free (result);
-        result = 0;
+        text_destroy (&result);
 
         status = html_finish_output (self, output_file, destination_directory);
 
@@ -362,10 +364,10 @@ output (SV *converter_in, SV *document_in)
 
         html_check_transfer_state_finalization (self);
 
-        if (result)
+        if (result.text)
           {
-            RETVAL = newSVpv_utf8 (result, 0);
-            non_perl_free (result);
+            RETVAL = newSVpv_utf8 (result.text, result.end);
+            non_perl_free (result.text);
           }
         else
           RETVAL = newSV (0);
@@ -378,7 +380,7 @@ convert (SV *converter_in, SV *document_in)
       PREINIT:
         DOCUMENT *document;
         CONVERTER *self;
-        char *result;
+        TEXT result;
       CODE:
         document = get_converter_and_document_from_sv (converter_in,
                                                      document_in, &self);
@@ -442,8 +444,8 @@ convert (SV *converter_in, SV *document_in)
 
         html_check_transfer_state_finalization (self);
 
-        RETVAL = newSVpv_utf8 (result, 0);
-        non_perl_free (result);
+        RETVAL = newSVpv_utf8 (result.text, result.end);
+        non_perl_free (result.text);
     OUTPUT:
         RETVAL
 
@@ -2179,10 +2181,10 @@ unused_convert_tree (SV *converter_in, SV *tree_in, explanation)
             document = get_sv_tree_document (tree_in, 0);
             if (document)
               {
-                char *result = html_convert_tree_explanation (self,
+                TEXT result = html_convert_tree_explanation (self,
                                             document->tree, explanation);
-                result_sv = newSVpv_utf8 (result, 0);
-                non_perl_free (result);
+                result_sv = newSVpv_utf8 (result.text, result.end);
+                non_perl_free (result.text);
               }
           }
         if (result_sv)

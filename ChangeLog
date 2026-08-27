@@ -1,5 +1,36 @@
 2026-08-27 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/call_conversion_perl.c (call_converter_output),
+	tta/C/main/converter_types.h (OUTPUT_TEXT_FILES_INFO): add length of
+	returned text to OUTPUT_TEXT_FILES_INFO.
+
+	* tta/C/convert/convert_to_plaintext.c (stream_output_n)
+	(plaintext_process_printindex): add stream_output_n and use for
+	quoted printindex string with NUL.
+
+	* tta/C/convert/convert_html.c (html_convert_tree_explanation)
+	(html_convert_tree, html_convert_convert, html_convert_output),
+	tta/C/convert/convert_to_info.c (info_output),
+	tta/C/convert/convert_to_plaintext.c (plaintext_output)
+	(plaintext_convert, plaintext_convert_tree), tta/C/convert/converter.c
+	(CONVERTER_FORMAT_DATA, converter_output, converter_convert)
+	(converter_output_tree), tta/C/convert/html_converter_api.c
+	(html_output, html_convert),
+	tta/C/convert/plaintexinfo_converter_api.c (plaintexinfo_output)
+	(plaintexinfo_convert, plaintexinfo_convert_tree),
+	tta/C/convert/rawtext_converter_api.c (rawtext_output)
+	(rawtext_convert, rawtext_convert_tree),
+	tta/C/main/convert_to_texinfo.c (convert_to_texinfo_text)
+	(convert_to_texinfo), tta/C/main/convert_to_text.c
+	(convert_to_text_text, convert_to_text): add convert_to_texinfo_text
+	and convert_to_text_text that return TEXT.  Change output, convert and
+	convert_tree functions to return TEXT.  Update callers.
+
+	* tta/C/convert/converter.c (convert_accents): update for change in
+	convert_tree.
+
+2026-08-27 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/converter.c (write_or_return): add a text_len argument
 	that is used if there is no encoding conversion.  Update callers.
 

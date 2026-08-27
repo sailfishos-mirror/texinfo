@@ -2,8 +2,10 @@
 #ifndef CONVERT_TO_TEXINFO_H
 #define CONVERT_TO_TEXINFO_H
 
+#include "text.h"
 #include "tree_types.h"
 
+TEXT convert_to_texinfo_text (const ELEMENT *e);
 char *convert_to_texinfo (const ELEMENT *e);
 char *convert_contents_to_texinfo (const ELEMENT *e);
 char *link_element_to_texi (const ELEMENT *element);

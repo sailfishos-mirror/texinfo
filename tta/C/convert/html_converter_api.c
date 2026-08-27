@@ -40,7 +40,7 @@ html_converter_initialize (CONVERTER *converter)
 }
 
 /* similar to Texinfo::Convert::HTML->output */
-char *
+TEXT
 html_output (CONVERTER *converter, DOCUMENT *document)
 {
   int i;
@@ -49,8 +49,10 @@ html_output (CONVERTER *converter, DOCUMENT *document)
   const char *destination_directory;
   const char *output_filename;
   const char *document_name;
-  char *result = 0;
+  TEXT result;
   int status;
+
+  text_init (&result);
 
   /* prepare conversion to HTML */
   html_conversion_initialization (converter, "_output", document);
@@ -91,10 +93,10 @@ html_output (CONVERTER *converter, DOCUMENT *document)
                         document_name);
     }
 
-  if (!result)
+  if (!result.text)
     goto finalization;
 
-  if (strlen (result) && !strlen (output_file))
+  if (result.end > 0 && !strlen (output_file))
     {
       if (converter->conf->TEST.o.integer <= 0 )
         {
@@ -121,10 +123,10 @@ html_output (CONVERTER *converter, DOCUMENT *document)
 }
 
 /* similar to Texinfo::Convert::HTML->convert */
-char *
+TEXT
 html_convert (CONVERTER *converter, DOCUMENT *document)
 {
-  char *result;
+  TEXT result;
 
   html_conversion_initialization (converter, "_convert", document);
 

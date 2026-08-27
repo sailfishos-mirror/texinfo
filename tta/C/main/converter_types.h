@@ -248,6 +248,7 @@ typedef struct TARGET_DIRECTORY_FILENAME {
 typedef struct OUTPUT_TEXT_FILES_INFO {
     OUTPUT_FILES_INFORMATION *output_files_information;
     char *text;
+    size_t len;
 } OUTPUT_TEXT_FILES_INFO;
 
 typedef struct CONVERTER_TEXT_INFO {

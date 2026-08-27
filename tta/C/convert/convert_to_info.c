@@ -231,7 +231,7 @@ info_header (CONVERTER *self, const char *input_basefile,
 
 static const char *STDIN_DOCU_NAME = "stdin";
 
-char *
+TEXT
 info_output (CONVERTER *self, DOCUMENT *document)
 {
   int i;
@@ -841,13 +841,10 @@ info_output (CONVERTER *self, DOCUMENT *document)
       free (paths[i]);
     }
 
-  if (status)
-    return result.text;
-  else
-    {
-      free (result.text);
-      return 0;
-    }
+  if (!status)
+    text_destroy (&result);
+
+  return result;
 }
 
 

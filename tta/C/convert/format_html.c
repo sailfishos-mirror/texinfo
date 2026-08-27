@@ -1922,7 +1922,11 @@ html_special_unit_info_text (CONVERTER *self,
                                      unit_info_tree, explanation,
                                      CTXF_string, 0, 0, 0);
   else
-    result = html_convert_tree_explanation (self, unit_info_tree, explanation);
+    {
+      TEXT text
+        = html_convert_tree_explanation (self, unit_info_tree, explanation);
+      result = text.text;
+    }
 
   remove_tree_to_build (self, unit_info_tree);
 
@@ -2071,6 +2075,7 @@ html_convert_command_tree (CONVERTER *self, const ELEMENT *command,
   const char *context_name;
   unsigned long context_type = 0;
   char *result;
+  TEXT text;
 
   if (command->e.c->cmd)
     {
@@ -2106,8 +2111,8 @@ html_convert_command_tree (CONVERTER *self, const ELEMENT *command,
 
   add_tree_to_build (self, selected_tree);
 
-  result
-    = html_convert_tree_explanation (self, selected_tree, explanation);
+  text = html_convert_tree_explanation (self, selected_tree, explanation);
+  result = text.text;
   free (explanation);
 
   remove_tree_to_build (self, selected_tree);
@@ -8125,6 +8130,7 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
 
       if (manual_content)
         {
+          TEXT text;
           if (!label_element)
             label_element = new_element (ET_NONE);
 
@@ -8133,8 +8139,9 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
 
           /* convert the manual part to file string */
           html_set_code_context (self, 1);
-          file = html_convert_tree_explanation (self, manual_content,
+          text = html_convert_tree_explanation (self, manual_content,
                                                 "node file in ref");
+          file = text.text;
           html_pop_code_context (self);
         }
 
@@ -8144,17 +8151,17 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
             {
               if (node_content)
                 {
-                  char *node_name;
+                  TEXT node_name;
                   html_set_code_context (self, 1);
                   node_name
                    = html_convert_tree_explanation (self, node_content,
                                                     "node in ref");
                   html_pop_code_context (self);
 
-                  if (node_name && strcmp (node_name, "Top"))
-                    name = node_name;
+                  if (node_name.text && strcmp (node_name.text, "Top"))
+                    name = node_name.text;
                   else
-                    free (node_name);
+                    free (node_name.text);
                 }
             }
           else
@@ -10449,10 +10456,12 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                     }
                   else
                     {
+                      TEXT text;
                       if (in_code)
                         html_set_code_context (self, 1);
-                      entry = html_convert_tree_explanation (self,
+                      text = html_convert_tree_explanation (self,
                                       entry_trees[level], convert_info);
+                      entry = text.text;
                       if (in_code)
                         html_pop_code_context (self);
                     }
@@ -10547,10 +10556,12 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                     }
                   else
                     {
+                      TEXT text;
                       if (in_code)
                         html_set_code_context (self, 1);
-                      entry = html_convert_tree_explanation (self, result_tree,
-                                                             convert_info);
+                      text = html_convert_tree_explanation (self, result_tree,
+                                                            convert_info);
+                      entry = text.text;
                       if (in_code)
                         html_pop_code_context (self);
                     }
@@ -10607,14 +10618,17 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                     }
                   else
                     {
+                      TEXT text;
                       if (in_code)
                         html_set_code_context (self, 1);
-                      entry = html_convert_tree_explanation (self, entry_tree,
-                                                             conv_str_entry);
+                      text = html_convert_tree_explanation (self, entry_tree,
+                                                            conv_str_entry);
+                      entry = text.text;
                       if (in_code)
                         html_pop_code_context (self);
-                      reference = html_convert_tree_explanation (self,
+                      text = html_convert_tree_explanation (self,
                                       reference_tree, conv_str_reference);
+                      reference = text.text;
                     }
                   remove_tree_to_build (self, entry_tree);
                   remove_tree_to_build (self, reference_tree);
@@ -10694,10 +10708,12 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                     }
                   else
                     {
+                      TEXT text;
                       if (in_code)
                         html_set_code_context (self, 1);
-                      entry = html_convert_tree_explanation (self, entry_tree,
-                                                             convert_info);
+                      text = html_convert_tree_explanation (self, entry_tree,
+                                                            convert_info);
+                      entry = text.text;
                       if (in_code)
                         html_pop_code_context (self);
                     }
@@ -10899,6 +10915,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
 
       if (entries_text.end > 0)
         {
+          TEXT letter_text;
           char *formatted_letter;
           char *index_name_letter_header_class;
           ELEMENT *letter_command = 0;
@@ -10942,25 +10959,25 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
               if (formatted_command)
                 {
                   add_tree_to_build (self, formatted_command);
-                  formatted_letter
+                  letter_text
                     = html_convert_tree_explanation (self, formatted_command,
                                                      explanation);
                   remove_tree_to_build (self, formatted_command);
                   destroy_element (formatted_command);
                 }
               else
-                formatted_letter
+                letter_text
                   = html_convert_tree_explanation (self, letter_command,
                                                    explanation);
+              formatted_letter = letter_text.text;
               free (explanation);
             }
           else
             {
-              TEXT text_letter;
-              text_init (&text_letter);
-              text_append (&text_letter, "");
-              format_protect_text (self, letter, &text_letter);
-              formatted_letter = text_letter.text;
+              text_init (&letter_text);
+              text_append (&letter_text, "");
+              format_protect_text (self, letter, &letter_text);
+              formatted_letter = letter_text.text;
             }
 
           if (letter_command)
@@ -11374,7 +11391,7 @@ html_open_quotation_command (CONVERTER *self, const enum command_id cmd,
                              const ELEMENT *element, TEXT *result)
 {
   const char *cmdname = element_command_name (element);
-  char *formatted_quotation_arg_to_prepend = 0;
+  TEXT formatted_quotation_arg_to_prepend;
   /* arguments_line type element */
   const ELEMENT *arguments_line = element->e.c->contents.list[0];
   ELEMENT *block_line_args = arguments_line->e.c->contents.list[0];
@@ -11399,9 +11416,11 @@ html_open_quotation_command (CONVERTER *self, const enum command_id cmd,
       destroy_element_and_children (tree);
       free (explanation);
     }
+  else
+    text_init (&formatted_quotation_arg_to_prepend);
   html_register_pending_formatted_inline_content (self, cmdname,
-                                  formatted_quotation_arg_to_prepend);
-  free (formatted_quotation_arg_to_prepend);
+                                  formatted_quotation_arg_to_prepend.text);
+  free (formatted_quotation_arg_to_prepend.text);
 
   open_quotation_titlepage_stack (self, 1);
 }
@@ -12205,7 +12224,6 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
     }
   else
     {
-      char *description = 0;
       char *name_no_number = 0;
       text_append_n (result, "<tr>", 4);
       open_element_with_class (self, "td",
@@ -12231,16 +12249,14 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
           char *name = 0;
           if (name_entry)
             {
-              name = html_convert_tree_explanation (self, name_entry,
+              TEXT text = html_convert_tree_explanation (self, name_entry,
                                                 "convert menu_entry_name");
-              if (name)
+              if (text.end > 0)
                 {
-                  if (!strlen (name))
-                    {
-                      free (name);
-                      name = 0;
-                    }
+                  name = text.text;
                 }
+              else
+                free (text.text);
             }
           if (!name)
             {
@@ -12256,10 +12272,12 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
                 }
               else if (node_content)
                 {
+                  TEXT text;
                   html_set_code_context (self, 1);
 
-                  name = html_convert_tree_explanation (self, node_content,
+                  text = html_convert_tree_explanation (self, node_content,
                                                         "menu_arg name");
+                  name = text.text;
                   html_pop_code_context (self);
                 }
             }
@@ -12301,6 +12319,7 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
 
       if (formatted_nodedescription_nr > 0)
         {
+          char *description = 0;
           char *multiple_formatted = 0;
           ELEMENT *description_element;
           if (formatted_nodedescription_nr > 1)
@@ -12334,17 +12353,19 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
               description_element->e.c->contents.list = 0;
               destroy_element (description_element);
             }
+          if (description)
+            {
+              text_append (result, description);
+              free (description);
+            }
         }
       else if (menu_description)
         {
-          description = html_convert_tree_explanation (self, menu_description,
+          TEXT description_text
+                  = html_convert_tree_explanation (self, menu_description,
                                                        "menu_arg description");
-        }
-
-      if (description)
-        {
-          text_append (result, description);
-          free (description);
+          text_append_n (result, description_text.text, description_text.end);
+          free (description_text.text);
         }
 
       free (name_no_number);
@@ -12581,8 +12602,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
   text_append (&def_call, "");
   if (parsed_def->type)
     {
-      char *type_text;
-      size_t type_text_len;
+      TEXT type_text;
       char *explanation;
 
       xasprintf (&explanation, "DEF_TYPE %s", builtin_command_name (def_cmd));
@@ -12594,16 +12614,14 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
 
       free (explanation);
 
-      type_text_len = strlen (type_text);
-
-      if (type_text_len > 0)
+      if (type_text.end > 0)
         {
           char *attribute_class = html_attribute_class (self, "code",
                                                         &def_type_classes);
           text_append (&def_call, attribute_class);
           free (attribute_class);
           text_append_n (&def_call, ">", 1);
-          text_append_n (&def_call, type_text, type_text_len);
+          text_append_n (&def_call, type_text.text, type_text.end);
           text_append_n (&def_call, "</code>", 7);
         }
       if ((base_cmd == CM_deftypefn || base_cmd == CM_deftypeop)
@@ -12614,9 +12632,9 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
                                     self_html->line_break_element.len);
           text_append_n (&def_call, " ", 1);
         }
-      else if (type_text_len > 0)
+      else if (type_text.end > 0)
         text_append_n (&def_call, " ", 1);
-      free (type_text);
+      free (type_text.text);
     }
 
   if (parsed_def->name)
@@ -12641,7 +12659,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
 
   if (parsed_def->args)
     {
-      char *args_formatted;
+      TEXT args_formatted;
       char *explanation;
       xasprintf (&explanation, "DEF_ARGS %s", builtin_command_name (def_cmd));
    /* arguments not only metasyntactic variables
@@ -12661,7 +12679,8 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
 
           remove_tree_to_build (self, parsed_def->args);
 
-          if (args_formatted[strspn (args_formatted, whitespace_chars)] != '\0')
+          if (args_formatted.text[
+                  strspn (args_formatted.text, whitespace_chars)] != '\0')
             {
               char *attribute_class = html_attribute_class (self, "code",
                                               &def_code_arguments_classes);
@@ -12671,7 +12690,8 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
               text_append (&def_call, attribute_class);
               free (attribute_class);
               text_append_n (&def_call, ">", 1);
-              text_append (&def_call, args_formatted);
+              text_append_n (&def_call, args_formatted.text,
+                                        args_formatted.end);
               text_append_n (&def_call, "</code>", 7);
             }
         }
@@ -12681,7 +12701,8 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
           args_formatted = html_convert_tree_explanation (self,
                                       parsed_def->args, explanation);
           html_pop_code_context (self);
-          if (args_formatted[strspn (args_formatted, whitespace_chars)] != '\0')
+          if (args_formatted.text[
+                  strspn (args_formatted.text, whitespace_chars)] != '\0')
             {
               char *attribute_class = html_attribute_class (self, "var",
                                               &def_var_arguments_classes);
@@ -12691,12 +12712,13 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
               text_append (&def_call, attribute_class);
               free (attribute_class);
               text_append_n (&def_call, ">", 1);
-              text_append (&def_call, args_formatted);
+              text_append_n (&def_call, args_formatted.text,
+                                        args_formatted.end);
               text_append_n (&def_call, "</var>", 6);
             }
         }
       free (explanation);
-      free (args_formatted);
+      free (args_formatted.text);
     }
 
   if (self->conf->DEF_TABLE.o.integer > 0)

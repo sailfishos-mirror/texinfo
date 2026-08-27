@@ -67,18 +67,20 @@ initialize_text_options_encoding (const OPTIONS *options,
     }
 }
 
-char *
+TEXT
 rawtext_output (CONVERTER *converter, DOCUMENT *document)
 {
   GLOBAL_INFO *document_info = 0;
   GLOBAL_COMMANDS *global_commands = 0;
   char *input_basename;
   char *input_basefile;
-  char *result;
+  TEXT result;
   const char *setfilename = 0;
   char *outfile = 0;
   FILE *file_fh = 0;
   char *encoded_out_filepath = 0;
+
+  text_init (&result);
 
   if (document)
     {
@@ -169,7 +171,7 @@ rawtext_output (CONVERTER *converter, DOCUMENT *document)
                 {
                   free (basefile_for_outfile);
                   free (destination_directory);
-                  return 0;
+                  return result;
                 }
 
               xasprintf (&outfile, "%s/%s", destination_directory,
@@ -239,12 +241,12 @@ rawtext_output (CONVERTER *converter, DOCUMENT *document)
           free (open_error_message);
           free (encoded_out_filepath);
           free (outfile);
-          return 0;
+          return result;
         }
     }
 
-  result = convert_to_text (document->tree,
-                            converter->convert_text_options);
+  result = convert_to_text_text (document->tree,
+                                 converter->convert_text_options);
   if (file_fh)
     {
       const ENCODING_CONVERSION *conversion = 0;
@@ -257,8 +259,8 @@ rawtext_output (CONVERTER *converter, DOCUMENT *document)
                                               &output_conversions);
         }
       write_or_return (conversion, encoded_out_filepath,
-                       file_fh, 0, result, 0);
-      free (result);
+                       file_fh, 0, result.text, result.end);
+      text_destroy (&result);
 
       /* Do not close STDOUT now such that the file descriptor is not reused
          by open, which uses the lowest-numbered file descriptor not open,
@@ -275,11 +277,11 @@ rawtext_output (CONVERTER *converter, DOCUMENT *document)
                                            outfile, strerror (errno));
               free (encoded_out_filepath);
               free (outfile);
-              return 0;
+              return result;
             }
         }
-
-      result = strdup ("");
+      text_init (&result);
+      text_append (&result, "");
     }
 
   free (encoded_out_filepath);
@@ -288,27 +290,26 @@ rawtext_output (CONVERTER *converter, DOCUMENT *document)
   return result;
 }
 
-char *
+TEXT
 rawtext_convert (CONVERTER *converter, DOCUMENT *document)
 {
-  char *result;
+  TEXT result;
 
   set_output_encoding (converter->conf, document);
 
   initialize_text_options_encoding (converter->conf,
                                     converter->convert_text_options);
 
-  result = convert_to_text (document->tree,
-                            converter->convert_text_options);
+  result = convert_to_text_text (document->tree,
+                                 converter->convert_text_options);
   return result;
 }
 
-char *
+TEXT
 rawtext_convert_tree (CONVERTER *converter,
                       const ELEMENT *tree)
 {
-  char *result = convert_to_text (tree, converter->convert_text_options);
+  TEXT result = convert_to_text_text (tree, converter->convert_text_options);
   return result;
 }
-
 

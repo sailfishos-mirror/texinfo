@@ -2,6 +2,7 @@
 #ifndef CONVERT_TO_TEXT_H
 #define CONVERT_TO_TEXT_H
 
+#include "text.h"
 #include "options_data.h"
 #include "tree_types.h"
 #include "document_types.h"
@@ -38,6 +39,7 @@ extern const char *nobrace_symbol_text[];
 extern const char *text_brace_no_arg_commands[];
 extern const char *sort_brace_no_arg_commands[];
 
+TEXT convert_to_text_text (const ELEMENT *root, TEXT_OPTIONS *text_options);
 char *convert_to_text (const ELEMENT *root, TEXT_OPTIONS *text_options);
 TEXT_OPTIONS *new_text_options (void);
 void destroy_text_options (TEXT_OPTIONS *text_options);

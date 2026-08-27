@@ -321,7 +321,10 @@ call_converter_output (CONVERTER *self, DOCUMENT *document)
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result->text = non_perl_strndup (result_ret, len);
+  /* result->text = non_perl_strndup (result_ret, len); */
+  result->text = malloc (sizeof (char) * len);
+  memcpy (result->text, result_ret, len);
+  result->len = len;
   result->output_files_information = 0;
 
   PUTBACK;

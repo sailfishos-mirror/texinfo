@@ -101,13 +101,13 @@ typedef struct CONVERTER_FORMAT_DATA {
     /* initialization of converter after getting customization options */
     void (* converter_initialize) (CONVERTER *self);
     /* convert a full document tree to an output file */
-    char * (* converter_output) (CONVERTER *converter, DOCUMENT *document);
+    TEXT (* converter_output) (CONVERTER *converter, DOCUMENT *document);
     /* convert a full document tree to a string without headers nor footers */
-    char * (* converter_convert) (CONVERTER *converter, DOCUMENT *document);
+    TEXT (* converter_convert) (CONVERTER *converter, DOCUMENT *document);
     /* currently unused, could be modified when it become used, but it would
        probably be better to stick to that API to be consistent with Perl */
     /* expected to be called for conversions of sub trees */
-    char * (* converter_convert_tree) (CONVERTER *converter,
+    TEXT (* converter_convert_tree) (CONVERTER *converter,
                                        const ELEMENT *tree);
     void (* converter_release_output_units) (CONVERTER *self);
     void (* converter_free) (CONVERTER *self);
@@ -633,7 +633,7 @@ converter_converter (enum converter_format format,
   return converter;
 }
 
-char *
+TEXT
 converter_output (CONVERTER *self, DOCUMENT *document)
 {
   enum converter_format converter_format = self->format;
@@ -641,17 +641,19 @@ converter_output (CONVERTER *self, DOCUMENT *document)
   if (converter_format != COF_none
       && converter_format_data[converter_format].converter_output)
     {
-      char *result;
-      char * (* format_converter_output) (CONVERTER *self,
+      TEXT result;
+      TEXT (* format_converter_output) (CONVERTER *self,
                                           DOCUMENT *document)
         = converter_format_data[converter_format].converter_output;
       result = format_converter_output (self, document);
       return result;
     }
-  return 0;
+  TEXT t;
+  text_init (&t);
+  return t;
 }
 
-char *
+TEXT
 converter_convert (CONVERTER *self, DOCUMENT *document)
 {
   enum converter_format converter_format = self->format;
@@ -659,14 +661,16 @@ converter_convert (CONVERTER *self, DOCUMENT *document)
   if (converter_format != COF_none
       && converter_format_data[converter_format].converter_convert)
     {
-      char *result;
-      char * (* format_converter_convert) (CONVERTER *self,
+      TEXT result;
+      TEXT (* format_converter_convert) (CONVERTER *self,
                                           DOCUMENT *document)
         = converter_format_data[converter_format].converter_convert;
       result = format_converter_convert (self, document);
       return result;
     }
-  return 0;
+  TEXT t;
+  text_init (&t);
+  return t;
 }
 
 static void
@@ -801,7 +805,7 @@ write_or_return (const ENCODING_CONVERSION *conversion,
     }
 }
 
-char *
+TEXT
 converter_output_tree (CONVERTER *converter, DOCUMENT *document,
     void * (* conversion_initialization)
                    (CONVERTER *converter, DOCUMENT *document),
@@ -825,9 +829,9 @@ converter_output_tree (CONVERTER *converter, DOCUMENT *document,
   const ENCODING_CONVERSION *conversion = 0;
   TEXT result;
   char *encoded_out_filepath = 0;
-  char *tree_result;
+  TEXT tree_result;
 
-  char *(* format_convert_tree) (CONVERTER *converter,
+  TEXT (* format_convert_tree) (CONVERTER *converter,
                                  const ELEMENT *tree)
     = converter_format_data[converter->format].converter_convert_tree;
 
@@ -928,11 +932,11 @@ converter_output_tree (CONVERTER *converter, DOCUMENT *document,
         }
     }
   tree_result = format_convert_tree (converter, root);
-  if (tree_result)
+  if (tree_result.text)
     {
       write_or_return (conversion, encoded_out_filepath,
-                       file_fh, &result, tree_result, 0);
-      free (tree_result);
+                       file_fh, &result, tree_result.text, tree_result.end);
+      free (tree_result.text);
     }
 
   if (conversion_output_end)
@@ -976,13 +980,10 @@ converter_output_tree (CONVERTER *converter, DOCUMENT *document,
       free (paths[i]);
     }
 
-  if (status)
-    return result.text;
-  else
-    {
-      free (result.text);
-      return 0;
-    }
+  if (!status)
+    text_destroy (&result);
+
+  return result;
 }
 
 
@@ -1803,7 +1804,7 @@ float_name_caption (CONVERTER *self, const ELEMENT *float_e)
 
 char *
 convert_accents (CONVERTER *self, const ELEMENT *accent,
- char *(*convert_tree)(CONVERTER *self, const ELEMENT *tree),
+ TEXT (*convert_tree)(CONVERTER *self, const ELEMENT *tree),
  char *(*format_accent)(CONVERTER *self, const char *text, const ELEMENT *element,
                         int index_in_stack, const CONST_ELEMENT_LIST *stack,
                         int set_case),
@@ -1818,7 +1819,8 @@ convert_accents (CONVERTER *self, const ELEMENT *accent,
 
   if (accent_stack->argument)
     {
-      arg_text = (*convert_tree) (self, accent_stack->argument);
+      TEXT arg_result = (*convert_tree) (self, accent_stack->argument);
+      arg_text = arg_result.text;
     }
   else
     arg_text = strdup ("");

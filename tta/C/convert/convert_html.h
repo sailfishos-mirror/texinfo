@@ -38,9 +38,9 @@ void remove_tree_to_build (CONVERTER *self, ELEMENT *e);
 
 void html_convert_tree_append (CONVERTER *self, const ELEMENT *e,
                                TEXT *result, const char *explanation);
-char *html_convert_tree_explanation (CONVERTER *self, const ELEMENT *tree,
+TEXT html_convert_tree_explanation (CONVERTER *self, const ELEMENT *tree,
                                      const char *explanation);
-char *html_convert_tree (CONVERTER *self, const ELEMENT *tree);
+TEXT html_convert_tree (CONVERTER *self, const ELEMENT *tree);
 void html_translate_convert_tree_append (const char *string,
                      CONVERTER *self,
                      NAMED_STRING_ELEMENT_LIST *replaced_substrings,
@@ -89,9 +89,9 @@ void html_free_direction_icons_array (CONVERTER *self, char ***direction_icons);
 
 char *debug_print_html_contexts (const CONVERTER *self);
 
-/* char *html_convert_convert (CONVERTER *self, const ELEMENT *root); */
+/* TEXT html_convert_convert (CONVERTER *self, const ELEMENT *root); */
 
-/* char *html_convert_output (CONVERTER *self, const ELEMENT *root,
+/* TEXT html_convert_output (CONVERTER *self, const ELEMENT *root,
                            const char *output_file,
                            const char *destination_directory,
                            const char *output_filename,

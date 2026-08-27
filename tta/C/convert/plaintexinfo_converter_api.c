@@ -15,7 +15,9 @@
 
 
 #include <config.h>
+#include <string.h>
 
+#include "text.h"
 #include "document_types.h"
 #include "converter_types.h"
 #include "customization_options.h"
@@ -37,24 +39,25 @@ plaintexinfo_converter_defaults (enum converter_format format,
   return format_defaults;
 }
 
-char *
+TEXT
 plaintexinfo_output (CONVERTER *converter, DOCUMENT *document)
 {
-  return converter_output_tree (converter, document, 0, 0, 0, 0);
-}
-
-char *
-plaintexinfo_convert (CONVERTER *converter, DOCUMENT *document)
-{
-  char *result = convert_to_texinfo (document->tree);
+  TEXT result = converter_output_tree (converter, document, 0, 0, 0, 0);
   return result;
 }
 
-char *
+TEXT
+plaintexinfo_convert (CONVERTER *converter, DOCUMENT *document)
+{
+  TEXT result = convert_to_texinfo_text (document->tree);
+  return result;
+}
+
+TEXT
 plaintexinfo_convert_tree (CONVERTER *converter,
                            const ELEMENT *tree)
 {
-  char *result = convert_to_texinfo (tree);
+  TEXT result = convert_to_texinfo_text (tree);
   return result;
 }
 

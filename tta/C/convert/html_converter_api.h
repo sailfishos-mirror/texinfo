@@ -19,6 +19,7 @@
 
 /* High-level API of HTML converter */
 
+#include "text.h"
 #include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"
@@ -36,7 +37,7 @@ CONVERTER_INITIALIZATION_INFO *html_converter_defaults (
 void html_converter_initialize (CONVERTER *converter);
 
 /* in convert_html.c */
-char *html_convert_tree (CONVERTER *self, const ELEMENT *tree);
+TEXT html_convert_tree (CONVERTER *self, const ELEMENT *tree);
 ELEMENT *html_cdt_tree (const char *string, CONVERTER *self,
                NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                const char *translation_context);
@@ -46,8 +47,8 @@ ELEMENT *html_element_cdt_tree (const char *string, const ELEMENT *element,
                        const char *translation_context);
 
 /* implemented in html_converter_api.c using html_conversion_api.h functions */
-char *html_output (CONVERTER *converter, DOCUMENT *document);
-char *html_convert (CONVERTER *converter, DOCUMENT *document);
+TEXT html_output (CONVERTER *converter, DOCUMENT *document);
+TEXT html_convert (CONVERTER *converter, DOCUMENT *document);
 
 /* in html_converter_finish.c */
 void html_reset_converter (CONVERTER *self);

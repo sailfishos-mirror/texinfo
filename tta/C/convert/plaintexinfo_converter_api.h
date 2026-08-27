@@ -19,6 +19,7 @@
 
 /* PlainTexinfo Converter API */
 
+#include "text.h"
 #include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"
@@ -27,10 +28,10 @@ CONVERTER_INITIALIZATION_INFO *plaintexinfo_converter_defaults
                                 (enum converter_format format,
                                  const CONVERTER_INITIALIZATION_INFO *conf);
 
-char *plaintexinfo_output (CONVERTER *converter, DOCUMENT *document);
+TEXT plaintexinfo_output (CONVERTER *converter, DOCUMENT *document);
 
-char *plaintexinfo_convert (CONVERTER *converter, DOCUMENT *document);
+TEXT plaintexinfo_convert (CONVERTER *converter, DOCUMENT *document);
 
-char *plaintexinfo_convert_tree (CONVERTER *converter,
-                                 const ELEMENT *tree);
+TEXT plaintexinfo_convert_tree (CONVERTER *converter,
+                                const ELEMENT *tree);
 #endif

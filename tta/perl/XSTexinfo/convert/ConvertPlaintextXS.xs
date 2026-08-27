@@ -24,6 +24,7 @@
 
 #undef context
 
+#include "text.h"
 #include "converter_types.h"
 /* for bug */
 #include "base_utils.h"
@@ -152,7 +153,7 @@ output (SV *converter_in, SV *document_in)
       PREINIT:
         CONVERTER *self;
         DOCUMENT *document;
-        char *result;
+        TEXT result;
       CODE:
         document = get_converter_and_document_from_sv (converter_in,
                                                      document_in, &self);
@@ -166,10 +167,10 @@ output (SV *converter_in, SV *document_in)
 
         clear_output_files_information (&self->output_files_information);
 
-        if (result)
+        if (result.text)
           {
-            RETVAL = newSVpv_utf8 (result, 0);
-            non_perl_free (result);
+            RETVAL = newSVpv_utf8 (result.text, result.end);
+            non_perl_free (result.text);
           }
         else
           RETVAL = newSV (0);
@@ -181,17 +182,17 @@ convert (SV *converter_in, SV *document_in)
       PREINIT:
         DOCUMENT *document;
         CONVERTER *self;
-        char *result;
+        TEXT result;
       CODE:
         document = get_converter_and_document_from_sv (converter_in,
                                                      document_in, &self);
 
         result = plaintext_convert (self, document);
 
-        if (result)
+        if (result.text)
           {
-            RETVAL = newSVpv_utf8 (result, 0);
-            non_perl_free (result);
+            RETVAL = newSVpv_utf8 (result.text, result.end);
+            non_perl_free (result.text);
           }
         else
           RETVAL = newSV (0);

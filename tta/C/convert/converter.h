@@ -128,7 +128,7 @@ void apply_converter_info (CONVERTER *converter,
          const CONVERTER_INITIALIZATION_INFO *init_info, int set_configured);
 void converter_set_document (CONVERTER *converter, DOCUMENT *document);
 
-char *
+TEXT
 converter_output_tree (CONVERTER *converter, DOCUMENT *document,
     void * (* conversion_initialization)
                    (CONVERTER *converter, DOCUMENT *document),
@@ -138,8 +138,8 @@ converter_output_tree (CONVERTER *converter, DOCUMENT *document,
     char * (* conversion_output_end) (CONVERTER *converter),
     void * (* conversion_finalization) (CONVERTER *converter));
 
-char *converter_output (CONVERTER *self, DOCUMENT *document);
-char *converter_convert (CONVERTER *self, DOCUMENT *document);
+TEXT converter_output (CONVERTER *self, DOCUMENT *document);
+TEXT converter_convert (CONVERTER *self, DOCUMENT *document);
 
 void converter_remove_output_units (CONVERTER *converter);
 void destroy_converter (CONVERTER *converter);
@@ -183,7 +183,7 @@ TARGET_FILENAME *normalized_sectioning_command_filename (CONVERTER *self,
                                                    const ELEMENT *command);
 
 char *convert_accents (CONVERTER *self, const ELEMENT *accent,
- char *(*convert_tree)(CONVERTER *self, const ELEMENT *tree),
+ TEXT (*convert_tree)(CONVERTER *self, const ELEMENT *tree),
  char *(*format_accent)(CONVERTER *self, const char *text, const ELEMENT *element,
                         int index_in_stack, const CONST_ELEMENT_LIST *stack,
                         int set_case),

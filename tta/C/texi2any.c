@@ -2922,7 +2922,7 @@ main (int argc, char *argv[], char *env[])
     {
       DOCUMENT *document;
       CONVERTER *converter = 0;
-      char *result;
+      TEXT result;
       char *input_file_name_and_directory[2];
       char *input_file_name;
       char *input_directory;
@@ -3429,10 +3429,11 @@ main (int argc, char *argv[], char *env[])
           FILE_STREAM_LIST *unclosed_files
              = &output_files_information->unclosed_files;
 
-          result = 0;
           if (output_text_files_info->text)
             {
-              result = strdup (output_text_files_info->text);
+              text_init (&result);
+              text_append_n (&result, output_text_files_info->text,
+                             output_text_files_info->len);
               free (output_text_files_info->text);
             }
 
@@ -3459,7 +3460,7 @@ main (int argc, char *argv[], char *env[])
          not anything else as parse_file is used with a file */
         result = converter_output (converter, document);
 
-      free (result);
+      free (result.text);
       clear_converter_initialization_info (converter_init_info);
 
       errors_count

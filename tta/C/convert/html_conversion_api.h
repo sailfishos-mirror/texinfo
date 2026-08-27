@@ -78,9 +78,9 @@ int html_prepare_converted_output_info (CONVERTER *self,
                                         const char *output_file,
                                         const char *output_filename);
 
-char *html_convert_convert (CONVERTER *self, const ELEMENT *root);
+TEXT html_convert_convert (CONVERTER *self, const ELEMENT *root);
 
-char *html_convert_output (CONVERTER *self, const ELEMENT *root,
+TEXT html_convert_output (CONVERTER *self, const ELEMENT *root,
                            const char *output_file,
                            const char *destination_directory,
                            const char *output_filename,

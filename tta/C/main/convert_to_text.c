@@ -1129,8 +1129,8 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
 #undef ADD
 
 /* Return value to be freed by caller. */
-char *
-convert_to_text (const ELEMENT *root, TEXT_OPTIONS *text_options)
+TEXT
+convert_to_text_text (const ELEMENT *root, TEXT_OPTIONS *text_options)
 {
   TEXT result;
 
@@ -1143,5 +1143,13 @@ convert_to_text (const ELEMENT *root, TEXT_OPTIONS *text_options)
     merge_error_messages_lists (&text_options->converter->error_messages,
                                 &text_options->error_messages);
 
+  return result;
+}
+
+/* Return value to be freed by caller. */
+char *
+convert_to_text (const ELEMENT *root, TEXT_OPTIONS *text_options)
+{
+  TEXT result = convert_to_text_text (root, text_options);
   return result.text;
 }
