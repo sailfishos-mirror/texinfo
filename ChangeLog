@@ -1,5 +1,13 @@
 2026-08-28 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/utils.c (encode_with_iconv): return a TEXT.  Update
+	callers.
+
+	* tta/C/main/convert_utils.c (expand_verbatiminclude): inline
+	convert_to_utf8_verbatiminclude and remove.
+
+2026-08-28 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_info.c (info_output),
 	tta/C/convert/convert_to_plaintext.c
 	(plaintext_conversion_finalization, convert_to_plaintext_internal),

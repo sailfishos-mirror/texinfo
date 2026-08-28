@@ -459,12 +459,12 @@ error_message_text (const ERROR_MESSAGE *error_msg, int use_filename,
 
   if (conversion)
     {
-      char *encoded = encode_with_iconv (conversion->iconv,
+      TEXT encoded = encode_with_iconv (conversion->iconv,
                                          error_msg->error_line,
                                          &error_msg->source_info,
                                          ieh_mark, 0);
-      text_append (text, encoded);
-      free (encoded);
+      text_append_n (text, encoded.text, encoded.end);
+      free (encoded.text);
     }
   else
     text_append (text, error_msg->error_line);

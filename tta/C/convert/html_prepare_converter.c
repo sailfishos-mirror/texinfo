@@ -1568,8 +1568,11 @@ html_process_css_file (CONVERTER *self, FILE *fh, char *filename,
       if (!conversion)
         line = strdup (input_line);
       else
-        line = encode_with_iconv (conversion->iconv, input_line, 0,
+        {
+          TEXT conv_line = encode_with_iconv (conversion->iconv, input_line, 0,
                                   ieh_error, 0);
+          line = conv_line.text;
+        }
 
       free (input_line);
       line_nr ++;

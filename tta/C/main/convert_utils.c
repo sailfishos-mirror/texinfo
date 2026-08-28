@@ -480,18 +480,6 @@ add_heading_number (const ELEMENT *current, char *text,
   return result.text;
 }
 
-static char *
-convert_to_utf8_verbatiminclude (char *s,
-                                 const ENCODING_CONVERSION *conversion,
-                                 const SOURCE_INFO *source_info)
-{
-  char *result;
-  if (!conversion)
-    return strdup (s);
-  result = encode_with_iconv (conversion->iconv, s, source_info, ieh_error, 0);
-  return result;
-}
-
 /*
   Reverse the decoding of the file name from the input encoding.
   FILE_NAME_ENCODING is used to return the encoding.
@@ -675,7 +663,6 @@ expand_verbatiminclude (const ELEMENT *current,
             {
               size_t n;
               char *line = 0;
-              char *text;
               ELEMENT *raw;
               ssize_t status = getline (&line, &n, stream);
               if (status == -1)
@@ -684,13 +671,19 @@ expand_verbatiminclude (const ELEMENT *current,
                   break;
                 }
 
-              text = convert_to_utf8_verbatiminclude
-                       (line, conversion, &current->e.c->source_info);
-              free (line);
               raw = new_text_element (ET_raw);
-              text_append (raw->e.text, text);
+              if (conversion)
+                {
+                  TEXT text = encode_with_iconv (conversion->iconv, line,
+                                              &current->e.c->source_info,
+                                              ieh_error, 0);
+                  text_append_n (raw->e.text, text.text, text.end);
+                  free (text.text);
+                }
+              else
+                text_append (raw->e.text, line);
+              free (line);
               add_to_contents_as_array (verbatiminclude, raw);
-              free (text);
             }
           if (fclose (stream) == EOF)
             {

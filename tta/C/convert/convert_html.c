@@ -2177,9 +2177,10 @@ convert_output_output_unit_internal (CONVERTER *self,
 
           if (conversion)
             {
-              result = encode_with_iconv (conversion->iconv,
+              TEXT conv_result = encode_with_iconv (conversion->iconv,
                                           text->text, 0, ieh_error, 0);
-              res_len = strlen (result);
+              result = conv_result.text;
+              res_len = conv_result.end;
             }
           else
             {
@@ -2587,9 +2588,10 @@ file_error_or_write_close (CONVERTER *self, const char *out_filepath,
 
       if (conversion)
         {
-          result = encode_with_iconv (conversion->iconv,
+          TEXT conv_result = encode_with_iconv (conversion->iconv,
                                       page, 0, ieh_error, 0);
-          res_len = strlen (result);
+          result = conv_result.text;
+          res_len = conv_result.end;
         }
       else
         {

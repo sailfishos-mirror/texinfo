@@ -773,9 +773,10 @@ write_or_return (const ENCODING_CONVERSION *conversion,
       if (conversion)
         {
           /* cast to remove the const, for the prototype */
-          result = encode_with_iconv (conversion->iconv,
+          TEXT conv_result = encode_with_iconv (conversion->iconv,
                                       text, 0, ieh_error, 0);
-          res_len = strlen (result);
+          result = conv_result.text;
+          res_len = conv_result.end;
         }
       else
         {

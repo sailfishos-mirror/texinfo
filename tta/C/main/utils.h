@@ -280,10 +280,10 @@ void free_deprecated_dirs_list (DEPRECATED_DIRS_LIST *deprecated_dirs);
 
 ENCODING_CONVERSION *get_encoding_conversion (const char *encoding,
                                     ENCODING_CONVERSION_LIST *encodings_list);
-char *encode_with_iconv (iconv_t our_iconv,  char *s,
-                         const SOURCE_INFO *source_info,
-                         enum iconv_error_handling error_handling,
-                         int *iconv_status);
+TEXT encode_with_iconv (iconv_t our_iconv,  char *s,
+                        const SOURCE_INFO *source_info,
+                        enum iconv_error_handling error_handling,
+                        int *iconv_status);
 void reset_encoding_list (ENCODING_CONVERSION_LIST *encodings_list);
 char *decode_string (char *input_string, const char *encoding, int *status,
                      const SOURCE_INFO *source_info);

@@ -106,7 +106,7 @@ int after_end_fetch_nr = -1;
 char *
 convert_to_utf8 (char *s)
 {
-  char *ret;
+  TEXT ret;
 
   /* Convert from @documentencoding to UTF-8.
      It could have been possible to use an 8-bit encoding throughout,
@@ -134,7 +134,7 @@ convert_to_utf8 (char *s)
   ret = encode_with_iconv (current_encoding_conversion->iconv, s,
                            &current_source_info, ieh_error, 0);
   free (s);
-  return ret;
+  return ret.text;
 }
 
 /* In Perl Parser _encode_file_name */
@@ -168,10 +168,10 @@ parser_encode_file_name (char *filename)
 
   if (filename_encoding_conversion)
     {
-      char *result
+      TEXT result
         = encode_with_iconv (filename_encoding_conversion->iconv,
                              filename, &current_source_info, ieh_error, 0);
-      return result;
+      return result.text;
     }
   else
     {

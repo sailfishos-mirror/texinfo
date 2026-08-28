@@ -864,14 +864,19 @@ write_to_file (char *output_text, FILE *file_fh,
         = get_encoding_conversion (out_encoding_option->o.string,
                                    &output_conversions);
       if (conversion)
-        result_text = encode_with_iconv (conversion->iconv,
+        {
+          TEXT conv_result = encode_with_iconv (conversion->iconv,
                                          output_text, 0, ieh_error, 0);
+          result_text = conv_result.text;
+          res_len = conv_result.end;
+        }
     }
 
   if (!result_text)
-    result_text = output_text;
-
-  res_len = strlen (result_text);
+    {
+      result_text = output_text;
+      res_len = strlen (result_text);
+    }
 
   write_len = fwrite (result_text, sizeof (char),
                       res_len, file_fh);

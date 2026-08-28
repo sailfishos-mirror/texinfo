@@ -537,7 +537,7 @@ reset_encoding_list (ENCODING_CONVERSION_LIST *encodings_list)
 }
 
 /* Run iconv using text buffer as output buffer. */
-size_t
+static size_t
 text_buffer_iconv (TEXT *buf, iconv_t iconv_state,
                    ICONV_CONST char **inbuf, size_t *inbytesleft)
 {
@@ -562,18 +562,18 @@ text_buffer_iconv (TEXT *buf, iconv_t iconv_state,
 
 /* If SILENT_STATUS is set, no message is output and the argument is used
    to pass a status as reference, set to 0 if there was no error */
-char *
+TEXT
 encode_with_iconv (iconv_t our_iconv, char *s, const SOURCE_INFO *source_info,
                    enum iconv_error_handling error_handling, int *iconv_status)
 {
-  static TEXT t;
+  TEXT t;
   ICONV_CONST char *inptr; size_t bytes_left;
   size_t iconv_ret;
 
   if (iconv_status)
     *iconv_status = 0;
 
-  t.end = 0; /* reset internal TEXT buffer */
+  text_init (&t);
   inptr = s;
   bytes_left = strlen (s);
   text_alloc (&t, 10);
@@ -625,7 +625,7 @@ encode_with_iconv (iconv_t our_iconv, char *s, const SOURCE_INFO *source_info,
     }
 
   t.text[t.end] = '\0';
-  return strdup (t.text);
+  return t;
 }
 
 /* NOTE INPUT_STRING should not be modified by iconv, but it cannot be marked
@@ -635,7 +635,7 @@ char *
 decode_string (char *input_string, const char *encoding, int *status,
                const SOURCE_INFO *source_info)
 {
-  char *result;
+  TEXT result;
   *status = 0;
   /* not sure this can happen */
   if (!encoding)
@@ -651,7 +651,7 @@ decode_string (char *input_string, const char *encoding, int *status,
 
   result = encode_with_iconv (conversion->iconv, input_string,
                               source_info, ieh_error, 0);
-  return result;
+  return result.text;
 }
 
 char *
@@ -659,7 +659,7 @@ encode_string (char *input_string, const char *encoding, int *status,
                const SOURCE_INFO *source_info,
                enum iconv_error_handling error_handling, int *iconv_status)
 {
-  char *result;
+  TEXT result;
   *status = 0;
   /* could happen in specific cases, such as, for file names,
      DOC_ENCODING_FOR_INPUT_FILE_NAME set to 0 and no locales encoding
@@ -677,7 +677,7 @@ encode_string (char *input_string, const char *encoding, int *status,
 
   result = encode_with_iconv (conversion->iconv, input_string, source_info,
                               error_handling, iconv_status);
-  return result;
+  return result.text;
 }
 
 

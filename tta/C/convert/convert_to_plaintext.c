@@ -1148,18 +1148,15 @@ void
 plaintext_encode_string (CONVERTER *self, const TEXT *text, TEXT *result)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
-  char *converted_text;
-  size_t len;
 
   if (self_plaintext->encoding_object)
     {
-      converted_text
+      TEXT converted_text
         = encode_with_iconv (self_plaintext->encoding_object->iconv,
                                       (char *)text->text, 0, ieh_error, 0);
 
-      len = strlen (converted_text);
-      text_append_n (result, converted_text, len);
-      free (converted_text);
+      text_append_n (result, converted_text.text, converted_text.end);
+      free (converted_text.text);
     }
   else
     {
@@ -1185,14 +1182,13 @@ stream_encode (CONVERTER *self, PENDING_TEXT_LIST *pending_texts, TEXT *result)
         }
       else
         {
-          char *converted_text
+          TEXT converted_text
             = encode_with_iconv (self_plaintext->encoding_object->iconv,
                                  pending_text->text.text, 0, ieh_error, 0);
-          size_t len = strlen (converted_text);
-          text_append_n (result, converted_text, len);
-          free (converted_text);
+          text_append_n (result, converted_text.text, converted_text.end);
           if (self_plaintext->target_locations)
-            self_plaintext->bytes += len;
+            self_plaintext->bytes += converted_text.end;
+          free (converted_text.text);
         }
       text_reset (&pending_text->text);
       if (self_plaintext->target_locations && pending_text->anchor)
