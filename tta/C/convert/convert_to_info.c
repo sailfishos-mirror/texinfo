@@ -1717,7 +1717,10 @@ info_format_image_element (CONVERTER *self, const ELEMENT *element,
                                                   text, alt, 0, 0,
                                                   &lines_count);
           if (self_plaintext->formatters.number == 1)
-            text_append_n (&image_string, "\n", 1);
+            {
+              text_append_n (&image_string, "\n", 1);
+              lines_count++;
+            }
 
           no_align = 1;
         }
