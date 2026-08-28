@@ -563,7 +563,8 @@ text_buffer_iconv (TEXT *buf, iconv_t iconv_state,
 /* If SILENT_STATUS is set, no message is output and the argument is used
    to pass a status as reference, set to 0 if there was no error */
 TEXT
-encode_with_iconv (iconv_t our_iconv, char *s, const SOURCE_INFO *source_info,
+encode_with_iconv (iconv_t our_iconv, char *s, size_t len,
+                   const SOURCE_INFO *source_info,
                    enum iconv_error_handling error_handling, int *iconv_status)
 {
   TEXT t;
@@ -575,7 +576,7 @@ encode_with_iconv (iconv_t our_iconv, char *s, const SOURCE_INFO *source_info,
 
   text_init (&t);
   inptr = s;
-  bytes_left = strlen (s);
+  bytes_left = len;
   text_alloc (&t, 10);
 
   while (1)
@@ -650,6 +651,7 @@ decode_string (char *input_string, const char *encoding, int *status,
   *status = 1;
 
   result = encode_with_iconv (conversion->iconv, input_string,
+                              strlen (input_string),
                               source_info, ieh_error, 0);
   return result.text;
 }
@@ -675,7 +677,8 @@ encode_string (char *input_string, const char *encoding, int *status,
 
   *status = 1;
 
-  result = encode_with_iconv (conversion->iconv, input_string, source_info,
+  result = encode_with_iconv (conversion->iconv, input_string,
+                              strlen (input_string), source_info,
                               error_handling, iconv_status);
   return result.text;
 }

@@ -1569,8 +1569,9 @@ html_process_css_file (CONVERTER *self, FILE *fh, char *filename,
         line = strdup (input_line);
       else
         {
-          TEXT conv_line = encode_with_iconv (conversion->iconv, input_line, 0,
-                                  ieh_error, 0);
+          TEXT conv_line
+            = encode_with_iconv (conversion->iconv, input_line,
+                                 strlen (input_line), 0, ieh_error, 0);
           line = conv_line.text;
         }
 

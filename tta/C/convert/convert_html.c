@@ -2178,7 +2178,8 @@ convert_output_output_unit_internal (CONVERTER *self,
           if (conversion)
             {
               TEXT conv_result = encode_with_iconv (conversion->iconv,
-                                          text->text, 0, ieh_error, 0);
+                                          text->text, text->end,
+                                          0, ieh_error, 0);
               result = conv_result.text;
               res_len = conv_result.end;
             }
@@ -2585,18 +2586,19 @@ file_error_or_write_close (CONVERTER *self, const char *out_filepath,
       char *result;
       size_t res_len;
       size_t write_len;
+      size_t page_len = strlen (page);
 
       if (conversion)
         {
           TEXT conv_result = encode_with_iconv (conversion->iconv,
-                                      page, 0, ieh_error, 0);
+                                      page, page_len, 0, ieh_error, 0);
           result = conv_result.text;
           res_len = conv_result.end;
         }
       else
         {
           result = page;
-          res_len = strlen (page);
+          res_len = page_len;
         }
       write_len = fwrite (result, sizeof (char),
                           res_len, file_fh);

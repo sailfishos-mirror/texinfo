@@ -132,6 +132,7 @@ convert_to_utf8 (char *s)
     }
 
   ret = encode_with_iconv (current_encoding_conversion->iconv, s,
+                           strlen (s),
                            &current_source_info, ieh_error, 0);
   free (s);
   return ret.text;
@@ -170,7 +171,8 @@ parser_encode_file_name (char *filename)
     {
       TEXT result
         = encode_with_iconv (filename_encoding_conversion->iconv,
-                             filename, &current_source_info, ieh_error, 0);
+                             filename, strlen (filename),
+                             &current_source_info, ieh_error, 0);
       return result.text;
     }
   else

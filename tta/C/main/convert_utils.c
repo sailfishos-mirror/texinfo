@@ -663,6 +663,7 @@ expand_verbatiminclude (const ELEMENT *current,
             {
               size_t n;
               char *line = 0;
+              size_t line_len;
               ELEMENT *raw;
               ssize_t status = getline (&line, &n, stream);
               if (status == -1)
@@ -671,17 +672,20 @@ expand_verbatiminclude (const ELEMENT *current,
                   break;
                 }
 
+              line_len = strlen (line);
+
               raw = new_text_element (ET_raw);
               if (conversion)
                 {
                   TEXT text = encode_with_iconv (conversion->iconv, line,
+                                              line_len,
                                               &current->e.c->source_info,
                                               ieh_error, 0);
                   text_append_n (raw->e.text, text.text, text.end);
                   free (text.text);
                 }
               else
-                text_append (raw->e.text, line);
+                text_append_n (raw->e.text, line, line_len);
               free (line);
               add_to_contents_as_array (verbatiminclude, raw);
             }

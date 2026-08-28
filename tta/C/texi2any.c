@@ -866,7 +866,8 @@ write_to_file (char *output_text, FILE *file_fh,
       if (conversion)
         {
           TEXT conv_result = encode_with_iconv (conversion->iconv,
-                                         output_text, 0, ieh_error, 0);
+                                         output_text, strlen (output_text),
+                                         0, ieh_error, 0);
           result_text = conv_result.text;
           res_len = conv_result.end;
         }

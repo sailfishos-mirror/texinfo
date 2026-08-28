@@ -1153,7 +1153,8 @@ plaintext_encode_string (CONVERTER *self, const TEXT *text, TEXT *result)
     {
       TEXT converted_text
         = encode_with_iconv (self_plaintext->encoding_object->iconv,
-                                      (char *)text->text, 0, ieh_error, 0);
+                                              text->text, text->end,
+                                              0, ieh_error, 0);
 
       text_append_n (result, converted_text.text, converted_text.end);
       free (converted_text.text);
@@ -1184,7 +1185,9 @@ stream_encode (CONVERTER *self, PENDING_TEXT_LIST *pending_texts, TEXT *result)
         {
           TEXT converted_text
             = encode_with_iconv (self_plaintext->encoding_object->iconv,
-                                 pending_text->text.text, 0, ieh_error, 0);
+                                 pending_text->text.text,
+                                 pending_text->text.end,
+                                 0, ieh_error, 0);
           text_append_n (result, converted_text.text, converted_text.end);
           if (self_plaintext->target_locations)
             self_plaintext->bytes += converted_text.end;

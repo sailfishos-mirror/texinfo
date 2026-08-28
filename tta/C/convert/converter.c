@@ -770,21 +770,21 @@ write_or_return (const ENCODING_CONVERSION *conversion,
       size_t res_len;
       size_t write_len;
 
+      if (text_len == 0)
+        text_len = strlen (text);
+
       if (conversion)
         {
           /* cast to remove the const, for the prototype */
           TEXT conv_result = encode_with_iconv (conversion->iconv,
-                                      text, 0, ieh_error, 0);
+                                      text, text_len, 0, ieh_error, 0);
           result = conv_result.text;
           res_len = conv_result.end;
         }
       else
         {
           result = text;
-          if (text_len == 0)
-            res_len = strlen (text);
-          else
-            res_len = text_len;
+          res_len = text_len;
         }
       write_len = fwrite (result, sizeof (char),
                           res_len, file_fh);

@@ -1,5 +1,10 @@
 2026-08-28 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/utils.c (encode_with_iconv): add length to be encoded in
+	argument.  Update callers.
+
+2026-08-28 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/utils.c (encode_with_iconv): return a TEXT.  Update
 	callers.
 

@@ -461,6 +461,7 @@ error_message_text (const ERROR_MESSAGE *error_msg, int use_filename,
     {
       TEXT encoded = encode_with_iconv (conversion->iconv,
                                          error_msg->error_line,
+                                         strlen (error_msg->error_line),
                                          &error_msg->source_info,
                                          ieh_mark, 0);
       text_append_n (text, encoded.text, encoded.end);
