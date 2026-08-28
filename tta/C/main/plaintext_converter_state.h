@@ -221,7 +221,7 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
     /* conversion state */
     const ENCODING_CONVERSION *encoding_object;
     char *output_filename;
-    char *text_before_first_node;
+    TEXT text_before_first_node;
     const ELEMENT *current_node;
     int multiple_pass;
     int footnote_index;

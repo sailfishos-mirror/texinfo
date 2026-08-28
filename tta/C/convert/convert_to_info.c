@@ -659,9 +659,10 @@ info_output (CONVERTER *self, DOCUMENT *document)
         'text_before_first_node'.  Save this text for subsequent use in
          case of split Info output. */
 
-              if (self_plaintext->text_before_first_node)
-                text_append (&complete_header,
-                             self_plaintext->text_before_first_node);
+              if (self_plaintext->text_before_first_node.text)
+                text_append_n (&complete_header,
+                             self_plaintext->text_before_first_node.text,
+                             self_plaintext->text_before_first_node.end);
             }
 
           write_or_return (0, encoded_new_filename, file_fh,

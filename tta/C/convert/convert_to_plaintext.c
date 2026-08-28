@@ -919,8 +919,8 @@ plaintext_conversion_finalization (CONVERTER *self)
     }
   self_plaintext->current_node = 0;
 
-  free (self_plaintext->text_before_first_node);
-  self_plaintext->text_before_first_node = 0;
+  if (self_plaintext->text_before_first_node.text)
+    text_destroy (&self_plaintext->text_before_first_node);
 
   if (self->sorted_index_names.number > 0)
     {
@@ -6737,7 +6737,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           plaintext_encode_string (self, &text, &result);
           free (text.text);
 
-          self_plaintext->text_before_first_node = result.text;
+          self_plaintext->text_before_first_node = result;
         }
     }
 
