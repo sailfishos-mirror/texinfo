@@ -171,8 +171,11 @@ info_header (CONVERTER *self, const char *input_basefile,
       text_append_n (&para_text, new_text.text, new_text.end);
     }
   new_text = para_add_next (input_basefile, strlen (input_basefile), 0);
-  text_append_n (&para_text, new_text.text, new_text.end);
+  if (new_text.text)
+    text_append_n (&para_text, new_text.text, new_text.end);
   new_text = para_add_text (".", 1);
+  if (new_text.text)
+    text_append_n (&para_text, new_text.text, new_text.end);
   end_para_text = para_end ();
   text_append (&para_text, end_para_text);
   text_append_n (&para_text, "\n", 1);
