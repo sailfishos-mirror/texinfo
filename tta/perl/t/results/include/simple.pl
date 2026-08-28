@@ -44,7 +44,7 @@ $result_sectioning_root{'simple'} = '';
 $result_headings_list{'simple'} = '';
 
 
-$result_converted{'info'}->{'simple'} = 'This is , produced from .
+$result_converted{'info'}->{'simple'} = "This is , produced from .
 
 In included file.
 
@@ -56,7 +56,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'simple'} = '* W |document without nodes
  warning: document without nodes

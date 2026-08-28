@@ -127,7 +127,7 @@ $result_sectioning_root{'float_long_captions'} = '';
 $result_headings_list{'float_long_captions'} = '';
 
 
-$result_converted{'info'}->{'float_long_captions'} = 'This is , produced from .
+$result_converted{'info'}->{'float_long_captions'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -155,6 +155,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

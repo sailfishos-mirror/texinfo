@@ -214,7 +214,7 @@ list:
 $result_headings_list{'ref_in_copying_insert_in_chapter'} = '';
 
 
-$result_converted{'info'}->{'ref_in_copying_insert_in_chapter'} = 'This is , produced from .
+$result_converted{'info'}->{'ref_in_copying_insert_in_chapter'} = "This is , produced from .
 
 *note GFDL::
 
@@ -264,7 +264,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'ref_in_copying_insert_in_chapter'} = '<!DOCTYPE html>

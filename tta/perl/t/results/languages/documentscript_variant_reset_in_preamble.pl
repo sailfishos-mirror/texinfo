@@ -245,7 +245,7 @@ $result_converted_sort_strings{'plaintext'}->{'documentscript_variant_reset_in_p
 ';
 
 
-$result_converted{'info'}->{'documentscript_variant_reset_in_preamble'} = 'This is , produced from .
+$result_converted{'info'}->{'documentscript_variant_reset_in_preamble'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -263,7 +263,7 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 1 chap
 ******
 
- -- Променљива примерка од used: by test ivar
+ -- \xd0\x9f\xd1\x80\xd0\xbe\xd0\xbc\xd0\xb5\xd0\xbd\xd1\x99\xd0\xb8\xd0\xb2\xd0\xb0 \xd0\xbf\xd1\x80\xd0\xb8\xd0\xbc\xd0\xb5\xd1\x80\xd0\xba\xd0\xb0 \xd0\xbe\xd0\xb4 used: by test ivar
 
    *Note t: Top.  C (Ckl)
 
@@ -279,7 +279,7 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: sr
 End:
-';
+";
 
 $result_converted_sort_strings{'info'}->{'documentscript_variant_reset_in_preamble'} = 'vr:
  by од used

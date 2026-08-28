@@ -110,13 +110,13 @@ $result_sectioning_root{'xref_test'} = '';
 $result_headings_list{'xref_test'} = '';
 
 
-$result_converted{'info'}->{'xref_test'} = 'This is , produced from .
+$result_converted{'info'}->{'xref_test'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
 
-*Note (m)in xref::.  *Note (m)bad xref:: after xref.  ‘*Note (m)bad
-nested xref::’.  *Note name: (m)in ref ending with a dot.. !  after xref
+*Note (m)in xref::.  *Note (m)bad xref:: after xref.  \xe2\x80\x98*Note (m)bad
+nested xref::\xe2\x80\x99.  *Note name: (m)in ref ending with a dot.. !  after xref
 and dot inside.  *Note (m)in ref followed by symbol::# g.
 
 
@@ -129,7 +129,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'xref_test'} = '* W l6|@xref node name should not contain `.\'
  warning: @xref node name should not contain `.\'

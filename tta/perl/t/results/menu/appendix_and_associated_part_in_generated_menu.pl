@@ -465,7 +465,7 @@ $result_converted{'xml'}->{'appendix_and_associated_part_in_generated_menu'} = '
 ';
 
 
-$result_converted{'info'}->{'appendix_and_associated_part_in_generated_menu'} = 'This is , produced from .
+$result_converted{'info'}->{'appendix_and_associated_part_in_generated_menu'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chapter,  Up: (dir)
@@ -535,6 +535,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

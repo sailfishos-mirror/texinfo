@@ -129,7 +129,7 @@ Text   1
 ';
 
 
-$result_converted{'info'}->{'comment_space_comand_in_float'} = 'This is , produced from .
+$result_converted{'info'}->{'comment_space_comand_in_float'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -157,7 +157,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'comment_space_comand_in_float'} = '<!DOCTYPE html>

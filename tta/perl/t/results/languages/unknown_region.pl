@@ -130,7 +130,7 @@ $result_converted_sort_strings{'plaintext'}->{'unknown_region'} = 'vr:
 ';
 
 
-$result_converted{'info'}->{'unknown_region'} = 'This is , produced from .
+$result_converted{'info'}->{'unknown_region'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -152,7 +152,7 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: fr_NOWHERE
 End:
-';
+";
 
 $result_converted_sort_strings{'info'}->{'unknown_region'} = 'vr:
  BBB de AAA

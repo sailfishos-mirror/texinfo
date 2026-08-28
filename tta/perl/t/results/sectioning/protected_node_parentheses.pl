@@ -147,7 +147,7 @@ list:
 $result_headings_list{'protected_node_parentheses'} = '';
 
 
-$result_converted{'info'}->{'protected_node_parentheses'} = 'This is , produced from .
+$result_converted{'info'}->{'protected_node_parentheses'} = "This is , produced from .
 
 
 File: ,  Node: first
@@ -176,7 +176,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'protected_node_parentheses'} = '* W |document without Top node
  warning: document without Top node

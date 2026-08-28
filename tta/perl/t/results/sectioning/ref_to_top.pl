@@ -79,7 +79,7 @@ list:
 $result_headings_list{'ref_to_top'} = '';
 
 
-$result_converted{'info'}->{'ref_to_top'} = 'This is , produced from .
+$result_converted{'info'}->{'ref_to_top'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -99,7 +99,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'ref_to_top'} = '<!DOCTYPE html>

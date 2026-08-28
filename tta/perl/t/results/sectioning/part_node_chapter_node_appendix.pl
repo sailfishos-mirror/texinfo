@@ -254,7 +254,7 @@ list:
 $result_headings_list{'part_node_chapter_node_appendix'} = '';
 
 
-$result_converted{'info'}->{'part_node_chapter_node_appendix'} = 'This is , produced from .
+$result_converted{'info'}->{'part_node_chapter_node_appendix'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chapter node,  Up: (dir)
@@ -291,7 +291,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'part_node_chapter_node_appendix'} = '<!DOCTYPE html>

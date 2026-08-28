@@ -140,7 +140,7 @@ list:
 $result_headings_list{'text_before_node'} = '';
 
 
-$result_converted{'info'}->{'text_before_node'} = 'This is , produced from .
+$result_converted{'info'}->{'text_before_node'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chapter node,  Up: (dir)
@@ -171,6 +171,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

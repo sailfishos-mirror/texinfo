@@ -36,7 +36,7 @@ $result_sectioning_root{'only_documentencoding'} = '';
 $result_headings_list{'only_documentencoding'} = '';
 
 
-$result_converted{'info'}->{'only_documentencoding'} = 'This is , produced from .
+$result_converted{'info'}->{'only_documentencoding'} = "This is , produced from .
 
 
 Tag Table:
@@ -47,7 +47,7 @@ End Tag Table
 Local Variables:
 coding: iso-8859-1
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'only_documentencoding'} = '* W |document without nodes
  warning: document without nodes

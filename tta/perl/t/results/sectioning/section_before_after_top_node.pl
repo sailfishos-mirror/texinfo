@@ -124,7 +124,7 @@ list:
 $result_headings_list{'section_before_after_top_node'} = '';
 
 
-$result_converted{'info'}->{'section_before_after_top_node'} = 'This is , produced from section_before_after_top_node.texi.
+$result_converted{'info'}->{'section_before_after_top_node'} = "This is , produced from section_before_after_top_node.texi.
 
 before
 ******
@@ -150,7 +150,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'section_before_after_top_node'} = '<!DOCTYPE html>

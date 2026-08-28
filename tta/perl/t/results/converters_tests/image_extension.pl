@@ -82,7 +82,7 @@ $result_converted_errors{'latex_text'}->{'image_extension'} = '* W l1|@image fil
 ';
 
 
-$result_converted{'info'}->{'image_extension'} = 'This is , produced from .
+$result_converted{'info'}->{'image_extension'} = "This is , produced from .
 
 [f---ile]
 
@@ -94,7 +94,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'image_extension'} = '* W |document without nodes
  warning: document without nodes

@@ -187,7 +187,7 @@ part
 ';
 
 
-$result_converted{'info'}->{'chapter_node_before_and_after_part'} = 'This is , produced from .
+$result_converted{'info'}->{'chapter_node_before_and_after_part'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: after,  Up: (dir)
@@ -216,7 +216,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'chapter_node_before_and_after_part'} = '<!DOCTYPE html>

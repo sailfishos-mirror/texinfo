@@ -1,5 +1,22 @@
 2026-08-28 Patrice Dumas  <pertusus@free.fr>
 
+	Encode string converted to Info
+
+	* tta/perl/Texinfo/Convert/InfoNonXS.pm (output): always encode
+	output, even when outputting to a string, as Info is a binary format
+	which has no meaningful representation as character string.
+
+	* tta/perl/t/test_utils.pl (protect_non_ascii, test): add
+	protect_non_ascii and use it to protect the Info output string, in
+	double quotes, such that the code output only contains ASCII
+	characters and can be encoded to UTF-8 without change, as for the
+	remaining of the reference test .pl file..
+
+	* tta/perl/t/test_utils.pl (test): do not encode Info output to a file
+	with -o option.
+
+2026-08-28 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/test_utils.pl: change formatting of beginning of
 	functions.  Use exists when the value is not needed.  die if a format
 	is unknown.

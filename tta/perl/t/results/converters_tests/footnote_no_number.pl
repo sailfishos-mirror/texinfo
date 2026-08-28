@@ -216,7 +216,7 @@ Para2\\footnote{Footnote 2.}.
 ';
 
 
-$result_converted{'info'}->{'footnote_no_number'} = 'This is , produced from .
+$result_converted{'info'}->{'footnote_no_number'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -257,6 +257,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

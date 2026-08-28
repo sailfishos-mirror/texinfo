@@ -86,13 +86,13 @@ $result_sectioning_root{'xref_quote_long_item'} = '';
 $result_headings_list{'xref_quote_long_item'} = '';
 
 
-$result_converted{'info'}->{'xref_quote_long_item'} = 'This is , produced from .
+$result_converted{'info'}->{'xref_quote_long_item'} = "This is , produced from .
 
-‘@verbatiminclude’
+\xe2\x80\x98\@verbatiminclude\xe2\x80\x99
      *Note Texinfo::Convert::Utils::expand_verbatiminclude:
-     (tp_api)Texinfo::Convert::Utils $tree =
-     expand_verbatiminclude($registrar, $configuration_information,
-     $verbatiminclude).
+     (tp_api)Texinfo::Convert::Utils \$tree =
+     expand_verbatiminclude(\$registrar, \$configuration_information,
+     \$verbatiminclude).
 
 
 Tag Table:
@@ -103,7 +103,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'xref_quote_long_item'} = '* W |document without nodes
  warning: document without nodes

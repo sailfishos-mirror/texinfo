@@ -194,7 +194,7 @@ $result_sectioning_root{'empty_string_index_entry'} = '';
 $result_headings_list{'empty_string_index_entry'} = '';
 
 
-$result_converted{'info'}->{'empty_string_index_entry'} = 'This is , produced from .
+$result_converted{'info'}->{'empty_string_index_entry'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -202,7 +202,7 @@ File: ,  Node: Top,  Next: chap,  Up: (dir)
 
 File: ,  Node: chap,  Prev: Top
 
-‘’
+\xe2\x80\x98\xe2\x80\x99
 
  -- Function: 
  -- Function: 
@@ -218,7 +218,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'empty_string_index_entry'} = '* W l4|empty index key in @findex
  warning: empty index key in @findex

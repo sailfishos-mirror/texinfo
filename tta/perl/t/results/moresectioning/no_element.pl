@@ -225,7 +225,7 @@ $result_indices_sort_strings{'no_element'} = 'cp:
 ';
 
 
-$result_converted{'info'}->{'no_element'} = 'This is , produced from .
+$result_converted{'info'}->{'no_element'} = "This is , produced from .
 
 Ref to the anchor: *note An anchor::
 
@@ -260,7 +260,7 @@ End Tag Table
 Local Variables:
 coding: iso-8859-1
 End:
-';
+";
 
 $result_converted_sort_strings{'info'}->{'no_element'} = 'cp:
  index entry

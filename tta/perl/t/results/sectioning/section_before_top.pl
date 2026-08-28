@@ -147,7 +147,7 @@ list:
 $result_headings_list{'section_before_top'} = '';
 
 
-$result_converted{'info'}->{'section_before_top'} = 'This is , produced from .
+$result_converted{'info'}->{'section_before_top'} = "This is , produced from .
 
 
 File: ,  Node: section node,  Up: Top
@@ -176,7 +176,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'section_before_top'} = '<!DOCTYPE html>

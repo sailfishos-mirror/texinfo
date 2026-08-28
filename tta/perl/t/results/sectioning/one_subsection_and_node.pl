@@ -61,7 +61,7 @@ list:
 $result_headings_list{'one_subsection_and_node'} = '';
 
 
-$result_converted{'info'}->{'one_subsection_and_node'} = 'This is , produced from .
+$result_converted{'info'}->{'one_subsection_and_node'} = "This is , produced from .
 
 
 File: ,  Node: one node
@@ -79,7 +79,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'one_subsection_and_node'} = '* W |document without Top node
  warning: document without Top node

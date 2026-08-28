@@ -62,7 +62,7 @@ $result_sectioning_root{'known_encoding'} = '';
 $result_headings_list{'known_encoding'} = '';
 
 
-$result_converted{'info'}->{'known_encoding'} = 'This is , produced from .
+$result_converted{'info'}->{'known_encoding'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -77,6 +77,6 @@ End Tag Table
 Local Variables:
 coding: iso-8859-1
 End:
-';
+";
 
 1;

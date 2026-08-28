@@ -100,7 +100,7 @@ $result_sectioning_root{'novalidate'} = '';
 $result_headings_list{'novalidate'} = '';
 
 
-$result_converted{'info'}->{'novalidate'} = 'This is , produced from .
+$result_converted{'info'}->{'novalidate'} = "This is , produced from .
 
 
 File: ,  Node: first
@@ -121,7 +121,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'novalidate'} = '* W |document without Top node
  warning: document without Top node

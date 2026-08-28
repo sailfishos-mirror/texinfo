@@ -3019,7 +3019,7 @@ vr:
 ';
 
 
-$result_converted{'info'}->{'all_commands_delimiters_printindex'} = 'This is , produced from .
+$result_converted{'info'}->{'all_commands_delimiters_printindex'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -3212,7 +3212,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_sort_strings{'info'}->{'all_commands_delimiters_printindex'} = 'fn:
  ,expose on ,Window

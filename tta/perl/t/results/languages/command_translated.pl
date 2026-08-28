@@ -143,22 +143,22 @@ erreur→
 ';
 
 
-$result_converted{'info'}->{'command_translated'} = 'This is , produced from .
+$result_converted{'info'}->{'command_translated'} = "This is , produced from .
 
 
-File: ,  Node: Top,  Next: chapter erreur→,  Up: (dir)
+File: ,  Node: Top,  Next: chapter erreur\xe2\x86\x92,  Up: (dir)
 
-top erreur→
+top erreur\xe2\x86\x92
 ***********
 
-erreur→
+erreur\xe2\x86\x92
 
 * Menu:
 
-* chapter erreur→::
+* chapter erreur\xe2\x86\x92::
 
 
-File: ,  Node: chapter erreur→,  Prev: Top,  Up: Top
+File: ,  Node: chapter erreur\xe2\x86\x92,  Prev: Top,  Up: Top
 
 1 Chapter
 *********
@@ -166,7 +166,7 @@ File: ,  Node: chapter erreur→,  Prev: Top,  Up: Top
 
 Tag Table:
 Node: Top27
-Node: chapter erreur→149
+Node: chapter erreur\xe2\x86\x92157
 
 End Tag Table
 
@@ -175,7 +175,7 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: fr
 End:
-';
+";
 
 
 $result_converted{'html'}->{'command_translated'} = '<!DOCTYPE html>

@@ -39,7 +39,7 @@ $result_sectioning_root{'empty_copying_not_ended'} = '';
 $result_headings_list{'empty_copying_not_ended'} = '';
 
 
-$result_converted{'info'}->{'empty_copying_not_ended'} = 'This is , produced from .
+$result_converted{'info'}->{'empty_copying_not_ended'} = "This is , produced from .
 
 
 Tag Table:
@@ -50,7 +50,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'empty_copying_not_ended'} = '* W |document without nodes
  warning: document without nodes

@@ -337,7 +337,7 @@ $result_converted_errors{'latex_text'}->{'commands_in_sc'} = '* W l7|@image file
 ';
 
 
-$result_converted{'info'}->{'commands_in_sc'} = 'This is , produced from .
+$result_converted{'info'}->{'commands_in_sc'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -355,8 +355,8 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 1 chap
 ******
 
-A Ñ Å TeX [myimage] *note chap:: *Note (f)node:: *note NAME: (argf)ext. inverb
-ÿ MA+TH (1) <la> B (a) LB c E <a@c> AB (D)
+A \xc3\x91 \xc3\x85 TeX [myimage] *note chap:: *Note (f)node:: *note NAME: (argf)ext. inverb
+\xc3\xbf MA+TH (1) <la> B (a) LB c E <a\@c> AB (D)
 
    ---------- Footnotes ----------
 
@@ -366,8 +366,8 @@ A Ñ Å TeX [myimage] *note chap:: *Note (f)node:: *note NAME: (argf)ext. inverb
 Tag Table:
 Node: Top27
 Node: chap124
-Ref: inanchor263
-Ref: chap-Footnote-1343
+Ref: inanchor265
+Ref: chap-Footnote-1346
 
 End Tag Table
 
@@ -375,7 +375,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'commands_in_sc'} = '* W l7|could not find @image file `myimage.txt\' nor alternate text
  warning: could not find @image file `myimage.txt\' nor alternate text

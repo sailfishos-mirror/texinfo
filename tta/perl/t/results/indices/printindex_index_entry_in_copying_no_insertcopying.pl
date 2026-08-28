@@ -300,7 +300,7 @@ $result_indices_sort_strings{'printindex_index_entry_in_copying_no_insertcopying
 ';
 
 
-$result_converted{'info'}->{'printindex_index_entry_in_copying_no_insertcopying'} = 'This is , produced from .
+$result_converted{'info'}->{'printindex_index_entry_in_copying_no_insertcopying'} = "This is , produced from .
 
  -- Function: fun arg
  -- Function: xf arg
@@ -338,7 +338,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_sort_strings{'info'}->{'printindex_index_entry_in_copying_no_insertcopying'} = 'fn:
  Copying this document

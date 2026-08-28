@@ -177,7 +177,7 @@ list:
 $result_headings_list{'split_no_copying'} = '';
 
 
-$result_converted{'info'}->{'split_no_copying'} = 'This is split_no_copying.info, produced from .
+$result_converted{'info'}->{'split_no_copying'} = "This is split_no_copying.info, produced from .
 
 
 File: split_no_copying.info,  Node: Top,  Next: Ch1,  Up: (dir)
@@ -210,6 +210,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

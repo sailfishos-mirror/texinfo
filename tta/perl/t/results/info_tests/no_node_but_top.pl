@@ -46,7 +46,7 @@ list:
 $result_headings_list{'no_node_but_top'} = '';
 
 
-$result_converted{'info'}->{'no_node_but_top'} = 'This is , produced from .
+$result_converted{'info'}->{'no_node_but_top'} = "This is , produced from .
 
 top
 ***
@@ -60,7 +60,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'no_node_but_top'} = '* W |document without nodes
  warning: document without nodes

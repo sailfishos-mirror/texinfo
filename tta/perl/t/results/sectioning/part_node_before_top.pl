@@ -157,7 +157,7 @@ list:
 $result_headings_list{'part_node_before_top'} = '';
 
 
-$result_converted{'info'}->{'part_node_before_top'} = 'This is , produced from .
+$result_converted{'info'}->{'part_node_before_top'} = "This is , produced from .
 
 
 File: ,  Node: part node before top,  Next: Top,  Up: Top
@@ -183,7 +183,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'part_node_before_top'} = '<!DOCTYPE html>

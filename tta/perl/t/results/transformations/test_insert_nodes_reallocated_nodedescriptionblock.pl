@@ -316,7 +316,7 @@ Sec
 ';
 
 
-$result_converted{'info'}->{'test_insert_nodes_reallocated_nodedescriptionblock'} = 'This is , produced from .
+$result_converted{'info'}->{'test_insert_nodes_reallocated_nodedescriptionblock'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -377,6 +377,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

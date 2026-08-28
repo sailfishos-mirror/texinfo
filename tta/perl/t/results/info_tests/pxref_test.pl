@@ -99,7 +99,7 @@ $result_sectioning_root{'pxref_test'} = '';
 $result_headings_list{'pxref_test'} = '';
 
 
-$result_converted{'info'}->{'pxref_test'} = 'This is , produced from .
+$result_converted{'info'}->{'pxref_test'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -117,6 +117,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

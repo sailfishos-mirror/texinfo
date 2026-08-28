@@ -294,7 +294,7 @@ span:hover a.copiable-link {visibility: visible}
 ';
 
 
-$result_converted{'info'}->{'two_footnotes_in_nodes'} = 'This is , produced from .
+$result_converted{'info'}->{'two_footnotes_in_nodes'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chapter,  Up: (dir)
@@ -355,7 +355,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'plaintext'}->{'two_footnotes_in_nodes'} = '2 footnotes in 2 nodes

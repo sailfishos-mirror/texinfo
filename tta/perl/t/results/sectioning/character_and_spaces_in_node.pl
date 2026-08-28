@@ -183,19 +183,19 @@ $result_sectioning_root{'character_and_spaces_in_node'} = '';
 $result_headings_list{'character_and_spaces_in_node'} = '';
 
 
-$result_converted{'info'}->{'character_and_spaces_in_node'} = 'This is , produced from .
+$result_converted{'info'}->{'character_and_spaces_in_node'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap nodes,  Up: (dir)
 
 
-File: ,  Node: chap nodes,  Next: !_"#$%&\'()*+-.,  Prev: Top,  Up: Top
+File: ,  Node: chap nodes,  Next: !_\"#\$%&\'()*+-.,  Prev: Top,  Up: Top
 
 
-File: ,  Node: !_"#$%&\'()*+-.,  Next: /;<=>?[\\]^_`|~,  Prev: chap nodes,  Up: chap nodes
+File: ,  Node: !_\"#\$%&\'()*+-.,  Next: /;<=>?[\\]^_`|~,  Prev: chap nodes,  Up: chap nodes
 
 
-File: ,  Node: /;<=>?[\\]^_`|~,  Next: local node,  Prev: !_"#$%&\'()*+-.,  Up: chap nodes
+File: ,  Node: /;<=>?[\\]^_`|~,  Next: local node,  Prev: !_\"#\$%&\'()*+-.,  Up: chap nodes
 
 
 File: ,  Node: local node,  Prev: /;<=>?[\\]^_`|~,  Up: chap nodes
@@ -204,7 +204,7 @@ File: ,  Node: local node,  Prev: /;<=>?[\\]^_`|~,  Up: chap nodes
 Tag Table:
 Node: Top27
 Node: chap nodes80
-Node: !_"#$%&\'()*+-.154
+Node: !_\"#\$%&\'()*+-.154
 Node: /;<=>?[\\]^_`|~246
 Node: local node338
 
@@ -214,7 +214,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'character_and_spaces_in_node'} = '<!DOCTYPE html>

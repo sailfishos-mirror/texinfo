@@ -162,7 +162,7 @@ $result_sectioning_root{'del_quote_linebreaking'} = '';
 $result_headings_list{'del_quote_linebreaking'} = '';
 
 
-$result_converted{'info'}->{'del_quote_linebreaking'} = 'This is , produced from .
+$result_converted{'info'}->{'del_quote_linebreaking'} = "This is , produced from .
 
 first para
 
@@ -193,7 +193,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'del_quote_linebreaking'} = '* W |document without nodes
  warning: document without nodes

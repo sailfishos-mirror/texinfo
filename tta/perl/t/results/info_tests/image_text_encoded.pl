@@ -49,9 +49,9 @@ $result_sectioning_root{'image_text_encoded'} = '';
 $result_headings_list{'image_text_encoded'} = '';
 
 
-$result_converted{'info'}->{'image_text_encoded'} = 'This is , produced from .
+$result_converted{'info'}->{'image_text_encoded'} = "This is , produced from .
 
-îmage encodée
+\xc3\xaemage encod\xc3\xa9e
 
 Tag Table:
 
@@ -61,7 +61,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'image_text_encoded'} = '* W |document without nodes
  warning: document without nodes

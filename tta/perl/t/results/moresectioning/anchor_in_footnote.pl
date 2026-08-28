@@ -174,7 +174,7 @@ list:
 $result_headings_list{'anchor_in_footnote'} = '';
 
 
-$result_converted{'info'}->{'anchor_in_footnote'} = 'This is , produced from .
+$result_converted{'info'}->{'anchor_in_footnote'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chapter,  Up: (dir)
@@ -213,7 +213,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'anchor_in_footnote'} = '<!DOCTYPE html>

@@ -164,7 +164,7 @@ $result_sectioning_root{'space_in_node'} = '';
 $result_headings_list{'space_in_node'} = '';
 
 
-$result_converted{'info'}->{'space_in_node'} = 'This is , produced from .
+$result_converted{'info'}->{'space_in_node'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: Chap first here,  Up: (dir)
@@ -197,7 +197,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'space_in_node'} = '<!DOCTYPE html>

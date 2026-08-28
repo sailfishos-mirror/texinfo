@@ -223,7 +223,7 @@ $result_sectioning_root{'all_empty_def'} = '';
 $result_headings_list{'all_empty_def'} = '';
 
 
-$result_converted{'info'}->{'all_empty_def'} = 'This is , produced from .
+$result_converted{'info'}->{'all_empty_def'} = "This is , produced from .
 
 
 Tag Table:
@@ -234,7 +234,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'all_empty_def'} = '* W |document without nodes
  warning: document without nodes

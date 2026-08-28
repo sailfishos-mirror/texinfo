@@ -205,10 +205,11 @@ sub output($$) {
       $self->conversion_finalization();
       return undef;
     }
-
-    $self->_setup_output_encoding();
   }
-  #$self->_setup_output_encoding();
+  # Always encode output, even when outputting to a string, as Info is
+  # a binary format which has no meaningful representation as character
+  # string.
+  $self->_setup_output_encoding();
 
   # not initialized in plaintext
   $self->{'target_locations'} = [];

@@ -286,10 +286,10 @@ $result_converted_sort_strings{'plaintext'}->{'multiple_in_preamble_before_node'
 ';
 
 
-$result_converted{'info'}->{'multiple_in_preamble_before_node'} = 'This is , produced from .
+$result_converted{'info'}->{'multiple_in_preamble_before_node'} = "This is , produced from .
 
  -- Primjerak varijable od copying: a b
-     greška→
+     gre\xc5\xa1ka\xe2\x86\x92
 
    Text ending the preamble
 
@@ -310,12 +310,12 @@ File: ,  Node: chapter,  Prev: Top,  Up: Top
 ******
 
  -- Instanzvariable of c: BBB CCC
-     error→
+     error\xe2\x86\x92
 
 
 Tag Table:
-Node: Top110
-Node: chapter207
+Node: Top113
+Node: chapter210
 
 End Tag Table
 
@@ -324,7 +324,7 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: hr
 End:
-';
+";
 
 $result_converted_sort_strings{'info'}->{'multiple_in_preamble_before_node'} = 'vr:
  a de copying

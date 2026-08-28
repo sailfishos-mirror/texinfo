@@ -136,7 +136,7 @@ $result_sectioning_root{'nodes_no_node_top_explicit_directions'} = '';
 $result_headings_list{'nodes_no_node_top_explicit_directions'} = '';
 
 
-$result_converted{'info'}->{'nodes_no_node_top_explicit_directions'} = 'This is , produced from .
+$result_converted{'info'}->{'nodes_no_node_top_explicit_directions'} = "This is , produced from .
 
 
 File: ,  Node: first,  Up: (dir)
@@ -163,7 +163,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'nodes_no_node_top_explicit_directions'} = '* W |document without Top node
  warning: document without Top node

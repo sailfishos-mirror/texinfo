@@ -505,7 +505,7 @@ $result_indices_sort_strings{'sorted_subentries'} = 'cp:
 ';
 
 
-$result_converted{'info'}->{'sorted_subentries'} = 'This is , produced from .
+$result_converted{'info'}->{'sorted_subentries'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chapter one,  Up: (dir)
@@ -562,7 +562,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_sort_strings{'info'}->{'sorted_subentries'} = 'cp:
  , aa

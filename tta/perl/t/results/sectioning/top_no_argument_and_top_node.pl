@@ -56,7 +56,7 @@ list:
 $result_headings_list{'top_no_argument_and_top_node'} = '';
 
 
-$result_converted{'info'}->{'top_no_argument_and_top_node'} = 'This is , produced from .
+$result_converted{'info'}->{'top_no_argument_and_top_node'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -71,7 +71,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'top_no_argument_and_top_node'} = '<!DOCTYPE html>

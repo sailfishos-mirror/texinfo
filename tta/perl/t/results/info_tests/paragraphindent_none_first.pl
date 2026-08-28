@@ -64,7 +64,7 @@ $result_sectioning_root{'paragraphindent_none_first'} = '';
 $result_headings_list{'paragraphindent_none_first'} = '';
 
 
-$result_converted{'info'}->{'paragraphindent_none_first'} = 'This is , produced from .
+$result_converted{'info'}->{'paragraphindent_none_first'} = "This is , produced from .
 
 first
 
@@ -80,7 +80,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'paragraphindent_none_first'} = '* W |document without nodes
  warning: document without nodes

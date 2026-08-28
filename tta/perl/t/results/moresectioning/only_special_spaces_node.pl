@@ -382,25 +382,25 @@ list:
 $result_headings_list{'only_special_spaces_node'} = '';
 
 
-$result_converted{'info'}->{'only_special_spaces_node'} = 'This is , produced from only_special_spaces_node.texi.
+$result_converted{'info'}->{'only_special_spaces_node'} = "This is , produced from only_special_spaces_node.texi.
 
 
-File: ,  Node: Top,  Next:    ,  Up: (dir)
+File: ,  Node: Top,  Next: \xe2\x80\x80\xe2\x80\x81\xe2\x80\x82,  Up: (dir)
 
 top
 ***
 
 * Menu:
 
-*    ::
-*   ::
-* ᠎ ::
-*          　::
+* \xe2\x80\x80\xe2\x80\x81\xe2\x80\x82::
+* \xc2\x85\xc2\xa0\xe1\x9a\x80::
+* \xe1\xa0\x8e\xe2\x80\x83::
+* \xe2\x80\x84\xe2\x80\x85\xe2\x80\x86\xe2\x80\x87\xe2\x80\x88\xe2\x80\x89\xe2\x80\x8a\xe2\x80\xaf\xe2\x81\x9f\xe3\x80\x80::
 
 
-File: ,  Node:    ,  Prev: Top,  Up: Top
+File: ,  Node: \xe2\x80\x80\xe2\x80\x81\xe2\x80\x82,  Prev: Top,  Up: Top
 
-1 EN QUAD| | EM QUAD| | EN SPACE| |
+1 EN QUAD|\xe2\x80\x80| EM QUAD|\xe2\x80\x81| EN SPACE|\xe2\x80\x82|
 ***********************************
 
 2 CHARACTER TABULATION| | FORM FEED| | LINE TABULATION| |
@@ -410,30 +410,30 @@ File: ,  Node:    ,  Prev: Top,  Up: Top
 ********************
 
 
-File: ,  Node:   ,  Next: ᠎ ,  Up: Top
+File: ,  Node: \xc2\x85\xc2\xa0\xe1\x9a\x80,  Next: \xe1\xa0\x8e\xe2\x80\x83,  Up: Top
 
-4 NO-BREAK SPACE| |
+4 NO-BREAK SPACE|\xc2\xa0|
 *******************
 
 
-File: ,  Node: ᠎ ,  Next:          　,  Prev:   ,  Up: Top
+File: ,  Node: \xe1\xa0\x8e\xe2\x80\x83,  Next: \xe2\x80\x84\xe2\x80\x85\xe2\x80\x86\xe2\x80\x87\xe2\x80\x88\xe2\x80\x89\xe2\x80\x8a\xe2\x80\xaf\xe2\x81\x9f\xe3\x80\x80,  Prev: \xc2\x85\xc2\xa0\xe1\x9a\x80,  Up: Top
 
-5 EM SPACE| |
+5 EM SPACE|\xe2\x80\x83|
 *************
 
 
-File: ,  Node:          　,  Prev: ᠎ ,  Up: Top
+File: ,  Node: \xe2\x80\x84\xe2\x80\x85\xe2\x80\x86\xe2\x80\x87\xe2\x80\x88\xe2\x80\x89\xe2\x80\x8a\xe2\x80\xaf\xe2\x81\x9f\xe3\x80\x80,  Prev: \xe1\xa0\x8e\xe2\x80\x83,  Up: Top
 
-6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | IDEOGRAPHIC SPACE|　|
+6 THREE-PER-EM SPACE|\xe2\x80\x84| FOUR-PER-EM SPACE|\xe2\x80\x85| SIX-PER-EM SPACE|\xe2\x80\x86| PUNCTUATION SPACE|\xe2\x80\x88| THIN SPACE|\xe2\x80\x89| HAIR SPACE|\xe2\x80\x8a| NARROW NO-BREAK SPACE|\xe2\x80\xaf| IDEOGRAPHIC SPACE|\xe3\x80\x80|
 ****************************************************************************************************************************************************************
 
 
 Tag Table:
 Node: Top56
-Node:    159
-Node:   436
-Node: ᠎ 520
-Node:          　611
+Node: \xe2\x80\x80\xe2\x80\x81\xe2\x80\x82199
+Node: \xc2\x85\xc2\xa0\xe1\x9a\x80488
+Node: \xe1\xa0\x8e\xe2\x80\x83581
+Node: \xe2\x80\x84\xe2\x80\x85\xe2\x80\x86\xe2\x80\x87\xe2\x80\x88\xe2\x80\x89\xe2\x80\x8a\xe2\x80\xaf\xe2\x81\x9f\xe3\x80\x80702
 
 End Tag Table
 
@@ -441,7 +441,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'only_special_spaces_node'} = '<!DOCTYPE html>

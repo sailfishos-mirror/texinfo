@@ -303,7 +303,7 @@ Sec
 ';
 
 
-$result_converted{'info'}->{'test_insert_nodes_nodedescription'} = 'This is , produced from .
+$result_converted{'info'}->{'test_insert_nodes_nodedescription'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: Chap,  Up: (dir)
@@ -364,6 +364,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

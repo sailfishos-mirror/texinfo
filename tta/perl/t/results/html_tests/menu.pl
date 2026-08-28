@@ -497,7 +497,7 @@ list:
 $result_headings_list{'menu'} = '';
 
 
-$result_converted{'info'}->{'menu'} = 'This is , produced from .
+$result_converted{'info'}->{'menu'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: (ggg),  Up: (dir)
@@ -505,17 +505,17 @@ File: ,  Node: Top,  Next: (ggg),  Up: (dir)
 * Menu:
 
 * (ggg):: description
-   • idescr
+   \xe2\x80\xa2 idescr
 AAA
 
 CCC
 
-   • iaa
+   \xe2\x80\xa2 iaa
 
 
 BBB
 
-   • ibb
+   \xe2\x80\xa2 ibb
 * (manual)::
 
 comment
@@ -525,17 +525,17 @@ in description
 * (after_description)::
 
 * (detailggg):: detaildescription
-   • idetaildescr
+   \xe2\x80\xa2 idetaildescr
 detailAAA
 
 detailCCC
 
-   • detailiaa
+   \xe2\x80\xa2 detailiaa
 
 
 detailBBB
 
-   • detailibb
+   \xe2\x80\xa2 detailibb
 * (detailmanual)::
 
 detailcomment
@@ -554,7 +554,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'menu'} = '<!DOCTYPE html>

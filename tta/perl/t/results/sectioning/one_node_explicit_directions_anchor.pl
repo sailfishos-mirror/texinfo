@@ -83,7 +83,7 @@ $result_sectioning_root{'one_node_explicit_directions_anchor'} = '';
 $result_headings_list{'one_node_explicit_directions_anchor'} = '';
 
 
-$result_converted{'info'}->{'one_node_explicit_directions_anchor'} = 'This is , produced from .
+$result_converted{'info'}->{'one_node_explicit_directions_anchor'} = "This is , produced from .
 
 
 File: ,  Node: one node,  Up: (dir)
@@ -105,7 +105,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'one_node_explicit_directions_anchor'} = '* W |document without Top node
  warning: document without Top node

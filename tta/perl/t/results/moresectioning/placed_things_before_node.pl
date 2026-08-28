@@ -317,7 +317,7 @@ $result_indices_sort_strings{'placed_things_before_node'} = 'cp:
 ';
 
 
-$result_converted{'info'}->{'placed_things_before_node'} = 'This is , produced from .
+$result_converted{'info'}->{'placed_things_before_node'} = "This is , produced from .
 
 Ref to the anchor: *note An anchor::
 
@@ -375,7 +375,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_sort_strings{'info'}->{'placed_things_before_node'} = 'cp:
  index entry

@@ -233,7 +233,7 @@ $result_sectioning_root{'image_and_spaces_formatting'} = '';
 $result_headings_list{'image_and_spaces_formatting'} = '';
 
 
-$result_converted{'info'}->{'image_and_spaces_formatting'} = 'This is , produced from .
+$result_converted{'info'}->{'image_and_spaces_formatting'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -263,6 +263,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

@@ -228,7 +228,7 @@ list:
 $result_headings_list{'section_chapter_before_top_nodes'} = '';
 
 
-$result_converted{'info'}->{'section_chapter_before_top_nodes'} = 'This is , produced from section_chapter_before_top_nodes.texi.
+$result_converted{'info'}->{'section_chapter_before_top_nodes'} = "This is , produced from section_chapter_before_top_nodes.texi.
 
 
 File: ,  Node: section node,  Next: chapter node,  Up: chapter node
@@ -268,7 +268,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'section_chapter_before_top_nodes'} = '<!DOCTYPE html>

@@ -96,7 +96,7 @@ list:
 $result_headings_list{'anchor_and_spaces'} = '';
 
 
-$result_converted{'info'}->{'anchor_and_spaces'} = 'This is , produced from .
+$result_converted{'info'}->{'anchor_and_spaces'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -121,6 +121,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

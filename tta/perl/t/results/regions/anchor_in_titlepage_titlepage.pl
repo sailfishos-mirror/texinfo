@@ -146,7 +146,7 @@ list:
 $result_headings_list{'anchor_in_titlepage_titlepage'} = '';
 
 
-$result_converted{'info'}->{'anchor_in_titlepage_titlepage'} = 'This is , produced from .
+$result_converted{'info'}->{'anchor_in_titlepage_titlepage'} = "This is , produced from .
 
 top
 ***
@@ -173,7 +173,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'anchor_in_titlepage_titlepage'} = '<!DOCTYPE html>

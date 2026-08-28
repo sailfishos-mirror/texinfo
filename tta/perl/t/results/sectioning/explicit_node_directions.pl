@@ -184,7 +184,7 @@ $result_sectioning_root{'explicit_node_directions'} = '';
 $result_headings_list{'explicit_node_directions'} = '';
 
 
-$result_converted{'info'}->{'explicit_node_directions'} = 'This is , produced from .
+$result_converted{'info'}->{'explicit_node_directions'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap node,  Up: (dir)
@@ -215,7 +215,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'explicit_node_directions'} = '<!DOCTYPE html>

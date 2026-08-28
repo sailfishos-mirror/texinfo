@@ -215,35 +215,35 @@ list:
 $result_headings_list{'reference_to_only_special_spaces_node'} = '';
 
 
-$result_converted{'info'}->{'reference_to_only_special_spaces_node'} = 'This is , produced from reference_to_only_special_spaces_node.texi.
+$result_converted{'info'}->{'reference_to_only_special_spaces_node'} = "This is , produced from reference_to_only_special_spaces_node.texi.
 
 
-File: ,  Node: Top,  Next:    ,  Up: (dir)
+File: ,  Node: Top,  Next: \xe2\x80\x80\xe2\x80\x81\xe2\x80\x82,  Up: (dir)
 
 top
 ***
 
 * Menu:
 
-*    ::
+* \xe2\x80\x80\xe2\x80\x81\xe2\x80\x82::
 
 
-File: ,  Node:    ,  Next:    ,  Prev: Top,  Up: Top
+File: ,  Node: \xe2\x80\x80\xe2\x80\x81\xe2\x80\x82,  Next: \xe2\x80\x80\xe2\x80\x81\xe2\x80\x82,  Prev: Top,  Up: Top
 
-1 EN QUAD| | EM QUAD| | EN SPACE| |
+1 EN QUAD|\xe2\x80\x80| EM QUAD|\xe2\x80\x81| EN SPACE|\xe2\x80\x82|
 ***********************************
 
-*note    :    .
+*note \xe2\x80\x80\xe2\x80\x81\xe2\x80\x82: \xe2\x80\x80\xe2\x80\x81\xe2\x80\x82.
 
-2 ‘EN QUAD| | EM QUAD| | EN SPACE| |’
+2 \xe2\x80\x98EN QUAD|\xe2\x80\x80| EM QUAD|\xe2\x80\x81| EN SPACE|\xe2\x80\x82|\xe2\x80\x99
 *************************************
 
-*note ‘   ’:    .
+*note \xe2\x80\x98\xe2\x80\x80\xe2\x80\x81\xe2\x80\x82\xe2\x80\x99: \xe2\x80\x80\xe2\x80\x81\xe2\x80\x82.
 
 
 Tag Table:
 Node: Top69
-Node:    142
+Node: \xe2\x80\x80\xe2\x80\x81\xe2\x80\x82154
 
 End Tag Table
 
@@ -251,7 +251,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'reference_to_only_special_spaces_node'} = '<!DOCTYPE html>

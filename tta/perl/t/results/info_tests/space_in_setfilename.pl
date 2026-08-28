@@ -61,7 +61,7 @@ $result_sectioning_root{'space_in_setfilename'} = '';
 $result_headings_list{'space_in_setfilename'} = '';
 
 
-$result_converted{'info'}->{'space_in_setfilename'} = 'This is , produced from .
+$result_converted{'info'}->{'space_in_setfilename'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -76,6 +76,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

@@ -141,7 +141,7 @@ list:
 $result_headings_list{'two_paragraphindent_in_preamble'} = '';
 
 
-$result_converted{'info'}->{'two_paragraphindent_in_preamble'} = 'This is , produced from .
+$result_converted{'info'}->{'two_paragraphindent_in_preamble'} = "This is , produced from .
 
 In copying.
 
@@ -152,7 +152,7 @@ In copying.
 
 File: ,  Node: Top,  Up: (dir)
 
-test @paragraphindent in preamble effect in preamble
+test \@paragraphindent in preamble effect in preamble
 ****************************************************
 
 First para.
@@ -169,6 +169,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

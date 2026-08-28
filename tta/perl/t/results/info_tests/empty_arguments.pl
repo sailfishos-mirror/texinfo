@@ -50,7 +50,7 @@ $result_sectioning_root{'empty_arguments'} = '';
 $result_headings_list{'empty_arguments'} = '';
 
 
-$result_converted{'info'}->{'empty_arguments'} = 'This is , produced from .
+$result_converted{'info'}->{'empty_arguments'} = "This is , produced from .
 
 ** a
 
@@ -62,7 +62,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'empty_arguments'} = '* W |document without nodes
  warning: document without nodes

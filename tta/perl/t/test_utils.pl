@@ -271,6 +271,37 @@ sub protect_perl_string($) {
   return $string;
 }
 
+# protect non ascii characters and special Perl characters in double quotes,
+# such that the resulting string is ASCII but contains the same encoded
+# information.
+sub protect_non_ascii($) {
+  my $text = shift;
+
+  my $result = '';
+  while ($text ne '') {
+    # the character put in that regex are for efficiency (assuming that one
+    # regex that catch more is more efficient than going through each
+    # character) as they are caught below as ASCII characters
+    if ($text =~ s/^([A-Za-z0-9 ,.:*_;?!\/(){}|=+&%<>`]+)//) {
+      $result .= $1;
+    } elsif ($text =~ s/^(.)//s) {
+      # protecting ' is probably unneeded
+      if ($1 eq '\\' or $1 eq "'" or $1 eq '"' or $1 eq '@' or $1 eq '$') {
+        $result .= '\\' .$1;
+      } elsif ($1 eq "\r") {
+        # probably not strictly needed, but possibly safer, and more readable
+        $result .= "\\r";
+      } elsif (ord($1) <= 127) {
+        # other ASCII characters
+        $result .= $1;
+      } else {
+        $result .= '\\x' . lc(sprintf("%02x",ord($1)));
+      }
+    }
+  }
+  return $result;
+}
+
 sub new_test($;$$$) {
   my ($name, $generate, $debug, $test_formats) = @_;
 
@@ -1139,17 +1170,19 @@ sub test($$) {
           if (!open(OUTFILE, ">$outfile")) {
             warn "ERROR: open $outfile: $!\n";
           } else {
-            # FIXME binary formats (Info) should not be encoded
-            my $output_encoding
-              = $converter->get_conf('OUTPUT_ENCODING_NAME');
-            my $output_file_encoding
-              = Texinfo::Common::processing_output_encoding($output_encoding);
+            # binary formats (Info) are already encoded
+            if ($format ne 'info') {
+              my $output_encoding
+                = $converter->get_conf('OUTPUT_ENCODING_NAME');
+              my $output_file_encoding
+             = Texinfo::Common::processing_output_encoding($output_encoding);
 
-            if (defined($output_file_encoding)
-                and $output_file_encoding ne '') {
-              binmode(OUTFILE, ":encoding($output_file_encoding)");
-            } else {
-              warn "WARNING: $self->{'name'}: $test_name: $format: no encoding\n";
+              if (defined($output_file_encoding)
+                  and $output_file_encoding ne '') {
+                binmode(OUTFILE, ":encoding($output_file_encoding)");
+              } else {
+                warn "WARNING: $self->{'name'}: $test_name: $format: no encoding\n";
+              }
             }
             if (exists($outfile_preamble{$format})) {
               if (ref($outfile_preamble{$format}) eq 'CODE') {
@@ -1377,8 +1410,16 @@ sub test($$) {
     foreach my $format (@tested_formats) {
       if (defined($converted{$format})) {
         $out_result .= "\n".'$result_converted{\''.$format.'\'}->{\''
-                       .$test_name.'\'} = \''
-                       .protect_perl_string($converted{$format})."';\n\n";
+                       .$test_name.'\'} = ';
+        if ($format ne 'info') {
+          $out_result .= "'".protect_perl_string($converted{$format})."'";
+        } else {
+          # protect such as to have an ASCII string that represents the
+          # encoded output such that it can be encoded to UTF-8 without
+          # messing up the text.
+          $out_result .= '"'.protect_non_ascii($converted{$format}).'"';
+        }
+        $out_result .= ";\n\n";
       }
       if (defined($converted_sort_strings{$format})) {
         $out_result

@@ -554,7 +554,7 @@ list:
 $result_headings_list{'more_sections_than_nodes'} = '';
 
 
-$result_converted{'info'}->{'more_sections_than_nodes'} = 'This is , produced from .
+$result_converted{'info'}->{'more_sections_than_nodes'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: n c2,  Up: (dir)
@@ -634,7 +634,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'more_sections_than_nodes'} = '<!DOCTYPE html>

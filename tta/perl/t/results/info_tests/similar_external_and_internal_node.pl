@@ -114,7 +114,7 @@ $result_sectioning_root{'similar_external_and_internal_node'} = '';
 $result_headings_list{'similar_external_and_internal_node'} = '';
 
 
-$result_converted{'info'}->{'similar_external_and_internal_node'} = 'This is , produced from .
+$result_converted{'info'}->{'similar_external_and_internal_node'} = "This is , produced from .
 
 
 File: ,  Node: aa,  Next: (toto)bb
@@ -131,7 +131,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'similar_external_and_internal_node'} = '* W |document without Top node
  warning: document without Top node

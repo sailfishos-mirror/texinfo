@@ -144,7 +144,7 @@ $result_sectioning_root{'equivalent_labels'} = '';
 $result_headings_list{'equivalent_labels'} = '';
 
 
-$result_converted{'info'}->{'equivalent_labels'} = 'This is , produced from .
+$result_converted{'info'}->{'equivalent_labels'} = "This is , produced from .
 
 
 File: ,  Node: first
@@ -171,7 +171,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'equivalent_labels'} = '* W |document without Top node
  warning: document without Top node

@@ -86,7 +86,7 @@ $result_sectioning_root{'space_at_menu_end'} = '';
 $result_headings_list{'space_at_menu_end'} = '';
 
 
-$result_converted{'info'}->{'space_at_menu_end'} = 'This is , produced from .
+$result_converted{'info'}->{'space_at_menu_end'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: (out),  Up: (dir)
@@ -107,6 +107,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

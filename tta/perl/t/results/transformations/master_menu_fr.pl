@@ -283,7 +283,7 @@ list:
 $result_headings_list{'master_menu_fr'} = '';
 
 
-$result_converted{'info'}->{'master_menu_fr'} = 'This is , produced from no_master_menu_fr.texi.
+$result_converted{'info'}->{'master_menu_fr'} = "This is , produced from no_master_menu_fr.texi.
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -295,7 +295,7 @@ max
 
 * chap::
 
- -- Liste détaillée des nœuds --
+ -- Liste d\xc3\xa9taill\xc3\xa9e des n\xc5\x93uds --
 
 chap
 
@@ -320,8 +320,8 @@ File: ,  Node: section,  Up: chap
 
 Tag Table:
 Node: Top49
-Node: chap177
-Node: section259
+Node: chap180
+Node: section262
 
 End Tag Table
 
@@ -330,6 +330,6 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: fr
 End:
-';
+";
 
 1;

@@ -175,7 +175,7 @@ list:
 $result_headings_list{'ref_in_copying'} = '';
 
 
-$result_converted{'info'}->{'ref_in_copying'} = 'This is , produced from .
+$result_converted{'info'}->{'ref_in_copying'} = "This is , produced from .
 
 *note GFDL::
 
@@ -208,7 +208,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'ref_in_copying'} = '<!DOCTYPE html>

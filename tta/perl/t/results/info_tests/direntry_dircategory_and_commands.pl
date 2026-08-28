@@ -164,11 +164,11 @@ list:
 $result_headings_list{'direntry_dircategory_and_commands'} = '';
 
 
-$result_converted{'info'}->{'direntry_dircategory_and_commands'} = 'This is , produced from .
+$result_converted{'info'}->{'direntry_dircategory_and_commands'} = "This is , produced from .
 
-INFO-DIR-SECTION "category--TH ERE?"
+INFO-DIR-SECTION \"category--TH ERE?\"
 START-INFO-DIR-ENTRY
-* foo: (foo).   "hello--THERE?"
+* foo: (foo).   \"hello--THERE?\"
 END-INFO-DIR-ENTRY
 
 INFO-DIR-SECTION cat2
@@ -197,6 +197,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

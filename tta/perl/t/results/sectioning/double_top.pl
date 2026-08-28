@@ -106,7 +106,7 @@ $result_sectioning_root{'double_top'} = '';
 $result_headings_list{'double_top'} = '';
 
 
-$result_converted{'info'}->{'double_top'} = 'This is , produced from .
+$result_converted{'info'}->{'double_top'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: Top,  Up: (dir)
@@ -123,7 +123,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'double_top'} = '<!DOCTYPE html>

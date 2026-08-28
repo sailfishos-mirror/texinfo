@@ -180,7 +180,7 @@ Unknown language.  See Top.
 ';
 
 
-$result_converted{'info'}->{'unknown_language'} = 'This is , produced from .
+$result_converted{'info'}->{'unknown_language'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chapter,  Up: (dir)
@@ -214,7 +214,7 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: unknown
 End:
-';
+";
 
 
 $result_converted{'html'}->{'unknown_language'} = '<!DOCTYPE html>

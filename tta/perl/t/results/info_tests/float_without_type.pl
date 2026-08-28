@@ -86,7 +86,7 @@ $result_sectioning_root{'float_without_type'} = '';
 $result_headings_list{'float_without_type'} = '';
 
 
-$result_converted{'info'}->{'float_without_type'} = 'This is , produced from .
+$result_converted{'info'}->{'float_without_type'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -108,6 +108,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

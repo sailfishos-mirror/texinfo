@@ -2000,7 +2000,7 @@ list:
 $result_headings_list{'section_in_unnumbered_info'} = '';
 
 
-$result_converted{'info'}->{'section_in_unnumbered_info'} = 'This is , produced from section_in_unnumbered_text.texi.
+$result_converted{'info'}->{'section_in_unnumbered_info'} = "This is , produced from section_in_unnumbered_text.texi.
 
 
 File: ,  Node: Top,  Next: chapter,  Up: (dir)
@@ -2307,7 +2307,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'section_in_unnumbered_info'} = '<!DOCTYPE html>

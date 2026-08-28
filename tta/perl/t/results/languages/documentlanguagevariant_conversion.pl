@@ -469,7 +469,7 @@ $result_converted_sort_strings{'plaintext'}->{'documentlanguagevariant_conversio
 ';
 
 
-$result_converted{'info'}->{'documentlanguagevariant_conversion'} = 'This is , produced from .
+$result_converted{'info'}->{'documentlanguagevariant_conversion'} = "This is , produced from .
 
  -- p_V1234-Instance Variable of SSS: p_V1234-BBB CCC
 
@@ -514,7 +514,7 @@ coding: utf-8
 Info-documentlanguage: qaa
 Info-documentlanguagevariant: 1234
 End:
-';
+";
 
 $result_converted_sort_strings{'info'}->{'documentlanguagevariant_conversion'} = 'vr:
  BBB of SSS

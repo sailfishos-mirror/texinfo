@@ -54,7 +54,7 @@ $result_sectioning_root{'node_up_direction_for_top_with_manual'} = '';
 $result_headings_list{'node_up_direction_for_top_with_manual'} = '';
 
 
-$result_converted{'info'}->{'node_up_direction_for_top_with_manual'} = 'This is , produced from .
+$result_converted{'info'}->{'node_up_direction_for_top_with_manual'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)Top
@@ -69,7 +69,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'node_up_direction_for_top_with_manual'} = '<!DOCTYPE html>

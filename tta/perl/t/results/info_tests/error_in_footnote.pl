@@ -148,7 +148,7 @@ $result_sectioning_root{'error_in_footnote'} = '';
 $result_headings_list{'error_in_footnote'} = '';
 
 
-$result_converted{'info'}->{'error_in_footnote'} = 'This is , produced from .
+$result_converted{'info'}->{'error_in_footnote'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -185,7 +185,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'error_in_footnote'} = '* W l9|@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
  warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that

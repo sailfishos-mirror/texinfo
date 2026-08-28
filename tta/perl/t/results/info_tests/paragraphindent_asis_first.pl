@@ -53,7 +53,7 @@ $result_sectioning_root{'paragraphindent_asis_first'} = '';
 $result_headings_list{'paragraphindent_asis_first'} = '';
 
 
-$result_converted{'info'}->{'paragraphindent_asis_first'} = 'This is , produced from .
+$result_converted{'info'}->{'paragraphindent_asis_first'} = "This is , produced from .
 
 bbb
 
@@ -67,7 +67,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'paragraphindent_asis_first'} = '* W |document without nodes
  warning: document without nodes

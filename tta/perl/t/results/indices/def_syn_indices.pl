@@ -491,7 +491,7 @@ pg:
 ';
 
 
-$result_converted{'info'}->{'def_syn_indices'} = 'This is , produced from .
+$result_converted{'info'}->{'def_syn_indices'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: Chapter index,  Up: (dir)
@@ -554,7 +554,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_sort_strings{'info'}->{'def_syn_indices'} = 'codeidx:
  a index entry tẽ î

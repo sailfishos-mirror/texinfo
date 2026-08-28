@@ -792,7 +792,7 @@ Content VI
 ';
 
 
-$result_converted{'info'}->{'non_empty_part'} = 'This is , produced from .
+$result_converted{'info'}->{'non_empty_part'} = "This is , produced from .
 
 Content before
 
@@ -849,6 +849,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

@@ -71,7 +71,7 @@ $result_sectioning_root{'anchor_after_text_in_flushright'} = '';
 $result_headings_list{'anchor_after_text_in_flushright'} = '';
 
 
-$result_converted{'info'}->{'anchor_after_text_in_flushright'} = 'This is , produced from .
+$result_converted{'info'}->{'anchor_after_text_in_flushright'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -89,6 +89,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

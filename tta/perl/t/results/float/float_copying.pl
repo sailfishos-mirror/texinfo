@@ -426,7 +426,7 @@ fn:
 ';
 
 
-$result_converted{'info'}->{'float_copying'} = 'This is , produced from .
+$result_converted{'info'}->{'float_copying'} = "This is , produced from .
 
 Public domain is not really a licence, as it means than the author
 abandon his copyright.
@@ -519,7 +519,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_sort_strings{'info'}->{'float_copying'} = 'cp:
  indexed caption

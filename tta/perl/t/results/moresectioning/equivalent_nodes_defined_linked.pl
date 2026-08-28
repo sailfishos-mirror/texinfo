@@ -200,7 +200,7 @@ $result_sectioning_root{'equivalent_nodes_defined_linked'} = '';
 $result_headings_list{'equivalent_nodes_defined_linked'} = '';
 
 
-$result_converted{'info'}->{'equivalent_nodes_defined_linked'} = 'This is , produced from .
+$result_converted{'info'}->{'equivalent_nodes_defined_linked'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -218,11 +218,11 @@ Figure 1
 
 * Menu:
 
-* Figure 1: ‘chap’.                      
+* Figure 1: \xe2\x80\x98chap\xe2\x80\x99.                      
 
    Ref to node *note chap::.
 
-   Ref to @samp{chap} *note chap::.
+   Ref to \@samp{chap} *note chap::.
 
 
 Tag Table:
@@ -235,7 +235,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'equivalent_nodes_defined_linked'} = '<!DOCTYPE html>

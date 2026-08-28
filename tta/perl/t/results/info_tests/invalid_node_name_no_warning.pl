@@ -224,7 +224,7 @@ $result_sectioning_root{'invalid_node_name_no_warning'} = '';
 $result_headings_list{'invalid_node_name_no_warning'} = '';
 
 
-$result_converted{'info'}->{'invalid_node_name_no_warning'} = 'This is , produced from .
+$result_converted{'info'}->{'invalid_node_name_no_warning'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: nodename. a,  Up: (dir)
@@ -260,6 +260,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

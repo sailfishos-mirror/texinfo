@@ -264,7 +264,7 @@ list:
 $result_headings_list{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = '';
 
 
-$result_converted{'info'}->{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = 'This is , produced from cond.texi.
+$result_converted{'info'}->{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = "This is , produced from cond.texi.
 
 This is ifnothtml text.
 
@@ -292,6 +292,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

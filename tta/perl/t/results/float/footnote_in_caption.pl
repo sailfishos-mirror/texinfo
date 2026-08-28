@@ -135,7 +135,7 @@ fl 1: in caption(1)
 ';
 
 
-$result_converted{'info'}->{'footnote_in_caption'} = 'This is , produced from .
+$result_converted{'info'}->{'footnote_in_caption'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -168,7 +168,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'footnote_in_caption'} = '<!DOCTYPE html>

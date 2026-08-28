@@ -113,7 +113,7 @@ list:
 $result_headings_list{'top_without_node_nodes'} = '';
 
 
-$result_converted{'info'}->{'top_without_node_nodes'} = 'This is , produced from .
+$result_converted{'info'}->{'top_without_node_nodes'} = "This is , produced from .
 
 top section
 ***********
@@ -138,7 +138,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'top_without_node_nodes'} = '* W |document without Top node
  warning: document without Top node

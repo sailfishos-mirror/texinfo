@@ -416,7 +416,7 @@ $result_indices_sort_strings{'index_no_node_no_top'} = 'cp:
 ';
 
 
-$result_converted{'info'}->{'index_no_node_no_top'} = 'This is , produced from index_no_node_no_top.texi.
+$result_converted{'info'}->{'index_no_node_no_top'} = "This is , produced from index_no_node_no_top.texi.
 
 Garbage
 
@@ -562,7 +562,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_sort_strings{'info'}->{'index_no_node_no_top'} = 'cp:
  chapter

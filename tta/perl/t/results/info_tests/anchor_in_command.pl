@@ -75,7 +75,7 @@ $result_sectioning_root{'anchor_in_command'} = '';
 $result_headings_list{'anchor_in_command'} = '';
 
 
-$result_converted{'info'}->{'anchor_in_command'} = 'This is , produced from .
+$result_converted{'info'}->{'anchor_in_command'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -93,6 +93,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

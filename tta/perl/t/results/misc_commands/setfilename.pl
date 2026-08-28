@@ -189,7 +189,7 @@ $result_converted{'docbook'}->{'setfilename'} = '
 ';
 
 
-$result_converted{'info'}->{'setfilename'} = 'This is file_comment, produced from .
+$result_converted{'info'}->{'setfilename'} = "This is file_comment, produced from .
 
 
 Tag Table:
@@ -200,7 +200,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'setfilename'} = '* W |document without nodes
  warning: document without nodes

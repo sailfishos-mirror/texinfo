@@ -112,7 +112,7 @@ $result_sectioning_root{'note_in_strong'} = '';
 $result_headings_list{'note_in_strong'} = '';
 
 
-$result_converted{'info'}->{'note_in_strong'} = 'This is , produced from .
+$result_converted{'info'}->{'note_in_strong'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -139,7 +139,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'note_in_strong'} = '* W l5|@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
  warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that

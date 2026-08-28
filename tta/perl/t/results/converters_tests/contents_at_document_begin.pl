@@ -296,7 +296,7 @@ The chapter
 ';
 
 
-$result_converted{'info'}->{'contents_at_document_begin'} = 'This is , produced from contents_at_document_begin.texi.
+$result_converted{'info'}->{'contents_at_document_begin'} = "This is , produced from contents_at_document_begin.texi.
 
 
 File: ,  Node: Top,  Next: chapter,  Up: (dir)
@@ -329,6 +329,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

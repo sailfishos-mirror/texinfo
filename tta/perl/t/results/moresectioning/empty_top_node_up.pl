@@ -111,7 +111,7 @@ list:
 $result_headings_list{'empty_top_node_up'} = '';
 
 
-$result_converted{'info'}->{'empty_top_node_up'} = 'This is , produced from .
+$result_converted{'info'}->{'empty_top_node_up'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: 
@@ -137,7 +137,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'empty_top_node_up'} = '<!DOCTYPE html>

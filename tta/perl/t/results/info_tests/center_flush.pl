@@ -168,7 +168,7 @@ $result_sectioning_root{'center_flush'} = '';
 $result_headings_list{'center_flush'} = '';
 
 
-$result_converted{'info'}->{'center_flush'} = 'This is , produced from .
+$result_converted{'info'}->{'center_flush'} = "This is , produced from .
 
                                centered
 
@@ -206,7 +206,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'center_flush'} = '* W |document without nodes
  warning: document without nodes

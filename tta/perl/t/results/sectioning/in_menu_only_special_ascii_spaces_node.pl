@@ -178,7 +178,7 @@ list:
 $result_headings_list{'in_menu_only_special_ascii_spaces_node'} = '';
 
 
-$result_converted{'info'}->{'in_menu_only_special_ascii_spaces_node'} = 'This is , produced from in_menu_only_special_ascii_spaces_node.texi.
+$result_converted{'info'}->{'in_menu_only_special_ascii_spaces_node'} = "This is , produced from in_menu_only_special_ascii_spaces_node.texi.
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -188,7 +188,7 @@ top
 
 * Menu:
 
-* '."\r".'::
+* \r::
 * 	::
 
 1 CARRIAGE RETURN| |
@@ -207,7 +207,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'in_menu_only_special_ascii_spaces_node'} = '<!DOCTYPE html>

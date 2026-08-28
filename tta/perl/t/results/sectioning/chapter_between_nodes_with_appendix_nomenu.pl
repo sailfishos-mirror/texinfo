@@ -167,7 +167,7 @@ list:
 $result_headings_list{'chapter_between_nodes_with_appendix_nomenu'} = '';
 
 
-$result_converted{'info'}->{'chapter_between_nodes_with_appendix_nomenu'} = 'This is , produced from .
+$result_converted{'info'}->{'chapter_between_nodes_with_appendix_nomenu'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: Additional,  Up: (dir)
@@ -207,7 +207,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'chapter_between_nodes_with_appendix_nomenu'} = '<!DOCTYPE html>

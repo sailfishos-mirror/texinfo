@@ -59,7 +59,7 @@ $result_sectioning_root{'encoding_us_ascii'} = '';
 $result_headings_list{'encoding_us_ascii'} = '';
 
 
-$result_converted{'info'}->{'encoding_us_ascii'} = 'This is , produced from .
+$result_converted{'info'}->{'encoding_us_ascii'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -74,6 +74,6 @@ End Tag Table
 Local Variables:
 coding: us-ascii
 End:
-';
+";
 
 1;

@@ -184,7 +184,7 @@ list:
 $result_headings_list{'nodes_after_top_before_chapter_sections'} = '';
 
 
-$result_converted{'info'}->{'nodes_after_top_before_chapter_sections'} = 'This is , produced from .
+$result_converted{'info'}->{'nodes_after_top_before_chapter_sections'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: second node,  Up: (dir)
@@ -218,7 +218,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'nodes_after_top_before_chapter_sections'} = '<!DOCTYPE html>

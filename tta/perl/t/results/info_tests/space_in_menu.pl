@@ -152,7 +152,7 @@ list:
 $result_headings_list{'space_in_menu'} = '';
 
 
-$result_converted{'info'}->{'space_in_menu'} = 'This is , produced from .
+$result_converted{'info'}->{'space_in_menu'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: node,  Up: (dir)
@@ -185,6 +185,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

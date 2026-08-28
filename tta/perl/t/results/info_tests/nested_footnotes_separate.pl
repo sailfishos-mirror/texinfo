@@ -78,7 +78,7 @@ $result_sectioning_root{'nested_footnotes_separate'} = '';
 $result_headings_list{'nested_footnotes_separate'} = '';
 
 
-$result_converted{'info'}->{'nested_footnotes_separate'} = 'This is , produced from .
+$result_converted{'info'}->{'nested_footnotes_separate'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -107,6 +107,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

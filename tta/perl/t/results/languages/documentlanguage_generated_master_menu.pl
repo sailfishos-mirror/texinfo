@@ -311,7 +311,7 @@ Privitak A App
 ';
 
 
-$result_converted{'info'}->{'documentlanguage_generated_master_menu'} = 'This is , produced from .
+$result_converted{'info'}->{'documentlanguage_generated_master_menu'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chapter,  Up: (dir)
@@ -365,7 +365,7 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: de
 End:
-';
+";
 
 
 $result_converted{'html'}->{'documentlanguage_generated_master_menu'} = '<!DOCTYPE html>

@@ -95,7 +95,7 @@ $result_sectioning_root{'empty_caption'} = '';
 $result_headings_list{'empty_caption'} = '';
 
 
-$result_converted{'info'}->{'empty_caption'} = 'This is , produced from .
+$result_converted{'info'}->{'empty_caption'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -119,6 +119,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

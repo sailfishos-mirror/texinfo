@@ -95,7 +95,7 @@ list:
 $result_headings_list{'top_node_part_top'} = '';
 
 
-$result_converted{'info'}->{'top_node_part_top'} = 'This is , produced from top_node_part_top.texi.
+$result_converted{'info'}->{'top_node_part_top'} = "This is , produced from top_node_part_top.texi.
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -113,7 +113,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'top_node_part_top'} = '<!DOCTYPE html>

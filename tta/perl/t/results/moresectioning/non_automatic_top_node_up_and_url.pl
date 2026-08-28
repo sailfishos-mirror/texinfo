@@ -192,10 +192,10 @@ list:
 $result_headings_list{'non_automatic_top_node_up_and_url'} = '';
 
 
-$result_converted{'info'}->{'non_automatic_top_node_up_and_url'} = 'This is , produced from .
+$result_converted{'info'}->{'non_automatic_top_node_up_and_url'} = "This is , produced from .
 
 
-File: ,  Node: Top,  Next: chap,  Up: @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
+File: ,  Node: Top,  Next: chap,  Up: \@acronym{GNU, \@acronym{GNU}\'s Not Unix} manuals
 
 internal top node up
 ********************
@@ -218,7 +218,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'non_automatic_top_node_up_and_url'} = '<!DOCTYPE html>

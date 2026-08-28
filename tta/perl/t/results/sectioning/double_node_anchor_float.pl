@@ -230,7 +230,7 @@ $result_sectioning_root{'double_node_anchor_float'} = '';
 $result_headings_list{'double_node_anchor_float'} = '';
 
 
-$result_converted{'info'}->{'double_node_anchor_float'} = 'This is , produced from .
+$result_converted{'info'}->{'double_node_anchor_float'} = "This is , produced from .
 
 
 File: ,  Node: node1
@@ -253,7 +253,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'double_node_anchor_float'} = '* W |document without Top node
  warning: document without Top node

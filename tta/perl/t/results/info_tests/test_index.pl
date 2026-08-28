@@ -1267,7 +1267,7 @@ fn:
 ';
 
 
-$result_converted{'info'}->{'test_index'} = 'This is , produced from .
+$result_converted{'info'}->{'test_index'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: name,  Up: (dir)
@@ -1474,9 +1474,9 @@ Para.
  [index ]
 * Menu:
 
-* ¡:                                     Top.                   (line 8)
-* ":                                     Top.                   (line 8)
-* @:                                     Top.                   (line 8)
+* \xc2\xa1:                                     Top.                   (line 8)
+* \":                                     Top.                   (line 8)
+* \@:                                     Top.                   (line 8)
 * in Top:                                Top.                   (line 8)
 * index entry in appendix before para:   name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong.
                                                                 (line 6)
@@ -1525,7 +1525,7 @@ Tag Table:
 Node: Top27
 Node: name330
 Node: name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong982
-Ref: a counting anchor3070
+Ref: a counting anchor3071
 
 End Tag Table
 
@@ -1533,7 +1533,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_sort_strings{'info'}->{'test_index'} = 'cp:
  ¡

@@ -125,7 +125,7 @@ $result_sectioning_root{'top_node_no_menu_direction'} = '';
 $result_headings_list{'top_node_no_menu_direction'} = '';
 
 
-$result_converted{'info'}->{'top_node_no_menu_direction'} = 'This is , produced from .
+$result_converted{'info'}->{'top_node_no_menu_direction'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap node,  Up: (dir)
@@ -149,7 +149,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'top_node_no_menu_direction'} = '<!DOCTYPE html>

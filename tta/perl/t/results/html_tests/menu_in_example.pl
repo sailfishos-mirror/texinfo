@@ -168,7 +168,7 @@ $result_sectioning_root{'menu_in_example'} = '';
 $result_headings_list{'menu_in_example'} = '';
 
 
-$result_converted{'info'}->{'menu_in_example'} = 'This is , produced from .
+$result_converted{'info'}->{'menu_in_example'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -193,7 +193,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'menu_in_example'} = '<!DOCTYPE html>

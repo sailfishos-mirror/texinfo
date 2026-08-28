@@ -40,7 +40,7 @@ $result_sectioning_root{'no_top_node'} = '';
 $result_headings_list{'no_top_node'} = '';
 
 
-$result_converted{'info'}->{'no_top_node'} = 'This is , produced from .
+$result_converted{'info'}->{'no_top_node'} = "This is , produced from .
 
 
 File: ,  Node: node Top not Top node
@@ -55,7 +55,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'no_top_node'} = '* W |document without Top node
  warning: document without Top node

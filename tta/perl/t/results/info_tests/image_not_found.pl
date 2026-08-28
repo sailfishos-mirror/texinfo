@@ -48,7 +48,7 @@ $result_sectioning_root{'image_not_found'} = '';
 $result_headings_list{'image_not_found'} = '';
 
 
-$result_converted{'info'}->{'image_not_found'} = 'This is , produced from .
+$result_converted{'info'}->{'image_not_found'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -65,7 +65,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'image_not_found'} = '* W l2|could not find @image file `n_f_image.txt\' nor alternate text
  warning: could not find @image file `n_f_image.txt\' nor alternate text

@@ -174,7 +174,7 @@ $result_sectioning_root{'ref_in_multitable'} = '';
 $result_headings_list{'ref_in_multitable'} = '';
 
 
-$result_converted{'info'}->{'ref_in_multitable'} = 'This is , produced from .
+$result_converted{'info'}->{'ref_in_multitable'} = "This is , produced from .
 
 *note XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XX XXX XXX XXX XXX
 XXX XXX XXX XXX XXX XXX XXX XXX XX::.
@@ -204,7 +204,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'ref_in_multitable'} = '* W |document without nodes
  warning: document without nodes

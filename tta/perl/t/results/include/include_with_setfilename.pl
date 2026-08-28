@@ -62,7 +62,7 @@ $result_sectioning_root{'include_with_setfilename'} = '';
 $result_headings_list{'include_with_setfilename'} = '';
 
 
-$result_converted{'info'}->{'include_with_setfilename'} = 'This is include_with_setfilename.info, produced from .
+$result_converted{'info'}->{'include_with_setfilename'} = "This is include_with_setfilename.info, produced from .
 
 
 Tag Table:
@@ -73,7 +73,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'include_with_setfilename'} = '* W |document without nodes
  warning: document without nodes

@@ -377,7 +377,7 @@ Chapter
 ';
 
 
-$result_converted{'info'}->{'regenerate_master_menu_language_at_beginning_end_set_lang'} = 'This is , produced from no_detailmenu_lang_at_begin_end.texi.
+$result_converted{'info'}->{'regenerate_master_menu_language_at_beginning_end_set_lang'} = "This is , produced from no_detailmenu_lang_at_begin_end.texi.
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -389,7 +389,7 @@ top
 
 * chap::
 
- -- Szczegółowa lista węzłów --
+ -- Szczeg\xc3\xb3\xc5\x82owa lista w\xc4\x99z\xc5\x82\xc3\xb3w --
 
 Chapter
 
@@ -414,8 +414,8 @@ File: ,  Node: sec,  Up: chap
 
 Tag Table:
 Node: Top63
-Node: chap189
-Node: sec273
+Node: chap194
+Node: sec278
 
 End Tag Table
 
@@ -425,6 +425,6 @@ coding: utf-8
 Info-documentlanguage: pl
 Info-documentscript: latin
 End:
-';
+";
 
 1;

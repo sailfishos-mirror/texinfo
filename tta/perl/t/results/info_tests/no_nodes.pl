@@ -30,7 +30,7 @@ $result_sectioning_root{'no_nodes'} = '';
 $result_headings_list{'no_nodes'} = '';
 
 
-$result_converted{'info'}->{'no_nodes'} = 'This is , produced from .
+$result_converted{'info'}->{'no_nodes'} = "This is , produced from .
 
 Text.
 
@@ -42,7 +42,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'no_nodes'} = '* W |document without nodes
  warning: document without nodes

@@ -433,7 +433,7 @@ $result_converted{'xml'}->{'part_appendix_in_generated_menu'} = '<node identifie
 ';
 
 
-$result_converted{'info'}->{'part_appendix_in_generated_menu'} = 'This is , produced from .
+$result_converted{'info'}->{'part_appendix_in_generated_menu'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chapter,  Up: (dir)
@@ -501,6 +501,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

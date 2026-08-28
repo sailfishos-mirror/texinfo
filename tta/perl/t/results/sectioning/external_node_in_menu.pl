@@ -216,7 +216,7 @@ list:
 $result_headings_list{'external_node_in_menu'} = '';
 
 
-$result_converted{'info'}->{'external_node_in_menu'} = 'This is , produced from .
+$result_converted{'info'}->{'external_node_in_menu'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: nchapter1,  Up: (dir)
@@ -254,7 +254,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'external_node_in_menu'} = '<!DOCTYPE html>

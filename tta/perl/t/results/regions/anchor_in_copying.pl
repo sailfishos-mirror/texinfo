@@ -132,7 +132,7 @@ $result_sectioning_root{'anchor_in_copying'} = '';
 $result_headings_list{'anchor_in_copying'} = '';
 
 
-$result_converted{'info'}->{'anchor_in_copying'} = 'This is , produced from .
+$result_converted{'info'}->{'anchor_in_copying'} = "This is , produced from .
 
 Copying.
 
@@ -160,7 +160,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'anchor_in_copying'} = '* E l5|@anchor output more than once: Copying information
  @anchor output more than once: Copying information

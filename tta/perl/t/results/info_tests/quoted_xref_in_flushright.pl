@@ -149,7 +149,7 @@ list:
 $result_headings_list{'quoted_xref_in_flushright'} = '';
 
 
-$result_converted{'info'}->{'quoted_xref_in_flushright'} = 'This is , produced from .
+$result_converted{'info'}->{'quoted_xref_in_flushright'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: a:,b,  Up: (dir)
@@ -182,7 +182,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'quoted_xref_in_flushright'} = '* W l4|menu entry node name should not contain `:\'
  warning: menu entry node name should not contain `:\'

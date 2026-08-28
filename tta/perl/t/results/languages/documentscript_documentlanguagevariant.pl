@@ -58,9 +58,9 @@ $result_converted{'plaintext'}->{'documentscript_documentlanguagevariant'} = 'er
 ';
 
 
-$result_converted{'info'}->{'documentscript_documentlanguagevariant'} = 'This is , produced from .
+$result_converted{'info'}->{'documentscript_documentlanguagevariant'} = "This is , produced from .
 
-error→.
+error\xe2\x86\x92.
 
 Tag Table:
 
@@ -70,7 +70,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'documentscript_documentlanguagevariant'} = '* W |document without nodes
  warning: document without nodes

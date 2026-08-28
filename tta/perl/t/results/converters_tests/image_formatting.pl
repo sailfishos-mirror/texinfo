@@ -843,7 +843,7 @@ $result_converted_errors{'latex_text'}->{'image_formatting'} = '* W l14|@image f
 ';
 
 
-$result_converted{'info'}->{'image_formatting'} = 'This is , produced from .
+$result_converted{'info'}->{'image_formatting'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -861,33 +861,33 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 1 Chapter
 *********
 
-‘@image{f--ile}’  [image src="f--ile.png" text="Image description\\"\\"\\\\." ] ‘@image{f--ile,l--i}’  [image src="f--ile.png" text="Image description\\"\\"\\\\." ] ‘@image{f--ile,,l--e}’  [image src="f--ile.png" text="Image description\\"\\"\\\\." ]
-‘@image{f--ile,,,alt}’  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ] ‘@image{f--ile,,,,e-d-xt}’  [image src="f--ile.png" text="Image description\\"\\"\\\\." ]
-‘@image{f--ile,aze,az,alt,e--xt}’  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ] ‘@image{f--ile,aze,az,alt,’  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]
-‘@image{f-ile,aze,,a--lt}’ [a-lt]
-‘@image{@file{f--ile}@@@.,aze,az,alt,@file{file ext} e--xt@}’ [alt] aaa
+\xe2\x80\x98\@image{f--ile}\xe2\x80\x99  [image src=\"f--ile.png\" text=\"Image description\\\"\\\"\\\\.\" ] \xe2\x80\x98\@image{f--ile,l--i}\xe2\x80\x99  [image src=\"f--ile.png\" text=\"Image description\\\"\\\"\\\\.\" ] \xe2\x80\x98\@image{f--ile,,l--e}\xe2\x80\x99  [image src=\"f--ile.png\" text=\"Image description\\\"\\\"\\\\.\" ]
+\xe2\x80\x98\@image{f--ile,,,alt}\xe2\x80\x99  [image src=\"f--ile.png\" alt=\"alt\" text=\"Image description\\\"\\\"\\\\.\" ] \xe2\x80\x98\@image{f--ile,,,,e-d-xt}\xe2\x80\x99  [image src=\"f--ile.png\" text=\"Image description\\\"\\\"\\\\.\" ]
+\xe2\x80\x98\@image{f--ile,aze,az,alt,e--xt}\xe2\x80\x99  [image src=\"f--ile.png\" alt=\"alt\" text=\"Image description\\\"\\\"\\\\.\" ] \xe2\x80\x98\@image{f--ile,aze,az,alt,\xe2\x80\x99  [image src=\"f--ile.png\" alt=\"alt\" text=\"Image description\\\"\\\"\\\\.\" ]
+\xe2\x80\x98\@image{f-ile,aze,,a--lt}\xe2\x80\x99 [a-lt]
+\xe2\x80\x98\@image{\@file{f--ile}\@\@\@.,aze,az,alt,\@file{file ext} e--xt\@}\xe2\x80\x99 [alt] aaa
 bbb
 ccc aaa
 bbb
 ccc
 
-     @image{f--ile}  [image src="f--ile.png" text="Image description\\"\\"\\\\." ]
-     @image{f--ile,l--i}  [image src="f--ile.png" text="Image description\\"\\"\\\\." ]
-     @image{f--ile,,l--e}  [image src="f--ile.png" text="Image description\\"\\"\\\\." ]
-     @image{f--ile,,,alt}  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]
-     @image{f--ile,,,,e-d-xt}  [image src="f--ile.png" text="Image description\\"\\"\\\\." ]
-     @image{f--ile,aze,az,alt,e--xt}  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]
-     @image{f-ile,aze,,a--lt} [a-lt]
-     @image{@file{f--ile}@@@.,aze,az,alt,@file{file ext} e--xt@} [alt]
+     \@image{f--ile}  [image src=\"f--ile.png\" text=\"Image description\\\"\\\"\\\\.\" ]
+     \@image{f--ile,l--i}  [image src=\"f--ile.png\" text=\"Image description\\\"\\\"\\\\.\" ]
+     \@image{f--ile,,l--e}  [image src=\"f--ile.png\" text=\"Image description\\\"\\\"\\\\.\" ]
+     \@image{f--ile,,,alt}  [image src=\"f--ile.png\" alt=\"alt\" text=\"Image description\\\"\\\"\\\\.\" ]
+     \@image{f--ile,,,,e-d-xt}  [image src=\"f--ile.png\" text=\"Image description\\\"\\\"\\\\.\" ]
+     \@image{f--ile,aze,az,alt,e--xt}  [image src=\"f--ile.png\" alt=\"alt\" text=\"Image description\\\"\\\"\\\\.\" ]
+     \@image{f-ile,aze,,a--lt} [a-lt]
+     \@image{\@file{f--ile}\@\@\@.,aze,az,alt,\@file{file ext} e--xt\@} [alt]
      aaa
 bbb
 ccc aaa
 bbb
 ccc
 
- [image src="f--ile.png" alt="a very long alt argument that could span more than one line who knows" text="Image description\\"\\"\\\\." ]
+ [image src=\"f--ile.png\" alt=\"a very long alt argument that could span more than one line who knows\" text=\"Image description\\\"\\\"\\\\.\" ]
 
-   in para  [image src="f--ile.png" alt="a very long alt argument that could span more than one line who knows" text="Image description\\"\\"\\\\." ].
+   in para  [image src=\"f--ile.png\" alt=\"a very long alt argument that could span more than one line who knows\" text=\"Image description\\\"\\\"\\\\.\" ].
 
 
 Tag Table:
@@ -900,6 +900,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

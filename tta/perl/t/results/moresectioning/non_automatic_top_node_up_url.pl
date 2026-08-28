@@ -170,7 +170,7 @@ list:
 $result_headings_list{'non_automatic_top_node_up_url'} = '';
 
 
-$result_converted{'info'}->{'non_automatic_top_node_up_url'} = 'This is , produced from .
+$result_converted{'info'}->{'non_automatic_top_node_up_url'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Prev: (dir),  Up: (dir)
@@ -196,7 +196,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'non_automatic_top_node_up_url'} = '<!DOCTYPE html>

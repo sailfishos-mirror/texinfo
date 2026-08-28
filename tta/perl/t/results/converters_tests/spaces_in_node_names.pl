@@ -313,7 +313,7 @@ $result_converted{'latex_text'}->{'spaces_in_node_names'} = '\\begin{document}
 ';
 
 
-$result_converted{'info'}->{'spaces_in_node_names'} = 'This is , produced from .
+$result_converted{'info'}->{'spaces_in_node_names'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap  ,  Up: (dir)
@@ -352,6 +352,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

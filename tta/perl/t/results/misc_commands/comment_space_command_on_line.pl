@@ -517,7 +517,7 @@ $result_converted{'docbook_doc'}->{'comment_space_command_on_line'} = '<?xml ver
 ';
 
 
-$result_converted{'info'}->{'comment_space_command_on_line'} = 'This is , produced from .
+$result_converted{'info'}->{'comment_space_command_on_line'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -559,7 +559,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_sort_strings{'info'}->{'comment_space_command_on_line'} = 'cp:
  index entry  

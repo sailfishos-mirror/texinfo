@@ -202,7 +202,7 @@ list:
 $result_headings_list{'unnumbered_top_without_node_sections'} = '';
 
 
-$result_converted{'info'}->{'unnumbered_top_without_node_sections'} = 'This is , produced from .
+$result_converted{'info'}->{'unnumbered_top_without_node_sections'} = "This is , produced from .
 
 
 File: ,  Node: a node,  Up: (dir)
@@ -236,7 +236,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'unnumbered_top_without_node_sections'} = '* W |document without Top node
  warning: document without Top node

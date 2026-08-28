@@ -264,7 +264,7 @@ list:
 $result_headings_list{'cond_info'} = '';
 
 
-$result_converted{'info'}->{'cond_info'} = 'This is , produced from cond.texi.
+$result_converted{'info'}->{'cond_info'} = "This is , produced from cond.texi.
 
 This is ifnothtml text.
 
@@ -292,6 +292,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

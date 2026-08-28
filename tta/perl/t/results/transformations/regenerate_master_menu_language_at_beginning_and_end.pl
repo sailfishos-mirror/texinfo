@@ -377,7 +377,7 @@ Chapter
 ';
 
 
-$result_converted{'info'}->{'regenerate_master_menu_language_at_beginning_and_end'} = 'This is , produced from no_detailmenu_lang_at_begin_end.texi.
+$result_converted{'info'}->{'regenerate_master_menu_language_at_beginning_and_end'} = "This is , produced from no_detailmenu_lang_at_begin_end.texi.
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -389,7 +389,7 @@ top
 
 * chap::
 
- -- Детаљан списак чворова --
+ -- \xd0\x94\xd0\xb5\xd1\x82\xd0\xb0\xd1\x99\xd0\xb0\xd0\xbd \xd1\x81\xd0\xbf\xd0\xb8\xd1\x81\xd0\xb0\xd0\xba \xd1\x87\xd0\xb2\xd0\xbe\xd1\x80\xd0\xbe\xd0\xb2\xd0\xb0 --
 
 Chapter
 
@@ -414,8 +414,8 @@ File: ,  Node: sec,  Up: chap
 
 Tag Table:
 Node: Top63
-Node: chap187
-Node: sec271
+Node: chap207
+Node: sec291
 
 End Tag Table
 
@@ -425,6 +425,6 @@ coding: utf-8
 Info-documentlanguage: sr
 Info-documentscript: latin
 End:
-';
+";
 
 1;

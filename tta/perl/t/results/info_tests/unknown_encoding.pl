@@ -64,7 +64,7 @@ $result_sectioning_root{'unknown_encoding'} = '';
 $result_headings_list{'unknown_encoding'} = '';
 
 
-$result_converted{'info'}->{'unknown_encoding'} = 'This is , produced from .
+$result_converted{'info'}->{'unknown_encoding'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -79,6 +79,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;

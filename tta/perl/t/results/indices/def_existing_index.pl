@@ -37,7 +37,7 @@ $result_sectioning_root{'def_existing_index'} = '';
 $result_headings_list{'def_existing_index'} = '';
 
 
-$result_converted{'info'}->{'def_existing_index'} = 'This is , produced from .
+$result_converted{'info'}->{'def_existing_index'} = "This is , produced from .
 
 
 Tag Table:
@@ -48,7 +48,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'def_existing_index'} = '* W |document without nodes
  warning: document without nodes

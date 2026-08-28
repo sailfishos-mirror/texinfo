@@ -138,7 +138,7 @@ $result_converted{'latex'}->{'documentencoding_utf8'} = '\\documentclass{book}
 ';
 
 
-$result_converted{'info'}->{'documentencoding_utf8'} = 'This is , produced from .
+$result_converted{'info'}->{'documentencoding_utf8'} = "This is , produced from .
 
 
 Tag Table:
@@ -149,7 +149,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'documentencoding_utf8'} = '* W |document without nodes
  warning: document without nodes

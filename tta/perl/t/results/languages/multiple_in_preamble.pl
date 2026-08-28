@@ -325,10 +325,10 @@ $result_converted_sort_strings{'plaintext'}->{'multiple_in_preamble'} = 'vr:
 ';
 
 
-$result_converted{'info'}->{'multiple_in_preamble'} = 'This is , produced from .
+$result_converted{'info'}->{'multiple_in_preamble'} = "This is , produced from .
 
  -- Variable d\'instance de copying : a b
-     erreur→
+     erreur\xe2\x86\x92
 
 
 File: ,  Node: Top,  Next: chapter,  Up: (dir)
@@ -347,14 +347,14 @@ File: ,  Node: chapter,  Prev: Top,  Up: Top
 ******
 
  -- Variable d\'instance de hr : BBB CCC
-     erreur→
+     erreur\xe2\x86\x92
 
  -- Instanzvariable of de: FFF GGG
 
 
 Tag Table:
-Node: Top82
-Node: chapter179
+Node: Top84
+Node: chapter181
 
 End Tag Table
 
@@ -363,7 +363,7 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: fr_BE
 End:
-';
+";
 
 $result_converted_sort_strings{'info'}->{'multiple_in_preamble'} = 'vr:
  a od copying

@@ -112,7 +112,7 @@ list:
 $result_headings_list{'today_in_copying'} = '';
 
 
-$result_converted{'info'}->{'today_in_copying'} = 'This is , produced from .
+$result_converted{'info'}->{'today_in_copying'} = "This is , produced from .
 
 a sunny day.
 
@@ -138,7 +138,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'today_in_copying'} = '<!DOCTYPE html>

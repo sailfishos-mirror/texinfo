@@ -125,7 +125,7 @@ $result_sectioning_root{'equivalent_nodes_novalidate'} = '';
 $result_headings_list{'equivalent_nodes_novalidate'} = '';
 
 
-$result_converted{'info'}->{'equivalent_nodes_novalidate'} = 'This is , produced from .
+$result_converted{'info'}->{'equivalent_nodes_novalidate'} = "This is , produced from .
 
 
 File: ,  Node: first,  Next: node
@@ -150,7 +150,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'equivalent_nodes_novalidate'} = '* W |document without Top node
  warning: document without Top node

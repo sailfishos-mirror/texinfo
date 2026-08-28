@@ -377,10 +377,10 @@ $result_converted_sort_strings{'plaintext'}->{'multiple_documentlanguage'} = 'vr
 ';
 
 
-$result_converted{'info'}->{'multiple_documentlanguage'} = 'This is , produced from .
+$result_converted{'info'}->{'multiple_documentlanguage'} = "This is , produced from .
 
  -- Variable d\'instance de copying : a b
-     erreur→
+     erreur\xe2\x86\x92
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -399,16 +399,16 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 ******
 
  -- Variable d\'instance de fr : BBB CCC
-     erreur→
+     erreur\xe2\x86\x92
 
  -- Instanzvariable of copying: a b
-     error→
+     error\xe2\x86\x92
 
  -- Primjerak varijable od hr: BBB CCC
-     greška→
+     gre\xc5\xa1ka\xe2\x86\x92
 
  -- Primjerak varijable od copying: a b
-     greška→
+     gre\xc5\xa1ka\xe2\x86\x92
 
  [index ]
 * Menu:
@@ -419,8 +419,8 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 
 
 Tag Table:
-Node: Top82
-Node: chap157
+Node: Top84
+Node: chap159
 
 End Tag Table
 
@@ -429,7 +429,7 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: fr
 End:
-';
+";
 
 $result_converted_sort_strings{'info'}->{'multiple_documentlanguage'} = 'vr:
  a de copying

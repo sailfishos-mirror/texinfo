@@ -120,7 +120,7 @@ Apéndice A dernier
 ';
 
 
-$result_converted{'info'}->{'appendix_translated'} = 'This is , produced from .
+$result_converted{'info'}->{'appendix_translated'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -128,7 +128,7 @@ File: ,  Node: Top,  Up: (dir)
 top
 ***
 
-Apéndice A dernier
+Ap\xc3\xa9ndice A dernier
 ******************
 
 
@@ -142,7 +142,7 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: es
 End:
-';
+";
 
 
 $result_converted{'html'}->{'appendix_translated'} = '<!DOCTYPE html>

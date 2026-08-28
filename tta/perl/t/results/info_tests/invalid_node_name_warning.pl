@@ -224,7 +224,7 @@ $result_sectioning_root{'invalid_node_name_warning'} = '';
 $result_headings_list{'invalid_node_name_warning'} = '';
 
 
-$result_converted{'info'}->{'invalid_node_name_warning'} = 'This is , produced from .
+$result_converted{'info'}->{'invalid_node_name_warning'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: nodename. a,  Up: (dir)
@@ -260,7 +260,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 $result_converted_errors{'info'}->{'invalid_node_name_warning'} = '* W l5|menu entry name should not contain `:\'
  warning: menu entry name should not contain `:\'

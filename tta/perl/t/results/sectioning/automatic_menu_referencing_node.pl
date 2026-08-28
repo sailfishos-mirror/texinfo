@@ -146,7 +146,7 @@ list:
 $result_headings_list{'automatic_menu_referencing_node'} = '';
 
 
-$result_converted{'info'}->{'automatic_menu_referencing_node'} = 'This is , produced from .
+$result_converted{'info'}->{'automatic_menu_referencing_node'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Next: Chapter,  Up: (dir)
@@ -192,7 +192,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 
 $result_converted{'html'}->{'automatic_menu_referencing_node'} = '<!DOCTYPE html>

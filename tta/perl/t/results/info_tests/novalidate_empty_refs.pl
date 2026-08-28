@@ -113,7 +113,7 @@ $result_sectioning_root{'novalidate_empty_refs'} = '';
 $result_headings_list{'novalidate_empty_refs'} = '';
 
 
-$result_converted{'info'}->{'novalidate_empty_refs'} = 'This is , produced from .
+$result_converted{'info'}->{'novalidate_empty_refs'} = "This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -130,6 +130,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+";
 
 1;
