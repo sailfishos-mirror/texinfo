@@ -148,6 +148,7 @@ decl_list_fns(TEXT_CONTEXT_STACK, text_element_context, TEXT_CONTEXT);
 
 typedef struct STRING_WITH_WIDTH {
     char *string;
+    int len;
     /* TODO or size_t?  Matches return type of para_counter */
     int width;
 } STRING_WITH_WIDTH;
@@ -229,7 +230,7 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
     PENDING_FOOTNOTE_LIST pending_footnotes;
     /* cache "outside of any node" translated string for use in
        printindex formatting */
-    char *outside_of_any_node_text;
+    TEXT outside_of_any_node_text;
     int outside_of_any_node_text_width;
     size_t bytes;
     TARGET_LOCATION_LIST *target_locations;

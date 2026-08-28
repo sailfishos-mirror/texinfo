@@ -1,3 +1,40 @@
+2026-08-28 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/call_conversion_perl.c (call_converter_output): copy
+	NUL byte.
+
+	* tta/C/main/utils.c (normalize_top_node_name_text): add a variant of
+	normalize_top_node_name that changes a TEXT in-place.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_encode_string): get
+	a TEXT in argument.  Update callers.
+
+	* tta/C/convert/convert_to_info.c (count_new_lines, info_format_image)
+	(info_format_image_element), tta/C/convert/convert_to_plaintext.c
+	(PLAINTEXT_FORMAT_FUNCTIONS, plaintext_image_formatted_text)
+	(plaintext_format_image_element, plaintext_insert_image),
+	tta/C/main/converter_types.h (STRING_LINE_COUNT): add count_new_lines,
+	count number of new lines in info_format_image.  Add len field in
+	STRING_LINE_COUNT.  Have plaintext_image_formatted_text returns a
+	TEXT, info_format_image and plaintext_format_image return a TEXT and
+	have info_format_image_element, plaintext_format_image_element and
+	plaintext_insert_image set len in STRING_LINE_COUNT.  Update callers
+	to use the length.
+
+	* tta/C/convert/convert_to_plaintext.c (pending_to_text)
+	(stream_to_text): return TEXT.  Update callers.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_convert_node_name)
+	(plaintext_node_name, plaintext_cache_node_names),
+	tta/C/main/plaintext_converter_state.h (STRING_WITH_WIDTH): add len
+	field in STRING_WITH_WIDTH.  Store byte length of node name.  Allow
+	NUL in node name.  Update callers to use the length.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(plaintext_conversion_finalization),
+	tta/C/main/plaintext_converter_state.h (PLAINTEXT_CONVERTER_STATE):
+	store outside_of_any_node_text as a TEXT.
+
 2026-08-27 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/call_conversion_perl.c (call_converter_output),

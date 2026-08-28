@@ -1082,6 +1082,20 @@ normalize_top_node_name (char *node_name)
   return node_name;
 }
 
+/* variant changing TEXT in-place */
+void
+normalize_top_node_name_text (TEXT *node_name)
+{
+  size_t i;
+  if (node_name->end != strlen (lower_top_name))
+    return;
+  for (i = 0; i < strlen (lower_top_name); i++)
+    if (!isascii_alnum(node_name->text[i])
+        || tolower (node_name->text[i]) != lower_top_name[i])
+      return;
+  memcpy (node_name->text, "Top", 3 * sizeof (char));
+}
+
 /* ALTIMP perl/Texinfo/Common.pm */
 int
 empty_spaces_argument (const ELEMENT *element)

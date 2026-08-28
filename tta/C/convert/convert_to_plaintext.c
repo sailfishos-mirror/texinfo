@@ -131,9 +131,9 @@ typedef struct PLAINTEXT_FORMAT_FUNCTIONS {
                                enum command_id contents_or_shortcontents_cmd);
     void (* format_error_outside_of_any_node) (CONVERTER *self,
                                                const ELEMENT *element);
-    char * (* format_image) (CONVERTER *self, const char *image_file,
+    TEXT (* format_image) (CONVERTER *self, const char *image_file,
                    const char *text, const char *alt,
-                   int dpi, int depth);
+                   int dpi, int depth, int *lines_count);
     void (* format_image_element) (CONVERTER *self, const ELEMENT *element,
                                    STRING_LINE_COUNT *result);
     void (* format_node) (CONVERTER *self, const ELEMENT *element,
@@ -912,10 +912,9 @@ plaintext_conversion_finalization (CONVERTER *self)
   clear_c_hashmap (&self_plaintext->seen_node_descriptions);
   clear_c_hashmap (&self_plaintext->seenmenus);
 
-  if (self_plaintext->outside_of_any_node_text)
+  if (self_plaintext->outside_of_any_node_text.text)
     {
-      free (self_plaintext->outside_of_any_node_text);
-      self_plaintext->outside_of_any_node_text = 0;
+      text_destroy (&self_plaintext->outside_of_any_node_text);
       self_plaintext->outside_of_any_node_text_width = 0;
     }
   self_plaintext->current_node = 0;
@@ -1146,7 +1145,7 @@ stream_output_add_next (CONVERTER *self, const char *text)
 }
 
 void
-plaintext_encode_string (CONVERTER *self, const char *text, TEXT *result)
+plaintext_encode_string (CONVERTER *self, const TEXT *text, TEXT *result)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   char *converted_text;
@@ -1156,7 +1155,7 @@ plaintext_encode_string (CONVERTER *self, const char *text, TEXT *result)
     {
       converted_text
         = encode_with_iconv (self_plaintext->encoding_object->iconv,
-                                      (char *)text, 0, ieh_error, 0);
+                                      (char *)text->text, 0, ieh_error, 0);
 
       len = strlen (converted_text);
       text_append_n (result, converted_text, len);
@@ -1164,8 +1163,7 @@ plaintext_encode_string (CONVERTER *self, const char *text, TEXT *result)
     }
   else
     {
-      len = strlen (text);
-      text_append_n (result, text, len);
+      text_append_n (result, text->text, text->end);
     }
 }
 
@@ -1403,7 +1401,7 @@ ensure_end_of_line (CONVERTER *self)
     }
 }
 
-char *
+TEXT
 pending_to_text (const PENDING_TEXT_LIST *pending_texts)
 {
   size_t i;
@@ -1419,10 +1417,10 @@ pending_to_text (const PENDING_TEXT_LIST *pending_texts)
       text_reset (&pending_text->text);
       pending_text->anchor = 0;
     }
-  return t.text;
+  return t;
 }
 
-char *
+TEXT
 stream_to_text (CONVERTER *self)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
@@ -1442,7 +1440,7 @@ plaintext_convert_node_name (CONVERTER *self, const ELEMENT *element,
   const ELEMENT *label_element = get_label_element (element);
   ELEMENT *node_text;
   const char *pending_word;
-  char *result;
+  TEXT result;
   COUNT_CONTEXT new_count_context = { 0 };
 
   if (!label_element)
@@ -1471,7 +1469,7 @@ plaintext_convert_node_name (CONVERTER *self, const ELEMENT *element,
   pending_word = para_add_pending_word (0);
   stream_output_count_nl (self, pending_word);
   result = stream_to_text (self);
-  result = normalize_top_node_name (result);
+  normalize_top_node_name_text (&result);
   string_result->width = para_counter ();
 
   para_end_line ();
@@ -1482,7 +1480,8 @@ plaintext_convert_node_name (CONVERTER *self, const ELEMENT *element,
   pop_count_context (&self_plaintext->count_context);
   pop_formatter (self, 1);
 
-  string_result->string = result;
+  string_result->string = result.text;
+  string_result->len = result.end;
 }
 
 /* NOTE do caching for nodes in nodes_list only, for two reasons.
@@ -1505,17 +1504,23 @@ plaintext_node_name (CONVERTER *self, const ELEMENT *element,
         {
           PLAINTEXT_CONVERTER_STATE *self_plaintext
               = self->plaintext_converter;
-          STRING_WITH_WIDTH *node_name
+          const STRING_WITH_WIDTH *node_name
             = &self_plaintext->node_names_cache[node_number -1];
 
           if (!node_name->string)
             {
+              STRING_WITH_WIDTH *new_node_name
+                = &self_plaintext->node_names_cache[node_number -1];
               plaintext_convert_node_name (self, element,
-                                           node_name);
+                                           new_node_name);
             }
 
-          string_result->string = strdup (node_name->string);
+          /* allow NUL in string */
+          string_result->string = malloc ((node_name->len +1) * sizeof (char));
+          memcpy (string_result->string, node_name->string,
+                  (node_name->len +1) * sizeof (char));
           string_result->width = node_name->width;
+          string_result->len = node_name->len;
           return;
         }
     }
@@ -1546,7 +1551,7 @@ plaintext_cache_node_names (CONVERTER *self, NODE_RELATIONS_LIST *nodes_list)
   for (i = 0; i < self->document->nodes_list.number; i++)
     {
       const char *pending_word;
-      char *result;
+      TEXT result;
       COUNT_CONTEXT count_context = { 0 };
 
       STRING_WITH_WIDTH *node_name = &self_plaintext->node_names_cache[i];
@@ -1564,9 +1569,10 @@ plaintext_cache_node_names (CONVERTER *self, NODE_RELATIONS_LIST *nodes_list)
       pending_word = para_add_pending_word (0);
       stream_output_count_nl (self, pending_word);
       result = stream_to_text (self);
-      result = normalize_top_node_name (result);
+      normalize_top_node_name_text (&result);
       node_name->width = para_counter ();
-      node_name->string = result;
+      node_name->string = result.text;
+      node_name->len = result.end;
 
       /* reset counters */
       para_end_line ();
@@ -2304,12 +2310,12 @@ plaintext_format_contents (CONVERTER *self, SECTIONING_ROOT *sectioning_root,
                             self->conf->NUMBER_SECTIONS.o.integer != 0,
                             &section_text);
 
-          char *text = pending_to_text (&section_text.pending_text);
-          stream_output (self, text);
-          if (text[strlen (text) -1] != '\n')
-            stream_output (self, "\n");
+          TEXT text = pending_to_text (&section_text.pending_text);
+          stream_output_n (self, text.text, text.end);
+          if (text.text[text.end -1] != '\n')
+            stream_output_n (self, "\n", 1);
           lines_count++;
-          free (text);
+          free (text.text);
 
           if (section_relations->section_children
               && section_relations->section_children->number > 0
@@ -2576,7 +2582,7 @@ plaintext_process_printindex (CONVERTER *self,
       const char *end_result;
       const ELEMENT *seeentry;
       const ELEMENT *referred_entry = 0;
-      char *entry_text;
+      TEXT entry_text;
       int found;
       uintptr_t entry_text_count;
       int line_width = 0;
@@ -2632,7 +2638,7 @@ plaintext_process_printindex (CONVERTER *self,
       entry_text = stream_to_text (self);
       pop_count_context (&self_plaintext->count_context);
 
-      if (entry_text[strspn (entry_text, whitespace_chars)] == '\0')
+      if (entry_text.text[strspn (entry_text.text, whitespace_chars)] == '\0')
         goto finalize_entry;
 
       seeentry = index_entry_referred_entry (main_entry_element, CM_seeentry);
@@ -2681,9 +2687,9 @@ plaintext_process_printindex (CONVERTER *self,
             {
               add_element_to_named_string_element_list (substrings,
                                           "see_also_entry", referred_tree);
-              stream_output (self, entry_text);
+              stream_output_n (self, entry_text.text, entry_text.end);
               stream_output (self, ": ");
-              line_width += string_width_multibyte (entry_text) +2;
+              line_width += string_width_multibyte (entry_text.text) +2;
               if (line_width < index_length_to_node)
                 {
                   int j;
@@ -2714,7 +2720,7 @@ plaintext_process_printindex (CONVERTER *self,
         {
           const char *check_chars = ":";
 
-          const char *p = strpbrk (entry_text, check_chars);
+          const char *p = strpbrk (entry_text.text, check_chars);
 
           if (p)
             {
@@ -2738,21 +2744,21 @@ plaintext_process_printindex (CONVERTER *self,
         }
 
       text_append_n (&entry_line, "* ", 2);
-      text_append (&entry_line, entry_text);
+      text_append_n (&entry_line, entry_text.text, entry_text.end);
       entry_text_count
-         = (uintptr_t)c_hashmap_value (entry_counts, entry_text, &found);
+         = (uintptr_t)c_hashmap_value (entry_counts, entry_text.text, &found);
       if (found)
         {
           entry_text_count++;
           c_hashmap_set_value (entry_counts,
-                           entry_text, (const void *)entry_text_count);
+                           entry_text.text, (const void *)entry_text_count);
           text_printf (&entry_line, " <%" PRIuPTR ">", entry_text_count);
         }
       else
         {
           entry_text_count = 0;
           c_hashmap_register (entry_counts,
-                           entry_text, (const void *)entry_text_count);
+                           entry_text.text, (const void *)entry_text_count);
         }
 
       text_append_n (&entry_line, ": ", 2);
@@ -2775,7 +2781,7 @@ plaintext_process_printindex (CONVERTER *self,
         {
           /* cache the transformation to text and byte counting, as
              it is likely that there is more than one such entry */
-          if (!self_plaintext->outside_of_any_node_text)
+          if (!self_plaintext->outside_of_any_node_text.text)
             {
               ELEMENT *tree = cdt_tree ("(outside of any node)",
                                         self, 0 ,0);
@@ -2792,7 +2798,8 @@ plaintext_process_printindex (CONVERTER *self,
               free_pending_texts (&outside_node_text.pending_text);
               destroy_element_and_children (tree);
             }
-          stream_output (self, self_plaintext->outside_of_any_node_text);
+          stream_output_n (self, self_plaintext->outside_of_any_node_text.text,
+                           self_plaintext->outside_of_any_node_text.end);
           line_width += self_plaintext->outside_of_any_node_text_width;
     /* TODO when outside of sectioning commands this message was already
        done by the Parser.
@@ -2886,16 +2893,16 @@ plaintext_process_printindex (CONVERTER *self,
             }
 
           if (quoting_required)
-            stream_output (self, node_quote);
-          stream_output (self, node_name.string);
+            stream_output_n (self, node_quote, 1);
+          stream_output_n (self, node_name.string, node_name.len);
           line_width += node_name.width;
           if (quoting_required)
-            stream_output (self, node_quote);
+            stream_output_n (self, node_quote, 1);
 
           free (node_name.string);
         }
 
-      stream_output (self, ".");
+      stream_output_n (self, ".", 1);
       line_width++;
 
       line_nr = entry_info->line_nr;
@@ -2908,7 +2915,7 @@ plaintext_process_printindex (CONVERTER *self,
 
       if (line_width + line_part_width +1 > fillcolumn)
         {
-          stream_output (self, "\n");
+          stream_output_n (self, "\n", 1);
           add_lines_count (self, 1);
           spaces_nr = fillcolumn - line_part_width;
         }
@@ -2916,17 +2923,17 @@ plaintext_process_printindex (CONVERTER *self,
         spaces_nr = fillcolumn - line_part_width - line_width;
 
       for (j = 0; j < spaces_nr; j++)
-        stream_output (self, " ");
+        stream_output_n (self, " ", 1);
 
-      stream_output (self, line_part.text);
+      stream_output_n (self, line_part.text, line_part.end);
 
       text_reset (&line_part);
 
-      stream_output (self, "\n");
+      stream_output_n (self, "\n", 1);
       add_lines_count (self, 1);
 
      finalize_entry:
-      free (entry_text);
+      free (entry_text.text);
       if (subentries_tree)
         free_comma_index_subentries_tree (subentries_tree);
       destroy_element (entry_tree_element);
@@ -3316,16 +3323,19 @@ plaintext_format_anchor (CONVERTER *self, const ELEMENT *anchor)
 {
 }
 
-char *
+TEXT
 plaintext_image_formatted_text (CONVERTER *self, const ELEMENT *element,
                                 const char *basefile, const char *text)
 {
   TEXT result;
 
-  if (text)
-    return strdup (text);
-
   text_init (&result);
+
+  if (text)
+    {
+      text_append (&result, text);
+      return result;
+    }
 
   text_append_n (&result, "[", 1);
   if (element->e.c->contents.number >= 4
@@ -3352,7 +3362,7 @@ plaintext_image_formatted_text (CONVERTER *self, const ELEMENT *element,
     }
   text_append_n (&result, "]", 1);
 
-  return result.text;
+  return result;
 }
 
 void
@@ -3367,6 +3377,7 @@ plaintext_format_image_element (CONVERTER *self, const ELEMENT *element,
       int width = -1;
       const char *p;
       int lines_count = 0;
+      TEXT image_text;
 
       self->convert_text_options->code_state++;
       basefile = convert_to_text (element->e.c->contents.list[0],
@@ -3383,8 +3394,10 @@ plaintext_format_image_element (CONVERTER *self, const ELEMENT *element,
             text[text_len - 1] = '\0';
         }
 
-      result->string = plaintext_image_formatted_text (self, element,
-                                                       basefile, text);
+      image_text = plaintext_image_formatted_text (self, element,
+                                                   basefile, text);
+      result->string = image_text.text;
+      result->len = image_text.end;
       free (text);
 
       if (width == -1)
@@ -3398,7 +3411,6 @@ plaintext_format_image_element (CONVERTER *self, const ELEMENT *element,
             {
               lines_count++;
               p = q +1;
-             /* FIXME there are '\0' in the image quote characters */
               if (!*p)
                 break;
             }
@@ -3426,12 +3438,14 @@ plaintext_format_image_element (CONVERTER *self, const ELEMENT *element,
   since it is not called by Plaintext format_image_element and is only
   called for INFO_MATH_IMAGES, which should do nothing in Plaintext.
  */
-char *
+TEXT
 plaintext_format_image (CONVERTER *self, const char *image_file,
                    const char *text, const char *alt,
-                   int dpi, int depth)
+                   int dpi, int depth, int *lines_count)
 {
-  return 0;
+  TEXT result;
+  text_init (&result);
+  return result;
 }
 
 /* format_* dispatch table between plaintext and info.  Should be in sync with
@@ -3459,6 +3473,9 @@ static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[] = {
   }
 };
 
+/* TODO this looks like we are doing the same computations more than
+   once for images, maybe this could be improved. */
+/* NOTE only called for Info for INFO_MATH_IMAGES, never in plaintext. */
 void
 plaintext_insert_image (CONVERTER *self, const char *image_file,
                         const char *image_text, int dpi, int depth,
@@ -3469,6 +3486,7 @@ plaintext_insert_image (CONVERTER *self, const char *image_file,
   int width = 0;
   const char *p;
   char *q;
+  TEXT formatted_image;
 
   size_t len = strlen (result_text);
 
@@ -3498,10 +3516,19 @@ plaintext_insert_image (CONVERTER *self, const char *image_file,
             break;
         }
     }
-
-  result->string
+  int o_line_count;
+  formatted_image
     = plaintext_functions[self->format].format_image (self, image_file,
-                                             result_text, 0, dpi, depth);
+                                   result_text, 0, dpi, depth, &o_line_count);
+  result->string = formatted_image.text;
+  result->len = formatted_image.end;
+
+  if (o_line_count != line_count)
+    {
+      fprintf (stderr, "BUG: image line counts differ %d %d\n",
+               o_line_count, line_count);
+      abort ();
+    }
 
    /* the last line is part of the image but do not have a new line,
       so 1 is added to $lines_count to have the number of lines of
@@ -4582,7 +4609,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               add_lines_count (self, image_result.line_count);
               if (image_result.string)
                 {
-                  stream_output (self, image_result.string);
+                  stream_output_n (self, image_result.string, image_result.len);
 
                   free (image_result.string);
                 }
@@ -4967,9 +4994,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             }
           else if (cmd_data->flags & CF_math)
             {
-              ELEMENT *math_frenchspacing_element
-                = new_element (ET__frenchspacing);
-              ELEMENT *math_code_element = new_element (ET__code);
               MATH_ELEMENT_IMAGE *element_image = 0;
               add_(command) (&self_plaintext->context, cmd);
               enum command_id popped_cmd;
@@ -5009,6 +5033,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
               if (element->e.c->contents.number > 0)
                 {
+                  ELEMENT *math_frenchspacing_element
+                    = new_element (ET__frenchspacing);
+                  ELEMENT *math_code_element = new_element (ET__code);
+
                   add_to_contents_as_array (math_code_element,
                                             element->e.c->contents.list[0]);
                   add_to_element_contents (math_frenchspacing_element,
@@ -5024,7 +5052,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               if (element_image && element_image->filename)
                 {
                   STRING_LINE_COUNT image_result;
-                  char *math_text;
+                  TEXT math_text;
                    /* flush @math, including spaces */
                   const char *pending_word = para_add_pending_word (1);
                   stream_output_count_nl (self, pending_word);
@@ -5034,12 +5062,13 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   pop_count_context (&self_plaintext->count_context);
 
                   plaintext_insert_image (self, element_image->filename,
-                             math_text,
+                             math_text.text,
                              element_image->dpi, element_image->depth,
                              &image_result);
-                  free (math_text);
+                  free (math_text.text);
                   add_lines_count (self, image_result.line_count);
-                  stream_output (self, image_result.string);
+                  stream_output_n (self, image_result.string,
+                                   image_result.len);
                   free (image_result.string);
                 }
               popped_cmd = pop_context (&self_plaintext->context);
@@ -6093,7 +6122,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   /* Flush output so not to include in node text. */
                   const char *pending_word = para_add_pending_word (1);
                   stream_output_count_nl (self, pending_word);
-                  char *node_text;
+                  TEXT node_text;
                   int node_quoting_required = 0;
 
                   COUNT_CONTEXT count_context = { 0 };
@@ -6135,7 +6164,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                       else
                         check_chars = ":";
 
-                      p = strpbrk (node_text, check_chars);
+                      p = strpbrk (node_text.text, check_chars);
 
                       if (p && (*p != '.' || *(p+1) == ' '))
                         {
@@ -6156,18 +6185,18 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                         }
                     }
                   if (node_quoting_required)
-                    stream_output (self, node_quote);
-                  stream_output (self, node_text);
+                    stream_output_n (self, node_quote, 1);
+                  stream_output_n (self, node_text.text, node_text.end);
                   if (node_quoting_required)
-                    stream_output (self, node_quote);
+                    stream_output_n (self, node_quote, 1);
 
-                  free (node_text);
+                  free (node_text.text);
                 }
               else if (content->type == ET_menu_entry_name)
                 {/* Flush output so not to include in name text */
                   const char *pending_word = para_add_pending_word (1);
                   stream_output_count_nl (self, pending_word);
-                  char *entry_name;
+                  TEXT entry_name;
                   int name_quoting_required = 0;
 
                   COUNT_CONTEXT count_context = { 0 };
@@ -6198,7 +6227,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                     {
                       const char *p;
 
-                      p = strpbrk (entry_name, ":");
+                      p = strpbrk (entry_name.text, ":");
 
                       if (p)
                         {
@@ -6214,12 +6243,12 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                         }
                     }
                   if (name_quoting_required)
-                    stream_output (self, node_quote);
-                  stream_output (self, entry_name);
+                    stream_output_n (self, node_quote, 1);
+                  stream_output_n (self, entry_name.text, entry_name.end);
                   if (name_quoting_required)
-                    stream_output (self, node_quote);
+                    stream_output_n (self, node_quote, 1);
 
-                  free (entry_name);
+                  free (entry_name.text);
                 }
               /* empty description */
               else if (content->type == ET_menu_entry_description
@@ -6705,7 +6734,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
           /* TODO could be more efficient to reuse text directly if there
              is no encoding */
-          plaintext_encode_string (self, text.text, &result);
+          plaintext_encode_string (self, &text, &result);
           free (text.text);
 
           self_plaintext->text_before_first_node = result.text;
@@ -6746,7 +6775,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
       else if (context_cmd == CM_displaymath
                && self_plaintext->element_images)
         {
-          char *math_text = stream_to_text (self);
+          TEXT math_text = stream_to_text (self);
           MATH_ELEMENT_IMAGE *element_image
            = &self_plaintext->element_images->displaymath_images.list[
                 self_plaintext->element_images->displaymath_index];
@@ -6766,17 +6795,18 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               pop_count_context (&self_plaintext->count_context);
 
               plaintext_insert_image (self, element_image->filename,
-                             math_text,
+                             math_text.text,
                              element_image->dpi, element_image->depth,
                              &image_result);
 
      /* NB we don't output the below-baseline depth for @displaymath as
         it does not need to be aligned with surrounding text. */
               add_lines_count (self, image_result.line_count);
-              stream_output (self, image_result.string);
+              stream_output_n (self, image_result.string,
+                               image_result.len);
               free (image_result.string);
            }
-         free (math_text);
+         free (math_text.text);
 
          self_plaintext->element_images->displaymath_index++;
        }

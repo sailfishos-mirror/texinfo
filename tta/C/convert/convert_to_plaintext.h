@@ -65,11 +65,11 @@ void plaintext_process_footnotes (CONVERTER *self,
                                   const OUTPUT_UNIT *output_unit);
 void plaintext_process_printindex (CONVERTER *self,
                                    const ELEMENT *printindex, int in_info);
-char *plaintext_image_formatted_text (CONVERTER *self, const ELEMENT *element,
-                                      const char *basefile, const char *text);
+TEXT plaintext_image_formatted_text (CONVERTER *self, const ELEMENT *element,
+                                     const char *basefile, const char *text);
 
 void plaintext_setup_output_encoding (CONVERTER *self);
-void plaintext_encode_string (CONVERTER *self, const char *text, TEXT *result);
+void plaintext_encode_string (CONVERTER *self, const TEXT *text, TEXT *result);
 
 void plaintext_add_image (CONVERTER *self, const ELEMENT *element,
                      int lines_count, int image_width, int no_align);
@@ -77,10 +77,11 @@ void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
 /* TODO add plaintext_ prefix for all the functions? */
 void push_count_context (COUNT_CONTEXT_STACK *stack,
                          COUNT_CONTEXT count_context);
+void stream_output_n (CONVERTER *self, const char *text, size_t n);
 void stream_output (CONVERTER *self, const char *text);
 void stream_output_add_text (CONVERTER *self, const char *text);
 void stream_output_add_next (CONVERTER *self, const char *text);
-char *pending_to_text (const PENDING_TEXT_LIST *pending_texts);
+TEXT pending_to_text (const PENDING_TEXT_LIST *pending_texts);
 void stream_final_result (CONVERTER *self, TEXT *result);
 
 void plaintext_add_target_location (CONVERTER *self, const ELEMENT *element);

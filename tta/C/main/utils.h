@@ -176,6 +176,7 @@ ELEMENT *new_element_from_names (const char *type_name,
 ELEMENT *item_line_parent (ELEMENT *current);
 ELEMENT *get_label_element (const ELEMENT *e);
 char *normalize_top_node_name (char *node_name);
+void normalize_top_node_name_text (TEXT *node_name);
 int empty_spaces_argument (const ELEMENT *element);
 const TEXT *simple_arg_text (const ELEMENT *element, int *surplus_arg);
 INDEX *indices_info_index_by_name (const INDEX_LIST *indices_information,

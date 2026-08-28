@@ -176,7 +176,7 @@ info_header (CONVERTER *self, const char *input_basefile,
   end_para_text = para_end ();
   text_append (&para_text, end_para_text);
   text_append_n (&para_text, "\n", 1);
-  stream_output (self, para_text.text);
+  stream_output_n (self, para_text.text, para_text.end);
   para_destroy ();
   free (para_text.text);
 
@@ -209,16 +209,16 @@ info_header (CONVERTER *self, const char *input_basefile,
               const ELEMENT *line_arg = command->e.c->contents.list[0];
               if (line_arg->e.c->contents.number > 0)
                 {
-                  stream_output (self, "INFO-DIR-SECTION ");
+                  stream_output_n (self, "INFO-DIR-SECTION ", 17);
                   plaintext_convert_line (self, line_arg, -1, -1);
-                  stream_output (self, "\n");
+                  stream_output_n (self, "\n", 1);
                 }
             }
           else if (command->e.c->cmd == CM_direntry)
             {
-              stream_output (self, "START-INFO-DIR-ENTRY\n");
+              stream_output_n (self, "START-INFO-DIR-ENTRY\n", 21);
               convert_to_plaintext_internal (self, command);
-              stream_output (self, "END-INFO-DIR-ENTRY\n\n");
+              stream_output_n (self, "END-INFO-DIR-ENTRY\n\n", 20);
             }
         }
 
@@ -721,15 +721,13 @@ info_output (CONVERTER *self, DOCUMENT *document)
         = self_plaintext->target_locations->list[j].target_element;
       STRING_WITH_WIDTH node_name_width;
       const char *prefix;
-      const char *label_text;
 
       if (!(element->flags & EF_is_target))
         continue;
 
       plaintext_node_name (self, element, &node_name_width);
-      label_text = node_name_width.string;
 
-      if (is_c_hashmap_registered (seen_anchors, label_text))
+      if (is_c_hashmap_registered (seen_anchors, node_name_width.string))
         {
           if (!self_plaintext->silent)
             {
@@ -747,21 +745,36 @@ info_output (CONVERTER *self, DOCUMENT *document)
           continue;
         }
 
-      c_hashmap_register (seen_anchors, label_text, 0);
+      c_hashmap_register (seen_anchors, node_name_width.string, 0);
 
       if (element->e.c->cmd == CM_node)
         prefix = "Node";
       else
         prefix = "Ref";
 
-      plaintext_encode_string (self, label_text, &converted_label);
+      text_printf (&tag_text, "%s: ", prefix);
+      if (self_plaintext->encoding_object)
+        {
+          /* TODO needs work */
+          TEXT label_text;
+          text_init (&label_text);
+          text_append_n (&label_text, node_name_width.string,
+                         node_name_width.len);
+          plaintext_encode_string (self, &label_text, &converted_label);
+          free (label_text.text);
 
-      text_printf (&tag_text, "%s: %s\x7F%zu\n", prefix,
-                   converted_label.text,
+          text_append_n (&tag_text, converted_label.text, converted_label.end);
+
+          text_reset (&converted_label);
+        }
+      else
+        text_append_n (&tag_text, node_name_width.string,
+                       node_name_width.len);
+
+      text_printf (&tag_text, "\x7F%zu\n",
                    self_plaintext->target_locations->list[j].bytes);
 
       free (node_name_width.string);
-      text_reset (&converted_label);
     }
   text_append_n (&tag_text, "\x1F\nEnd Tag Table\n", 16);
 
@@ -1016,8 +1029,8 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
           PENDING_TEXT_COUNT_LINE_COUNT name_texts;
           plaintext_convert_line_new_context (self, name, -1, -1, -1, -1,
                                               &name_texts);
-          char *name_text_checked = pending_to_text (&name_texts.pending_text);
-          if (strpbrk (name_text_checked, ":"))
+          TEXT name_text_checked = pending_to_text (&name_texts.pending_text);
+          if (strpbrk (name_text_checked.text, ":"))
             {
               if (warn_special_char)
                 message_list_command_warn (&self->error_messages,
@@ -1029,7 +1042,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
               if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
                 name_quoting_required = 1;
             }
-          free (name_text_checked);
+          free (name_text_checked.text);
         }
 
     /* do the actual output of name */
@@ -1104,6 +1117,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
     }
   else if (label_element)
     {
+      TEXT node_name_text;
       PENDING_TEXT_COUNT_LINE_COUNT node_texts;
       ELEMENT *node_code_element = new_element (ET__code);
       add_to_contents_as_array (node_code_element,
@@ -1115,7 +1129,8 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
                                           &node_texts);
       self_plaintext->silent--;
       destroy_element (node_code_element);
-      node_name = pending_to_text (&node_texts.pending_text);
+      node_name_text = pending_to_text (&node_texts.pending_text);
+      node_name = node_name_text.text;
       need_free_node_name = 1;
     }
   else
@@ -1373,7 +1388,6 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
                         (self->conf && self->conf->DEBUG.o.integer > 0),
                        node, 0,
                      "@node name should not contain `,': %s",
-       /* FIXME there is a _decode() in Perl.  Is it needed?  (Gavin has a patch)*/
                       node_text.string);
 
           if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
@@ -1381,10 +1395,10 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
         }
     }
   if (quoting_required)
-    stream_output (self, node_quote);
-  stream_output (self, node_text.string);
+    stream_output_n (self, node_quote, 1);
+  stream_output_n (self, node_text.string, node_text.len);
   if (quoting_required)
-    stream_output (self, node_quote);
+    stream_output_n (self, node_quote, 1);
   free (node_text.string);
 
   if (!node_relations)
@@ -1464,7 +1478,6 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
                       (self->conf && self->conf->DEBUG.o.integer > 0),
                                    node, 0,
                       "@node %s name should not contain `,': %s",
-     /* FIXME there is a _decode() in Perl.  Is it needed? (Gavin has a patch) */
                            directions[i], node_text.string);
                       if (
                    self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
@@ -1472,10 +1485,10 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
                     }
                 }
               if (quoting_required)
-                stream_output (self, node_quote);
-              stream_output (self, node_text.string);
+                stream_output_n (self, node_quote, 1);
+              stream_output_n (self, node_text.string, node_text.len);
               if (quoting_required)
-                stream_output (self, node_quote);
+                stream_output_n (self, node_quote, 1);
               free (node_text.string);
             }
         }
@@ -1493,7 +1506,7 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
             }
         }
     }
-  stream_output (self, "\n\n");
+  stream_output_n (self, "\n\n", 2);
   count_context->lines = 3;
 }
 
@@ -1540,19 +1553,39 @@ protect_image_string (const char *string, TEXT *result)
     text_append (result, string);
 }
 
-char *
+static int
+count_new_lines (const char *string)
+{
+  int lines_count = 0;
+  const char *p = string;
+  while (1)
+    {
+      const char *q = strpbrk (p, "\n");
+      if (q)
+        {
+          lines_count++;
+          p = q +1;
+          if (!*p)
+            break;
+        }
+      else
+        break;
+    }
+  return lines_count;
+}
+
+TEXT
 info_format_image (CONVERTER *self, const char *image_file,
                    const char *text, const char *alt,
-                   int dpi, int depth)
+                   int dpi, int depth, int *out_lines_count)
 {
   TEXT result;
+  int lines_count = 0;
 
   text_init (&result);
   text_append (&result, "");
 
-  /* TODO use \x01 instead of NUL \x00 to have something appear in output
-     waiting for a better solution */
-  text_append_n (&result, "\x01\x08[image src=\"", 14);
+  text_append_n (&result, "\x00\x08[image src=\"", 14);
   protect_image_string (image_file, &result);
   text_append_n (&result, "\"", 1);
 
@@ -1565,6 +1598,7 @@ info_format_image (CONVERTER *self, const char *image_file,
   if (alt && strcmp (alt, ""))
     {
       text_append_n (&result, " alt=\"", 6);
+      lines_count += count_new_lines (alt);
       protect_image_string (alt, &result);
       text_append_n (&result, "\"", 1);
     }
@@ -1572,13 +1606,15 @@ info_format_image (CONVERTER *self, const char *image_file,
   if (text)
     {
       text_append_n (&result, " text=\"", 7);
+      lines_count += count_new_lines (text);
       protect_image_string (text, &result);
       text_append_n (&result, "\"", 1);
     }
 
-  text_append_n (&result, "\x01\x08]", 3);
+  text_append_n (&result, "\x00\x08]", 3);
 
-  return result.text;
+  *out_lines_count = lines_count;
+  return result;
 }
 
 static const char *image_files_extensions[] = {
@@ -1602,7 +1638,7 @@ info_format_image_element (CONVERTER *self, const ELEMENT *element,
       int no_align;
       int lines_count = 0;
       int width = 0;
-      const char *p;
+      TEXT image_string;
 
       self->convert_text_options->code_state++;
       basefile = convert_to_text (element->e.c->contents.list[0],
@@ -1677,43 +1713,26 @@ info_format_image_element (CONVERTER *self, const ELEMENT *element,
 
       if (image_file || (text && alt))
         {
-          char *image_string = info_format_image (self, image_file,
-                                                  text, alt, 0, 0);
+          image_string = info_format_image (self, image_file,
+                                                  text, alt, 0, 0,
+                                                  &lines_count);
           if (self_plaintext->formatters.number == 1)
-            {
-              xasprintf (&result->string, "%s\n", image_string);
-              free (image_string);
-            }
-          else
-            result->string = image_string;
+            text_append_n (&image_string, "\n", 1);
 
           no_align = 1;
         }
       else
         {
           no_align = 0;
-          result->string = plaintext_image_formatted_text (self, element,
+          image_string = plaintext_image_formatted_text (self, element,
                                                        basefile, text);
+          lines_count = count_new_lines (image_string.text);
         }
       free (basefile);
 
-      p = result->string;
-      while (1)
-        {
-          const char *q = strpbrk (p, "\n");
-          if (q)
-            {
-              lines_count++;
-              p = q +1;
-             /* FIXME there are '\0' in the image quote characters */
-              if (!*p)
-                break;
-            }
-          else
-            break;
-        }
-
       result->line_count = lines_count;
+      result->string = image_string.text;
+      result->len = image_string.end;
 
       plaintext_add_image (self, element, lines_count +1, width, no_align);
 
