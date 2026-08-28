@@ -592,8 +592,12 @@ info_output (CONVERTER *self, DOCUMENT *document)
                                               encoded_new_first);
                   free (encoded_new_first);
 
+                  char *new_indirect_file;
+                  xasprintf (&new_indirect_file, "%s-%d", output_filename,
+                             out_file_nr);
+
                   indirect_file_offset.offset = complete_header.end;
-                  indirect_file_offset.indirect_file = strdup (new_filename);
+                  indirect_file_offset.indirect_file = new_indirect_file;
                   add_(indirect_files) (&indirect_files, indirect_file_offset);
                   free (new_filename);
                 }
@@ -618,7 +622,8 @@ info_output (CONVERTER *self, DOCUMENT *document)
               free (new_output_file);
               free (encoded_new_filename);
 
-              xasprintf (&new_output_file, "%s-%d", output_file, out_file_nr);
+              xasprintf (&new_output_file, "%s-%d", output_file,
+                                           out_file_nr);
 
               if (self->conf->VERBOSE.o.integer > 0)
                 fprintf (stderr, "New output file %s\n",
@@ -639,8 +644,12 @@ info_output (CONVERTER *self, DOCUMENT *document)
 
               self_plaintext->bytes += complete_header.end;
 
+              char *new_indirect_file;
+              xasprintf (&new_indirect_file, "%s-%d", output_filename,
+                         out_file_nr);
+
               indirect_file_offset.offset = self_plaintext->bytes;
-              indirect_file_offset.indirect_file = strdup (new_output_file);
+              indirect_file_offset.indirect_file = new_indirect_file;
               add_(indirect_files) (&indirect_files, indirect_file_offset);
             }
 
