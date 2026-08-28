@@ -351,9 +351,8 @@ info_output (CONVERTER *self, DOCUMENT *document)
           status = 0;
           goto finalization;
         }
-
-      plaintext_setup_output_encoding (self);
     }
+  plaintext_setup_output_encoding (self);
 
   default_bcp47_locale = current_bcp47_locale (self);
 

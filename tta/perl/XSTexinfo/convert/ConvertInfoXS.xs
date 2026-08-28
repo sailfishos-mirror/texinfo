@@ -170,7 +170,7 @@ output (SV *converter_in, SV *document_in)
 
         if (result.text)
           {
-            RETVAL = newSVpv_utf8 (result.text, result.end);
+            RETVAL = newSVpv_byte (result.text, result.end);
             non_perl_free (result.text);
           }
         else
@@ -178,6 +178,7 @@ output (SV *converter_in, SV *document_in)
     OUTPUT:
         RETVAL
 
+# TODO remove?  There is not corresponding Perl implementation?
 SV *
 convert (SV *converter_in, SV *document_in)
       PREINIT:
