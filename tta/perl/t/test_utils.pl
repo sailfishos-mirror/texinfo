@@ -187,9 +187,6 @@ if (defined($locale_encoding)) {
   binmode $builder->todo_output,    ":encoding($locale_encoding)";
 }
 
-# used to check that there are no file overwritten with -o
-my %output_files;
-
 ok(1);
 
 my %formats = (
@@ -261,9 +258,9 @@ Getopt::Long::Configure("gnu_getopt");
 GetOptions('g|generate' => \$arg_generate, 'd|debug=i' => \$arg_debug,
            'c|complete' => \$arg_complete, 'o|output' => \$arg_output);
 
-sub protect_perl_string($)
-{
+sub protect_perl_string($) {
   my $string = shift;
+
   #if (!defined($string)) {
   #  cluck();
   #}
@@ -274,12 +271,9 @@ sub protect_perl_string($)
   return $string;
 }
 
-sub new_test($;$$$)
-{
-  my $name = shift;
-  my $generate = shift;
-  my $debug = shift;
-  my $test_formats = shift;
+sub new_test($;$$$) {
+  my ($name, $generate, $debug, $test_formats) = @_;
+
   my $test = {'name' => $name, 'generate' => $generate,
               'DEBUG' => $debug, 'test_formats' => $test_formats};
 
@@ -291,11 +285,8 @@ sub new_test($;$$$)
   return $test;
 }
 
-sub set_converter_option_defaults($$;$)
-{
-  my $converter_options = shift;
-  my $format = shift;
-  my $debug = shift;
+sub set_converter_option_defaults($$;$) {
+  my ($converter_options, $format, $debug) = @_;
 
   $converter_options = {} if (!defined($converter_options));
 
@@ -322,9 +313,9 @@ sub set_converter_option_defaults($$;$)
 
 # NOTE this function is unlikely to be called, as files are closed in
 # converters except for STDOUT, but in the tests the output is not to STDOUT.
-sub close_files($)
-{
+sub close_files($) {
   my $converter = shift;
+
   my $converter_unclosed_files
        = Texinfo::Convert::Utils::output_files_unclosed_files(
                                $converter->output_files_information());
@@ -378,13 +369,8 @@ sub _convert($$$) {
   return $result, $converter_init_errors;
 }
 
-sub convert_to_plaintext($$$$$)
-{
-  my $self = shift;
-  my $test_name = shift;
-  my $format = shift;
-  my $document = shift;
-  my $converter_options = shift;
+sub convert_to_plaintext($$$$$) {
+  my ($self, $test_name, $format, $document, $converter_options) = @_;
 
   $converter_options
     = set_converter_option_defaults($converter_options, 'plaintext',
@@ -410,13 +396,8 @@ sub convert_to_plaintext($$$$$)
   return ($result, $converter, $converter_init_errors);
 }
 
-sub convert_to_info($$$$$)
-{
-  my $self = shift;
-  my $test_name = shift;
-  my $format = shift;
-  my $document = shift;
-  my $converter_options = shift;
+sub convert_to_info($$$$$) {
+  my ($self, $test_name, $format, $document, $converter_options) = @_;
 
   $converter_options
     = set_converter_option_defaults($converter_options, 'info',
@@ -431,13 +412,8 @@ sub convert_to_info($$$$$)
   return ($result, $converter, $converter_init_errors);
 }
 
-sub convert_to_html($$$$$)
-{
-  my $self = shift;
-  my $test_name = shift;
-  my $format = shift;
-  my $document = shift;
-  my $converter_options = shift;
+sub convert_to_html($$$$$) {
+  my ($self, $test_name, $format, $document, $converter_options) = @_;
 
   my $add_epub_expanded_format;
   if ($format eq 'epub'
@@ -467,13 +443,8 @@ sub convert_to_html($$$$$)
   return ($result, $converter, $converter_init_errors);
 }
 
-sub convert_to_xml($$$$$)
-{
-  my $self = shift;
-  my $test_name = shift;
-  my $format = shift;
-  my $document = shift;
-  my $converter_options = shift;
+sub convert_to_xml($$$$$) {
+  my ($self, $test_name, $format, $document, $converter_options) = @_;
 
   $converter_options
     = set_converter_option_defaults($converter_options, 'xml',
@@ -487,13 +458,8 @@ sub convert_to_xml($$$$$)
   return ($result, $converter, $converter_init_errors);
 }
 
-sub convert_to_docbook($$$$$)
-{
-  my $self = shift;
-  my $test_name = shift;
-  my $format = shift;
-  my $document = shift;
-  my $converter_options = shift;
+sub convert_to_docbook($$$$$) {
+  my ($self, $test_name, $format, $document, $converter_options) = @_;
 
   $converter_options
     = set_converter_option_defaults($converter_options, 'docbook',
@@ -521,13 +487,8 @@ sub convert_to_docbook($$$$$)
   return ($result, $converter, $converter_init_errors);
 }
 
-sub convert_to_latex($$$$$)
-{
-  my $self = shift;
-  my $test_name = shift;
-  my $format = shift;
-  my $document = shift;
-  my $converter_options = shift;
+sub convert_to_latex($$$$$) {
+  my ($self, $test_name, $format, $document, $converter_options) = @_;
 
   $converter_options
     = set_converter_option_defaults($converter_options, 'latex',
@@ -541,10 +502,8 @@ sub convert_to_latex($$$$$)
   return ($result, $converter, $converter_init_errors);
 }
 
-sub output_preamble_postamble_html($$)
-{
-  my $converter = shift;
-  my $postamble = shift;
+sub output_preamble_postamble_html($$$) {
+  my ($converter, $postamble, $parser_options) = @_;
 
   if ($postamble) {
     return '</body>
@@ -573,11 +532,8 @@ sub output_preamble_postamble_html($$)
   }
 }
 
-sub output_preamble_postamble_latex($$)
-{
-  my $converter = shift;
-  my $postamble = shift;
-  my $parser_options = shift;
+sub output_preamble_postamble_latex($$$) {
+  my ($converter, $postamble, $parser_options) = @_;
 
   if ($postamble) {
     return '\end{document}
@@ -587,16 +543,17 @@ sub output_preamble_postamble_latex($$)
   }
 }
 
-sub _set_outfile_name($$$$)
-{
-  my $test_file_name = shift;
-  my $test_name = shift;
-  my $extension = shift;
-  my $format = shift;
+# used to check that there are no file overwritten with -o
+my %output_files;
+
+sub _set_outfile_name($$$$) {
+  my ($test_file_name, $test_name, $extension, $format) = @_;
 
   my $original_test_outfile = "$test_file_name/$test_name.$extension";
   my $test_outfile = $original_test_outfile;
   if ($output_files{$original_test_outfile}) {
+    # check that the file output (as reference) has not already been output
+    # and is overwritten.
     warn "WARNING: $test_file_name: $test_name: $format: same name: $original_test_outfile "
              ."(".join("|", @{$output_files{$original_test_outfile}}).")\n";
     push @{$output_files{$original_test_outfile}}, $format;
@@ -619,10 +576,8 @@ my %tested_transformations;
 
 # Run a single test case.  Each test case is an array
 # [TEST_NAME, TEST_TEXT, PARSER_OPTIONS, CONVERTER_OPTIONS]
-sub test($$)
-{
-  my $self = shift;
-  my $test_case = shift;
+sub test($$) {
+  my ($self, $test_case) = @_;
 
   my $parser_options = {};
   my ($test_name, $test_text);
@@ -782,7 +737,7 @@ sub test($$)
 
   # set/reset converted formats output directories
   foreach my $format (@tested_formats) {
-    if (defined($formats{$format})) {
+    if (exists($formats{$format})) {
       my $format_type = $format;
       if ($format_type =~ s/^file_//) {
         my $base = $test_base_dir;
@@ -1079,8 +1034,9 @@ sub test($$)
 
   # use the parser expanded formats to be similar to the main program,
   # and also to avoid having @inline* and raw output format @-commands
-  # with elided contents especially parsed because they are ignored
-  # and appearing as raw content in the tree in the output.
+  # with elided contents particular output because they are ignored
+  # and appear as raw content in the tree in the output and it is not
+  # expected in converters.
   my %expanded_formats;
   if ($parser_options->{'EXPANDED_FORMATS'}) {
     foreach my $expanded_format (@{$parser_options->{'EXPANDED_FORMATS'}}) {
@@ -1108,7 +1064,7 @@ sub test($$)
   my %converted_sort_strings;
 
   foreach my $format (@tested_formats) {
-    if (defined($formats{$format})) {
+    if (exists($formats{$format})) {
       # If a key is in both, last one is kept, which means priority for
       # init_files_options.
       my $format_converter_options = {%$converter_options,
@@ -1165,7 +1121,7 @@ sub test($$)
         }
       }
 
-      # output converted result and errors in files if $arg_output is set
+      # output converted returned text in files if $arg_output is set
       if ($arg_output) {
         mkdir ("$output_files_dir/$self->{'name'}")
           if (! -d "$output_files_dir/$self->{'name'}");
@@ -1183,6 +1139,7 @@ sub test($$)
           if (!open(OUTFILE, ">$outfile")) {
             warn "ERROR: open $outfile: $!\n";
           } else {
+            # FIXME binary formats (Info) should not be encoded
             my $output_encoding
               = $converter->get_conf('OUTPUT_ENCODING_NAME');
             my $output_file_encoding
@@ -1194,7 +1151,7 @@ sub test($$)
             } else {
               warn "WARNING: $self->{'name'}: $test_name: $format: no encoding\n";
             }
-            if ($outfile_preamble{$format}) {
+            if (exists($outfile_preamble{$format})) {
               if (ref($outfile_preamble{$format}) eq 'CODE') {
                 print OUTFILE &{$outfile_preamble{$format}}($converter, 0,
                                                      $initial_parser_options);
@@ -1203,7 +1160,7 @@ sub test($$)
               }
             }
             print OUTFILE $converted{$format};
-            if ($outfile_preamble{$format}) {
+            if (exists($outfile_preamble{$format})) {
               if (ref($outfile_preamble{$format}) eq 'CODE') {
                 print OUTFILE &{$outfile_preamble{$format}}($converter, 1,
                                                      $initial_parser_options);
@@ -1229,6 +1186,7 @@ sub test($$)
                                           $input_file_names_encoding, 1);
       }
 
+      # output errors in files if $arg_output is set
       if ($arg_output) {
         if (scalar(@$converter_errors)) {
           my $errors_file
@@ -1252,6 +1210,8 @@ sub test($$)
         }
       }
       $converter = undef;
+    } else {
+      die "Unknown $format\n";
     }
   }
   my $directions_text;
@@ -1635,10 +1595,8 @@ sub test($$)
 #  $ARG_DEBUG is used for debugging (-d from command line).
 #  The $ARG_COMPLETE variable is the -c option, to create Texinfo files for the
 #  test cases.
-sub run_all($$)
-{
-  my $name = shift;
-  my $test_cases = shift;
+sub run_all($$) {
+  my ($name, $test_cases) = @_;
 
   my $test = new_test($name, $arg_generate, $arg_debug);
   my $ran_tests;
@@ -1676,10 +1634,9 @@ sub run_all($$)
 }
 
 # Create a Texinfo file for a test case; used when -c option is given.
-sub output_texi_file($)
-{
-  my $self = shift;
-  my $test_case = shift;
+sub output_texi_file($$) {
+  my ($self, $test_case) = @_;
+
   my $test_name = shift @$test_case;
   my $test_text = shift @$test_case;
   my $test_options = shift @$test_case;

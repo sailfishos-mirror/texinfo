@@ -208,6 +208,7 @@ sub output($$) {
 
     $self->_setup_output_encoding();
   }
+  #$self->_setup_output_encoding();
 
   # not initialized in plaintext
   $self->{'target_locations'} = [];

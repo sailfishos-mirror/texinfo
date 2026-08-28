@@ -1,7 +1,13 @@
 2026-08-28 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/test_utils.pl: change formatting of beginning of
+	functions.  Use exists when the value is not needed.  die if a format
+	is unknown.
+
+2026-08-28 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_plaintext.c (collect_pending_texts_lines):
-	nadle NUL in input pending texts.
+	handle NUL in input pending texts.
 
 	Use stream_output_n more.
 
