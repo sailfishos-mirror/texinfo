@@ -1916,6 +1916,7 @@ reallocate_line_image_for (LINE_IMAGE_LIST *list, size_t n)
 }
 
 /* while collecting, the input pending texts are reset */
+/* embedded NUL are allowed */
 static void
 collect_pending_texts_lines (PENDING_TEXT_LIST_LINES *pending_text_lines,
                              PENDING_TEXT_LIST *pending_texts)
@@ -1940,27 +1941,31 @@ collect_pending_texts_lines (PENDING_TEXT_LIST_LINES *pending_text_lines,
 
       PENDING_TEXT *last_pending = 0;
       const char *p = t->text;
-      while (*p)
+      int remaining = t->end;
+      while (remaining > 0)
         {
-          int line_len = strcspn (p, "\n");
-          int end_line = 0;
-          if (*(p + line_len) == '\n')
-            {
-              line_len++;
-              end_line = 1;
-            }
           PENDING_TEXT line_pending_text = { 0 };
           text_init (&line_pending_text.text);
-          text_append_n (&line_pending_text.text, p, line_len);
+
+          const char *q = memchr (p, '\n', remaining);
+          if (!q)
+            text_append_n (&line_pending_text.text, p, remaining);
+          else
+            {
+              text_append_n (&line_pending_text.text, p, q - p);
+              remaining -= q - p +1;
+              p = q+1;
+            }
           add_(pending_text) (&current_line, line_pending_text);
           last_pending = top_(pending_text) (&current_line);
-          p += line_len;
-          if (end_line)
+          if (q)
             {
               add_(pending_text_line) (pending_text_lines,
                                        current_line);
               memset (&current_line, 0, sizeof (PENDING_TEXT_LIST));
             }
+          else
+            break;
         }
       if (pending_text->anchor)
         {
@@ -2047,11 +2052,12 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
               if (leading_spaces < t->end)
                 {
                   size_t remaining = t->end - leading_spaces;
-                  char *tmp = strndup (t->text + leading_spaces,
-                                       remaining);
-                  text_reset (t);
-                  text_append_n (t, tmp, remaining);
-                  free (tmp);
+                  TEXT tmp;
+                  text_init (&tmp);
+                  text_append_n (&tmp, t->text + leading_spaces,
+                                 remaining);
+                  text_destroy (t);
+                  pending_text->text = tmp;
                   break;
                 }
               else if (leading_spaces > 0)
@@ -2066,8 +2072,9 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
                   size_t l;
                   for (l = t->end; l > 0; l--)
                     {
-                      if (strchr (whitespace_chars,
-                                  t->text[l-1]))
+                      if (t->text[l-1] != '\0'
+                          && strchr (whitespace_chars,
+                                     t->text[l-1]))
                         {
                           t->text[l-1] = '\0';
                           t->end--;
@@ -2093,7 +2100,7 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
                 {
                   int l;
                   for (l = 0; l < prepended_spaces; l++)
-                    stream_output (self, " ");
+                    stream_output_n (self, " ", 1);
                 }
               merge_pending_texts (result, line);
               if (result->list[result->number -1].anchor)
@@ -2139,7 +2146,7 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
             {
               int l;
               for (l = 0; l < prepended_spaces; l++)
-                stream_output (self, " ");
+                stream_output_n (self, " ", 1);
             }
           merge_pending_texts (result, line);
           if (new_image)
@@ -2154,7 +2161,7 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
               image_prepended_spaces = -1;
             }
         }
-      stream_output (self, "\n");
+      stream_output_n (self, "\n", 1);
       line_index++;
     }
   free (pending_text_lines.list);
@@ -2366,7 +2373,7 @@ menu (CONVERTER *self, const ELEMENT *menu_command)
   if (menu_command->e.c->cmd == CM_menu)
     {
       PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
-      stream_output (self, "* Menu:\n\n");
+      stream_output_n (self, "* Menu:\n\n", 9);
       add_lines_count (self, 2);
 
       if (self_plaintext->current_node)
@@ -2543,13 +2550,11 @@ plaintext_process_printindex (CONVERTER *self,
 
   if (in_info)
     {
-      /* FIXME nothing is actually streamed because of the first \x00 that
-         terminates the string */
       stream_output_n (self, "\x00\x08[index\x00\x08]\n", 12);
       add_lines_count (self, 1);
     }
 
-  stream_output (self, "* Menu:\n\n");
+  stream_output_n (self, "* Menu:\n\n", 9);
   add_lines_count (self, 2);
 
   /* this is used to count entries that are the same */
@@ -2702,7 +2707,7 @@ plaintext_process_printindex (CONVERTER *self,
           convert_to_plaintext_internal (self, reference_tree);
           end_result = para_end ();
           stream_output_count_nl (self, end_result);
-          stream_output (self, ".\n");
+          stream_output_n (self, ".\n", 2);
           add_lines_count (self, 1);
 
           destroy_named_string_element_list (substrings);
@@ -2761,7 +2766,7 @@ plaintext_process_printindex (CONVERTER *self,
         }
 
       text_append_n (&entry_line, ": ", 2);
-      stream_output (self, entry_line.text);
+      stream_output_n (self, entry_line.text, entry_line.end);
 
       line_width = string_width_multibyte (entry_line.text);
       text_reset (&entry_line);
@@ -2770,7 +2775,7 @@ plaintext_process_printindex (CONVERTER *self,
         {
           int j;
           for (j = 0; j < index_length_to_node - line_width; j++)
-            stream_output (self, " ");
+            stream_output_n (self, " ", 1);
           line_width = index_length_to_node;
         }
 
@@ -2942,7 +2947,7 @@ plaintext_process_printindex (CONVERTER *self,
   para_destroy ();
   pop_formatter (self, 0);
 
-  stream_output (self, "\n");
+  stream_output_n (self, "\n", 1);
   add_lines_count (self, 1);
 
   clear_c_hashmap (entry_counts);
@@ -3593,14 +3598,14 @@ text_heading (CONVERTER *self, const ELEMENT *current,
 
   merge_pending_with_parent (self, &section_text.pending_text);
 
-  stream_output (self, "\n");
+  stream_output_n (self, "\n", 1);
 
   columns = section_text.width;
 
   if (indented_len > 0)
     {
       for (k = 0; k < indented_len; k++)
-        stream_output (self, " ");
+        stream_output_n (self, " ", 1);
     }
   else
     indented_len = 0;
@@ -3611,10 +3616,10 @@ text_heading (CONVERTER *self, const ELEMENT *current,
   const char *underline_char = underline_symbol[sec_level];
 
   for (k = 0; k < columns - indented_len; k++)
-    stream_output (self, underline_char);
+    stream_output_n (self, underline_char, 1);
 
   if (!no_last_new_line)
-    stream_output (self, "\n");
+    stream_output_n (self, "\n", 1);
 
   return 1;
 }
@@ -6650,6 +6655,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                                     }
                                 }
                             }
+                          /* TODO incorrect if there are NUL */
                           line_width += string_width_multibyte (t->text);
                           add_(pending_text) (result, *pending_text);
                           memset (pending_text, 0, sizeof (PENDING_TEXT));
@@ -6699,10 +6705,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         /* at this point cell_beginning is at the beginning of
            the cell following the end of the table -> full width */
               for (k = 0; k < indent_len; k++)
-                stream_output (self, " ");
+                stream_output_n (self, " ", 1);
               for (k = 0; k < cell_beginning; k++)
-                stream_output (self, "-");
-              stream_output (self, "\n");
+                stream_output_n (self, "-", 1);
+              stream_output_n (self, "\n", 1);
               max_lines++;
             }
           update_locations_counts (self, count_context, &row_count);

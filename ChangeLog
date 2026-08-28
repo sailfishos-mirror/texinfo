@@ -1,5 +1,12 @@
 2026-08-28 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c (collect_pending_texts_lines):
+	nadle NUL in input pending texts.
+
+	Use stream_output_n more.
+
+2026-08-28 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/utils.c (encode_with_iconv): add length to be encoded in
 	argument.  Update callers.
 
@@ -1215,7 +1222,7 @@
 	tta/C/main/plaintext_converter_state.h (COUNT_CONTEXT): distinguish
 	pending_text, which is utf-8, and result text, which is encoded in the
 	output encoding.  Add pending_text and encoding_disabled fields in
-	COUNT_CONTEXT.  Use pending_text where if should be.
+	COUNT_CONTEXT.  Use pending_text where it should be.
 
 	* tta/C/convert/convert_to_plaintext.c (stream_encode)
 	(stream_byte_count, stream_output_encoded, stream_result)
