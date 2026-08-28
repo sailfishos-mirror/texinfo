@@ -962,27 +962,28 @@ protect_sentence_ends (const char *text)
       const char *q = strpbrk (p, end_sentence_characters);
       if (q)
         {
-          q++;
-          if (*q)
+          const char *l = q;
+          l++;
+          if (*l)
             {
-              q += strspn (q, after_punctuation_characters);
-              if (*q)
+              l += strspn (l, after_punctuation_characters);
+              if (*l)
                 {
-                  if (strchr (whitespace_chars, *q))
-                    q++;
+                  if (strchr (whitespace_chars, *l))
+                    l++;
                   else
                     {
-                      text_append_n (&t, p, q-p);
-                      p = q;
+                      text_append_n (&t, p, l-p);
+                      p = l;
                       continue;
                     }
                 }
             }
-          if (p > text)
+          if (q > text)
             {
-              /* now check that previous character is not upper-case */
+   /* now check that character before punctuation is not upper-case */
               int len = 0;
-              const char *r = p;
+              const char *r = q;
               /* Back one UTF-8 code point */
               do
                 {
@@ -995,14 +996,17 @@ protect_sentence_ends (const char *text)
               u8_mbtouc (&wc, (uint8_t *) r, len);
               if (uc_is_upper (wc))
                 {
-                  text_append_n (&t, p, q-p);
-                  p = q;
+                  text_append_n (&t, p, l-p);
+                  p = l;
                   continue;
                 }
             }
-          text_append_n (&t, "\x08", 1);
+          /* add up to the punctuation */
           text_append_n (&t, p, q-p);
-          p = q;
+          text_append_n (&t, "\x08", 1);
+       /* add after_punctuation_characters/space text, if any */
+          text_append_n (&t, q, l-q);
+          p = l;
         }
       else
         {
@@ -1014,26 +1018,21 @@ protect_sentence_ends (const char *text)
      that may follow later */
   if (t.end > 0)
     {
-      p = t.text + t.end -1;
-      while (p > t.text && strchr (after_punctuation_characters, *p))
+      p = t.text + t.end;
+      while (p > t.text && strchr (after_punctuation_characters, *(p-1)))
         p--;
-      if (strchr (after_punctuation_characters, *p))
-        /* an after_punctuation_characters at the beginning of the string */
+      if (p == t.text)
         return t.text;
-      if (!strchr (whitespace_chars, *p))
+      if (!strchr (whitespace_chars, *(p-1)))
         {
-          int len = 1;
-          if (p > t.text)
+          int len = 0;
+          /* Back one UTF-8 code point */
+          do
             {
-              len = 0;
-              /* Back one UTF-8 code point */
-              do
-                {
-                  p--;
-                  len++;
-                }
-              while ((*p & 0xC0) == 0x80 && p > t.text);
+              p--;
+              len++;
             }
+          while ((*p & 0xC0) == 0x80 && p > t.text);
           char32_t wc;
           u8_mbtouc (&wc, (uint8_t *) p, len);
           if (!uc_is_upper (wc))

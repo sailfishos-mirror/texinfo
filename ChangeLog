@@ -1,5 +1,10 @@
 2026-08-28 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c (protect_sentence_ends): many
+	fixes.
+
+2026-08-28 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/InfoNonXS.pm (format_image_element): try to
 	improve legibility of code, no functional change.
 
