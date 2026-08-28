@@ -1656,10 +1656,10 @@ info_format_image_element (CONVERTER *self, const ELEMENT *element,
                                        self->convert_text_options);
           self->convert_text_options->code_state--;
 
+          add_string (extensions, extension);
           xasprintf (&dot_extension, ".%s", extension);
           add_string (extensions, dot_extension);
           free (dot_extension);
-          add_string (extensions, extension);
         }
       for (i = 0; image_files_extensions[i]; i++)
         add_string (extensions, image_files_extensions[i]);

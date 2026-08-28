@@ -1066,8 +1066,6 @@ my @image_files_extensions = ('.png', '.jpg');
 sub format_image_element($$) {
   my ($self, $element) = @_;
 
-  my @extensions = @image_files_extensions;
-
   my $lines_count = 0;
 
   if (exists($element->{'contents'})
@@ -1081,6 +1079,7 @@ sub format_image_element($$) {
     Texinfo::Convert::Text::reset_options_code(
                                  $self->{'convert_text_options'});
 
+    my @extensions;
     if (defined($element->{'contents'}->[4])
         and exists($element->{'contents'}->[4]->{'contents'})) {
       Texinfo::Convert::Text::set_options_code(
@@ -1090,9 +1089,9 @@ sub format_image_element($$) {
                                    $self->{'convert_text_options'});
       Texinfo::Convert::Text::reset_options_code(
                                  $self->{'convert_text_options'});
-      unshift @extensions, ".$extension";
-      unshift @extensions, "$extension";
+      @extensions = ("$extension", ".$extension");
     }
+    push @extensions, @image_files_extensions;
     my $image_file;
     foreach my $extension (@extensions) {
       my ($file_name, $file_name_encoding)
