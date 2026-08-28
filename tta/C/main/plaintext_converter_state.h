@@ -215,10 +215,14 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
     int to_utf8;
     /* */
     PLAINTEXT_COMMAND_STRUCT commands_data[BUILTIN_CMD_NUMBER];
-    int in_copying_header;
     int silent;
+    const char *open_quote;
+    const char *close_quote;
+    const char *open_double_quote;
+    const char *close_double_quote;
 
     /* conversion state */
+    int in_copying_header;
     const ENCODING_CONVERSION *encoding_object;
     char *output_filename;
     TEXT text_before_first_node;

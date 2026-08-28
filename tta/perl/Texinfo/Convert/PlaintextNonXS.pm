@@ -505,12 +505,12 @@ sub conversion_initialization($;$) {
     $self->{'close_double_quote'} = $self->get_conf('CLOSE_DOUBLE_QUOTE_SYMBOL');
   }
 
-  delete $self->{'encoding_object'};
-
   # some caching to avoid calling get_conf
   $self->{'ascii_glyph'} = $self->get_conf('ASCII_GLYPH');
   $self->{'output_encoding_name'} = $self->get_conf('OUTPUT_ENCODING_NAME');
   $self->{'debug'} = $self->get_conf('DEBUG');
+
+  delete $self->{'encoding_object'};
 
   $self->push_top_formatter('_Root_context');
 }

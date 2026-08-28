@@ -836,6 +836,10 @@ plaintext_conversion_initialization (CONVERTER *self, DOCUMENT *document)
   set_global_document_commands (self, CL_before, contents_commands);
 
   /* TODO ... */
+  self_plaintext->open_quote = "'";
+  self_plaintext->close_quote = "'";
+  self_plaintext->open_double_quote = "\"";
+  self_plaintext->close_double_quote = "\"";
 
   if (self->conf->ENABLE_ENCODING.o.integer > 0
       && self->conf->OUTPUT_ENCODING_NAME.o.string)
@@ -846,10 +850,30 @@ plaintext_conversion_initialization (CONVERTER *self, DOCUMENT *document)
       if (!strcmp (self_plaintext->enabled_encoding, "utf-8"))
         {
           self_plaintext->to_utf8 = 1;
-          /* TODO ... */
+          /* UTF-8 left single quotation mark */
+          self_plaintext->open_quote = "\xE2\x80\x98";
+          /* UTF-8 right single quotation mark */
+          self_plaintext->close_quote = "\xE2\x80\x99";
+          /* UTF-8 left double quotation mark */
+          self_plaintext->open_double_quote = "\xe2\x80\x9c";
+          /* UTF-8 right double quotation mark */
+          self_plaintext->close_double_quote = "\xe2\x80\x9d";
         }
     }
-  /* TODO ... */
+
+  if (self->conf->OPEN_QUOTE_SYMBOL.o.string)
+    self_plaintext->open_quote = self->conf->OPEN_QUOTE_SYMBOL.o.string;
+
+  if (self->conf->CLOSE_QUOTE_SYMBOL.o.string)
+    self_plaintext->close_quote = self->conf->CLOSE_QUOTE_SYMBOL.o.string;
+
+  if (self->conf->OPEN_DOUBLE_QUOTE_SYMBOL.o.string)
+    self_plaintext->open_double_quote
+       = self->conf->OPEN_DOUBLE_QUOTE_SYMBOL.o.string;
+
+  if (self->conf->CLOSE_DOUBLE_QUOTE_SYMBOL.o.string)
+    self_plaintext->close_double_quote
+       = self->conf->CLOSE_DOUBLE_QUOTE_SYMBOL.o.string;
 
   self_plaintext->encoding_object = 0;
 
@@ -2224,6 +2248,9 @@ section_element_heading (CONVERTER *self, const ELEMENT *section_element,
       NAMED_STRING_ELEMENT_LIST *replaced_substrings
         = new_named_string_element_list ();
       ELEMENT *e_number = new_text_element (ET_normal_text);
+      /* TODO difference with Perl, in Perl the heading element is not
+         copied and the error messages have lines.
+         tested in t/formats_encodings.t at_commands_in_refs */
       ELEMENT *section_title_copy = copy_element_tree (heading_element, 0);
       add_to_contents_as_array (heading_e, section_title_copy);
 
@@ -3081,6 +3108,9 @@ plaintext_format_ref (CONVERTER *self, enum command_id cmd,
 
   if (node)
     {
+      /* TODO difference with Perl, in Perl the node element is not
+         copied and the error messages have lines.
+         tested in t/formats_encodings.t at_commands_in_refs */
       ELEMENT *node_copy = copy_element_tree (node, 0);
       add_element_to_named_string_element_list (substrings,
                                                 "node", node_copy);
@@ -4415,15 +4445,13 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 }
               else if (plaintext_commands_data[cmd].flags & PF_quoted)
                 {
-                  text_before = "‘"; /* UTF-8 left single quotation mark */
-                  text_after = "’";  /* UTF-8 right single quotation mark */
-                  /* TODO */
+                  text_before = self_plaintext->open_quote;
+                  text_after = self_plaintext->close_quote;
                 }
               else if (cmd == CM_dfn)
                 {
-                  text_before = "“"; /* UTF-8 left double quotation mark */
-                  text_after = "”";  /* UTF-8 right double quotation mark */
-                  /* TODO */
+                  text_before = self_plaintext->open_double_quote;
+                  text_after = self_plaintext->close_double_quote;
                 }
               else if (plaintext_commands_data[cmd].flags & PF_asis)
                 {}
