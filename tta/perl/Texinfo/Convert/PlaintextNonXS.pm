@@ -1534,6 +1534,7 @@ sub _compute_spaces_align_line($$$;$) {
   return $prepended_spaces;
 }
 
+# split $PENDING_TEXTS pending text at new lines in lines of pending texts
 sub collect_pending_texts_lines($) {
   my $pending_texts = shift;
 
@@ -4451,7 +4452,7 @@ sub _convert($$) {
               last;
             }
 
-            # add to results while computing width
+            # add cell line to results while computing width
             foreach my $pending_text (@$cell_line) {
               if ($pending_text->[0] ne ''
                   or defined($pending_text->[1])) {
@@ -4474,6 +4475,7 @@ sub _convert($$) {
                 push @$result, [' ' x $indent_len];
                 $indent_done = 1;
               }
+              # add inter cell spaces
               my $spaces = ' '
                   x ($indent_len + $cell_beginnings[$cell_idx+1] - $line_width);
               $line_width += length($spaces);
