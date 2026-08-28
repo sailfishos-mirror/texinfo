@@ -376,8 +376,6 @@
 
 2026-08-24 Patrice Dumas  <pertusus@free.fr>
 
-2026-08-24 Patrice Dumas  <pertusus@free.fr>
-
 	mix anchors and text in pending text and encode only at top level
 
 	* tta/perl/Texinfo/Convert/InfoNonXS.pm (_info_header)
