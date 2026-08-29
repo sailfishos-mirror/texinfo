@@ -1298,16 +1298,8 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
                            "`.' or `,' must follow @xref");
                 }
             }
-          /* TODO call streaming functions directly */
-          added_full_stop_text_elt = new_text_element (ET_other_text);
-          text_append_n (added_full_stop_text_elt->e.text, ".", 1);
-          convert_to_plaintext_internal (self, added_full_stop_text_elt);
-          destroy_element (added_full_stop_text_elt);
-
-          added_no_end_sentence_command
-            = new_command_element (ET_nobrace_command, CM_COLON);
-          convert_to_plaintext_internal (self, added_no_end_sentence_command);
-          destroy_element (added_no_end_sentence_command);
+          stream_output_add_text (self, ".");
+          para_remove_end_sentence ();
         }
     }
 

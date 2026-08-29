@@ -45,6 +45,7 @@ use Texinfo::Convert::Text;
 use Texinfo::Convert::Plaintext;
 
 use Texinfo::Convert::Paragraph qw(add_next add_text get_pending
+                                   remove_end_sentence
                                    set_space_protection
                                    set_double_width_no_break);
 
@@ -905,16 +906,13 @@ sub format_ref($$$) {
                            $element->{'source_info'});
         }
       }
-      my @added = ({'text' => '.'});
+      $self->_stream_output_add_text('.');
       # The added full stop does not end a sentence.  Info readers will
       # have a chance of guessing correctly whether the full stop was
       # added by whether it is followed by 2 spaces (although this
       # doesn't help at the end of a line nor when a parenthesis
       # follows the ref command).
-      push @added, {'cmdname' => ':'};
-      foreach my $added_element (@added) {
-        $self->_convert($added_element);
-      }
+      remove_end_sentence($formatter->{'container'});
     }
   }
 
