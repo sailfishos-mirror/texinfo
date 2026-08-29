@@ -377,7 +377,8 @@ sub push_top_formatter($$) {
                                      'paragraph_count' => 0,
                                    };
   push @{$self->{'text_element_context'}}, {
-                                     'max' => $self->{'fillcolumn'}
+                                     'max' => $self->{'fillcolumn'},
+                                     'counter' => 0,
                                    };
   push @{$self->{'document_context'}}, {
                                      'in_multitable' => 0,
@@ -916,8 +917,7 @@ sub new_formatter($$;$$$) {
     if ($frenchspacing_conf eq 'on');
 
   $container_conf->{'counter'}
-    = $self->{'text_element_context'}->[-1]->{'counter'}
-      if (defined($self->{'text_element_context'}->[-1]->{'counter'}));
+    = $self->{'text_element_context'}->[-1]->{'counter'};
 
   my $container;
   if ($type eq 'paragraph') {
@@ -2891,7 +2891,7 @@ sub _convert_def_line($$) {
       Texinfo::Convert::Paragraph::end($def_paragraph->{'container'}));
 
     destroy_formatter(pop @{$self->{'formatters'}});
-    delete $self->{'text_element_context'}->[-1]->{'counter'};
+    $self->{'text_element_context'}->[-1]->{'counter'} = 0;
   }
 }
 
@@ -2920,7 +2920,7 @@ sub _convert($$) {
     if (defined($type)) {
       if ($type eq 'empty_line'
           or $type eq 'after_menu_description_line') {
-        delete $self->{'text_element_context'}->[-1]->{'counter'};
+        $self->{'text_element_context'}->[-1]->{'counter'} = 0;
         if ($element->{'text'} =~ /\f/) {
           my $result = _get_form_feeds($element->{'text'});
           _stream_output($self, $result);
@@ -3856,7 +3856,8 @@ sub _convert($$) {
            { 'cmdname' => $cmdname,
              'paragraph_count' => 0,
              'context_indent_len' => 0 };
-      push @{$self->{'text_element_context'}}, {'max' => $cell_width - 2 };
+      push @{$self->{'text_element_context'}}, {'max' => $cell_width - 2,
+                                                'counter' => 0};
       push @{$self->{'count_context'}}, {'lines' => 0,
                                                'index_entry_locations' => [],
                                                'pending_text' => [['']]};
@@ -4046,7 +4047,7 @@ sub _convert($$) {
         _stream_output_count_nl($self,
                        end_line($formatter->{'container'}));
       }
-      delete $self->{'text_element_context'}->[-1]->{'counter'};
+      $self->{'text_element_context'}->[-1]->{'counter'} = 0;
       return;
     } elsif ($cmdname eq 'contents'
              or $cmdname eq 'shortcontents' or $cmdname eq 'summarycontents') {
@@ -4302,9 +4303,7 @@ sub _convert($$) {
               $text_count += length($inserted_space);
             }
 
-            my $text_element_context = {
-                     'counter' => $text_count
-            };
+            my $text_element_context = { 'counter' => $text_count };
 
             if (defined($self->get_conf('AUTO_MENU_MAX_WIDTH'))) {
               $text_element_context->{'max'}
@@ -4553,7 +4552,7 @@ sub _convert($$) {
       _ensure_end_of_line($self);
     }
     destroy_formatter(pop @{$self->{'formatters'}});
-    delete $self->{'text_element_context'}->[-1]->{'counter'};
+    $self->{'text_element_context'}->[-1]->{'counter'} = 0;
   # may have been opened for a block commands, @menu, raw output
   # format, @verbatim..., or for (raw)preformatted type
   } elsif (defined($preformatted)) {
@@ -4586,7 +4585,7 @@ sub _convert($$) {
     destroy_formatter(pop @{$self->{'formatters'}});
     # We assume that, upon closing the preformatted we are at the
     # beginning of a line.
-    delete $self->{'text_element_context'}->[-1]->{'counter'};
+    $self->{'text_element_context'}->[-1]->{'counter'} = 0;
   }
 
   # Close commands
