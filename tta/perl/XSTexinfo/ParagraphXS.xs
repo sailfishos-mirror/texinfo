@@ -58,6 +58,17 @@ para_new (...)
             I32 hv_number;
             I32 i;
 
+            /* do debug first to see the list of all the conf variables */
+            char *var_name = "debug";
+            SV **debug_sv = hv_fetch (conf, var_name, strlen (var_name), 0);
+            if (debug_sv && SvOK (*debug_sv))
+              {
+                SV *value_sv = *debug_sv;
+                if (0)
+                  {}
+                PARA_CONF_VARIABLES_LIST
+              }
+
             hv_number = hv_iterinit (conf);
 
             for (i = 0; i < hv_number; i++)
@@ -66,7 +77,7 @@ para_new (...)
                 char *var_name;
                 SV *value_sv = hv_iternextsv (conf, &var_name, &retlen);
 
-                if (0)
+                if (!strcmp(var_name, "debug"))
                   {}
      /* PARA_CONF_VARIABLES_LIST is replaced by para_SET_CONF(variable)
         for each of the configuration variables, which starts with else if */

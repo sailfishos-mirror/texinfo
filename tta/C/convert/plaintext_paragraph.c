@@ -82,6 +82,7 @@ typedef struct {
                            Used by @flushleft and @flushright. */
     int frenchspacing;  /* Only one space, not two, after a full stop. */
     int double_width_no_break; /* No line break between double width chars. */
+    int debug;
 
 } PARAGRAPH;
 
@@ -185,6 +186,10 @@ para_new (void)
   state.end_sentence = eos_unset;
   state.last_letter = (char32_t) '\0';
 
+  /* use manually set value.  Configuration function call can come later on */
+  if (debug)
+    state.debug = debug;
+
   /* The paragraph ID. */
   return i;
 }
@@ -201,6 +206,8 @@ para_set_state (int paragraph)
 #define para_SET_CONF(variable) \
 void para_set_conf_##variable (int variable) { \
   state.variable = variable; \
+  if (state.debug) \
+    fprintf (stderr, "CONF %d: " #variable " %d\n", current_state, variable); \
 }
 
 PARA_CONF_VARIABLES_LIST
@@ -298,10 +305,10 @@ para__add_pending_word (TEXT *result, int add_spaces)
          state.counter is probably 0.  */
 
       for (i = 0; i < state.indent_length - state.counter; i++)
-        text_append (result, " ");
+        text_append_n (result, " ", 1);
       state.counter = state.indent_length;
 
-      if (debug)
+      if (state.debug)
         fprintf (stderr, "INDENT(%d+%d)\n", state.counter, state.word_counter);
 
       /* Do not output leading spaces after the indent, unless 'unfilled'
@@ -319,9 +326,10 @@ para__add_pending_word (TEXT *result, int add_spaces)
 
       state.counter += state.space_counter;
 
-      if (debug)
-        fprintf (stderr, "ADD_SPACES(%d+%d)\n", state.counter,
-                                                state.word_counter);
+      /* TODO protect spaces shown */
+      if (state.debug)
+        fprintf (stderr, "ADD_SPACES(%d+%d) `%s'\n", state.counter,
+                                 state.word_counter, state.space.text);
 
       state.space.end = 0;
       state.space_counter = 0;
@@ -332,7 +340,7 @@ para__add_pending_word (TEXT *result, int add_spaces)
       text_append_n (result, state.word.text, state.word.end);
       state.counter += state.word_counter;
 
-      if (debug)
+      if (state.debug)
         fprintf (stderr, "ADD_WORD[%s]+%d (%d)\n", state.word.text,
                  state.word_counter, state.counter);
 
@@ -368,7 +376,7 @@ para_end (void)
   text_reset (&ret);
   state.end_line_count = 0;
 
-  if (debug)
+  if (state.debug)
     fprintf (stderr, "PARA END\n");
 
   /* probably not really useful, but cleaner */
@@ -392,7 +400,7 @@ void
 para_destroy (void)
 {
   /* Now it's time to forget about the state. */
-  if (debug)
+  if (state.debug)
     fprintf (stderr, "SET UNUSED %d\n", current_state);
   state_array[current_state].in_use = 0;
   state.in_use = 0;
@@ -505,7 +513,7 @@ para__add_next (TEXT *result, const char *word, int word_len,
           para__cut_line (result);
         }
     }
-  if (debug)
+  if (state.debug)
     {
       static TEXT printed_word;
       text_reset (&printed_word);
@@ -598,7 +606,7 @@ para_add_text (const char *text, int len)
 
   while (1)
     {
-      if (debug)
+      if (state.debug)
         {
           fprintf(stderr, "p (%d+%d) s `%s', l `%" PRIuLEAST32 "', w%d `%s'\n",
                     state.counter, state.word_counter,
@@ -688,7 +696,7 @@ para_add_text (const char *text, int len)
       /*************** Whitespace character. *********************/
       if (type == type_spaces)
         {
-          if (debug)
+          if (state.debug)
             {
               fprintf(stderr, "SPACES(%d) `%s'\n", state.counter,
                       para__print_escaped_spaces (p, q - p));
@@ -781,7 +789,7 @@ para_add_text (const char *text, int len)
       /*************** Double width character. *********************/
       else if (type == type_double_width)
         {
-          if (debug)
+          if (state.debug)
             fprintf (stderr, "FULLWIDTH\n");
 
           text_append_n (&state.word, p, q - p);
@@ -834,7 +842,7 @@ para_add_text (const char *text, int len)
                         state.end_sentence = eos_present_frenchspacing;
                       else
                         state.end_sentence = eos_present;
-                      if (debug)
+                      if (state.debug)
                         fprintf (stderr, "END_SENTENCE\n");
                       break;
                     }
@@ -847,7 +855,7 @@ para_add_text (const char *text, int len)
               else
                 {
                   /* Not at the end of a sentence. */
-                  if (debug && state.end_sentence != eos_unset)
+                  if (state.debug && state.end_sentence != eos_unset)
                     fprintf (stderr, "delete END_SENTENCE(%d)\n",
                                       state.end_sentence);
                   state.end_sentence = eos_unset;

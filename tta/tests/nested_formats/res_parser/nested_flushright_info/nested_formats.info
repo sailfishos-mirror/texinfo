@@ -1164,7 +1164,6 @@ f-lushleft
      more example text
      call macro in example in format_command
                                                                in macro
-
                                                       in format_command
                                                               Something
                                                               Something
@@ -1175,7 +1174,6 @@ f-lushleft
                                                              Something2
                                                                in group
                                                                   After
-
 
 
                                                                in group

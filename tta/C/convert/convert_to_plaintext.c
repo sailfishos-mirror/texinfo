@@ -175,7 +175,7 @@ debug_print_pending (const PENDING_TEXT_LIST *pending_texts)
       text_append_n (&t, pending_text->text.text, pending_text->text.end);
       if (pending_text->anchor)
         {
-          char *texi = convert_to_texinfo (pending_text->anchor);
+          char *texi = target_element_to_texi_label (pending_text->anchor);
           text_append_n (&t, "[", 1);
           text_append (&t, texi);
           text_append_n (&t, "]", 1);
@@ -286,8 +286,16 @@ fill_formatter (FORMATTER *formatter, CONVERTER *self, enum formatter_type type,
   enum command_id context_cmd = *top_(command) (&self_plaintext->context);
   int frenchspacing = 0;
 
+  /* TODO this is not true, there is some debugging output in the C code.
+  # There is no corresponding debugging output in the C code.
+  if (self->conf->DEBUG.o.integer > 1)
+    para_set_conf_debug (1);
+  */
+
   if (indent_length != -1)
-    para_set_conf_indent_length (indent_length);
+    {
+      para_set_conf_indent_length (indent_length);
+    }
   else
     {
       FORMAT_CONTEXT *top_format_context
@@ -303,21 +311,20 @@ fill_formatter (FORMATTER *formatter, CONVERTER *self, enum formatter_type type,
       frenchspacing = 1;
       para_set_conf_frenchspacing (1);
     }
+  else if (type == formatter_unfilled)
+   para_set_conf_frenchspacing (1);
 
   para_set_conf_counter (text_element_context->counter);
-  /* TODO this is not true, there is some debugging output in the C code.
-  # There is no corresponding debugging output in the C code.
-  # need to be uncommented and only if debug > 1
-  #$container_conf->{'DEBUG'} = 1 if (defined($self->{'debug'})
-  #                                   and $self->{'debug'} > 1);
-  # need to be manually enabled by uncommenting.
-  #$container_conf->{'DEBUG'} = 1 if ($self->{'debug'});
-  */
 
   switch (type)
     {
     case formatter_paragraph:
       para_set_conf_max (text_element_context->max);
+      if (plaintext_commands_data[context_cmd].flags & PF_flush)
+        {
+          para_set_conf_keep_end_lines (1);
+          para_set_conf_ignore_columns (1);
+        }
       /* nothing to change/set */
       break;
     case formatter_line:
@@ -327,22 +334,16 @@ fill_formatter (FORMATTER *formatter, CONVERTER *self, enum formatter_type type,
       para_set_conf_add_final_space (1);
       break;
     case formatter_unfilled:
-      para_set_conf_max (10000000);
-      para_set_conf_ignore_columns (1);
-      para_set_conf_keep_end_lines (1);
-      para_set_conf_frenchspacing (1);
       para_set_conf_unfilled (1);
+      para_set_conf_max (10000000);
+      para_set_conf_keep_end_lines (1);
       para_set_conf_no_final_newline (1);
+      para_set_conf_ignore_columns (1);
       break;
     default:
       fatal ("unknown container type\n");
     }
 
-  if (plaintext_commands_data[context_cmd].flags & PF_flush)
-    {
-      para_set_conf_ignore_columns (1);
-      para_set_conf_keep_end_lines (1);
-    }
   add_(integer) (&formatter->frenchspacing_stack, frenchspacing);
 
   formatter->font_type_stack = (FONT_TYPE_STACK *)
@@ -1401,11 +1402,14 @@ ensure_end_of_line (CONVERTER *self)
 
   if (pending_texts->number > 0)
     {
+      int with_anchor = 0;
       size_t nr;
       for (nr = pending_texts->number; nr > 0; nr--)
         {
           PENDING_TEXT *pending_text = &pending_texts->list[nr -1];
           TEXT *t_pending = &pending_text->text;
+          if (pending_text->anchor)
+            with_anchor = 1;
           if (t_pending->end > 0)
             {
               if (t_pending->text[t_pending->end -1] != '\n')
@@ -1413,7 +1417,16 @@ ensure_end_of_line (CONVERTER *self)
                   TEXT_CONTEXT *text_element_context
                     = top_(text_element_context) (
                               &self_plaintext->text_element_context);
-                  text_append_n (t_pending, "\n", 1);
+                  if (!with_anchor)
+                    text_append_n (t_pending, "\n", 1);
+                  else
+                    {
+       /* add new pending text to keep the anchor before the end of line */
+                      PENDING_TEXT new_nl = { 0 };
+                      text_init (&new_nl.text);
+                      text_append_n (&new_nl.text, "\n", 1);
+                      add_(pending_text) (pending_texts, new_nl);
+                    }
                   add_lines_count (self, 1);
                   text_element_context->counter = 0;
                 }
@@ -2184,7 +2197,16 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
               image_prepended_spaces = -1;
             }
         }
-      stream_output_n (self, "\n", 1);
+
+   /* do not add an end of line for the last line, leave it to the caller.
+      For @center it is more consistent because the end of line is in an
+      ignored text element.
+      For flushright, it means that it is possible to ignore a fully
+      empty @flushright (although this is not really important).
+    */
+      if ((size_t)line_index < pending_text_lines.number -1)
+        stream_output_n (self, "\n", 1);
+
       line_index++;
     }
   free (pending_text_lines.list);
@@ -5496,7 +5518,21 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   int previous_paragraph_count
                     = top_format_context->paragraph_count;
 
+         /* TODO it would be logical to use convert_line here, and it would
+            allow to cover translations that do not use @center, but we
+            cannot use convert_line here in case there is indentation:
+            @center in $prepended already adds an end of line as part
+            of its formatting. When the formatter end() is called in
+            convert_line we are at the beginning of the line and trailing
+            spaces (although there are no space pending) are added because
+            'add_final_space' is set in line formatter leads to spurious
+            spaces added for indentation at the beginning of the line.
+          */
                   convert_to_plaintext_internal (self, prepended);
+
+          /* This is not actually useful since @center already does it,
+             but it is logical. */
+                  ensure_end_of_line (self);
 
                   top_format_context
                     = top_(format_context) (&self_plaintext->format_context);
@@ -5708,7 +5744,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               destroy_element (formatted_center);
             }
 
-          ensure_end_of_line (self);
           COUNT_CONTEXT *top_count_context
            = top_(count_context) (&self_plaintext->count_context);
           if (! pending_is_empty (&top_count_context->pending_text))
@@ -5718,6 +5753,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                          &self_plaintext->text_element_context);
               align_environment (self, text_element_context->max,
                                  AD_center);
+              ensure_end_of_line (self);
             }
           else
      /* it has to be done here, as it is done in _align_environment above */
@@ -6531,7 +6567,17 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
   /* Convert any contents */
   size_t i;
   for (i = 0; i < element->e.c->contents.number; i++)
-    convert_to_plaintext_internal (self, element->e.c->contents.list[i]);
+    {
+      const ELEMENT *content = element->e.c->contents.list[i];
+      convert_to_plaintext_internal (self, content);
+       /*
+      COUNT_CONTEXT *count_context
+           = top_(count_context) (&self_plaintext->count_context);
+      fprintf (stderr, "CONVERTED %zu %s '%s'\n", i,
+               print_element_debug (content, 1),
+               debug_print_pending (&count_context->pending_text));
+        */
+    }
 
   /* Now closing.  First, close types. */
   if (type != ET_NONE)
@@ -6783,7 +6829,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
       enum command_id context_cmd = *top_(command) (&self_plaintext->context);
 
       if (context_cmd == CM_flushright)
-        align_environment (self, text_element_context->max, AD_right);
+        {
+          align_environment (self, text_element_context->max, AD_right);
+          ensure_end_of_line (self);
+        }
 
       text_element_context->counter = 0;
       para_destroy ();
@@ -6803,7 +6852,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
       ensure_end_of_line (self);
 
       if (context_cmd == CM_flushright)
-        align_environment (self, text_element_context->max, AD_right);
+        {
+          align_environment (self, text_element_context->max, AD_right);
+          ensure_end_of_line (self);
+        }
       else if (context_cmd == CM_displaymath
                && self_plaintext->element_images)
         {

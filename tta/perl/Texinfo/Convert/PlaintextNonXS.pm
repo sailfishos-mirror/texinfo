@@ -893,12 +893,19 @@ sub new_formatter($$;$$$) {
   my ($self, $type,
       $indent_length, $indent_length_next, $formatter_conf) = @_;
 
-  my $container_conf = {
-    'indent_length' =>
-         (defined($indent_length) ? $indent_length
-           : $self->{'format_context'}->[-1]->{'context_indent_len'}),
-    'indent_length_next' => $indent_length_next,
-  };
+  my $container_conf = {};
+
+  # TODO this is not true, there is some debugging output in the C code.
+  # There is no corresponding debugging output in the C code.
+  # need to be uncommented and only if debug > 1
+  #$container_conf->{'debug'} = 1 if (defined($self->{'debug'})
+  #                                   and $self->{'debug'} > 1);
+  #$container_conf->{'debug'} = 1;
+
+  $container_conf->{'indent_length'} = (defined($indent_length) ? $indent_length
+           : $self->{'format_context'}->[-1]->{'context_indent_len'});
+
+  $container_conf->{'indent_length_next'} = $indent_length_next;
 
   my $frenchspacing_conf = $self->get_conf('frenchspacing');
 
@@ -908,17 +915,14 @@ sub new_formatter($$;$$$) {
   $container_conf->{'counter'}
     = $self->{'text_element_context'}->[-1]->{'counter'}
       if (defined($self->{'text_element_context'}->[-1]->{'counter'}));
-  # TODO this is not true, there is some debugging output in the C code.
-  # There is no corresponding debugging output in the C code.
-  # need to be uncommented and only if debug > 1
-  #$container_conf->{'DEBUG'} = 1 if (defined($self->{'debug'})
-  #                                   and $self->{'debug'} > 1);
-  # need to be manually enabled by uncommenting.
-  #$container_conf->{'DEBUG'} = 1 if ($self->{'debug'});
 
   my $container;
   if ($type eq 'paragraph') {
     $container_conf->{'max'} = $self->{'text_element_context'}->[-1]->{'max'};
+    if ($flush_commands{$self->{'context'}->[-1]}) {
+      $container_conf->{'ignore_columns'} = 1;
+      $container_conf->{'keep_end_lines'} = 1;
+    }
     # nothing else to change/set
   } elsif ($type eq 'line') {
     $container_conf->{'max'} = 10000001;
@@ -934,10 +938,6 @@ sub new_formatter($$;$$$) {
     $container_conf->{'no_final_newline'} = 1;
   } else {
     die "Unknown container type $type\n";
-  }
-  if ($flush_commands{$self->{'context'}->[-1]}) {
-    $container_conf->{'ignore_columns'} = 1;
-    $container_conf->{'keep_end_lines'} = 1;
   }
   $container = Texinfo::Convert::Paragraph::new($container_conf);
 
@@ -1180,8 +1180,8 @@ sub convert_line($$;$$) {
                                 $indent_length, $indent_length_next);
   push @{$self->{'formatters'}}, $formatter;
   _convert($self, $converted);
-  _stream_output($self,
-                 Texinfo::Convert::Paragraph::end($formatter->{'container'}));
+  my $end_line = Texinfo::Convert::Paragraph::end($formatter->{'container'});
+  _stream_output($self, $end_line);
   my $count = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
   destroy_formatter(pop @{$self->{'formatters'}});
   return $count;
@@ -1196,7 +1196,7 @@ sub _debug_print_pending($) {
     my $result = $pending->[0];
     if (defined($pending->[1])) {
       $result .= '['
-        . Texinfo::Convert::Texinfo::convert_to_texinfo($pending->[1]).']';
+  . Texinfo::Convert::Texinfo::target_element_to_texi_label($pending->[1]).']';
     }
     push @strings, $result;
   }
@@ -1276,10 +1276,19 @@ sub _ensure_end_of_line($) {
   my $pending_texts = $self->{'count_context'}->[-1]->{'pending_text'};
 
   my $nr_pending = scalar(@$pending_texts);
+  my $with_anchor;
   for (my $i = $nr_pending - 1; $i >= 0; $i--) {
+    if (defined($pending_texts->[$i]->[1])) {
+      $with_anchor = 1;
+    }
     if ($pending_texts->[$i]->[0] ne '') {
       if ($pending_texts->[$i]->[0] !~ /\n\z/) {
-        $pending_texts->[$i]->[0] .= "\n";
+        if (!$with_anchor) {
+          $pending_texts->[$i]->[0] .= "\n";
+        } else {
+          # add new pending text to keep the anchor before the end of line
+          push @$pending_texts, ["\n"];
+        }
         _add_lines_count($self, 1);
         $self->{'text_element_context'}->[-1]->{'counter'} = 0;
       }
@@ -1686,7 +1695,14 @@ sub _align_lines($$$$$) {
       }
     }
 
-    _stream_output($self, "\n");
+    # do not add an end of line for the last line, leave it to the caller.
+    # For @center it is more consistent because the end of line is in an
+    # ignored text element.
+    # For flushright, it means that it is possible to ignore a fully
+    # empty @flushright (although this is not really important).
+    if ($line_index < scalar(@$lines) -1) {
+      _stream_output($self, "\n");
+    }
 
     $line_index++;
   }
@@ -3709,7 +3725,21 @@ sub _convert($$) {
           # Do not consider the title to be like a paragraph
           my $previous_paragraph_count
               = $self->{'format_context'}->[-1]->{'paragraph_count'};
-          $self->convert_line($prepended);
+
+          # TODO it would be logical to use convert_line here, and it would
+          # allow to cover translations that do not use @center, but we
+          # cannot use convert_line here in case there is indentation:
+          # @center in $prepended already adds an end of line as part
+          # of its formatting. When the formatter end() is called in
+          # convert_line we are at the beginning of the line and trailing
+          # spaces (although there are no space pending) are added because
+          # 'add_final_space' is set in line formatter leads to spurious
+          # spaces added for indentation at the beginning of the line.
+          #$self->convert_line($prepended);
+          _convert($self, $prepended);
+          # This is not actually useful since @center already does it,
+          # but it is logical.
+          _ensure_end_of_line($self);
           $self->{'format_context'}->[-1]->{'paragraph_count'}
               = $previous_paragraph_count;
         }
@@ -3842,11 +3872,11 @@ sub _convert($$) {
               'contents' => [$element->{'contents'}->[0]]},
              0);
       }
-      _ensure_end_of_line($self);
       if (!_pending_is_empty(
                  $self->{'count_context'}->[-1]->{'pending_text'})) {
         _align_environment($self,
                    $self->{'text_element_context'}->[-1]->{'max'}, 'center');
+        _ensure_end_of_line($self);
       } else {
         # it has to be done here, as it is done in _align_environment above
         pop @{$self->{'count_context'}};
@@ -4368,8 +4398,14 @@ sub _convert($$) {
   # $element->{'contents'} not existing may happen for some empty
   # commands/containers
   if (exists($element->{'contents'})) {
+    #my $i = 0;
     foreach my $content (@{$element->{'contents'}}) {
       _convert($self, $content);
+
+      #my $pending = $self->{'count_context'}->[-1]->{'pending_text'};
+      #print STDERR "CONVERTED $i ".Texinfo::Common::debug_print_element($content, 1)
+      #            ." '"._debug_print_pending($pending)."'\n";
+      #$i++;
     }
   }
 
@@ -4511,6 +4547,7 @@ sub _convert($$) {
     if ($self->{'context'}->[-1] eq 'flushright') {
       _align_environment($self,
         $self->{'text_element_context'}->[-1]->{'max'}, 'right');
+      _ensure_end_of_line($self);
     }
     destroy_formatter(pop @{$self->{'formatters'}});
     delete $self->{'text_element_context'}->[-1]->{'counter'};
@@ -4524,6 +4561,7 @@ sub _convert($$) {
     if ($self->{'context'}->[-1] eq 'flushright') {
       _align_environment($self,
                       $self->{'text_element_context'}->[-1]->{'max'}, 'right');
+      _ensure_end_of_line($self);
     } elsif ($self->{'context'}->[-1] eq 'displaymath'
              and exists($self->{'elements_images'})
              and exists($self->{'elements_images'}->{$element})) {
@@ -4548,7 +4586,7 @@ sub _convert($$) {
     delete $self->{'text_element_context'}->[-1]->{'counter'};
   }
 
-  # close commands
+  # Close commands
   if (defined($cmdname)) {
     if ($cmdname eq 'float') {
       my ($caption, $shortcaption)

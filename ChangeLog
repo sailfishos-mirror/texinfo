@@ -1,3 +1,46 @@
+2026-08-29 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_convert): for
+	@cartouche header, call _convert and not convert_line to avoid
+	spurious indenting spaces appearing because of a call to line
+	formatter end when there is already an end of line added by @center
+	formatting.
+
+	* tta/C/convert/convert_to_plaintext.c (ensure_end_of_line),
+	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_ensure_end_of_line): if
+	there is an anchor pending, add new pending text to keep the anchor
+	before the end of line.
+
+	* tta/C/convert/convert_to_plaintext.c (align_lines)
+	(convert_to_plaintext_internal),
+	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_align_lines, _convert):
+	do not add an end of line for the last line, leave it to the caller.
+	For @center it is more consistent because the end of line is in an
+	ignored text element.  For flushright, it means that it is possible to
+	ignore a fully empty @flushright (although this is not really
+	important).  Add/move ensure_end_of_line calls in callers.
+
+	* tta/C/convert/convert_to_plaintext.c (debug_print_pending),
+	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_debug_print_pending): use
+	target_element_to_texi_label to avoid showing whole nodes.
+
+	* tta/C/convert/plaintext_paragraph.c (PARAGRAPH),
+	tta/C/convert/plaintext_paragraph.h (PARA_CONF_VARIABLES_LIST): add
+	debug, and check state.debug in conditionals.
+
+	* tta/C/convert/plaintext_paragraph.c (para_set_conf_*): show conf set
+	if debugging.
+
+	* tta/perl/XSTexinfo/ParagraphXS.xs (para_new): set debug before other
+	configuration varaibles to have all the variables configuration shown
+	in debugging.
+
+	* tta/C/convert/convert_to_plaintext.c (fill_formatter): move code
+	around to set conf in the same order for all the type of formatter.
+
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm (new_formatter): make
+	code more similar to C code.
+
 2026-08-28 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/convert_to_plaintext.c

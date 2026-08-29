@@ -10,6 +10,10 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+Use PARA_CONF_VARIABLES_LIST to have the same order of conf set in
+ParagraphXS.xs that in convert_to_plaintext.c.  Also in pure Perl.
+Try to have the same Paragraph debug output as much as possible.
+
 Use SWIG interface in pod2texi.
 
 Have a look at texi2pod.pl in GCC

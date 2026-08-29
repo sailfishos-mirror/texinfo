@@ -33,7 +33,8 @@
   para_SET_CONF(ignore_columns) \
   para_SET_CONF(keep_end_lines) \
   para_SET_CONF(frenchspacing) \
-  para_SET_CONF(double_width_no_break)
+  para_SET_CONF(double_width_no_break) \
+  para_SET_CONF(debug)
 
 
 #define para_SET_CONF(variable) \
