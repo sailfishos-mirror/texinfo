@@ -386,7 +386,12 @@ $accents_text, {}, {'ENABLE_ENCODING' => 1, 'OUTPUT_CHARACTERS' => 1}
 # numerous LaTeX formatting errors
 ['at_commands_in_refs',
 $at_commands_in_refs_text_no_translit,
- {},
+ { 'skip' => ($XS_convert and $Texinfo::XSLoader::core_modules_built
+              and defined($ENV{'TEXINFO_XS_INCOMPLETE'})
+              and ($ENV{'TEXINFO_XS_INCOMPLETE'} eq '1'
+                   or $ENV{'TEXINFO_XS_INCOMPLETE'} eq '2'))
+             ? 'Error message without line with C plaintext': undef,
+ },
  {'TEST' => 1}], # TEST => 1 triggers @today constant expansion for diffs
 );
 
