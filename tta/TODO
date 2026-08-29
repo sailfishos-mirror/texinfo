@@ -34,6 +34,8 @@ No "shadow targets" nor nodes added when a node is associated to
 a @*heading*, we should keep a track of this, such that users relying on
 @heading know that it is different for heading and keep this in a TODO.
 
+Verify that it works as expected in Info.
+
 
 Document LATEX_TAGGED_PDF, change variable name if needed in code
 and tests.

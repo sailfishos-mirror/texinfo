@@ -425,6 +425,17 @@ In cartouche in example
 end example
 @end example
 '],
+['cartouche_in_example_with_title',
+'@example
+@cartouche
+first no heading
+@end cartouche
+
+@cartouche Tit--le @emph{of box}
+With title c--artouche
+@end cartouche
+@end example
+'],
 ['flushright_example_nested',
 '@example
 @flushright

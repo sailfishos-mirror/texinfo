@@ -1,5 +1,10 @@
 2026-08-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/02coverage.t (cartouche_in_example_with_title),
+	tta/perl/Makefile.tres: add test.
+
+2026-08-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/translations.c (replace_convert_substrings): show parsing
 	errors and warnings only if there are errors.
 
