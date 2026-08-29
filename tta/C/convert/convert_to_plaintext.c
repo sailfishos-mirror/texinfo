@@ -5179,21 +5179,15 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                             }
                           else if (val < 0x10FFFF)
                             {
-                              uint32_t char_val[] = {'\0', '\0'};
-                              uint8_t *result_u8;
-                              size_t lengthp;
-
-                              char_val[0] = (uint32_t) val;
-                              result_u8 = u32_to_u8 (char_val, 2,
-                                                     NULL, &lengthp);
-                              if (result_u8)
-                                {
-                                  char *result = string_from_utf8 (result_u8);
-                                  free (result_u8);
-                                  stream_output_add_text (self, result);
-                                  free (result);
-                                  conversion_done = 1;
-                                }
+                              uint8_t result_u8[7];
+                              int len = u8_uctomb (result_u8, (ucs4_t) val, 6);
+                              if (len < 0)
+                                fatal ("u8_uctomb returns negative value");
+                              result_u8[len] = 0;
+                              char *result = string_from_utf8 (result_u8);
+                              stream_output_add_text (self, result);
+                              free (result);
+                              conversion_done = 1;
                             }
                         }
 

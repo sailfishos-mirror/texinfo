@@ -1,5 +1,11 @@
 2026-08-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): use u8_uctomb instead of u32_to_u8.
+	From Bruno.
+
+2026-08-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/02coverage.t (cartouche_in_example_with_title),
 	tta/perl/Makefile.tres: add test.
 
