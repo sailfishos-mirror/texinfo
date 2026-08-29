@@ -724,8 +724,6 @@ info_output (CONVERTER *self, DOCUMENT *document)
     text_append_n (&tag_text, "(Indirect)\n", 11);
 
   seen_anchors = new_c_hashmap (self_plaintext->target_locations->number);
-  TEXT converted_label;
-  text_init (&converted_label);
 
   for (j = 0; j < self_plaintext->target_locations->number; j++)
     {
@@ -767,17 +765,13 @@ info_output (CONVERTER *self, DOCUMENT *document)
       text_printf (&tag_text, "%s: ", prefix);
       if (self_plaintext->encoding_object)
         {
-          /* TODO needs work */
-          TEXT label_text;
-          text_init (&label_text);
-          text_append_n (&label_text, node_name_width.string,
-                         node_name_width.len);
-          plaintext_encode_string (self, &label_text, &converted_label);
-          free (label_text.text);
-
-          text_append_n (&tag_text, converted_label.text, converted_label.end);
-
-          text_reset (&converted_label);
+          TEXT converted_text
+               = encode_with_iconv (self_plaintext->encoding_object->iconv,
+                                              node_name_width.string,
+                                              node_name_width.len,
+                                              0, ieh_error, 0);
+          text_append_n (&tag_text, converted_text.text, converted_text.end);
+          free (converted_text.text);
         }
       else
         text_append_n (&tag_text, node_name_width.string,
@@ -792,9 +786,6 @@ info_output (CONVERTER *self, DOCUMENT *document)
 
   clear_c_hashmap (seen_anchors);
   free (seen_anchors);
-
-  free (converted_label.text);
-
 
   const char *coding = 0;
   if (self->conf->OUTPUT_ENCODING_NAME.o.string

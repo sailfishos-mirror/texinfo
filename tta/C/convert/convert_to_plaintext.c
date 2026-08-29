@@ -1168,27 +1168,6 @@ stream_output_add_next (CONVERTER *self, const char *text)
   stream_output_count_nl (self, result.text);
 }
 
-void
-plaintext_encode_string (CONVERTER *self, const TEXT *text, TEXT *result)
-{
-  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
-
-  if (self_plaintext->encoding_object)
-    {
-      TEXT converted_text
-        = encode_with_iconv (self_plaintext->encoding_object->iconv,
-                                              text->text, text->end,
-                                              0, ieh_error, 0);
-
-      text_append_n (result, converted_text.text, converted_text.end);
-      free (converted_text.text);
-    }
-  else
-    {
-      text_append_n (result, text->text, text->end);
-    }
-}
-
 static void
 stream_encode (CONVERTER *self, PENDING_TEXT_LIST *pending_texts, TEXT *result)
 {
@@ -2502,9 +2481,10 @@ plaintext_process_printindex (CONVERTER *self,
   if (!index_sorted || !index_sorted->entries_number)
     return;
 
-  /* TODO could cache entry_index_nr index_entry_info->number in an
-     array per sorted index entry to reuse in the second loop.
-     Not sure it is worth it.
+  /* NOTE could cache entry_index_nr index_entry_info->number in an
+     array per sorted index entry to reuse in the second loop instead
+     of calling index_number_index_by_name and lookup_extra_index_entry
+     again.  Not sure that it is worth it.
    */
 
   for (i = 0; i < index_sorted->entries_number; i++)
@@ -3740,7 +3720,8 @@ convert_def_line (CONVERTER *self, const ELEMENT *element)
               /* If the tree is a copy, there is no parent, for instance in
                  user-defined translations with @def* commands, which would
                  be quite unusual, but is tested in tests.
-                 TODO cannot happen in Info/plaintext?
+                 NOTE this situation is very unlikely to happen in
+                 Info/plaintext.
                */
               const char *def_command
                 = lookup_extra_string (element, AI_key_def_command);
@@ -5469,7 +5450,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                                                 content, 0, -1, -1, -1,
                                                   &prototype);
                                   column_size = prototype.width;
-                                  /* TODO free prototype.pending_text */
+                                  free_pending_texts (&prototype.pending_text);
                                 }
                               top_format_context->columns_size[columns_size_nr]
                                 = column_size +2;
@@ -6726,7 +6707,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                                     }
                                 }
                             }
-                          /* TODO incorrect if there are NUL */
+                          /* TODO incorrect if there are NUL from an @image
+                             in multitable */
                           line_width += string_width_multibyte (t->text);
                           add_(pending_text) (result, *pending_text);
                           memset (pending_text, 0, sizeof (PENDING_TEXT));
@@ -6801,6 +6783,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           COUNT_CONTEXT *count_context
             = top_(count_context) (&self_plaintext->count_context);
           PENDING_TEXT_LIST *pending_texts = &count_context->pending_text;
+          /* here we copy without releasing, as we want to have the pending
+             texts be processed as usual in the following of the code */
           for (i = 0; i < pending_texts->number; i++)
             {
               PENDING_TEXT *pending_text = &pending_texts->list[i];
@@ -6808,12 +6792,19 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               text_append_n (&text, t->text, t->end);
             }
 
-          /* TODO could be more efficient to reuse text directly if there
-             is no encoding */
-          plaintext_encode_string (self, &text, &result);
-          free (text.text);
+          if (self_plaintext->encoding_object)
+            {
+              TEXT converted_text
+               = encode_with_iconv (self_plaintext->encoding_object->iconv,
+                                              text.text, text.end,
+                                              0, ieh_error, 0);
+              self_plaintext->text_before_first_node = converted_text;
+              free (text.text);
+            }
+          else
+            self_plaintext->text_before_first_node = text;
 
-          self_plaintext->text_before_first_node = result;
+          return;
         }
     }
 
