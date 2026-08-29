@@ -1,5 +1,10 @@
 2026-08-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/translations.c (replace_convert_substrings): show parsing
+	errors and warnings only if there are errors.
+
+2026-08-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_plaintext.c (add_newline_if_needed)
 	(ensure_end_of_line): do not check that pending_text is not empty, as
 	it should not be possible, each time a context is pushed, a pending

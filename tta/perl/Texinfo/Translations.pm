@@ -752,6 +752,7 @@ sub _replace_convert_substrings($;$$) {
   }
   my $errors = $parser->errors();
   my $errors_count = Texinfo::Report::count_errors($errors);
+  # TODO show warnings too?
   if ($errors_count) {
     warn "translation $errors_count error(s)\n";
     warn "translated string: $translated_string\n";

@@ -50,6 +50,7 @@
 #include "base_utils.h"
 /* read_flag_len */
 #include "utils.h"
+#include "errors.h"
 #include "manipulate_tree.h"
 #include "api_to_perl.h"
 #include "debug.h"
@@ -1144,6 +1145,7 @@ replace_convert_substrings (const char *translated_string,
                             int debug_level)
 {
   size_t i;
+  size_t errors_count;
   char *texinfo_line = 0;
   int parser_debug_level = 0;
   DOCUMENT *document;
@@ -1205,11 +1207,11 @@ replace_convert_substrings (const char *translated_string,
       document = parse_string (translated_string, 1);
     }
 
-  if (document->parser_error_messages.number > 0)
+  errors_count = count_errors (&document->parser_error_messages);
+  if (errors_count > 0)
     {
       ERROR_MESSAGE_LIST *error_messages = &document->parser_error_messages;
-      fprintf (stderr, "translation %zu error(s)\n",
-               error_messages->number);
+      fprintf (stderr, "translation %zu error(s)\n", errors_count);
       fprintf (stderr, "translated string: %s\n", translated_string);
       if (texinfo_line)
         fprintf (stderr, "Texinfo code: %s\n", texinfo_line);
