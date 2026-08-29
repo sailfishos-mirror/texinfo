@@ -434,16 +434,6 @@ sub conversion_initialization($;$) {
 
   $self->set_document($document);
 
-  $self->set_global_document_commands('before', \@informative_global_commands);
-  $self->set_global_document_commands('before', \@contents_commands);
-
-  $self->{'context'} = [];
-  $self->{'format_context'} = [];
-  push @{$self->{'count_context'}}, {'lines' => 0,
-                                     'index_entry_locations' => [],
-                                     'pending_text' => [['']],
-  };
-
   $self->{'seenmenus'} = {};
   $self->{'index_entry_info'} = {};
 
@@ -464,9 +454,16 @@ sub conversion_initialization($;$) {
 
   delete $self->{'current_node'};
 
+  delete $self->{'encoding_object'};
+
   # for INFO_MATH_IMAGES
   #$self->{'elements_images'};
 
+  $self->set_global_document_commands('before', \@informative_global_commands);
+  $self->set_global_document_commands('before', \@contents_commands);
+
+  # disable encoding in output_files related code, as the strings passed
+  # from Info or plaintext to write to files are already encoded.
   Texinfo::Convert::Utils::output_files_disable_output_encoding
     ($self->{'output_files'}, 1);
 
@@ -510,7 +507,13 @@ sub conversion_initialization($;$) {
   $self->{'output_encoding_name'} = $self->get_conf('OUTPUT_ENCODING_NAME');
   $self->{'debug'} = $self->get_conf('DEBUG');
 
-  delete $self->{'encoding_object'};
+  # initialize context stacks
+  $self->{'context'} = [];
+  $self->{'format_context'} = [];
+  push @{$self->{'count_context'}}, {'lines' => 0,
+                                     'index_entry_locations' => [],
+                                     'pending_text' => [['']],
+  };
 
   $self->push_top_formatter('_Root_context');
 }

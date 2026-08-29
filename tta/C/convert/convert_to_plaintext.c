@@ -797,10 +797,6 @@ plaintext_conversion_initialization (CONVERTER *self, DOCUMENT *document)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
 
-  COUNT_CONTEXT bottom_count_context = { 0 };
-  push_count_context (&self_plaintext->count_context,
-                      bottom_count_context);
-
   converter_set_document (self, document);
 
   if (document->indices_info.number > 0)
@@ -833,10 +829,27 @@ plaintext_conversion_initialization (CONVERTER *self, DOCUMENT *document)
   memset (self_plaintext->node_names_cache, 0,
           document->nodes_list.number * sizeof (STRING_WITH_WIDTH));
 
+  self_plaintext->encoding_object = 0;
+
+  /* it is an error to have index entries outside of nodes, so there
+     is no point optimizing the size of the hash */
+  init_c_hashmap (&self_plaintext->index_entries_no_node, 10);
+
+  init_c_hashmap (&self_plaintext->index_entry_node_colon,
+                  document->nodes_list.number);
+
+  init_c_hashmap (&self_plaintext->seen_node_descriptions,
+                  document->nodes_list.number);
+
+  init_c_hashmap (&self_plaintext->seenmenus,
+                  document->nodes_list.number);
+
   set_global_document_commands (self, CL_before, informative_global_commands);
   set_global_document_commands (self, CL_before, contents_commands);
 
-  /* TODO ... */
+  /* No need for disabling encoding in output_files, since in C conversion
+     is not setup there */
+
   self_plaintext->open_quote = "'";
   self_plaintext->close_quote = "'";
   self_plaintext->open_double_quote = "\"";
@@ -876,20 +889,11 @@ plaintext_conversion_initialization (CONVERTER *self, DOCUMENT *document)
     self_plaintext->close_double_quote
        = self->conf->CLOSE_DOUBLE_QUOTE_SYMBOL.o.string;
 
-  self_plaintext->encoding_object = 0;
+  /* initialize context stacks */
 
-  /* it is an error to have index entries outside of nodes, so there
-     is no point optimizing the size of the hash */
-  init_c_hashmap (&self_plaintext->index_entries_no_node, 10);
-
-  init_c_hashmap (&self_plaintext->index_entry_node_colon,
-                  document->nodes_list.number);
-
-  init_c_hashmap (&self_plaintext->seen_node_descriptions,
-                  document->nodes_list.number);
-
-  init_c_hashmap (&self_plaintext->seenmenus,
-                  document->nodes_list.number);
+  COUNT_CONTEXT bottom_count_context = { 0 };
+  push_count_context (&self_plaintext->count_context,
+                      bottom_count_context);
 
   /* _Root_context in Perl, in C use CM_NONE */
   push_top_formatter (self, CM_NONE);
