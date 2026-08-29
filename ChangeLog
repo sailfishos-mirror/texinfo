@@ -1,5 +1,13 @@
 2026-08-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/converter.c (next_for_tieaccent),
+	tta/C/convert/format_html.c (css_string_accent),
+	tta/C/main/manipulate_indices.c (sort_indices_by_letter),
+	tta/C/main/unicode.c (unicode_accent): use an array allocated on the
+	stack for u8_uctomb instead of malloc and free.
+
+2026-08-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_plaintext.c
 	(convert_to_plaintext_internal): use u8_uctomb instead of u32_to_u8.
 	From Bruno.

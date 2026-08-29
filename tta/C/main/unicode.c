@@ -180,13 +180,12 @@ unicode_accent (const char *text, const ELEMENT *e, int index_in_stack,
                 {
                   char *first_char_text;
                   char *next_text;
-                  uint8_t *first_char_u8 = malloc (7 * sizeof (uint8_t));
+                  uint8_t first_char_u8[7];
                   int first_char_len = u8_uctomb (first_char_u8, first_char, 6);
                   if (first_char_len < 0)
                     fatal ("u8_uctomb returns negative value");
                   first_char_u8[first_char_len] = 0;
                   first_char_text = string_from_utf8 (first_char_u8);
-                  free (first_char_u8);
                   text_init (&accented_text);
                   text_append (&accented_text, first_char_text);
                   free (first_char_text);

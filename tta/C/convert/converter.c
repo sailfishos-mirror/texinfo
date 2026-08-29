@@ -2825,13 +2825,12 @@ next_for_tieaccent (const char *text, const char **next)
           || (first_char >= 0x0030 && first_char <= 0x0039))
         {
           char *first_char_text;
-          uint8_t *first_char_u8 = malloc (7 * sizeof (uint8_t));
+          uint8_t first_char_u8[7];
           int first_char_len = u8_uctomb (first_char_u8, first_char, 6);
           if (first_char_len < 0)
             fatal ("u8_uctomb returns negative value");
           first_char_u8[first_char_len] = 0;
           first_char_text = string_from_utf8 (first_char_u8);
-          free (first_char_u8);
           p = text + strlen (first_char_text);
           *next = p;
           return first_char_text;

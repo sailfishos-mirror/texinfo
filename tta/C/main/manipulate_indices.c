@@ -1291,13 +1291,12 @@ sort_indices_by_letter (const INDICES_SORT_STRINGS *indices_sort_strings,
               if (!uc_is_general_category (next_char, UC_NON_SPACING_MARK))
                 {
                   char *first_char_text;
-                  uint8_t *first_char_u8 = malloc (7 * sizeof (uint8_t));
+                  uint8_t first_char_u8[7];
                   int first_char_len = u8_uctomb (first_char_u8, next_char, 6);
                   if (first_char_len < 0)
                     fatal ("u8_uctomb returns negative value");
                   first_char_u8[first_char_len] = 0;
                   first_char_text = string_from_utf8 (first_char_u8);
-                  free (first_char_u8);
                   text_append (&letter_text, first_char_text);
                   free (first_char_text);
                 }
