@@ -40,16 +40,10 @@ our $VERSION = '7.3dev';
 
 # Load XS interface or interface Perl implementation
 BEGIN {
-  my $xs_interface;
-  # Main conversion XS and NonXS interfaces loading
-  if (defined($ENV{'TEXINFO_XS_INCOMPLETE'})
-      and $ENV{'TEXINFO_XS_INCOMPLETE'} eq '2') {
-    $xs_interface = 'ConvertPlaintextXS';
-  }
   Texinfo::XSLoader::init (
     "Texinfo::Convert::Plaintext",
     "Texinfo::Convert::PlaintextNonXS",
-    $xs_interface,
+    'ConvertPlaintextXS',
     undef,
     ['texinfo', 'texinfoxs', 'texinfo-convert', 'texinfo-convertxs'],
   );

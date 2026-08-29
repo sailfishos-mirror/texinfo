@@ -1,5 +1,11 @@
 2026-08-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Info.pm (BEGIN),
+	tta/perl/Texinfo/Convert/Plaintext.pm (BEGIN): ignore
+	TEXINFO_XS_INCOMPLETE.
+
+2026-08-29 Patrice Dumas  <pertusus@free.fr>
+
 	Use C Info and Plaintext converters by default
 
 	* NEWS, tta/C/texi2any.c (main), tta/perl/t/formats_encodings.t
