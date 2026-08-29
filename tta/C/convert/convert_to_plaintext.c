@@ -1361,34 +1361,36 @@ add_newline_if_needed (CONVERTER *self)
         = top_(count_context) (&self_plaintext->count_context);
   PENDING_TEXT_LIST *pending_texts = &count_context->pending_text;
 
-  if (pending_texts->number > 0)
+   /*
+  if (pending_texts->number == 0)
+    fatal ("add_newline_if_needed: no pending text");
+   */
+
+  int nl_to_find = 2;
+  size_t nr;
+  size_t end_idx = 0;
+  for (nr = pending_texts->number; nr > 0; nr--)
     {
-      int nl_to_find = 2;
-      size_t nr;
-      size_t end_idx = 0;
-      for (nr = pending_texts->number; nr > 0; nr--)
+      PENDING_TEXT *pending_text = &pending_texts->list[nr -1];
+      TEXT *pending = &pending_text->text;
+      end_idx = pending->end;
+      while (nl_to_find && end_idx > 0)
         {
-          PENDING_TEXT *pending_text = &pending_texts->list[nr -1];
-          TEXT *pending = &pending_text->text;
-          end_idx = pending->end;
-          while (nl_to_find && end_idx > 0)
+          if (pending->text[end_idx -1] == '\n')
             {
-              if (pending->text[end_idx -1] == '\n')
-                {
-                  nl_to_find--;
-                  end_idx--;
-                }
-              else
-                break;
+              nl_to_find--;
+              end_idx--;
             }
-          if (end_idx > 0)
+          else
             break;
         }
-      if (nl_to_find > 0 && end_idx > 0)
-        {
-          stream_output (self, "\n");
-          add_lines_count (self, 1);
-        }
+      if (end_idx > 0)
+        break;
+    }
+  if (nl_to_find > 0 && end_idx > 0)
+    {
+      stream_output (self, "\n");
+      add_lines_count (self, 1);
     }
 }
 
@@ -1400,38 +1402,40 @@ ensure_end_of_line (CONVERTER *self)
         = top_(count_context) (&self_plaintext->count_context);
   PENDING_TEXT_LIST *pending_texts = &count_context->pending_text;
 
-  if (pending_texts->number > 0)
+   /*
+  if (pending_texts->number == 0)
+    fatal ("ensure_end_of_line: no pending text");
+   */
+
+  int with_anchor = 0;
+  size_t nr;
+  for (nr = pending_texts->number; nr > 0; nr--)
     {
-      int with_anchor = 0;
-      size_t nr;
-      for (nr = pending_texts->number; nr > 0; nr--)
+      PENDING_TEXT *pending_text = &pending_texts->list[nr -1];
+      TEXT *t_pending = &pending_text->text;
+      if (pending_text->anchor)
+        with_anchor = 1;
+      if (t_pending->end > 0)
         {
-          PENDING_TEXT *pending_text = &pending_texts->list[nr -1];
-          TEXT *t_pending = &pending_text->text;
-          if (pending_text->anchor)
-            with_anchor = 1;
-          if (t_pending->end > 0)
+          if (t_pending->text[t_pending->end -1] != '\n')
             {
-              if (t_pending->text[t_pending->end -1] != '\n')
+              TEXT_CONTEXT *text_element_context
+                = top_(text_element_context) (
+                          &self_plaintext->text_element_context);
+              if (!with_anchor)
+                text_append_n (t_pending, "\n", 1);
+              else
                 {
-                  TEXT_CONTEXT *text_element_context
-                    = top_(text_element_context) (
-                              &self_plaintext->text_element_context);
-                  if (!with_anchor)
-                    text_append_n (t_pending, "\n", 1);
-                  else
-                    {
        /* add new pending text to keep the anchor before the end of line */
-                      PENDING_TEXT new_nl = { 0 };
-                      text_init (&new_nl.text);
-                      text_append_n (&new_nl.text, "\n", 1);
-                      add_(pending_text) (pending_texts, new_nl);
-                    }
-                  add_lines_count (self, 1);
-                  text_element_context->counter = 0;
+                  PENDING_TEXT new_nl = { 0 };
+                  text_init (&new_nl.text);
+                  text_append_n (&new_nl.text, "\n", 1);
+                  add_(pending_text) (pending_texts, new_nl);
                 }
-              return;
+              add_lines_count (self, 1);
+              text_element_context->counter = 0;
             }
+          return;
         }
     }
 }
