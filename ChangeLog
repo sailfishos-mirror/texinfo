@@ -1,5 +1,15 @@
 2026-08-29 Patrice Dumas  <pertusus@free.fr>
 
+	Use C Info and Plaintext converters by default
+
+	* NEWS, tta/C/texi2any.c (main), tta/perl/t/formats_encodings.t
+	(at_commands_in_refs): always use the C plaintext and Info converters
+	if built.  Remove the TEXINFO_XS_INCOMPLETE environment variable use.
+
+	Regenerate Perl only test results.
+
+2026-08-29 Patrice Dumas  <pertusus@free.fr>
+
 	Encode string in test file reference and encode Info string upon reading
 
 	* tta/perl/t/test_utils.pl (protect_encode_string): add function that

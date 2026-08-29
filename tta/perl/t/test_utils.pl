@@ -281,6 +281,8 @@ sub protect_encode_string($) {
 # protect non ascii characters and special Perl characters in double quotes,
 # such that the resulting string is ASCII but contains the same encoded
 # information.
+# FIXME Unused.  Remove when it is clear that there is no issue with the
+# current way to deal with Info strings.
 sub protect_non_ascii($) {
   my $text = shift;
 
@@ -1345,8 +1347,8 @@ sub test($$) {
       $out_file = $srcdir.'/'.$file;
     }
     open(OUT, ">$out_file") or die "Open $out_file: $!\n";
-    # We encode each character string that is not ASCII such that we can output
-    # the Info strings that are already encoded.
+    # We encode each character string that is not ASCII separately such that
+    # we can easily output the Info strings that are already encoded.
     #binmode (OUT, ":encoding(utf8)");
     print OUT
      'use vars qw(%result_texis %result_texts %result_tree_text %result_errors'."\n".

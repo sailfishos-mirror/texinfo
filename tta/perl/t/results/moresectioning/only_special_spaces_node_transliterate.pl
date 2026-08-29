@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'only_special_spaces_node_transliterate'} = '*document_root C16
  *before_node_section C2
   *preamble_before_beginning C1
@@ -382,7 +384,7 @@ list:
 $result_headings_list{'only_special_spaces_node_transliterate'} = '';
 
 
-$result_converted{'info'}->{'only_special_spaces_node_transliterate'} = 'This is , produced from only_special_spaces_node.texi.
+$result_converted{'info'}->{'only_special_spaces_node_transliterate'} = Encode::encode('utf-8', 'This is , produced from only_special_spaces_node.texi.
 
 
 File: ,  Node: Top,  Next:    ,  Up: (dir)
@@ -430,10 +432,10 @@ File: ,  Node:          　,  Prev: ᠎ ,  Up: Top
 
 Tag Table:
 Node: Top56
-Node:    159
-Node:   436
-Node: ᠎ 520
-Node:          　611
+Node:    199
+Node:   488
+Node: ᠎ 581
+Node:          　702
 
 End Tag Table
 
@@ -441,7 +443,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-';
+');
 
 
 $result_converted{'html'}->{'only_special_spaces_node_transliterate'} = '<!DOCTYPE html>
