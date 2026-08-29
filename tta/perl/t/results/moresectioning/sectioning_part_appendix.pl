@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'sectioning_part_appendix'} = 'U0 unit{C2}{S:@top top}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS

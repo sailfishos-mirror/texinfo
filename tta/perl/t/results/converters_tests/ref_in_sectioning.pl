@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  *before_node_section C1
   *preamble_before_content C2
@@ -1076,7 +1078,7 @@ $result_converted{'latex_text'}->{'ref_in_sectioning'} = '
 ';
 
 
-$result_converted{'info'}->{'ref_in_sectioning'} = "This is , produced from .
+$result_converted{'info'}->{'ref_in_sectioning'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: node,  Up: (dir)
@@ -1107,7 +1109,7 @@ File: ,  Node: chap,  Prev: node,  Up: Top
 2.2 *note cross ref name: node. node, crossref arg2
 ===================================================
 
-2.3 *note \xe2\x80\x98title\xe2\x80\x99: node. code node, samptitle arg3
+2.3 *note ‘title’: node. code node, samptitle arg3
 ==================================================
 
 2.4 *note (file name)node:: code node, file name
@@ -1152,6 +1154,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 1;

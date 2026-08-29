@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'ref_to_top_in_anchor'} = '*document_root C2
  *before_node_section C1
   *preamble_before_content

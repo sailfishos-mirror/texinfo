@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'novalidate'} = '*document_root C2
  *before_node_section C2
   *preamble_before_beginning C1
@@ -100,7 +102,7 @@ $result_sectioning_root{'novalidate'} = '';
 $result_headings_list{'novalidate'} = '';
 
 
-$result_converted{'info'}->{'novalidate'} = "This is , produced from .
+$result_converted{'info'}->{'novalidate'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: first
@@ -121,7 +123,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'novalidate'} = '* W |document without Top node
  warning: document without Top node

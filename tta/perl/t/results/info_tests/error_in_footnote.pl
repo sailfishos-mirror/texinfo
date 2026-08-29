@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'error_in_footnote'} = '*document_root C2
  *before_node_section C2
   *preamble_before_beginning C1
@@ -148,7 +150,7 @@ $result_sectioning_root{'error_in_footnote'} = '';
 $result_headings_list{'error_in_footnote'} = '';
 
 
-$result_converted{'info'}->{'error_in_footnote'} = "This is , produced from .
+$result_converted{'info'}->{'error_in_footnote'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -185,7 +187,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'error_in_footnote'} = '* W l9|@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
  warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that

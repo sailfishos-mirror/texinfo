@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'novalidate_empty_refs'} = '*document_root C5
  *before_node_section C2
   *preamble_before_beginning C1
@@ -113,7 +115,7 @@ $result_sectioning_root{'novalidate_empty_refs'} = '';
 $result_headings_list{'novalidate_empty_refs'} = '';
 
 
-$result_converted{'info'}->{'novalidate_empty_refs'} = "This is , produced from .
+$result_converted{'info'}->{'novalidate_empty_refs'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -130,6 +132,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 1;

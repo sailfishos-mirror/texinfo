@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'double_recursive_self_section_reference_node_no_use_node'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content

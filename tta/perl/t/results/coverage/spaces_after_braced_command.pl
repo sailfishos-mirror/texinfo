@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'spaces_after_braced_command'} = '*document_root C1
  *before_node_section C11
   *preamble_before_content

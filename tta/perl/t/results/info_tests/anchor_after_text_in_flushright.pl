@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'anchor_after_text_in_flushright'} = '*document_root C2
  *before_node_section C1
   *preamble_before_content
@@ -71,7 +73,7 @@ $result_sectioning_root{'anchor_after_text_in_flushright'} = '';
 $result_headings_list{'anchor_after_text_in_flushright'} = '';
 
 
-$result_converted{'info'}->{'anchor_after_text_in_flushright'} = "This is , produced from .
+$result_converted{'info'}->{'anchor_after_text_in_flushright'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -89,6 +91,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 1;

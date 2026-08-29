@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'include_with_setfilename'} = '*document_root C1
  *before_node_section C2
   *preamble_before_setfilename C3
@@ -62,7 +64,7 @@ $result_sectioning_root{'include_with_setfilename'} = '';
 $result_headings_list{'include_with_setfilename'} = '';
 
 
-$result_converted{'info'}->{'include_with_setfilename'} = "This is include_with_setfilename.info, produced from .
+$result_converted{'info'}->{'include_with_setfilename'} = Encode::encode('utf-8', 'This is include_with_setfilename.info, produced from .
 
 
 Tag Table:
@@ -73,7 +75,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'include_with_setfilename'} = '* W |document without nodes
  warning: document without nodes

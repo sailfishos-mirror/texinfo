@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'no_colon_in_menu'} = '*document_root C2
  *before_node_section C1
   *preamble_before_content

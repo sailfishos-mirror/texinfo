@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'regenerate_master_menu_language_at_beginning_and_end'} = '*document_root C7
  *before_node_section C2
   *preamble_before_beginning C2
@@ -377,7 +379,7 @@ Chapter
 ';
 
 
-$result_converted{'info'}->{'regenerate_master_menu_language_at_beginning_and_end'} = "This is , produced from no_detailmenu_lang_at_begin_end.texi.
+$result_converted{'info'}->{'regenerate_master_menu_language_at_beginning_and_end'} = Encode::encode('utf-8', 'This is , produced from no_detailmenu_lang_at_begin_end.texi.
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -389,7 +391,7 @@ top
 
 * chap::
 
- -- \xd0\x94\xd0\xb5\xd1\x82\xd0\xb0\xd1\x99\xd0\xb0\xd0\xbd \xd1\x81\xd0\xbf\xd0\xb8\xd1\x81\xd0\xb0\xd0\xba \xd1\x87\xd0\xb2\xd0\xbe\xd1\x80\xd0\xbe\xd0\xb2\xd0\xb0 --
+ -- Детаљан списак чворова --
 
 Chapter
 
@@ -425,6 +427,6 @@ coding: utf-8
 Info-documentlanguage: sr
 Info-documentscript: latin
 End:
-";
+');
 
 1;

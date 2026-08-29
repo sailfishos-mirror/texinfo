@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'double_top'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
@@ -106,7 +108,7 @@ $result_sectioning_root{'double_top'} = '';
 $result_headings_list{'double_top'} = '';
 
 
-$result_converted{'info'}->{'double_top'} = "This is , produced from .
+$result_converted{'info'}->{'double_top'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: Top,  Up: (dir)
@@ -123,7 +125,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'html'}->{'double_top'} = '<!DOCTYPE html>

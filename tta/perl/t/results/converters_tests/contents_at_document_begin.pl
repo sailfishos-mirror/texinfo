@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'contents_at_document_begin'} = '*document_root C6
  *before_node_section C2
   *preamble_before_beginning C2
@@ -296,7 +298,7 @@ The chapter
 ';
 
 
-$result_converted{'info'}->{'contents_at_document_begin'} = "This is , produced from contents_at_document_begin.texi.
+$result_converted{'info'}->{'contents_at_document_begin'} = Encode::encode('utf-8', 'This is , produced from contents_at_document_begin.texi.
 
 
 File: ,  Node: Top,  Next: chapter,  Up: (dir)
@@ -329,6 +331,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 1;

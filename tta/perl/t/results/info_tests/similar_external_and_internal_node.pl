@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'similar_external_and_internal_node'} = '*document_root C2
  *before_node_section C1
   *preamble_before_content
@@ -114,7 +116,7 @@ $result_sectioning_root{'similar_external_and_internal_node'} = '';
 $result_headings_list{'similar_external_and_internal_node'} = '';
 
 
-$result_converted{'info'}->{'similar_external_and_internal_node'} = "This is , produced from .
+$result_converted{'info'}->{'similar_external_and_internal_node'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: aa,  Next: (toto)bb
@@ -131,7 +133,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'similar_external_and_internal_node'} = '* W |document without Top node
  warning: document without Top node

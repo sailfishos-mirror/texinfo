@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
  *before_node_section C1
   *preamble_before_content
@@ -303,7 +305,7 @@ Sec
 ';
 
 
-$result_converted{'info'}->{'test_insert_nodes_nodedescription'} = "This is , produced from .
+$result_converted{'info'}->{'test_insert_nodes_nodedescription'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: Chap,  Up: (dir)
@@ -364,6 +366,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 1;

@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'simple_only_special_spaces_node_test_split_section'} = 'U0 unit{C3}{S:@top top}{n:Top}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS

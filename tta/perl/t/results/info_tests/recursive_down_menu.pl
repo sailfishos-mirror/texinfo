@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'recursive_down_menu'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
@@ -210,7 +212,7 @@ $result_converted_errors{'html'}->{'recursive_down_menu'} = '* W l4|node `chapN\
 ';
 
 
-$result_converted{'info'}->{'recursive_down_menu'} = "This is , produced from .
+$result_converted{'info'}->{'recursive_down_menu'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: chapN,  Up: (dir)
@@ -249,7 +251,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'recursive_down_menu'} = '* W l4|node `chapN\' appears in its own menus
  warning: node `chapN\' appears in its own menus

@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C11
  *before_node_section C1
   *preamble_before_content C4
@@ -311,7 +313,7 @@ Privitak A App
 ';
 
 
-$result_converted{'info'}->{'documentlanguage_generated_master_menu'} = "This is , produced from .
+$result_converted{'info'}->{'documentlanguage_generated_master_menu'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: chapter,  Up: (dir)
@@ -365,7 +367,7 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: de
 End:
-";
+');
 
 
 $result_converted{'html'}->{'documentlanguage_generated_master_menu'} = '<!DOCTYPE html>

@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'spaces_in_empty_node_names'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
@@ -291,7 +293,7 @@ $result_converted{'latex_text'}->{'spaces_in_empty_node_names'} = '\\begin{docum
 ';
 
 
-$result_converted{'info'}->{'spaces_in_empty_node_names'} = "This is , produced from .
+$result_converted{'info'}->{'spaces_in_empty_node_names'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -318,6 +320,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 1;

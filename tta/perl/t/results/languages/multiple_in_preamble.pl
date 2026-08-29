@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'multiple_in_preamble'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content C6
@@ -325,10 +327,10 @@ $result_converted_sort_strings{'plaintext'}->{'multiple_in_preamble'} = 'vr:
 ';
 
 
-$result_converted{'info'}->{'multiple_in_preamble'} = "This is , produced from .
+$result_converted{'info'}->{'multiple_in_preamble'} = Encode::encode('utf-8', 'This is , produced from .
 
  -- Variable d\'instance de copying : a b
-     erreur\xe2\x86\x92
+     erreur→
 
 
 File: ,  Node: Top,  Next: chapter,  Up: (dir)
@@ -347,7 +349,7 @@ File: ,  Node: chapter,  Prev: Top,  Up: Top
 ******
 
  -- Variable d\'instance de hr : BBB CCC
-     erreur\xe2\x86\x92
+     erreur→
 
  -- Instanzvariable of de: FFF GGG
 
@@ -363,7 +365,7 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: fr_BE
 End:
-";
+');
 
 $result_converted_sort_strings{'info'}->{'multiple_in_preamble'} = 'vr:
  a od copying

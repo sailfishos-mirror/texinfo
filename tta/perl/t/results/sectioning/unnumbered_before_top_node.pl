@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'unnumbered_before_top_node'} = 'U0 unit{C3}{S:@unnumbered before nodes}
 UNIT_DIRECTIONS
 This: [U0]
@@ -78,7 +80,7 @@ list:
 $result_headings_list{'unnumbered_before_top_node'} = '';
 
 
-$result_converted{'info'}->{'unnumbered_before_top_node'} = "This is , produced from .
+$result_converted{'info'}->{'unnumbered_before_top_node'} = Encode::encode('utf-8', 'This is , produced from .
 
 before nodes
 ************
@@ -101,7 +103,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'html'}->{'unnumbered_before_top_node'} = '<!DOCTYPE html>

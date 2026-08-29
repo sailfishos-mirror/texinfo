@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'unknown_language'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content C2
@@ -180,7 +182,7 @@ Unknown language.  See Top.
 ';
 
 
-$result_converted{'info'}->{'unknown_language'} = "This is , produced from .
+$result_converted{'info'}->{'unknown_language'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: chapter,  Up: (dir)
@@ -214,7 +216,7 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: unknown
 End:
-";
+');
 
 
 $result_converted{'html'}->{'unknown_language'} = '<!DOCTYPE html>

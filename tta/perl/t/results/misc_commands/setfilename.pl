@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'setfilename'} = '*document_root C1
  *before_node_section C1
   *preamble_before_content C5
@@ -189,7 +191,7 @@ $result_converted{'docbook'}->{'setfilename'} = '
 ';
 
 
-$result_converted{'info'}->{'setfilename'} = "This is file_comment, produced from .
+$result_converted{'info'}->{'setfilename'} = Encode::encode('utf-8', 'This is file_comment, produced from .
 
 
 Tag Table:
@@ -200,7 +202,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'setfilename'} = '* W |document without nodes
  warning: document without nodes

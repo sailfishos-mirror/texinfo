@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'cpp_lines'} = '*document_root C4
  *before_node_section C4
   *preamble_before_setfilename C1

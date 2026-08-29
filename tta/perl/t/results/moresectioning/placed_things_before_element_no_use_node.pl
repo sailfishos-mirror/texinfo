@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root C2
  *before_node_section C18
   *preamble_before_content
@@ -257,7 +259,7 @@ $result_indices_sort_strings{'placed_things_before_element_no_use_node'} = 'cp:
 ';
 
 
-$result_converted{'info'}->{'placed_things_before_element_no_use_node'} = "This is , produced from .
+$result_converted{'info'}->{'placed_things_before_element_no_use_node'} = Encode::encode('utf-8', 'This is , produced from .
 
 Ref to the anchor: *note An anchor::
 
@@ -299,7 +301,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_sort_strings{'info'}->{'placed_things_before_element_no_use_node'} = 'cp:
  index entry

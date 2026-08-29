@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
  *before_node_section C2
   *preamble_before_beginning C1
@@ -215,35 +217,35 @@ list:
 $result_headings_list{'reference_to_only_special_spaces_node'} = '';
 
 
-$result_converted{'info'}->{'reference_to_only_special_spaces_node'} = "This is , produced from reference_to_only_special_spaces_node.texi.
+$result_converted{'info'}->{'reference_to_only_special_spaces_node'} = Encode::encode('utf-8', 'This is , produced from reference_to_only_special_spaces_node.texi.
 
 
-File: ,  Node: Top,  Next: \xe2\x80\x80\xe2\x80\x81\xe2\x80\x82,  Up: (dir)
+File: ,  Node: Top,  Next:    ,  Up: (dir)
 
 top
 ***
 
 * Menu:
 
-* \xe2\x80\x80\xe2\x80\x81\xe2\x80\x82::
+*    ::
 
 
-File: ,  Node: \xe2\x80\x80\xe2\x80\x81\xe2\x80\x82,  Next: \xe2\x80\x80\xe2\x80\x81\xe2\x80\x82,  Prev: Top,  Up: Top
+File: ,  Node:    ,  Next:    ,  Prev: Top,  Up: Top
 
-1 EN QUAD|\xe2\x80\x80| EM QUAD|\xe2\x80\x81| EN SPACE|\xe2\x80\x82|
+1 EN QUAD| | EM QUAD| | EN SPACE| |
 ***********************************
 
-*note \xe2\x80\x80\xe2\x80\x81\xe2\x80\x82: \xe2\x80\x80\xe2\x80\x81\xe2\x80\x82.
+*note    :    .
 
-2 \xe2\x80\x98EN QUAD|\xe2\x80\x80| EM QUAD|\xe2\x80\x81| EN SPACE|\xe2\x80\x82|\xe2\x80\x99
+2 ‘EN QUAD| | EM QUAD| | EN SPACE| |’
 *************************************
 
-*note \xe2\x80\x98\xe2\x80\x80\xe2\x80\x81\xe2\x80\x82\xe2\x80\x99: \xe2\x80\x80\xe2\x80\x81\xe2\x80\x82.
+*note ‘   ’:    .
 
 
 Tag Table:
 Node: Top69
-Node: \xe2\x80\x80\xe2\x80\x81\xe2\x80\x82154
+Node:    154
 
 End Tag Table
 
@@ -251,7 +253,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'html'}->{'reference_to_only_special_spaces_node'} = '<!DOCTYPE html>

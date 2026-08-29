@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'one_subsection_and_node'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
@@ -61,7 +63,7 @@ list:
 $result_headings_list{'one_subsection_and_node'} = '';
 
 
-$result_converted{'info'}->{'one_subsection_and_node'} = "This is , produced from .
+$result_converted{'info'}->{'one_subsection_and_node'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: one node
@@ -79,7 +81,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'one_subsection_and_node'} = '* W |document without Top node
  warning: document without Top node

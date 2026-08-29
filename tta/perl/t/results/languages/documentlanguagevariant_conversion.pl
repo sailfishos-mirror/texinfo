@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'documentlanguagevariant_conversion'} = '*document_root C5
  *before_node_section C2
   *preamble_before_beginning C1
@@ -469,7 +471,7 @@ $result_converted_sort_strings{'plaintext'}->{'documentlanguagevariant_conversio
 ';
 
 
-$result_converted{'info'}->{'documentlanguagevariant_conversion'} = "This is , produced from .
+$result_converted{'info'}->{'documentlanguagevariant_conversion'} = Encode::encode('utf-8', 'This is , produced from .
 
  -- p_V1234-Instance Variable of SSS: p_V1234-BBB CCC
 
@@ -514,7 +516,7 @@ coding: utf-8
 Info-documentlanguage: qaa
 Info-documentlanguagevariant: 1234
 End:
-";
+');
 
 $result_converted_sort_strings{'info'}->{'documentlanguagevariant_conversion'} = 'vr:
  BBB of SSS

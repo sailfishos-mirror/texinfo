@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'double_part'} = 'U0 unit{C3}{S:@top top}{n:Top}
 unit_directions:D[next->[U1]|page->[U0]]
 UNIT_DIRECTIONS

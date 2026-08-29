@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
  *before_node_section C1
   *preamble_before_content C2
@@ -517,7 +519,7 @@ $result_converted{'docbook_doc'}->{'comment_space_command_on_line'} = '<?xml ver
 ';
 
 
-$result_converted{'info'}->{'comment_space_command_on_line'} = "This is , produced from .
+$result_converted{'info'}->{'comment_space_command_on_line'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -559,7 +561,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_sort_strings{'info'}->{'comment_space_command_on_line'} = 'cp:
  index entry  

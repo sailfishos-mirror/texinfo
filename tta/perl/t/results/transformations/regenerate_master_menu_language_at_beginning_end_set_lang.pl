@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'regenerate_master_menu_language_at_beginning_end_set_lang'} = '*document_root C7
  *before_node_section C2
   *preamble_before_beginning C2
@@ -377,7 +379,7 @@ Chapter
 ';
 
 
-$result_converted{'info'}->{'regenerate_master_menu_language_at_beginning_end_set_lang'} = "This is , produced from no_detailmenu_lang_at_begin_end.texi.
+$result_converted{'info'}->{'regenerate_master_menu_language_at_beginning_end_set_lang'} = Encode::encode('utf-8', 'This is , produced from no_detailmenu_lang_at_begin_end.texi.
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -389,7 +391,7 @@ top
 
 * chap::
 
- -- Szczeg\xc3\xb3\xc5\x82owa lista w\xc4\x99z\xc5\x82\xc3\xb3w --
+ -- Szczegółowa lista węzłów --
 
 Chapter
 
@@ -425,6 +427,6 @@ coding: utf-8
 Info-documentlanguage: pl
 Info-documentscript: latin
 End:
-";
+');
 
 1;

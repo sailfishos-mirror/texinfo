@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'footnote_no_number'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
@@ -216,7 +218,7 @@ Para2\\footnote{Footnote 2.}.
 ';
 
 
-$result_converted{'info'}->{'footnote_no_number'} = "This is , produced from .
+$result_converted{'info'}->{'footnote_no_number'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -257,6 +259,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 1;

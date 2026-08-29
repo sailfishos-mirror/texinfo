@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'multitable_bracketed_prototype_empty_spaces_not_closed'} = '*document_root C1
  *before_node_section C3
   *preamble_before_beginning C1

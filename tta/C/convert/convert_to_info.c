@@ -1299,6 +1299,8 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
                 }
             }
           stream_output_add_text (self, ".");
+          /* the added full stop is there to have valid Info, but does not
+             end a sentence */
           para_remove_end_sentence ();
         }
     }

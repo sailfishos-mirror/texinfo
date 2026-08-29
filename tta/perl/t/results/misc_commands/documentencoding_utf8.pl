@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'documentencoding_utf8'} = '*document_root C1
  *before_node_section C1
   *preamble_before_content C2
@@ -138,7 +140,7 @@ $result_converted{'latex'}->{'documentencoding_utf8'} = '\\documentclass{book}
 ';
 
 
-$result_converted{'info'}->{'documentencoding_utf8'} = "This is , produced from .
+$result_converted{'info'}->{'documentencoding_utf8'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 Tag Table:
@@ -149,7 +151,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'documentencoding_utf8'} = '* W |document without nodes
  warning: document without nodes

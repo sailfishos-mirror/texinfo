@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'explicit_node_directions'} = 'U0 unit{C2}{N:Top}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
@@ -184,7 +186,7 @@ $result_sectioning_root{'explicit_node_directions'} = '';
 $result_headings_list{'explicit_node_directions'} = '';
 
 
-$result_converted{'info'}->{'explicit_node_directions'} = "This is , produced from .
+$result_converted{'info'}->{'explicit_node_directions'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap node,  Up: (dir)
@@ -215,7 +217,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'html'}->{'explicit_node_directions'} = '<!DOCTYPE html>

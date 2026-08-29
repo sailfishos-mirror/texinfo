@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'image_extension'} = '*document_root C1
  *before_node_section C3
   *preamble_before_content
@@ -82,7 +84,7 @@ $result_converted_errors{'latex_text'}->{'image_extension'} = '* W l1|@image fil
 ';
 
 
-$result_converted{'info'}->{'image_extension'} = "This is , produced from .
+$result_converted{'info'}->{'image_extension'} = Encode::encode('utf-8', 'This is , produced from .
 
 [f---ile]
 
@@ -94,7 +96,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'image_extension'} = '* W |document without nodes
  warning: document without nodes

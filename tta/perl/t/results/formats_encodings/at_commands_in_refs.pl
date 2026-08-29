@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'at_commands_in_refs'} = '*document_root C63
  *before_node_section C1
   *preamble_before_content
@@ -5166,7 +5168,7 @@ $result_converted_errors{'latex_text'}->{'at_commands_in_refs'} = '* W l88|@imag
 ';
 
 
-$result_converted{'info'}->{'at_commands_in_refs'} = "This is , produced from .
+$result_converted{'info'}->{'at_commands_in_refs'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: { },  Up: (dir)
@@ -5177,25 +5179,25 @@ Top
 * Menu:
 
 *  { }::
-*     !   .  . ? \@::
-* \@ { } \\ #::
+*     !   .  . ? @::
+* @ { } \\ #::
 * LaTeX TeX , ... ...::
-* error\xe2\x86\x92 \xe2\x82\xac \xc2\xa1::
-* \xc2\xaa \xc2\xba \xc2\xbf::
-* a b a sunny day \xc3\xa5::
-* \xc3\x85 \xc3\xa6 \xc5\x93 \xc3\x86 \xc5\x92 \xc3\xb8 \xc3\x98 \xc3\x9f \xc5\x82 \xc5\x81 \xc3\x90 \xc3\xb0 \xc3\xbe::
-* \xc3\xa4 \xe1\xba\xbd \xc3\xae \xc3\xa2 \xc3\xa0 \xc3\xa9 \xc3\xa7 \xc4\x93 e\xcc\x8a e\xcc\x8b \xc4\x99::
-* \xc4\x97 \xc4\x95 e\xcc\xb2 \xe1\xba\xb9 \xc4\x9b \xc8\xb7 e\xcd\xa1e::
-* \xc4\xb1 \xe1\xb8\x94 \xe1\xb8\x88::
-* \xe2\x80\x9c \xe2\x80\x9d \xe2\x80\x98 \xe2\x80\x99 \xe2\x80\x9e \xe2\x80\x9a::
-* \xc2\xab \xc2\xbb \xc2\xab \xc2\xbb \xe2\x80\xb9 \xe2\x80\xba::
+* error→ € ¡::
+* ª º ¿::
+* a b a sunny day å::
+* Å æ œ Æ Œ ø Ø ß ł Ł Ð ð þ::
+* ä ẽ î â à é ç ē e̊ e̋ ę::
+* ė ĕ e̲ ẹ ě ȷ e͡e::
+* ı Ḕ Ḉ::
+* “ ” ‘ ’ „ ‚::
+* « » « » ‹ ›::
 * `` \'\' --- -- ` \'::
 * AAA (fff) AAA BBB::
 * CCC (rrr) CCC DDD::
-* the someone <someone\@somewher> <no_explain\@there>::
-* [f--ile1]   [image src=\"f--ile.png\" alt=\"alt\" text=\"Image description\\\"\\\"\\\\.\" ]::
-*  \@ {} . ::
-* cite asis in \@w b in r SC *str* t VAR dfn i::
+* the someone <someone@somewher> <no_explain@there>::
+* [f--ile1]   [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]::
+*  @ {} . ::
+* cite asis in @w b in r SC *str* t VAR dfn i::
 * env code option samp command file C-x <ESC>::
 * 8.27in::
 * sansserif slanted::
@@ -5204,88 +5206,88 @@ Top
 * <http://somewhere_aaa> text (url) ls::
 
 
-File: ,  Node: { },  Next:     ! . . ? \@,  Prev: Top,  Up: Top
+File: ,  Node: { },  Next:     ! . . ? @,  Prev: Top,  Up: Top
 
 1 { }
 *****
 
 
-File: ,  Node:     ! . . ? \@,  Next: \@ { } \\ #,  Prev: { },  Up: Top
+File: ,  Node:     ! . . ? @,  Next: @ { } \\ #,  Prev: { },  Up: Top
 
 2     !
-. . ? \@
+. . ? @
 *******
 
 
-File: ,  Node: \@ { } \\ #,  Next: LaTeX TeX , ... ...,  Prev:     ! . . ? \@,  Up: Top
+File: ,  Node: @ { } \\ #,  Next: LaTeX TeX , ... ...,  Prev:     ! . . ? @,  Up: Top
 
-3 \@ { } \\ #
+3 @ { } \\ #
 ***********
 
 
-File: ,  Node: LaTeX TeX , ... ...,  Next: error\xe2\x86\x92 \xe2\x82\xac \xc2\xa1,  Prev: \@ { } \\ #,  Up: Top
+File: ,  Node: LaTeX TeX , ... ...,  Next: error→ € ¡,  Prev: @ { } \\ #,  Up: Top
 
 4 LaTeX TeX , ... ...
 *********************
 
 
-File: ,  Node: error\xe2\x86\x92 \xe2\x82\xac \xc2\xa1,  Next: \xc2\xaa \xc2\xba \xc2\xbf,  Prev: LaTeX TeX , ... ...,  Up: Top
+File: ,  Node: error→ € ¡,  Next: ª º ¿,  Prev: LaTeX TeX , ... ...,  Up: Top
 
-5 error\xe2\x86\x92 \xe2\x82\xac \xc2\xa1
+5 error→ € ¡
 ************
 
 
-File: ,  Node: \xc2\xaa \xc2\xba \xc2\xbf,  Next: a b a sunny day \xc3\xa5,  Prev: error\xe2\x86\x92 \xe2\x82\xac \xc2\xa1,  Up: Top
+File: ,  Node: ª º ¿,  Next: a b a sunny day å,  Prev: error→ € ¡,  Up: Top
 
-6 \xc2\xaa \xc2\xba \xc2\xbf
+6 ª º ¿
 *******
 
 
-File: ,  Node: a b a sunny day \xc3\xa5,  Next: \xc3\x85 \xc3\xa6 \xc5\x93 \xc3\x86 \xc5\x92 \xc3\xb8 \xc3\x98 \xc3\x9f \xc5\x82 \xc5\x81 \xc3\x90 \xc3\xb0 \xc3\xbe,  Prev: \xc2\xaa \xc2\xba \xc2\xbf,  Up: Top
+File: ,  Node: a b a sunny day å,  Next: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð þ,  Prev: ª º ¿,  Up: Top
 
-7 a b a sunny day \xc3\xa5
+7 a b a sunny day å
 *******************
 
 
-File: ,  Node: \xc3\x85 \xc3\xa6 \xc5\x93 \xc3\x86 \xc5\x92 \xc3\xb8 \xc3\x98 \xc3\x9f \xc5\x82 \xc5\x81 \xc3\x90 \xc3\xb0 \xc3\xbe,  Next: \xc3\xa4 \xe1\xba\xbd \xc3\xae \xc3\xa2 \xc3\xa0 \xc3\xa9 \xc3\xa7 \xc4\x93 e\xcc\x8a e\xcc\x8b \xc4\x99,  Prev: a b a sunny day \xc3\xa5,  Up: Top
+File: ,  Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð þ,  Next: ä ẽ î â à é ç ē e̊ e̋ ę,  Prev: a b a sunny day å,  Up: Top
 
-8 \xc3\x85 \xc3\xa6 \xc5\x93 \xc3\x86 \xc5\x92 \xc3\xb8 \xc3\x98 \xc3\x9f \xc5\x82 \xc5\x81 \xc3\x90 \xc3\xb0 \xc3\xbe
+8 Å æ œ Æ Œ ø Ø ß ł Ł Ð ð þ
 ***************************
 
 
-File: ,  Node: \xc3\xa4 \xe1\xba\xbd \xc3\xae \xc3\xa2 \xc3\xa0 \xc3\xa9 \xc3\xa7 \xc4\x93 e\xcc\x8a e\xcc\x8b \xc4\x99,  Next: \xc4\x97 \xc4\x95 e\xcc\xb2 \xe1\xba\xb9 \xc4\x9b \xc8\xb7 e\xcd\xa1e,  Prev: \xc3\x85 \xc3\xa6 \xc5\x93 \xc3\x86 \xc5\x92 \xc3\xb8 \xc3\x98 \xc3\x9f \xc5\x82 \xc5\x81 \xc3\x90 \xc3\xb0 \xc3\xbe,  Up: Top
+File: ,  Node: ä ẽ î â à é ç ē e̊ e̋ ę,  Next: ė ĕ e̲ ẹ ě ȷ e͡e,  Prev: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð þ,  Up: Top
 
-9 \xc3\xa4 \xe1\xba\xbd \xc3\xae \xc3\xa2 \xc3\xa0 \xc3\xa9 \xc3\xa7 \xc4\x93 e\xcc\x8a e\xcc\x8b \xc4\x99
+9 ä ẽ î â à é ç ē e̊ e̋ ę
 ***********************
 
 
-File: ,  Node: \xc4\x97 \xc4\x95 e\xcc\xb2 \xe1\xba\xb9 \xc4\x9b \xc8\xb7 e\xcd\xa1e,  Next: \xc4\xb1 \xe1\xb8\x94 \xe1\xb8\x88,  Prev: \xc3\xa4 \xe1\xba\xbd \xc3\xae \xc3\xa2 \xc3\xa0 \xc3\xa9 \xc3\xa7 \xc4\x93 e\xcc\x8a e\xcc\x8b \xc4\x99,  Up: Top
+File: ,  Node: ė ĕ e̲ ẹ ě ȷ e͡e,  Next: ı Ḕ Ḉ,  Prev: ä ẽ î â à é ç ē e̊ e̋ ę,  Up: Top
 
-10 \xc4\x97 \xc4\x95 e\xcc\xb2 \xe1\xba\xb9 \xc4\x9b \xc8\xb7 e\xcd\xa1e
+10 ė ĕ e̲ ẹ ě ȷ e͡e
 *****************
 
 
-File: ,  Node: \xc4\xb1 \xe1\xb8\x94 \xe1\xb8\x88,  Next: \xe2\x80\x9c \xe2\x80\x9d \xe2\x80\x98 \xe2\x80\x99 \xe2\x80\x9e \xe2\x80\x9a,  Prev: \xc4\x97 \xc4\x95 e\xcc\xb2 \xe1\xba\xb9 \xc4\x9b \xc8\xb7 e\xcd\xa1e,  Up: Top
+File: ,  Node: ı Ḕ Ḉ,  Next: “ ” ‘ ’ „ ‚,  Prev: ė ĕ e̲ ẹ ě ȷ e͡e,  Up: Top
 
-11 \xc4\xb1 \xe1\xb8\x94 \xe1\xb8\x88
+11 ı Ḕ Ḉ
 ********
 
 
-File: ,  Node: \xe2\x80\x9c \xe2\x80\x9d \xe2\x80\x98 \xe2\x80\x99 \xe2\x80\x9e \xe2\x80\x9a,  Next: \xc2\xab \xc2\xbb \xc2\xab \xc2\xbb \xe2\x80\xb9 \xe2\x80\xba,  Prev: \xc4\xb1 \xe1\xb8\x94 \xe1\xb8\x88,  Up: Top
+File: ,  Node: “ ” ‘ ’ „ ‚,  Next: « » « » ‹ ›,  Prev: ı Ḕ Ḉ,  Up: Top
 
-12 \xe2\x80\x9c \xe2\x80\x9d \xe2\x80\x98 \xe2\x80\x99 \xe2\x80\x9e \xe2\x80\x9a
+12 “ ” ‘ ’ „ ‚
 **************
 
 
-File: ,  Node: \xc2\xab \xc2\xbb \xc2\xab \xc2\xbb \xe2\x80\xb9 \xe2\x80\xba,  Next: `` \'\' --- -- ` \',  Prev: \xe2\x80\x9c \xe2\x80\x9d \xe2\x80\x98 \xe2\x80\x99 \xe2\x80\x9e \xe2\x80\x9a,  Up: Top
+File: ,  Node: « » « » ‹ ›,  Next: `` \'\' --- -- ` \',  Prev: “ ” ‘ ’ „ ‚,  Up: Top
 
-13 \xc2\xab \xc2\xbb \xc2\xab \xc2\xbb \xe2\x80\xb9 \xe2\x80\xba
+13 « » « » ‹ ›
 **************
 
 
-File: ,  Node: `` \'\' --- -- ` \',  Next: AAA (fff) AAA BBB,  Prev: \xc2\xab \xc2\xbb \xc2\xab \xc2\xbb \xe2\x80\xb9 \xe2\x80\xba,  Up: Top
+File: ,  Node: `` \'\' --- -- ` \',  Next: AAA (fff) AAA BBB,  Prev: « » « » ‹ ›,  Up: Top
 
-14 \" \" -- - \' \'
+14 " " -- - \' \'
 ***************
 
 
@@ -5295,39 +5297,39 @@ File: ,  Node: AAA (fff) AAA BBB,  Next: CCC (rrr) CCC DDD,  Prev: `` \'\' --- -
 ********************
 
 
-File: ,  Node: CCC (rrr) CCC DDD,  Next: the someone <someone\@somewher> <no_explain\@there>,  Prev: AAA (fff) AAA BBB,  Up: Top
+File: ,  Node: CCC (rrr) CCC DDD,  Next: the someone <someone@somewher> <no_explain@there>,  Prev: AAA (fff) AAA BBB,  Up: Top
 
 16 CCC (rrr) CCC DDD
 ********************
 
 
-File: ,  Node: the someone <someone\@somewher> <no_explain\@there>,  Next: [f--ile1]  [image src=\"f--ile.png\" alt=\"alt\" text=\"Image description\\\"\\\"\\\\.\" ],  Prev: CCC (rrr) CCC DDD,  Up: Top
+File: ,  Node: the someone <someone@somewher> <no_explain@there>,  Next: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ],  Prev: CCC (rrr) CCC DDD,  Up: Top
 
-17 the someone <someone\@somewher> <no_explain\@there>
+17 the someone <someone@somewher> <no_explain@there>
 ****************************************************
 
 
-File: ,  Node: [f--ile1]  [image src=\"f--ile.png\" alt=\"alt\" text=\"Image description\\\"\\\"\\\\.\" ],  Next:  \@ {} . ,  Prev: the someone <someone\@somewher> <no_explain\@there>,  Up: Top
+File: ,  Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ],  Next:  @ {} . ,  Prev: the someone <someone@somewher> <no_explain@there>,  Up: Top
 
-18 [f--ile1]  [image src=\"f--ile.png\" alt=\"alt\" text=\"Image description\\\"\\\"\\\\.\" ]
+18 [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]
 **********
 
 
-File: ,  Node:  \@ {} . ,  Next: cite asis in \@w b in r SC *str* t VAR dfn i,  Prev: [f--ile1]  [image src=\"f--ile.png\" alt=\"alt\" text=\"Image description\\\"\\\"\\\\.\" ],  Up: Top
+File: ,  Node:  @ {} . ,  Next: cite asis in @w b in r SC *str* t VAR dfn i,  Prev: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ],  Up: Top
 
-19  \@ {} . 
+19  @ {} . 
 ***********
 
 
-File: ,  Node: cite asis in \@w b in r SC *str* t VAR dfn i,  Next: env code option samp command file C-x <ESC>,  Prev:  \@ {} . ,  Up: Top
+File: ,  Node: cite asis in @w b in r SC *str* t VAR dfn i,  Next: env code option samp command file C-x <ESC>,  Prev:  @ {} . ,  Up: Top
 
-20 \xe2\x80\x98cite asis\xe2\x80\x99 in \@w b in r SC *str* t VAR \xe2\x80\x9cdfn\xe2\x80\x9d i
+20 ‘cite asis’ in @w b in r SC *str* t VAR “dfn” i
 **************************************************
 
 
-File: ,  Node: env code option samp command file C-x <ESC>,  Next: 8.27in,  Prev: cite asis in \@w b in r SC *str* t VAR dfn i,  Up: Top
+File: ,  Node: env code option samp command file C-x <ESC>,  Next: 8.27in,  Prev: cite asis in @w b in r SC *str* t VAR dfn i,  Up: Top
 
-21 \xe2\x80\x98env\xe2\x80\x99 \xe2\x80\x98code\xe2\x80\x99 \xe2\x80\x98option\xe2\x80\x99 \xe2\x80\x98samp\xe2\x80\x99 \xe2\x80\x98command\xe2\x80\x99 \xe2\x80\x98file\xe2\x80\x99 \xe2\x80\x98C-x <ESC>\xe2\x80\x99
+21 ‘env’ ‘code’ ‘option’ ‘samp’ ‘command’ ‘file’ ‘C-x <ESC>’
 ************************************************************
 
 
@@ -5345,7 +5347,7 @@ File: ,  Node: sansserif slanted,  Next: indicateurl,  Prev: 8.27in,  Up: Top
 
 File: ,  Node: indicateurl,  Next: _{g}H 3^{rd},  Prev: sansserif slanted,  Up: Top
 
-24 \xe2\x80\x98indicateurl\xe2\x80\x99
+24 ‘indicateurl’
 ****************
 
 
@@ -5363,29 +5365,29 @@ File: ,  Node: <http://somewhere_aaa> text (url) ls,  Prev: _{g}H 3^{rd},  Up: T
 *note { }::
 
    *note     !
-. . ? \@::
+. . ? @::
 
-   *note \@ { } \\ #::
+   *note @ { } \\ #::
 
    *note LaTeX TeX , ... ...::
 
-   *note error\xe2\x86\x92 \xe2\x82\xac \xc2\xa1::
+   *note error→ € ¡::
 
-   *note \xc2\xaa \xc2\xba \xc2\xbf::
+   *note ª º ¿::
 
-   *note a b a sunny day \xc3\xa5::
+   *note a b a sunny day å::
 
-   *note \xc3\x85 \xc3\xa6 \xc5\x93 \xc3\x86 \xc5\x92 \xc3\xb8 \xc3\x98 \xc3\x9f \xc5\x82 \xc5\x81 \xc3\x90 \xc3\xb0 \xc3\xbe::
+   *note Å æ œ Æ Œ ø Ø ß ł Ł Ð ð þ::
 
-   *note \xc3\xa4 \xe1\xba\xbd \xc3\xae \xc3\xa2 \xc3\xa0 \xc3\xa9 \xc3\xa7 \xc4\x93 e\xcc\x8a e\xcc\x8b \xc4\x99::
+   *note ä ẽ î â à é ç ē e̊ e̋ ę::
 
-   *note \xc4\x97 \xc4\x95 e\xcc\xb2 \xe1\xba\xb9 \xc4\x9b \xc8\xb7 e\xcd\xa1e::
+   *note ė ĕ e̲ ẹ ě ȷ e͡e::
 
-   *note \xc4\xb1 \xe1\xb8\x94 \xe1\xb8\x88::
+   *note ı Ḕ Ḉ::
 
-   *note \xe2\x80\x9c \xe2\x80\x9d \xe2\x80\x98 \xe2\x80\x99 \xe2\x80\x9e \xe2\x80\x9a::
+   *note “ ” ‘ ’ „ ‚::
 
-   *note \xc2\xab \xc2\xbb \xc2\xab \xc2\xbb \xe2\x80\xb9 \xe2\x80\xba::
+   *note « » « » ‹ ›::
 
    *note `` \'\' --- -- ` \'::
 
@@ -5393,13 +5395,13 @@ File: ,  Node: <http://somewhere_aaa> text (url) ls,  Prev: _{g}H 3^{rd},  Up: T
 
    *note CCC (rrr) CCC DDD::
 
-   *note the someone <someone\@somewher> <no_explain\@there>::
+   *note the someone <someone@somewher> <no_explain@there>::
 
-   *note [f--ile1]  [image src=\"f--ile.png\" alt=\"alt\" text=\"Image description\\\"\\\"\\\\.\" ]::
+   *note [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]::
 
-   *note  \@ {} . ::
+   *note  @ {} . ::
 
-   *note cite asis in \@w b in r SC *str* t VAR dfn i::
+   *note cite asis in @w b in r SC *str* t VAR dfn i::
 
    *note env code option samp command file C-x <ESC>::
 
@@ -5413,78 +5415,78 @@ File: ,  Node: <http://somewhere_aaa> text (url) ls,  Prev: _{g}H 3^{rd},  Up: T
 
    *note <http://somewhere_aaa> text (url) ls::
 
-   *note \xe2\x80\xa2 \xc2\xa9 \xe2\x89\xa1::
+   *note • © ≡::
 
-   *note \xe2\x89\xa5 \xe2\x89\xa4 \xe2\x86\x92 \xe2\x86\xa6 \xe2\x88\x92::
+   *note ≥ ≤ → ↦ −::
 
-   *note \xe2\x8b\x86 \xc2\xa3 \xe2\x8a\xa3 \xc2\xae \xe2\x87\x92::
+   *note ⋆ £ ⊣ ® ⇒::
 
-   *note \xc2\xb0 \xc3\x9e::
+   *note ° Þ::
 
 * Menu:
 
-* \xe2\x80\xa2 \xc2\xa9 \xe2\x89\xa1::
-* \xe2\x89\xa5 \xe2\x89\xa4 \xe2\x86\x92 \xe2\x86\xa6 \xe2\x88\x92::
-* \xe2\x8b\x86 \xc2\xa3 \xe2\x8a\xa3 \xc2\xae \xe2\x87\x92::
-* \xc2\xb0 \xc3\x9e::
+* • © ≡::
+* ≥ ≤ → ↦ −::
+* ⋆ £ ⊣ ® ⇒::
+* ° Þ::
 
 
-File: ,  Node: \xe2\x80\xa2 \xc2\xa9 \xe2\x89\xa1,  Next: \xe2\x89\xa5 \xe2\x89\xa4 \xe2\x86\x92 \xe2\x86\xa6 \xe2\x88\x92,  Up: <http://somewhere_aaa> text (url) ls
+File: ,  Node: • © ≡,  Next: ≥ ≤ → ↦ −,  Up: <http://somewhere_aaa> text (url) ls
 
-26.1 \xe2\x80\xa2 \xc2\xa9 \xe2\x89\xa1
+26.1 • © ≡
 ==========
 
 
-File: ,  Node: \xe2\x89\xa5 \xe2\x89\xa4 \xe2\x86\x92 \xe2\x86\xa6 \xe2\x88\x92,  Next: \xe2\x8b\x86 \xc2\xa3 \xe2\x8a\xa3 \xc2\xae \xe2\x87\x92,  Prev: \xe2\x80\xa2 \xc2\xa9 \xe2\x89\xa1,  Up: <http://somewhere_aaa> text (url) ls
+File: ,  Node: ≥ ≤ → ↦ −,  Next: ⋆ £ ⊣ ® ⇒,  Prev: • © ≡,  Up: <http://somewhere_aaa> text (url) ls
 
-26.2 \xe2\x89\xa5 \xe2\x89\xa4 \xe2\x86\x92 \xe2\x86\xa6 \xe2\x88\x92
+26.2 ≥ ≤ → ↦ −
 ==============
 
 
-File: ,  Node: \xe2\x8b\x86 \xc2\xa3 \xe2\x8a\xa3 \xc2\xae \xe2\x87\x92,  Next: \xc2\xb0 \xc3\x9e,  Prev: \xe2\x89\xa5 \xe2\x89\xa4 \xe2\x86\x92 \xe2\x86\xa6 \xe2\x88\x92,  Up: <http://somewhere_aaa> text (url) ls
+File: ,  Node: ⋆ £ ⊣ ® ⇒,  Next: ° Þ,  Prev: ≥ ≤ → ↦ −,  Up: <http://somewhere_aaa> text (url) ls
 
-26.3 \xe2\x8b\x86 \xc2\xa3 \xe2\x8a\xa3 \xc2\xae \xe2\x87\x92
+26.3 ⋆ £ ⊣ ® ⇒
 ==============
 
 
-File: ,  Node: \xc2\xb0 \xc3\x9e,  Prev: \xe2\x8b\x86 \xc2\xa3 \xe2\x8a\xa3 \xc2\xae \xe2\x87\x92,  Up: <http://somewhere_aaa> text (url) ls
+File: ,  Node: ° Þ,  Prev: ⋆ £ ⊣ ® ⇒,  Up: <http://somewhere_aaa> text (url) ls
 
-26.4 \xc2\xb0 \xc3\x9e
+26.4 ° Þ
 ========
 
 
 Tag Table:
 Node: Top27
 Node: { }818
-Node:     ! . . ? \@897
-Node: \@ { } \\ #994
+Node:     ! . . ? @897
+Node: @ { } \\ #994
 Node: LaTeX TeX , ... ...1109
-Node: error\xe2\x86\x92 \xe2\x82\xac \xc2\xa11246
-Node: \xc2\xaa \xc2\xba \xc2\xbf1369
-Node: a b a sunny day \xc3\xa51477
-Node: \xc3\x85 \xc3\xa6 \xc5\x93 \xc3\x86 \xc5\x92 \xc3\xb8 \xc3\x98 \xc3\x9f \xc5\x82 \xc5\x81 \xc3\x90 \xc3\xb0 \xc3\xbe1630
-Node: \xc3\xa4 \xe1\xba\xbd \xc3\xae \xc3\xa2 \xc3\xa0 \xc3\xa9 \xc3\xa7 \xc4\x93 e\xcc\x8a e\xcc\x8b \xc4\x991838
-Node: \xc4\x97 \xc4\x95 e\xcc\xb2 \xe1\xba\xb9 \xc4\x9b \xc8\xb7 e\xcd\xa1e2045
-Node: \xc4\xb1 \xe1\xb8\x94 \xe1\xb8\x882208
-Node: \xe2\x80\x9c \xe2\x80\x9d \xe2\x80\x98 \xe2\x80\x99 \xe2\x80\x9e \xe2\x80\x9a2336
-Node: \xc2\xab \xc2\xbb \xc2\xab \xc2\xbb \xe2\x80\xb9 \xe2\x80\xba2478
+Node: error→ € ¡1246
+Node: ª º ¿1369
+Node: a b a sunny day å1477
+Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð þ1630
+Node: ä ẽ î â à é ç ē e̊ e̋ ę1838
+Node: ė ĕ e̲ ẹ ě ȷ e͡e2045
+Node: ı Ḕ Ḉ2208
+Node: “ ” ‘ ’ „ ‚2336
+Node: « » « » ‹ ›2478
 Node: `` \'\' --- -- ` \'2622
 Node: AAA (fff) AAA BBB2754
 Node: CCC (rrr) CCC DDD2894
-Node: the someone <someone\@somewher> <no_explain\@there>3067
-Node: [f--ile1]  [image src=\"f--ile.png\" alt=\"alt\" text=\"Image description\\\"\\\"\\\\.\" ]3367
-Node:  \@ {} . 3647
-Node: cite asis in \@w b in r SC *str* t VAR dfn i3850
+Node: the someone <someone@somewher> <no_explain@there>3067
+Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3367
+Node:  @ {} . 3647
+Node: cite asis in @w b in r SC *str* t VAR dfn i3850
 Node: env code option samp command file C-x <ESC>4102
 Node: 8.27in4392
 Node: sansserif slanted4526
 Node: indicateurl4650
 Node: _{g}H 3^{rd}4776
 Node: <http://somewhere_aaa> text (url) ls4915
-Node: \xe2\x80\xa2 \xc2\xa9 \xe2\x89\xa16192
-Node: \xe2\x89\xa5 \xe2\x89\xa4 \xe2\x86\x92 \xe2\x86\xa6 \xe2\x88\x926320
-Node: \xe2\x8b\x86 \xc2\xa3 \xe2\x8a\xa3 \xc2\xae \xe2\x87\x926487
-Node: \xc2\xb0 \xc3\x9e6647
+Node: • © ≡6192
+Node: ≥ ≤ → ↦ −6320
+Node: ⋆ £ ⊣ ® ⇒6487
+Node: ° Þ6647
 
 End Tag Table
 
@@ -5492,7 +5494,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'at_commands_in_refs'} = '* W l86|could not find @image file `f--ile1.txt\' nor alternate text
  warning: could not find @image file `f--ile1.txt\' nor alternate text

@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'ref_to_top'} = '*document_root C3
  *before_node_section C2
   *preamble_before_beginning C1
@@ -79,7 +81,7 @@ list:
 $result_headings_list{'ref_to_top'} = '';
 
 
-$result_converted{'info'}->{'ref_to_top'} = "This is , produced from .
+$result_converted{'info'}->{'ref_to_top'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -99,7 +101,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'html'}->{'ref_to_top'} = '<!DOCTYPE html>

@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'image_not_found'} = '*document_root C2
  *before_node_section C1
   *preamble_before_content
@@ -48,7 +50,7 @@ $result_sectioning_root{'image_not_found'} = '';
 $result_headings_list{'image_not_found'} = '';
 
 
-$result_converted{'info'}->{'image_not_found'} = "This is , produced from .
+$result_converted{'info'}->{'image_not_found'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -65,7 +67,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'image_not_found'} = '* W l2|could not find @image file `n_f_image.txt\' nor alternate text
  warning: could not find @image file `n_f_image.txt\' nor alternate text

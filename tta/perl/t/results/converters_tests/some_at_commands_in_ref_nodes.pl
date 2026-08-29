@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
  *before_node_section C2
   *preamble_before_beginning C1
@@ -424,33 +426,33 @@ See \\hyperref[anchor:A-sc-_00f1-_00e5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_0
 ';
 
 
-$result_converted{'info'}->{'some_at_commands_in_ref_nodes'} = "This is , produced from .
+$result_converted{'info'}->{'some_at_commands_in_ref_nodes'} = Encode::encode('utf-8', 'This is , produced from .
 
 
-File: ,  Node: Top,  Next: A SC \xc3\x91 \xc3\x85 TeX node \xc3\xaf \xc3\xaf \xe1\xb8\x94 \xc5\x82 \xe1\xb8\x88 \xc2\xa1,  Up: (dir)
+File: ,  Node: Top,  Next: A SC Ñ Å TeX node ï ï Ḕ ł Ḉ ¡,  Up: (dir)
 
 Top
 ***
 
 * Menu:
 
-* A SC \xc3\x91 \xc3\x85 TeX node \xc3\xaf \xc3\xaf \xe1\xb8\x94 \xc5\x82 \xe1\xb8\x88 \xc2\xa1::
+* A SC Ñ Å TeX node ï ï Ḕ ł Ḉ ¡::
 
 
-File: ,  Node: A SC \xc3\x91 \xc3\x85 TeX node \xc3\xaf \xc3\xaf \xe1\xb8\x94 \xc5\x82 \xe1\xb8\x88 \xc2\xa1,  Prev: Top,  Up: Top
+File: ,  Node: A SC Ñ Å TeX node ï ï Ḕ ł Ḉ ¡,  Prev: Top,  Up: Top
 
-1 A SC node \xc3\xaf \xc3\xaf \xe1\xb8\x94 \xc5\x82 \xe1\xb8\x88 \xc2\xa1
+1 A SC node ï ï Ḕ ł Ḉ ¡
 ***********************
 
-see *note (manual)a *strong* ref with SC, a i trema \xc3\xaf, a dotless i trema
-\xc3\xaf \xe1\xb8\x94 and exclamdown \xc2\xa1::.
+see *note (manual)a *strong* ref with SC, a i trema ï, a dotless i trema
+ï Ḕ and exclamdown ¡::.
 
-   *Note A SC \xc3\x91 \xc3\x85 TeX node \xc3\xaf \xc3\xaf \xe1\xb8\x94 \xc5\x82 \xe1\xb8\x88 \xc2\xa1::.
+   *Note A SC Ñ Å TeX node ï ï Ḕ ł Ḉ ¡::.
 
 
 Tag Table:
 Node: Top27
-Node: A SC \xc3\x91 \xc3\x85 TeX node \xc3\xaf \xc3\xaf \xe1\xb8\x94 \xc5\x82 \xe1\xb8\x88 \xc2\xa1172
+Node: A SC Ñ Å TeX node ï ï Ḕ ł Ḉ ¡172
 
 End Tag Table
 
@@ -458,6 +460,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 1;

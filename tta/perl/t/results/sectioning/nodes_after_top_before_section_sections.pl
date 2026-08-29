@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'nodes_after_top_before_section_sections'} = 'U0 unit{C5}{S:@subsection 1 subsection}{n:third node}
 UNIT_DIRECTIONS
 This: [U0]
@@ -184,7 +186,7 @@ list:
 $result_headings_list{'nodes_after_top_before_section_sections'} = '';
 
 
-$result_converted{'info'}->{'nodes_after_top_before_section_sections'} = "This is , produced from .
+$result_converted{'info'}->{'nodes_after_top_before_section_sections'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap node,  Up: (dir)
@@ -218,7 +220,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'html'}->{'nodes_after_top_before_section_sections'} = '<!DOCTYPE html>

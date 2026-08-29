@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
  *before_node_section C2
   *preamble_before_beginning C1
@@ -2000,7 +2002,7 @@ list:
 $result_headings_list{'section_in_unnumbered_info'} = '';
 
 
-$result_converted{'info'}->{'section_in_unnumbered_info'} = "This is , produced from section_in_unnumbered_text.texi.
+$result_converted{'info'}->{'section_in_unnumbered_info'} = Encode::encode('utf-8', 'This is , produced from section_in_unnumbered_text.texi.
 
 
 File: ,  Node: Top,  Next: chapter,  Up: (dir)
@@ -2307,7 +2309,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'html'}->{'section_in_unnumbered_info'} = '<!DOCTYPE html>

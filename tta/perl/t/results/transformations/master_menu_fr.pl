@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'master_menu_fr'} = '*document_root C7
  *before_node_section C2
   *preamble_before_beginning C2
@@ -283,7 +285,7 @@ list:
 $result_headings_list{'master_menu_fr'} = '';
 
 
-$result_converted{'info'}->{'master_menu_fr'} = "This is , produced from no_master_menu_fr.texi.
+$result_converted{'info'}->{'master_menu_fr'} = Encode::encode('utf-8', 'This is , produced from no_master_menu_fr.texi.
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -295,7 +297,7 @@ max
 
 * chap::
 
- -- Liste d\xc3\xa9taill\xc3\xa9e des n\xc5\x93uds --
+ -- Liste détaillée des nœuds --
 
 chap
 
@@ -330,6 +332,6 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: fr
 End:
-";
+');
 
 1;

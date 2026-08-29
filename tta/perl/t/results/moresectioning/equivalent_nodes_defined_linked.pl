@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
@@ -200,7 +202,7 @@ $result_sectioning_root{'equivalent_nodes_defined_linked'} = '';
 $result_headings_list{'equivalent_nodes_defined_linked'} = '';
 
 
-$result_converted{'info'}->{'equivalent_nodes_defined_linked'} = "This is , produced from .
+$result_converted{'info'}->{'equivalent_nodes_defined_linked'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -218,11 +220,11 @@ Figure 1
 
 * Menu:
 
-* Figure 1: \xe2\x80\x98chap\xe2\x80\x99.                      
+* Figure 1: ‘chap’.                      
 
    Ref to node *note chap::.
 
-   Ref to \@samp{chap} *note chap::.
+   Ref to @samp{chap} *note chap::.
 
 
 Tag Table:
@@ -235,7 +237,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'html'}->{'equivalent_nodes_defined_linked'} = '<!DOCTYPE html>

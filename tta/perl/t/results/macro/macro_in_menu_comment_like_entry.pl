@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'macro_in_menu_comment_like_entry'} = '*document_root C1
  *before_node_section C3
   *preamble_before_beginning C1

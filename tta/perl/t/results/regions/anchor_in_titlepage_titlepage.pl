@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'anchor_in_titlepage_titlepage'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content C2
@@ -146,7 +148,7 @@ list:
 $result_headings_list{'anchor_in_titlepage_titlepage'} = '';
 
 
-$result_converted{'info'}->{'anchor_in_titlepage_titlepage'} = "This is , produced from .
+$result_converted{'info'}->{'anchor_in_titlepage_titlepage'} = Encode::encode('utf-8', 'This is , produced from .
 
 top
 ***
@@ -173,7 +175,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'html'}->{'anchor_in_titlepage_titlepage'} = '<!DOCTYPE html>

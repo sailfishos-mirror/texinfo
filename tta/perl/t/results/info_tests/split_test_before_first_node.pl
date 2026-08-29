@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'split_test_before_first_node'} = '*document_root C5
  *before_node_section C3
   *preamble_before_content C2

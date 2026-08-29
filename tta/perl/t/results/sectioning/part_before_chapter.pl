@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'part_before_chapter'} = 'U0 unit{C3}{S:@chapter 1 chapter}
 UNIT_DIRECTIONS
 This: [U0]

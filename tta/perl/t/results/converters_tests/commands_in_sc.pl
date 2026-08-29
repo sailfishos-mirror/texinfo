@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'commands_in_sc'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
@@ -337,7 +339,7 @@ $result_converted_errors{'latex_text'}->{'commands_in_sc'} = '* W l7|@image file
 ';
 
 
-$result_converted{'info'}->{'commands_in_sc'} = "This is , produced from .
+$result_converted{'info'}->{'commands_in_sc'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -355,8 +357,8 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 1 chap
 ******
 
-A \xc3\x91 \xc3\x85 TeX [myimage] *note chap:: *Note (f)node:: *note NAME: (argf)ext. inverb
-\xc3\xbf MA+TH (1) <la> B (a) LB c E <a\@c> AB (D)
+A Ñ Å TeX [myimage] *note chap:: *Note (f)node:: *note NAME: (argf)ext. inverb
+ÿ MA+TH (1) <la> B (a) LB c E <a@c> AB (D)
 
    ---------- Footnotes ----------
 
@@ -375,7 +377,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'commands_in_sc'} = '* W l7|could not find @image file `myimage.txt\' nor alternate text
  warning: could not find @image file `myimage.txt\' nor alternate text

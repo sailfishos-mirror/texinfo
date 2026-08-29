@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
  *before_node_section C9
   *preamble_before_content C4

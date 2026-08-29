@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'chapter_node_before_and_after_part'} = '*document_root C6
  *before_node_section C2
   *preamble_before_beginning C1
@@ -187,7 +189,7 @@ part
 ';
 
 
-$result_converted{'info'}->{'chapter_node_before_and_after_part'} = "This is , produced from .
+$result_converted{'info'}->{'chapter_node_before_and_after_part'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: after,  Up: (dir)
@@ -216,7 +218,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'html'}->{'chapter_node_before_and_after_part'} = '<!DOCTYPE html>

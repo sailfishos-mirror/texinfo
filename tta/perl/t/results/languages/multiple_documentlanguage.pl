@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content C4
@@ -377,10 +379,10 @@ $result_converted_sort_strings{'plaintext'}->{'multiple_documentlanguage'} = 'vr
 ';
 
 
-$result_converted{'info'}->{'multiple_documentlanguage'} = "This is , produced from .
+$result_converted{'info'}->{'multiple_documentlanguage'} = Encode::encode('utf-8', 'This is , produced from .
 
  -- Variable d\'instance de copying : a b
-     erreur\xe2\x86\x92
+     erreur→
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -399,16 +401,16 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 ******
 
  -- Variable d\'instance de fr : BBB CCC
-     erreur\xe2\x86\x92
+     erreur→
 
  -- Instanzvariable of copying: a b
-     error\xe2\x86\x92
+     error→
 
  -- Primjerak varijable od hr: BBB CCC
-     gre\xc5\xa1ka\xe2\x86\x92
+     greška→
 
  -- Primjerak varijable od copying: a b
-     gre\xc5\xa1ka\xe2\x86\x92
+     greška→
 
  [index ]
 * Menu:
@@ -429,7 +431,7 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: fr
 End:
-";
+');
 
 $result_converted_sort_strings{'info'}->{'multiple_documentlanguage'} = 'vr:
  a de copying

@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'format_in_titlepage_titlepage'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content C2
@@ -98,7 +100,7 @@ $result_sectioning_root{'format_in_titlepage_titlepage'} = '';
 $result_headings_list{'format_in_titlepage_titlepage'} = '';
 
 
-$result_converted{'info'}->{'format_in_titlepage_titlepage'} = "This is , produced from .
+$result_converted{'info'}->{'format_in_titlepage_titlepage'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -117,7 +119,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'html'}->{'format_in_titlepage_titlepage'} = '<!DOCTYPE html>

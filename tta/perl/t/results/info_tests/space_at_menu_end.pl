@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'space_at_menu_end'} = '*document_root C2
  *before_node_section C1
   *preamble_before_content
@@ -86,7 +88,7 @@ $result_sectioning_root{'space_at_menu_end'} = '';
 $result_headings_list{'space_at_menu_end'} = '';
 
 
-$result_converted{'info'}->{'space_at_menu_end'} = "This is , produced from .
+$result_converted{'info'}->{'space_at_menu_end'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: (out),  Up: (dir)
@@ -107,6 +109,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 1;

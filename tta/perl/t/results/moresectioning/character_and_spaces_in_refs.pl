@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
  *before_node_section C1
   *preamble_before_content
@@ -527,7 +529,7 @@ $result_headings_list{'character_and_spaces_in_refs'} = '1|Testing distant nodes
 ';
 
 
-$result_converted{'info'}->{'character_and_spaces_in_refs'} = "This is , produced from character_and_spaces_in_refs_text.texi.
+$result_converted{'info'}->{'character_and_spaces_in_refs'} = Encode::encode('utf-8', 'This is , produced from character_and_spaces_in_refs_text.texi.
 
 
 File: ,  Node: Top,  Next: node to avoid DocBook or LaTeX ignored,  Up: (dir)
@@ -555,26 +557,26 @@ Testing distant nodes
 Testing local nodes
 -------------------
 
-*note !_\"#\$%&\'()*+-.:: *note /;<=>?[\\]^_`|~:: *note Top:: *note local
+*note !_"#$%&\'()*+-.:: *note /;<=>?[\\]^_`|~:: *note Top:: *note local
 node::
 
 
-File: ,  Node: other nodes,  Next: !_\"#\$%&\'()*+-.,  Prev: node to avoid DocBook or LaTeX ignored,  Up: Top
+File: ,  Node: other nodes,  Next: !_"#$%&\'()*+-.,  Prev: node to avoid DocBook or LaTeX ignored,  Up: Top
 
 2 Chapter with nodes
 ********************
 
 * Menu:
 
-* !_\"#\$%&\'()*+-.::
+* !_"#$%&\'()*+-.::
 * /;<=>?[\\]^_`|~::
 * local node::
 
 
-File: ,  Node: !_\"#\$%&\'()*+-.,  Next: /;<=>?[\\]^_`|~,  Prev: other nodes,  Up: other nodes
+File: ,  Node: !_"#$%&\'()*+-.,  Next: /;<=>?[\\]^_`|~,  Prev: other nodes,  Up: other nodes
 
 
-File: ,  Node: /;<=>?[\\]^_`|~,  Next: local node,  Prev: !_\"#\$%&\'()*+-.,  Up: other nodes
+File: ,  Node: /;<=>?[\\]^_`|~,  Next: local node,  Prev: !_"#$%&\'()*+-.,  Up: other nodes
 
 
 File: ,  Node: local node,  Prev: /;<=>?[\\]^_`|~,  Up: other nodes
@@ -584,7 +586,7 @@ Tag Table:
 Node: Top65
 Node: node to avoid DocBook or LaTeX ignored236
 Node: other nodes658
-Node: !_\"#\$%&\'()*+-.874
+Node: !_"#$%&\'()*+-.874
 Node: /;<=>?[\\]^_`|~968
 Node: local node1061
 
@@ -594,7 +596,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'character_and_spaces_in_refs'} = '* W character_and_spaces_in_refs_text.texi:l15|@ref node name should not contain `:\'
  warning: @ref node name should not contain `:\'

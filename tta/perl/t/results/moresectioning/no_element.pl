@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'no_element'} = '*document_root C1
  *before_node_section C17
   *preamble_before_content C4
@@ -225,7 +227,7 @@ $result_indices_sort_strings{'no_element'} = 'cp:
 ';
 
 
-$result_converted{'info'}->{'no_element'} = "This is , produced from .
+$result_converted{'info'}->{'no_element'} = Encode::encode('utf-8', 'This is , produced from .
 
 Ref to the anchor: *note An anchor::
 
@@ -260,7 +262,7 @@ End Tag Table
 Local Variables:
 coding: iso-8859-1
 End:
-";
+');
 
 $result_converted_sort_strings{'info'}->{'no_element'} = 'cp:
  index entry

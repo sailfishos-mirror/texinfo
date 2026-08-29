@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'float_copying'} = '*document_root C6
  *before_node_section C2
   *preamble_before_setfilename C1

@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'nested_footnotes_separate'} = '*document_root C2
  *before_node_section C1
   *preamble_before_content C1
@@ -78,7 +80,7 @@ $result_sectioning_root{'nested_footnotes_separate'} = '';
 $result_headings_list{'nested_footnotes_separate'} = '';
 
 
-$result_converted{'info'}->{'nested_footnotes_separate'} = "This is , produced from .
+$result_converted{'info'}->{'nested_footnotes_separate'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -107,6 +109,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 1;

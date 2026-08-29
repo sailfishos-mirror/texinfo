@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'automatic_menu_referencing_node'} = '*document_root C7
  *before_node_section C1
   *preamble_before_content
@@ -146,7 +148,7 @@ list:
 $result_headings_list{'automatic_menu_referencing_node'} = '';
 
 
-$result_converted{'info'}->{'automatic_menu_referencing_node'} = "This is , produced from .
+$result_converted{'info'}->{'automatic_menu_referencing_node'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: Chapter,  Up: (dir)
@@ -192,7 +194,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'html'}->{'automatic_menu_referencing_node'} = '<!DOCTYPE html>

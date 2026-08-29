@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'invalid_node_name_no_warning'} = '*document_root C5
  *before_node_section C2
   *preamble_before_beginning C1
@@ -224,7 +226,7 @@ $result_sectioning_root{'invalid_node_name_no_warning'} = '';
 $result_headings_list{'invalid_node_name_no_warning'} = '';
 
 
-$result_converted{'info'}->{'invalid_node_name_no_warning'} = "This is , produced from .
+$result_converted{'info'}->{'invalid_node_name_no_warning'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: nodename. a,  Up: (dir)
@@ -260,6 +262,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 1;

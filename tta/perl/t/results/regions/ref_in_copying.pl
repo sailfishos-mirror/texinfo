@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'ref_in_copying'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content C2
@@ -175,7 +177,7 @@ list:
 $result_headings_list{'ref_in_copying'} = '';
 
 
-$result_converted{'info'}->{'ref_in_copying'} = "This is , produced from .
+$result_converted{'info'}->{'ref_in_copying'} = Encode::encode('utf-8', 'This is , produced from .
 
 *note GFDL::
 
@@ -208,7 +210,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'html'}->{'ref_in_copying'} = '<!DOCTYPE html>

@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'non_empty_part'} = '*document_root C16
  *before_node_section C1
   *preamble_before_content
@@ -792,7 +794,7 @@ Content VI
 ';
 
 
-$result_converted{'info'}->{'non_empty_part'} = "This is , produced from .
+$result_converted{'info'}->{'non_empty_part'} = Encode::encode('utf-8', 'This is , produced from .
 
 Content before
 
@@ -849,6 +851,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 1;

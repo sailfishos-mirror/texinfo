@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'macro_expansion_end_in_ignored_nested_different_conditional'} = '*document_root C1
  *before_node_section C1
   *preamble_before_content C2

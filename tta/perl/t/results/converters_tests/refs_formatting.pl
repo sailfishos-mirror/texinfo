@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'refs_formatting'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
@@ -1034,7 +1036,7 @@ $result_converted{'latex_text'}->{'refs_formatting'} = '\\begin{document}
 ';
 
 
-$result_converted{'info'}->{'refs_formatting'} = "This is , produced from .
+$result_converted{'info'}->{'refs_formatting'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: chapter
@@ -1042,44 +1044,44 @@ File: ,  Node: chapter
 1 chapter
 *********
 
-\xe2\x80\x98\@ref{chapter,cross ref name}\xe2\x80\x99 *note cross ref name: chapter.
-\xe2\x80\x98\@ref{chapter,,title}\xe2\x80\x99 *note title: chapter. \xe2\x80\x98\@ref{chapter,,,file name}\xe2\x80\x99
-*note (file name)chapter:: \xe2\x80\x98\@ref{chapter,,,,manual}\xe2\x80\x99 *note ()chapter::
-\xe2\x80\x98\@ref{chapter,cross ref name,title,}\xe2\x80\x99 *note cross ref name: chapter.
-\xe2\x80\x98\@ref{chapter,cross ref name,,file name}\xe2\x80\x99 *note cross ref name: (file
-name)chapter. \xe2\x80\x98\@ref{chapter,cross ref name,,,manual}\xe2\x80\x99 *note cross ref
-name: ()chapter. \xe2\x80\x98\@ref{chapter,cross ref name,title,file name}\xe2\x80\x99 *note
-cross ref name: (file name)chapter. \xe2\x80\x98\@ref{chapter,cross ref
-name,title,,manual}\xe2\x80\x99 *note cross ref name: ()chapter.
-\xe2\x80\x98\@ref{chapter,cross ref name,title, file name, manual}\xe2\x80\x99 *note cross ref
-name: (file name)chapter. \xe2\x80\x98\@ref{chapter,,title,file name}\xe2\x80\x99 *note title:
-(file name)chapter. \xe2\x80\x98\@ref{chapter,,title,,manual}\xe2\x80\x99 *note title:
-()chapter. \xe2\x80\x98\@ref{chapter,,title, file name, manual}\xe2\x80\x99 *note title: (file
-name)chapter. \xe2\x80\x98\@ref{chapter,,,file name,manual}\xe2\x80\x99 *note (file
+‘@ref{chapter,cross ref name}’ *note cross ref name: chapter.
+‘@ref{chapter,,title}’ *note title: chapter. ‘@ref{chapter,,,file name}’
+*note (file name)chapter:: ‘@ref{chapter,,,,manual}’ *note ()chapter::
+‘@ref{chapter,cross ref name,title,}’ *note cross ref name: chapter.
+‘@ref{chapter,cross ref name,,file name}’ *note cross ref name: (file
+name)chapter. ‘@ref{chapter,cross ref name,,,manual}’ *note cross ref
+name: ()chapter. ‘@ref{chapter,cross ref name,title,file name}’ *note
+cross ref name: (file name)chapter. ‘@ref{chapter,cross ref
+name,title,,manual}’ *note cross ref name: ()chapter.
+‘@ref{chapter,cross ref name,title, file name, manual}’ *note cross ref
+name: (file name)chapter. ‘@ref{chapter,,title,file name}’ *note title:
+(file name)chapter. ‘@ref{chapter,,title,,manual}’ *note title:
+()chapter. ‘@ref{chapter,,title, file name, manual}’ *note title: (file
+name)chapter. ‘@ref{chapter,,,file name,manual}’ *note (file
 name)chapter::
 
-   \xe2\x80\x98\@ref{(pman)anode,cross ref name}\xe2\x80\x99 *note cross ref name: (pman)anode.
-\xe2\x80\x98\@ref{(pman)anode,,title}\xe2\x80\x99 *note title: (pman)anode.
-\xe2\x80\x98\@ref{(pman)anode,,,file name}\xe2\x80\x99 *note (file name)(pman)anode::
-\xe2\x80\x98\@ref{(pman)anode,,,,manual}\xe2\x80\x99 *note ()(pman)anode::
-\xe2\x80\x98\@ref{(pman)anode,cross ref name,title,}\xe2\x80\x99 *note cross ref name:
-(pman)anode. \xe2\x80\x98\@ref{(pman)anode,cross ref name,,file name}\xe2\x80\x99 *note cross
-ref name: (file name)(pman)anode. \xe2\x80\x98\@ref{(pman)anode,cross ref
-name,,,manual}\xe2\x80\x99 *note cross ref name: ()(pman)anode.
-\xe2\x80\x98\@ref{(pman)anode,cross ref name,title,file name}\xe2\x80\x99 *note cross ref name:
-(file name)(pman)anode. \xe2\x80\x98\@ref{(pman)anode,cross ref name,title,,manual}\xe2\x80\x99
-*note cross ref name: ()(pman)anode. \xe2\x80\x98\@ref{(pman)anode,cross ref
-name,title, file name, manual}\xe2\x80\x99 *note cross ref name: (file
-name)(pman)anode. \xe2\x80\x98\@ref{(pman)anode,,title,file name}\xe2\x80\x99 *note title:
-(file name)(pman)anode. \xe2\x80\x98\@ref{(pman)anode,,title,,manual}\xe2\x80\x99 *note title:
-()(pman)anode. \xe2\x80\x98\@ref{(pman)anode,,title, file name, manual}\xe2\x80\x99 *note
-title: (file name)(pman)anode. \xe2\x80\x98\@ref{(pman)anode,,,file name,manual}\xe2\x80\x99
+   ‘@ref{(pman)anode,cross ref name}’ *note cross ref name: (pman)anode.
+‘@ref{(pman)anode,,title}’ *note title: (pman)anode.
+‘@ref{(pman)anode,,,file name}’ *note (file name)(pman)anode::
+‘@ref{(pman)anode,,,,manual}’ *note ()(pman)anode::
+‘@ref{(pman)anode,cross ref name,title,}’ *note cross ref name:
+(pman)anode. ‘@ref{(pman)anode,cross ref name,,file name}’ *note cross
+ref name: (file name)(pman)anode. ‘@ref{(pman)anode,cross ref
+name,,,manual}’ *note cross ref name: ()(pman)anode.
+‘@ref{(pman)anode,cross ref name,title,file name}’ *note cross ref name:
+(file name)(pman)anode. ‘@ref{(pman)anode,cross ref name,title,,manual}’
+*note cross ref name: ()(pman)anode. ‘@ref{(pman)anode,cross ref
+name,title, file name, manual}’ *note cross ref name: (file
+name)(pman)anode. ‘@ref{(pman)anode,,title,file name}’ *note title:
+(file name)(pman)anode. ‘@ref{(pman)anode,,title,,manual}’ *note title:
+()(pman)anode. ‘@ref{(pman)anode,,title, file name, manual}’ *note
+title: (file name)(pman)anode. ‘@ref{(pman)anode,,,file name,manual}’
 *note (file name)(pman)anode::
 
-   \xe2\x80\x98\@inforef{chapter, cross ref name, file name}\xe2\x80\x99 *note cross ref name:
-(file name)chapter. \xe2\x80\x98\@inforef{chapter}\xe2\x80\x99 *note chapter::
-\xe2\x80\x98\@inforef{chapter, cross ref name}\xe2\x80\x99 *note cross ref name: chapter.
-\xe2\x80\x98\@inforef{chapter,,file name}\xe2\x80\x99 *note (file name)chapter::
+   ‘@inforef{chapter, cross ref name, file name}’ *note cross ref name:
+(file name)chapter. ‘@inforef{chapter}’ *note chapter::
+‘@inforef{chapter, cross ref name}’ *note cross ref name: chapter.
+‘@inforef{chapter,,file name}’ *note (file name)chapter::
 
 
 Tag Table:
@@ -1091,7 +1093,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'refs_formatting'} = '* W |document without Top node
  warning: document without Top node

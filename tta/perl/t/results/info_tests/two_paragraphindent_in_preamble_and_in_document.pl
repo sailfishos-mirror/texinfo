@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'two_paragraphindent_in_preamble_and_in_document'} = '*document_root C5
  *before_node_section C3
   *preamble_before_content C6
@@ -160,7 +162,7 @@ list:
 $result_headings_list{'two_paragraphindent_in_preamble_and_in_document'} = '';
 
 
-$result_converted{'info'}->{'two_paragraphindent_in_preamble_and_in_document'} = "This is , produced from .
+$result_converted{'info'}->{'two_paragraphindent_in_preamble_and_in_document'} = Encode::encode('utf-8', 'This is , produced from .
 
 In copying.
 
@@ -171,7 +173,7 @@ In copying.
 
 File: ,  Node: Top,  Up: (dir)
 
-test \@paragraphindent in preamble effect in preamble
+test @paragraphindent in preamble effect in preamble
 ****************************************************
 
 First para.
@@ -190,6 +192,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 1;

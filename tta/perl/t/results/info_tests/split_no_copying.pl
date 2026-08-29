@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'split_no_copying'} = '*document_root C7
  *before_node_section C2
   *preamble_before_setfilename C1
@@ -177,7 +179,7 @@ list:
 $result_headings_list{'split_no_copying'} = '';
 
 
-$result_converted{'info'}->{'split_no_copying'} = "This is split_no_copying.info, produced from .
+$result_converted{'info'}->{'split_no_copying'} = Encode::encode('utf-8', 'This is split_no_copying.info, produced from .
 
 
 File: split_no_copying.info,  Node: Top,  Next: Ch1,  Up: (dir)
@@ -210,6 +212,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 1;

@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'float_copying'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content C2
@@ -426,7 +428,7 @@ fn:
 ';
 
 
-$result_converted{'info'}->{'float_copying'} = "This is , produced from .
+$result_converted{'info'}->{'float_copying'} = Encode::encode('utf-8', 'This is , produced from .
 
 Public domain is not really a licence, as it means than the author
 abandon his copyright.
@@ -519,7 +521,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_sort_strings{'info'}->{'float_copying'} = 'cp:
  indexed caption

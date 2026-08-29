@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'one_node_explicit_directions_anchor'} = '*document_root C2
  *before_node_section C1
   *preamble_before_content
@@ -83,7 +85,7 @@ $result_sectioning_root{'one_node_explicit_directions_anchor'} = '';
 $result_headings_list{'one_node_explicit_directions_anchor'} = '';
 
 
-$result_converted{'info'}->{'one_node_explicit_directions_anchor'} = "This is , produced from .
+$result_converted{'info'}->{'one_node_explicit_directions_anchor'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: one node,  Up: (dir)
@@ -105,7 +107,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'one_node_explicit_directions_anchor'} = '* W |document without Top node
  warning: document without Top node

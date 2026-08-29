@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'index_no_node_no_top_no_node'} = '*document_root C7
  *before_node_section C7
   *preamble_before_beginning C2
@@ -416,7 +418,7 @@ $result_indices_sort_strings{'index_no_node_no_top_no_node'} = 'cp:
 ';
 
 
-$result_converted{'info'}->{'index_no_node_no_top_no_node'} = "This is , produced from index_no_node_no_top.texi.
+$result_converted{'info'}->{'index_no_node_no_top_no_node'} = Encode::encode('utf-8', 'This is , produced from index_no_node_no_top.texi.
 
 Garbage
 
@@ -562,7 +564,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_sort_strings{'info'}->{'index_no_node_no_top_no_node'} = 'cp:
  chapter

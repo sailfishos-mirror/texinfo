@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'unknown_region'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content C2
@@ -130,7 +132,7 @@ $result_converted_sort_strings{'plaintext'}->{'unknown_region'} = 'vr:
 ';
 
 
-$result_converted{'info'}->{'unknown_region'} = "This is , produced from .
+$result_converted{'info'}->{'unknown_region'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -152,7 +154,7 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: fr_NOWHERE
 End:
-";
+');
 
 $result_converted_sort_strings{'info'}->{'unknown_region'} = 'vr:
  BBB de AAA

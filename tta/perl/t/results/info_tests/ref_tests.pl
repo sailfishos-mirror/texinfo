@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'ref_tests'} = '*document_root C2
  *before_node_section C2
   *preamble_before_beginning C1
@@ -157,17 +159,17 @@ $result_sectioning_root{'ref_tests'} = '';
 $result_headings_list{'ref_tests'} = '';
 
 
-$result_converted{'info'}->{'ref_tests'} = "This is , produced from .
+$result_converted{'info'}->{'ref_tests'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
 
 *note (m)in ref followed by comma::, *note (m)in ref not followed by
-comma:: after ref.  \xe2\x80\x98*note (m)in ref followed by end command::\xe2\x80\x99.
+comma:: after ref.  ‘*note (m)in ref followed by end command::’.
 
    *note name: (m)in ref followed by comma, *note name: (m)in ref not
-followed by comma. after ref.  \xe2\x80\x98*note name: (m)in ref followed by end
-command.\xe2\x80\x99.  *note name: (m)in ref ending with a dot.. after ref.
+followed by comma. after ref.  ‘*note name: (m)in ref followed by end
+command.’.  *note name: (m)in ref ending with a dot.. after ref.
 
 
 Tag Table:
@@ -179,7 +181,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'ref_tests'} = '* W l12|@ref node name should not contain `.\'
  warning: @ref node name should not contain `.\'

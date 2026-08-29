@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'top_in_ref'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
@@ -1026,7 +1028,7 @@ $result_converted{'latex_text'}->{'top_in_ref'} = '\\begin{document}
 ';
 
 
-$result_converted{'info'}->{'top_in_ref'} = "This is , produced from .
+$result_converted{'info'}->{'top_in_ref'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap refs node,  Up: (dir)
@@ -1034,40 +1036,40 @@ File: ,  Node: Top,  Next: chap refs node,  Up: (dir)
 
 File: ,  Node: chap refs node,  Prev: Top
 
-\xe2\x80\x98\@ref{Top,cross ref name}\xe2\x80\x99 *note cross ref name: Top. \xe2\x80\x98\@ref{Top,,title}\xe2\x80\x99
-*note title: Top. \xe2\x80\x98\@ref{Top,,,file name}\xe2\x80\x99 *note (file name)Top::
-\xe2\x80\x98\@ref{Top,,,,manual}\xe2\x80\x99 *note ()Top:: \xe2\x80\x98\@ref{Top,cross ref name,title,}\xe2\x80\x99
-*note cross ref name: Top. \xe2\x80\x98\@ref{Top,cross ref name,,file name}\xe2\x80\x99 *note
-cross ref name: (file name)Top. \xe2\x80\x98\@ref{Top,cross ref name,,,manual}\xe2\x80\x99
-*note cross ref name: ()Top. \xe2\x80\x98\@ref{Top,cross ref name,title,file name}\xe2\x80\x99
-*note cross ref name: (file name)Top. \xe2\x80\x98\@ref{Top,cross ref
-name,title,,manual}\xe2\x80\x99 *note cross ref name: ()Top. \xe2\x80\x98\@ref{Top,cross ref
-name,title, file name, manual}\xe2\x80\x99 *note cross ref name: (file name)Top.
-\xe2\x80\x98\@ref{Top,,title,file name}\xe2\x80\x99 *note title: (file name)Top.
-\xe2\x80\x98\@ref{Top,,title,,manual}\xe2\x80\x99 *note title: ()Top. \xe2\x80\x98\@ref{Top,,title, file
-name, manual}\xe2\x80\x99 *note title: (file name)Top. \xe2\x80\x98\@ref{Top,,,file
-name,manual}\xe2\x80\x99 *note (file name)Top::
+‘@ref{Top,cross ref name}’ *note cross ref name: Top. ‘@ref{Top,,title}’
+*note title: Top. ‘@ref{Top,,,file name}’ *note (file name)Top::
+‘@ref{Top,,,,manual}’ *note ()Top:: ‘@ref{Top,cross ref name,title,}’
+*note cross ref name: Top. ‘@ref{Top,cross ref name,,file name}’ *note
+cross ref name: (file name)Top. ‘@ref{Top,cross ref name,,,manual}’
+*note cross ref name: ()Top. ‘@ref{Top,cross ref name,title,file name}’
+*note cross ref name: (file name)Top. ‘@ref{Top,cross ref
+name,title,,manual}’ *note cross ref name: ()Top. ‘@ref{Top,cross ref
+name,title, file name, manual}’ *note cross ref name: (file name)Top.
+‘@ref{Top,,title,file name}’ *note title: (file name)Top.
+‘@ref{Top,,title,,manual}’ *note title: ()Top. ‘@ref{Top,,title, file
+name, manual}’ *note title: (file name)Top. ‘@ref{Top,,,file
+name,manual}’ *note (file name)Top::
 
-   \xe2\x80\x98\@ref{(pman)Top,cross ref name}\xe2\x80\x99 *note cross ref name: (pman)Top.
-\xe2\x80\x98\@ref{(pman)Top,,title}\xe2\x80\x99 *note title: (pman)Top. \xe2\x80\x98\@ref{(pman)Top,,,file
-name}\xe2\x80\x99 *note (file name)(pman)Top:: \xe2\x80\x98\@ref{(pman)Top,,,,manual}\xe2\x80\x99 *note
-()(pman)Top:: \xe2\x80\x98\@ref{(pman)Top,cross ref name,title,}\xe2\x80\x99 *note cross ref
-name: (pman)Top. \xe2\x80\x98\@ref{(pman)Top,cross ref name,,file name}\xe2\x80\x99 *note cross
-ref name: (file name)(pman)Top. \xe2\x80\x98\@ref{(pman)Top,cross ref
-name,,,manual}\xe2\x80\x99 *note cross ref name: ()(pman)Top. \xe2\x80\x98\@ref{(pman)Top,cross
-ref name,title,file name}\xe2\x80\x99 *note cross ref name: (file name)(pman)Top.
-\xe2\x80\x98\@ref{(pman)Top,cross ref name,title,,manual}\xe2\x80\x99 *note cross ref name:
-()(pman)Top. \xe2\x80\x98\@ref{(pman)Top,cross ref name,title, file name, manual}\xe2\x80\x99
-*note cross ref name: (file name)(pman)Top. \xe2\x80\x98\@ref{(pman)Top,,title,file
-name}\xe2\x80\x99 *note title: (file name)(pman)Top.
-\xe2\x80\x98\@ref{(pman)Top,,title,,manual}\xe2\x80\x99 *note title: ()(pman)Top.
-\xe2\x80\x98\@ref{(pman)Top,,title, file name, manual}\xe2\x80\x99 *note title: (file
-name)(pman)Top. \xe2\x80\x98\@ref{(pman)Top,,,file name,manual}\xe2\x80\x99 *note (file
+   ‘@ref{(pman)Top,cross ref name}’ *note cross ref name: (pman)Top.
+‘@ref{(pman)Top,,title}’ *note title: (pman)Top. ‘@ref{(pman)Top,,,file
+name}’ *note (file name)(pman)Top:: ‘@ref{(pman)Top,,,,manual}’ *note
+()(pman)Top:: ‘@ref{(pman)Top,cross ref name,title,}’ *note cross ref
+name: (pman)Top. ‘@ref{(pman)Top,cross ref name,,file name}’ *note cross
+ref name: (file name)(pman)Top. ‘@ref{(pman)Top,cross ref
+name,,,manual}’ *note cross ref name: ()(pman)Top. ‘@ref{(pman)Top,cross
+ref name,title,file name}’ *note cross ref name: (file name)(pman)Top.
+‘@ref{(pman)Top,cross ref name,title,,manual}’ *note cross ref name:
+()(pman)Top. ‘@ref{(pman)Top,cross ref name,title, file name, manual}’
+*note cross ref name: (file name)(pman)Top. ‘@ref{(pman)Top,,title,file
+name}’ *note title: (file name)(pman)Top.
+‘@ref{(pman)Top,,title,,manual}’ *note title: ()(pman)Top.
+‘@ref{(pman)Top,,title, file name, manual}’ *note title: (file
+name)(pman)Top. ‘@ref{(pman)Top,,,file name,manual}’ *note (file
 name)(pman)Top::
 
-   \xe2\x80\x98\@inforef{Top, cross ref name, file name}\xe2\x80\x99 *note cross ref name:
-(file name)Top. \xe2\x80\x98\@inforef{Top}\xe2\x80\x99 *note Top:: \xe2\x80\x98\@inforef{Top, cross ref
-name}\xe2\x80\x99 *note cross ref name: Top. \xe2\x80\x98\@inforef{Top,,file name}\xe2\x80\x99 *note (file
+   ‘@inforef{Top, cross ref name, file name}’ *note cross ref name:
+(file name)Top. ‘@inforef{Top}’ *note Top:: ‘@inforef{Top, cross ref
+name}’ *note cross ref name: Top. ‘@inforef{Top,,file name}’ *note (file
 name)Top::
 
 
@@ -1081,6 +1083,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 1;

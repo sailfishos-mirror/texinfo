@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'no_top_node'} = '*document_root C2
  *before_node_section C1
   *preamble_before_content
@@ -40,7 +42,7 @@ $result_sectioning_root{'no_top_node'} = '';
 $result_headings_list{'no_top_node'} = '';
 
 
-$result_converted{'info'}->{'no_top_node'} = "This is , produced from .
+$result_converted{'info'}->{'no_top_node'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: node Top not Top node
@@ -55,7 +57,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'no_top_node'} = '* W |document without Top node
  warning: document without Top node

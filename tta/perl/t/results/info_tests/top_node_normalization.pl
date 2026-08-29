@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'top_node_normalization'} = '*document_root C2
  *before_node_section C1
   *preamble_before_content
@@ -102,7 +104,7 @@ $result_sectioning_root{'top_node_normalization'} = '';
 $result_headings_list{'top_node_normalization'} = '';
 
 
-$result_converted{'info'}->{'top_node_normalization'} = "This is , produced from .
+$result_converted{'info'}->{'top_node_normalization'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: Top,  Up: (dir)
@@ -123,6 +125,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 1;

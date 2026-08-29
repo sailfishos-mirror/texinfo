@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C23
  *before_node_section C1
   *preamble_before_content

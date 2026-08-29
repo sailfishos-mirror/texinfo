@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'part_node_part_appendix'} = 'U0 unit{C3}{S:@top top}{n:Top}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
@@ -239,7 +241,7 @@ list:
 $result_headings_list{'part_node_part_appendix'} = '';
 
 
-$result_converted{'info'}->{'part_node_part_appendix'} = "This is , produced from .
+$result_converted{'info'}->{'part_node_part_appendix'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: chapter node,  Up: (dir)
@@ -271,7 +273,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'html'}->{'part_node_part_appendix'} = '<!DOCTYPE html>

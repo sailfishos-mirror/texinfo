@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'paragraphindent_asis_first'} = '*document_root C1
  *before_node_section C7
   *preamble_before_beginning C1
@@ -53,7 +55,7 @@ $result_sectioning_root{'paragraphindent_asis_first'} = '';
 $result_headings_list{'paragraphindent_asis_first'} = '';
 
 
-$result_converted{'info'}->{'paragraphindent_asis_first'} = "This is , produced from .
+$result_converted{'info'}->{'paragraphindent_asis_first'} = Encode::encode('utf-8', 'This is , produced from .
 
 bbb
 
@@ -67,7 +69,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'paragraphindent_asis_first'} = '* W |document without nodes
  warning: document without nodes

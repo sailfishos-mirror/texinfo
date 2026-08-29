@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'anchor_in_copying_in_footnote'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content C2
@@ -139,7 +141,7 @@ $result_sectioning_root{'anchor_in_copying_in_footnote'} = '';
 $result_headings_list{'anchor_in_copying_in_footnote'} = '';
 
 
-$result_converted{'info'}->{'anchor_in_copying_in_footnote'} = "This is , produced from .
+$result_converted{'info'}->{'anchor_in_copying_in_footnote'} = Encode::encode('utf-8', 'This is , produced from .
 
 Copying(1).
 
@@ -179,7 +181,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'anchor_in_copying_in_footnote'} = '* E l5|@anchor output more than once: Copying footnote
  @anchor output more than once: Copying footnote

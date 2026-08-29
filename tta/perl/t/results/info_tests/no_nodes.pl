@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'no_nodes'} = '*document_root C1
  *before_node_section C2
   *preamble_before_content
@@ -30,7 +32,7 @@ $result_sectioning_root{'no_nodes'} = '';
 $result_headings_list{'no_nodes'} = '';
 
 
-$result_converted{'info'}->{'no_nodes'} = "This is , produced from .
+$result_converted{'info'}->{'no_nodes'} = Encode::encode('utf-8', 'This is , produced from .
 
 Text.
 
@@ -42,7 +44,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'no_nodes'} = '* W |document without nodes
  warning: document without nodes

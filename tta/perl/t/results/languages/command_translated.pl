@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'command_translated'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content C2
@@ -143,22 +145,22 @@ erreur→
 ';
 
 
-$result_converted{'info'}->{'command_translated'} = "This is , produced from .
+$result_converted{'info'}->{'command_translated'} = Encode::encode('utf-8', 'This is , produced from .
 
 
-File: ,  Node: Top,  Next: chapter erreur\xe2\x86\x92,  Up: (dir)
+File: ,  Node: Top,  Next: chapter erreur→,  Up: (dir)
 
-top erreur\xe2\x86\x92
+top erreur→
 ***********
 
-erreur\xe2\x86\x92
+erreur→
 
 * Menu:
 
-* chapter erreur\xe2\x86\x92::
+* chapter erreur→::
 
 
-File: ,  Node: chapter erreur\xe2\x86\x92,  Prev: Top,  Up: Top
+File: ,  Node: chapter erreur→,  Prev: Top,  Up: Top
 
 1 Chapter
 *********
@@ -166,7 +168,7 @@ File: ,  Node: chapter erreur\xe2\x86\x92,  Prev: Top,  Up: Top
 
 Tag Table:
 Node: Top27
-Node: chapter erreur\xe2\x86\x92157
+Node: chapter erreur→157
 
 End Tag Table
 
@@ -175,7 +177,7 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: fr
 End:
-";
+');
 
 
 $result_converted{'html'}->{'command_translated'} = '<!DOCTYPE html>

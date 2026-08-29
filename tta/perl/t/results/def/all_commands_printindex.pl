@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'all_commands_printindex'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
@@ -1297,7 +1299,7 @@ vr:
 ';
 
 
-$result_converted{'info'}->{'all_commands_printindex'} = "This is , produced from .
+$result_converted{'info'}->{'all_commands_printindex'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -1445,7 +1447,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_sort_strings{'info'}->{'all_commands_printindex'} = 'fn:
  d--efmac_name

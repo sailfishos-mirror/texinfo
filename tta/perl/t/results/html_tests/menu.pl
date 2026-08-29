@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'menu'} = '*document_root C3
  *before_node_section C2
   *preamble_before_beginning C1
@@ -497,7 +499,7 @@ list:
 $result_headings_list{'menu'} = '';
 
 
-$result_converted{'info'}->{'menu'} = "This is , produced from .
+$result_converted{'info'}->{'menu'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: (ggg),  Up: (dir)
@@ -505,17 +507,17 @@ File: ,  Node: Top,  Next: (ggg),  Up: (dir)
 * Menu:
 
 * (ggg):: description
-   \xe2\x80\xa2 idescr
+   • idescr
 AAA
 
 CCC
 
-   \xe2\x80\xa2 iaa
+   • iaa
 
 
 BBB
 
-   \xe2\x80\xa2 ibb
+   • ibb
 * (manual)::
 
 comment
@@ -525,17 +527,17 @@ in description
 * (after_description)::
 
 * (detailggg):: detaildescription
-   \xe2\x80\xa2 idetaildescr
+   • idetaildescr
 detailAAA
 
 detailCCC
 
-   \xe2\x80\xa2 detailiaa
+   • detailiaa
 
 
 detailBBB
 
-   \xe2\x80\xa2 detailibb
+   • detailibb
 * (detailmanual)::
 
 detailcomment
@@ -554,7 +556,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'html'}->{'menu'} = '<!DOCTYPE html>

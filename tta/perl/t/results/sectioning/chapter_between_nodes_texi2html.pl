@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'chapter_between_nodes_texi2html'} = '*document_root C6
  *before_node_section C1
   *preamble_before_content
@@ -194,7 +196,7 @@ list:
 $result_headings_list{'chapter_between_nodes_texi2html'} = '';
 
 
-$result_converted{'info'}->{'chapter_between_nodes_texi2html'} = "This is , produced from .
+$result_converted{'info'}->{'chapter_between_nodes_texi2html'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: section node,  Up: (dir)
@@ -232,7 +234,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'html'}->{'chapter_between_nodes_texi2html'} = '<!DOCTYPE html>

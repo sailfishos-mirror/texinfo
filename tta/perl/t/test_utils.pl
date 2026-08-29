@@ -271,6 +271,13 @@ sub protect_perl_string($) {
   return $string;
 }
 
+sub protect_encode_string($) {
+  my $string = shift;
+
+  my $protected = protect_perl_string($string);
+  return Encode::encode('utf-8', $protected);
+}
+
 # protect non ascii characters and special Perl characters in double quotes,
 # such that the resulting string is ASCII but contains the same encoded
 # information.
@@ -1338,7 +1345,9 @@ sub test($$) {
       $out_file = $srcdir.'/'.$file;
     }
     open(OUT, ">$out_file") or die "Open $out_file: $!\n";
-    binmode (OUT, ":encoding(utf8)");
+    # We encode each character string that is not ASCII such that we can output
+    # the Info strings that are already encoded.
+    #binmode (OUT, ":encoding(utf8)");
     print OUT
      'use vars qw(%result_texis %result_texts %result_tree_text %result_errors'."\n".
      '   %result_indices %result_floats %result_nodes_list %result_sections_list'."\n".
@@ -1346,6 +1355,7 @@ sub test($$) {
      '   %result_converted %result_converted_errors %result_converted_sort_strings'."\n"
      .'   %result_indices_sort_strings);'."\n\n";
     print OUT 'use utf8;'."\n\n";
+    print OUT 'use Encode;'."\n\n";
 
     # NOTE $test_name is in general used for directories, file names,
     # and messages.  Here it is used as a text string.  If non ascii, it
@@ -1357,7 +1367,7 @@ sub test($$) {
 
     if (defined($tree_text)) {
       $out_result .= '$result_tree_text{\''.$test_name.'\'} = \''
-          . protect_perl_string($tree_text)."';\n\n";
+          . protect_encode_string($tree_text)."';\n\n";
     }
 
     if (!$successful_parsing) {
@@ -1365,46 +1375,46 @@ sub test($$) {
     }
 
     $out_result .= "\n".'$result_texis{\''.$test_name.'\'} = \''
-          .protect_perl_string($texi_result)."';\n\n";
+          .protect_encode_string($texi_result)."';\n\n";
     $out_result .= "\n".'$result_texts{\''.$test_name.'\'} = \''
-          .protect_perl_string($converted_text)."';\n\n";
+          .protect_encode_string($converted_text)."';\n\n";
 
     $out_result .= '$result_errors{\''.$test_name.'\'} = \''
-                   . protect_perl_string($errors_text)."';\n\n";
+                   . protect_encode_string($errors_text)."';\n\n";
 
     if (defined($indices)) {
       $out_result .= '$result_indices{\''.$test_name.'\'} = \''
-                     . protect_perl_string($indices)."';\n\n";
+                     . protect_encode_string($indices)."';\n\n";
     }
 
     if (defined($float_text)) {
       $out_result .= '$result_floats{\''.$test_name.'\'} = \''
-                    . protect_perl_string($float_text)."';\n\n";
+                    . protect_encode_string($float_text)."';\n\n";
     }
 
     if (defined($nodes_list_text)) {
       $out_result .= '$result_nodes_list{\''.$test_name.'\'} = \''
-                    . protect_perl_string($nodes_list_text)."';\n\n";
+                    . protect_encode_string($nodes_list_text)."';\n\n";
     }
 
     if (defined($sections_list_text)) {
       $out_result .= '$result_sections_list{\''.$test_name.'\'} = \''
-                    . protect_perl_string($sections_list_text)."';\n\n";
+                    . protect_encode_string($sections_list_text)."';\n\n";
     }
 
     if (defined($sectioning_root_text)) {
       $out_result .= '$result_sectioning_root{\''.$test_name.'\'} = \''
-                    . protect_perl_string($sectioning_root_text)."';\n\n";
+                    . protect_encode_string($sectioning_root_text)."';\n\n";
     }
 
     if (defined($headings_list_text)) {
       $out_result .= '$result_headings_list{\''.$test_name.'\'} = \''
-                    . protect_perl_string($headings_list_text)."';\n\n";
+                    . protect_encode_string($headings_list_text)."';\n\n";
     }
 
     if (defined($indices_sorted_sort_strings)) {
       $out_result .= '$result_indices_sort_strings{\''.$test_name.'\'} = \''
-             . protect_perl_string($indices_sorted_sort_strings)."';\n\n";
+             . protect_encode_string($indices_sorted_sort_strings)."';\n\n";
     }
 
     foreach my $format (@tested_formats) {
@@ -1412,12 +1422,12 @@ sub test($$) {
         $out_result .= "\n".'$result_converted{\''.$format.'\'}->{\''
                        .$test_name.'\'} = ';
         if ($format ne 'info') {
-          $out_result .= "'".protect_perl_string($converted{$format})."'";
+          $out_result .= "'".protect_encode_string($converted{$format})."'";
         } else {
-          # protect such as to have an ASCII string that represents the
-          # encoded output such that it can be encoded to UTF-8 without
-          # messing up the text.
-          $out_result .= '"'.protect_non_ascii($converted{$format}).'"';
+          # only protect the generated, do not encode as it is already encoded.
+          # Use en Encode::encode call to encode to UTF-8 upon reading in Perl.
+          $out_result .= "Encode::encode('utf-8', '"
+                        .protect_perl_string($converted{$format})."')";
         }
         $out_result .= ";\n\n";
       }
@@ -1425,12 +1435,12 @@ sub test($$) {
         $out_result
          .= '$result_converted_sort_strings{\''.$format.'\'}->{\''.
            $test_name.'\'} = \''
-           . protect_perl_string($converted_sort_strings{$format})."';\n\n";
+           . protect_encode_string($converted_sort_strings{$format})."';\n\n";
       }
       if (defined($converted_errors{$format})) {
         $out_result
      .= '$result_converted_errors{\''.$format.'\'}->{\''.$test_name.'\'} = \''
-         . protect_perl_string($converted_errors{$format})."';\n\n";
+         . protect_encode_string($converted_errors{$format})."';\n\n";
       }
     }
 

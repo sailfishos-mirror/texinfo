@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = '*document_root C5
  *before_node_section C4
   *preamble_before_beginning C2
@@ -264,7 +266,7 @@ list:
 $result_headings_list{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = '';
 
 
-$result_converted{'info'}->{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = "This is , produced from cond.texi.
+$result_converted{'info'}->{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = Encode::encode('utf-8', 'This is , produced from cond.texi.
 
 This is ifnothtml text.
 
@@ -292,6 +294,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 1;

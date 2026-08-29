@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'set_global_direction_for_relative_direction'} = '*document_root C13
  *before_node_section C1
   *preamble_before_content

@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'appendix_translated'} = '*document_root C4
  *before_node_section C1
   *preamble_before_content C2
@@ -120,7 +122,7 @@ Apéndice A dernier
 ';
 
 
-$result_converted{'info'}->{'appendix_translated'} = "This is , produced from .
+$result_converted{'info'}->{'appendix_translated'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -128,7 +130,7 @@ File: ,  Node: Top,  Up: (dir)
 top
 ***
 
-Ap\xc3\xa9ndice A dernier
+Apéndice A dernier
 ******************
 
 
@@ -142,7 +144,7 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: es
 End:
-";
+');
 
 
 $result_converted{'html'}->{'appendix_translated'} = '<!DOCTYPE html>

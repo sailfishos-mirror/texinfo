@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root C11
  *before_node_section C1
   *preamble_before_content

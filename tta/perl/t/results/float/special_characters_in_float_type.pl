@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'special_characters_in_float_type'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
@@ -202,7 +204,7 @@ VAR
 ';
 
 
-$result_converted{'info'}->{'special_characters_in_float_type'} = "This is , produced from .
+$result_converted{'info'}->{'special_characters_in_float_type'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -222,20 +224,20 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 
 F
 
-A < \" \" \' \' \' \\aaa . -- IN VAR 1.1: float A < \" \" \' \' \' \\aaa .  -- IN
+A < " " \' \' \' \\aaa . -- IN VAR 1.1: float A < " " \' \' \' \\aaa .  -- IN
 VAR
 
 * Menu:
 
-* A < \" \" \' \' \' \\aaa . -- IN VAR 1.1: L < \" `` ` \' \' \\aaa . --- IN VAR.
-                                         float A < \" \" \' \' \' \\aaa .  --
+* A < " " \' \' \' \\aaa . -- IN VAR 1.1: L < " `` ` \' \' \\aaa . --- IN VAR.
+                                         float A < " " \' \' \' \\aaa .  --
                                          IN VAR
 
 
 Tag Table:
 Node: Top27
 Node: chap102
-Ref: L < \" `` ` \' \' \\aaa . --- IN VAR162
+Ref: L < " `` ` \' \' \\aaa . --- IN VAR162
 
 End Tag Table
 
@@ -243,7 +245,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'html'}->{'special_characters_in_float_type'} = '<!DOCTYPE html>

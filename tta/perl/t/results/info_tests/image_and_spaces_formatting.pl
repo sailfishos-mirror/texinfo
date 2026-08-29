@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'image_and_spaces_formatting'} = '*document_root C2
  *before_node_section C1
   *preamble_before_content
@@ -233,7 +235,7 @@ $result_sectioning_root{'image_and_spaces_formatting'} = '';
 $result_headings_list{'image_and_spaces_formatting'} = '';
 
 
-$result_converted{'info'}->{'image_and_spaces_formatting'} = "This is , produced from .
+$result_converted{'info'}->{'image_and_spaces_formatting'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -263,6 +265,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 1;

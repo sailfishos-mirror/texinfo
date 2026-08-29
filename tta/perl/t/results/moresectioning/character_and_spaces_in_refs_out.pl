@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'character_and_spaces_in_refs_out'} = 'U0 unit{C3}{N:Top}{s:@top Test refs}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS

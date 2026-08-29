@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'top_no_argument_and_top_node'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
@@ -56,7 +58,7 @@ list:
 $result_headings_list{'top_no_argument_and_top_node'} = '';
 
 
-$result_converted{'info'}->{'top_no_argument_and_top_node'} = "This is , produced from .
+$result_converted{'info'}->{'top_no_argument_and_top_node'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -71,7 +73,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'html'}->{'top_no_argument_and_top_node'} = '<!DOCTYPE html>

@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'del_quote_linebreaking'} = '*document_root C1
  *before_node_section C17
   *preamble_before_content
@@ -162,7 +164,7 @@ $result_sectioning_root{'del_quote_linebreaking'} = '';
 $result_headings_list{'del_quote_linebreaking'} = '';
 
 
-$result_converted{'info'}->{'del_quote_linebreaking'} = "This is , produced from .
+$result_converted{'info'}->{'del_quote_linebreaking'} = Encode::encode('utf-8', 'This is , produced from .
 
 first para
 
@@ -193,7 +195,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'del_quote_linebreaking'} = '* W |document without nodes
  warning: document without nodes

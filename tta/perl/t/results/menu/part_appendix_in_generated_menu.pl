@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'part_appendix_in_generated_menu'} = '*document_root C12
  *before_node_section C1
   *preamble_before_content
@@ -433,7 +435,7 @@ $result_converted{'xml'}->{'part_appendix_in_generated_menu'} = '<node identifie
 ';
 
 
-$result_converted{'info'}->{'part_appendix_in_generated_menu'} = "This is , produced from .
+$result_converted{'info'}->{'part_appendix_in_generated_menu'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: chapter,  Up: (dir)
@@ -501,6 +503,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 1;

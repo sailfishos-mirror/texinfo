@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'note_in_strong_end_of_line'} = '*document_root C2
  *before_node_section C1
   *preamble_before_content
@@ -65,7 +67,7 @@ $result_sectioning_root{'note_in_strong_end_of_line'} = '';
 $result_headings_list{'note_in_strong_end_of_line'} = '';
 
 
-$result_converted{'info'}->{'note_in_strong_end_of_line'} = "This is , produced from .
+$result_converted{'info'}->{'note_in_strong_end_of_line'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -86,7 +88,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'note_in_strong_end_of_line'} = '* W l3|@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
  warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that

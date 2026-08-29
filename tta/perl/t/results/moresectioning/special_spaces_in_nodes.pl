@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  *before_node_section C2
   *preamble_before_beginning C1
@@ -411,20 +413,20 @@ list:
 $result_headings_list{'special_spaces_in_nodes'} = '';
 
 
-$result_converted{'info'}->{'special_spaces_in_nodes'} = "This is , produced from special_spaces_in_nodes.texi.
+$result_converted{'info'}->{'special_spaces_in_nodes'} = Encode::encode('utf-8', 'This is , produced from special_spaces_in_nodes.texi.
 
 
-File: ,  Node: Top\xe2\x80\x80,  Next: EN QUAD|\xe2\x80\x80| EM QUAD|\xe2\x80\x81| EN SPACE|\xe2\x80\x82|
+File: ,  Node: Top ,  Next: EN QUAD| | EM QUAD| | EN SPACE| |
 
 top
 ***
 
 * Menu:
 
-* EN QUAD|\xe2\x80\x80| EM QUAD|\xe2\x80\x81| EN SPACE|\xe2\x80\x82|::
+* EN QUAD| | EM QUAD| | EN SPACE| |::
 
 
-File: ,  Node: EN QUAD|\xe2\x80\x80| EM QUAD|\xe2\x80\x81| EN SPACE|\xe2\x80\x82|,  Up: Top\xe2\x80\x80
+File: ,  Node: EN QUAD| | EM QUAD| | EN SPACE| |,  Up: Top 
 
 1 chap
 ******
@@ -432,52 +434,52 @@ File: ,  Node: EN QUAD|\xe2\x80\x80| EM QUAD|\xe2\x80\x81| EN SPACE|\xe2\x80\x82
 * Menu:
 
 * CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||::
-* CARRIAGE RETURN|\r|::
-* NEXT LINE (NEL)|\xc2\x85| NO-BREAK SPACE|\xc2\xa0| OGHAM SPACE MARK|\xe1\x9a\x80|::
-* MONGOLIAN VOWEL SEPARATOR|\xe1\xa0\x8e| EM SPACE|\xe2\x80\x83|::
-* THREE-PER-EM SPACE|\xe2\x80\x84| FOUR-PER-EM SPACE|\xe2\x80\x85| SIX-PER-EM SPACE|\xe2\x80\x86|::
-* FIGURE SPACE|\xe2\x80\x87| PUNCTUATION SPACE|\xe2\x80\x88| THIN SPACE|\xe2\x80\x89|::
-* HAIR SPACE|\xe2\x80\x8a| LINE SEPARATOR|\xe2\x80\xa8| PARAGRAPH SEPARATOR|\xe2\x80\xa9|::
-* NARROW NO-BREAK SPACE|\xe2\x80\xaf| MEDIUM MATHEMATICAL SPACE|\xe2\x81\x9f| IDEOGRAPHIC SPACE|\xe3\x80\x80|::
+* CARRIAGE RETURN|'."\r".'|::
+* NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |::
+* MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |::
+* THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |::
+* FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |::
+* HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |::
+* NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|::
 
 
-File: ,  Node: CHARACTER TABULATION| | FORM FEED| | LINE TABULATION| |,  Next: CARRIAGE RETURN| |,  Up: EN QUAD|\xe2\x80\x80| EM QUAD|\xe2\x80\x81| EN SPACE|\xe2\x80\x82|
+File: ,  Node: CHARACTER TABULATION| | FORM FEED| | LINE TABULATION| |,  Next: CARRIAGE RETURN| |,  Up: EN QUAD| | EM QUAD| | EN SPACE| |
 
 
-File: ,  Node: CARRIAGE RETURN| |,  Next: NEXT LINE (NEL)|\xc2\x85| NO-BREAK SPACE|\xc2\xa0| OGHAM SPACE MARK|\xe1\x9a\x80|,  Prev: CHARACTER TABULATION| | FORM FEED| | LINE TABULATION| |,  Up: EN QUAD|\xe2\x80\x80| EM QUAD|\xe2\x80\x81| EN SPACE|\xe2\x80\x82|
+File: ,  Node: CARRIAGE RETURN| |,  Next: NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |,  Prev: CHARACTER TABULATION| | FORM FEED| | LINE TABULATION| |,  Up: EN QUAD| | EM QUAD| | EN SPACE| |
 
 
-File: ,  Node: NEXT LINE (NEL)|\xc2\x85| NO-BREAK SPACE|\xc2\xa0| OGHAM SPACE MARK|\xe1\x9a\x80|,  Next: MONGOLIAN VOWEL SEPARATOR|\xe1\xa0\x8e| EM SPACE|\xe2\x80\x83|,  Prev: CARRIAGE RETURN| |,  Up: EN QUAD|\xe2\x80\x80| EM QUAD|\xe2\x80\x81| EN SPACE|\xe2\x80\x82|
+File: ,  Node: NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |,  Next: MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |,  Prev: CARRIAGE RETURN| |,  Up: EN QUAD| | EM QUAD| | EN SPACE| |
 
 
-File: ,  Node: MONGOLIAN VOWEL SEPARATOR|\xe1\xa0\x8e| EM SPACE|\xe2\x80\x83|,  Next: THREE-PER-EM SPACE|\xe2\x80\x84| FOUR-PER-EM SPACE|\xe2\x80\x85| SIX-PER-EM SPACE|\xe2\x80\x86|,  Prev: NEXT LINE (NEL)|\xc2\x85| NO-BREAK SPACE|\xc2\xa0| OGHAM SPACE MARK|\xe1\x9a\x80|,  Up: EN QUAD|\xe2\x80\x80| EM QUAD|\xe2\x80\x81| EN SPACE|\xe2\x80\x82|
+File: ,  Node: MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |,  Next: THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |,  Prev: NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |,  Up: EN QUAD| | EM QUAD| | EN SPACE| |
 
 
-File: ,  Node: THREE-PER-EM SPACE|\xe2\x80\x84| FOUR-PER-EM SPACE|\xe2\x80\x85| SIX-PER-EM SPACE|\xe2\x80\x86|,  Next: FIGURE SPACE|\xe2\x80\x87| PUNCTUATION SPACE|\xe2\x80\x88| THIN SPACE|\xe2\x80\x89|,  Prev: MONGOLIAN VOWEL SEPARATOR|\xe1\xa0\x8e| EM SPACE|\xe2\x80\x83|,  Up: EN QUAD|\xe2\x80\x80| EM QUAD|\xe2\x80\x81| EN SPACE|\xe2\x80\x82|
+File: ,  Node: THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |,  Next: FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |,  Prev: MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |,  Up: EN QUAD| | EM QUAD| | EN SPACE| |
 
 
-File: ,  Node: FIGURE SPACE|\xe2\x80\x87| PUNCTUATION SPACE|\xe2\x80\x88| THIN SPACE|\xe2\x80\x89|,  Next: HAIR SPACE|\xe2\x80\x8a| LINE SEPARATOR|\xe2\x80\xa8| PARAGRAPH SEPARATOR|\xe2\x80\xa9|,  Prev: THREE-PER-EM SPACE|\xe2\x80\x84| FOUR-PER-EM SPACE|\xe2\x80\x85| SIX-PER-EM SPACE|\xe2\x80\x86|,  Up: EN QUAD|\xe2\x80\x80| EM QUAD|\xe2\x80\x81| EN SPACE|\xe2\x80\x82|
+File: ,  Node: FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |,  Next: HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |,  Prev: THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |,  Up: EN QUAD| | EM QUAD| | EN SPACE| |
 
 
-File: ,  Node: HAIR SPACE|\xe2\x80\x8a| LINE SEPARATOR|\xe2\x80\xa8| PARAGRAPH SEPARATOR|\xe2\x80\xa9|,  Next: NARROW NO-BREAK SPACE|\xe2\x80\xaf| MEDIUM MATHEMATICAL SPACE|\xe2\x81\x9f| IDEOGRAPHIC SPACE|\xe3\x80\x80|,  Prev: FIGURE SPACE|\xe2\x80\x87| PUNCTUATION SPACE|\xe2\x80\x88| THIN SPACE|\xe2\x80\x89|,  Up: EN QUAD|\xe2\x80\x80| EM QUAD|\xe2\x80\x81| EN SPACE|\xe2\x80\x82|
+File: ,  Node: HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |,  Next: NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|,  Prev: FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |,  Up: EN QUAD| | EM QUAD| | EN SPACE| |
 
 
-File: ,  Node: NARROW NO-BREAK SPACE|\xe2\x80\xaf| MEDIUM MATHEMATICAL SPACE|\xe2\x81\x9f| IDEOGRAPHIC SPACE|\xe3\x80\x80|,  Prev: HAIR SPACE|\xe2\x80\x8a| LINE SEPARATOR|\xe2\x80\xa8| PARAGRAPH SEPARATOR|\xe2\x80\xa9|,  Up: EN QUAD|\xe2\x80\x80| EM QUAD|\xe2\x80\x81| EN SPACE|\xe2\x80\x82|
+File: ,  Node: NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|,  Prev: HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |,  Up: EN QUAD| | EM QUAD| | EN SPACE| |
 
-*note NEXT LINE (NEL)|\xc2\x85| NO-BREAK SPACE|\xc2\xa0| OGHAM SPACE MARK|\xe1\x9a\x80|::
+*note NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |::
 
 
 Tag Table:
-Node: Top\xe2\x80\x8055
-Node: EN QUAD|\xe2\x80\x80| EM QUAD|\xe2\x80\x81| EN SPACE|\xe2\x80\x82|191
+Node: Top 55
+Node: EN QUAD| | EM QUAD| | EN SPACE| |191
 Node: CHARACTER TABULATION| | FORM FEED| | LINE TABULATION| |768
 Node: CARRIAGE RETURN| |915
-Node: NEXT LINE (NEL)|\xc2\x85| NO-BREAK SPACE|\xc2\xa0| OGHAM SPACE MARK|\xe1\x9a\x80|1131
-Node: MONGOLIAN VOWEL SEPARATOR|\xe1\xa0\x8e| EM SPACE|\xe2\x80\x83|1336
-Node: THREE-PER-EM SPACE|\xe2\x80\x84| FOUR-PER-EM SPACE|\xe2\x80\x85| SIX-PER-EM SPACE|\xe2\x80\x86|1591
-Node: FIGURE SPACE|\xe2\x80\x87| PUNCTUATION SPACE|\xe2\x80\x88| THIN SPACE|\xe2\x80\x89|1842
-Node: HAIR SPACE|\xe2\x80\x8a| LINE SEPARATOR|\xe2\x80\xa8| PARAGRAPH SEPARATOR|\xe2\x80\xa9|2109
-Node: NARROW NO-BREAK SPACE|\xe2\x80\xaf| MEDIUM MATHEMATICAL SPACE|\xe2\x81\x9f| IDEOGRAPHIC SPACE|\xe3\x80\x80|2388
+Node: NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |1131
+Node: MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |1336
+Node: THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |1591
+Node: FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |1842
+Node: HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |2109
+Node: NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|2388
 
 End Tag Table
 
@@ -485,7 +487,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'special_spaces_in_nodes'} = '* W special_spaces_in_nodes.texi|document without Top node
  warning: document without Top node

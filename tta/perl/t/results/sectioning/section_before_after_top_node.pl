@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'section_before_after_top_node'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
@@ -124,7 +126,7 @@ list:
 $result_headings_list{'section_before_after_top_node'} = '';
 
 
-$result_converted{'info'}->{'section_before_after_top_node'} = "This is , produced from section_before_after_top_node.texi.
+$result_converted{'info'}->{'section_before_after_top_node'} = Encode::encode('utf-8', 'This is , produced from section_before_after_top_node.texi.
 
 before
 ******
@@ -150,7 +152,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'html'}->{'section_before_after_top_node'} = '<!DOCTYPE html>

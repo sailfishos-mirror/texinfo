@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'bracketed_arg_no_space'} = '*document_root C1
  *before_node_section C2
   *preamble_before_content
@@ -81,7 +83,7 @@ $result_indices_sort_strings{'bracketed_arg_no_space'} = 'fn:
 ';
 
 
-$result_converted{'info'}->{'bracketed_arg_no_space'} = "This is , produced from .
+$result_converted{'info'}->{'bracketed_arg_no_space'} = Encode::encode('utf-8', 'This is , produced from .
 
  -- a bc d: e gh mll restand more
 
@@ -93,7 +95,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_sort_strings{'info'}->{'bracketed_arg_no_space'} = 'fn:
  e gh

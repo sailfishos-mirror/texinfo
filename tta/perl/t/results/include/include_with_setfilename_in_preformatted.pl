@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'include_with_setfilename_in_preformatted'} = '*document_root C1
  *before_node_section C2
   *preamble_before_content
@@ -69,7 +71,7 @@ $result_sectioning_root{'include_with_setfilename_in_preformatted'} = '';
 $result_headings_list{'include_with_setfilename_in_preformatted'} = '';
 
 
-$result_converted{'info'}->{'include_with_setfilename_in_preformatted'} = "This is , produced from .
+$result_converted{'info'}->{'include_with_setfilename_in_preformatted'} = Encode::encode('utf-8', 'This is , produced from .
 
 
      In included file.
@@ -83,7 +85,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'include_with_setfilename_in_preformatted'} = '* W |document without nodes
  warning: document without nodes

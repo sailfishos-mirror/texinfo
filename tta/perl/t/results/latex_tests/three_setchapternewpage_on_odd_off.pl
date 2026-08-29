@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'three_setchapternewpage_on_odd_off'} = '*document_root C1
  *before_node_section C1
   *preamble_before_content C5

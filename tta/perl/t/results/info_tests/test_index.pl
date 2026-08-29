@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'test_index'} = '*document_root C13
  *before_node_section C1
   *preamble_before_content
@@ -1267,7 +1269,7 @@ fn:
 ';
 
 
-$result_converted{'info'}->{'test_index'} = "This is , produced from .
+$result_converted{'info'}->{'test_index'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: name,  Up: (dir)
@@ -1474,9 +1476,9 @@ Para.
  [index ]
 * Menu:
 
-* \xc2\xa1:                                     Top.                   (line 8)
-* \":                                     Top.                   (line 8)
-* \@:                                     Top.                   (line 8)
+* ¡:                                     Top.                   (line 8)
+* ":                                     Top.                   (line 8)
+* @:                                     Top.                   (line 8)
 * in Top:                                Top.                   (line 8)
 * index entry in appendix before para:   name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong.
                                                                 (line 6)
@@ -1533,7 +1535,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_sort_strings{'info'}->{'test_index'} = 'cp:
  ¡

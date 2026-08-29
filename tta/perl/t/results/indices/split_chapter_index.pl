@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'split_chapter_index'} = '*document_root C10
  *before_node_section C2
   *preamble_before_setfilename C1

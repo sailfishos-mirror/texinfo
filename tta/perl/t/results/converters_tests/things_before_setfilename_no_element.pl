@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
  *before_node_section C6
   *preamble_before_setfilename C26
@@ -438,7 +440,7 @@ Ref to footnote anchor
 ';
 
 
-$result_converted{'info'}->{'things_before_setfilename_no_element'} = "This is things_before_setfilename_no_element.info, produced from
+$result_converted{'info'}->{'things_before_setfilename_no_element'} = Encode::encode('utf-8', 'This is things_before_setfilename_no_element.info, produced from
 things_before_setfilename_no_element.texi.
 
 Ref to anchor *note An anchor::
@@ -454,7 +456,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_sort_strings{'info'}->{'things_before_setfilename_no_element'} = 'cp:
  index entry

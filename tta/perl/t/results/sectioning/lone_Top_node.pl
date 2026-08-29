@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'lone_Top_node'} = 'U0 unit{C4}{S:@chapter 1 chap}{n:First}
 UNIT_DIRECTIONS
 This: [U0]

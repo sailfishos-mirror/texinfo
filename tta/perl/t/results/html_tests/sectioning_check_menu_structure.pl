@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  *before_node_section C2
   *preamble_before_beginning C2

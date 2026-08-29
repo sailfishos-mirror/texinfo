@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'multiline_image_and_align'} = '*document_root C1
  *before_node_section C20
   *preamble_before_content
@@ -333,7 +335,7 @@ $result_sectioning_root{'multiline_image_and_align'} = '';
 $result_headings_list{'multiline_image_and_align'} = '';
 
 
-$result_converted{'info'}->{'multiline_image_and_align'} = "This is , produced from .
+$result_converted{'info'}->{'multiline_image_and_align'} = Encode::encode('utf-8', 'This is , produced from .
 
                                 1  A  B  
                                 2  C  D
@@ -367,37 +369,37 @@ fffffffffffffffffffffffffffffffffffffff   1  A  B
                                                               2  C  D
                          3  E  F JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
 
- [image src=\"figure.txt\" text=\"  1  A  B  
+ [image src="figure.txt" text="  1  A  B  
   2  C  D
-  3  E  F\" ]
+  3  E  F" ]
 
-CCCC  [image src=\"figure.txt\" text=\"  1  A  B  
+CCCC  [image src="figure.txt" text="  1  A  B  
   2  C  D
-  3  E  F\" ]
+  3  E  F" ]
 
-fffffffffffffffffffffffffffffffffffffff  [image src=\"figure.txt\" text=\"  1  A  B  
+fffffffffffffffffffffffffffffffffffffff  [image src="figure.txt" text="  1  A  B  
   2  C  D
-  3  E  F\" ]
+  3  E  F" ]
 
-dddd  [image src=\"figure.txt\" text=\"  1  A  B  
+dddd  [image src="figure.txt" text="  1  A  B  
   2  C  D
-  3  E  F\" ] iiiii
+  3  E  F" ] iiiii
 
                                                                     AAA
- [image src=\"figure.txt\" text=\"  1  A  B  
+ [image src="figure.txt" text="  1  A  B  
   2  C  D
-  3  E  F\" ]
+  3  E  F" ]
 
-BBB  [image src=\"figure.txt\" text=\"  1  A  B  
+BBB  [image src="figure.txt" text="  1  A  B  
   2  C  D
-  3  E  F\" ] gggg  [image src=\"figure.txt\" text=\"  1  A  B  
+  3  E  F" ] gggg  [image src="figure.txt" text="  1  A  B  
   2  C  D
-  3  E  F\" ]
+  3  E  F" ]
 
                                                                     HHH
- [image src=\"figure.txt\" text=\"  1  A  B  
+ [image src="figure.txt" text="  1  A  B  
   2  C  D
-  3  E  F\" ] JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
+  3  E  F" ] JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
 
 Tag Table:
 
@@ -407,7 +409,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'multiline_image_and_align'} = '* W |document without nodes
  warning: document without nodes

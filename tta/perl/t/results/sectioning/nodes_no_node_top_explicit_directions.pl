@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'nodes_no_node_top_explicit_directions'} = 'U0 unit{C2}{N:first}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
@@ -136,7 +138,7 @@ $result_sectioning_root{'nodes_no_node_top_explicit_directions'} = '';
 $result_headings_list{'nodes_no_node_top_explicit_directions'} = '';
 
 
-$result_converted{'info'}->{'nodes_no_node_top_explicit_directions'} = "This is , produced from .
+$result_converted{'info'}->{'nodes_no_node_top_explicit_directions'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: first,  Up: (dir)
@@ -163,7 +165,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'nodes_no_node_top_explicit_directions'} = '* W |document without Top node
  warning: document without Top node

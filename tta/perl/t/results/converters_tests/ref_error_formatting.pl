@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'ref_error_formatting'} = '*document_root C1
  *before_node_section C9
   *preamble_before_beginning C1
@@ -1035,43 +1037,43 @@ $result_converted{'latex_text'}->{'ref_error_formatting'} = '\\begin{document}
 ';
 
 
-$result_converted{'info'}->{'ref_error_formatting'} = "This is , produced from .
+$result_converted{'info'}->{'ref_error_formatting'} = Encode::encode('utf-8', 'This is , produced from .
 
-\xe2\x80\x98\@ref{node}\xe2\x80\x99 *note node::
+‘@ref{node}’ *note node::
 
-   \xe2\x80\x98\@ref{,cross ref name}\xe2\x80\x99 *note cross ref name: . \xe2\x80\x98\@ref{,,title}\xe2\x80\x99 *note
-title: . \xe2\x80\x98\@ref{,,,file name}\xe2\x80\x99 *note (file name)Top:: \xe2\x80\x98\@ref{,,,,manual}\xe2\x80\x99
-*note ()Top:: \xe2\x80\x98\@ref{node,cross ref name}\xe2\x80\x99 *note cross ref name: node.
-\xe2\x80\x98\@ref{node,,title}\xe2\x80\x99 *note title: node. \xe2\x80\x98\@ref{node,,,file name}\xe2\x80\x99 *note
-(file name)node:: \xe2\x80\x98\@ref{node,,,,manual}\xe2\x80\x99 *note ()node:: \xe2\x80\x98\@ref{node,cross
-ref name,title,}\xe2\x80\x99 *note cross ref name: node. \xe2\x80\x98\@ref{node,cross ref
-name,,file name}\xe2\x80\x99 *note cross ref name: (file name)node.
-\xe2\x80\x98\@ref{node,cross ref name,,,manual}\xe2\x80\x99 *note cross ref name: ()node.
-\xe2\x80\x98\@ref{node,cross ref name,title,file name}\xe2\x80\x99 *note cross ref name: (file
-name)node. \xe2\x80\x98\@ref{node,cross ref name,title,,manual}\xe2\x80\x99 *note cross ref
-name: ()node. \xe2\x80\x98\@ref{node,cross ref name,title, file name, manual}\xe2\x80\x99 *note
-cross ref name: (file name)node. \xe2\x80\x98\@ref{node,,title,file name}\xe2\x80\x99 *note
-title: (file name)node. \xe2\x80\x98\@ref{node,,title,,manual}\xe2\x80\x99 *note title: ()node.
-\xe2\x80\x98\@ref{node,,title, file name, manual}\xe2\x80\x99 *note title: (file name)node.
-\xe2\x80\x98\@ref{node,,,file name,manual}\xe2\x80\x99 *note (file name)node:: \xe2\x80\x98\@ref{,cross ref
-name,title,}\xe2\x80\x99 *note cross ref name: . \xe2\x80\x98\@ref{,cross ref name,,file name}\xe2\x80\x99
-*note cross ref name: (file name)Top. \xe2\x80\x98\@ref{,cross ref name,,,manual}\xe2\x80\x99
-*note cross ref name: ()Top. \xe2\x80\x98\@ref{,cross ref name,title,file name}\xe2\x80\x99
-*note cross ref name: (file name)Top. \xe2\x80\x98\@ref{,cross ref
-name,title,,manual}\xe2\x80\x99 *note cross ref name: ()Top. \xe2\x80\x98\@ref{,cross ref
-name,title, file name, manual}\xe2\x80\x99 *note cross ref name: (file name)Top.
-\xe2\x80\x98\@ref{,,title,file name}\xe2\x80\x99 *note title: (file name)Top.
-\xe2\x80\x98\@ref{,,title,,manual}\xe2\x80\x99 *note title: ()Top. \xe2\x80\x98\@ref{,,title, file name,
-manual}\xe2\x80\x99 *note title: (file name)Top. \xe2\x80\x98\@ref{,,,file name,manual}\xe2\x80\x99 *note
+   ‘@ref{,cross ref name}’ *note cross ref name: . ‘@ref{,,title}’ *note
+title: . ‘@ref{,,,file name}’ *note (file name)Top:: ‘@ref{,,,,manual}’
+*note ()Top:: ‘@ref{node,cross ref name}’ *note cross ref name: node.
+‘@ref{node,,title}’ *note title: node. ‘@ref{node,,,file name}’ *note
+(file name)node:: ‘@ref{node,,,,manual}’ *note ()node:: ‘@ref{node,cross
+ref name,title,}’ *note cross ref name: node. ‘@ref{node,cross ref
+name,,file name}’ *note cross ref name: (file name)node.
+‘@ref{node,cross ref name,,,manual}’ *note cross ref name: ()node.
+‘@ref{node,cross ref name,title,file name}’ *note cross ref name: (file
+name)node. ‘@ref{node,cross ref name,title,,manual}’ *note cross ref
+name: ()node. ‘@ref{node,cross ref name,title, file name, manual}’ *note
+cross ref name: (file name)node. ‘@ref{node,,title,file name}’ *note
+title: (file name)node. ‘@ref{node,,title,,manual}’ *note title: ()node.
+‘@ref{node,,title, file name, manual}’ *note title: (file name)node.
+‘@ref{node,,,file name,manual}’ *note (file name)node:: ‘@ref{,cross ref
+name,title,}’ *note cross ref name: . ‘@ref{,cross ref name,,file name}’
+*note cross ref name: (file name)Top. ‘@ref{,cross ref name,,,manual}’
+*note cross ref name: ()Top. ‘@ref{,cross ref name,title,file name}’
+*note cross ref name: (file name)Top. ‘@ref{,cross ref
+name,title,,manual}’ *note cross ref name: ()Top. ‘@ref{,cross ref
+name,title, file name, manual}’ *note cross ref name: (file name)Top.
+‘@ref{,,title,file name}’ *note title: (file name)Top.
+‘@ref{,,title,,manual}’ *note title: ()Top. ‘@ref{,,title, file name,
+manual}’ *note title: (file name)Top. ‘@ref{,,,file name,manual}’ *note
 (file name)Top::
 
-   \xe2\x80\x98\@inforef{,cross ref name }\xe2\x80\x99 *note cross ref name: . \xe2\x80\x98\@inforef{,,file
-name}\xe2\x80\x99 *note (file name)Top:: \xe2\x80\x98\@inforef{,cross ref name, file name}\xe2\x80\x99
-*note cross ref name: (file name)Top. \xe2\x80\x98\@inforef{}\xe2\x80\x99 *note ::
+   ‘@inforef{,cross ref name }’ *note cross ref name: . ‘@inforef{,,file
+name}’ *note (file name)Top:: ‘@inforef{,cross ref name, file name}’
+*note cross ref name: (file name)Top. ‘@inforef{}’ *note ::
 
-   \xe2\x80\x98\@inforef{node, cross ref name, file name}\xe2\x80\x99 *note cross ref name:
-(file name)node. \xe2\x80\x98\@inforef{node}\xe2\x80\x99 *note node:: \xe2\x80\x98\@inforef{node, cross ref
-name}\xe2\x80\x99 *note cross ref name: node. \xe2\x80\x98\@inforef{node,,file name}\xe2\x80\x99 *note
+   ‘@inforef{node, cross ref name, file name}’ *note cross ref name:
+(file name)node. ‘@inforef{node}’ *note node:: ‘@inforef{node, cross ref
+name}’ *note cross ref name: node. ‘@inforef{node,,file name}’ *note
 (file name)node::
 
 Tag Table:
@@ -1082,7 +1084,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'ref_error_formatting'} = '* W |document without nodes
  warning: document without nodes

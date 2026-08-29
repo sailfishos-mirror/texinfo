@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'quote_node_names_info'} = '*document_root C12
  *before_node_section C1
   *preamble_before_content

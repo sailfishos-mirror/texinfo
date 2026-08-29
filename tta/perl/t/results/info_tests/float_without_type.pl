@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'float_without_type'} = '*document_root C2
  *before_node_section C2
   *preamble_before_beginning C1
@@ -86,7 +88,7 @@ $result_sectioning_root{'float_without_type'} = '';
 $result_headings_list{'float_without_type'} = '';
 
 
-$result_converted{'info'}->{'float_without_type'} = "This is , produced from .
+$result_converted{'info'}->{'float_without_type'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -108,6 +110,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 1;

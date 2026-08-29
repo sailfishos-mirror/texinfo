@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'nodes_no_section_footnote_no_top_node_output'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content

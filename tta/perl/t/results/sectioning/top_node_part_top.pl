@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'top_node_part_top'} = 'U0 unit{C4}{S:@top top}{n:Top}
 UNIT_DIRECTIONS
 This: [U0]
@@ -95,7 +97,7 @@ list:
 $result_headings_list{'top_node_part_top'} = '';
 
 
-$result_converted{'info'}->{'top_node_part_top'} = "This is , produced from top_node_part_top.texi.
+$result_converted{'info'}->{'top_node_part_top'} = Encode::encode('utf-8', 'This is , produced from top_node_part_top.texi.
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -113,7 +115,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'html'}->{'top_node_part_top'} = '<!DOCTYPE html>

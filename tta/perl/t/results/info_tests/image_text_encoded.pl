@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'image_text_encoded'} = '*document_root C1
  *before_node_section C3
   *preamble_before_content C2
@@ -49,9 +51,9 @@ $result_sectioning_root{'image_text_encoded'} = '';
 $result_headings_list{'image_text_encoded'} = '';
 
 
-$result_converted{'info'}->{'image_text_encoded'} = "This is , produced from .
+$result_converted{'info'}->{'image_text_encoded'} = Encode::encode('utf-8', 'This is , produced from .
 
-\xc3\xaemage encod\xc3\xa9e
+îmage encodée
 
 Tag Table:
 
@@ -61,7 +63,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'image_text_encoded'} = '* W |document without nodes
  warning: document without nodes

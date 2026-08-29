@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content C7
@@ -164,11 +166,11 @@ list:
 $result_headings_list{'direntry_dircategory_and_commands'} = '';
 
 
-$result_converted{'info'}->{'direntry_dircategory_and_commands'} = "This is , produced from .
+$result_converted{'info'}->{'direntry_dircategory_and_commands'} = Encode::encode('utf-8', 'This is , produced from .
 
-INFO-DIR-SECTION \"category--TH ERE?\"
+INFO-DIR-SECTION "category--TH ERE?"
 START-INFO-DIR-ENTRY
-* foo: (foo).   \"hello--THERE?\"
+* foo: (foo).   "hello--THERE?"
 END-INFO-DIR-ENTRY
 
 INFO-DIR-SECTION cat2
@@ -197,6 +199,6 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 1;

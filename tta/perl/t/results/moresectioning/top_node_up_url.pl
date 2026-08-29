@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'top_node_up_url'} = 'U0 unit{C3}{N:Top}{s:@top internal top node up}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
@@ -126,10 +128,10 @@ list:
 $result_headings_list{'top_node_up_url'} = '';
 
 
-$result_converted{'info'}->{'top_node_up_url'} = "This is , produced from .
+$result_converted{'info'}->{'top_node_up_url'} = Encode::encode('utf-8', 'This is , produced from .
 
 
-File: ,  Node: Top,  Next: chap,  Up: \@acronym{GNU, \@acronym{GNU}\'s Not Unix} manuals
+File: ,  Node: Top,  Next: chap,  Up: @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
 
 internal top node up
 ********************
@@ -152,7 +154,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'html'}->{'top_node_up_url'} = '<!DOCTYPE html>

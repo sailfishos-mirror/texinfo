@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'documentscript_documentlanguagevariant'} = '*document_root C1
  *before_node_section C2
   *preamble_before_content C3
@@ -58,9 +60,9 @@ $result_converted{'plaintext'}->{'documentscript_documentlanguagevariant'} = 'er
 ';
 
 
-$result_converted{'info'}->{'documentscript_documentlanguagevariant'} = "This is , produced from .
+$result_converted{'info'}->{'documentscript_documentlanguagevariant'} = Encode::encode('utf-8', 'This is , produced from .
 
-error\xe2\x86\x92.
+error→.
 
 Tag Table:
 
@@ -70,7 +72,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'documentscript_documentlanguagevariant'} = '* W |document without nodes
  warning: document without nodes

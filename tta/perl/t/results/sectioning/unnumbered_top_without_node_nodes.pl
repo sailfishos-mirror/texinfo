@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'unnumbered_top_without_node_nodes'} = 'U0 unit{C4}{N:a node}{s:@unnumbered unnumbered}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
@@ -191,7 +193,7 @@ list:
 $result_headings_list{'unnumbered_top_without_node_nodes'} = '';
 
 
-$result_converted{'info'}->{'unnumbered_top_without_node_nodes'} = "This is , produced from .
+$result_converted{'info'}->{'unnumbered_top_without_node_nodes'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: a node,  Up: (dir)
@@ -225,7 +227,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'unnumbered_top_without_node_nodes'} = '* W |document without Top node
  warning: document without Top node

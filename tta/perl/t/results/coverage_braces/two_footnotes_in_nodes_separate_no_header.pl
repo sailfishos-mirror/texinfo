@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'two_footnotes_in_nodes_separate_no_header'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content C1
@@ -297,7 +299,7 @@ span:hover a.copiable-link {visibility: visible}
 ';
 
 
-$result_converted{'info'}->{'two_footnotes_in_nodes_separate_no_header'} = "This is , produced from .
+$result_converted{'info'}->{'two_footnotes_in_nodes_separate_no_header'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: chapter,  Up: (dir)
@@ -362,7 +364,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'plaintext'}->{'two_footnotes_in_nodes_separate_no_header'} = '2 footnotes in 2 nodes

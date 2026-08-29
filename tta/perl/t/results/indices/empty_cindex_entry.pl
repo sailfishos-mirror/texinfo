@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'empty_cindex_entry'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
@@ -66,7 +68,7 @@ $result_sectioning_root{'empty_cindex_entry'} = '';
 $result_headings_list{'empty_cindex_entry'} = '';
 
 
-$result_converted{'info'}->{'empty_cindex_entry'} = "This is , produced from .
+$result_converted{'info'}->{'empty_cindex_entry'} = Encode::encode('utf-8', 'This is , produced from .
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -85,7 +87,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 
 $result_converted{'plaintext'}->{'empty_cindex_entry'} = '';

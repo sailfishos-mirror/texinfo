@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'top_without_node_nodes'} = 'U0 unit{C4}{N:second}{s:@chapter 1 Chapter}
 UNIT_DIRECTIONS
 This: [U0]
@@ -113,7 +115,7 @@ list:
 $result_headings_list{'top_without_node_nodes'} = '';
 
 
-$result_converted{'info'}->{'top_without_node_nodes'} = "This is , produced from .
+$result_converted{'info'}->{'top_without_node_nodes'} = Encode::encode('utf-8', 'This is , produced from .
 
 top section
 ***********
@@ -138,7 +140,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
-";
+');
 
 $result_converted_errors{'info'}->{'top_without_node_nodes'} = '* W |document without Top node
  warning: document without Top node

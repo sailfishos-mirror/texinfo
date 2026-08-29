@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'alias_of_definfoenclose_before_definfoenclose'} = '*document_root C1
  *before_node_section C2
   *preamble_before_content C4

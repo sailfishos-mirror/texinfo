@@ -6,6 +6,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
+use Encode;
+
 $result_tree_text{'redefined_buttons_functions'} = '*document_root C13
  *before_node_section C1
   *preamble_before_content
