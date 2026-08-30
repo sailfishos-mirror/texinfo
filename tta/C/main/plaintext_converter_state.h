@@ -119,16 +119,16 @@ typedef struct COUNT_CONTEXT {
 def_list_type(COUNT_CONTEXT_STACK, COUNT_CONTEXT);
 decl_list_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT);
 
-/* TODO if a format_context is added on top of an existing one, the one below
-   could have its memory freed through realloc call and the lists,
-   such as row, row_cell_counts, columns_size will be freed while still
-   possible accessed?
- */
+def_list_type(PENDING_TEXT_LIST_LINES, PENDING_TEXT_LIST);
+
 typedef struct FORMAT_CONTEXT {
     enum command_id cmd;
     int paragraph_count;
     int context_indent_len;
-    COUNT_CONTEXT_STACK row_cell_counts;
+    /* COUNT_CONTEXT_STACK row_cell_counts; */
+    PENDING_TEXT_LIST_LINES *row_cell_lines;
+    int cell_idx;
+    INDEX_ENTRY_LINE_COUNT_LIST *cells_entry_locations;
     int paragraph_counts;
     int columns_size_nr;
     int *columns_size;

@@ -109,7 +109,9 @@ sub _open_info_file($$) {
 sub _info_header($$$) {
   my ($self, $input_basefile, $output_filename) = @_;
 
-  my $paragraph = Texinfo::Convert::Paragraph::new();
+  my $formatter = $self->new_formatter('paragraph', 0);
+  push @{$self->{'formatters'}}, $formatter;
+  my $paragraph = $formatter->{'container'};
   my $para_text = add_text($paragraph, "This is ");
   # This ensures that spaces in file are kept.
   $para_text .= add_next($paragraph, $output_filename);
@@ -127,6 +129,7 @@ sub _info_header($$$) {
   $para_text .= "\n";
   $self->_stream_output($para_text);
   Texinfo::Convert::Paragraph::destroy($paragraph);
+  pop @{$self->{'formatters'}};
 
   my $global_commands;
   if (exists($self->{'document'})) {
@@ -264,6 +267,8 @@ sub output($$) {
     }
   }
 
+  $self->_cache_node_names($document->nodes_list());
+
   my $header = $self->_info_header($input_basefile, $output_filename);
   my $header_bytes = length($header);
   # header + text between setfilename and first node
@@ -272,8 +277,6 @@ sub output($$) {
 
   my $output_units = Texinfo::OutputUnits::split_by_node($document);
   $self->register_output_units_lists([$output_units]);
-
-  $self->_cache_node_names($document->nodes_list());
 
   $self->set_global_document_commands('before', \@informative_global_commands);
 

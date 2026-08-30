@@ -147,7 +147,9 @@ info_header (CONVERTER *self, const char *input_basefile,
   TEXT para_text;
   TEXT new_text;
 
-  para_new ();
+  FORMATTER heading_formatter
+    = new_formatter (self, formatter_paragraph, 0, -1);
+  push_formatter (self, &heading_formatter);
   text_init (&para_text);
 
   new_text = para_add_text ("This is ", 8);
@@ -181,6 +183,7 @@ info_header (CONVERTER *self, const char *input_basefile,
   text_append_n (&para_text, "\n", 1);
   stream_output_n (self, para_text.text, para_text.end);
   para_destroy ();
+  pop_formatter (self, 0);
   free (para_text.text);
 
   if (self->document->global_commands.copying)
@@ -401,12 +404,12 @@ info_output (CONVERTER *self, DOCUMENT *document)
         }
     }
 
+  plaintext_cache_node_names (self, &self->document->nodes_list);
+
   info_header (self, input_basefile, output_filename, &header);
 
   output_units_descriptor = split_by_node (document);
   output_units = retrieve_output_units (document, output_units_descriptor);
-
-  plaintext_cache_node_names (self, &self->document->nodes_list);
 
   set_global_document_commands (self, CL_before, informative_global_commands);
 
@@ -1032,7 +1035,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
           PENDING_TEXT_COUNT_LINE_COUNT name_texts;
           plaintext_convert_line_new_context (self, name, -1, -1, -1, -1,
                                               &name_texts);
-          TEXT name_text_checked = pending_to_text (&name_texts.pending_text);
+          TEXT name_text_checked = pending_to_text (name_texts.pending_text);
           if (strpbrk (name_text_checked.text, ":"))
             {
               if (warn_special_char)
@@ -1132,7 +1135,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
                                           &node_texts);
       self_plaintext->silent--;
       destroy_element (node_code_element);
-      node_name_text = pending_to_text (&node_texts.pending_text);
+      node_name_text = pending_to_text (node_texts.pending_text);
       node_name = node_name_text.text;
       need_free_node_name = 1;
     }
@@ -1247,8 +1250,6 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
             && (next->e.text->text[0] == '.'
                 || next->e.text->text[0] == ',')))
         {
-          ELEMENT *added_no_end_sentence_command;
-          ELEMENT *added_full_stop_text_elt;
      /* In the past, it was explicily described in the manual that
         some punctuation was automatically added for @pxref only,
         while the other commands required a following full stop or
@@ -1655,6 +1656,7 @@ info_format_image_element (CONVERTER *self, const ELEMENT *element,
 
           add_string (extensions, extension);
           xasprintf (&dot_extension, ".%s", extension);
+          free (extension);
           add_string (extensions, dot_extension);
           free (dot_extension);
         }

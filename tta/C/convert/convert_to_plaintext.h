@@ -30,7 +30,7 @@
 #define PF_index_style              0x00010000
 
 typedef struct PENDING_TEXT_COUNT_LINE_COUNT {
-    PENDING_TEXT_LIST pending_text;
+    PENDING_TEXT_LIST *pending_text;
     int width;
     int line_count;
 } PENDING_TEXT_COUNT_LINE_COUNT;
@@ -53,6 +53,18 @@ void plaintext_free_converter (CONVERTER *self);
 void plaintext_converter_initialize (CONVERTER *self);
 
 /* used in the Info converter */
+enum formatter_type {
+  formatter_paragraph,
+  formatter_line,
+  formatter_unfilled
+};
+
+FORMATTER new_formatter (CONVERTER *self, enum formatter_type type,
+               int indent_length, int indent_length_next);
+void push_formatter (CONVERTER *self, const FORMATTER *formatter);
+void pop_formatter (CONVERTER *self, int reuse_formatter);
+
+
 void plaintext_conversion_initialization (CONVERTER *self, DOCUMENT *document);
 void plaintext_conversion_finalization (CONVERTER *self);
 const enum command_id *plaintext_get_informative_global_commands (void);
@@ -75,13 +87,11 @@ void plaintext_add_image (CONVERTER *self, const ELEMENT *element,
                      int lines_count, int image_width, int no_align);
 void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
 /* TODO add plaintext_ prefix for all the functions? */
-void push_count_context (COUNT_CONTEXT_STACK *stack,
-                         COUNT_CONTEXT count_context);
 void stream_output_n (CONVERTER *self, const char *text, size_t n);
 void stream_output (CONVERTER *self, const char *text);
 void stream_output_add_text (CONVERTER *self, const char *text);
 void stream_output_add_next (CONVERTER *self, const char *text);
-TEXT pending_to_text (const PENDING_TEXT_LIST *pending_texts);
+TEXT pending_to_text (PENDING_TEXT_LIST *pending_texts);
 void stream_final_result (CONVERTER *self, TEXT *result);
 
 void plaintext_add_target_location (CONVERTER *self, const ELEMENT *element);

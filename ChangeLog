@@ -1,3 +1,82 @@
+2026-08-30 Patrice Dumas  <pertusus@free.fr>
+
+	Improve and fix memory management in C plaintext converter
+
+	* tta/C/main/list_macros.h (decl_alloc_fns, def_alloc_fns): add
+	init_to_() macro function definition that reallocates and initialize
+	to zero the newly allocated memory.
+
+	* tta/C/convert/convert_to_plaintext.c (clear_pending_text_list)
+	(release_count_context, add_top_pending_text, push_count_context)
+	(COUNT_CONTEXT_STACK, PENDING_TEXT_LIST, stream_final_result)
+	(plaintext_add_target_location, ensure_end_of_line)
+	(merge_pending_texts, replace_pending_text, move_pending_texts)
+	(align_lines, align_environment, text_heading)
+	(convert_to_plaintext_internal, plaintext_free_converter): keep
+	allocated count context and pending texts and reset TEXT to reuse the
+	allocated memory.  Add add_top_pending_text and use it to push a
+	pending text that can be an already allocated pending text reused.
+	Remove the second argument of push_count_context, the context pushed
+	can be reused, and can be accessed afterwards.  Change
+	merge_pending_texts such that the count context added is swapped with
+	the source count context, such that the associated allocated memory,
+	if any, is kept.  Add replace_pending_text and move_pending_texts to
+	add to parent pending texts without doing the swap as with
+	merge_pending_texts, but with destruction of the memory at the
+	destination, for the case of pending text memory not reused, for
+	multitable and aligned environments.  Rename destroy_count_context as
+	release_count_context.  Add clear_pending_text_list to reset the texts
+	in the rare case when it is not already done when getting the pending
+	texts, for empty text_heading and multitable prototypes.  Deallocate
+	the count contexts and pending texts in plaintext_free_converter.
+	Remove reset_count_context_stack, clear_pending_texts and
+	free_pending_texts.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(plaintext_convert_line_new_context): leave the count context on the
+	stack and pass a pointer to the pending text.  Update callers.
+
+	* tta/C/convert/convert_to_plaintext.c (pending_to_text)
+	(collect_pending_texts_lines): reset number of pending text to 0, in
+	functions where the input pending texts are reset.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): add row_cell_lines to format_context
+	and separate cells_entry_locations, remove row_cell_counts.  Call
+	collect_pending_texts_lines when processing a cell, and add cell_idx
+	in format context to know the current cell index.
+
+	* tta/C/convert/convert_to_plaintext.c (release_count_context)
+	(align_lines, align_environment, convert_to_plaintext_internal) :
+	reset images and entry locations properly, free pending lines and
+	images lists.
+
+	* tta/C/convert/convert_to_plaintext.c (convert_to_plaintext_internal):
+	get top formatter again after conversion, in case it was reallocated.
+	Remove getting the top formatter when it cannot have changed.
+
+	* tta/C/convert/convert_to_info.c (info_header),
+	tta/perl/Texinfo/Convert/InfoNonXS.pm (_info_header): use new_formatter,
+	push_formatter and pop_formatter in info_header too, such that
+	the formatter switches even if it is not done first.  Move enum
+	formatter_type to header file.
+
+	* tta/C/convert/convert_to_info.c (info_output),
+	tta/perl/Texinfo/Convert/InfoNonXS.pm (output): call
+	plaintext_cache_node_names before any use of node names such that
+	there is no need to check if there are already node names cached.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): do not pass image depth for
+	displaymath.  Add ensure_end_of_line.
+
+	* tta/C/convert/convert_to_info.c (info_output),
+	tta/C/convert/convert_to_plaintext.c (plaintext_process_printindex)
+	(plaintext_conversion_finalization, plaintext_insert_image)
+	(convert_def_line): free extension variable, destroy element
+	after conversion, free text, always destroy parsed_def, pop last count
+	context.  Deallocate properly element_images.
+
 2026-08-29 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/Info.pm (BEGIN),

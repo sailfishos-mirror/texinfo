@@ -53,6 +53,28 @@
 #define reallocate_(OBJNAME) reallocate_ ## OBJNAME ## _list
 #define add_(OBJNAME) add_to_ ## OBJNAME ## _list
 
+/* extra function when list is used as a reusable array.  Allocate and
+   zero the newly allocated memory */
+
+/* Output declarations for header files. */
+#define decl_alloc_fns(LISTNAME, OBJNAME, TYPE) \
+   void reallocate_init_to_ ## OBJNAME ## _list (LISTNAME *list, size_t n)
+
+/* Output function definitions for .c source files. */
+#define def_alloc_fns(LISTNAME, OBJNAME, TYPE) \
+   void reallocate_init_to_ ## OBJNAME ## _list (LISTNAME *list, size_t n) { \
+       if (list->space < n) { \
+           size_t new_space = n; \
+           list->list = realloc (list->list, new_space * sizeof (TYPE)); \
+           if (!list->list) \
+               fatal ("realloc failed"); \
+           memset (&list->list[list->space], 0, (new_space - list->space) \
+              * sizeof (TYPE)); \
+           list->space = new_space; \
+       }}
+
+#define init_to_(OBJNAME) reallocate_init_to_ ## OBJNAME ## _list
+
 /* Extra functions when list is used as a stack. */
 
 /* Output declarations for header files. */
