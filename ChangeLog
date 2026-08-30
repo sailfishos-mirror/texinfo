@@ -1,5 +1,10 @@
 2026-08-30 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c: replace some stream_output by
+	stream_output_n.
+
+2026-08-30 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_plaintext.h (LINE_WIDTH_PENDING_TEXT),
 	tta/C/convert/convert_to_plaintext.c
 	(plaintext_convert_line_new_context): rename

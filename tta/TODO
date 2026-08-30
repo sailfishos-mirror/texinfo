@@ -1380,9 +1380,9 @@ for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind -q --lea
 (for file in t/z_misc/*.t ; do bfile=`basename $file .t`; echo z_misc/$bfile; valgrind -q --leak-check=full perl -w $file ; done) > val_res/z_misc.out 2>&1
 
 For tests in tta/tests, a way to have valgrind call prependend is to add,
-in tta/defs:
-prepended_command='valgrind --leak-check=full -q'
-prepended_command='valgrind --leak-check=full -q --suppressions=../texi2any.supp'
+in tta/defs (libtool exec is needed for ctexi2any):
+prepended_command='libtool exec valgrind --leak-check=full -q'
+prepended_command='libtool exec valgrind --leak-check=full -q --suppressions=../texi2any.supp'
 
 Before the code reorganization and the separation of code compiled against
 Gnulib+autoconf headers and code compiled against Perl, in some cases, memory

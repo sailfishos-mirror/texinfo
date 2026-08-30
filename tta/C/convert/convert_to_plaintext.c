@@ -1391,7 +1391,7 @@ add_newline_if_needed (CONVERTER *self)
     }
   if (nl_to_find > 0 && end_idx > 0)
     {
-      stream_output (self, "\n");
+      stream_output_n (self, "\n", 1);
       add_lines_count (self, 1);
     }
 }
@@ -1800,7 +1800,7 @@ plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
                                &self_plaintext->text_element_context);
           for (j = 0; j < footnote_indent; j++)
             {
-              stream_output (self, " ");
+              stream_output_n (self, " ", 1);
             }
           text_element_context->counter += footnote_indent;
 
@@ -2429,7 +2429,7 @@ plaintext_format_contents (CONVERTER *self, SECTIONING_ROOT *sectioning_root,
             {
               int j;
               for (j = 0; j < repeat_count; j++)
-                stream_output (self, " ");
+                stream_output_n (self, " ", 1);
             }
 
           section_element_heading (self, section, line_arg,
@@ -2790,7 +2790,7 @@ plaintext_process_printindex (CONVERTER *self,
 
      /* indent with the same width as '* ', but do not use * such that the
        info readers never find a cross reference for @seeentry or @seealso */
-          stream_output (self, "  ");
+          stream_output_n (self, "  ", 2);
           line_width += 2;
 
           if (seeentry)
@@ -2811,13 +2811,13 @@ plaintext_process_printindex (CONVERTER *self,
               add_element_to_named_string_element_list (substrings,
                                           "see_also_entry", referred_tree);
               stream_output_n (self, entry_text.text, entry_text.end);
-              stream_output (self, ": ");
+              stream_output_n (self, ": ", 2);
               line_width += string_width_multibyte (entry_text.text) +2;
               if (line_width < index_length_to_node)
                 {
                   int j;
                   for (j = 0; j < index_length_to_node - line_width; j++)
-                    stream_output (self, " ");
+                    stream_output_n (self, " ", 1);
                 }
               reference_tree = cdt_tree ("See also {see_also_entry}",
                                         self, substrings, 0);
@@ -4278,7 +4278,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         {
           int paragraphindent = self->conf->paragraphindent.o.integer;
           if (paragraphindent == -2) /* asis */
-            stream_output (self, element->e.text->text);
+            stream_output_n (self, element->e.text->text,
+                             element->e.text->end);
         }
       else
         {
@@ -5924,7 +5925,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                     return;
 
                   add_newline_if_needed (self);
-                  stream_output (self, "* Menu:\n\n");
+                  stream_output_n (self, "* Menu:\n\n", 9);
                   lines_count += 2;
 
                   for (j = 0; j < float_types->float_list.number; j++)
@@ -6051,7 +6052,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                       para_destroy ();
                       pop_formatter (self, 0);
                     }
-                  stream_output (self, "\n");
+                  stream_output_n (self, "\n", 1);
                   lines_count++;
 
                   break;
