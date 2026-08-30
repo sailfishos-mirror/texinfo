@@ -1052,14 +1052,14 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
 
     /* do the actual output of name */
       if (name_quoting_required)
-        stream_output_add_text (self, node_quote);
+        stream_output_add_text (self, node_quote, 1);
 
       convert_to_plaintext_internal (self, name);
 
       if (name_quoting_required)
-        stream_output_add_text (self, node_quote);
+        stream_output_add_text (self, node_quote, 1);
 
-      stream_output_add_text (self, ": ");
+      stream_output_add_text (self, ": ", 2);
     }
 
   if (args[3])
@@ -1191,7 +1191,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
     free (node_name);
 
   if (quoting_required)
-    stream_output_add_next (self, node_quote);
+    stream_output_add_next (self, node_quote, 1);
 
   if (label_element || node_element)
     {
@@ -1222,10 +1222,10 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
     }
 
   if (quoting_required)
-    stream_output_add_next (self, node_quote);
+    stream_output_add_next (self, node_quote, 1);
 
   if (!name)
-    stream_output_add_next (self, "::");
+    stream_output_add_next (self, "::", 2);
 
   /* Check if punctuation follows the ref command with a label
      argument.  If not, add a full stop. */
@@ -1298,7 +1298,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
                            "`.' or `,' must follow @xref");
                 }
             }
-          stream_output_add_text (self, ".");
+          stream_output_add_text (self, ".", 1);
           /* the added full stop is there to have valid Info, but does not
              end a sentence */
           para_remove_end_sentence ();

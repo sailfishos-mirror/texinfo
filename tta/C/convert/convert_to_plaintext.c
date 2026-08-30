@@ -1188,9 +1188,9 @@ stream_output_count_nl (CONVERTER *self, const TEXT text)
 }
 
 void
-stream_output_add_text (CONVERTER *self, const char *text)
+stream_output_add_text (CONVERTER *self, const char *text, size_t len)
 {
-  const TEXT result = para_add_text (text, strlen (text));
+  const TEXT result = para_add_text (text, len);
 
   stream_output_count_nl (self, result);
 }
@@ -1198,9 +1198,9 @@ stream_output_add_text (CONVERTER *self, const char *text)
 /* Pass $TEXT to add_next and output the resulting text.  Used for
    concision in calling code. */
 void
-stream_output_add_next (CONVERTER *self, const char *text)
+stream_output_add_next (CONVERTER *self, const char *text, size_t len)
 {
-  const TEXT result = para_add_next (text, strlen (text), 0);
+  const TEXT result = para_add_next (text, len, 0);
 
   stream_output_count_nl (self, result);
 }
@@ -4132,7 +4132,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
           if (plaintext_commands_data[context_cmd].flags
                                             & PF_preformatted_context)
-            stream_output_add_text (self, "\n");
+            stream_output_add_text (self, "\n", 1);
           else
             add_newline_if_needed (self);
           return;
@@ -4163,7 +4163,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
       if (self_plaintext->formatters.number > 1)
         {
           if (type == ET_raw)
-            stream_output_add_next (self, element->e.text->text);
+            stream_output_add_next (self, element->e.text->text,
+                                    element->e.text->end);
           else
             {
        /* Convert ``, '', `, ', ---, -- in $COMMAND->{'text'} to their
@@ -4264,10 +4265,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                             }
                         }
                     }
-                  stream_output_add_text (self, t.text);
+                  stream_output_add_text (self, t.text, t.end);
                 }
               else
-                stream_output_add_text (self, text);
+                stream_output_add_text (self, text, strlen (text));
 
               if (upper_case->upper_case)
                 free (text);
@@ -4288,7 +4289,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                              type_data[type].name);
           if (text[strspn (text, whitespace_chars)] == '\0')
             {
-              stream_output_add_text (self, text);
+              stream_output_add_text (self, text, element->e.text->end);
             }
           else
             fprintf (stderr, "ignored text not empty `%s'\n", text);
@@ -4396,7 +4397,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
           accented_text = text_accents (element,
                                         self_plaintext->enabled_encoding, sc);
-          stream_output_add_text (self, accented_text);
+          stream_output_add_text (self, accented_text, strlen (accented_text));
 
           if (upper_case->upper_case)
             {
@@ -4776,11 +4777,11 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
                   if (plaintext_commands_data[cmd].flags & PF_punctuation_no_arg)
                     {
-                      stream_output_add_next (self, text);
+                      stream_output_add_next (self, text, strlen (text));
                       para_add_end_sentence ();
                     }
                   else if (cmd == CM_tie)
-                    stream_output_add_next (self, text);
+                    stream_output_add_next (self, text, strlen (text));
                   else
                     {
                       if (command_other_flags (element) & CF_letter_no_arg
@@ -4795,7 +4796,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                           free (tmp_text);
                           text_need_free = 1;
                         }
-                      stream_output_add_text (self, text);
+                      stream_output_add_text (self, text, strlen (text));
 
       /* This is to have @TeX{}, for example, not to prevent end sentences. */
                       if (!(command_other_flags (element) & CF_letter_no_arg))
@@ -5247,7 +5248,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                                 fatal ("u8_uctomb returns negative value");
                               result_u8[len] = 0;
                               char *result = string_from_utf8 (result_u8);
-                              stream_output_add_text (self, result);
+                              stream_output_add_text (self, result, len);
                               free (result);
                               conversion_done = 1;
                             }
@@ -5255,8 +5256,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
                       if (!conversion_done)
                         {
-                          stream_output_add_text (self, "U+");
-                          stream_output_add_text (self, arg_text->text);
+                          stream_output_add_text (self, "U+", 2);
+                          stream_output_add_text (self, arg_text->text,
+                                                  arg_text->end);
                         }
                     }
                 }
@@ -5309,7 +5311,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           entry and therefore index entry would lead to end of line on
           node pointers line, in tag table, or on menu, all being invalid. */
               if (formatter->no_added_eol)
-                stream_output_add_text (self, " ");
+                stream_output_add_text (self, " ", 1);
               else
                 {
                   const TEXT end_line = para_end_line ();
@@ -5319,13 +5321,16 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           else if (cmd == CM_FULL_STOP || cmd == CM_QUESTION_MARK
                        || cmd == CM_EXCLAMATION_MARK)
             {
-              stream_output_add_next (self, nobrace_symbol_text[cmd]);
+              stream_output_add_next (self, nobrace_symbol_text[cmd],
+                                      strlen (nobrace_symbol_text[cmd]));
               para_add_end_sentence ();
             }
           else if (cmd == CM_SPACE || cmd == CM_NEWLINE || cmd == CM_TAB)
-            stream_output_add_next (self, nobrace_symbol_text[cmd]);
+            stream_output_add_next (self, nobrace_symbol_text[cmd],
+                                    strlen (nobrace_symbol_text[cmd]));
           else
-            stream_output_add_text (self, nobrace_symbol_text[cmd]);
+            stream_output_add_text (self, nobrace_symbol_text[cmd],
+                                    strlen (nobrace_symbol_text[cmd]));
 
           return;
         }
@@ -5743,8 +5748,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             {
               char *item_representation
                 = enumerate_item_representation (element);
-              stream_output_add_next (self, item_representation);
-              stream_output_add_next (self, ". ");
+              stream_output_add_next (self, item_representation,
+                                      strlen (item_representation));
+              stream_output_add_next (self, ". ", 2);
               free (item_representation);
             }
           else
@@ -5950,13 +5956,13 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                       push_formatter (self, &new_paragraph);
 
          /* Output in format "* $float_entry_text: $float_label_text.". */
-                      stream_output_add_next (self, "* ");
+                      stream_output_add_next (self, "* ", 2);
 
                       float_entry->type = ET__frenchspacing;
                       convert_to_plaintext_internal (self, float_entry);
                       destroy_element_and_children (float_entry);
 
-                      stream_output_add_next (self, ": ");
+                      stream_output_add_next (self, ": ", 2);
 
                       float_type_formatted = new_element (ET__code);
                       add_to_contents_as_array (float_type_formatted,
@@ -5966,7 +5972,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                                                      float_type_formatted);
                       destroy_element (float_type_formatted);
 
-                      stream_output_add_next (self, ".");
+                      stream_output_add_next (self, ".", 1);
 
                       const TEXT pending_word = para_add_pending_word (0);
                       stream_output_count_nl (self, pending_word);
@@ -5985,7 +5991,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                           int k;
                           int space_nr = listoffloat_entry_length - line_width;
                           for (k = 0; k < space_nr; k++)
-                            stream_output_add_next (self, " ");
+                            stream_output_add_next (self, " ", 1);
                         }
 
                       find_float_caption_shortcaption (float_elt,
@@ -6241,7 +6247,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             {
               const ELEMENT *content = element->e.c->contents.list[i];
               if (content->type == ET_menu_entry_leading_text)
-                stream_output_add_next (self, content->e.text->text);
+                stream_output_add_next (self, content->e.text->text,
+                                        content->e.text->end);
               else if (content->type == ET_menu_entry_node)
                 {
                   ELEMENT *entry_node = new_element (ET__code);

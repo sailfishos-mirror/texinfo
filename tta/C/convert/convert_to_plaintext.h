@@ -88,8 +88,8 @@ void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
 /* TODO add plaintext_ prefix for all the functions? */
 void stream_output_n (CONVERTER *self, const char *text, size_t n);
 void stream_output (CONVERTER *self, const char *text);
-void stream_output_add_text (CONVERTER *self, const char *text);
-void stream_output_add_next (CONVERTER *self, const char *text);
+void stream_output_add_text (CONVERTER *self, const char *text, size_t n);
+void stream_output_add_next (CONVERTER *self, const char *text, size_t n);
 TEXT pending_to_text (PENDING_TEXT_LIST *pending_texts);
 void stream_final_result (CONVERTER *self, TEXT *result);
 

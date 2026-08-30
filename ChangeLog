@@ -1,5 +1,11 @@
 2026-08-30 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c (stream_output_add_text)
+	(stream_output_add_next): add size of input string as a mandatory
+	argument, to be able to avoid a call to strlen if not needed.
+
+2026-08-30 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_plaintext.c (stream_output_count_nl)
 	(plaintext_convert_line_new_context),
 	tta/C/convert/plaintext_paragraph.c (para_end_line)
