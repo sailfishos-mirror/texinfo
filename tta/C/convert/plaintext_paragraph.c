@@ -269,23 +269,13 @@ para__end_line (void)
   state.last_letter = (char32_t) '\n';
 }
 
-const char *
+static const TEXT new_line_text = {"\n", 1, 1};
+TEXT
 para_end_line (void)
 {
   state.end_line_count = 0;
   para__end_line ();
-  return "\n";
-}
-
-/* Return concatenation of SPACE and WORD. */
-char *
-para_get_pending (void)
-{
-  static TEXT t;
-  text_reset (&t);
-  text_append_n (&t, state.space.text, state.space.end);
-  text_append_n (&t, state.word.text, state.word.end);
-  return t.text;
+  return new_line_text;
 }
 
 /* Append to RESULT pending space followed by pending word, clearing them
@@ -353,7 +343,7 @@ para__add_pending_word (TEXT *result, int add_spaces)
 /* Function for users of this module. */
 /* Since the return value is destroyed when this function is called again,
    the caller should make sure not to retain reference to it */
-const char *
+TEXT
 para_add_pending_word (int add_spaces)
 {
   static TEXT ret;
@@ -361,14 +351,11 @@ para_add_pending_word (int add_spaces)
   text_reset (&ret);
   state.end_line_count = 0;
   para__add_pending_word (&ret, add_spaces);
-  if (ret.text)
-    return ret.text;
-  else
-    return "";
+  return ret;
 }
 
 /* End a paragraph. */
-const char *
+TEXT
 para_end (void)
 {
   static TEXT ret;
@@ -390,10 +377,7 @@ para_end (void)
       state.end_line_count++;
     }
 
-  if (ret.text)
-    return ret.text;
-  else
-    return "";
+  return ret;
 }
 
 void

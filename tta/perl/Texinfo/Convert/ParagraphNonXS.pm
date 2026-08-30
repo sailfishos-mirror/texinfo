@@ -115,15 +115,6 @@ sub _end_line($) {
   return "\n";
 }
 
-sub get_pending($) {
-  my $paragraph = shift;
-
-  my $result = '';
-  $result .= $paragraph->{'space'};
-  $result .= $paragraph->{'word'};
-  return $result;
-}
-
 sub add_pending_word($;$) {
   my ($paragraph, $add_spaces) = @_;
 

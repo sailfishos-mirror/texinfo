@@ -44,7 +44,7 @@ use Texinfo::OutputUnits;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::Plaintext;
 
-use Texinfo::Convert::Paragraph qw(add_next add_text get_pending
+use Texinfo::Convert::Paragraph qw(add_next add_text
                                    remove_end_sentence
                                    set_space_protection
                                    set_double_width_no_break);

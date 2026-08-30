@@ -143,7 +143,6 @@ info_header (CONVERTER *self, const char *input_basefile,
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   const char *program = self->conf->PROGRAM.o.string;
   const char *version = self->conf->PACKAGE_VERSION.o.string;
-  const char *end_para_text;
   TEXT para_text;
   TEXT new_text;
 
@@ -178,8 +177,8 @@ info_header (CONVERTER *self, const char *input_basefile,
   new_text = para_add_text (".", 1);
   if (new_text.text)
     text_append_n (&para_text, new_text.text, new_text.end);
-  end_para_text = para_end ();
-  text_append (&para_text, end_para_text);
+  const TEXT end_para_text = para_end ();
+  text_append_n (&para_text, end_para_text.text, end_para_text.end);
   text_append_n (&para_text, "\n", 1);
   stream_output_n (self, para_text.text, para_text.end);
   para_destroy ();

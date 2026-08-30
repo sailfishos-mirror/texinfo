@@ -1173,7 +1173,7 @@ stream_output (CONVERTER *self, const char *text)
 }
 
 static void
-stream_output_count_nl (CONVERTER *self, const char *text)
+stream_output_count_nl (CONVERTER *self, const TEXT text)
 {
   int count;
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
@@ -1183,16 +1183,16 @@ stream_output_count_nl (CONVERTER *self, const char *text)
   count = para_end_line_count ();
   count_context->lines += count;
 
-  if (text)
-    stream_output (self, text);
+  if (text.text)
+    stream_output_n (self, text.text, text.end);
 }
 
 void
 stream_output_add_text (CONVERTER *self, const char *text)
 {
-  TEXT result = para_add_text (text, strlen (text));
+  const TEXT result = para_add_text (text, strlen (text));
 
-  stream_output_count_nl (self, result.text);
+  stream_output_count_nl (self, result);
 }
 
 /* Pass $TEXT to add_next and output the resulting text.  Used for
@@ -1200,9 +1200,9 @@ stream_output_add_text (CONVERTER *self, const char *text)
 void
 stream_output_add_next (CONVERTER *self, const char *text)
 {
-  TEXT result = para_add_next (text, strlen (text), 0);
+  const TEXT result = para_add_next (text, strlen (text), 0);
 
-  stream_output_count_nl (self, result.text);
+  stream_output_count_nl (self, result);
 }
 
 static void
@@ -1281,21 +1281,24 @@ plaintext_convert_line (CONVERTER *self, const ELEMENT *converted,
 {
   FORMATTER formatter = new_formatter(self, formatter_line, indent_length,
                                       indent_length_next);
-  const char *end_line;
   int width;
 
   push_formatter (self, &formatter);
   convert_to_plaintext_internal (self, converted);
-  end_line = para_end ();
+  const TEXT end_line = para_end ();
   width = para_counter ();
-  stream_output (self, end_line);
+  if (end_line.text)
+    stream_output_n (self, end_line.text, end_line.end);
   para_destroy ();
   pop_formatter (self, 0);
   return width;
 }
 
-/* convert with a line formatter in a new count context, not changing
-   the current context.  return the result of the conversion.
+/* convert with a line formatter in a new context.
+   Leave the result of the conversion in the new context (on the top
+   of the stack) and return a pointer to it in OUTPUT.
+   The caller is supposed to use the result of the conversion and
+   reset the texts soon after the return of the call.
  */
 void
 plaintext_convert_line_new_context (CONVERTER *self,
@@ -1311,20 +1314,20 @@ plaintext_convert_line_new_context (CONVERTER *self,
     formatter.suppress_styles = suppress_styles;
   if (no_added_eol >= 0)
     formatter.no_added_eol = no_added_eol;
-  const char *end_line;
 
   push_count_context (&self_plaintext->count_context);
   push_formatter (self, &formatter);
 
   convert_to_plaintext_internal (self, converted);
-  end_line = para_end ();
-  stream_output (self, end_line);
+  const TEXT end_line = para_end ();
+  if (end_line.text)
+    stream_output_n (self, end_line.text, end_line.end);
 
   COUNT_CONTEXT *count_context
     = top_(count_context) (&self_plaintext->count_context);
   /* beware that the pointer will be invalidated by a realloc, so it should
      be used before the count context stack can grow.  This is not an
-     issue in practice as the pending text are used or released right after
+     issue in practice as the pending text are used/released right after
      the call to the function.
    */
   output->pending_text = &count_context->pending_text;
@@ -1480,7 +1483,6 @@ plaintext_convert_node_name (CONVERTER *self, const ELEMENT *element,
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   const ELEMENT *label_element = get_label_element (element);
   ELEMENT *node_text;
-  const char *pending_word;
   TEXT result;
 
   if (!label_element)
@@ -1506,7 +1508,7 @@ plaintext_convert_node_name (CONVERTER *self, const ELEMENT *element,
   push_formatter (self, node_names_formatter);
 
   convert_to_plaintext_internal (self, node_text);
-  pending_word = para_add_pending_word (0);
+  const TEXT pending_word = para_add_pending_word (0);
   stream_output_count_nl (self, pending_word);
   result = stream_to_text (self);
   normalize_top_node_name_text (&result);
@@ -1588,7 +1590,6 @@ plaintext_cache_node_names (CONVERTER *self, NODE_RELATIONS_LIST *nodes_list)
 
   for (i = 0; i < self->document->nodes_list.number; i++)
     {
-      const char *pending_word;
       TEXT result;
 
       STRING_WITH_WIDTH *node_name = &self_plaintext->node_names_cache[i];
@@ -1603,7 +1604,7 @@ plaintext_cache_node_names (CONVERTER *self, NODE_RELATIONS_LIST *nodes_list)
       push_count_context (&self_plaintext->count_context);
 
       convert_to_plaintext_internal (self, node_text);
-      pending_word = para_add_pending_word (0);
+      const TEXT pending_word = para_add_pending_word (0);
       stream_output_count_nl (self, pending_word);
       result = stream_to_text (self);
       normalize_top_node_name_text (&result);
@@ -1669,7 +1670,6 @@ plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   /* may not be used */
   FORMATTER formatter = new_formatter (self, formatter_line, -1, -1);
-  const char *end_result;
 
   push_formatter (self, &formatter);
 
@@ -1839,7 +1839,7 @@ plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
 
   self_plaintext->footnote_index = 0;
 
-  end_result = para_end ();
+  const TEXT end_result = para_end ();
   stream_output_count_nl (self, end_result);
 
   para_destroy ();
@@ -2704,7 +2704,6 @@ plaintext_process_printindex (CONVERTER *self,
       size_t entry_index_nr;
       const INDEX *entry_index;
       int in_code;
-      const char *end_result;
       const ELEMENT *seeentry;
       const ELEMENT *referred_entry = 0;
       TEXT entry_text;
@@ -2756,7 +2755,7 @@ plaintext_process_printindex (CONVERTER *self,
       /* Convert entry text in a new context in order to capture result. */
       push_count_context (&self_plaintext->count_context);
       convert_to_plaintext_internal (self, entry_tree_element);
-      end_result = para_end ();
+      const TEXT end_result = para_end ();
       stream_output_count_nl (self, end_result);
       entry_text = stream_to_text (self);
       pop_count_context (&self_plaintext->count_context);
@@ -2824,7 +2823,7 @@ plaintext_process_printindex (CONVERTER *self,
             }
 
           convert_to_plaintext_internal (self, reference_tree);
-          end_result = para_end ();
+          const TEXT end_result = para_end ();
           stream_output_count_nl (self, end_result);
           stream_output_n (self, ".\n", 2);
           add_lines_count (self, 1);
@@ -4080,7 +4079,7 @@ convert_def_line (CONVERTER *self, const ELEMENT *element)
 
       destroy_element_and_children (tree);
 
-      const char *result = para_end ();
+      const TEXT result = para_end ();
       stream_output_count_nl (self, result);
 
       para_destroy ();
@@ -4450,15 +4449,13 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         {
           const char *begin = lookup_extra_string (element, AI_key_begin);
           const char *end = lookup_extra_string (element, AI_key_end);
-          TEXT added = para_add_next (begin, strlen (begin), 1);
-          if (added.text)
-            stream_output_count_nl (self, added.text);
+          const TEXT added_begin = para_add_next (begin, strlen (begin), 1);
+          stream_output_count_nl (self, added_begin);
           if (element->e.c->contents.number > 0)
             convert_to_plaintext_internal (self,
                                            element->e.c->contents.list[0]);
-          added = para_add_next (end, strlen (end), 1);
-          if (added.text)
-            stream_output_count_nl (self, added.text);
+          const TEXT added_end = para_add_next (end, strlen (end), 1);
+          stream_output_count_nl (self, added_end);
 
           return;
         }
@@ -4567,10 +4564,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
               if (text_before)
                 {
-                  TEXT added = para_add_next (text_before,
+                  const TEXT added = para_add_next (text_before,
                                             strlen (text_before), 1);
-                  if (added.text)
-                    stream_output_count_nl (self, added.text);
+                  stream_output_count_nl (self, added);
                 }
 
               if (element->e.c->contents.number != 0)
@@ -4604,10 +4600,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               formatter = top_(formatter) (&self_plaintext->formatters);
               if (text_after)
                 {
-                  TEXT added = para_add_next (text_after,
+                  const TEXT added = para_add_next (text_after,
                                      strlen (text_after), 1);
-                  if (added.text)
-                    stream_output_count_nl (self, added.text);
+                  stream_output_count_nl (self, added);
                 }
 
               if (cmd == CM_w)
@@ -4712,10 +4707,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             }
           else if (cmd == CM_image)
             {
-              const char *pending_word;
               STRING_LINE_COUNT image_result;
 
-              pending_word = para_add_pending_word (1);
+              const TEXT pending_word = para_add_pending_word (1);
               stream_output_count_nl (self, pending_word);
 
               /* add an empty word so that following spaces aren't lost */
@@ -4937,8 +4931,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             }
           else if (cmd == CM_footnote)
             {
-              TEXT added;
-
               if (!self_plaintext->multiple_pass)
                 self_plaintext->footnote_index++;
 
@@ -4960,15 +4952,18 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   char *formatted_footnote_number_str;
                   xasprintf (&formatted_footnote_number_str, "(%d)",
                              self_plaintext->footnote_index);
-                  added = para_add_next (formatted_footnote_number_str,
+                  const TEXT added = para_add_next (formatted_footnote_number_str,
                                    strlen (formatted_footnote_number_str), 1);
+                  stream_output_count_nl (self, added);
                   free (formatted_footnote_number_str);
                 }
               else
-                added = para_add_next ("(" NO_NUMBER_FOOTNOTE_SYMBOL ")", 3, 1);
+                {
+                  const TEXT added
+                     = para_add_next ("(" NO_NUMBER_FOOTNOTE_SYMBOL ")", 3, 1);
+                  stream_output_count_nl (self, added);
+                }
 
-              if (added.text)
-                stream_output_count_nl (self, added.text);
 
               if (self->conf->footnotestyle.o.string
                   && !strcmp (self->conf->footnotestyle.o.string, "separate")
@@ -5015,7 +5010,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             }
           else if (cmd == CM_anchor || cmd == CM_namedanchor)
             {
-              const char *pending_word = para_add_pending_word (0);
+              const TEXT pending_word = para_add_pending_word (0);
               stream_output_count_nl (self, pending_word);
               plaintext_functions[self->format].format_anchor (self, element);
               return;
@@ -5143,7 +5138,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   if (element_image->filename)
                     {
                       /* flush before @math, including spaces */
-                      const char *pending_word = para_add_pending_word (1);
+                      const TEXT pending_word = para_add_pending_word (1);
                       stream_output_count_nl (self, pending_word);
            /* TODO same as @image code.  Does not seems to have any effect,
               leading spaces in @math are lost anyway (which is not important).
@@ -5178,7 +5173,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   STRING_LINE_COUNT image_result;
                   TEXT math_text;
                    /* flush @math, including spaces */
-                  const char *pending_word = para_add_pending_word (1);
+                  const TEXT pending_word = para_add_pending_word (1);
                   stream_output_count_nl (self, pending_word);
 
                   math_text = stream_to_text (self);
@@ -5306,7 +5301,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             {
               FORMATTER *formatter
                 = top_(formatter) (&self_plaintext->formatters);
-              const char *pending_word = para_add_pending_word (0);
+              const TEXT pending_word = para_add_pending_word (0);
 
               stream_output_count_nl (self, pending_word);
 
@@ -5317,7 +5312,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 stream_output_add_text (self, " ");
               else
                 {
-                  const char *end_line = para_end_line ();
+                  const TEXT end_line = para_end_line ();
                   stream_output_count_nl (self, end_line);
                 }
             }
@@ -5349,7 +5344,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             {
               if (plaintext_commands_data[cmd].flags & PF_format_raw)
                 {
-                  const char *pending_word = para_add_pending_word (1);
+                  const TEXT pending_word = para_add_pending_word (1);
                   stream_output_count_nl (self, pending_word);
                 }
               add_(command) (&self_plaintext->context, cmd);
@@ -5762,7 +5757,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               convert_to_plaintext_internal (self, space_element);
               destroy_element (space_element);
             }
-          const char *result = para_end ();
+          const TEXT result = para_end ();
           stream_output_count_nl (self, result);
           text_element_context->counter += para_counter ();
           para_destroy ();
@@ -5854,7 +5849,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
                   push_formatter (self, &new_preformatted);
                   convert_to_plaintext_internal (self, exdent_line_arg);
-                  const char *result = para_end ();
+                  const TEXT result = para_end ();
                   stream_output_count_nl (self, result);
                   para_destroy ();
                   pop_formatter (self, 0);
@@ -5973,7 +5968,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
                       stream_output_add_next (self, ".");
 
-                      const char *pending_word = para_add_pending_word (0);
+                      const TEXT pending_word = para_add_pending_word (0);
                       stream_output_count_nl (self, pending_word);
 
           /* NB we trust that only $container was used to format text
@@ -5982,7 +5977,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                       int line_width = para_counter ();
                       if (line_width > listoffloat_entry_length)
                         {
-                          const char *end_line = para_end_line ();
+                          const TEXT end_line = para_end_line ();
                           stream_output_count_nl (self, end_line);
                         }
                       else
@@ -6046,7 +6041,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                           pop_context (&self_plaintext->context);
                         }
                       /* flush and add newline */
-                      const char *result = para_end ();
+                      const TEXT result = para_end ();
                       stream_output_count_nl (self, result);
 
                       para_destroy ();
@@ -6072,12 +6067,11 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           int i;
           TEXT_CONTEXT *text_element_context
           = top_(text_element_context) (&self_plaintext->text_element_context);
-          const char *pending_word;
           int sp_nr = 1;
           const STRING_LIST *misc_args
              = lookup_extra_string_list (element, AI_key_misc_args);
 
-          pending_word = para_add_pending_word (0);
+          const TEXT pending_word = para_add_pending_word (0);
           stream_output_count_nl (self, pending_word);
 
           if (misc_args && misc_args->number > 0)
@@ -6085,7 +6079,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
           for (i = 0; i < sp_nr; i++)
             {
-              const char *end_line = para_end_line ();
+              const TEXT end_line = para_end_line ();
               stream_output_count_nl (self, end_line);
             }
 
@@ -6252,7 +6246,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 {
                   ELEMENT *entry_node = new_element (ET__code);
                   /* Flush output so not to include in node text. */
-                  const char *pending_word = para_add_pending_word (1);
+                  const TEXT pending_word = para_add_pending_word (1);
                   stream_output_count_nl (self, pending_word);
                   TEXT node_text;
                   int node_quoting_required = 0;
@@ -6271,8 +6265,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
                   destroy_element (entry_node);
 
-                  pending_word = para_add_pending_word (1);
-                  stream_output_count_nl (self, pending_word);
+                  const TEXT n_pending_word = para_add_pending_word (1);
+                  stream_output_count_nl (self, n_pending_word);
 
                   node_text = stream_to_text (self);
                   pop_count_context (&self_plaintext->count_context);
@@ -6323,7 +6317,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 }
               else if (content->type == ET_menu_entry_name)
                 {/* Flush output so not to include in name text */
-                  const char *pending_word = para_add_pending_word (1);
+                  const TEXT pending_word = para_add_pending_word (1);
                   stream_output_count_nl (self, pending_word);
                   TEXT entry_name;
                   int name_quoting_required = 0;
@@ -6336,8 +6330,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
                   convert_to_plaintext_internal (self, content);
 
-                  pending_word = para_add_pending_word (1);
-                  stream_output_count_nl (self, pending_word);
+                  const TEXT n_pending_word = para_add_pending_word (1);
+                  stream_output_count_nl (self, n_pending_word);
 
                   entry_name = stream_to_text (self);
                   pop_count_context (&self_plaintext->count_context);
@@ -6471,18 +6465,17 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                              normalized, (const void *)seen_description_nr);
 
                       /* flush the current unfilled container */
-                      const char *pending_word = para_add_pending_word (1);
+                      const TEXT pending_word = para_add_pending_word (1);
                       stream_output_count_nl (self, pending_word);
 
                       int text_count = para_counter ();
 
                       if (text_count >= description_indent_length)
                         {
-                          TEXT result = para_add_text ("  ", 2);
-                          if (result.text)
-                            stream_output_count_nl (self, result.text);
+                          const TEXT result = para_add_text ("  ", 2);
+                          stream_output_count_nl (self, result);
 
-                          const char *pending_word = para_add_pending_word (1);
+                          const TEXT pending_word = para_add_pending_word (1);
                           stream_output_count_nl (self, pending_word);
                           text_count += 2;
                         }
@@ -6519,7 +6512,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                           push_formatter (self, &description_para);
                           convert_to_plaintext_internal (self,
                                     node_description->e.c->contents.list[0]);
-                          const char *result = para_end ();
+                          const TEXT result = para_end ();
                           stream_output_count_nl (self, result);
                           para_destroy ();
                           pop_formatter (self, 0);
@@ -6567,12 +6560,12 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           if (element->e.c->parent
               && element->e.c->parent->type == ET_preformatted)
             {
-              const char *pending_word = para_add_pending_word (1);
+              const TEXT pending_word = para_add_pending_word (1);
               stream_output_count_nl (self, pending_word);
             }
           else
             {
-              const char *pending_word = para_add_pending_word (0);
+              const TEXT pending_word = para_add_pending_word (0);
               stream_output_count_nl (self, pending_word);
               para_end_line ();
               ensure_end_of_line (self);
@@ -6889,7 +6882,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
     {
       TEXT_CONTEXT *text_element_context
         = top_(text_element_context) (&self_plaintext->text_element_context);
-      const char *result = para_end ();
+      const TEXT result = para_end ();
       stream_output_count_nl (self, result);
       enum command_id context_cmd = *top_(command) (&self_plaintext->context);
 
@@ -6909,7 +6902,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
     {
       TEXT_CONTEXT *text_element_context
         = top_(text_element_context) (&self_plaintext->text_element_context);
-      const char *end_line = para_end ();
+      const TEXT end_line = para_end ();
       enum command_id context_cmd = *top_(command) (&self_plaintext->context);
 
       stream_output_count_nl (self, end_line);

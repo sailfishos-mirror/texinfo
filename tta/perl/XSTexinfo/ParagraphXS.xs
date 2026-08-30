@@ -131,20 +131,12 @@ para__end_line (int paragraph)
 SV *
 para_end_line (int paragraph)
     PREINIT:
-        const char *end_line;
+        TEXT end_line;
     CODE:
         para_set_state (paragraph);
         end_line = para_end_line ();
-        RETVAL = newSVpv (end_line, 0);
+        RETVAL = newSVpv (end_line.text, end_line.end);
         SvUTF8_on (RETVAL);
-    OUTPUT:
-        RETVAL
-
-char *
-para_get_pending (int paragraph)
-    CODE:
-        para_set_state (paragraph);
-        RETVAL = para_get_pending ();
     OUTPUT:
         RETVAL
 
@@ -153,7 +145,7 @@ SV *
 para_add_pending_word (int paragraph, ...)
     PREINIT:
         int add_spaces = 0;
-        const char *retval;
+        TEXT retval;
     CODE:
         items -= 1;
         if (items > 0)
@@ -166,7 +158,7 @@ para_add_pending_word (int paragraph, ...)
         para_set_state (paragraph);
         retval = para_add_pending_word (add_spaces);
 
-        RETVAL = newSVpv (retval, 0);
+        RETVAL = newSVpv (retval.text, retval.end);
         SvUTF8_on (RETVAL);
     OUTPUT:
         RETVAL
@@ -174,12 +166,12 @@ para_add_pending_word (int paragraph, ...)
 SV *
 para_end (int paragraph)
     PREINIT:
-        const char *retval;
+        TEXT retval;
     CODE:
         para_set_state (paragraph);
         retval = para_end ();
 
-        RETVAL = newSVpv (retval, 0);
+        RETVAL = newSVpv (retval.text, retval.end);
         SvUTF8_on (RETVAL);
     OUTPUT:
         RETVAL

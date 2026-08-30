@@ -37,7 +37,6 @@ our @EXPORT_OK = qw(
     add_end_sentence
     end_line
     add_pending_word
-    get_pending
   );
 
 BEGIN {
