@@ -1,5 +1,13 @@
 2026-08-30 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.h (LINE_WIDTH_PENDING_TEXT),
+	tta/C/convert/convert_to_plaintext.c
+	(plaintext_convert_line_new_context): rename
+	PENDING_TEXT_COUNT_LINE_COUNT as LINE_WIDTH_PENDING_TEXT and remove
+	line_count field.
+
+2026-08-30 Patrice Dumas  <pertusus@free.fr>
+
 	Improve and fix memory management in C plaintext converter
 
 	* tta/C/main/list_macros.h (decl_alloc_fns, def_alloc_fns): add

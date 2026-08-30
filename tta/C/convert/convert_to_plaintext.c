@@ -223,8 +223,8 @@ release_count_context (COUNT_CONTEXT *ctxt)
   ctxt->images.number = 0;
 }
 
-/* TODO add a argument to check that it is reset, false for plaintext_convert_line_new_context
-  and align contexts */
+/* TODO add a argument to check that it is reset, false for
+    plaintext_convert_line_new_context and align contexts */
 void
 pop_count_context (COUNT_CONTEXT_STACK *stack)
 {
@@ -1302,7 +1302,7 @@ plaintext_convert_line_new_context (CONVERTER *self,
                           const ELEMENT *converted,
                           int indent_length, int indent_length_next,
                           int suppress_styles, int no_added_eol,
-                          PENDING_TEXT_COUNT_LINE_COUNT *output)
+                          LINE_WIDTH_PENDING_TEXT *output)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   FORMATTER formatter = new_formatter(self, formatter_line, indent_length,
@@ -1323,10 +1323,12 @@ plaintext_convert_line_new_context (CONVERTER *self,
   COUNT_CONTEXT *count_context
     = top_(count_context) (&self_plaintext->count_context);
   /* beware that the pointer will be invalidated by a realloc, so it should
-     be used before the count context stack can grow */
+     be used before the count context stack can grow.  This is not an
+     issue in practice as the pending text are used or released right after
+     the call to the function.
+   */
   output->pending_text = &count_context->pending_text;
   output->width = para_counter ();
-  output->line_count = count_context->lines;
 
   para_destroy ();
   pop_formatter (self, 0);
@@ -2324,7 +2326,7 @@ align_environment (CONVERTER *self, int max,
 static void
 section_element_heading (CONVERTER *self, const ELEMENT *section_element,
                          ELEMENT *heading_element, int numbered,
-                         PENDING_TEXT_COUNT_LINE_COUNT *section_text)
+                         LINE_WIDTH_PENDING_TEXT *section_text)
 {
   const char *section_number
    = lookup_extra_string (section_element, AI_key_section_heading_number);
@@ -2420,7 +2422,7 @@ plaintext_format_contents (CONVERTER *self, SECTIONING_ROOT *sectioning_root,
           int status;
           int section_level = lookup_extra_integer (section,
                                        AI_key_section_level, &status);
-          PENDING_TEXT_COUNT_LINE_COUNT section_text;
+          LINE_WIDTH_PENDING_TEXT section_text;
 
           int repeat_count = 2 * (section_level - (root_level+1));
           if (repeat_count > 0)
@@ -2907,7 +2909,7 @@ plaintext_process_printindex (CONVERTER *self,
             {
               ELEMENT *tree = cdt_tree ("(outside of any node)",
                                         self, 0 ,0);
-              PENDING_TEXT_COUNT_LINE_COUNT outside_node_text;
+              LINE_WIDTH_PENDING_TEXT outside_node_text;
               plaintext_convert_line_new_context (self, tree,
                                                   -1, -1, -1, -1,
                                              &outside_node_text);
@@ -3702,7 +3704,7 @@ text_heading (CONVERTER *self, const ELEMENT *current,
               const ELEMENT *heading_element, int numbered,
               int indented_len, int no_last_new_line)
 {
-  PENDING_TEXT_COUNT_LINE_COUNT section_text;
+  LINE_WIDTH_PENDING_TEXT section_text;
   int section_level_status;
   int sec_level
     = lookup_extra_integer (current, AI_key_section_level,
@@ -5526,7 +5528,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                               int column_size = 0;
                               if (content->e.c->contents.number)
                                 {
-                                  PENDING_TEXT_COUNT_LINE_COUNT prototype;
+                                  LINE_WIDTH_PENDING_TEXT prototype;
                                   plaintext_convert_line_new_context (self,
                                                 content, 0, -1, -1, -1,
                                                   &prototype);

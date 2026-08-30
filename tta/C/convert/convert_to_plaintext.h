@@ -29,11 +29,10 @@
 #define PF_non_quoted_when_nested   0x8000
 #define PF_index_style              0x00010000
 
-typedef struct PENDING_TEXT_COUNT_LINE_COUNT {
+typedef struct LINE_WIDTH_PENDING_TEXT {
     PENDING_TEXT_LIST *pending_text;
     int width;
-    int line_count;
-} PENDING_TEXT_COUNT_LINE_COUNT;
+} LINE_WIDTH_PENDING_TEXT;
 
 void plaintext_format_setup (enum converter_format format);
 
@@ -101,7 +100,7 @@ void plaintext_convert_line_new_context (CONVERTER *self,
                           const ELEMENT *converted,
                           int indent_length, int indent_length_next,
                           int suppress_styles, int no_added_eol,
-                          PENDING_TEXT_COUNT_LINE_COUNT *output);
+                          LINE_WIDTH_PENDING_TEXT *output);
 
 void pop_count_context (COUNT_CONTEXT_STACK *stack);
 void add_newline_if_needed (CONVERTER *self);

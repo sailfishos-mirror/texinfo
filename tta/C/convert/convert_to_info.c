@@ -1032,7 +1032,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
   /* Convert line for sole purpose of checking if the output contains
      a colon.  Output may differ slightly from the current formatting
      context (e.g if inside @sc) but this should not make a difference. */
-          PENDING_TEXT_COUNT_LINE_COUNT name_texts;
+          LINE_WIDTH_PENDING_TEXT name_texts;
           plaintext_convert_line_new_context (self, name, -1, -1, -1, -1,
                                               &name_texts);
           TEXT name_text_checked = pending_to_text (name_texts.pending_text);
@@ -1124,7 +1124,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
   else if (label_element)
     {
       TEXT node_name_text;
-      PENDING_TEXT_COUNT_LINE_COUNT node_texts;
+      LINE_WIDTH_PENDING_TEXT node_texts;
       ELEMENT *node_code_element = new_element (ET__code);
       add_to_contents_as_array (node_code_element,
                                 (ELEMENT *)label_element);
