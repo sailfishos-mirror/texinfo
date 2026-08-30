@@ -1118,32 +1118,6 @@ plaintext_add_image (CONVERTER *self, const ELEMENT *element,
   add_(image_location) (&count_context->images, image_location);
 }
 
-static void
-stream_reset (CONVERTER *self)
-{
-  size_t i;
-  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
-  COUNT_CONTEXT *count_context
-    = top_(count_context) (&self_plaintext->count_context);
-
-   /*
-  fprintf (stderr, "SR %zu %zu\n", self_plaintext->count_context.number, count_context->pending_text.number);
-    */
-
-  /* TODO should not be needed, as when outputting it is already done */
-  for (i = 0; i < count_context->pending_text.number; i++)
-    {
-      if (count_context->pending_text.list[i].text.end > 0)
-        {
-          fprintf (stderr, "SRESET %zu '%s'\n", i,
-                          count_context->pending_text.list[i].text.text);
-          text_reset (&count_context->pending_text.list[i].text);
-        }
-      /* TODO warn if not 0? */
-      count_context->pending_text.list[i].anchor = 0;
-    }
-}
-
 void
 stream_output_n (CONVERTER *self, const char *text, size_t n)
 {
@@ -7341,8 +7315,6 @@ adjust_final_locations (CONVERTER *self)
 void
 plaintext_convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit)
 {
-  stream_reset (self);
-
   if (output_unit->unit_contents.number > 0)
     {
       size_t content_idx;

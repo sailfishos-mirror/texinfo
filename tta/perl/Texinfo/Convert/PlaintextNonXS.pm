@@ -621,8 +621,6 @@ sub count_context_bug_message($$$) {
 sub convert_output_unit($$) {
   my ($self, $output_unit) = @_;
 
-  _stream_reset($self);
-
   if (exists($output_unit->{'unit_contents'})) {
     foreach my $content (@{$output_unit->{'unit_contents'}}) {
       _convert($self, $content);
@@ -1044,13 +1042,6 @@ sub add_image($$$$;$) {
   };
 }
 
-sub _stream_reset($) {
-  my ($self) = @_;
-
-  my $count_context = $self->{'count_context'}->[-1];
-  $count_context->{'pending_text'} = [['']];
-}
-
 sub _stream_output($$) {
   my ($self, $text) = @_;
 
@@ -1123,7 +1114,11 @@ sub _stream_to_text($) {
   my $self = shift;
 
   my $count_context = $self->{'count_context'}->[-1];
-  return _pending_to_text($self, $count_context->{'pending_text'});
+  my $result = _pending_to_text($self, $count_context->{'pending_text'});
+  # this is not really useful, as the count context is popped right after,
+  # but it marks that input pending text is to be reset here.
+  $count_context->{'pending_text'} = [];
+  return $result;
 }
 
 sub _encode_string($$) {
@@ -1546,7 +1541,8 @@ sub _compute_spaces_align_line($$$;$) {
   return $prepended_spaces;
 }
 
-# split $PENDING_TEXTS pending text at new lines in lines of pending texts
+# split $PENDING_TEXTS pending text at new lines in lines of pending texts.
+# The input is not supposed to be used after that.
 sub collect_pending_texts_lines($) {
   my $pending_texts = shift;
 
@@ -3510,7 +3506,7 @@ sub _convert($$) {
             my $math_text = _stream_to_text($self);
             # TODO add locations in counts to current counts context?
             # (see _align_environment)
-            my $counts = pop @{$self->{'count_context'}};
+            pop @{$self->{'count_context'}};
             my ($image, $lines_count) = _insert_image($self,
                   $self->{'elements_images'}->{$element}->{'filename'},
                   $math_text,
@@ -4538,7 +4534,8 @@ sub _convert($$) {
       $self->{'format_context'}->[-1]->{'row_cell_counts'} = [];
     } elsif ($type eq 'before_node_section') {
       _ensure_end_of_line($self);
-      my $text = _stream_to_text($self);
+      my $text = _pending_to_text($self,
+                    $self->{'count_context'}->[-1]->{'pending_text'});
       $self->{'text_before_first_node'} = _encode_string($self, $text);
     }
   }
@@ -4568,7 +4565,7 @@ sub _convert($$) {
              and exists($self->{'elements_images'})
              and exists($self->{'elements_images'}->{$element})) {
       my $math_text = _stream_to_text($self);
-      my $counts = pop @{$self->{'count_context'}};
+      pop @{$self->{'count_context'}};
       # TODO add locations in counts to current counts context?
       # (see _align_environment)
       my ($image, $lines_count)
