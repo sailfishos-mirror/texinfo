@@ -1,5 +1,14 @@
 2026-08-31 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c (free_pending_texts)
+	(clear_pending_text_lines, free_pending_text_lines)
+	(align_lines, convert_to_plaintext_internal): add
+	clear_pending_text_lines, free_pending_texts and
+	free_pending_text_lines based on align_lines code, and call
+	clear_pending_text_lines for multitable row.
+
+2026-08-31 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_convert): call
 	collect_pending_texts_lines when processing a cell, and register
 	index_entry_locations separately of a count context.

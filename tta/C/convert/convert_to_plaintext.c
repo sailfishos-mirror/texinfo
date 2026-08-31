@@ -1944,7 +1944,7 @@ replace_pending_text (PENDING_TEXT *dst_pending_text,
   if (dst_t->end > 0)
     fprintf (stderr, "BUG: replace_pending_text: got text '%s'\n",
              dst_t->text);
-  /* end degugging */
+  /* end debugging */
 
   text_destroy (dst_t);
   *dst_pending_text = *src_pending_text;
@@ -2030,6 +2030,58 @@ collect_pending_texts_lines (PENDING_TEXT_LIST_LINES *pending_text_lines,
       add_(pending_text_line) (pending_text_lines, current_line);
     }
   pending_texts->number = 0;
+}
+
+static void
+free_pending_texts (PENDING_TEXT_LIST *pending_texts, const char *msg)
+{
+  size_t j;
+  for (j = 0; j < pending_texts->number; j++)
+    {
+      PENDING_TEXT *pending_text = &pending_texts->list[j];
+      TEXT *t = &pending_text->text;
+      /* debugging */
+      if (pending_text->anchor)
+        {
+          char *texi = target_element_to_texi_label (pending_text->anchor);
+          fprintf (stderr, "FREE ALOSE: %s %zu [%s]\n", msg, j, texi);
+          free (texi);
+        }
+      if (t->end > 0)
+        {
+          fprintf (stderr, "FREE LOSE T %s %zu '%s'\n", msg, j, t->text);
+          free (t->text);
+        }
+      else if (t->text)
+        {
+          fprintf (stderr, "FREE LOSE T RESET %s %zu\n", msg, j);
+          free (t->text);
+        }
+      /* end debugging */
+    }
+}
+
+static void
+clear_pending_text_lines (PENDING_TEXT_LIST_LINES *pending_text_lines)
+{
+  size_t i;
+  for (i = 0; i < pending_text_lines->number; i++)
+    {
+      PENDING_TEXT_LIST *line = &pending_text_lines->list[i];
+      char *line_msg;
+      xasprintf (&line_msg, "%zu", i);
+      free_pending_texts (line, line_msg);
+      free (line_msg);
+      free (line->list);
+    }
+  pending_text_lines->number = 0;
+}
+
+static void
+free_pending_text_lines (PENDING_TEXT_LIST_LINES *pending_text_lines)
+{
+  clear_pending_text_lines (pending_text_lines);
+  free (pending_text_lines->list);
 }
 
 static void
@@ -2227,25 +2279,7 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
 
       line_index++;
     }
-  for (i = 0; i < pending_text_lines.number; i++)
-    {
-      /* debugging */
-      size_t j;
-      PENDING_TEXT_LIST *line = &pending_text_lines.list[i];
-      for (j = 0; j < line->number; j++)
-        {
-          PENDING_TEXT *pending_text = &line->list[j];
-          TEXT *t = &pending_text->text;
-          if (t->end > 0)
-            fprintf (stderr, "LOSE align T %zu %zu '%s'\n", i, j, t->text);
-          else if (t->text)
-            fprintf (stderr, "LOSE align T RESET %zu %zu\n", i, j);
-        }
-      /* end debugging */
-
-      free (pending_text_lines.list[i].list);
-    }
-  free (pending_text_lines.list);
+  free_pending_text_lines (&pending_text_lines);
 
   /* not sure that it can happen as the lines should have been collected
      in the same count context, but be safe */
@@ -6807,12 +6841,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
           top_format->cell_idx = 0;
           for (i = 0; i < max_cell_nr; i++)
-            {
-              size_t j;
-              for (j = 0; j < cell_lines[i].number; j++)
-                free (cell_lines[i].list[j].list);
-              cell_lines[i].number = 0;
-            }
+            clear_pending_text_lines (&cell_lines[i]);
         }
       else if (type == ET_before_node_section)
         {
@@ -6964,7 +6993,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               if (prepended)
                 {
                   prepended->type = ET__frenchspacing;
-                  /* TODO need for a line here? */
+       /* there is no specific need for a line formatter, but there is
+          a need for a formatter */
                   int width = plaintext_convert_line (self, prepended,
                                                        -1, -1, 0, 0);
 
