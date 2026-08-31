@@ -200,9 +200,8 @@ clear_pending_text_list (PENDING_TEXT_LIST *pending_texts)
 static void
 release_count_context (COUNT_CONTEXT *ctxt)
 {
-  size_t i;
-
    /*
+  size_t i;
   for (i = 0; i < ctxt->pending_text.number; i++)
     if (ctxt->pending_text.list[i].text.end > 0)
       {
@@ -210,14 +209,6 @@ release_count_context (COUNT_CONTEXT *ctxt)
                  i, ctxt->pending_text.list[i].text.text);
       }
     */
-
-  /* this should only happen for the main document count context
-     as locations inside should have been transferred */
-  for (i = 0; i < ctxt->index_entry_locations.number; i++)
-    free (ctxt->index_entry_locations.list[i]);
-  free (ctxt->index_entry_locations.list);
-  ctxt->index_entry_locations.list = 0;
-  ctxt->index_entry_locations.number = 0;
 
   free (ctxt->images.list);
   ctxt->images.number = 0;
@@ -242,7 +233,9 @@ add_top_pending_text (PENDING_TEXT_LIST *pending_texts, const ELEMENT *anchor)
 {
   /* TODO add a generic function for that */
   if (pending_texts->number + 1 >= pending_texts->space)
-    init_to_(pending_text) (pending_texts, pending_texts->number + 1 +5);
+    {
+      init_to_(pending_text) (pending_texts, pending_texts->number + 1 +5);
+    }
 
   pending_texts->number++;
 
@@ -2302,7 +2295,6 @@ align_environment (CONVERTER *self, int max,
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
 
-  /* save aligned environment count context in align_count_context */
   COUNT_CONTEXT *count_context
         = top_(count_context) (&self_plaintext->count_context);
   COUNT_CONTEXT *parent_count_context
@@ -2311,6 +2303,7 @@ align_environment (CONVERTER *self, int max,
 
   update_locations_counts (self, parent_count_context, count_context);
 
+  /* save images information */
   IMAGE_LOCATION_INFO_LIST images = count_context->images;
   /* set to 0 such that it is not destroyed upon popping */
   memset (&count_context->images, 0, sizeof (IMAGE_LOCATION_INFO_LIST));
@@ -4106,7 +4099,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
   const INDEX_ENTRY_LOCATION *index_entry_info;
 
   /*
-  fprintf (stderr, "CTPI %s\n", element_print_details ((ELEMENT *)element, 0, 0));
+  char *element_details = element_print_details ((ELEMENT *)element, 0, 0);
+  fprintf (stderr, "CTPI %s\n", element_details);
+  free (element_details);
    */
 
   if (type_data[type].flags & TF_text)
@@ -5550,11 +5545,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                  malloc (columns_size_nr * sizeof (PENDING_TEXT_LIST_LINES));
               memset (top_format_context->row_cell_lines, 0,
                       columns_size_nr * sizeof (PENDING_TEXT_LIST_LINES));
-              top_format_context->cells_entry_locations
-                = (INDEX_ENTRY_LINE_COUNT_LIST *) malloc (columns_size_nr
-                    * sizeof (INDEX_ENTRY_LINE_COUNT_LIST));
-              memset (top_format_context->cells_entry_locations, 0,
-                      columns_size_nr * sizeof (INDEX_ENTRY_LINE_COUNT_LIST));
               top_document_context->in_multitable++;
             }
           else if (cmd == CM_float)
@@ -6680,7 +6670,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             = top_(format_context) (&self_plaintext->format_context);
           /* used to register the index entry locations and pass them
              to the parent, not for conversion */
-          COUNT_CONTEXT row_count = { 0 };
           int max_cell_nr = top_format->cell_idx;
      /* beginning of cell in character width based on column sizes given
         in the specification of the table. */
@@ -6704,15 +6693,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               else
                 cell_width = 2;
               cell_beginning += cell_width + 1;
-
-              size_t j;
-              INDEX_ENTRY_LINE_COUNT_LIST *cell_locations
-                = &top_format->cells_entry_locations[i];
-              for (j = 0; j < cell_locations->number; j++)
-                add_(index_entry_location) (&row_count.index_entry_locations,
-                                            cell_locations->list[j]);
-
-              free (cell_locations->list);
 
               int cell_lines_nr = cell_lines[i].number;
               if (cell_lines_nr > max_lines)
@@ -6834,8 +6814,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               stream_output_n (self, "\n", 1);
               max_lines++;
             }
-          update_locations_counts (self, count_context, &row_count);
-          free (row_count.index_entry_locations.list);
 
           count_context->lines += max_lines;
 
@@ -7067,7 +7045,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           for (i = 0; i < top_format->columns_size_nr; i++)
             free (cell_lines[i].list);
           free (cell_lines);
-          free (top_format->cells_entry_locations);
         }
       else if (command_data[cmd].flags & CF_root
                && command_data[cmd].flags & CF_sectioning_heading
@@ -7145,6 +7122,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         {
           COUNT_CONTEXT *count_context
             = top_(count_context) (&self_plaintext->count_context);
+          COUNT_CONTEXT *parent_count_context
+            = &self_plaintext->count_context.list[
+               self_plaintext->count_context.number -2];
           pop_(format_context) (&self_plaintext->format_context);
           FORMAT_CONTEXT *top_format
             = top_(format_context) (&self_plaintext->format_context);
@@ -7153,12 +7133,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           collect_pending_texts_lines (&cell_lines[top_format->cell_idx],
                                        &count_context->pending_text);
 
-          top_format->cells_entry_locations[top_format->cell_idx]
-            = count_context->index_entry_locations;
-          memset (&count_context->index_entry_locations, 0,
-                  sizeof (INDEX_ENTRY_LINE_COUNT_LIST));
-
           top_format->cell_idx++;
+
+          update_locations_counts (self, parent_count_context, count_context);
 
           pop_count_context (&self_plaintext->count_context);
           pop_(text_element_context) (&self_plaintext->text_element_context);
@@ -7202,8 +7179,8 @@ plaintext_free_converter (CONVERTER *self)
   for (i = 0; i < self_plaintext->count_context.space; i++)
     {
       size_t j;
-      PENDING_TEXT_LIST *pending_texts
-        = &self_plaintext->count_context.list[i].pending_text;
+      COUNT_CONTEXT *ctxt = &self_plaintext->count_context.list[i];
+      PENDING_TEXT_LIST *pending_texts = &ctxt->pending_text;
       for (j = 0; j < pending_texts->space; j++)
         {
           PENDING_TEXT *pending_text = &pending_texts->list[j];
@@ -7221,6 +7198,12 @@ plaintext_free_converter (CONVERTER *self)
           free (t->text);
         }
       free (pending_texts->list);
+
+      /* this should only happen for the main document count context
+         (bottom) as locations inside should have been transferred */
+      for (j = 0; j < ctxt->index_entry_locations.number; j++)
+        free (ctxt->index_entry_locations.list[j]);
+      free (ctxt->index_entry_locations.list);
     }
   free (self_plaintext->count_context.list);
 

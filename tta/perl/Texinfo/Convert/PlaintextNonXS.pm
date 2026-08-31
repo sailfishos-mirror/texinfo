@@ -4426,18 +4426,12 @@ sub _convert($$) {
       my $max_lines = 0;
       my $indent_len
         = $self->{'format_context'}->[-1]->{'context_indent_len'};
-      my $cell_locations
-        = $self->{'format_context'}->[-1]->{'cells_entry_locations'};
-      my $row_counts = {'index_entry_locations' => []};
       for (my $cell_idx = 0; $cell_idx < $max_cell_nr; $cell_idx++) {
         $cell_beginnings[$cell_idx] = $cell_beginning;
         my $cell_width
            = $self->{'format_context'}->[-1]->{'columns_size'}->[$cell_idx];
         $cell_width = 2 if (!defined($cell_width));
         $cell_beginning += $cell_width +1;
-
-        push @{$row_counts->{'index_entry_locations'}},
-             @{$cell_locations->[$cell_idx]};
 
         $max_lines = scalar(@{$cell_lines->[$cell_idx]})
           if (scalar(@{$cell_lines->[$cell_idx]}) > $max_lines);
@@ -4513,12 +4507,8 @@ sub _convert($$) {
         $max_lines++;
       }
 
-      _update_locations_counts($self, $self->{'count_context'}->[-1],
-                               $row_counts);
-
       $self->{'count_context'}->[-1]->{'lines'} += $max_lines;
       $self->{'format_context'}->[-1]->{'row_cell_lines'} = [];
-      $self->{'format_context'}->[-1]->{'cells_entry_locations'} = [];
     } elsif ($type eq 'before_node_section') {
       _ensure_end_of_line($self);
       my $text = _pending_to_text($self,
@@ -4662,11 +4652,11 @@ sub _convert($$) {
       pop @{$self->{'format_context'}};
       pop @{$self->{'text_element_context'}};
       my $cell_counts = pop @{$self->{'count_context'}};
+      _update_locations_counts($self, $self->{'count_context'}->[-1],
+                               $cell_counts);
       my $lines = collect_pending_texts_lines($cell_counts->{'pending_text'});
       push @{$self->{'format_context'}->[-1]->{'row_cell_lines'}},
            $lines;
-      push @{$self->{'format_context'}->[-1]->{'cells_entry_locations'}},
-           $cell_counts->{'index_entry_locations'};
     }
     if (exists $advance_paragraph_count_commands{$cmdname}) {
       $self->{'format_context'}->[-1]->{'paragraph_count'}++;
