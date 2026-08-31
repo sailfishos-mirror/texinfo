@@ -2895,6 +2895,9 @@ sub _convert($$) {
     cluck("BUG? Plaintext _convert element undef\n");
   }
 
+  #print STDERR "CTPI "
+  # .Texinfo::ManipulateTree::element_print_details($element)."\n";
+
   my $formatter = $self->{'formatters'}->[-1];
 
   my $type = $element->{'type'};
@@ -4416,16 +4419,17 @@ sub _convert($$) {
       my @cell_beginnings;
       # array of lines in each cell, already formatted using the max limit
       # on line length per column, for each cell.
-      my @cell_lines;
+      my $cell_lines = $self->{'format_context'}->[-1]->{'row_cell_lines'};
       my $cell_beginning = 0;
-      my $cell_idx = 0;
+      my $max_cell_nr = scalar(@{$cell_lines});
       # number maximum of line for the cells in this row
       my $max_lines = 0;
       my $indent_len
-           = $self->{'format_context'}->[-1]->{'context_indent_len'};
+        = $self->{'format_context'}->[-1]->{'context_indent_len'};
+      my $cell_locations
+        = $self->{'format_context'}->[-1]->{'cells_entry_locations'};
       my $row_counts = {'index_entry_locations' => []};
-      foreach my $cell_count (
-                   @{$self->{'format_context'}->[-1]->{'row_cell_counts'}}) {
+      for (my $cell_idx = 0; $cell_idx < $max_cell_nr; $cell_idx++) {
         $cell_beginnings[$cell_idx] = $cell_beginning;
         my $cell_width
            = $self->{'format_context'}->[-1]->{'columns_size'}->[$cell_idx];
@@ -4433,21 +4437,13 @@ sub _convert($$) {
         $cell_beginning += $cell_width +1;
 
         push @{$row_counts->{'index_entry_locations'}},
-             @{$cell_count->{'index_entry_locations'}};
+             @{$cell_locations->[$cell_idx]};
 
-        my $pending_texts = $cell_count->{'pending_text'};
-
-        my $lines = collect_pending_texts_lines($pending_texts);
-
-        $cell_lines[$cell_idx] = $lines;
-        $max_lines = scalar(@{$cell_lines[$cell_idx]})
-          if (scalar(@{$cell_lines[$cell_idx]}) > $max_lines);
-        $cell_idx++;
+        $max_lines = scalar(@{$cell_lines->[$cell_idx]})
+          if (scalar(@{$cell_lines->[$cell_idx]}) > $max_lines);
       }
 
       # this is used to keep track of the last cell with content.
-      my $max_cell_nr
-        = scalar(@{$self->{'format_context'}->[-1]->{'row_cell_counts'}});
       my $result = $self->{'count_context'}->[-1]->{'pending_text'};
       for (my $line_idx = 0; $line_idx < $max_lines; $line_idx++) {
         my $line_width = $indent_len;
@@ -4456,7 +4452,7 @@ sub _convert($$) {
         my $last_cell = 0;
         for (my $cell_idx = 0; $cell_idx < $max_cell_nr; $cell_idx++) {
           $last_cell = $cell_idx+1
-            if (defined($cell_lines[$cell_idx]->[$line_idx]));
+            if (defined($cell_lines->[$cell_idx]->[$line_idx]));
         }
         my $indent_done;
         if ($indent_len <= 0) {
@@ -4464,8 +4460,8 @@ sub _convert($$) {
         }
 
         for (my $cell_idx = 0; $cell_idx < $last_cell; $cell_idx++) {
-          if (defined($cell_lines[$cell_idx]->[$line_idx])) {
-            my $cell_line = [@{$cell_lines[$cell_idx]->[$line_idx]}];
+          if (defined($cell_lines->[$cell_idx]->[$line_idx])) {
+            my $cell_line = [@{$cell_lines->[$cell_idx]->[$line_idx]}];
             # remove end of line
             for (my $j = scalar(@$cell_line); $j > 0; $j--) {
               my $pending_text = $cell_line->[$j -1];
@@ -4521,7 +4517,8 @@ sub _convert($$) {
                                $row_counts);
 
       $self->{'count_context'}->[-1]->{'lines'} += $max_lines;
-      $self->{'format_context'}->[-1]->{'row_cell_counts'} = [];
+      $self->{'format_context'}->[-1]->{'row_cell_lines'} = [];
+      $self->{'format_context'}->[-1]->{'cells_entry_locations'} = [];
     } elsif ($type eq 'before_node_section') {
       _ensure_end_of_line($self);
       my $text = _pending_to_text($self,
@@ -4590,6 +4587,8 @@ sub _convert($$) {
           = Texinfo::Convert::Converter::float_name_caption($self, $element);
         if (defined($prepended)) {
           $prepended->{'type'} = '_frenchspacing';
+          # there is no specific need for a line formatter, but there is
+          # a need for a formatter
           my $width = $self->convert_line($prepended);
           $self->{'text_element_context'}->[-1]->{'counter'} += $width;
         }
@@ -4663,8 +4662,11 @@ sub _convert($$) {
       pop @{$self->{'format_context'}};
       pop @{$self->{'text_element_context'}};
       my $cell_counts = pop @{$self->{'count_context'}};
-      push @{$self->{'format_context'}->[-1]->{'row_cell_counts'}},
-           $cell_counts;
+      my $lines = collect_pending_texts_lines($cell_counts->{'pending_text'});
+      push @{$self->{'format_context'}->[-1]->{'row_cell_lines'}},
+           $lines;
+      push @{$self->{'format_context'}->[-1]->{'cells_entry_locations'}},
+           $cell_counts->{'index_entry_locations'};
     }
     if (exists $advance_paragraph_count_commands{$cmdname}) {
       $self->{'format_context'}->[-1]->{'paragraph_count'}++;
