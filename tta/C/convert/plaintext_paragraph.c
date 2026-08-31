@@ -225,7 +225,7 @@ para__cut_line (TEXT *result)
     {
       para__end_line ();
 
-      text_append (result, "\n");
+      text_append_n (result, "\n", 1);
     }
 }
 
@@ -372,7 +372,7 @@ para_end (void)
   para__add_pending_word (&ret, state.add_final_space);
   if (!state.no_final_newline && state.counter != 0)
     {
-      text_append (&ret, "\n");
+      text_append_n (&ret, "\n", 1);
       state.lines_counter++;
       state.end_line_count++;
     }
@@ -692,7 +692,7 @@ para_add_text (const char *text, int len)
               if (memchr (p, '\n', q - p))
                 {
                    para__end_line ();
-                   text_append (&result, "\n");
+                   text_append_n (&result, "\n", 1);
                 }
               else
                 {
@@ -765,7 +765,7 @@ para_add_text (const char *text, int len)
               && memchr (p, '\n', q - p))
             {
               para__end_line ();
-              text_append (&result, "\n");
+              text_append_n (&result, "\n", 1);
             }
           state.last_letter = (char32_t) ' ';
         }
