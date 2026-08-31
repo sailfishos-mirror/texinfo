@@ -215,8 +215,6 @@ release_count_context (COUNT_CONTEXT *ctxt)
   ctxt->images.number = 0;
 }
 
-/* TODO add a argument to check that it is reset, false for
-    plaintext_convert_line_new_context and align contexts */
 void
 pop_count_context (COUNT_CONTEXT_STACK *stack)
 {
@@ -1418,6 +1416,12 @@ pending_to_text (PENDING_TEXT_LIST *pending_texts)
       text_append_n (&t, pending_text->text.text, pending_text->text.end);
 
       text_reset (&pending_text->text);
+      if (pending_text->anchor)
+        {
+          char *texi = target_element_to_texi_label (pending_text->anchor);
+          fprintf (stderr, "BUG: pending_to_text: anchor lost [%s]\n", texi);
+          free (texi);
+        }
       pending_text->anchor = 0;
     }
   pending_texts->number = 0;
@@ -2501,12 +2505,6 @@ menu (CONVERTER *self, const ELEMENT *menu_command)
     }
 }
 
-typedef struct CONVERT_PRINTINDEX_ENTRIES_INFO {
-    const ELEMENT *node;
-    int line_nr;
-    int ignored;
-} CONVERT_PRINTINDEX_ENTRIES_INFO;
-
 static int index_length_to_node = 41;
 
 static const char *node_quote = "\x7f";
@@ -2705,7 +2703,6 @@ plaintext_process_printindex (CONVERTER *self,
       uintptr_t entry_text_count;
       int line_width = 0;
       const ELEMENT *node;
-      int line_nr;
       int line_part_width;
       int spaces_nr;
       int j;
@@ -3021,10 +3018,9 @@ plaintext_process_printindex (CONVERTER *self,
       stream_output_n (self, ".", 1);
       line_width++;
 
-      line_nr = entry_info->line_nr;
       text_append_n (&line_part, "(line ", 6);
       /* line_nr_with_max_format is "%" max_index_line_nr_string_length "d" */
-      text_printf (&line_part, line_nr_with_max_format, line_nr);
+      text_printf (&line_part, line_nr_with_max_format, entry_info->line_nr);
       text_append_n (&line_part, ")", 1);
 
       line_part_width = string_width_multibyte (line_part.text);
@@ -3603,7 +3599,8 @@ plaintext_insert_image (CONVERTER *self, const char *image_file,
   char *result_text = strdup (image_text);
   int line_count = -1;
   int width = 0;
-  const char *p;
+  /* no const because the string is modified temporarily */
+  char *p;
   char *q;
   TEXT formatted_image;
 

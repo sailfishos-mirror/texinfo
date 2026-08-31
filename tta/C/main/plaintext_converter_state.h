@@ -125,10 +125,8 @@ typedef struct FORMAT_CONTEXT {
     enum command_id cmd;
     int paragraph_count;
     int context_indent_len;
-    /* COUNT_CONTEXT_STACK row_cell_counts; */
     PENDING_TEXT_LIST_LINES *row_cell_lines;
     int cell_idx;
-    INDEX_ENTRY_LINE_COUNT_LIST *cells_entry_locations;
     int paragraph_counts;
     int columns_size_nr;
     int *columns_size;
@@ -166,10 +164,11 @@ typedef struct MATH_ELEMENT_IMAGE {
 def_list_type(MATH_ELEMENT_IMAGE_LIST, MATH_ELEMENT_IMAGE);
 decl_list_fns(MATH_ELEMENT_IMAGE_LIST, math_element_image, MATH_ELEMENT_IMAGE);
 
-/* result of Texinfo::Convert::LaTeX::convert_math_to_images */
 typedef struct MATH_ELEMENTS_IMAGES {
+    /* result of Texinfo::Convert::LaTeX::convert_math_to_images */
     MATH_ELEMENT_IMAGE_LIST math_images;
     MATH_ELEMENT_IMAGE_LIST displaymath_images;
+    /* used in conversion to go through the lists above */
     size_t math_index;
     size_t displaymath_index;
 } MATH_ELEMENTS_IMAGES;
@@ -192,7 +191,6 @@ typedef struct INDEX_ENTRY_INFO {
     const ELEMENT *node;
     int *location;
     int ignored;
-    /* to be removed */
     int line_nr;
 } INDEX_ENTRY_INFO;
 
