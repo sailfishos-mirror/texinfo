@@ -1251,10 +1251,16 @@ plaintext_add_target_location (CONVERTER *self, const ELEMENT *element)
 
 int
 plaintext_convert_line (CONVERTER *self, const ELEMENT *converted,
-                        int indent_length, int indent_length_next)
+                        int indent_length, int indent_length_next,
+                        int suppress_styles, int no_added_eol)
 {
   FORMATTER formatter = new_formatter(self, formatter_line, indent_length,
                                       indent_length_next);
+  if (suppress_styles >= 0)
+    formatter.suppress_styles = suppress_styles;
+  if (no_added_eol >= 0)
+    formatter.no_added_eol = no_added_eol;
+
   int width;
 
   push_formatter (self, &formatter);
@@ -1282,20 +1288,10 @@ plaintext_convert_line_new_context (CONVERTER *self,
                           LINE_WIDTH_PENDING_TEXT *output)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
-  FORMATTER formatter = new_formatter(self, formatter_line, indent_length,
-                                      indent_length_next);
-  if (suppress_styles >= 0)
-    formatter.suppress_styles = suppress_styles;
-  if (no_added_eol >= 0)
-    formatter.no_added_eol = no_added_eol;
-
   push_count_context (&self_plaintext->count_context);
-  push_formatter (self, &formatter);
 
-  convert_to_plaintext_internal (self, converted);
-  const TEXT end_line = para_end ();
-  if (end_line.text)
-    stream_output_n (self, end_line.text, end_line.end);
+  output->width = plaintext_convert_line (self, converted, indent_length,
+                          indent_length_next, suppress_styles, no_added_eol);
 
   COUNT_CONTEXT *count_context
     = top_(count_context) (&self_plaintext->count_context);
@@ -1305,10 +1301,6 @@ plaintext_convert_line_new_context (CONVERTER *self,
      the call to the function.
    */
   output->pending_text = &count_context->pending_text;
-  output->width = para_counter ();
-
-  para_destroy ();
-  pop_formatter (self, 0);
   pop_count_context (&self_plaintext->count_context);
 }
 
@@ -5437,7 +5429,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                                   self, replaced_substrings, 0);
                   prepended->type = ET__frenchspacing;
 
-                  width = plaintext_convert_line (self, prepended, -1, -1);
+                  width = plaintext_convert_line (self, prepended, -1, -1,
+                                                  0, 0);
 
                   TEXT_CONTEXT *text_element_context
                     = top_(text_element_context) (
@@ -5676,7 +5669,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                                             table_item_tree->tree);
 
                   plaintext_convert_line (self, frenchspacing_element,
-                                          indent_len, -1);
+                                          indent_len, -1, 0, 0);
                   ensure_end_of_line (self);
                   destroy_element (frenchspacing_element);
                   /* if the added command is a footnote, it has been
@@ -5784,7 +5777,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             {
               ELEMENT *formatted_center = new_element (ET__frenchspacing);
               add_to_contents_as_array (formatted_center, line_arg);
-              plaintext_convert_line (self, formatted_center, 0, -1);
+              plaintext_convert_line (self, formatted_center, 0, -1, 0, 0);
               destroy_element (formatted_center);
             }
 
@@ -5815,13 +5808,13 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             {
               enum command_id context_cmd
                  = *top_(command) (&self_plaintext->context);
+              int indent = self_plaintext->format_context.list[
+                self_plaintext->format_context.number -2].context_indent_len;
               if (plaintext_commands_data[context_cmd].flags
                                               & PF_preformatted_context)
                 {
                   FORMATTER new_preformatted
-                    = new_formatter (self, formatter_unfilled,
-                       self_plaintext->format_context.list[
-          self_plaintext->format_context.number -2].context_indent_len, -1);
+                    = new_formatter (self, formatter_unfilled, indent, -1);
 
                   FONT_TYPE *font_type
                     = top_(font_type) (new_preformatted.font_type_stack);
@@ -5836,9 +5829,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 }
               else
                 {
-                  plaintext_convert_line (self, exdent_line_arg,
-                    self_plaintext->format_context.list[
-          self_plaintext->format_context.number -2].context_indent_len, -1);
+                  plaintext_convert_line (self, exdent_line_arg, indent,
+                                          -1, 0, 0);
                 }
             }
           ensure_end_of_line (self);
@@ -6972,7 +6964,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               if (prepended)
                 {
                   prepended->type = ET__frenchspacing;
-                  int width = plaintext_convert_line (self, prepended, -1, -1);
+                  /* TODO need for a line here? */
+                  int width = plaintext_convert_line (self, prepended,
+                                                       -1, -1, 0, 0);
 
                   TEXT_CONTEXT *text_element_context
                     = top_(text_element_context) (

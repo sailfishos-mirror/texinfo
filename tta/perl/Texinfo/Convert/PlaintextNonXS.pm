@@ -1171,11 +1171,12 @@ sub _stream_final_result($) {
   return $new_encoded;
 }
 
-sub convert_line($$;$$) {
-  my ($self, $converted, $indent_length, $indent_length_next) = @_;
+sub convert_line($$;$$$) {
+  my ($self, $converted, $indent_length, $indent_length_next,
+      $formatter_conf) = @_;
 
-  my $formatter = new_formatter($self, 'line',
-                                $indent_length, $indent_length_next);
+  my $formatter = new_formatter($self, 'line', $indent_length,
+                                $indent_length_next, $formatter_conf);
   push @{$self->{'formatters'}}, $formatter;
   _convert($self, $converted);
   my $end_line = Texinfo::Convert::Paragraph::end($formatter->{'container'});
@@ -1210,24 +1211,15 @@ sub convert_line_new_context($$;$$$) {
 
   push @{$self->{'count_context'}}, {'lines' => 0,
                                      'pending_text' => [['']]};
-  my $formatter = new_formatter($self, 'line',
-                                $indent_length, $indent_length_next,
-                                $formatter_conf);
-  push @{$self->{'formatters'}}, $formatter;
-  _convert($self, $converted);
-  my $end = Texinfo::Convert::Paragraph::end($formatter->{'container'});
-  _stream_output($self, $end);
-  my $pending_text = $self->{'count_context'}->[-1]->{'pending_text'};
-  my $count = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
+  my $count = convert_line($self, $converted, $indent_length,
+                           $indent_length_next, $formatter_conf);
 
-  # Should always be 0 for well-formed input?
-  my $end_line_count = $self->{'count_context'}->[-1]->{'lines'};
-  destroy_formatter(pop @{$self->{'formatters'}});
+  my $pending_text = $self->{'count_context'}->[-1]->{'pending_text'};
   pop @{$self->{'count_context'}};
 
   die if (!scalar(@{$self->{'count_context'}}));
 
-  return ($pending_text, $count, $end_line_count);
+  return ($pending_text, $count);
 }
 
 sub _update_locations_counts($$$) {
@@ -1751,8 +1743,7 @@ sub _section_element_heading($$$$) {
     $tree = $heading_e;
   }
 
-  my ($pending, $columns, undef)
-     = $self->convert_line_new_context($tree);
+  my ($pending, $columns) = $self->convert_line_new_context($tree);
   return ($pending, $columns);
 }
 
@@ -2098,8 +2089,7 @@ sub process_printindex($$;$) {
       # it is likely that there is more than one such entry
       if (!$self->{'outside_of_any_node_text'}) {
         my $tree = $self->cdt('(outside of any node)');
-        my ($pending, $width, undef)
-          = $self->convert_line_new_context($tree);
+        my ($pending, $width) = $self->convert_line_new_context($tree);
         $self->{'outside_of_any_node_text'} = _pending_to_text($self, $pending);
         $self->{'outside_of_any_node_text_width'} = $width;
       }

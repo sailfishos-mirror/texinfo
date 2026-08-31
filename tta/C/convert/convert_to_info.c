@@ -215,7 +215,7 @@ info_header (CONVERTER *self, const char *input_basefile,
               if (line_arg->e.c->contents.number > 0)
                 {
                   stream_output_n (self, "INFO-DIR-SECTION ", 17);
-                  plaintext_convert_line (self, line_arg, -1, -1);
+                  plaintext_convert_line (self, line_arg, -1, -1, 0, 1);
                   stream_output_n (self, "\n", 1);
                 }
             }
@@ -1441,7 +1441,7 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
                                                close_parenthese);
 
               plaintext_convert_line (self,
-                                direction_file_code_element, -1, -1);
+                   direction_file_code_element, -1, -1, 1, 0);
               destroy_element (open_parenthese);
               destroy_element (close_parenthese);
               destroy_element (direction_file_code_element);

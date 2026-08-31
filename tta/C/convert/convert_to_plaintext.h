@@ -95,7 +95,8 @@ void stream_final_result (CONVERTER *self, TEXT *result);
 
 void plaintext_add_target_location (CONVERTER *self, const ELEMENT *element);
 int plaintext_convert_line (CONVERTER *self, const ELEMENT *converted,
-                            int indent_length, int indent_length_next);
+                            int indent_length, int indent_length_next,
+                            int suppress_styles, int no_added_eol);
 void plaintext_convert_line_new_context (CONVERTER *self,
                           const ELEMENT *converted,
                           int indent_length, int indent_length_next,

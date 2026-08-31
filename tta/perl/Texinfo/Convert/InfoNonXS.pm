@@ -150,7 +150,8 @@ sub _info_header($$$) {
       if ($command->{'cmdname'} eq 'dircategory') {
         if (exists($command->{'contents'}->[0]->{'contents'})) {
           $self->_stream_output("INFO-DIR-SECTION ");
-          $self->convert_line($command->{'contents'}->[0]);
+          $self->convert_line($command->{'contents'}->[0], undef, undef,
+                              {'no_added_eol' => 1});
           $self->_stream_output("\n");
         }
       } elsif ($command->{'cmdname'} eq 'direntry') {
@@ -978,12 +979,14 @@ sub format_node($$;$) {
 
       # file
       if (exists($node_direction->{'extra'}->{'manual_content'})) {
-        $self->convert_line(Texinfo::TreeElement::new(
+        my $file_formatted = Texinfo::TreeElement::new(
                          {'type' => '_code',
                           'contents' => [
                         Texinfo::TreeElement::new({'text' => '('}),
                              $node_direction->{'extra'}->{'manual_content'},
-                               Texinfo::TreeElement::new({'text' => ')'})]}));
+                               Texinfo::TreeElement::new({'text' => ')'})]});
+        $self->convert_line($file_formatted, undef, undef,
+                            {'suppress_styles' => 1});
       }
 
       if (exists($node_direction->{'extra'}->{'identifier'})
