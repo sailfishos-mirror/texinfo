@@ -3871,8 +3871,11 @@ sub _convert($$) {
                    $self->{'text_element_context'}->[-1]->{'max'}, 'center');
         _ensure_end_of_line($self);
       } else {
+        my $pending = $self->{'count_context'}->[-1]->{'pending_text'};
         # it has to be done here, as it is done in _align_environment above
         pop @{$self->{'count_context'}};
+        # in case there is no text but anchor, merge
+        push @{$self->{'count_context'}->[-1]->{'pending_text'}}, @$pending;
       }
       $self->{'format_context'}->[-1]->{'paragraph_count'}++;
       return;

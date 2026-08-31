@@ -189,9 +189,10 @@ clear_pending_text_list (PENDING_TEXT_LIST *pending_texts)
       if (pending_text->anchor)
         {
           char *texi = target_element_to_texi_label (pending_text->anchor);
-          fprintf (stderr, "clear_pending_text_list: got an anchor [%s]\n",
-                   texi);
+          fprintf (stderr, "clear_pending_text_list: %zu: anchor [%s]\n",
+                   i, texi);
           free (texi);
+          pending_text->anchor = 0;
         }
     }
   pending_texts->number = 0;
@@ -5817,8 +5818,13 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               ensure_end_of_line (self);
             }
           else
+            {
      /* it has to be done here, as it is done in _align_environment above */
-            pop_count_context (&self_plaintext->count_context);
+              pop_count_context (&self_plaintext->count_context);
+              /* in case there is no text but anchor, merge */
+              merge_pending_with_parent (self,
+                                         &top_count_context->pending_text);
+            }
 
           FORMAT_CONTEXT *top_format
             = top_(format_context) (&self_plaintext->format_context);

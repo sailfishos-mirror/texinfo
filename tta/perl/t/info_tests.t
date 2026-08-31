@@ -381,7 +381,7 @@ Two spaces.  @image{words}.
 End line.
 @image{words}.
 '],
-[ 'multitable_anchor_and_index_entry',
+['multitable_anchor_and_index_entry',
 '@node Top
 
 @multitable @columnfractions 0.4 0.6
@@ -1066,6 +1066,15 @@ Some text.
 @end menu
 ', {'test_formats' => ['html']},
    {'FORMAT_MENU' => 'menu'}],
+['anchor_in_empty_center',
+'@node Top
+
+@center @asis{}@anchor{toto}
+
+a
+
+@center @asis{}@anchor{titi}@w{}
+'],
 );
 
 my @file_tests = (
