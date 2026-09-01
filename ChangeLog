@@ -1,3 +1,25 @@
+2026-09-01 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/convert_to_plaintext.c (pending_to_text)
+	(stream_to_text), tta/perl/Texinfo/Convert/PlaintextNonXS.pm
+	(_pending_to_text, _stream_to_text): add an optional list argument to
+	pending_to_text and stream_to_text.  If set, put there the anchors
+	found in the pending texts converted to text.  Update C callers.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal),
+	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_convert): collect anchors
+	in math elements shown as images and put them in front of the image.
+
+	* tta/C/convert/convert_to_info.c (info_format_ref): rename
+	name_text_checked as name_check.
+
+	* tta/perl/t/info_tests.t (anchor_in_math), tta/perl/Makefile.tres,
+	tta/tests/info_tex/tex_math.texi: add test with @anchor in @math and
+	@displaymath.  Add a similar code to tex_math.texi, changed to have
+	only one @anchor in displaymath, as LaTeX does not accept two labels
+	in the corresponding construct.
+
 2026-08-31 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/convert_to_plaintext.c (pending_to_text): warn if an

@@ -65,6 +65,14 @@ after D
 
 @anchor{After displaymath}
 
+@c with anchors in math (also in t/info_tests.t anchor_in_math
+Some @math{A + B @anchor{in math}} and after.
+
+@c LaTeX does not like two label in the same equation
+@displaymath
+f(x) = @anchor{equal point} \frac{a}{b} @c @anchor{displm point}
+@end displaymath
+
 @quotation
 In quotation
 @displaymath

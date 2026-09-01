@@ -1099,22 +1099,27 @@ sub _stream_output_add_next($$) {
   return;
 }
 
-# the SELF argument is used to find the method in the Info module
-sub _pending_to_text($$) {
-  my ($self, $pending) = @_;
+# the SELF argument is used to find the method in the Info module.
+# If ANCHORS_OUT is set, the anchors found in PENDING are collected.
+sub _pending_to_text($$;$) {
+  my ($self, $pending, $anchors_out) = @_;
 
   my $result = '';
   foreach my $pending_string (@$pending) {
     $result .= $pending_string->[0];
+    if (defined($anchors_out) and defined($pending_string->[1])) {
+      push @$anchors_out, $pending_string->[1];
+    }
   }
   return $result;
 }
 
-sub _stream_to_text($) {
-  my $self = shift;
+sub _stream_to_text($;$) {
+  my ($self, $anchors_out) = @_;
 
   my $count_context = $self->{'count_context'}->[-1];
-  my $result = _pending_to_text($self, $count_context->{'pending_text'});
+  my $result = _pending_to_text($self, $count_context->{'pending_text'},
+                                $anchors_out);
   # this is not really useful, as the count context is popped right after,
   # but it marks that input pending text is to be reset here.
   $count_context->{'pending_text'} = [];
@@ -3496,10 +3501,14 @@ sub _convert($$) {
             # flush @math, including spaces
             _stream_output_count_nl($self,
                        add_pending_word($formatter->{'container'}, 1));
-            my $math_text = _stream_to_text($self);
+            my $anchors = [];
+            my $math_text = _stream_to_text($self, $anchors);
             # TODO add locations in counts to current counts context?
             # (see _align_environment)
             pop @{$self->{'count_context'}};
+            foreach my $anchor (@$anchors) {
+              $self->add_target_location($anchor);
+            }
             my ($image, $lines_count) = _insert_image($self,
                   $self->{'elements_images'}->{$element}->{'filename'},
                   $math_text,
@@ -4544,8 +4553,12 @@ sub _convert($$) {
     } elsif ($self->{'context'}->[-1] eq 'displaymath'
              and exists($self->{'elements_images'})
              and exists($self->{'elements_images'}->{$element})) {
-      my $math_text = _stream_to_text($self);
+      my $anchors = [];
+      my $math_text = _stream_to_text($self, $anchors);
       pop @{$self->{'count_context'}};
+      foreach my $anchor (@$anchors) {
+        $self->add_target_location($anchor);
+      }
       # TODO add locations in counts to current counts context?
       # (see _align_environment)
       my ($image, $lines_count)

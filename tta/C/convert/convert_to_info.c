@@ -1034,8 +1034,8 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
           LINE_WIDTH_PENDING_TEXT name_texts;
           plaintext_convert_line_new_context (self, name, -1, -1, -1, -1,
                                               &name_texts);
-          TEXT name_text_checked = pending_to_text (name_texts.pending_text);
-          if (strpbrk (name_text_checked.text, ":"))
+          TEXT name_check = pending_to_text (name_texts.pending_text, 0);
+          if (strpbrk (name_check.text, ":"))
             {
               if (warn_special_char)
                 message_list_command_warn (&self->error_messages,
@@ -1047,7 +1047,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
               if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
                 name_quoting_required = 1;
             }
-          free (name_text_checked.text);
+          free (name_check.text);
         }
 
     /* do the actual output of name */
@@ -1134,7 +1134,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
                                           &node_texts);
       self_plaintext->silent--;
       destroy_element (node_code_element);
-      node_name_text = pending_to_text (node_texts.pending_text);
+      node_name_text = pending_to_text (node_texts.pending_text, 0);
       node_name = node_name_text.text;
       need_free_node_name = 1;
     }

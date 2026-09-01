@@ -1224,7 +1224,7 @@ stream_final_result (CONVERTER *self, TEXT *result)
   count_context->pending_text.number = 1;
 }
 
-/* Save the line and byte offset of $ELEMENT. */
+/* insert $ELEMENT in output text. */
 void
 plaintext_add_target_location (CONVERTER *self, const ELEMENT *element)
 {
@@ -1402,8 +1402,12 @@ ensure_end_of_line (CONVERTER *self)
     }
 }
 
+/*
+  If ANCHORS_OUT is set, the anchors found in PENDING_TEXTS are collected.
+ */
 TEXT
-pending_to_text (PENDING_TEXT_LIST *pending_texts)
+pending_to_text (PENDING_TEXT_LIST *pending_texts,
+                 CONST_ELEMENT_LIST *anchors_out)
 {
   size_t i;
   TEXT t;
@@ -1418,24 +1422,29 @@ pending_to_text (PENDING_TEXT_LIST *pending_texts)
       text_reset (&pending_text->text);
       if (pending_text->anchor)
         {
-          char *texi = target_element_to_texi_label (pending_text->anchor);
-          fprintf (stderr, "BUG: pending_to_text: anchor lost [%s]\n", texi);
-          free (texi);
+          if (anchors_out)
+            add_(const_element) (anchors_out, pending_text->anchor);
+          else
+            {
+              char *texi = target_element_to_texi_label (pending_text->anchor);
+              fprintf (stderr, "IGNORE anchor [%s]\n", texi);
+              free (texi);
+            }
+          pending_text->anchor = 0;
         }
-      pending_text->anchor = 0;
     }
   pending_texts->number = 0;
   return t;
 }
 
-TEXT
-stream_to_text (CONVERTER *self)
+static TEXT
+stream_to_text (CONVERTER *self, CONST_ELEMENT_LIST *anchors_out)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   COUNT_CONTEXT *count_context
         = top_(count_context) (&self_plaintext->count_context);
 
-  return pending_to_text (&count_context->pending_text);
+  return pending_to_text (&count_context->pending_text, anchors_out);
 }
 
 static FORMATTER *node_names_formatter;
@@ -1474,7 +1483,7 @@ plaintext_convert_node_name (CONVERTER *self, const ELEMENT *element,
   convert_to_plaintext_internal (self, node_text);
   const TEXT pending_word = para_add_pending_word (0);
   stream_output_count_nl (self, pending_word);
-  result = stream_to_text (self);
+  result = stream_to_text (self, 0);
   normalize_top_node_name_text (&result);
   string_result->width = para_counter ();
 
@@ -1570,7 +1579,7 @@ plaintext_cache_node_names (CONVERTER *self, NODE_RELATIONS_LIST *nodes_list)
       convert_to_plaintext_internal (self, node_text);
       const TEXT pending_word = para_add_pending_word (0);
       stream_output_count_nl (self, pending_word);
-      result = stream_to_text (self);
+      result = stream_to_text (self, 0);
       normalize_top_node_name_text (&result);
       node_name->width = para_counter ();
       node_name->string = result.text;
@@ -2434,7 +2443,9 @@ plaintext_format_contents (CONVERTER *self, SECTIONING_ROOT *sectioning_root,
                             self->conf->NUMBER_SECTIONS.o.integer != 0,
                             &section_text);
 
-          TEXT text = pending_to_text (section_text.pending_text);
+          /* TODO get anchors?  In most cases, the element is copied for
+             translation and the anchors already lost */
+          TEXT text = pending_to_text (section_text.pending_text, 0);
           stream_output_n (self, text.text, text.end);
           if (text.text[text.end -1] != '\n')
             stream_output_n (self, "\n", 1);
@@ -2748,7 +2759,7 @@ plaintext_process_printindex (CONVERTER *self,
       convert_to_plaintext_internal (self, entry_tree_element);
       const TEXT end_result = para_end ();
       stream_output_count_nl (self, end_result);
-      entry_text = stream_to_text (self);
+      entry_text = stream_to_text (self, 0);
       pop_count_context (&self_plaintext->count_context);
 
       if (entry_text.text[strspn (entry_text.text, whitespace_chars)] == '\0')
@@ -2905,7 +2916,7 @@ plaintext_process_printindex (CONVERTER *self,
                                              &outside_node_text);
 
               self_plaintext->outside_of_any_node_text
-                 = pending_to_text (outside_node_text.pending_text);
+                 = pending_to_text (outside_node_text.pending_text, 0);
               self_plaintext->outside_of_any_node_text_width
                  = outside_node_text.width;
 
@@ -5169,10 +5180,20 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                    /* flush @math, including spaces */
                   const TEXT pending_word = para_add_pending_word (1);
                   stream_output_count_nl (self, pending_word);
+                  static CONST_ELEMENT_LIST anchors;
 
-                  math_text = stream_to_text (self);
+                  math_text = stream_to_text (self, &anchors);
 
                   pop_count_context (&self_plaintext->count_context);
+
+                  /* readd anchors in front of the image */
+                  if (anchors.number)
+                    {
+                      size_t i;
+                      for (i = 0; i < anchors.number; i++)
+                        plaintext_add_target_location (self, anchors.list[i]);
+                      anchors.number = 0;
+                    }
 
                   plaintext_insert_image (self, element_image->filename,
                              math_text.text,
@@ -6268,7 +6289,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   const TEXT n_pending_word = para_add_pending_word (1);
                   stream_output_count_nl (self, n_pending_word);
 
-                  node_text = stream_to_text (self);
+                  node_text = stream_to_text (self, 0);
                   pop_count_context (&self_plaintext->count_context);
 
                   formatter
@@ -6333,7 +6354,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   const TEXT n_pending_word = para_add_pending_word (1);
                   stream_output_count_nl (self, n_pending_word);
 
-                  entry_name = stream_to_text (self);
+                  /* TODO what about anchors? */
+                  entry_name = stream_to_text (self, 0);
                   pop_count_context (&self_plaintext->count_context);
 
                   formatter
@@ -6914,10 +6936,20 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
           if (element_image->filename)
             {
-              TEXT math_text = stream_to_text (self);
+              static CONST_ELEMENT_LIST anchors;
+              TEXT math_text = stream_to_text (self, &anchors);
               STRING_LINE_COUNT image_result;
 
               pop_count_context (&self_plaintext->count_context);
+
+              /* readd anchors in front of the image */
+              if (anchors.number)
+                {
+                  size_t i;
+                  for (i = 0; i < anchors.number; i++)
+                    plaintext_add_target_location (self, anchors.list[i]);
+                  anchors.number = 0;
+                }
 
      /* NB we don't output the below-baseline depth for @displaymath as
         it does not need to be aligned with surrounding text. */

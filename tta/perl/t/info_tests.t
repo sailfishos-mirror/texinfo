@@ -1075,6 +1075,17 @@ a
 
 @center @asis{}@anchor{titi}@w{}
 '],
+# also used in tests/info_tex/tex_math.texi
+['anchor_in_math',
+'@node Top
+
+Some @math{A + B @anchor{in math}} and after.
+
+@displaymath
+f(x) = @anchor{equal point} \frac{a}{b} @anchor{displm point}
+@end displaymath
+
+'],
 );
 
 my @file_tests = (
