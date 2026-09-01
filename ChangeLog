@@ -1,5 +1,13 @@
 2026-09-01 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c (pop_count_context)
+	(align_environment, plaintext_free_converter): do not release the
+	images locations list memory in pop_count_context.  Reset the list
+	align_environment.  Free only when free'ing the converter.  Remove
+	release_count_context.
+
+2026-09-01 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/output_unit.c (split_by_node, register_split_by_node)
 	(split_by_section, register_split_by_section): rename split_by_node as
 	register_split_by_node and split_by_section as

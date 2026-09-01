@@ -1371,11 +1371,12 @@ include-what-you-use -I main ../perl/XSTexinfo/xsmisc.c
 
 To generate valgrind .supp rules: --gen-suppressions=all --log-file=gen_supp_rules.log
 
+for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind --suppressions=../texi2any.supp -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
+
 Check memory leaks
 mkdir -p val_res
 PERL_DESTRUCT_LEVEL=2
 export PERL_DESTRUCT_LEVEL
-for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind --suppressions=../texi2any.supp -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
 for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
 (for file in t/z_misc/*.t ; do bfile=`basename $file .t`; echo z_misc/$bfile; valgrind -q --leak-check=full perl -w $file ; done) > val_res/z_misc.out 2>&1
 

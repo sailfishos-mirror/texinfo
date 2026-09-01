@@ -198,24 +198,10 @@ clear_pending_text_list (PENDING_TEXT_LIST *pending_texts)
   pending_texts->number = 0;
 }
 
-static void
-release_count_context (COUNT_CONTEXT *ctxt)
-{
-   /*
-  size_t i;
-  for (i = 0; i < ctxt->pending_text.number; i++)
-    if (ctxt->pending_text.list[i].text.end > 0)
-      {
-        fprintf (stderr, "TO_RESET %p %zu '%s'\n", &ctxt->pending_text.list[i],
-                 i, ctxt->pending_text.list[i].text.text);
-      }
-    */
-
-  /* TODO reuse instead, and free only when free'ing the converter */
-  free (ctxt->images.list);
-  memset (&ctxt->images, 0, sizeof (IMAGE_LOCATION_INFO_LIST));
-}
-
+/* Nothing is deallocated here.  The data is reset either before popping
+   or right after, but the memory is kept and reused.
+   The memory is free'ed when freeing the converter.
+ */
 void
 pop_count_context (COUNT_CONTEXT_STACK *stack)
 {
@@ -223,7 +209,6 @@ pop_count_context (COUNT_CONTEXT_STACK *stack)
     fatal ("count context stack empty");
 
   stack->number--;
-  release_count_context (&stack->list[stack->number]);
 }
 
 def_alloc_fns(PENDING_TEXT_LIST, pending_text, PENDING_TEXT);
@@ -2318,17 +2303,12 @@ align_environment (CONVERTER *self, int max,
 
   update_locations_counts (self, parent_count_context, count_context);
 
-  /* save images information */
-  IMAGE_LOCATION_INFO_LIST images = count_context->images;
-  /* set to 0 such that it is not destroyed upon popping */
-  memset (&count_context->images, 0, sizeof (IMAGE_LOCATION_INFO_LIST));
-
   pop_count_context (&self_plaintext->count_context);
 
   align_lines (self, max, direction, &count_context->pending_text,
-               &images);
+               &count_context->images);
+  count_context->images.number = 0;
   parent_count_context->lines += count_context->lines;
-  free (images.list);
 }
 
 static void
@@ -7237,6 +7217,8 @@ plaintext_free_converter (CONVERTER *self)
       for (j = 0; j < ctxt->index_entry_locations.number; j++)
         free (ctxt->index_entry_locations.list[j]);
       free (ctxt->index_entry_locations.list);
+
+      free (ctxt->images.list);
     }
   free (self_plaintext->count_context.list);
 
