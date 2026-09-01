@@ -1600,7 +1600,7 @@ end_line_misc_line (ELEMENT *current)
         }
       if (superfluous_arg)
         {
-          const char *p;
+          char *p;
           char *p1;
           char *texi_line
             = convert_to_texinfo (current->e.c->contents.list[0]);

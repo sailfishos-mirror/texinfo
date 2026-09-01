@@ -45,7 +45,7 @@ debug_element_command_name (const ELEMENT *e)
 char *
 debug_protect_eol (const char *input_string)
 {
-  char *end_of_line;
+  const char *end_of_line;
 
   if (!input_string)
     return strdup ("[NULL]");

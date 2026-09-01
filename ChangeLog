@@ -1,5 +1,13 @@
 2026-09-01 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/parsetexi/end_line.c (end_line_misc_line), tta/C/main/debug.c
+	(debug_protect_eol): add/remove const based on compiler warning to
+	have matching strpbrk inpu and output types.
+
+	* tta/C/texi2any.c: remove unused variable.
+
+2026-09-01 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/list_macros.h (decl_alloc_fns, def_alloc_fns): add
 	add_init_(...) that returns a pointer to the next level, allocatting
 	and zeroing if needed.

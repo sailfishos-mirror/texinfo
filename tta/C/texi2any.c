@@ -2112,7 +2112,6 @@ main (int argc, char *argv[], char *env[])
   if (print_help_p)
     {
       char *encoded_message;
-      char *endptr;
       TEXT help_message;
       OPTION *error_limit_option
         = GNUT_get_conf (program_options.options->ERROR_LIMIT.number);
