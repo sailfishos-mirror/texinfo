@@ -1105,6 +1105,20 @@ f(x) = @anchor{equal point} \frac{a}{b} @anchor{displm point}
 
 @heading Heading @anchor{point} after anchor
 '],
+['anchor_in_node',
+'@node Top
+
+@node first @anchor{point} after anchor
+'],
+['anchor_in_menu_entry_name',
+'@node Top
+
+@menu
+* name @anchor{point} after anchor: first.
+@end menu
+
+@node first
+'],
 );
 
 my @file_tests = (

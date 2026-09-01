@@ -1100,30 +1100,46 @@ sub _stream_output_add_next($$) {
 }
 
 # the SELF argument is used to find the method in the Info module.
-# If ANCHORS_OUT is set, the anchors found in PENDING are collected.
-sub _pending_to_text($$;$) {
-  my ($self, $pending, $anchors_out) = @_;
+# Anchors are silently ignored.
+sub _pending_to_text($$) {
+  my ($self, $pending) = @_;
 
   my $result = '';
   foreach my $pending_string (@$pending) {
     $result .= $pending_string->[0];
-    if (defined($anchors_out) and defined($pending_string->[1])) {
-      push @$anchors_out, $pending_string->[1];
-    }
   }
   return $result;
 }
 
-sub _stream_to_text($;$) {
-  my ($self, $anchors_out) = @_;
+# Anchors are silently ignored.
+sub _stream_to_text($) {
+  my $self = shift;
 
   my $count_context = $self->{'count_context'}->[-1];
-  my $result = _pending_to_text($self, $count_context->{'pending_text'},
-                                $anchors_out);
+  my $result = _pending_to_text($self, $count_context->{'pending_text'});
   # this is not really useful, as the count context is popped right after,
   # but it marks that input pending text is to be reset here.
   $count_context->{'pending_text'} = [];
   return $result;
+}
+
+# gather both text and anchors
+sub _stream_to_text_anchor($) {
+  my $self = shift;
+
+  my $count_context = $self->{'count_context'}->[-1];
+  my $pending = $count_context->{'pending_text'};
+
+  my @anchors = ();
+  my $result = '';
+  foreach my $pending_string (@$pending) {
+    $result .= $pending_string->[0];
+    if (defined($pending_string->[1])) {
+      push @anchors, $pending_string->[1];
+    }
+  }
+  $count_context->{'pending_text'} = [];
+  return ($result, \@anchors);
 }
 
 sub _encode_string($$) {
@@ -1323,7 +1339,7 @@ sub node_name($$) {
     push @{$self->{'formatters'}}, $formatter;
 
     _convert($self, $node_text);
-    _stream_output_count_nl($self,
+    _stream_output($self,
       Texinfo::Convert::Paragraph::add_pending_word($formatter->{'container'}));
     $result = _stream_to_text($self);
     $width = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
@@ -1367,7 +1383,7 @@ sub _cache_node_names($$) {
     push @{$self->{'count_context'}}, {'lines' => 0,
                                        'pending_text' => [['']]};
     _convert($self, $node_text);
-    _stream_output_count_nl($self,
+    _stream_output($self,
       Texinfo::Convert::Paragraph::add_pending_word($formatter->{'container'}));
     my $result = _stream_to_text($self);
     my $width = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
@@ -3501,8 +3517,7 @@ sub _convert($$) {
             # flush @math, including spaces
             _stream_output_count_nl($self,
                        add_pending_word($formatter->{'container'}, 1));
-            my $anchors = [];
-            my $math_text = _stream_to_text($self, $anchors);
+            my ($math_text, $anchors) = _stream_to_text_anchor($self);
             # TODO add locations in counts to current counts context?
             # (see _align_environment)
             pop @{$self->{'count_context'}};
@@ -4553,8 +4568,7 @@ sub _convert($$) {
     } elsif ($self->{'context'}->[-1] eq 'displaymath'
              and exists($self->{'elements_images'})
              and exists($self->{'elements_images'}->{$element})) {
-      my $anchors = [];
-      my $math_text = _stream_to_text($self, $anchors);
+      my ($math_text, $anchors) = _stream_to_text_anchor($self);
       pop @{$self->{'count_context'}};
       foreach my $anchor (@$anchors) {
         $self->add_target_location($anchor);

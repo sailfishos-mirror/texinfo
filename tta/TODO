@@ -10,6 +10,9 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+Some tests do not use Perl anymore, but SKIP is based on Perl.  For example
+'Skipping tests that require compatible unicode collation', or /a missing...
+
 Use PARA_CONF_VARIABLES_LIST to have the same order of conf set in
 ParagraphXS.xs that in convert_to_plaintext.c.  Also in pure Perl.
 Try to have the same Paragraph debug output as much as possible.

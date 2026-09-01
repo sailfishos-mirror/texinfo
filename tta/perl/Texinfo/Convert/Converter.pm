@@ -284,7 +284,8 @@ sub output_tree($$;$) {
 # Only called by pure Perl converters.  Allows to retrieve later on the
 # output units lists and the output units.
 # No similar C/XS code needed, as in C the units are necessarily registered
-# for memory management and available from the document or converter.
+# for memory management and available from the document or converter,
+# or not long-living.
 # TODO document
 sub register_output_units_lists($$) {
   my ($self, $output_units_lists) = @_;

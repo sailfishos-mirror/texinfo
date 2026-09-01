@@ -90,8 +90,7 @@ void stream_output_n (CONVERTER *self, const char *text, size_t n);
 void stream_output (CONVERTER *self, const char *text);
 void stream_output_add_text (CONVERTER *self, const char *text, size_t n);
 void stream_output_add_next (CONVERTER *self, const char *text, size_t n);
-TEXT pending_to_text (PENDING_TEXT_LIST *pending_texts,
-                      CONST_ELEMENT_LIST *anchors_out);
+TEXT pending_to_text (PENDING_TEXT_LIST *pending_texts);
 void stream_final_result (CONVERTER *self, TEXT *result);
 
 void plaintext_add_target_location (CONVERTER *self, const ELEMENT *element);

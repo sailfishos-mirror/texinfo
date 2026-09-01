@@ -1108,6 +1108,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/info_tests/anchor_in_empty_center.pl \
   t/results/info_tests/anchor_in_heading.pl \
   t/results/info_tests/anchor_in_math.pl \
+  t/results/info_tests/anchor_in_menu_entry_name.pl \
+  t/results/info_tests/anchor_in_node.pl \
   t/results/info_tests/before_node_and_section.pl \
   t/results/info_tests/center_flush.pl \
   t/results/info_tests/chinese_mixed_with_en_EUC_CN.pl \

@@ -1029,7 +1029,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
           LINE_WIDTH_PENDING_TEXT name_texts;
           plaintext_convert_line_new_context (self, name, -1, -1, -1, -1,
                                               &name_texts);
-          TEXT name_check = pending_to_text (name_texts.pending_text, 0);
+          TEXT name_check = pending_to_text (name_texts.pending_text);
           if (strpbrk (name_check.text, ":"))
             {
               if (warn_special_char)
@@ -1129,7 +1129,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
                                           &node_texts);
       self_plaintext->silent--;
       destroy_element (node_code_element);
-      node_name_text = pending_to_text (node_texts.pending_text, 0);
+      node_name_text = pending_to_text (node_texts.pending_text);
       node_name = node_name_text.text;
       need_free_node_name = 1;
     }

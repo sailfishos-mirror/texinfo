@@ -1388,13 +1388,47 @@ ensure_end_of_line (CONVERTER *self)
     }
 }
 
-/*
-  If ANCHORS_OUT is set, the anchors found in PENDING_TEXTS are collected.
- */
+/* Anchors are silently ignored */
 TEXT
-pending_to_text (PENDING_TEXT_LIST *pending_texts,
-                 CONST_ELEMENT_LIST *anchors_out)
+pending_to_text (PENDING_TEXT_LIST *pending_texts)
 {
+  size_t i;
+  TEXT t;
+
+  text_init (&t);
+
+  for (i = 0; i < pending_texts->number; i++)
+    {
+      PENDING_TEXT *pending_text = &pending_texts->list[i];
+      text_append_n (&t, pending_text->text.text, pending_text->text.end);
+
+      text_reset (&pending_text->text);
+      pending_text->anchor = 0;
+    }
+  pending_texts->number = 0;
+  return t;
+}
+
+/* Anchors are silently ignored */
+static TEXT
+stream_to_text (CONVERTER *self)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  COUNT_CONTEXT *count_context
+        = top_(count_context) (&self_plaintext->count_context);
+
+  return pending_to_text (&count_context->pending_text);
+}
+
+/* Return anchors in ANCHORS_OUT. */
+static TEXT
+stream_to_text_anchor (CONVERTER *self, CONST_ELEMENT_LIST *anchors_out)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  COUNT_CONTEXT *count_context
+        = top_(count_context) (&self_plaintext->count_context);
+  PENDING_TEXT_LIST *pending_texts = &count_context->pending_text;
+
   size_t i;
   TEXT t;
 
@@ -1408,29 +1442,11 @@ pending_to_text (PENDING_TEXT_LIST *pending_texts,
       text_reset (&pending_text->text);
       if (pending_text->anchor)
         {
-          if (anchors_out)
-            add_(const_element) (anchors_out, pending_text->anchor);
-          else
-            {
-              char *texi = target_element_to_texi_label (pending_text->anchor);
-              fprintf (stderr, "IGNORE anchor [%s]\n", texi);
-              free (texi);
-            }
+          add_(const_element) (anchors_out, pending_text->anchor);
           pending_text->anchor = 0;
         }
     }
-  pending_texts->number = 0;
   return t;
-}
-
-static TEXT
-stream_to_text (CONVERTER *self, CONST_ELEMENT_LIST *anchors_out)
-{
-  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
-  COUNT_CONTEXT *count_context
-        = top_(count_context) (&self_plaintext->count_context);
-
-  return pending_to_text (&count_context->pending_text, anchors_out);
 }
 
 static FORMATTER *node_names_formatter;
@@ -1468,8 +1484,8 @@ plaintext_convert_node_name (CONVERTER *self, const ELEMENT *element,
 
   convert_to_plaintext_internal (self, node_text);
   const TEXT pending_word = para_add_pending_word (0);
-  stream_output_count_nl (self, pending_word);
-  result = stream_to_text (self, 0);
+  stream_output_n (self, pending_word.text, pending_word.end);
+  result = stream_to_text (self);
   normalize_top_node_name_text (&result);
   string_result->width = para_counter ();
 
@@ -1564,8 +1580,8 @@ plaintext_cache_node_names (CONVERTER *self, NODE_RELATIONS_LIST *nodes_list)
 
       convert_to_plaintext_internal (self, node_text);
       const TEXT pending_word = para_add_pending_word (0);
-      stream_output_count_nl (self, pending_word);
-      result = stream_to_text (self, 0);
+      stream_output_n (self, pending_word.text, pending_word.end);
+      result = stream_to_text (self);
       normalize_top_node_name_text (&result);
       node_name->width = para_counter ();
       node_name->string = result.text;
@@ -2426,10 +2442,8 @@ plaintext_format_contents (CONVERTER *self, SECTIONING_ROOT *sectioning_root,
 
           /* this function is only called for plaintext, anchors are not
              collected in plaintext, therefore there cannot be anchors
-             in pending text.  If this code was used for Info, some change
-             would be needed to avoid messages from pending_to_text for
-             ignored anchors */
-          TEXT text = pending_to_text (section_text.pending_text, 0);
+             in pending text. */
+          TEXT text = pending_to_text (section_text.pending_text);
           stream_output_n (self, text.text, text.end);
           if (text.text[text.end -1] != '\n')
             stream_output_n (self, "\n", 1);
@@ -2743,7 +2757,7 @@ plaintext_process_printindex (CONVERTER *self,
       convert_to_plaintext_internal (self, entry_tree_element);
       const TEXT end_result = para_end ();
       stream_output_count_nl (self, end_result);
-      entry_text = stream_to_text (self, 0);
+      entry_text = stream_to_text (self);
       pop_count_context (&self_plaintext->count_context);
 
       if (entry_text.text[strspn (entry_text.text, whitespace_chars)] == '\0')
@@ -2900,7 +2914,7 @@ plaintext_process_printindex (CONVERTER *self,
                                              &outside_node_text);
 
               self_plaintext->outside_of_any_node_text
-                 = pending_to_text (outside_node_text.pending_text, 0);
+                 = pending_to_text (outside_node_text.pending_text);
               self_plaintext->outside_of_any_node_text_width
                  = outside_node_text.width;
 
@@ -5160,7 +5174,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   stream_output_count_nl (self, pending_word);
                   static CONST_ELEMENT_LIST anchors;
 
-                  math_text = stream_to_text (self, &anchors);
+                  math_text = stream_to_text_anchor (self, &anchors);
 
                   pop_count_context (&self_plaintext->count_context);
 
@@ -6267,7 +6281,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   const TEXT n_pending_word = para_add_pending_word (1);
                   stream_output_count_nl (self, n_pending_word);
 
-                  node_text = stream_to_text (self, 0);
+                  node_text = stream_to_text (self);
                   pop_count_context (&self_plaintext->count_context);
 
                   formatter
@@ -6332,8 +6346,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   const TEXT n_pending_word = para_add_pending_word (1);
                   stream_output_count_nl (self, n_pending_word);
 
-                  /* TODO what about anchors? */
-                  entry_name = stream_to_text (self, 0);
+                  entry_name = stream_to_text (self);
                   pop_count_context (&self_plaintext->count_context);
 
                   formatter
@@ -6915,7 +6928,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           if (element_image->filename)
             {
               static CONST_ELEMENT_LIST anchors;
-              TEXT math_text = stream_to_text (self, &anchors);
+              TEXT math_text = stream_to_text_anchor (self, &anchors);
               STRING_LINE_COUNT image_result;
 
               pop_count_context (&self_plaintext->count_context);
