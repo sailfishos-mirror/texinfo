@@ -58,10 +58,11 @@
 
 /* Output declarations for header files. */
 #define decl_alloc_fns(LISTNAME, OBJNAME, TYPE) \
-   void reallocate_init_to_ ## OBJNAME ## _list (LISTNAME *list, size_t n)
+   void reallocate_init_to_ ## OBJNAME ## _list (LISTNAME *list, size_t n); \
+   TYPE *add_init_to ## OBJNAME ## _list (LISTNAME *list)
 
 /* Output function definitions for .c source files. */
-#define def_alloc_fns(LISTNAME, OBJNAME, TYPE) \
+#define def_alloc_fns(LISTNAME, OBJNAME, TYPE, INC) \
    void reallocate_init_to_ ## OBJNAME ## _list (LISTNAME *list, size_t n) { \
        if (list->space < n) { \
            size_t new_space = n; \
@@ -71,9 +72,18 @@
            memset (&list->list[list->space], 0, (new_space - list->space) \
               * sizeof (TYPE)); \
            list->space = new_space; \
-       }}
+       }} \
+   TYPE *add_init_to ## OBJNAME ## _list (LISTNAME *list) { \
+     if (list->number + 1 >= list->space) { \
+         reallocate_init_to_ ## OBJNAME ## _list (list, list->number +1 +INC); \
+     } \
+     list->number++; \
+     return &list->list[list->number -1]; \
+   }
 
 #define init_to_(OBJNAME) reallocate_init_to_ ## OBJNAME ## _list
+#define add_init_(OBJNAME) add_init_to ## OBJNAME ## _list
+
 
 /* Extra functions when list is used as a stack. */
 

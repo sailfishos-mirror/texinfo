@@ -211,37 +211,25 @@ pop_count_context (COUNT_CONTEXT_STACK *stack)
   stack->number--;
 }
 
-def_alloc_fns(PENDING_TEXT_LIST, pending_text, PENDING_TEXT);
+def_alloc_fns(PENDING_TEXT_LIST, pending_text, PENDING_TEXT, 5);
 
 static PENDING_TEXT *
 add_top_pending_text (PENDING_TEXT_LIST *pending_texts, const ELEMENT *anchor)
 {
-  /* TODO add a generic function for that */
-  if (pending_texts->number + 1 >= pending_texts->space)
-    {
-      init_to_(pending_text) (pending_texts, pending_texts->number + 1 +5);
-    }
+  PENDING_TEXT *pending_text = add_init_(pending_text) (pending_texts);
 
-  pending_texts->number++;
-
-  PENDING_TEXT *pending_text = &pending_texts->list[pending_texts->number -1];
   if (anchor)
     pending_text->anchor = anchor;
 
   return pending_text;
 }
 
-def_alloc_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT);
+def_alloc_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT, 2);
 
 static void
 push_count_context (COUNT_CONTEXT_STACK *stack)
 {
-  if (stack->number + 1 >= stack->space)
-    init_to_(count_context) (stack, stack->number + 1 +2);
-
-  stack->number++;
-
-  COUNT_CONTEXT *pushed_context = &stack->list[stack->number-1];
+  COUNT_CONTEXT *pushed_context = add_init_(count_context) (stack);
 
   pushed_context->lines = 0;
   add_top_pending_text (&pushed_context->pending_text, 0);
