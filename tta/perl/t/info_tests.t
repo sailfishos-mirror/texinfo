@@ -1086,6 +1086,25 @@ f(x) = @anchor{equal point} \frac{a}{b} @anchor{displm point}
 @end displaymath
 
 '],
+['anchor_in_chapter',
+'@node Top
+@top top
+
+@node chap
+@chapter Chapter @anchor{point} after anchor
+'],
+['anchor_in_chapter_no_node',
+'@node Top
+@top top
+
+@chapter Chapter @anchor{point} after anchor
+'],
+['anchor_in_heading',
+'@node Top
+@top top
+
+@heading Heading @anchor{point} after anchor
+'],
 );
 
 my @file_tests = (

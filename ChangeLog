@@ -1,5 +1,21 @@
 2026-09-01 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c (release_count_context): zero
+	images locations list, such that it cannot be freed twice.
+
+	* tta/C/convert/convert_to_plaintext.c (section_element_heading)
+	(plaintext_format_ref): instead of copying the element that is in the
+	original tree, remove it before destroying the tree.
+
+	* tta/perl/t/formats_encodings.t (at_commands_in_refs): do not skip
+	test anymore, as the line number is now present in C too.
+
+	* tta/perl/Makefile.tres, tta/perl/t/info_tests.t (anchor_in_chapter)
+	(anchor_in_chapter_no_node, anchor_in_heading): add tests with @anchor
+	in heading and section command arguments in Info.
+
+2026-09-01 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_plaintext.c (pending_to_text)
 	(stream_to_text), tta/perl/Texinfo/Convert/PlaintextNonXS.pm
 	(_pending_to_text, _stream_to_text): add an optional list argument to

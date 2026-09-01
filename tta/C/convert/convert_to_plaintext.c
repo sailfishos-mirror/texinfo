@@ -211,8 +211,9 @@ release_count_context (COUNT_CONTEXT *ctxt)
       }
     */
 
+  /* TODO reuse instead, and free only when free'ing the converter */
   free (ctxt->images.list);
-  ctxt->images.number = 0;
+  memset (&ctxt->images, 0, sizeof (IMAGE_LOCATION_INFO_LIST));
 }
 
 void
@@ -2349,11 +2350,7 @@ section_element_heading (CONVERTER *self, const ELEMENT *section_element,
       NAMED_STRING_ELEMENT_LIST *replaced_substrings
         = new_named_string_element_list ();
       ELEMENT *e_number = new_text_element (ET_normal_text);
-      /* TODO difference with Perl, in Perl the heading element is not
-         copied and the error messages have lines.
-         tested in t/formats_encodings.t at_commands_in_refs */
-      ELEMENT *section_title_copy = copy_element_tree (heading_element, 0);
-      add_to_contents_as_array (heading_e, section_title_copy);
+      add_to_contents_as_array (heading_e, heading_element);
 
       add_element_to_named_string_element_list (
                           replaced_substrings, "section_title",
@@ -2382,7 +2379,11 @@ section_element_heading (CONVERTER *self, const ELEMENT *section_element,
                                                   -1, -1, -1, -1,
                                                   section_text);
   if (numbered_section)
-    destroy_element_and_children (section_title_tree);
+    {
+      /* remove heading_element, which is in the original tree */
+      pop_element_from_contents (heading_e);
+      destroy_element_and_children (section_title_tree);
+    }
   else
     destroy_element (section_title_tree);
 }
@@ -2443,8 +2444,7 @@ plaintext_format_contents (CONVERTER *self, SECTIONING_ROOT *sectioning_root,
                             self->conf->NUMBER_SECTIONS.o.integer != 0,
                             &section_text);
 
-          /* TODO get anchors?  In most cases, the element is copied for
-             translation and the anchors already lost */
+          /* TODO avoid error messages for anchors? */
           TEXT text = pending_to_text (section_text.pending_text, 0);
           stream_output_n (self, text.text, text.end);
           if (text.text[text.end -1] != '\n')
@@ -3201,12 +3201,8 @@ plaintext_format_ref (CONVERTER *self, enum command_id cmd,
 
   if (node)
     {
-      /* TODO difference with Perl, in Perl the node element is not
-         copied and the error messages have lines.
-         tested in t/formats_encodings.t at_commands_in_refs */
-      ELEMENT *node_copy = copy_element_tree (node, 0);
       add_element_to_named_string_element_list (substrings,
-                                                "node", node_copy);
+                                                "node", node);
       if (file)
         {
           ELEMENT *file_copy = copy_element_tree (file, 0);
@@ -3413,14 +3409,12 @@ plaintext_format_ref (CONVERTER *self, enum command_id cmd,
 
   convert_to_plaintext_internal (self, tree);
 
-  destroy_element_and_children (tree);
+  /* remove label_element, which is in the tree */
+  if (node)
+    pop_element_from_contents (node_suppress_styles_element);
 
-  if (node_suppress_styles_element)
-    {
-      destroy_element (node_suppress_styles_element);
-      destroy_element (node_code_element);
-      destroy_element (node_stop_upper_case_element);
-    }
+  /* this destroys the elements added for node formatting */
+  destroy_element_and_children (tree);
 
   if (file_code_element)
     {

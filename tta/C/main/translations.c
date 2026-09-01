@@ -1283,7 +1283,8 @@ gdt_tree (const char *string, DOCUMENT *document,
 
   /* the caller should have made sure that the
      inserted elements do not appear elsewhere in the tree as
-     they will also appear in result_tree after substituting them.
+     they will also appear in result_tree after substituting them,
+     or that they are removed from result_tree before destroying the tree.
      If result_tree is destroyed, which should be since it will not
      be deallocated otherwise, the inserted elements will be destroyed
      too.
