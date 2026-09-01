@@ -19,8 +19,10 @@ OUTPUT_UNIT_LIST *retrieve_output_units (const DOCUMENT *document,
                                          size_t output_units_descriptor);
 size_t new_output_units_descriptor (DOCUMENT *document);
 
-size_t split_by_node (DOCUMENT *document);
-size_t split_by_section (DOCUMENT *document);
+void split_by_node (DOCUMENT *document, OUTPUT_UNIT_LIST *output_units);
+void split_by_section (DOCUMENT *document, OUTPUT_UNIT_LIST *output_units);
+size_t register_split_by_node (DOCUMENT *document);
+size_t register_split_by_section (DOCUMENT *document);
 int unsplit (DOCUMENT *document);
 void split_pages (OUTPUT_UNIT_LIST *output_units,
                   const NODE_RELATIONS_LIST *nodes_list, const char *split);

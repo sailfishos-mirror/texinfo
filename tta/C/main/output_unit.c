@@ -145,14 +145,10 @@ add_to_output_unit_list (OUTPUT_UNIT_LIST *list, OUTPUT_UNIT *output_unit)
   list->number++;
 }
 
-/* in addition to splitting, register the output_units list */
-size_t
-split_by_node (DOCUMENT *document)
+void
+split_by_node (DOCUMENT *document, OUTPUT_UNIT_LIST *output_units)
 {
   const ELEMENT *root = document->tree;
-  size_t output_units_descriptor = new_output_units_descriptor (document);
-  OUTPUT_UNIT_LIST *output_units
-    = retrieve_output_units (document, output_units_descriptor);
   OUTPUT_UNIT *current = new_output_unit (OU_unit);
   ELEMENT_LIST *pending_parts = new_list ();
   size_t i;
@@ -232,18 +228,23 @@ split_by_node (DOCUMENT *document)
     }
 
   destroy_list (pending_parts);
-
-  return output_units_descriptor;
 }
 
 /* in addition to splitting, register the output_units list */
 size_t
-split_by_section (DOCUMENT *document)
+register_split_by_node (DOCUMENT *document)
 {
-  const ELEMENT *root = document->tree;
   size_t output_units_descriptor = new_output_units_descriptor (document);
   OUTPUT_UNIT_LIST *output_units
     = retrieve_output_units (document, output_units_descriptor);
+  split_by_node (document, output_units);
+  return output_units_descriptor;
+}
+
+void
+split_by_section (DOCUMENT *document, OUTPUT_UNIT_LIST *output_units)
+{
+  const ELEMENT *root = document->tree;
   OUTPUT_UNIT *current = new_output_unit (OU_unit);
   size_t i;
 
@@ -322,6 +323,16 @@ split_by_section (DOCUMENT *document)
       add_to_element_list (&current->unit_contents, content);
       content->e.c->associated_unit = current;
     }
+}
+
+/* in addition to splitting, register the output_units list */
+size_t
+register_split_by_section (DOCUMENT *document)
+{
+  size_t output_units_descriptor = new_output_units_descriptor (document);
+  OUTPUT_UNIT_LIST *output_units
+    = retrieve_output_units (document, output_units_descriptor);
+  split_by_section (document, output_units);
   return output_units_descriptor;
 }
 
@@ -1016,9 +1027,9 @@ do_units_directions_pages (DOCUMENT *document,
   OUTPUT_UNIT_LIST *output_units = 0;
 
   if (units_split == UST_node)
-    output_units_descriptor = split_by_node (document);
+    output_units_descriptor = register_split_by_node (document);
   else if (units_split == UST_section)
-    output_units_descriptor = split_by_section (document);
+    output_units_descriptor = register_split_by_section (document);
 
   if (output_units_descriptor)
     {

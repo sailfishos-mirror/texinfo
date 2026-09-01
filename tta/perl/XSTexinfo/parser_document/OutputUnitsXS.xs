@@ -49,7 +49,7 @@ unused_split_by_node (SV *document_in)
         document = get_sv_document_document (document_in, "split_by_node");
         if (document)
           {
-            size_t output_units_descriptor = split_by_node (document);
+            size_t output_units_descriptor = register_split_by_node (document);
             RETVAL = build_output_units_list (document,
                                               output_units_descriptor);
           }
@@ -67,7 +67,7 @@ unused_split_by_section (SV *document_in)
         document = get_sv_document_document (document_in, "split_by_section");
         if (document)
           {
-            size_t output_units_descriptor = split_by_section (document);
+            size_t output_units_descriptor = register_split_by_section (document);
             RETVAL = build_output_units_list (document,
                                               output_units_descriptor);
           }

@@ -7386,8 +7386,7 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
   char *encoded_destination_directory;
   int succeeded;
   TEXT result;
-  size_t output_units_descriptor = 0;
-  OUTPUT_UNIT_LIST *output_units;
+  OUTPUT_UNIT_LIST output_units;
   const NODE_RELATIONS_LIST *nodes_list;
   TEXT output_unit_result;
 
@@ -7458,12 +7457,12 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
       goto finalization;
     }
 
-  /* TODO no need to register in the document */
+  memset (&output_units, 0, sizeof (OUTPUT_UNIT_LIST));
+
   if (self->conf->USE_NODES.o.integer > 0)
-    output_units_descriptor = split_by_node (document);
+    split_by_node (document, &output_units);
   else
-    output_units_descriptor = split_by_section (document);
-  output_units = retrieve_output_units (document, output_units_descriptor);
+    split_by_section (document, &output_units);
 
   nodes_list = &self->document->nodes_list;
  /* Do not call _cache_node_names as only the node names used in index
@@ -7473,12 +7472,12 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
   plaintext_cache_node_names (self, nodes_list);
   */
 
-  split_pages (output_units, nodes_list, self->conf->SPLIT.o.string);
+  split_pages (&output_units, nodes_list, self->conf->SPLIT.o.string);
 
   /* determine file names associated with the different pages */
   if (strcmp (output_file, ""))
     {
-      set_output_units_files (self, output_units, output_file,
+      set_output_units_files (self, &output_units, output_file,
                               destination_directory, output_filename,
                               document_name);
       plaintext_setup_output_encoding (self);
@@ -7486,7 +7485,7 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
 
   /* Now do the output */
 
-  if (!output_units->list[0]->unit_filename)
+  if (!output_units.list[0]->unit_filename)
     {
       char *outfile_name = 0;
       char *encoded_outfile_name = 0;
@@ -7547,10 +7546,10 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
       else if (self->conf->DEBUG.o.integer > 0)
         fprintf (stderr, "DO No pages, string output\n");
 
-      for (i = 0; i < output_units->number; i++)
+      for (i = 0; i < output_units.number; i++)
         {
           text_reset (&output_unit_result);
-          OUTPUT_UNIT *output_unit = output_units->list[i];
+          OUTPUT_UNIT *output_unit = output_units.list[i];
           plaintext_convert_output_unit (self, output_unit);
           stream_final_result (self, &output_unit_result);
           write_or_return (0, encoded_outfile_name,
@@ -7583,9 +7582,9 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
       if (self->conf->DEBUG.o.integer > 0)
         fprintf (stderr, "DO Elements with filenames\n");
 
-      for (i = 0; i < output_units->number; i++)
+      for (i = 0; i < output_units.number; i++)
         {
-          OUTPUT_UNIT *output_unit = output_units->list[i];
+          OUTPUT_UNIT *output_unit = output_units.list[i];
           size_t file_index
             = self->output_unit_file_indices[output_unit->index];
           FILE_NAME_PATH_COUNTER *unit_file
@@ -7680,12 +7679,7 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
 
  finalization:
 
-  if (output_units_descriptor > 0)
-    {
-      free_output_unit_list (output_units);
-      document->output_units_lists
-          .output_units_lists[output_units_descriptor -1].list = 0;
-    }
+  free_output_unit_list (&output_units);
 
   plaintext_conversion_finalization (self);
 
@@ -7705,28 +7699,26 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
 TEXT
 plaintext_convert (CONVERTER *self, DOCUMENT *document)
 {
-  size_t output_units_descriptor;
-  OUTPUT_UNIT_LIST *output_units;
+  OUTPUT_UNIT_LIST output_units;
   size_t i;
   TEXT result;
 
   plaintext_conversion_initialization (self, document);
 
-  output_units_descriptor = split_by_node (document);
-  output_units = retrieve_output_units (document, output_units_descriptor);
+  memset (&output_units, 0, sizeof (OUTPUT_UNIT_LIST));
+
+  split_by_node (document, &output_units);
 
   text_init (&result);
   text_append (&result, "");
-  for (i = 0; i < output_units->number; i++)
+  for (i = 0; i < output_units.number; i++)
     {
-      const OUTPUT_UNIT *output_unit = output_units->list[i];
+      const OUTPUT_UNIT *output_unit = output_units.list[i];
       plaintext_convert_output_unit (self, output_unit);
       stream_final_result (self, &result);
     }
 
-  free_output_unit_list (output_units);
-  document->output_units_lists
-      .output_units_lists[output_units_descriptor -1].list = 0;
+  free_output_unit_list (&output_units);
 
   plaintext_conversion_finalization (self);
 

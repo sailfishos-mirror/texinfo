@@ -253,8 +253,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
   char *encoded_destination_directory;
   int succeeded;
   TEXT result;
-  size_t output_units_descriptor = 0;
-  OUTPUT_UNIT_LIST *output_units;
+  OUTPUT_UNIT_LIST output_units;
   int need_unsplit = 0;
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   const enum command_id *informative_global_commands
@@ -407,8 +406,9 @@ info_output (CONVERTER *self, DOCUMENT *document)
 
   info_header (self, input_basefile, output_filename, &header);
 
-  output_units_descriptor = split_by_node (document);
-  output_units = retrieve_output_units (document, output_units_descriptor);
+  memset (&output_units, 0, sizeof (OUTPUT_UNIT_LIST));
+
+  split_by_node (document, &output_units);
 
   set_global_document_commands (self, CL_before, informative_global_commands);
 
@@ -459,7 +459,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
   if (self->conf->DEBUG.o.integer > 0)
     fprintf (stderr, "C|DOCUMENT\n");
 
-  if (!output_units->list[0]->uc.unit_command)
+  if (!output_units.list[0]->uc.unit_command)
     {
       GLOBAL_INFO *document_info = 0;
       ELEMENT *root = document->tree;
@@ -528,9 +528,9 @@ info_output (CONVERTER *self, DOCUMENT *document)
 
       out_file_nr = 1;
 
-      for (i = 0; i < output_units->number; i++)
+      for (i = 0; i < output_units.number; i++)
         {
-          const OUTPUT_UNIT *output_unit = output_units->list[i];
+          const OUTPUT_UNIT *output_unit = output_units.list[i];
           INDIRECT_FILE_OFFSET indirect_file_offset;
 
           if (first_node_seen
@@ -833,12 +833,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
 
  finalization:
 
-  if (output_units_descriptor > 0)
-    {
-      free_output_unit_list (output_units);
-      document->output_units_lists
-        .output_units_lists[output_units_descriptor -1].list = 0;
-    }
+  free_output_unit_list (&output_units);
 
   free (preamble_documentlanguage);
   free (preamble_documentscript);

@@ -4507,9 +4507,9 @@ html_prepare_conversion_units (CONVERTER *self)
   size_t output_units_descriptor;
 
   if (self->conf->USE_NODES.o.integer > 0)
-    output_units_descriptor = split_by_node (self->document);
+    output_units_descriptor = register_split_by_node (self->document);
   else
-    output_units_descriptor = split_by_section (self->document);
+    output_units_descriptor = register_split_by_section (self->document);
   self_html->output_units_descriptors[OUDT_units] = output_units_descriptor;
 
   /* configuration used to determine if a special element is to be done
