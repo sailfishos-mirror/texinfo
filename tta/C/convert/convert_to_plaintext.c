@@ -2444,7 +2444,11 @@ plaintext_format_contents (CONVERTER *self, SECTIONING_ROOT *sectioning_root,
                             self->conf->NUMBER_SECTIONS.o.integer != 0,
                             &section_text);
 
-          /* TODO avoid error messages for anchors? */
+          /* this function is only called for plaintext, anchors are not
+             collected in plaintext, therefore there cannot be anchors
+             in pending text.  If this code was used for Info, some change
+             would be needed to avoid messages from pending_to_text for
+             ignored anchors */
           TEXT text = pending_to_text (section_text.pending_text, 0);
           stream_output_n (self, text.text, text.end);
           if (text.text[text.end -1] != '\n')

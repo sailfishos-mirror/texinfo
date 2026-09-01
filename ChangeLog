@@ -1,5 +1,14 @@
 2026-09-01 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Makefile.tres, tta/perl/t/plaintext_tests.t
+	(anchor_in_chapter_and_contents): add test.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_format_contents):
+	add comment to explain that there are no anchor in contents in pending
+	text because anchors are not collected for plaintext.
+
+2026-09-01 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_plaintext.c (release_count_context): zero
 	images locations list, such that it cannot be freed twice.
 

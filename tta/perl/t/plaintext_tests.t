@@ -670,6 +670,15 @@ HHH
 @image{figure} JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
 @end flushright
 '],
+['anchor_in_chapter_and_contents',
+'@node Top
+@top top
+
+@contents
+
+@node chap
+@chapter Chapter @anchor{point} after anchor
+']
 );
 
 my $insert_copying_and_paragraph = 

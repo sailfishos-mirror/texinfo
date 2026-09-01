@@ -1917,6 +1917,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/plaintext_tests/all_spaces.pl \
   t/results/plaintext_tests/all_spaces/res_plaintext \
   t/results/plaintext_tests/anchor_and_empty_lines.pl \
+  t/results/plaintext_tests/anchor_in_chapter_and_contents.pl \
   t/results/plaintext_tests/at_commands_glued_in_example.pl \
   t/results/plaintext_tests/at_commands_glued_in_paragraph.pl \
   t/results/plaintext_tests/before_accent_punctuation.pl \
