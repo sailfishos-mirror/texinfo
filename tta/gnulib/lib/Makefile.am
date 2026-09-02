@@ -72,7 +72,6 @@
 #  unistr/u8-strmbtouc \
 #  unistr/u8-to-u32 \
 #  unistr/u8-uctomb \
-#  uniwidth/u8-strwidth \
 #  uniwidth/u8-width \
 #  unsetenv \
 #  vasprintf
@@ -3209,14 +3208,6 @@ MOSTLYCLEANFILES += uniwidth.h uniwidth.h-t
 EXTRA_DIST += localcharset.h uniwidth.in.h
 
 ## end   gnulib module uniwidth/base
-
-## begin gnulib module uniwidth/u8-strwidth
-
-if LIBUNISTRING_COMPILE_UNIWIDTH_U8_STRWIDTH
-libgnu_la_SOURCES += uniwidth/u8-strwidth.c
-endif
-
-## end   gnulib module uniwidth/u8-strwidth
 
 ## begin gnulib module uniwidth/u8-width
 
