@@ -1,5 +1,31 @@
 2026-09-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/converter.c (converter_txt_image_text): return a TEXT.
+	Update callers.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(plaintext_image_formatted_text): get text argument as TEXT.  Get alt
+	as TEXT.  Use memchr instead of strpbrk.
+
+	* tta/C/convert/convert_to_info.c (info_format_image_element)
+	(info_format_image), tta/C/convert/convert_to_plaintext.c
+	(plaintext_insert_image): get alt as TEXT in info_format_image_element.
+	Pass info_format_image text and alt argument as TEXT.  Update
+	format_image all in plaintext_insert_image.
+
+	* tta/C/convert/convert_to_info.c (protect_image_string): take a TEXT
+	in argument.  Simplify code by following the remaining length to
+	process and removing a redundant condition.  Update callers.
+
+	* tta/C/convert/convert_to_info.c (count_new_lines): take a TEXT
+	in argument.  Use memchr instead of strpbrk.  Update callers.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_insert_image): use a
+	TEXT instead of a string in the function for result_text.  Add some
+	const.
+
+2026-09-02 Patrice Dumas  <pertusus@free.fr>
+
 	Remove uniwidth/u8-strwidth
 
 	* tta/: Run "gnulib-tool --remove-import uniwidth/u8-strwidth"

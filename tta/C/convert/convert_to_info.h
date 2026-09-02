@@ -26,7 +26,7 @@ void info_format_error_outside_of_any_node (CONVERTER *self,
 void info_format_node (CONVERTER *self, const ELEMENT *node,
                        const NODE_RELATIONS *node_relations);
 TEXT info_format_image (CONVERTER *self, const char *image_file,
-                   const char *text, const char *alt,
+                   const TEXT *text, const TEXT *alt,
                    int dpi, int depth, int *lines_count);
 void info_format_image_element (CONVERTER *self, const ELEMENT *element,
                            STRING_LINE_COUNT *result);

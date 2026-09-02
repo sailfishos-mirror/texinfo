@@ -199,8 +199,8 @@ char *print_converter_indices_sort_strings (CONVERTER *self);
 
 char *top_node_filename (const CONVERTER *self, const char *document_name);
 
-char *converter_txt_image_text (CONVERTER *self, const ELEMENT *element,
-                                const char *basefile, int *width_out);
+TEXT converter_txt_image_text (CONVERTER *self, const ELEMENT *element,
+                               const char *basefile, int *width_out);
 ELEMENT *float_type_number (CONVERTER *self, const ELEMENT *float_e);
 FLOAT_CAPTION_PREPENDED_ELEMENT *float_name_caption (CONVERTER *self,
                                                  const ELEMENT *float_e);

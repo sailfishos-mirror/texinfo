@@ -1597,7 +1597,7 @@ node_information_filename (CONVERTER *self, const char *normalized,
 
 
 
-char *
+TEXT
 converter_txt_image_text (CONVERTER *self, const ELEMENT *element,
                           const char *basefile, int *width_out)
 {
@@ -1663,7 +1663,7 @@ converter_txt_image_text (CONVERTER *self, const ELEMENT *element,
           free (image_text_file);
           free (txt_file);
 
-          return result.text;
+          return result;
         }
       else
         {
@@ -1680,7 +1680,9 @@ converter_txt_image_text (CONVERTER *self, const ELEMENT *element,
   free (image_text_file);
 
   *width_out = -1;
-  return 0;
+  TEXT result;
+  text_init (&result);
+  return result;
 }
 
 ELEMENT *

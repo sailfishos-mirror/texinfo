@@ -77,7 +77,7 @@ void plaintext_process_footnotes (CONVERTER *self,
 void plaintext_process_printindex (CONVERTER *self,
                                    const ELEMENT *printindex, int in_info);
 TEXT plaintext_image_formatted_text (CONVERTER *self, const ELEMENT *element,
-                                     const char *basefile, const char *text);
+                                     const char *basefile, TEXT text);
 
 void plaintext_setup_output_encoding (CONVERTER *self);
 void plaintext_encode_string (CONVERTER *self, const TEXT *text, TEXT *result);

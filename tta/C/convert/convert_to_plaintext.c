@@ -132,7 +132,7 @@ typedef struct PLAINTEXT_FORMAT_FUNCTIONS {
     void (* format_error_outside_of_any_node) (CONVERTER *self,
                                                const ELEMENT *element);
     TEXT (* format_image) (CONVERTER *self, const char *image_file,
-                   const char *text, const char *alt,
+                   const TEXT *text, const TEXT *alt,
                    int dpi, int depth, int *lines_count);
     void (* format_image_element) (CONVERTER *self, const ELEMENT *element,
                                    STRING_LINE_COUNT *result);
@@ -3431,26 +3431,22 @@ plaintext_format_anchor (CONVERTER *self, const ELEMENT *anchor)
 
 TEXT
 plaintext_image_formatted_text (CONVERTER *self, const ELEMENT *element,
-                                const char *basefile, const char *text)
+                                const char *basefile, TEXT text)
 {
+  if (text.text)
+    return text;
+
   TEXT result;
-
   text_init (&result);
-
-  if (text)
-    {
-      text_append (&result, text);
-      return result;
-    }
 
   text_append_n (&result, "[", 1);
   if (element->e.c->contents.number >= 4
       && !empty_spaces_argument (element->e.c->contents.list[3]))
     {
-      char *alt = convert_to_text (element->e.c->contents.list[3],
+      TEXT alt = convert_to_text_text (element->e.c->contents.list[3],
                                        self->convert_text_options);
-      text_append (&result, alt);
-      free (alt);
+      text_append_n (&result, alt.text, alt.end);
+      free (alt.text);
     }
   else
     {
@@ -3479,7 +3475,7 @@ plaintext_format_image_element (CONVERTER *self, const ELEMENT *element,
       && !empty_spaces_argument (element->e.c->contents.list[0]))
     {
       char *basefile;
-      char *text;
+      TEXT text;
       int width = -1;
       const char *p;
       int lines_count = 0;
@@ -3492,33 +3488,32 @@ plaintext_format_image_element (CONVERTER *self, const ELEMENT *element,
 
       text = converter_txt_image_text (self, element, basefile, &width);
 
-      if (text)
+      if (text.text)
         {
-          size_t text_len = strlen (text);
           /* remove last end of line */
-          if (text_len > 0 && text[text_len - 1] == '\n')
-            text[text_len - 1] = '\0';
+          if (text.end > 0 && text.text[text.end - 1] == '\n')
+            text.text[text.end - 1] = '\0';
+          text.end--;
         }
 
       image_text = plaintext_image_formatted_text (self, element,
                                                    basefile, text);
       result->string = image_text.text;
       result->len = image_text.end;
-      free (text);
 
       if (width == -1)
         width = width_multibyte (result->string, result->len);
 
       p = result->string;
-      while (1)
+      size_t len = result->len;
+      while (len > 0)
         {
-          const char *q = strpbrk (p, "\n");
+          const char *q = memchr (p, '\n', len);
           if (q)
             {
               lines_count++;
+              len -= q - p +1;
               p = q +1;
-              if (!*p)
-                break;
             }
           else
             break;
@@ -3546,7 +3541,7 @@ plaintext_format_image_element (CONVERTER *self, const ELEMENT *element,
  */
 TEXT
 plaintext_format_image (CONVERTER *self, const char *image_file,
-                   const char *text, const char *alt,
+                   const TEXT *text, const TEXT *alt,
                    int dpi, int depth, int *lines_count)
 {
   TEXT result;
@@ -3587,28 +3582,30 @@ plaintext_insert_image (CONVERTER *self, const char *image_file,
                         const TEXT image_text, int dpi, int depth,
                         STRING_LINE_COUNT *result)
 {
-  char *result_text = strndup (image_text.text, image_text.end);
+  TEXT result_text;
+  text_init (&result_text);
+  text_append_n (&result_text, image_text.text, image_text.end);
   int line_count = -1;
   int width = 0;
   TEXT formatted_image;
 
-  size_t len = image_text.end;
-
-  if (len != 0)
+  if (result_text.end > 0 && result_text.text[result_text.end -1] == '\n')
     {
-      char *p;
-      if (result_text[len -1] == '\n')
-        result_text[len -1] = '\0';
-      len--;
+      result_text.text[result_text.end -1] = '\0';
+      result_text.end--;
+    }
 
+  if (result_text.end > 0)
+    {
+      size_t len = result_text.end;
       /* We assume that there are only NL, no CR */
-      p = result_text;
+      const char *p = result_text.text;
       while (len > 0)
         {
           int new_width;
 
           line_count++;
-          char *q = memchr (p, '\n', len);
+          const char *q = memchr (p, '\n', len);
           new_width = width_multibyte (p, q - p);
           if (new_width > width)
             width = new_width;
@@ -3621,8 +3618,8 @@ plaintext_insert_image (CONVERTER *self, const char *image_file,
   int o_line_count;
   formatted_image
     = plaintext_functions[self->format].format_image (self, image_file,
-                                   result_text, 0, dpi, depth, &o_line_count);
-  free (result_text);
+                                   &result_text, 0, dpi, depth, &o_line_count);
+  free (result_text.text);
   result->string = formatted_image.text;
   result->len = formatted_image.end;
 

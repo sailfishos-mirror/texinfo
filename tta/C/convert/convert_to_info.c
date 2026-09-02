@@ -1505,60 +1505,52 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
 #define QUOTE_SLASH "\\\""
 
 static void
-protect_image_string (const char *string, TEXT *result)
+protect_image_string (const TEXT *string, TEXT *result)
 {
-  const char *p;
-
-  if (!string)
+  if (!string->end)
     return;
 
-  p = strpbrk (string, QUOTE_SLASH);
-  if (p)
+  size_t len = string->end;
+  const char *p = string->text;
+
+  while (len > 0)
     {
-      if (p != string)
-        text_append_n (result, string, p - string);
-      while (1)
+      const char *q = strpbrk (p, QUOTE_SLASH);
+      if (q)
         {
-          const char *q;
+          if (q != p)
+            {
+              text_append_n (result, p, q - p);
+              len -= q - p;
+              p = q;
+            }
           text_append_n (result, "\\", 1);
           text_append_n (result, p, 1);
           p++;
-          if (!*p)
-            return;
-          q = strpbrk (p, QUOTE_SLASH);
-          if (q)
-            {
-              if (q != p)
-                {
-                  text_append_n (result, p, q - p);
-                  p = q;
-                }
-            }
-          else
-            {
-              text_append (result, p);
-              return;
-            }
+          len--;
+        }
+      else
+        {
+          text_append_n (result, p, len);
+          return;
         }
     }
-  else
-    text_append (result, string);
 }
 
 static int
-count_new_lines (const char *string)
+count_new_lines (const TEXT *string)
 {
   int lines_count = 0;
-  const char *p = string;
-  while (1)
+  const char *p = string->text;
+  size_t len = string->end;
+  while (len > 0)
     {
-      const char *q = strpbrk (p, "\n");
+      const char *q = memchr (p, '\n', len);
       if (q)
         {
           lines_count++;
+          len -= q - p +1;
           p = q +1;
-          if (!*p)
-            break;
         }
       else
         break;
@@ -1568,17 +1560,23 @@ count_new_lines (const char *string)
 
 TEXT
 info_format_image (CONVERTER *self, const char *image_file,
-                   const char *text, const char *alt,
+                   const TEXT *text, const TEXT *alt,
                    int dpi, int depth, int *out_lines_count)
 {
   TEXT result;
+  static TEXT temp;
   int lines_count = 0;
 
   text_init (&result);
   text_append (&result, "");
 
   text_append_n (&result, "\x00\x08[image src=\"", 14);
-  protect_image_string (image_file, &result);
+  if (image_file)
+    {
+      text_append (&temp, image_file);
+      protect_image_string (&temp, &result);
+      text_reset (&temp);
+    }
   text_append_n (&result, "\"", 1);
 
    if (dpi > 0)
@@ -1587,7 +1585,7 @@ info_format_image (CONVERTER *self, const char *image_file,
    if (depth > 0)
      text_printf (&result, " depth=%d", depth);
 
-  if (alt && strcmp (alt, ""))
+  if (alt && alt->end > 0)
     {
       text_append_n (&result, " alt=\"", 6);
       lines_count += count_new_lines (alt);
@@ -1595,7 +1593,7 @@ info_format_image (CONVERTER *self, const char *image_file,
       text_append_n (&result, "\"", 1);
     }
 
-  if (text)
+  if (text->end > 0)
     {
       text_append_n (&result, " text=\"", 7);
       lines_count += count_new_lines (text);
@@ -1625,8 +1623,9 @@ info_format_image_element (CONVERTER *self, const ELEMENT *element,
       size_t i;
       STRING_LIST *extensions = new_string_list ();
       char *image_file = 0;
-      char *text = 0;
-      char *alt = 0;
+      TEXT text;
+      TEXT alt;
+      TEXT *alt_ref = 0;
       int no_align;
       int lines_count = 0;
       int width = 0;
@@ -1691,24 +1690,28 @@ info_format_image_element (CONVERTER *self, const ELEMENT *element,
         }
 
       text = converter_txt_image_text (self, element, basefile, &width);
-      if (text)
+      if (text.text)
         {
-          size_t text_len = strlen (text);
           /* remove last end of line */
-          if (text_len > 0 && text[text_len - 1] == '\n')
-            text[text_len - 1] = '\0';
+          if (text.end > 0 && text.text[text.end - 1] == '\n')
+            text.text[text.end - 1] = '\0';
+          text.end--;
         }
 
       if (element->e.c->contents.number > 3
           && element->e.c->contents.list[3]->e.c->contents.number > 0)
-        alt = convert_to_text (element->e.c->contents.list[3],
+        {
+          alt = convert_to_text_text (element->e.c->contents.list[3],
                                        self->convert_text_options);
+          alt_ref = &alt;
+        }
 
-      if (image_file || (text && alt))
+      if (image_file || (text.end > 0 && alt_ref && alt.end > 0))
         {
           image_string = info_format_image (self, image_file,
-                                                  text, alt, 0, 0,
+                                                  &text, alt_ref, 0, 0,
                                                   &lines_count);
+          free (text.text);
           if (self_plaintext->formatters.number == 1)
             {
               text_append_n (&image_string, "\n", 1);
@@ -1722,7 +1725,7 @@ info_format_image_element (CONVERTER *self, const ELEMENT *element,
           no_align = 0;
           image_string = plaintext_image_formatted_text (self, element,
                                                        basefile, text);
-          lines_count = count_new_lines (image_string.text);
+          lines_count = count_new_lines (&image_string);
         }
       free (basefile);
 
@@ -1732,8 +1735,8 @@ info_format_image_element (CONVERTER *self, const ELEMENT *element,
 
       plaintext_add_image (self, element, lines_count +1, width, no_align);
 
-      free (text);
-      free (alt);
+      if (alt_ref)
+        free (alt.text);
       free (image_file);
 
       destroy_strings_list (extensions);
