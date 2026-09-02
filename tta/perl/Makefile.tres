@@ -1127,13 +1127,16 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/info_tests/empty_arguments.pl \
   t/results/info_tests/empty_caption.pl \
   t/results/info_tests/empty_copying_not_ended.pl \
+  t/results/info_tests/empty_in_flushright_index_entry.pl \
   t/results/info_tests/encoding_us_ascii.pl \
   t/results/info_tests/end_of_line_command_in_node_lines.pl \
   t/results/info_tests/end_of_line_command_in_node_lines/res_info \
   t/results/info_tests/error_in_footnote.pl \
+  t/results/info_tests/example_in_multitable_index.pl \
   t/results/info_tests/file_only_png.pl \
   t/results/info_tests/float_long_captions.pl \
   t/results/info_tests/float_without_type.pl \
+  t/results/info_tests/format_in_multitable_index.pl \
   t/results/info_tests/image_and_punctuation.pl \
   t/results/info_tests/image_and_spaces_formatting.pl \
   t/results/info_tests/image_extension.pl \
@@ -1143,11 +1146,14 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/info_tests/image_text_encoded.pl \
   t/results/info_tests/image_text_file_only_and_alt.pl \
   t/results/info_tests/index_entry_at_end_node.pl \
+  t/results/info_tests/index_entry_in_multitable_multilines.pl \
   t/results/info_tests/invalid_node_name_no_warning.pl \
   t/results/info_tests/invalid_node_name_warning.pl \
   t/results/info_tests/known_encoding.pl \
   t/results/info_tests/multiline_image_and_align.pl \
   t/results/info_tests/multitable_anchor_and_index_entry.pl \
+  t/results/info_tests/multitable_flushright_image.pl \
+  t/results/info_tests/multitable_images.pl \
   t/results/info_tests/nested_footnotes_separate.pl \
   t/results/info_tests/nested_multitable_anchor_index.pl \
   t/results/info_tests/no_node_but_top.pl \

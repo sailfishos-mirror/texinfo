@@ -2290,9 +2290,6 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
     }
 }
 
-/* TODO nested aligned environments with @image */
-/* TODO check index entries line counts when empty lines or empty flushright
-   are removed in flushright */
 static void
 align_environment (CONVERTER *self, int max,
                    enum align_directions direction)

@@ -1,5 +1,13 @@
 2026-09-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Makefile.tres, tta/perl/t/info_tests.t
+	(empty_in_flushright_index_entry)
+	(index_entry_in_multitable_multilines)
+	(format_in_multitable_index, example_in_multitable_index)
+	(multitable_images, multitable_flushright_image): add tests for Info.
+
+2026-09-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_html.c (html_cache_translate_string)
 	(html_cdt_string), tta/C/main/call_perl_function.c
 	(call_translations_translate_string), tta/C/main/translations.c
@@ -19,7 +27,7 @@
 
 	* tta/C/parsetexi/end_line.c (end_line_misc_line), tta/C/main/debug.c
 	(debug_protect_eol): add/remove const based on compiler warning to
-	have matching strpbrk inpu and output types.
+	have matching strpbrk input and output types.
 
 	* tta/C/texi2any.c: remove unused variable.
 

@@ -10,14 +10,26 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+@image outside of a paragraph in @flushright is not flushed right.
+
+investigate t/info_tests.t empty_in_flushright_index_entry issue, the
+errors are not expected, as the end of lines should be removed when
+doing the first flushright formatting.  It could be for the same reason as
+the issue above, the count context is only added for paragraphs, not
+for a whole @flushright.
+
+Discuss @image in @multitable, especially when image is quoted.
+Do not put text= in that case?  Or first line only?
+
 Some tests do not use Perl anymore, but SKIP is based on Perl.  For example
 'Skipping tests that require compatible unicode collation', or /a missing...
 
 Use PARA_CONF_VARIABLES_LIST to have the same order of conf set in
-ParagraphXS.xs that in convert_to_plaintext.c.  Also in pure Perl.
-Try to have the same Paragraph debug output as much as possible.
-
-Use SWIG interface in pod2texi.
+ParagraphXS.xs that in convert_to_plaintext.c?  Not sure that it is
+relevant, as, although it is possible to have ParagraphXS loaded and not
+the other C libraries (no functionning iconv) it is unlikely to be
+used for debug.  In pure Perl it could be relevant, though to try
+to have the same Paragraph debug output as much as possible.
 
 Have a look at texi2pod.pl in GCC
 
@@ -121,6 +133,9 @@ converter_customization_options, unique_at_command_options.
 
 Delayed bugs/features
 =====================
+
+Use SWIG interface in pod2texi, but wait first for the SWIG interface
+to become common.
 
 According to libtool documentation and Bruno experience, on Windows,
 variable objects exported/imported from dll need to be declared, at

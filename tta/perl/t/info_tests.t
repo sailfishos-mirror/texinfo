@@ -5,6 +5,10 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 use Texinfo::Configure;
 
+use Texinfo::XSLoader;
+
+my $XS_convert = Texinfo::XSLoader::XS_modules_enabled();
+
 require 't/test_utils.pl';
 
 my $invalid_node_name_text = '
@@ -948,8 +952,42 @@ something
 
 @end flushright
 '],
+# TODO result is incorrect, contiguous empty lines are replaced by one
+# empty line, but the index entry lines count are not updated.
+['empty_in_flushright_index_entry',
+'@node Top
+
+@flushright
+zz
+@cindex ZA
+aa
+
+
+bb
+@cindex BC
+cc
+
+@flushright
+@end flushright
+
+dd
+@cindex DE
+ee
+
+
+
+ff
+@cindex FG
+gg
+
+@end flushright
+
+@printindex cp
+'],
 # if this test is changed, the corresponding test in t/plaintext_tests.t
 # should be changed too
+# @image{figure} is replaced by the figure.txt text.
+# with @image{figure, , , ,txt} both the image file and text are set.
 ['multiline_image_and_align',
 '@center @image{figure}
 
@@ -987,6 +1025,243 @@ HHH
 @image{figure, , , ,txt} JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
 @end flushright
 '],
+['index_entry_in_multitable_multilines',
+'@node Top
+
+@multitable {aaaaaaaaaa} {bbbbbbbbbbbbb}
+@item
+zz
+@cindex ZA
+aa
+
+
+bb
+@cindex BC
+cc
+
+
+dd
+@cindex DE
+ee
+
+
+
+ff
+@cindex FG
+gg
+
+@tab
+2zz
+@cindex 2ZA
+2aa
+
+
+2bb
+@cindex 2BC
+2cc
+
+
+2dd
+@cindex 2DE
+2ee
+
+
+
+2ff
+@cindex 2FG
+2gg
+@end multitable
+
+@printindex cp
+'],
+['format_in_multitable_index',
+'@node Top
+
+@multitable {aaaaaaaaaa} {bbbbbbbbbbbbb}
+@item
+zz
+@format
+@cindex ZA
+aa
+
+
+bb
+@cindex BC
+cc
+
+
+dd
+@cindex DE
+ee
+
+
+
+ff
+@cindex FG
+@end format
+gg
+
+@tab
+2zz
+@format
+@cindex 2ZA
+2aa
+
+
+2bb
+@cindex 2BC
+2cc
+
+
+2dd
+@cindex 2DE
+2ee
+
+
+
+2ff
+@cindex 2FG
+@end format
+2gg
+@end multitable
+
+@printindex cp
+'],
+['example_in_multitable_index',
+'@node Top
+
+@multitable {aaaaaaaaaa} {bbbbbbbbbbbbb}
+@item
+zz
+@example
+@cindex ZA
+aa
+
+
+bb
+@cindex BC
+cc
+
+
+dd
+@cindex DE
+ee
+
+
+
+ff
+@cindex FG
+@end example
+gg
+
+@tab
+2zz
+@example
+@cindex 2ZA
+2aa
+
+
+2bb
+@cindex 2BC
+2cc
+
+
+2dd
+@cindex 2DE
+2ee
+
+
+
+2ff
+@cindex 2FG
+@end example
+2gg
+@end multitable
+
+@printindex cp
+'],
+# TODO not sure that it is worth fixing.
+# The result is many times incorrect in term of quoted images
+# split, line width incorrect because of quote included, NUL stops
+# width computation...
+['multitable_images',
+'@multitable {aaaaaaaaaaaaaaaaaaaaaaa} {bbbbbbbbbbbbbbbbbbb}
+@item
+@image{figure}
+
+AA @image{figure} BB @image{figure} CC
+
+@tab
+Col2
+
+@image{figure}
+
+2A @image{figure} 2B @image{figure} 2C
+
+@item
+Quoted img
+
+@image{figure, , , ,txt}
+
+ZZ @image{figure, , , ,txt} YY @image{figure, , , ,txt} TT
+
+@tab
+Col2 quoted
+
+@image{figure, , , ,txt}
+
+2Z @image{figure, , , ,txt} 2Y @image{figure, , , ,txt} 2T
+@end multitable
+', {'skip' => ($XS_convert and $Texinfo::XSLoader::core_modules_built)
+    ? 'DIfferent image line count in multitable': undef,
+},],
+# TODO not sure that it is worth fixing.
+# The result is many times incorrect in term of quoted images
+# split, line width incorrect because of quote included, NUL stops
+# width computation...  And the flushing right may not be correct too,
+# it needs investigation.
+['multitable_flushright_image',
+'@multitable {aaaaaaaaaaaaaaaaaaaaaa} {bbbbbbbbbbbbbbbbbbbbbbb}
+@item
+@flushright
+@center CCCC @image{figure}
+
+AAA
+@image{figure, , , ,txt}
+BBB @image{figure, , , ,txt}
+
+@image{figure, , , ,txt}
+@end flushright
+
+@tab
+@center CCCC @image{figure}
+
+AAA
+@image{figure, , , ,txt}
+BBB @image{figure, , , ,txt}
+
+@image{figure, , , ,txt}
+
+@item
+@flushright
+FFFR @image{figure}
+
+@image{figure}
+
+AA @image{figure} BB @image{figure}
+@end flushright
+@tab
+@flushleft
+FFFL @image{figure}
+
+@image{figure}
+
+AA @image{figure} BB @image{figure}
+@end flushleft
+@end multitable
+', {'skip' => ($XS_convert and $Texinfo::XSLoader::core_modules_built)
+    ? 'DIfferent image line count in multitable': undef,
+},],
 ['quoted_xref_in_flushright',
 '@node Top
 @top top
