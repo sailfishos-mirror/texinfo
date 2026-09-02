@@ -446,7 +446,7 @@ typedef struct ARGUMENT_COMMENT_END_LINE {
 /* not used in parser, here because it is used in translations */
 typedef struct TRANSLATION_TREE {
     char *translated;
-    char *translation;
+    TEXT translation;
     ELEMENT *tree;
 } TRANSLATION_TREE;
 

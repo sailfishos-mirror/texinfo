@@ -79,23 +79,24 @@ call_eval_use_module (const char *module_name)
   eval_pv (str, TRUE);
 }
 
-char *
+TEXT
 call_translations_translate_string (const char *string,
                                     const char *language_env,
                                     const char *translation_context)
 {
   int count;
-  char *result;
+  TEXT result;
   const char *result_ret;
   STRLEN len;
   SV *result_sv;
 
   dTHX;
 
+  text_init (&result);
   /* this happens if USE_LIBINTL_PERL_IN_XS is set while there is no
      Perl interpreter */
   if (!has_perl_interpreter ())
-    return 0;
+    return result;
 
   dSP;
 
@@ -121,7 +122,7 @@ call_translations_translate_string (const char *string,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = non_perl_strndup (result_ret, len);
+  text_append_n (&result, result_ret, len);
 
   PUTBACK;
 

@@ -22,6 +22,7 @@
 #include <string.h>
 #include <stdio.h>
 
+#include "tree.h"
 #include "document_types.h"
 #include "api_to_perl.h"
 #include "call_perl_function.h"
@@ -74,13 +75,15 @@ get_sv_hv (const void *sv)
 }
 
 /* call_perl_function.h */
-/* it is up to the caller to do something useful if NULL is returned */
-char *
+/* it is up to the caller to do something useful if NULL text is returned */
+TEXT
 call_translations_translate_string (const char *string,
                                     const char *language_env,
                                     const char *translation_context)
 {
-  return 0;
+  TEXT result;
+  text_init (&result);
+  return result;
 }
 
 void *

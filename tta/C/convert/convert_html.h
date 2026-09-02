@@ -26,7 +26,7 @@
 /* NOTE the intermediate level functions are declared in
         html_conversion_api.h */
 
-char *html_cdt_string (const char *string, CONVERTER *self,
+TEXT html_cdt_string (const char *string, CONVERTER *self,
                  NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                  const char *translation_context);
 ELEMENT *html_pcdt_tree (const char *translation_context, const char *string,

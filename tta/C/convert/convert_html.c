@@ -196,7 +196,7 @@ html_cache_translate_string (CONVERTER *self, const char *string,
         {
           free (translated_context_string);
           result = translations->list[string_nr -1];
-          if (!strcmp (result->translation, translated_string))
+          if (!strcmp (result->translation.text, translated_string))
             {
               free (translated_string);
               if (debug_level >= 2)
@@ -204,7 +204,7 @@ html_cache_translate_string (CONVERTER *self, const char *string,
                   fprintf (stderr, "C|UserCacheT [%s] hit '%s-%s' '%s'\n",
                            lang_info->bcp47_locale,
                            string, translation_context_str,
-                           result->translation);
+                           result->translation.text);
                 }
               return result;
             }
@@ -221,7 +221,7 @@ html_cache_translate_string (CONVERTER *self, const char *string,
                            lang_info->bcp47_locale,
                            string, translation_context_str,
                            translated_string,
-                           result->translation);
+                           result->translation.text);
                 }
             }
           else if (debug_level >= 2)
@@ -231,10 +231,10 @@ html_cache_translate_string (CONVERTER *self, const char *string,
                            lang_info->bcp47_locale,
                            string, translation_context_str,
                            translated_string,
-                           result->translation);
+                           result->translation.text);
             }
-          free (result->translation);
-          result->translation = translated_string;
+          text_reset (&result->translation);
+          text_append (&result->translation, translated_string);
           return result;
         }
       else if (debug_level >= 2)
@@ -246,7 +246,7 @@ html_cache_translate_string (CONVERTER *self, const char *string,
         }
 
       result = add_translation_tree (translations, translated_context_string);
-      result->translation = translated_string;
+      text_append (&result->translation, translated_string);
 
       free (translated_context_string);
 
@@ -272,7 +272,7 @@ html_cdt_tree (const char *string, CONVERTER *self,
                         debug_level, &html_translation_function);
 }
 
-char *
+TEXT
 html_cdt_string (const char *string, CONVERTER *self,
                  NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                  const char *translation_context)
@@ -758,11 +758,12 @@ html_translate_names (CONVERTER *self)
               if (format_spec->translated_converted
                   && !format_spec->unset)
                 {
-                  add_cmd = 1;
-                  free (format_spec->text);
-                  format_spec->text
+                  TEXT translated
                    = html_cdt_string (format_spec->translated_converted, self,
                                       0, 0);
+                  add_cmd = 1;
+                  free (format_spec->text);
+                  format_spec->text = translated.text;
                 }
             }
 

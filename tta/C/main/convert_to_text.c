@@ -388,8 +388,8 @@ static const char *underline_symbol[5] = {"*", "*", "=", "-", "."};
 
 /* Return the text of an underlined heading. */
 /* return to be freed by caller */
-static char *
-text_heading (const ELEMENT *current, const char *text,
+static TEXT
+text_heading (const ELEMENT *current, TEXT text,
               int numbered, const LANG_TRANSLATION *lang_translation,
               int debug_level)
 {
@@ -398,33 +398,26 @@ text_heading (const ELEMENT *current, const char *text,
   int level;
   int status;
   int text_width;
-  char *heading = strdup (text);
-  char *heading_with_number;
 
   /* end of lines spaces are ignored in conversion.  However in
      rare cases, invalid nestings leave an end of line, so we chomp.
-  if (result.end > 0 && result.text[result.end - 1] == '\n')
-    result.text[--result.end] = '\0';
    */
-  if (strlen (heading))
-    if (heading[strlen (heading) - 1] == '\n')
-      heading[strlen (heading) - 1] = '\0';
+  if (text.end > 0 && text.text[text.end - 1] == '\n')
+    text.text[--text.end] = '\0';
 
-  heading_with_number = add_heading_number (current, heading,
-                                            numbered, lang_translation,
-                                            debug_level);
+  /* frees text if it does not reuse it */
+  result = add_heading_number (current, text, numbered, lang_translation,
+                               debug_level);
 
-  free (heading);
-
-  if (heading_with_number[
-           strspn (heading_with_number, whitespace_chars)] == '\0')
+  if (strspn (result.text, whitespace_chars) == result.end)
     {
-      free (heading_with_number);
-      return strdup ("");
+      text_reset (&result);
+      text_append (&result, "");
+      return result;
     }
 
-  text_init (&result);
-  text_append (&result, heading_with_number);
+  /* width of heading */
+  text_width = string_width_multibyte (result.text);
 
   text_append (&result, "\n");
 
@@ -433,16 +426,12 @@ text_heading (const ELEMENT *current, const char *text,
   if (status != 0)
     level = section_level (current);
 
-  text_width = string_width_multibyte (heading_with_number);
-
-  free (heading_with_number);
-
   for (i = 0; i < text_width; i++)
     text_append (&result, underline_symbol[level]);
 
   text_append (&result, "\n");
 
-  return result.text;
+  return result;
 }
 
 static void
@@ -926,7 +915,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
         {
           const ELEMENT *line_arg;
           TEXT text;
-          char *heading;
+          TEXT heading;
 
           text_init (&text);
           text_append (&text, "");
@@ -943,13 +932,12 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
 
           convert_to_text_internal (line_arg, text_options, &text);
           heading
-             = text_heading (element, text.text,
+             = text_heading (element, text,
                              text_options->NUMBER_SECTIONS,
                              text_options->current_lang_translations,
                              text_options->DEBUG);
-          ADD(heading);
-          free (heading);
-          free (text.text);
+          ADD(heading.text);
+          free (heading.text);
           if (!(command_data[data_cmd].flags & CF_root))
             return;
         }

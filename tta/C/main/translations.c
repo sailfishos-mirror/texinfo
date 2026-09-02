@@ -276,7 +276,7 @@ switch_messages_locale (void)
 }
 
 /* STRING in input must never be NULL */
-char *
+TEXT
 translate_string (const char *string, const char *language_env,
                   const char *translation_context)
 {
@@ -284,33 +284,40 @@ translate_string (const char *string, const char *language_env,
   char *saved_LANG;
   char *saved_LC_ALL;
   char *saved_LC_MESSAGES;
-  char *translated_string = 0;
+  TEXT translated_string;
+  text_init (&translated_string);
 
   if (!language_env || !strlen (language_env))
-    return strdup (string);
+    {
+      text_append (&translated_string, string);
+      return translated_string;
+    }
 
 #ifndef ENABLE_NLS
   if (use_external_translate_string < 0)
     {
-      translated_string = strdup (string);
+      text_append (&translated_string, string);
       return translated_string;
     }
   else
     {
-      translated_string = call_translations_translate_string (string,
+      TEXT ext_translated_string = call_translations_translate_string (string,
                                         language_env, translation_context);
-      if (!translated_string)
-        return strdup (string);
+      if (!ext_translated_string.text)
+        {
+          text_append (&translated_string, string);
+          return translated_string;
+        }
       else
-        return translated_string;
+        return ext_translated_string;
     }
 #else
   if (use_external_translate_string > 0)
     {
-      translated_string = call_translations_translate_string (string,
+      TEXT ext_translated_string = call_translations_translate_string (string,
                                         language_env, translation_context);
-      if (translated_string)
-        return translated_string;
+      if (ext_translated_string.text)
+        return ext_translated_string;
     }
 
   /* with the following code valgrind reports issues in perl memory */
@@ -373,13 +380,19 @@ translate_string (const char *string, const char *language_env,
 
   /* pgettext only works with string litterals, so use pgettext_expr */
   if (translation_context)
-    translated_string = strdup (pgettext_expr (translation_context, string));
+    {
+      const char *translated_str = pgettext_expr (translation_context, string);
+      text_append (&translated_string, translated_str);
+    }
   else
-    translated_string = strdup (gettext (string));
+    {
+      const char *translated_str = gettext (string);
+      text_append (&translated_string, translated_str);
+    }
 
   /*
   fprintf (stderr, "TRANSLATED(%s): '%s' (%s) '%s'\n", language_env,
-                               string, translation_context, translated_string);
+                    string, translation_context, translated_string.text);
   */
 
   if (saved_LANGUAGE)
@@ -524,7 +537,7 @@ free_lang_translation_tree_list (LANG_TRANSLATION_TREE_LIST *translations)
     {
       TRANSLATION_TREE *translation_tree = translations->list[i];
       free (translation_tree->translated);
-      free (translation_tree->translation);
+      free (translation_tree->translation.text);
       if (translation_tree->tree)
         destroy_element_and_children (translation_tree->tree);
       free (translation_tree);
@@ -1000,7 +1013,7 @@ cache_translate_string (const char *string,
       if (debug_level >= 2)
         fprintf (stderr, "C|CacheT [%s] hit '%s' '%s'\n",
                  lang_translation->info->bcp47_locale,
-                 translated_context_string, result->translation);
+                 translated_context_string, result->translation.text);
       free (translated_context_string);
       return result;
     }
@@ -1009,14 +1022,14 @@ cache_translate_string (const char *string,
 
   if (strcmp (lang_translation->language_env, ""))
     {
-      char *translated_string
+      TEXT translated_string
         = translate_string (string, lang_translation->language_env,
                             translation_context);
       result->translation = translated_string;
       if (debug_level >= 2)
         fprintf (stderr, "C|CacheT [%s] new '%s' '%s'\n",
                  lang_translation->info->bcp47_locale,
-                 translated_context_string, translated_string);
+                 translated_context_string, translated_string.text);
     }
   else if (debug_level >= 2)
     fprintf (stderr, "C|CacheT [%s] new '%s' ''\n",
@@ -1029,19 +1042,24 @@ cache_translate_string (const char *string,
   return result;
 }
 
-char *
-replace_substrings (const char *string,
+TEXT
+replace_substrings (const TEXT string,
                     const NAMED_STRING_ELEMENT_LIST *replaced_substrings)
 {
-  const char *p = string;
   TEXT substituted;
 
   if (!replaced_substrings)
-    return strdup (string);
+    {
+      TEXT result;
+      text_init (&result);
+      text_append_n (&result, string.text, string.end);
+      return result;
+    }
 
   text_init (&substituted);
   text_append (&substituted, "");
 
+  const char *p = string.text;
   while (*p)
     {
       const char *q = strchr (p, '{');
@@ -1090,7 +1108,7 @@ replace_substrings (const char *string,
           break;
         }
     }
-  return substituted.text;
+  return substituted;
 }
 
 ELEMENT *
@@ -1140,13 +1158,13 @@ substitute_substrings_in_tree (ELEMENT *tree,
 }
 
 DOCUMENT *
-replace_convert_substrings (const char *translated_string,
+replace_convert_substrings (const TEXT *translated_string,
                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                             int debug_level)
 {
   size_t i;
   size_t errors_count;
-  char *texinfo_line = 0;
+  TEXT texinfo_line;
   int parser_debug_level = 0;
   DOCUMENT *document;
 
@@ -1165,7 +1183,7 @@ replace_convert_substrings (const char *translated_string,
           free (text.text);
         }
 
-      texinfo_line = replace_substrings (translated_string,
+      texinfo_line = replace_substrings (*translated_string,
                                          replaced_substrings);
 
       for (i = 0; i < replaced_substrings->number; i++)
@@ -1197,14 +1215,14 @@ replace_convert_substrings (const char *translated_string,
   if (replaced_substrings)
     {
       if (debug_level > 1)
-        fprintf (stderr, "C|IN TR PARSER subst '%s'\n", texinfo_line);
-      document = parse_string (texinfo_line, 1);
+        fprintf (stderr, "C|IN TR PARSER subst '%s'\n", texinfo_line.text);
+      document = parse_string (texinfo_line.text, 1);
     }
   else
     {
       if (debug_level > 1)
-        fprintf (stderr, "C|IN TR PARSER '%s'\n", translated_string);
-      document = parse_string (translated_string, 1);
+        fprintf (stderr, "C|IN TR PARSER '%s'\n", translated_string->text);
+      document = parse_string (translated_string->text, 1);
     }
 
   errors_count = count_errors (&document->parser_error_messages);
@@ -1212,9 +1230,9 @@ replace_convert_substrings (const char *translated_string,
     {
       ERROR_MESSAGE_LIST *error_messages = &document->parser_error_messages;
       fprintf (stderr, "translation %zu error(s)\n", errors_count);
-      fprintf (stderr, "translated string: %s\n", translated_string);
-      if (texinfo_line)
-        fprintf (stderr, "Texinfo code: %s\n", texinfo_line);
+      fprintf (stderr, "translated string: %s\n", translated_string->text);
+      if (replaced_substrings)
+        fprintf (stderr, "Texinfo code: %s\n", texinfo_line.text);
       fprintf (stderr, "Error messages: \n");
       for (i = 0; i < error_messages->number; i++)
         fprintf (stderr, "%s", error_messages->list[i].error_line);
@@ -1222,7 +1240,7 @@ replace_convert_substrings (const char *translated_string,
   wipe_document_parser_errors (document);
 
   if (replaced_substrings)
-    free (texinfo_line);
+    free (texinfo_line.text);
 
   return document;
 }
@@ -1254,16 +1272,24 @@ gdt_tree (const char *string, DOCUMENT *document,
   if (!translated_string_tree->tree)
     {
       DOCUMENT *translation_document;
-      const char *translated_string = translated_string_tree->translation;
+      const TEXT translated_text = translated_string_tree->translation;
+      const TEXT *replaced_text;
+      TEXT string_text;
 
-      if (!translated_string)
-        translated_string = string;
+      if (!translated_text.text)
+        {
+          text_init (&string_text);
+          text_append (&string_text, string);
+          replaced_text = &string_text;
+        }
+      else
+        replaced_text = &translated_text;
 
       if (debug_level >= 2)
-        fprintf (stderr, "C|TreeT convert '%s'\n", translated_string);
+        fprintf (stderr, "C|TreeT convert '%s'\n", replaced_text->text);
 
       translation_document
-        = replace_convert_substrings (translated_string, replaced_substrings,
+        = replace_convert_substrings (replaced_text, replaced_substrings,
                                       debug_level);
       translated_string_tree->tree
         = unregister_document_merge_with_document (translation_document,
@@ -1275,6 +1301,8 @@ gdt_tree (const char *string, DOCUMENT *document,
          the existing translated strings.
        */
       tree_remove_parents (translated_string_tree->tree);
+      if (!translated_text.text)
+        free (string_text.text);
     }
   else if (debug_level >= 2)
     fprintf (stderr, "C|TreeT reuse '%s'\n", string);
@@ -1295,10 +1323,13 @@ gdt_tree (const char *string, DOCUMENT *document,
   if (debug_level > 0)
     {
       char *result_texi = convert_to_texinfo (result_tree);
-      const char *translated_string = translated_string_tree->translation;
+      const TEXT translated_text = translated_string_tree->translation;
+      const char *translated_string;
 
-      if (!translated_string)
+      if (!translated_text.text)
         translated_string = string;
+      else
+        translated_string = translated_text.text;
 
       fprintf (stderr, "C|RESULT GDT: '%s' '%s' '%s'\n", string,
                                      translated_string, result_texi);
@@ -1308,15 +1339,17 @@ gdt_tree (const char *string, DOCUMENT *document,
   return result_tree;
 }
 
-char *
+TEXT
 gdt_string (const char *string, const LANG_TRANSLATION *lang_translation,
             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
             const char *translation_context, int debug_level,
             CONVERTER_CACHE_TRANSLATE *translation_function)
 {
   TRANSLATION_TREE *translated_string_tree;
-  const char *translated_string;
-  char *result;
+  TEXT translated_text;
+  TEXT string_text;
+  TEXT *replaced_text;
+  TEXT result;
 
   if (translation_function)
     translated_string_tree
@@ -1328,15 +1361,23 @@ gdt_string (const char *string, const LANG_TRANSLATION *lang_translation,
       = cache_translate_string (string, lang_translation,
                                 translation_context, debug_level);
 
-  translated_string = translated_string_tree->translation;
+  translated_text = translated_string_tree->translation;
 
-  if (!translated_string)
-    translated_string = string;
+  if (!translated_text.text)
+    {
+      text_init (&string_text);
+      text_append (&string_text, string);
+      replaced_text = &string_text;
+    }
+  else
+   replaced_text = &translated_text;
 
   if (debug_level >= 2)
-    fprintf (stderr, "C|StringT '%s'\n", translated_string);
+    fprintf (stderr, "C|StringT '%s'\n", replaced_text->text);
 
-  result = replace_substrings (translated_string, replaced_substrings);
+  result = replace_substrings (*replaced_text, replaced_substrings);
+  if (!translated_text.text)
+    free (string_text.text);
   return result;
 }
 

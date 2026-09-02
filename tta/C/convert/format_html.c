@@ -2891,13 +2891,14 @@ html_direction_string (CONVERTER *self, int direction,
               = dir_translated->converted[TDS_context_normal];
           if (context_converted_string)
             {
-              char *translated_string
+              TEXT translated_text
                 = html_cdt_string (context_converted_string, self, 0, 0);
               char *result_string
-                = html_substitute_non_breaking_space (self, translated_string);
+                = html_substitute_non_breaking_space (self,
+                                                      translated_text.text);
               self_html->directions_strings[string_type][direction][context]
                 = result_string;
-              free (translated_string);
+              free (translated_text.text);
             }
         }
     }

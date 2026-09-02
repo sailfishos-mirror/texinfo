@@ -408,29 +408,28 @@ expand_today (int test, const LANG_TRANSLATION *lang_translation,
   return result;
 }
 
-char *
-add_heading_number (const ELEMENT *current, char *text,
+/* free TEXT if not reused */
+TEXT
+add_heading_number (const ELEMENT *current, TEXT text,
                     int numbered, const LANG_TRANSLATION *lang_translation,
                     int debug_level)
 {
-  TEXT result;
   char *number = 0;
   if (numbered != 0)
     number = lookup_extra_string (current, AI_key_section_heading_number);
-
-  text_init (&result);
 
   if (lang_translation)
     {
       if (number)
         {
-          char *numbered_heading = 0;
+          TEXT numbered_heading;
+          text_init (&numbered_heading);
           NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
           add_string_to_named_string_element_list (substrings,
                                                   "number", number);
           add_string_to_named_string_element_list (substrings,
-                                             "section_title", text);
+                                             "section_title", text.text);
           if (current->e.c->cmd == CM_appendix)
             {
               int status;
@@ -445,22 +444,24 @@ add_heading_number (const ELEMENT *current, char *text,
                                  debug_level, 0);
                 }
             }
-          if (!numbered_heading)
+          if (!numbered_heading.text)
             numbered_heading
               = gdt_string ("{number} {section_title}",
                             lang_translation, substrings, 0,
                             debug_level, 0);
 
           destroy_named_string_element_list (substrings);
-
-          text_append (&result, numbered_heading);
-          free (numbered_heading);
+          free (text.text);
+          return numbered_heading;
         }
       else
-        text_append (&result, text);
+        return text;
     }
   else
     {
+      TEXT result;
+      text_init (&result);
+
       if (current->e.c->cmd == CM_appendix)
         {
           int status;
@@ -475,9 +476,10 @@ add_heading_number (const ELEMENT *current, char *text,
           text_append (&result, number);
           text_append (&result, " ");
         }
-      text_append (&result, text);
+      text_append_n (&result, text.text, text.end);
+      free (text.text);
+      return result;
     }
-  return result.text;
 }
 
 /*

@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 
+#include "text.h"
 #include "element_types.h"
 #include "command_ids.h"
 #include "options_data.h"
@@ -49,10 +50,10 @@ void free_comma_index_subentries_tree (ELEMENT_LIST *element);
 ELEMENT *expand_today (int test, const LANG_TRANSLATION *lang_translation,
                        int debug, CONVERTER_CDT_TREE *converter_cdt_tree);
 
-char *add_heading_number (const ELEMENT *current, char *text,
-                          int numbered,
-                          const LANG_TRANSLATION *lang_translation,
-                          int debug_level);
+TEXT add_heading_number (const ELEMENT *current, TEXT text,
+                         int numbered,
+                         const LANG_TRANSLATION *lang_translation,
+                         int debug_level);
 
 ELEMENT *expand_verbatiminclude (const ELEMENT *current,
                         const STRING_LIST *include_directories,
