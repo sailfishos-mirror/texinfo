@@ -2643,7 +2643,8 @@ plaintext_process_printindex (CONVERTER *self,
             line_nr = 3;
         }
       xasprintf (&line_nr_string, "%d", line_nr);
-      index_line_nr_string_length = string_width_multibyte (line_nr_string);
+      index_line_nr_string_length
+         = width_multibyte (line_nr_string, strlen (line_nr_string));
       free (line_nr_string);
       if (max_index_line_nr_string_length < index_line_nr_string_length)
         max_index_line_nr_string_length = index_line_nr_string_length;

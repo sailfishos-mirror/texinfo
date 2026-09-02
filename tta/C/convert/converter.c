@@ -1637,10 +1637,11 @@ converter_txt_image_text (CONVERTER *self, const ELEMENT *element,
               status = getline (&line, &n, filehandle);
               if (status != -1)
                 {
-                  int width = string_width_multibyte (line);
+                  size_t len = strlen (line);
+                  int width = width_multibyte (line, len);
                   if (width > max_width)
                     max_width = width;
-                  text_append (&result, line);
+                  text_append_n (&result, line, len);
                   free (line);
                   line = 0;
                 }

@@ -380,26 +380,16 @@ to_upper_or_lower_multibyte (const char *text, int lower_or_upper)
 /* NOTE beware of a difference with the Perl function string_width,
    newline is a zero width character here, not one. */
 int
-string_width_multibyte (const char *text)
+width_multibyte (const char *text, size_t n)
 {
   int result;
-  uint8_t *u8_text = utf8_from_string (text);
+  const uint8_t *u8_text = (const uint8_t *)text;
   /* NOTE the libunistring documentation described encoding as
      The encoding argument identifies the encoding (e.g. "ISO-8859-2"
      for Polish).  Looking at the code, it seems that it is only
      used to determine if it is a CJK encoding in a list of upper-case
      encodings.  We probably do not want to have this dependency to
      encoding, so use UTF-8. */
-  result = u8_strwidth (u8_text, "UTF-8");
-  free (u8_text);
-  return result;
-}
-
-int
-width_multibyte (const char *text, size_t n)
-{
-  int result;
-  const uint8_t *u8_text = (const uint8_t *)text;
   result = u8_width (u8_text, n, "UTF-8");
   return result;
 }

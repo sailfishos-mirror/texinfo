@@ -1,5 +1,12 @@
 2026-09-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/utils.c, tta/C/convert/convert_to_plaintext.c
+	(plaintext_process_printindex), tta/C/convert/converter.c
+	(converter_txt_image_text): replace remaining calls of
+	string_width_multibyte by calls of width_multibyte.
+
+2026-09-02 Patrice Dumas  <pertusus@free.fr>
+
 	Import uniwidth/u8-width
 
 	* tta/: Run "gnulib-tool --add-import uniwidth/u8-width".
