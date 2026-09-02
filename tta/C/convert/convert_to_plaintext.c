@@ -6757,7 +6757,11 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                                     }
                                 }
                             }
-                          line_width += width_multibyte (t->text, t->end);
+        /* if there are images quoted with NUL in the multitable,
+           there will be NUL in the cells, so use a function handling NUL */
+                          int next_width
+                            = width_multibyte_with_nul (t->text, t->end);
+                          line_width += next_width;
                           PENDING_TEXT *dst_pending_text
                             = add_top_pending_text (result, 0);
                           replace_pending_text (dst_pending_text, pending_text);

@@ -1,5 +1,15 @@
 2026-09-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/utils.c (width_multibyte_with_nul): add a variant of
+	width_multibyte that handles NUL in string by replacing them with
+	another characterin a copy before calling width_multibyte on the copy.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): use width_multibyte_with_nul for
+	multitable cell, as there could be NUL from quoted image.
+
+2026-09-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/converter.c (converter_txt_image_text): return a TEXT.
 	Update callers.
 

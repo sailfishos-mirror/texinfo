@@ -1212,9 +1212,7 @@ Col2 quoted
 
 2Z @image{figure, , , ,txt} 2Y @image{figure, , , ,txt} 2T
 @end multitable
-', {'skip' => ($XS_convert and $Texinfo::XSLoader::core_modules_built)
-    ? 'DIfferent image line count in multitable': undef,
-},],
+'],
 # TODO not sure that it is worth fixing.
 # The result is many times incorrect in term of quoted images
 # split, line width incorrect because of quote included, NUL stops
@@ -1259,9 +1257,7 @@ FFFL @image{figure}
 AA @image{figure} BB @image{figure}
 @end flushleft
 @end multitable
-', {'skip' => ($XS_convert and $Texinfo::XSLoader::core_modules_built)
-    ? 'DIfferent image line count in multitable': undef,
-},],
+'],
 ['quoted_xref_in_flushright',
 '@node Top
 @top top

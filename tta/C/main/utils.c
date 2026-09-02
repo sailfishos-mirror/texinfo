@@ -394,6 +394,31 @@ width_multibyte (const char *text, size_t n)
   return result;
 }
 
+/* u8_width stops at the first NUL.  To allow for embedded NUL
+   and get the width, copy and replace by another character (one that
+   has a zero length) if there is a NUL. */
+int
+width_multibyte_with_nul (const char *text, size_t n)
+{
+  size_t i;
+  for (i = 0; i < n; i++)
+    {
+      if (text[i] == '\0')
+        {
+          char copy[n];
+          memcpy (copy, text, n);
+          size_t j = i;
+          for (j = i; j < n; j++)
+            {
+              if (copy[j] == '\0')
+                copy[j] = '\x08';
+            }
+          return width_multibyte (copy, n);
+        }
+    }
+  return width_multibyte (text, n);
+}
+
 /* length of next word in multibyte setting.  Should correspond to \w or
    \p{Word} in perl */
 int
