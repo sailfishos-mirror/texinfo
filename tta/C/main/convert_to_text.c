@@ -417,7 +417,7 @@ text_heading (const ELEMENT *current, TEXT text,
     }
 
   /* width of heading */
-  text_width = string_width_multibyte (result.text);
+  text_width = width_multibyte (result.text, result.end);
 
   text_append (&result, "\n");
 

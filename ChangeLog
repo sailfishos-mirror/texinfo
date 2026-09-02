@@ -1,5 +1,15 @@
 2026-09-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/utils.c (width_multibyte): add.  Replace
+	string_width_multibyte call by width_multibyte call for all cases
+	where the length of string is known.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_insert_image): use
+	TEXT in argument.  Keep information on remaining length to process and
+	use memchr.
+
+2026-09-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Makefile.tres, tta/perl/t/info_tests.t
 	(empty_in_flushright_index_entry)
 	(index_entry_in_multitable_multilines)

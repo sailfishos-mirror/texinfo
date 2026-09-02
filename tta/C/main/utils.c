@@ -395,6 +395,15 @@ string_width_multibyte (const char *text)
   return result;
 }
 
+int
+width_multibyte (const char *text, size_t n)
+{
+  int result;
+  const uint8_t *u8_text = (const uint8_t *)text;
+  result = u8_width (u8_text, n, "UTF-8");
+  return result;
+}
+
 /* length of next word in multibyte setting.  Should correspond to \w or
    \p{Word} in perl */
 int

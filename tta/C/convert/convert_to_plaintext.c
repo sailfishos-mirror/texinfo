@@ -1852,7 +1852,8 @@ pending_texts_width (const PENDING_TEXT_LIST *pending_texts)
   for (i = 0; i < pending_texts->number; i++)
     {
       PENDING_TEXT *pending_text = &pending_texts->list[i];
-      width += string_width_multibyte (pending_text->text.text);
+      width += width_multibyte (pending_text->text.text,
+                                pending_text->text.end);
     }
   return width;
 }
@@ -2796,7 +2797,8 @@ plaintext_process_printindex (CONVERTER *self,
                                           "see_also_entry", referred_tree);
               stream_output_n (self, entry_text.text, entry_text.end);
               stream_output_n (self, ": ", 2);
-              line_width += string_width_multibyte (entry_text.text) +2;
+              line_width += width_multibyte (entry_text.text,
+                                             entry_text.end) +2;
               if (line_width < index_length_to_node)
                 {
                   int j;
@@ -2872,7 +2874,7 @@ plaintext_process_printindex (CONVERTER *self,
       text_append_n (&entry_line, ": ", 2);
       stream_output_n (self, entry_line.text, entry_line.end);
 
-      line_width = string_width_multibyte (entry_line.text);
+      line_width = width_multibyte (entry_line.text, entry_line.end);
       text_reset (&entry_line);
 
       if (line_width < index_length_to_node)
@@ -3017,7 +3019,7 @@ plaintext_process_printindex (CONVERTER *self,
       text_printf (&line_part, line_nr_with_max_format, entry_info->line_nr);
       text_append_n (&line_part, ")", 1);
 
-      line_part_width = string_width_multibyte (line_part.text);
+      line_part_width = width_multibyte (line_part.text, line_part.end);
 
       if (line_width + line_part_width +1 > fillcolumn)
         {
@@ -3504,7 +3506,7 @@ plaintext_format_image_element (CONVERTER *self, const ELEMENT *element,
       free (text);
 
       if (width == -1)
-        width = string_width_multibyte (result->string);
+        width = width_multibyte (result->string, result->len);
 
       p = result->string;
       while (1)
@@ -3581,43 +3583,38 @@ static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[] = {
 /* NOTE only called for Info for INFO_MATH_IMAGES, never in plaintext. */
 void
 plaintext_insert_image (CONVERTER *self, const char *image_file,
-                        const char *image_text, int dpi, int depth,
+                        const TEXT image_text, int dpi, int depth,
                         STRING_LINE_COUNT *result)
 {
-  char *result_text = strdup (image_text);
+  char *result_text = strndup (image_text.text, image_text.end);
   int line_count = -1;
   int width = 0;
-  /* no const because the string is modified temporarily */
-  char *p;
-  char *q;
   TEXT formatted_image;
 
-  size_t len = strlen (result_text);
+  size_t len = image_text.end;
 
   if (len != 0)
     {
+      char *p;
       if (result_text[len -1] == '\n')
         result_text[len -1] = '\0';
+      len--;
 
       /* We assume that there are only NL, no CR */
       p = result_text;
-      while (1)
+      while (len > 0)
         {
           int new_width;
 
           line_count++;
-          q = strpbrk (p, "\n");
-          if (q)
-            *q = '\0';
-          new_width = string_width_multibyte (p);
+          char *q = memchr (p, '\n', len);
+          new_width = width_multibyte (p, q - p);
           if (new_width > width)
             width = new_width;
           if (!q)
             break;
-          *q = '\n';
           p = q+1;
-          if (!*p)
-            break;
+          len -= q - p +1;
         }
     }
   int o_line_count;
@@ -5173,7 +5170,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                     }
 
                   plaintext_insert_image (self, element_image->filename,
-                             math_text.text,
+                             math_text,
                              element_image->dpi, element_image->depth,
                              &image_result);
                   free (math_text.text);
@@ -6762,9 +6759,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                                     }
                                 }
                             }
-                          /* TODO incorrect if there are NUL from an @image
-                             in multitable */
-                          line_width += string_width_multibyte (t->text);
+                          line_width += width_multibyte (t->text, t->end);
                           PENDING_TEXT *dst_pending_text
                             = add_top_pending_text (result, 0);
                           replace_pending_text (dst_pending_text, pending_text);
@@ -6930,7 +6925,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
      /* NB we don't output the below-baseline depth for @displaymath as
         it does not need to be aligned with surrounding text. */
               plaintext_insert_image (self, element_image->filename,
-                             math_text.text,
+                             math_text,
                              element_image->dpi, 0,
                              &image_result);
 
