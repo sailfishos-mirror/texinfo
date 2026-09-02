@@ -61,9 +61,10 @@ unused_cache_translate_string (string, SV *lang_translations, SV *translation_co
       const char *string = (char *)SvPVutf8_nolen($arg);
     PREINIT:
         int debug_level = 0;
-        const char *result = 0;
+        TEXT result;
         AV *av;
      CODE:
+        text_init (&result);
         if (debug_level_sv && SvOK (debug_level_sv))
           debug_level = SvIV (debug_level_sv);
         if (SvOK (lang_translations))
@@ -93,8 +94,8 @@ unused_cache_translate_string (string, SV *lang_translations, SV *translation_co
             cache_translate_string (string, 0, 0, debug_level);
           }
         av = newAV ();
-        if (result)
-          av_push (av, newSVpv_utf8 (result, 0));
+        if (result.text)
+          av_push (av, newSVpv_utf8 (result.text, result.end));
         else
           av_push (av, newSV (0));
         RETVAL = newRV_noinc ((SV *) av);
