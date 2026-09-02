@@ -69,12 +69,6 @@
 # pragma GCC diagnostic ignored "-Wanalyzer-null-argument"
 #endif
 
-/* This code has a lot of parameterized pointer casts that may be no-ops,
-   depending on DCHAR_T and TCHAR_T.  */
-#if _GL_GNUC_PREREQ (14, 0)
-# pragma GCC diagnostic ignored "-Wuseless-cast"
-#endif
-
 #include <alloca.h>
 
 /* Specification.  */
@@ -110,7 +104,6 @@
 #include "xsize.h"
 
 #include "attribute.h"
-#include "minmax.h"
 
 #if NEED_PRINTF_DOUBLE || NEED_PRINTF_LONG_DOUBLE || (NEED_WPRINTF_DIRECTIVE_LA && WIDE_CHAR_VERSION)
 # include <math.h>
@@ -218,19 +211,11 @@
 #if !WIDE_CHAR_VERSION || !DCHAR_IS_TCHAR
   /* TCHAR_T is char.  */
   /* Use snprintf if it exists under the name 'snprintf' or '_snprintf'.
-     But don't use it if it has problems.  For example,
-     NetBSD, Solaris, QNX and z/OS snprintf fail if size == INT_MAX + 1u,
-     BeOS snprintf produces no output if size >= 0x3000000,
-     and Linux libc5 with size == 1 writes without bounds, like sprintf.
-     BSD snprintf, which fails if size == INT_MAX + 2u, is OK for us.
-     Use snprintf only on known-safe platforms:
-     glibc 2, musl libc, macOS, FreeBSD, OpenBSD, Android, Microsoft UCRT.  */
-# if ((HAVE_SNPRINTF || HAVE_DECL__SNPRINTF) \
-      && (2 <= __GLIBC__ || MUSL_LIBC \
-          || (defined __APPLE__ && defined __MACH__) \
-          || (defined __FreeBSD__ || defined __DragonFly__) \
-          || defined __OpenBSD__ \
-          || defined __ANDROID__ || defined _UCRT))
+     But don't use it on BeOS, since BeOS snprintf produces no output if the
+     size argument is >= 0x3000000.
+     Also don't use it on Linux libc5, since there snprintf with size = 1
+     writes any output without bounds, like sprintf.  */
+# if (HAVE_DECL__SNPRINTF || HAVE_SNPRINTF) && !defined __BEOS__ && !(__GNU_LIBRARY__ == 1)
 #  define USE_SNPRINTF 1
 # else
 #  define USE_SNPRINTF 0
@@ -1880,15 +1865,6 @@ is_borderline (const char *digits, size_t precision)
 
 #endif
 
-/* Maximum number of units needed for a thousands separator,
-   in the code that creates a temporary unit sequence of length
-   MAX_ROOM_NEEDED (...).  */
-#if USE_SNPRINTF && (WIDE_CHAR_VERSION && DCHAR_IS_TCHAR)
-# define THOUSEP_MAXLEN THOUSEP_WCHAR_MAXLEN
-#else
-# define THOUSEP_MAXLEN THOUSEP_CHAR_MAXLEN
-#endif
-
 #if !USE_SNPRINTF || (WIDE_CHAR_VERSION && DCHAR_IS_TCHAR) || !HAVE_SNPRINTF_RETVAL_C99 || USE_MSVC__SNPRINTF
 
 /* Use a different function name, to make it possible that the 'wchar_t'
@@ -2069,7 +2045,11 @@ MAX_ROOM_NEEDED (const arguments *ap, size_t arg_index, FCHAR_T conversion,
         {
           /* A thousands separator needs to be inserted at most every 2 digits.
              This is the case in the ta_IN locale.  */
-          tmp_length = xsum (tmp_length, tmp_length / 2 * THOUSEP_MAXLEN);
+# if WIDE_CHAR_VERSION
+          tmp_length = xsum (tmp_length, tmp_length / 2 * THOUSEP_WCHAR_MAXLEN);
+# else
+          tmp_length = xsum (tmp_length, tmp_length / 2 * THOUSEP_CHAR_MAXLEN);
+# endif
         }
       /* Add 1, to account for a leading sign.  */
       tmp_length = xsum (tmp_length, 1);
@@ -2329,8 +2309,7 @@ MAX_ROOM_NEEDED (const arguments *ap, size_t arg_index, FCHAR_T conversion,
         tmp_length =
           (unsigned int) (LDBL_MAX_EXP
                           * 0.30103 /* binary -> decimal */
-                          /* estimate for FLAG_GROUP */
-                          * (1.0 + 0.5 * THOUSEP_MAXLEN)
+                          * 0.5 * 3 /* estimate for FLAG_GROUP */
                          )
           + 1 /* turn floor into ceil */
           + 10; /* sign, decimal point etc. */
@@ -2338,8 +2317,7 @@ MAX_ROOM_NEEDED (const arguments *ap, size_t arg_index, FCHAR_T conversion,
         tmp_length =
           (unsigned int) (DBL_MAX_EXP
                           * 0.30103 /* binary -> decimal */
-                          /* estimate for FLAG_GROUP */
-                          * (1.0 + 0.5 * THOUSEP_MAXLEN)
+                          * 0.5 * 3 /* estimate for FLAG_GROUP */
                          )
           + 1 /* turn floor into ceil */
           + 10; /* sign, decimal point etc. */
@@ -2351,8 +2329,7 @@ MAX_ROOM_NEEDED (const arguments *ap, size_t arg_index, FCHAR_T conversion,
         12; /* sign, decimal point, exponent etc. */
       tmp_length = xsum (tmp_length,
                          precision
-                         /* estimate for FLAG_GROUP */
-                         * (1.0 + 0.5 * THOUSEP_MAXLEN)
+                         * 0.5 * 3 /* estimate for FLAG_GROUP */
                         );
       break;
 
@@ -5012,7 +4989,11 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                   {
                     /* A thousands separator needs to be inserted at most every 2 digits.
                        This is the case in the ta_IN locale.  */
-                    tmp_length = xsum (tmp_length, tmp_length / 2 * THOUSEP_MAXLEN);
+# if WIDE_CHAR_VERSION
+                    tmp_length = xsum (tmp_length, tmp_length / 2 * THOUSEP_WCHAR_MAXLEN);
+# else
+                    tmp_length = xsum (tmp_length, tmp_length / 2 * THOUSEP_CHAR_MAXLEN);
+# endif
                   }
                 /* Account for sign, decimal point etc. */
                 tmp_length = xsum (tmp_length, 12);
@@ -6871,19 +6852,12 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
 
 #if USE_SNPRINTF
                     int retcount = 0;
-
-                    /* Keep size (in bytes) in ptrdiff_t and size_t range.
-                       Also, generate at most INT_MAX + 1 characters
-                       counting the trailing NUL, as that is the
-                       maximum the API allows.  */
-                    size_t bytes_max = MIN (PTRDIFF_MAX, SIZE_MAX);
-                    size_t tchars_max = bytes_max / sizeof (TCHAR_T);
-                    size_t API_max = MIN (tchars_max - 1, INT_MAX);
-                    size_t maxlen_max =
-                      (API_max + 1) - (API_max + 1) % TCHARS_PER_DCHAR;
-                    size_t maxlen =
-                      MIN (allocated - length, maxlen_max / TCHARS_PER_DCHAR)
-                      * TCHARS_PER_DCHAR;
+                    size_t maxlen = allocated - length;
+                    /* SNPRINTF can fail if its second argument is
+                       > INT_MAX.  */
+                    if (maxlen > INT_MAX / TCHARS_PER_DCHAR)
+                      maxlen = INT_MAX / TCHARS_PER_DCHAR;
+                    maxlen = maxlen * TCHARS_PER_DCHAR;
 # define SNPRINTF_BUF(arg) \
                     switch (prefix_count)                                   \
                       {                                                     \
@@ -7239,13 +7213,17 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                       }
 
 #if USE_SNPRINTF
-                    /* Handle overflow of the allocated buffer.  */
-                    if (count >= maxlen)
+                    /* Handle overflow of the allocated buffer.
+                       If such an overflow occurs, a C99 compliant snprintf()
+                       returns a count >= maxlen.  However, a non-compliant
+                       snprintf() function returns only count = maxlen - 1.  To
+                       cover both cases, test whether count >= maxlen - 1.  */
+                    if ((unsigned int) count + 1 >= maxlen)
                       {
                         /* If maxlen already has attained its allowed maximum,
                            allocating more memory will not increase maxlen.
                            Instead of looping, bail out.  */
-                        if (maxlen == maxlen_max)
+                        if (maxlen == INT_MAX / TCHARS_PER_DCHAR)
                           goto overflow;
                         else
                           {
@@ -7255,8 +7233,9 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                                bytes, so that in the next round, we likely get
                                  maxlen > (unsigned int) count + 1
                                and so we don't get here again.
-                               And allocate proportionally, to avoid
-                               quadratic behavior in large buffers.  */
+                               And allocate proportionally, to avoid looping
+                               eternally if snprintf() reports a too small
+                               count.  */
                             size_t n =
                               xmax (xsum (length,
                                           ((unsigned int) count + 2

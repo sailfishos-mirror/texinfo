@@ -837,12 +837,6 @@ EXTRA_DIST += mbchar.h
 
 ## end   gnulib module mbchar
 
-## begin gnulib module mbiter-aux
-
-libgnu_la_SOURCES += mbiter-aux.h mbiter-aux.c
-
-## end   gnulib module mbiter-aux
-
 ## begin gnulib module mbiterf
 
 libgnu_la_SOURCES += mbiterf.h mbiterf.c
@@ -908,12 +902,6 @@ EXTRA_DIST += memchr.valgrind
 libgnu_la_SOURCES += memeq.c
 
 ## end   gnulib module memeq
-
-## begin gnulib module minmax
-
-libgnu_la_SOURCES += minmax.h
-
-## end   gnulib module minmax
 
 ## begin gnulib module msvc-inval
 

@@ -1,5 +1,11 @@
 2026-09-02 Patrice Dumas  <pertusus@free.fr>
 
+	Import uniwidth/u8-width
+
+	* tta/: Run "gnulib-tool --add-import uniwidth/u8-width".
+
+2026-09-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/utils.c (width_multibyte): add.  Replace
 	string_width_multibyte call by width_multibyte call for all cases
 	where the length of string is known.

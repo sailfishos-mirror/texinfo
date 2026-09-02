@@ -117,7 +117,6 @@ AC_DEFUN([gl_EARLY],
   # Code from module malloc-posix:
   # Code from module malloca:
   # Code from module mbchar:
-  # Code from module mbiter-aux:
   # Code from module mbiterf:
   # Code from module mbrtoc32:
   # Code from module mbrtowc:
@@ -126,7 +125,6 @@ AC_DEFUN([gl_EARLY],
   # Code from module mbszero:
   # Code from module memchr:
   # Code from module memeq:
-  # Code from module minmax:
   # Code from module msvc-inval:
   # Code from module msvc-nothrow:
   # Code from module multiarch:
@@ -584,7 +582,6 @@ AC_DEFUN([gl_INIT],
   gl_STRING_MODULE_INDICATOR([memchr])
   gl_FUNC_MEMEQ
   gl_STRING_MODULE_INDICATOR([memeq])
-  gl_MINMAX
   AC_REQUIRE([gl_MSVC_INVAL])
   gl_CONDITIONAL([GL_COND_OBJ_MSVC_INVAL],
                  [test $HAVE_MSVC_INVALID_PARAMETER_HANDLER = 1])
@@ -770,7 +767,7 @@ AC_DEFUN([gl_INIT],
   gl_LIBUNISTRING_MODULE([1.4], [unicase/toupper])
   gl_LIBUNISTRING_MODULE([1.4], [unicase/u8-tolower])
   gl_LIBUNISTRING_MODULE([1.4], [unicase/u8-toupper])
-  gl_LIBUNISTRING_LIBHEADER([1.4], [unictype.h])
+  gl_LIBUNISTRING_LIBHEADER([1.3], [unictype.h])
   gl_UNICTYPE_H
   gl_UNICTYPE_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
@@ -1195,8 +1192,6 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/malloca.h
   lib/mbchar.c
   lib/mbchar.h
-  lib/mbiter-aux.c
-  lib/mbiter-aux.h
   lib/mbiterf.c
   lib/mbiterf.h
   lib/mbrtoc32.c
@@ -1211,7 +1206,6 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/memchr.c
   lib/memchr.valgrind
   lib/memeq.c
-  lib/minmax.h
   lib/msvc-inval.c
   lib/msvc-inval.h
   lib/msvc-nothrow.c
@@ -1469,7 +1463,6 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/mbstate_t.m4
   m4/memchr.m4
   m4/memeq.m4
-  m4/minmax.m4
   m4/mmap-anon.m4
   m4/msvc-inval.m4
   m4/msvc-nothrow.m4
