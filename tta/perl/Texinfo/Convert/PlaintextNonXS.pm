@@ -1033,23 +1033,12 @@ sub _adjust_final_locations($) {
   }
 }
 
-sub add_image($$;$$) {
-  my ($self, $lines_count, $image_width, $quoted_image,
-      $trailing_text) = @_;
+sub add_quoted_image($$;$) {
+  my ($self, $quoted_image, $trailing_text) = @_;
 
-  if (defined($quoted_image)) {
-    my $image_info = {'location' => 'quoted_image'};
-    push @{$self->{'count_context'}->[-1]->{'pending_text'}},
-         [$quoted_image, $image_info], [$trailing_text];
-  } else {
-    my $image_info = {
-      'lines' => $self->{'count_context'}->[-1]->{'lines'},
-      'lines_count' => $lines_count,
-      'image_width'  => $image_width,
-    };
-
-    push @{$self->{'count_context'}->[-1]->{'images'}}, $image_info;
-  }
+  my $image_info = {'location' => 'quoted_image'};
+  push @{$self->{'count_context'}->[-1]->{'pending_text'}},
+       [$quoted_image, $image_info], [$trailing_text];
 }
 
 sub _stream_output($$) {
@@ -1582,7 +1571,8 @@ sub collect_pending_texts_lines($) {
   foreach my $pending_text (@$pending_texts) {
     my @pending_lines;
     if (defined($pending_text->[1])
-        and $pending_text->[1]->{'location'} eq 'quoted_image') {
+        and ($pending_text->[1]->{'location'} eq 'quoted_image'
+             or $pending_text->[1]->{'location'} eq 'protected_text')) {
       push @pending_lines, $pending_text;
     } elsif ($pending_text->[0] eq '') {
       # need a separate case, as split does not return an empty string.
@@ -1612,119 +1602,56 @@ sub collect_pending_texts_lines($) {
   return \@lines;
 }
 
-sub _align_lines($$$$$) {
-  my ($self, $pending_texts, $max_column, $direction, $images) = @_;
-
-  my $images_marks = {};
-  if (defined($images) and scalar(@$images)) {
-    foreach my $image (@$images) {
-      if ($image->{'lines_count'} > 1) {
-        if (!exists($images_marks->{$image->{'lines'}})) {
-          $images_marks->{$image->{'lines'}} = $image;
-        }# else {
-        # Happens in Info with the special construct as, in that
-        # case, there are no lines!  So no error...
-        #  $self->present_bug_message("more than one image with lines on $image->{'lines'}");
-        # in that case, the $image->{'lines'} is not in sync with the
-        # lines count.  So the second image will be treated as simple text.
-        #}
-      }
-    }
-  }
+sub _align_lines($$$$) {
+  my ($self, $pending_texts, $max_column, $direction) = @_;
 
   my $lines = collect_pending_texts_lines($pending_texts);
 
   my $line_index = 0;
-  my $image;
-  my $image_lines_count;
-  my $image_prepended_spaces;
   foreach my $line (@$lines) {
-    my ($new_image, $new_image_prepended_spaces);
-    if (exists($images_marks->{$line_index})) {
-      $new_image = $images_marks->{$line_index};
-      $image_lines_count = 0;
-      $new_image_prepended_spaces
-       = _compute_spaces_align_line($new_image->{'image_width'}, $max_column,
-                                    $direction);
-      if (!defined($image)) {
-        $image = $new_image;
-        $image_prepended_spaces = $new_image_prepended_spaces;
-        $new_image = undef;
-      }
-    }
-
-    if (!defined($image)) {
-      for (my $j = 0; $j < scalar(@$line); $j++) {
-        my $pending_text = $line->[$j];
-        $pending_text->[0] =~ s/^(\s*)//;
-        if ($pending_text->[0] ne '') {
-          last;
-        }
-      }
-      for (my $j = scalar(@$line); $j > 0; $j--) {
-        my $pending_text = $line->[$j -1];
-        chomp($pending_text->[0]);
-        $pending_text->[0] =~ s/(\s*)$//;
-        if ($pending_text->[0] ne '') {
-          last;
-        }
-      }
-      my $line_width = _pending_texts_width($line);
-      # NOTE a lone @anchor is followed by a spaces_after_close_brace
-      # ignored type containing the end of line,
-      # such that the end of line is removed.  Therefore the @anchor is
-      # on the same line as the next text.  If there is an end of line,
-      # it is outside of a paragraph and therefore converted as if not in
-      # an aligned environment, which is also ok.  Therefore has_anchor
-      # can only be set with text on the line before the anchor, followed
-      # by an empty line.
-      my $has_anchor = 0;
-      if ($line_width == 0) {
-        $has_anchor = _pending_text_has_anchor($line);
-      }
-      if ($line_width > 0 || $has_anchor) {
-        my $prepended_spaces
-         = _compute_spaces_align_line($line_width, $max_column, $direction);
-        if ($prepended_spaces > 0) {
-          _stream_output($self, ' ' x $prepended_spaces);
-        }
-        push @{$self->{'count_context'}->[-1]->{'pending_text'}}, @$line;
-        if (defined($line->[-1]->[1])) {
-          # add an empty text if the last pending is the anchor such that
-          # it does not have its location modified
-          push @{$self->{'count_context'}->[-1]->{'pending_text'}}, [''];
-        }
-      }
-    } else {
-      for (my $j = scalar(@$line); $j > 0; $j--) {
-        my $pending_text = $line->[$j -1];
-        if ($pending_text->[0] eq '') {
-          next;
-        }
-        chomp($pending_text->[0]);
+    for (my $j = 0; $j < scalar(@$line); $j++) {
+      my $pending_text = $line->[$j];
+      last if (defined($pending_text->[1])
+               and $pending_text->[1]->{'location'} eq 'protected_text');
+      $pending_text->[0] =~ s/^(\s*)//;
+      if ($pending_text->[0] ne '') {
         last;
       }
-      my $line_width = _pending_texts_width($line);
-      $image_lines_count++;
-      my $prepended_spaces = $image_prepended_spaces;
-      # adjust if there is something else that the image on the first or
-      # last line.  The adjustment is approximate.
-      if (($image_lines_count == 1
-           or $image_lines_count == $image->{'lines_count'})
-          and $line_width > $image->{'image_width'}) {
-        $prepended_spaces -= $line_width - $image->{'image_width'};
+    }
+    for (my $j = scalar(@$line); $j > 0; $j--) {
+      my $pending_text = $line->[$j -1];
+      chomp($pending_text->[0]);
+      last if (defined($pending_text->[1])
+               and $pending_text->[1]->{'location'} eq 'protected_text');
+      $pending_text->[0] =~ s/(\s*)$//;
+      if ($pending_text->[0] ne '') {
+        last;
       }
+    }
+    my $line_width = _pending_texts_width($line);
+    # NOTE a lone @anchor is followed by a spaces_after_close_brace
+    # ignored type containing the end of line,
+    # such that the end of line is removed.  Therefore the @anchor is
+    # on the same line as the next text.  If there is an end of line,
+    # it is outside of a paragraph and therefore converted as if not in
+    # an aligned environment, which is also ok.  Therefore has_anchor
+    # can only be set with text on the line before the anchor, followed
+    # by an empty line.
+    my $has_anchor = 0;
+    if ($line_width == 0) {
+      $has_anchor = _pending_text_has_anchor($line);
+    }
+    if ($line_width > 0 || $has_anchor) {
+      my $prepended_spaces
+       = _compute_spaces_align_line($line_width, $max_column, $direction);
       if ($prepended_spaces > 0) {
         _stream_output($self, ' ' x $prepended_spaces);
       }
       push @{$self->{'count_context'}->[-1]->{'pending_text'}}, @$line;
-      if ($new_image) {
-        $image = $new_image;
-        $image_prepended_spaces = $new_image_prepended_spaces;
-      } elsif ($image_lines_count == $image->{'lines_count'}) {
-        $image = undef;
-        $image_lines_count = undef;
-        $image_prepended_spaces = undef;
+      if (defined($line->[-1]->[1])) {
+        # add an empty text if the last pending is the anchor such that
+        # it does not have its location modified
+        push @{$self->{'count_context'}->[-1]->{'pending_text'}}, [''];
       }
     }
 
@@ -1745,8 +1672,7 @@ sub _align_environment($$$) {
   my ($self, $max, $align) = @_;
 
   my $counts = pop @{$self->{'count_context'}};
-  _align_lines($self, $counts->{'pending_text'}, $max,
-               $align, $counts->{'images'});
+  _align_lines($self, $counts->{'pending_text'}, $max, $align);
 
   _update_locations_counts($self, $self->{'count_context'}->[-1],
                            $counts);
@@ -2452,24 +2378,40 @@ sub format_anchor($$) {
 
 my $listoffloat_entry_length = 41;
 
-sub image_formatted_text($$$$) {
+sub stream_image_formatted_text($$$$) {
   my ($self, $element, $basefile, $text) = @_;
 
-  my $result;
+  my $lines_count;
   if (defined($text)) {
-    $result = $text;
-  } elsif (scalar(@{$element->{'contents'}}) >= 4
-           and not Texinfo::Common::empty_spaces_argument(
-                                    $element->{'contents'}->[3])) {
-    $result = '[' .Texinfo::Convert::Text::convert_to_text(
-         $element->{'contents'}->[3], $self->{'convert_text_options'}) .']';
+    my @lines = split (/^/, $text);
+    # remove last end of line.  Do that after splitting the lines or the
+    # last line, if empty, may not be gathered.
+    chomp($lines[-1]);
+    # the last line is part of the image but does not have a new line
+    $lines_count = scalar(@lines) -1;
+    foreach my $line (@lines) {
+      my $line_info = {'location' => 'protected_text'};
+      push @{$self->{'count_context'}->[-1]->{'pending_text'}},
+        [$line, $line_info];
+    }
+    push @{$self->{'count_context'}->[-1]->{'pending_text'}}, [''];
   } else {
-    $self->plaintext_line_warn($self, sprintf(__(
+    my $result;
+    if (scalar(@{$element->{'contents'}}) >= 4
+        and not Texinfo::Common::empty_spaces_argument(
+                                    $element->{'contents'}->[3])) {
+      $result = '[' .Texinfo::Convert::Text::convert_to_text(
+         $element->{'contents'}->[3], $self->{'convert_text_options'}) .']';
+    } else {
+      $self->plaintext_line_warn($self, sprintf(__(
                     "could not find \@image file `%s.txt' nor alternate text"),
                              $basefile), $element->{'source_info'});
-    $result = '['.$basefile.']';
+      $result = '['.$basefile.']';
+    }
+    $lines_count = ($result =~ tr/\n/\n/);
+    _stream_output($self, $result);
   }
-  return $result;
+  return $lines_count;
 }
 
 sub format_image_element($$) {
@@ -2486,20 +2428,11 @@ sub format_image_element($$) {
     Texinfo::Convert::Text::reset_options_code(
                                  $self->{'convert_text_options'});
     my ($text, $width) = $self->txt_image_text($element, $basefile);
-    # remove last end of line
-    chomp($text) if (defined($text));
-    my $result = $self->image_formatted_text($element, $basefile, $text);
-    my $lines_count = ($result =~ tr/\n/\n/);
-    if (!defined($width)) {
-      $width = Texinfo::Convert::Unicode::string_width($result);
-    }
-    # the last line is part of the image but do not have a new line,
-    # so 1 is added to $lines_count to have the number of lines of
-    # the image
-    $self->add_image($lines_count+1, $width);
-    return ($result, $lines_count);
+    my $lines_count
+      = $self->stream_image_formatted_text($element, $basefile, $text);
+    return $lines_count;
   }
-  return ('', 0);
+  return 0;
 }
 
 # should not be called, only the Info format counterpart should be called
@@ -2528,9 +2461,9 @@ sub _insert_image($$$;$$) {
   my $result = $self->format_image($image_file, $image_text, undef,
                                    $dpi, $depth);
 
-  $self->add_image(0, 0, $result);
+  $self->add_quoted_image($result, '');
 
-  return ('', $line_count);
+  return $line_count;
 }
 
 my %underline_symbol = (
@@ -3259,7 +3192,7 @@ sub _convert($$) {
                        add_pending_word($formatter->{'container'}, 1));
         # add an empty word so that following spaces aren't lost
         add_next($formatter->{'container'}, '');
-        my ($image, $lines_count) = $self->format_image_element($element);
+        my $lines_count = $self->format_image_element($element);
         # We do not how much horizontal space @image will take:
         #   * In plain text output or standalone Info, the replacement
         #     text will be used
@@ -3272,7 +3205,6 @@ sub _convert($$) {
         Texinfo::Convert::Paragraph::add_to_counter($formatter->{'container'},
                                                     $IMAGE_WIDTH);
         _add_lines_count($self, $lines_count);
-        _stream_output($self, $image);
         return;
       } elsif ($cmdname eq 'today') {
         my $today = $self->expand_today();
@@ -3521,13 +3453,12 @@ sub _convert($$) {
             foreach my $anchor (@$anchors) {
               $self->add_target_location($anchor);
             }
-            my ($image, $lines_count) = _insert_image($self,
+            my $lines_count = _insert_image($self,
                   $self->{'elements_images'}->{$element}->{'filename'},
                   $math_text,
                   $self->{'elements_images'}->{$element}->{'dpi'},
                   $self->{'elements_images'}->{$element}->{'depth'});
             _add_lines_count($self, $lines_count);
-            _stream_output($self, $image);
           }
           my $old_context = pop @{$self->{'context'}};
           die if ($old_context ne $cmdname);
@@ -4577,13 +4508,12 @@ sub _convert($$) {
       }
       # NB we don't output the below-baseline depth for @displaymath as
       # it does not need to be aligned with surrounding text.
-      my ($image, $lines_count)
+      my $lines_count
          = _insert_image($self,
                          $self->{'elements_images'}->{$element}->{'filename'},
                          $math_text,
                          $self->{'elements_images'}->{$element}->{'dpi'});
       _add_lines_count($self, $lines_count);
-      _stream_output($self, $image);
       _ensure_end_of_line($self);
     }
     destroy_formatter(pop @{$self->{'formatters'}});

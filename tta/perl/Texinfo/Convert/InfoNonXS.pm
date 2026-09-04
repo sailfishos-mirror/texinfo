@@ -1111,8 +1111,6 @@ sub format_image_element($$) {
       }
     }
     my ($text, $width) = $self->txt_image_text($element, $basefile);
-    # remove last end of line
-    chomp($text) if (defined($text));
     my $alt;
     if (defined($element->{'contents'}->[3])
         and exists($element->{'contents'}->[3]->{'contents'})) {
@@ -1124,6 +1122,8 @@ sub format_image_element($$) {
     my $result;
 
     if (defined($image_file) or (defined($text) and defined($alt))) {
+      # remove last end of line
+      chomp($text) if (defined($text));
       $result = $self->format_image($image_file, $text, $alt);
       $lines_count = ($result =~ tr/\n/\n/);
       my $trailing_text;
@@ -1133,16 +1133,15 @@ sub format_image_element($$) {
       } else {
         $trailing_text = '';
       }
-      $self->add_image(0, 0, $result, $trailing_text);
-      return ('', $lines_count);
+      $self->add_quoted_image($result, $trailing_text);
+      return $lines_count;
     } else {
-      $result = $self->image_formatted_text($element, $basefile, $text);
-      $lines_count = ($result =~ tr/\n/\n/);
-      $self->add_image($lines_count +1, $width);
-      return ($result, $lines_count);
+      my $lines_count
+       = $self->stream_image_formatted_text($element, $basefile, $text);
+      return $lines_count;
     }
   }
-  return ('', 0);
+  return 0;
 }
 
 1;

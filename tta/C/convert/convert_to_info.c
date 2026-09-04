@@ -1627,9 +1627,8 @@ static const char *image_files_extensions[] = {
  ".png", ".jpg", 0
 };
 
-void
-info_format_image_element (CONVERTER *self, const ELEMENT *element,
-                           STRING_LINE_COUNT *result)
+int
+info_format_image_element (CONVERTER *self, const ELEMENT *element)
 {
   if (element->e.c->contents.number > 0
       && !empty_spaces_argument (element->e.c->contents.list[0]))
@@ -1704,13 +1703,6 @@ info_format_image_element (CONVERTER *self, const ELEMENT *element,
         }
 
       text = converter_txt_image_text (self, element, basefile, &width);
-      if (text.text)
-        {
-          /* remove last end of line */
-          if (text.end > 0 && text.text[text.end - 1] == '\n')
-            text.text[text.end - 1] = '\0';
-          text.end--;
-        }
 
       if (element->e.c->contents.number > 3
           && element->e.c->contents.list[3]->e.c->contents.number > 0)
@@ -1723,11 +1715,17 @@ info_format_image_element (CONVERTER *self, const ELEMENT *element,
       if (image_file || (text.end > 0 && alt_ref && alt.end > 0))
         {
           TEXT trailing_text;
+
+          if (text.text)
+            {
+              /* remove last end of line */
+              if (text.end > 0 && text.text[text.end - 1] == '\n')
+                text.text[text.end - 1] = '\0';
+              text.end--;
+            }
           TEXT image_string = info_format_image (self, image_file,
                                                   &text, alt_ref, 0, 0,
                                                   &lines_count);
-          free (text.text);
-
           TEXT quoted_image = info_quote_image (self, &image_string);
 
           text_init (&trailing_text);
@@ -1739,24 +1737,17 @@ info_format_image_element (CONVERTER *self, const ELEMENT *element,
           else
             text_append (&trailing_text, "");
 
-          result->string = 0;
-          result->len = 0;
-          plaintext_add_image (self, 0, 0,
-                               &image_string, &quoted_image, &trailing_text);
+          plaintext_add_quoted_image (self, &image_string, &quoted_image,
+                                      &trailing_text);
         }
       else
         {
-          TEXT image_string = plaintext_image_formatted_text (self, element,
-                                                              basefile, text);
-          lines_count = count_new_lines (&image_string);
-          result->string = image_string.text;
-          result->len = image_string.end;
-          plaintext_add_image (self, lines_count +1, width, 0, 0, 0);
+          lines_count
+               = plaintext_stream_image_formatted_text (self, element,
+                                                        basefile, text);
         }
+      free (text.text);
       free (basefile);
-
-      result->line_count = lines_count;
-
 
       if (alt_ref)
         free (alt.text);
@@ -1764,8 +1755,8 @@ info_format_image_element (CONVERTER *self, const ELEMENT *element,
 
       destroy_strings_list (extensions);
 
-      return;
+      return lines_count;
     }
 
-  memset (result, 0, sizeof (STRING_LINE_COUNT));
+  return 0;
 }

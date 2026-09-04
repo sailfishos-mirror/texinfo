@@ -76,15 +76,15 @@ void plaintext_process_footnotes (CONVERTER *self,
                                   const OUTPUT_UNIT *output_unit);
 void plaintext_process_printindex (CONVERTER *self,
                                    const ELEMENT *printindex, int in_info);
-TEXT plaintext_image_formatted_text (CONVERTER *self, const ELEMENT *element,
-                                     const char *basefile, TEXT text);
+int plaintext_stream_image_formatted_text (CONVERTER *self,
+                                       const ELEMENT *element,
+                                       const char *basefile, TEXT text);
 
 void plaintext_setup_output_encoding (CONVERTER *self);
 void plaintext_encode_string (CONVERTER *self, const TEXT *text, TEXT *result);
 
-void plaintext_add_image (CONVERTER *self, int lines_count, int image_width,
-                     TEXT *image_string, TEXT *image_text,
-                     TEXT *trailing_text);
+void plaintext_add_quoted_image (CONVERTER *self, TEXT *image_string,
+                                 TEXT *image_quoted, TEXT *trailing_text);
 void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
 /* TODO add plaintext_ prefix for all the functions? */
 void stream_output_n (CONVERTER *self, const char *text, size_t n);

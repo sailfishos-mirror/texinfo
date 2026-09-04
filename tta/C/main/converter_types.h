@@ -283,12 +283,5 @@ typedef struct CONVERTER_CDT_TREE {
                              const char *translation_context);
 } CONVERTER_CDT_TREE;
 
-/* Info and plaintext */
-typedef struct STRING_LINE_COUNT {
-    char *string;
-    int len;
-    int line_count;
-} STRING_LINE_COUNT;
-
 #endif
 

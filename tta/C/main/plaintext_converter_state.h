@@ -90,17 +90,9 @@ decl_list_fns(TARGET_LOCATION_LIST, target_location, TARGET_LOCATION);
 def_list_type(INDEX_ENTRY_LINE_COUNT_LIST, int *);
 decl_list_fns(INDEX_ENTRY_LINE_COUNT_LIST, index_entry_location, int *);
 
-typedef struct IMAGE_LOCATION_INFO {
-    int lines;
-    int lines_count;
-    int image_width;
-} IMAGE_LOCATION_INFO;
-
-def_list_type(IMAGE_LOCATION_INFO_LIST, IMAGE_LOCATION_INFO);
-decl_list_fns(IMAGE_LOCATION_INFO_LIST, image_location, IMAGE_LOCATION_INFO);
-
 enum location_type {
    PLT_text,
+   PLT_protected_text,
    PLT_anchor,
    PLT_quoted_image, /* quoted image */
 };
@@ -123,7 +115,6 @@ typedef struct COUNT_CONTEXT {
     /* converted text in internal encoding (utf-8) */
     PENDING_TEXT_LIST pending_text;
     INDEX_ENTRY_LINE_COUNT_LIST index_entry_locations;
-    IMAGE_LOCATION_INFO_LIST images;
 } COUNT_CONTEXT;
 
 def_list_type(COUNT_CONTEXT_STACK, COUNT_CONTEXT);

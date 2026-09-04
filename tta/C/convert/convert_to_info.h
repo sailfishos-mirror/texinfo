@@ -28,7 +28,6 @@ void info_format_node (CONVERTER *self, const ELEMENT *node,
 TEXT info_format_image (CONVERTER *self, const char *image_file,
                    const TEXT *text, const TEXT *alt,
                    int dpi, int depth, int *lines_count);
-void info_format_image_element (CONVERTER *self, const ELEMENT *element,
-                           STRING_LINE_COUNT *result);
+int info_format_image_element (CONVERTER *self, const ELEMENT *element);
 TEXT info_quote_image (CONVERTER *self, const TEXT *image_text);
 #endif
