@@ -141,6 +141,7 @@ typedef struct PLAINTEXT_FORMAT_FUNCTIONS {
     void (* format_printindex) (CONVERTER *self, const ELEMENT *element);
     void (* format_ref) (CONVERTER *self, enum command_id cmd,
                          const ELEMENT *element);
+    TEXT (* quote_image) (CONVERTER *self, const TEXT *image_text);
 } PLAINTEXT_FORMAT_FUNCTIONS;
 
 def_list_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT, 2);
@@ -164,13 +165,20 @@ debug_print_pending (const PENDING_TEXT_LIST *pending_texts)
     {
       const PENDING_TEXT *pending_text = &pending_texts->list[i];
       text_append_n (&t, pending_text->text.text, pending_text->text.end);
-      if (pending_text->anchor)
+      if (pending_text->type == PLT_anchor)
         {
-          char *texi = target_element_to_texi_label (pending_text->anchor);
+          char *texi = target_element_to_texi_label (pending_text->l.anchor);
           text_append_n (&t, "[", 1);
           text_append (&t, texi);
           text_append_n (&t, "]", 1);
           free (texi);
+        }
+      else if (pending_text->type == PLT_quoted_image)
+        {
+          text_append_n (&t, "{", 1);
+          text_append_n (&t, pending_text->l.image_string.text,
+                             pending_text->l.image_string.end);
+          text_append_n (&t, "}", 1);
         }
       if (i < pending_texts->number -1)
         text_append_n (&t, "|", 1);
@@ -186,14 +194,21 @@ clear_pending_text_list (PENDING_TEXT_LIST *pending_texts)
     {
       PENDING_TEXT *pending_text = &pending_texts->list[i];
       text_reset (&pending_text->text);
-      if (pending_text->anchor)
+      if (pending_text->type == PLT_anchor)
         {
-          char *texi = target_element_to_texi_label (pending_text->anchor);
+          char *texi = target_element_to_texi_label (pending_text->l.anchor);
           fprintf (stderr, "clear_pending_text_list: %zu: anchor [%s]\n",
                    i, texi);
           free (texi);
-          pending_text->anchor = 0;
+          pending_text->l.anchor = 0;
         }
+      else if (pending_text->type == PLT_quoted_image)
+        {
+          fprintf (stderr, "clear_pending_text_list: %zu: image {%s}\n",
+                           i, pending_text->l.image_string.text);
+          text_destroy (&pending_text->l.image_string);
+        }
+      pending_text->type = PLT_text;
     }
   pending_texts->number = 0;
 }
@@ -214,12 +229,24 @@ pop_count_context (COUNT_CONTEXT_STACK *stack)
 def_alloc_fns(PENDING_TEXT_LIST, pending_text, PENDING_TEXT, 5);
 
 static PENDING_TEXT *
-add_top_pending_text (PENDING_TEXT_LIST *pending_texts, const ELEMENT *anchor)
+add_top_pending_text (PENDING_TEXT_LIST *pending_texts, const ELEMENT *anchor,
+                      TEXT *image_string)
 {
   PENDING_TEXT *pending_text = add_init_(pending_text) (pending_texts);
 
+  text_append (&pending_text->text, "");
   if (anchor)
-    pending_text->anchor = anchor;
+    {
+      pending_text->type = PLT_anchor;
+      pending_text->l.anchor = anchor;
+    }
+  else if (image_string)
+    {
+      pending_text->type = PLT_quoted_image;
+      pending_text->l.image_string = *image_string;
+    }
+  else
+    pending_text->type = PLT_text;
 
   return pending_text;
 }
@@ -232,7 +259,7 @@ push_count_context (COUNT_CONTEXT_STACK *stack)
   COUNT_CONTEXT *pushed_context = add_init_(count_context) (stack);
 
   pushed_context->lines = 0;
-  add_top_pending_text (&pushed_context->pending_text, 0);
+  add_top_pending_text (&pushed_context->pending_text, 0, 0);
 }
 
 
@@ -1072,16 +1099,36 @@ add_lines_count (CONVERTER *self, int lines_count)
 }
 
 void
-plaintext_add_image (CONVERTER *self, const ELEMENT *element,
-                     int lines_count, int image_width, int no_align)
+plaintext_add_image (CONVERTER *self, int lines_count, int image_width,
+                     TEXT *image_string, TEXT *image_quoted,
+                     TEXT *trailing_text)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   COUNT_CONTEXT *count_context
     = top_(count_context) (&self_plaintext->count_context);
 
-  IMAGE_LOCATION_INFO image_location
-      = {count_context->lines, lines_count, image_width, no_align};
-  add_(image_location) (&count_context->images, image_location);
+  if (image_string)
+    {
+      PENDING_TEXT_LIST *pending = &count_context->pending_text;
+      PENDING_TEXT *pending_image
+                      = add_top_pending_text (pending, 0, image_string);
+      text_append_n (&pending_image->text,
+                     image_quoted->text, image_quoted->end);
+      free (image_quoted->text);
+      PENDING_TEXT *trailing = add_top_pending_text (pending, 0, 0);
+      if (trailing_text)
+        {
+          text_append_n (&trailing->text, trailing_text->text,
+                                          trailing_text->end);
+          free (trailing_text->text);
+        }
+    }
+  else
+    {
+      IMAGE_LOCATION_INFO image_location
+         = {count_context->lines, lines_count, image_width};
+      add_(image_location) (&count_context->images, image_location);
+    }
 }
 
 void
@@ -1174,15 +1221,22 @@ stream_encode (CONVERTER *self, PENDING_TEXT_LIST *pending_texts, TEXT *result)
           free (converted_text.text);
         }
       text_reset (&pending_text->text);
-      if (self_plaintext->target_locations && pending_text->anchor)
+      if (pending_text->type == PLT_quoted_image)
+        {
+          text_destroy (&pending_text->l.image_string);
+          pending_text->type = PLT_text;
+        }
+      else if (self_plaintext->target_locations
+               && pending_text->type == PLT_anchor)
         {
           TARGET_LOCATION target_location;
-          target_location.target_element = pending_text->anchor;
+          target_location.target_element = pending_text->l.anchor;
           target_location.bytes = self_plaintext->bytes;
 
           add_(target_location) (self_plaintext->target_locations,
                                  target_location);
-          pending_text->anchor = 0;
+          pending_text->l.anchor = 0;
+          pending_text->type = PLT_text;
         }
     }
 }
@@ -1207,12 +1261,15 @@ plaintext_add_target_location (CONVERTER *self, const ELEMENT *element)
     = top_(count_context) (&self_plaintext->count_context);
   PENDING_TEXT *top_pending_text
     = top_(pending_text) (&count_context->pending_text);
-  if (!top_pending_text->anchor)
-    top_pending_text->anchor = element;
+  if (top_pending_text->type == PLT_text)
+    {
+      top_pending_text->type = PLT_anchor;
+      top_pending_text->l.anchor = element;
+    }
   else
-    add_top_pending_text (&count_context->pending_text, element);
+    add_top_pending_text (&count_context->pending_text, element, 0);
 
-  add_top_pending_text (&count_context->pending_text, 0);
+  add_top_pending_text (&count_context->pending_text, 0, 0);
 }
 
 int
@@ -1344,35 +1401,36 @@ ensure_end_of_line (CONVERTER *self)
     fatal ("ensure_end_of_line: no pending text");
    */
 
-  int with_anchor = 0;
+  int with_location = 0;
   size_t nr;
   for (nr = pending_texts->number; nr > 0; nr--)
     {
       PENDING_TEXT *pending_text = &pending_texts->list[nr -1];
       TEXT *t_pending = &pending_text->text;
-      if (pending_text->anchor)
-        with_anchor = 1;
-      if (t_pending->end > 0)
+
+      if (pending_text->type != PLT_text)
+        with_location = 1;
+
+      if (t_pending->end == 0)
+        continue;
+      if (t_pending->text[t_pending->end -1] != '\n')
         {
-          if (t_pending->text[t_pending->end -1] != '\n')
+          TEXT_CONTEXT *text_element_context
+            = top_(text_element_context) (
+                      &self_plaintext->text_element_context);
+          if (!with_location)
+            text_append_n (t_pending, "\n", 1);
+          else
             {
-              TEXT_CONTEXT *text_element_context
-                = top_(text_element_context) (
-                          &self_plaintext->text_element_context);
-              if (!with_anchor)
-                text_append_n (t_pending, "\n", 1);
-              else
-                {
-       /* add new pending text to keep the anchor before the end of line */
-                  PENDING_TEXT *new_nl
-                    = add_top_pending_text (pending_texts, 0);
-                  text_append_n (&new_nl->text, "\n", 1);
-                }
-              add_lines_count (self, 1);
-              text_element_context->counter = 0;
+   /* add new pending text to keep the anchor/image before the end of line */
+              PENDING_TEXT *new_nl
+                = add_top_pending_text (pending_texts, 0, 0);
+              text_append_n (&new_nl->text, "\n", 1);
             }
-          return;
+          add_lines_count (self, 1);
+          text_element_context->counter = 0;
         }
+      return;
     }
 }
 
@@ -1391,7 +1449,16 @@ pending_to_text (PENDING_TEXT_LIST *pending_texts)
       text_append_n (&t, pending_text->text.text, pending_text->text.end);
 
       text_reset (&pending_text->text);
-      pending_text->anchor = 0;
+      if (pending_text->type == PLT_anchor)
+        {
+          pending_text->l.anchor = 0;
+          pending_text->type = PLT_text;
+        }
+      else if (pending_text->type == PLT_quoted_image)
+        {
+          text_destroy (&pending_text->l.image_string);
+          pending_text->type = PLT_text;
+        }
     }
   pending_texts->number = 0;
   return t;
@@ -1409,6 +1476,7 @@ stream_to_text (CONVERTER *self)
 }
 
 /* Return anchors in ANCHORS_OUT. */
+/* Images are ignored. */
 static TEXT
 stream_to_text_anchor (CONVERTER *self, CONST_ELEMENT_LIST *anchors_out)
 {
@@ -1428,10 +1496,16 @@ stream_to_text_anchor (CONVERTER *self, CONST_ELEMENT_LIST *anchors_out)
       text_append_n (&t, pending_text->text.text, pending_text->text.end);
 
       text_reset (&pending_text->text);
-      if (pending_text->anchor)
+      if (pending_text->type == PLT_anchor)
         {
-          add_(const_element) (anchors_out, pending_text->anchor);
-          pending_text->anchor = 0;
+          add_(const_element) (anchors_out, pending_text->l.anchor);
+          pending_text->l.anchor = 0;
+          pending_text->type = PLT_text;
+        }
+      else if (pending_text->type == PLT_quoted_image)
+        {
+          text_destroy (&pending_text->l.image_string);
+          pending_text->type = PLT_text;
         }
     }
   return t;
@@ -1820,7 +1894,8 @@ merge_pending_texts (PENDING_TEXT_LIST *dst_pending_texts,
     {
       /* swap source and destination, in case destination has some
          unused allocated memory */
-      PENDING_TEXT *top_pending_text = add_top_pending_text (dst_pending_texts, 0);
+      PENDING_TEXT *top_pending_text
+        = add_top_pending_text (dst_pending_texts, 0, 0);
       PENDING_TEXT tmp = *top_pending_text;
       *top_pending_text = source->list[i];
        /*
@@ -1843,6 +1918,8 @@ merge_pending_with_parent (CONVERTER *self,
   merge_pending_texts (parent_pending_texts, pending_texts);
 }
 
+static unsigned int IMAGE_WIDTH = 3;
+
 static size_t
 pending_texts_width (const PENDING_TEXT_LIST *pending_texts)
 {
@@ -1852,8 +1929,11 @@ pending_texts_width (const PENDING_TEXT_LIST *pending_texts)
   for (i = 0; i < pending_texts->number; i++)
     {
       PENDING_TEXT *pending_text = &pending_texts->list[i];
-      width += width_multibyte (pending_text->text.text,
-                                pending_text->text.end);
+      if (pending_text->type == PLT_quoted_image)
+        width += IMAGE_WIDTH;
+      else
+        width += width_multibyte (pending_text->text.text,
+                                  pending_text->text.end);
     }
   return width;
 }
@@ -1865,7 +1945,7 @@ pending_text_has_anchor (const PENDING_TEXT_LIST *pending_texts)
   for (i = 0; i < pending_texts->number; i++)
     {
       PENDING_TEXT *pending_text = &pending_texts->list[i];
-      if (pending_text->anchor)
+      if (pending_text->type == PLT_anchor)
         return 1;
     }
   return 0;
@@ -1879,11 +1959,10 @@ enum align_directions {
 
 static int
 compute_spaces_align_line (int line_width, int max_column,
-                           enum align_directions direction,
-                           int no_align)
+                           enum align_directions direction)
 {
   int prepended_spaces;
-  if (line_width > max_column || no_align)
+  if (line_width > max_column)
     prepended_spaces = 0;
   else if (direction == AD_center)
     prepended_spaces = (max_column -1 - line_width) / 2;
@@ -1933,13 +2012,19 @@ replace_pending_text (PENDING_TEXT *dst_pending_text,
 {
   TEXT *dst_t = &dst_pending_text->text;
   /* debugging, verify that nothing is replaced */
-  if (dst_pending_text->anchor)
+  if (dst_pending_text->type == PLT_anchor)
     {
-      char *texi = target_element_to_texi_label (dst_pending_text->anchor);
+      char *texi = target_element_to_texi_label (dst_pending_text->l.anchor);
       fprintf (stderr, "BUG: replace_pending_text: got an anchor [%s]\n", texi);
       free (texi);
     }
-  if (dst_t->end > 0)
+  else if (dst_pending_text->type == PLT_quoted_image)
+    {
+      fprintf (stderr, "BUG: replace_pending_text: got an image {%s}\n",
+                       dst_pending_text->l.image_string.text);
+      text_destroy (&dst_pending_text->l.image_string);
+    }
+  if (dst_pending_text->type != PLT_quoted_image && dst_t->end > 0)
     fprintf (stderr, "BUG: replace_pending_text: got text '%s'\n",
              dst_t->text);
   /* end debugging */
@@ -1958,7 +2043,8 @@ move_pending_texts (PENDING_TEXT_LIST *dst_pending_texts,
   size_t i;
   for (i = 0; i < source->number; i++)
     {
-      PENDING_TEXT *top_pending_text = add_top_pending_text (dst_pending_texts, 0);
+      PENDING_TEXT *top_pending_text
+        = add_top_pending_text (dst_pending_texts, 0, 0);
       replace_pending_text (top_pending_text, &source->list[i]);
     }
   source->number = 0;
@@ -1977,12 +2063,27 @@ collect_pending_texts_lines (PENDING_TEXT_LIST_LINES *pending_text_lines,
       PENDING_TEXT *pending_text = &pending_texts->list[i];
       TEXT *t = &pending_text->text;
 
-      if (t->end == 0)
+      if (pending_text->type == PLT_quoted_image)
         {
-          if (pending_text->anchor)
+          add_(pending_text) (&current_line, *pending_text);
+          if (t->text[t->end -1] == '\n')
+            {
+              add_(pending_text_line) (pending_text_lines,
+                                       current_line);
+              memset (&current_line, 0, sizeof (PENDING_TEXT_LIST));
+            }
+          memset (&pending_text->l.image_string, 0, sizeof (TEXT));
+          pending_text->type = PLT_text;
+          memset (t, 0, sizeof (TEXT));
+          continue;
+        }
+      else if (t->end == 0)
+        {
+          if (pending_text->type == PLT_anchor)
             {
               add_(pending_text) (&current_line, *pending_text);
-              pending_text->anchor = 0;
+              pending_text->l.anchor = 0;
+              pending_text->type = PLT_text;
               memset (t, 0, sizeof (TEXT));
             }
           continue;
@@ -2016,10 +2117,12 @@ collect_pending_texts_lines (PENDING_TEXT_LIST_LINES *pending_text_lines,
           else
             break;
         }
-      if (pending_text->anchor)
+      last_pending->type = pending_text->type;
+      if (pending_text->type == PLT_anchor)
         {
-          last_pending->anchor = pending_text->anchor;
-          pending_text->anchor = 0;
+          last_pending->l.anchor = pending_text->l.anchor;
+          pending_text->l.anchor = 0;
+          pending_text->type = PLT_text;
         }
       text_reset (t);
     }
@@ -2039,21 +2142,30 @@ free_pending_texts (PENDING_TEXT_LIST *pending_texts, const char *msg)
       PENDING_TEXT *pending_text = &pending_texts->list[j];
       TEXT *t = &pending_text->text;
       /* debugging */
-      if (pending_text->anchor)
+      if (pending_text->type == PLT_anchor)
         {
-          char *texi = target_element_to_texi_label (pending_text->anchor);
+          char *texi = target_element_to_texi_label (pending_text->l.anchor);
           fprintf (stderr, "FREE ALOSE: %s %zu [%s]\n", msg, j, texi);
           free (texi);
         }
-      if (t->end > 0)
+      else if (pending_text->type == PLT_quoted_image)
         {
-          fprintf (stderr, "FREE LOSE T %s %zu '%s'\n", msg, j, t->text);
-          free (t->text);
+          fprintf (stderr, "FREE ILOSE: %s %zu {%s}\n", msg, j,
+                  pending_text->l.image_string.text);
+          free (pending_text->l.image_string.text);
         }
-      else if (t->text)
+      if (pending_text->type != PLT_quoted_image)
         {
-          fprintf (stderr, "FREE LOSE T RESET %s %zu\n", msg, j);
-          free (t->text);
+          if (t->end > 0)
+            {
+              fprintf (stderr, "FREE LOSE T %s %zu '%s'\n", msg, j, t->text);
+              free (t->text);
+            }
+          else if (t->text)
+            {
+              fprintf (stderr, "FREE LOSE T RESET %s %zu\n", msg, j);
+              free (t->text);
+            }
         }
       /* end debugging */
     }
@@ -2133,7 +2245,7 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
           image_lines_count = 0;
           new_image_prepended_spaces
             = compute_spaces_align_line (new_image->image_width, max_column,
-                                         direction, new_image->no_align);
+                                         direction);
           if (!image)
             {
               image = new_image;
@@ -2197,7 +2309,7 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
           if (line_width > 0 || has_anchor)
             {
               int prepended_spaces = compute_spaces_align_line (line_width,
-                                                 max_column, direction, 0);
+                                                 max_column, direction);
               if (prepended_spaces > 0)
                 {
                   int l;
@@ -2205,11 +2317,12 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
                     stream_output_n (self, " ", 1);
                 }
               move_pending_texts (result, line);
-              if (result->list[result->number -1].anchor)
+              if (result->list[result->number -1].type != PLT_text)
                 {
-         /* add an empty text if the last pending is the anchor such that
-            it does not have its location modified */
-                  add_top_pending_text (result, 0);
+         /* add an empty text if the last pending is not regular text such
+            that an anchor does not have its location modified and image
+            text is not modified either */
+                  add_top_pending_text (result, 0, 0);
                 }
             }
           else
@@ -3524,7 +3637,7 @@ plaintext_format_image_element (CONVERTER *self, const ELEMENT *element,
    /* the last line is part of the image but do not have a new line,
       so 1 is added to $lines_count to have the number of lines of
       the image */
-      plaintext_add_image (self, element, lines_count +1, width, 0);
+      plaintext_add_image (self, lines_count +1, width, 0, 0, 0);
 
       free (basefile);
 
@@ -3549,6 +3662,17 @@ plaintext_format_image (CONVERTER *self, const char *image_file,
   return result;
 }
 
+/* Should never be called, as called from a function only called for
+   INFO_MATH_IMAGES */
+TEXT
+plaintext_quote_image (CONVERTER *self, const TEXT *image_text)
+{
+  TEXT result;
+  text_init (&result);
+  text_append_n (&result, image_text->text, image_text->end);
+  return result;
+}
+
 /* format_* dispatch table between plaintext and info.  Should be in sync with
    enum converter_format */
 static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[] = {
@@ -3561,6 +3685,7 @@ static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[] = {
    &plaintext_format_node,
    &plaintext_format_printindex,
    &plaintext_format_ref,
+   &plaintext_quote_image,
   },
   {
    &info_format_anchor,
@@ -3571,11 +3696,10 @@ static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[] = {
    &info_format_node,
    &info_format_printindex,
    &info_format_ref,
+   &info_quote_image,
   }
 };
 
-/* TODO this looks like we are doing the same computations more than
-   once for images, maybe this could be improved. */
 /* NOTE only called for Info for INFO_MATH_IMAGES, never in plaintext. */
 void
 plaintext_insert_image (CONVERTER *self, const char *image_file,
@@ -3585,9 +3709,9 @@ plaintext_insert_image (CONVERTER *self, const char *image_file,
   TEXT result_text;
   text_init (&result_text);
   text_append_n (&result_text, image_text.text, image_text.end);
-  int line_count = -1;
-  int width = 0;
+  int line_count;
   TEXT formatted_image;
+  TEXT quoted_image;
 
   if (result_text.end > 0 && result_text.text[result_text.end -1] == '\n')
     {
@@ -3595,48 +3719,17 @@ plaintext_insert_image (CONVERTER *self, const char *image_file,
       result_text.end--;
     }
 
-  if (result_text.end > 0)
-    {
-      size_t len = result_text.end;
-      /* We assume that there are only NL, no CR */
-      const char *p = result_text.text;
-      while (len > 0)
-        {
-          int new_width;
-
-          line_count++;
-          const char *q = memchr (p, '\n', len);
-          new_width = width_multibyte (p, q - p);
-          if (new_width > width)
-            width = new_width;
-          if (!q)
-            break;
-          p = q+1;
-          len -= q - p +1;
-        }
-    }
-  int o_line_count;
   formatted_image
     = plaintext_functions[self->format].format_image (self, image_file,
-                                   &result_text, 0, dpi, depth, &o_line_count);
+                                   &result_text, 0, dpi, depth, &line_count);
   free (result_text.text);
-  result->string = formatted_image.text;
-  result->len = formatted_image.end;
+  result->string = 0;
+  result->len = 0;
 
-  if (o_line_count != line_count)
-    {
-      fprintf (stderr, "BUG: image line counts differ %d %d\n",
-               o_line_count, line_count);
-      abort ();
-    }
+  quoted_image = plaintext_functions[self->format].quote_image (self,
+                                                        &formatted_image);
 
-   /* the last line is part of the image but do not have a new line,
-      so 1 is added to $lines_count to have the number of lines of
-      the image */
-  plaintext_add_image (self, 0, line_count+1, width, 0);
-
-  if (line_count < 0)
-    line_count = 0;
+  plaintext_add_image (self, 0, 0, &formatted_image, &quoted_image, 0);
 
   result->line_count = line_count;
 }
@@ -4703,7 +4796,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           Here we just add a small number to the line counter as a compromise.
           (However, multi-line replacement texts are unlikely to look good if
           used inside a paragraph.) */
-              para_add_to_counter (3);
+              para_add_to_counter (IMAGE_WIDTH);
               add_lines_count (self, image_result.line_count);
               if (image_result.string)
                 {
@@ -6743,27 +6836,26 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                         {
                           PENDING_TEXT *pending_text = &cell_line->list[j];
                           TEXT *t = &pending_text->text;
-                          if (t->end > 0 || pending_text->anchor)
+                          if (t->end > 0 || pending_text->type != PLT_text)
                             {
                               if (!indent_done)
                                 {
                                   if (indent_len > 0)
                                     {
                                       PENDING_TEXT *spaces
-                                        = add_top_pending_text (result, 0);
+                                        = add_top_pending_text (result, 0, 0);
                                       for (k = 0; k < indent_len; k++)
                                         text_append_n (&spaces->text, " ", 1);
                                       indent_done = 1;
                                     }
                                 }
                             }
-        /* if there are images quoted with NUL in the multitable,
-           there will be NUL in the cells, so use a function handling NUL */
-                          int next_width
-                            = width_multibyte_with_nul (t->text, t->end);
-                          line_width += next_width;
+                          if (pending_text->type == PLT_quoted_image)
+                            line_width += IMAGE_WIDTH;
+                          else
+                            line_width += width_multibyte (t->text, t->end);
                           PENDING_TEXT *dst_pending_text
-                            = add_top_pending_text (result, 0);
+                            = add_top_pending_text (result, 0, 0);
                           replace_pending_text (dst_pending_text, pending_text);
                         }
                     }
@@ -6776,7 +6868,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                           if (!indent_done)
                             {
                               PENDING_TEXT *spaces
-                                        = add_top_pending_text (result, 0);
+                                      = add_top_pending_text (result, 0, 0);
                               for (k = 0; k < indent_len; k++)
                                 text_append_n (&spaces->text, " ", 1);
                               indent_done = 1;
@@ -6787,7 +6879,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                           if (spaces_nr > 0)
                             {
                               PENDING_TEXT *spaces
-                                        = add_top_pending_text (result, 0);
+                                      = add_top_pending_text (result, 0, 0);
                               for (k = 0; k < spaces_nr; k++)
                                 text_append_n (&spaces->text, " ", 1);
                             }
@@ -6795,7 +6887,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                         }
                     }
                 }
-              PENDING_TEXT *new_nl = add_top_pending_text (result, 0);
+              PENDING_TEXT *new_nl = add_top_pending_text (result, 0, 0);
               text_append_n (&new_nl->text, "\n", 1);
             }
           free (cell_beginnings);
@@ -7194,13 +7286,19 @@ plaintext_free_converter (CONVERTER *self)
           PENDING_TEXT *pending_text = &pending_texts->list[j];
           TEXT *t = &pending_text->text;
           /* debugging */
-          if (pending_text->anchor)
+          if (pending_text->type == PLT_anchor)
             {
-              char *texi = target_element_to_texi_label (pending_text->anchor);
+              char *texi = target_element_to_texi_label (pending_text->l.anchor);
               fprintf (stderr, "ANOT RESET: %zu %zu [%s]\n", i, j, texi);
               free (texi);
             }
-          if (t->end > 0)
+          else if (pending_text->type == PLT_quoted_image)
+            {
+              fprintf (stderr, "INOT RESET: %zu %zu {%s}\n", i, j,
+                                       pending_text->l.image_string.text);
+              free (pending_text->l.image_string.text);
+            }
+          else if (t->end > 0)
             fprintf (stderr, "TNOT RESET: %zu %zu '%s'\n", i, j, t->text);
           /* end debugging */
           free (t->text);

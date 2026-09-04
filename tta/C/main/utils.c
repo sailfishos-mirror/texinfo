@@ -397,6 +397,7 @@ width_multibyte (const char *text, size_t n)
 /* u8_width stops at the first NUL.  To allow for embedded NUL
    and get the width, copy and replace by another character (one that
    has a zero length) if there is a NUL. */
+/* Currently unused */
 int
 width_multibyte_with_nul (const char *text, size_t n)
 {

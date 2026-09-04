@@ -2,8 +2,8 @@
 #ifndef CONVERT_TO_PLAINTEXT_H
 #define CONVERT_TO_PLAINTEXT_H
 
+#include "text.h"
 #include "command_ids.h"
-#include "tree.h"
 #include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"
@@ -82,8 +82,9 @@ TEXT plaintext_image_formatted_text (CONVERTER *self, const ELEMENT *element,
 void plaintext_setup_output_encoding (CONVERTER *self);
 void plaintext_encode_string (CONVERTER *self, const TEXT *text, TEXT *result);
 
-void plaintext_add_image (CONVERTER *self, const ELEMENT *element,
-                     int lines_count, int image_width, int no_align);
+void plaintext_add_image (CONVERTER *self, int lines_count, int image_width,
+                     TEXT *image_string, TEXT *image_text,
+                     TEXT *trailing_text);
 void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
 /* TODO add plaintext_ prefix for all the functions? */
 void stream_output_n (CONVERTER *self, const char *text, size_t n);

@@ -1,8 +1,52 @@
+2026-09-04 Patrice Dumas  <pertusus@free.fr>
+
+	never split a quoted image, add a special type in pending text
+
+	* tta/C/convert/convert_to_info.c (info_format_image)
+	(info_quote_image, info_format_image_element),
+	tta/C/convert/convert_to_plaintext.c (PLAINTEXT_FORMAT_FUNCTIONS)
+	(plaintext_quote_image, plaintext_functions, plaintext_insert_image):
+	separate formatting image for Info and quoting with control character
+	including a NUL, to have access to a string before adding the quoting
+	characters in C.
+
+	* tta/C/convert/convert_to_plaintext.c (debug_print_pending)
+	(clear_pending_text_list, add_top_pending_text)
+	(stream_encode, plaintext_add_target_location, ensure_end_of_line)
+	(pending_to_text, stream_to_text_anchor, pending_texts_width)
+	(pending_text_has_anchor, replace_pending_text)
+	(collect_pending_texts_lines, free_pending_texts, align_lines)
+	(convert_to_plaintext_internal, plaintext_free_converter),
+	tta/C/main/plaintext_converter_state.h (enum location_type)
+	(PENDING_TEXT), tta/perl/Texinfo/Convert/InfoNonXS.pm
+	(add_target_location, _stream_to_text_anchor, _stream_encode)
+	(_debug_print_pending, _ensure_end_of_line)
+	(collect_pending_texts_lines, _pending_texts_width)
+	(_pending_text_has_anchor, _convert): add a location type to
+	PENDING_TEXT, distinguish text and anchor, and add support for quoted
+	images too.  Add an argument to add_top_pending_text for quoted image
+	and update callers.  Use IMAGE_WIDTH, set to 3 where the width of
+	images is needed.
+
+	* tta/C/convert/convert_to_info.c (info_format_image_element),
+	tta/C/convert/convert_to_plaintext.c (plaintext_add_image)
+	(plaintext_insert_image, compute_spaces_align_line)
+	(plaintext_format_image_element),
+	tta/C/main/plaintext_converter_state.h (PENDING_TEXT),
+	tta/perl/Texinfo/Convert/InfoNonXS.pm (format_image_element),
+	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (add_image,
+	_compute_spaces_align_line, format_image_element) (_insert_image): add
+	quoted image to pending text as a separate type, that is never split
+	at lines and as a width set to IMAGE_WIDTH.  A trailing new line for
+	images not in paragraph is added in a different pending text.  In C,
+	add non quoted image as argument to plaintext_add_image and in
+	PENDING_TEXT to be used for debugging.
+
 2026-09-02 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/utils.c (width_multibyte_with_nul): add a variant of
 	width_multibyte that handles NUL in string by replacing them with
-	another characterin a copy before calling width_multibyte on the copy.
+	another character in a copy before calling width_multibyte on the copy.
 
 	* tta/C/convert/convert_to_plaintext.c
 	(convert_to_plaintext_internal): use width_multibyte_with_nul for

@@ -94,15 +94,25 @@ typedef struct IMAGE_LOCATION_INFO {
     int lines;
     int lines_count;
     int image_width;
-    int no_align;
 } IMAGE_LOCATION_INFO;
 
 def_list_type(IMAGE_LOCATION_INFO_LIST, IMAGE_LOCATION_INFO);
 decl_list_fns(IMAGE_LOCATION_INFO_LIST, image_location, IMAGE_LOCATION_INFO);
 
+enum location_type {
+   PLT_text,
+   PLT_anchor,
+   PLT_quoted_image, /* quoted image */
+};
+
 typedef struct PENDING_TEXT {
     TEXT text;
-    const ELEMENT *anchor;
+    enum location_type type;
+    union {
+      const ELEMENT *anchor;
+      /* representation of image without control characters, for debugging */
+      TEXT image_string;
+    } l;
 } PENDING_TEXT;
 
 def_list_type(PENDING_TEXT_LIST, PENDING_TEXT);

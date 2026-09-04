@@ -369,35 +369,35 @@ fffffffffffffffffffffffffffffffffffffff   1  A  B
                                                               2  C  D
                          3  E  F JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
 
- [image src="figure.txt" text="  1  A  B  
+                                   [image src="figure.txt" text="  1  A  B  
   2  C  D
   3  E  F" ]
 
-CCCC  [image src="figure.txt" text="  1  A  B  
+                               CCCC  [image src="figure.txt" text="  1  A  B  
   2  C  D
   3  E  F" ]
 
-fffffffffffffffffffffffffffffffffffffff  [image src="figure.txt" text="  1  A  B  
+              fffffffffffffffffffffffffffffffffffffff  [image src="figure.txt" text="  1  A  B  
   2  C  D
   3  E  F" ]
 
-dddd  [image src="figure.txt" text="  1  A  B  
+                            dddd  [image src="figure.txt" text="  1  A  B  
   2  C  D
   3  E  F" ] iiiii
 
                                                                     AAA
- [image src="figure.txt" text="  1  A  B  
+                                                                     [image src="figure.txt" text="  1  A  B  
   2  C  D
   3  E  F" ]
 
-BBB  [image src="figure.txt" text="  1  A  B  
+                                                       BBB  [image src="figure.txt" text="  1  A  B  
   2  C  D
   3  E  F" ] gggg  [image src="figure.txt" text="  1  A  B  
   2  C  D
   3  E  F" ]
 
                                                                     HHH
- [image src="figure.txt" text="  1  A  B  
+                              [image src="figure.txt" text="  1  A  B  
   2  C  D
   3  E  F" ] JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
 

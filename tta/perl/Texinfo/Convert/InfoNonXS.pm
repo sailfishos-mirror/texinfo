@@ -1125,17 +1125,22 @@ sub format_image_element($$) {
 
     if (defined($image_file) or (defined($text) and defined($alt))) {
       $result = $self->format_image($image_file, $text, $alt);
-      if ($self->{'formatters'}->[-1]->{'_top_formatter'}) {
-        $result .= "\n";
-      }
       $lines_count = ($result =~ tr/\n/\n/);
-      $self->add_image($element, $lines_count +1, $width, 1);
+      my $trailing_text;
+      if ($self->{'formatters'}->[-1]->{'_top_formatter'}) {
+        $trailing_text = "\n";
+        $lines_count++;
+      } else {
+        $trailing_text = '';
+      }
+      $self->add_image(0, 0, $result, $trailing_text);
+      return ('', $lines_count);
     } else {
       $result = $self->image_formatted_text($element, $basefile, $text);
       $lines_count = ($result =~ tr/\n/\n/);
-      $self->add_image($element, $lines_count +1, $width);
+      $self->add_image($lines_count +1, $width);
+      return ($result, $lines_count);
     }
-    return ($result, $lines_count);
   }
   return ('', 0);
 }

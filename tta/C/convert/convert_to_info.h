@@ -30,4 +30,5 @@ TEXT info_format_image (CONVERTER *self, const char *image_file,
                    int dpi, int depth, int *lines_count);
 void info_format_image_element (CONVERTER *self, const ELEMENT *element,
                            STRING_LINE_COUNT *result);
+TEXT info_quote_image (CONVERTER *self, const TEXT *image_text);
 #endif

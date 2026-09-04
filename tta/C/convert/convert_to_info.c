@@ -1570,7 +1570,7 @@ info_format_image (CONVERTER *self, const char *image_file,
   text_init (&result);
   text_append (&result, "");
 
-  text_append_n (&result, "\x00\x08[image src=\"", 14);
+  text_append_n (&result, "image src=\"", 11);
   if (image_file)
     {
       text_append (&temp, image_file);
@@ -1601,9 +1601,25 @@ info_format_image (CONVERTER *self, const char *image_file,
       text_append_n (&result, "\"", 1);
     }
 
-  text_append_n (&result, "\x00\x08]", 3);
-
   *out_lines_count = lines_count;
+  return result;
+}
+
+/*
+  Quoting image and formatting image are separated to generate both, to
+  be able to have strings without control characters to use simple printf
+  for debugging, and to have the formatted image to output.
+
+  In Perl there are only quoted image strings.
+ */
+TEXT
+info_quote_image (CONVERTER *self, const TEXT *image_text)
+{
+  TEXT result;
+  text_init (&result);
+  text_append_n (&result, "\x00\x08[", 3);
+  text_append_n (&result, image_text->text, image_text->end);
+  text_append_n (&result, "\x00\x08]", 3);
   return result;
 }
 
@@ -1626,10 +1642,8 @@ info_format_image_element (CONVERTER *self, const ELEMENT *element,
       TEXT text;
       TEXT alt;
       TEXT *alt_ref = 0;
-      int no_align;
       int lines_count = 0;
       int width = 0;
-      TEXT image_string;
 
       self->convert_text_options->code_state++;
       basefile = convert_to_text (element->e.c->contents.list[0],
@@ -1708,32 +1722,41 @@ info_format_image_element (CONVERTER *self, const ELEMENT *element,
 
       if (image_file || (text.end > 0 && alt_ref && alt.end > 0))
         {
-          image_string = info_format_image (self, image_file,
+          TEXT trailing_text;
+          TEXT image_string = info_format_image (self, image_file,
                                                   &text, alt_ref, 0, 0,
                                                   &lines_count);
           free (text.text);
+
+          TEXT quoted_image = info_quote_image (self, &image_string);
+
+          text_init (&trailing_text);
           if (self_plaintext->formatters.number == 1)
             {
-              text_append_n (&image_string, "\n", 1);
+              text_append_n (&trailing_text, "\n", 1);
               lines_count++;
             }
+          else
+            text_append (&trailing_text, "");
 
-          no_align = 1;
+          result->string = 0;
+          result->len = 0;
+          plaintext_add_image (self, 0, 0,
+                               &image_string, &quoted_image, &trailing_text);
         }
       else
         {
-          no_align = 0;
-          image_string = plaintext_image_formatted_text (self, element,
-                                                       basefile, text);
+          TEXT image_string = plaintext_image_formatted_text (self, element,
+                                                              basefile, text);
           lines_count = count_new_lines (&image_string);
+          result->string = image_string.text;
+          result->len = image_string.end;
+          plaintext_add_image (self, lines_count +1, width, 0, 0, 0);
         }
       free (basefile);
 
       result->line_count = lines_count;
-      result->string = image_string.text;
-      result->len = image_string.end;
 
-      plaintext_add_image (self, element, lines_count +1, width, no_align);
 
       if (alt_ref)
         free (alt.text);

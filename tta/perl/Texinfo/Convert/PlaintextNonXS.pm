@@ -998,11 +998,13 @@ sub _add_lines_count($$) {
 sub add_target_location($$) {
   my ($self, $element) = @_;
 
+  my $anchor_info = {'location' => 'anchor', 'anchor' => $element};
+
   my $count_context = $self->{'count_context'}->[-1];
   if (scalar(@{$count_context->{'pending_text'}->[-1]}) == 1) {
-    push @{$count_context->{'pending_text'}->[-1]}, $element;
+    push @{$count_context->{'pending_text'}->[-1]}, $anchor_info;
   } else {
-    push @{$count_context->{'pending_text'}}, ['', $element];
+    push @{$count_context->{'pending_text'}}, ['', $anchor_info];
   }
   push @{$count_context->{'pending_text'}}, [''];
   return;
@@ -1031,15 +1033,23 @@ sub _adjust_final_locations($) {
   }
 }
 
-sub add_image($$$$;$) {
-  my ($self, $element, $lines_count, $image_width, $no_align) = @_;
+sub add_image($$;$$) {
+  my ($self, $lines_count, $image_width, $quoted_image,
+      $trailing_text) = @_;
 
-  push @{$self->{'count_context'}->[-1]->{'images'}}, {
-    'lines' => $self->{'count_context'}->[-1]->{'lines'},
-    'lines_count' => $lines_count,
-    'image_width'  => $image_width,
-    'no_align' =>  $no_align,
-  };
+  if (defined($quoted_image)) {
+    my $image_info = {'location' => 'quoted_image'};
+    push @{$self->{'count_context'}->[-1]->{'pending_text'}},
+         [$quoted_image, $image_info], [$trailing_text];
+  } else {
+    my $image_info = {
+      'lines' => $self->{'count_context'}->[-1]->{'lines'},
+      'lines_count' => $lines_count,
+      'image_width'  => $image_width,
+    };
+
+    push @{$self->{'count_context'}->[-1]->{'images'}}, $image_info;
+  }
 }
 
 sub _stream_output($$) {
@@ -1124,6 +1134,7 @@ sub _stream_to_text($) {
 }
 
 # gather both text and anchors
+# Images are ignored.
 sub _stream_to_text_anchor($) {
   my $self = shift;
 
@@ -1134,8 +1145,9 @@ sub _stream_to_text_anchor($) {
   my $result = '';
   foreach my $pending_string (@$pending) {
     $result .= $pending_string->[0];
-    if (defined($pending_string->[1])) {
-      push @anchors, $pending_string->[1];
+    if (defined($pending_string->[1])
+        and ($pending_string->[1]->{'location'} eq 'anchor')) {
+      push @anchors, $pending_string->[1]->{'anchor'};
     }
   }
   $count_context->{'pending_text'} = [];
@@ -1169,11 +1181,12 @@ sub _stream_encode($$) {
         $self->{'bytes'} += length($encoded);
       }
     }
-    if (defined($self->{'target_locations'})
-        and defined($pending_string->[1])) {
+    if (defined($pending_string->[1])
+        and $pending_string->[1]->{'location'} eq 'anchor'
+        and exists($self->{'target_locations'})) {
       push @{$self->{'target_locations'}}, {
-               'target_element' => $pending_string->[1],
-               'bytes' => $self->{'bytes'}
+             'target_element' => $pending_string->[1]->{'anchor'},
+             'bytes' => $self->{'bytes'}
       };
     }
   }
@@ -1215,8 +1228,13 @@ sub _debug_print_pending($) {
   foreach my $pending (@$pending_texts) {
     my $result = $pending->[0];
     if (defined($pending->[1])) {
-      $result .= '['
-  . Texinfo::Convert::Texinfo::target_element_to_texi_label($pending->[1]).']';
+      if ($pending->[1]->{'location'} eq 'anchor') {
+        $result .= '['
+         . Texinfo::Convert::Texinfo::target_element_to_texi_label(
+             $pending->[1]->{'anchor'}).']';
+      } elsif ($pending->[1]->{'location'} eq 'quoted_image') {
+        $result .= '{'.length($pending->[0]).'}';
+      }
     }
     push @strings, $result;
   }
@@ -1287,17 +1305,17 @@ sub _ensure_end_of_line($) {
   my $pending_texts = $self->{'count_context'}->[-1]->{'pending_text'};
 
   my $nr_pending = scalar(@$pending_texts);
-  my $with_anchor;
+  my $with_location;
   for (my $i = $nr_pending - 1; $i >= 0; $i--) {
     if (defined($pending_texts->[$i]->[1])) {
-      $with_anchor = 1;
+      $with_location = 1;
     }
     if ($pending_texts->[$i]->[0] ne '') {
       if ($pending_texts->[$i]->[0] !~ /\n\z/) {
-        if (!$with_anchor) {
+        if (!$with_location) {
           $pending_texts->[$i]->[0] .= "\n";
         } else {
-          # add new pending text to keep the anchor before the end of line
+      # add new pending text to keep the anchor/image before the end of line
           push @$pending_texts, ["\n"];
         }
         _add_lines_count($self, 1);
@@ -1539,11 +1557,11 @@ sub process_footnotes($;$) {
   return;
 }
 
-sub _compute_spaces_align_line($$$;$) {
-  my ($line_width, $max_column, $direction, $no_align) = @_;
+sub _compute_spaces_align_line($$$) {
+  my ($line_width, $max_column, $direction) = @_;
 
   my $prepended_spaces;
-  if ($line_width >= $max_column or $no_align) {
+  if ($line_width >= $max_column) {
     $prepended_spaces = 0;
   } elsif ($direction eq 'center') {
     # if no int we may end up with floats...
@@ -1563,7 +1581,10 @@ sub collect_pending_texts_lines($) {
   my $current_line = [];
   foreach my $pending_text (@$pending_texts) {
     my @pending_lines;
-    if ($pending_text->[0] eq '') {
+    if (defined($pending_text->[1])
+        and $pending_text->[1]->{'location'} eq 'quoted_image') {
+      push @pending_lines, $pending_text;
+    } elsif ($pending_text->[0] eq '') {
       # need a separate case, as split does not return an empty string.
       # keep empty cells or aligned text only if there is an anchor
       if (defined($pending_text->[1])) {
@@ -1624,7 +1645,7 @@ sub _align_lines($$$$$) {
       $image_lines_count = 0;
       $new_image_prepended_spaces
        = _compute_spaces_align_line($new_image->{'image_width'}, $max_column,
-                                    $direction, $new_image->{'no_align'});
+                                    $direction);
       if (!defined($image)) {
         $image = $new_image;
         $image_prepended_spaces = $new_image_prepended_spaces;
@@ -2475,7 +2496,7 @@ sub format_image_element($$) {
     # the last line is part of the image but do not have a new line,
     # so 1 is added to $lines_count to have the number of lines of
     # the image
-    $self->add_image($element, $lines_count+1, $width);
+    $self->add_image($lines_count+1, $width);
     return ($result, $lines_count);
   }
   return ('', 0);
@@ -2493,53 +2514,23 @@ sub format_image($$$;$) {
 # insert an image, but not as part of @image formatting.  It is better
 # to have a different code, as there is no .txt file read, instead the
 # $IMAGE_TEXT argument is used.
+# Currently for INFO_MATH_IMAGES, therefore only called for Info.
 # $IMAGE_FILE is a character string.
 # $DPI is the dots per inch of the image, if given.
 # $DEPTH is pixels below text baseline, if given.
 sub _insert_image($$$;$$) {
   my ($self, $image_file, $image_text, $dpi, $depth) = @_;
 
-  # NOTE no alt info set, not clear to what it could be set?
-
   chomp($image_text);
+  my $line_count = ($image_text =~ tr/\n/\n/);
 
-  # setup a text handle to separate lines.  Seems convoluted, but it is the
-  # same as what is done in ParserNonXS.
-  # Text handle works with bytes
-  my $image_bytes = Encode::encode('utf-8', $image_text);
-  my $texthandle = do { local *FH };
-  if (!open($texthandle, '<', \$image_bytes)) {
-    my $error_message = $!;
-    # Better die now than later reading on a closed filehandle.
-    die "BUG? open on a reference for image test failed: $error_message\n";
-  }
-
-  my $line_count = -1;
-  my $width = 0;
-  while (1) {
-    my $next_line = <$texthandle>;
-
-    last if (!defined($next_line));
-
-    $next_line = Encode::decode('utf-8', $next_line);
-    $line_count++;
-    my $line_width = Texinfo::Convert::Unicode::string_width($next_line);
-    $width = $line_width
-      if ($line_width > $width);
-  }
-  close($texthandle);
-
+  # NOTE no alt info set, not clear to what it could be set?
   my $result = $self->format_image($image_file, $image_text, undef,
                                    $dpi, $depth);
 
-  # the last line is part of the image but do not have a new line,
-  # so 1 is added to $line_count to have the number of lines of
-  # the image
-  $self->add_image(undef, $line_count+1, $width);
+  $self->add_image(0, 0, $result);
 
-  $line_count = 0 if ($line_count < 0);
-
-  return ($result, $line_count);
+  return ('', $line_count);
 }
 
 my %underline_symbol = (
@@ -2572,12 +2563,19 @@ sub _pending_is_empty($) {
   return 1;
 }
 
+# assumed width for quoted images or images in general.  There is no
+# good way to know what is shown in Info reader, text, alt or image.
+my $IMAGE_WIDTH = 3;
+
 sub _pending_texts_width($) {
   my $pending_texts = shift;
 
   my $width = 0;
   foreach my $pending (@$pending_texts) {
-    if ($pending->[0] ne '') {
+    if (defined($pending->[1])
+        and $pending->[1]->{'location'} eq 'quoted_image') {
+      $width += $IMAGE_WIDTH;
+    } else {
       $width += Texinfo::Convert::Unicode::string_width($pending->[0]);
     }
   }
@@ -2588,7 +2586,7 @@ sub _pending_text_has_anchor($) {
   my $pending_texts = shift;
 
   foreach my $pending (@$pending_texts) {
-    if (defined($pending->[1])) {
+    if (defined($pending->[1]) and $pending->[1]->{'location'} eq 'anchor') {
       return 1;
     }
   }
@@ -3271,7 +3269,8 @@ sub _convert($$) {
         # Here we just add a small number to the line counter as a compromise.
         # (However, multi-line replacement texts are unlikely to look good if
         # used inside a paragraph.)
-        Texinfo::Convert::Paragraph::add_to_counter($formatter->{'container'}, 3);
+        Texinfo::Convert::Paragraph::add_to_counter($formatter->{'container'},
+                                                    $IMAGE_WIDTH);
         _add_lines_count($self, $lines_count);
         _stream_output($self, $image);
         return;
@@ -3518,8 +3517,6 @@ sub _convert($$) {
             _stream_output_count_nl($self,
                        add_pending_word($formatter->{'container'}, 1));
             my ($math_text, $anchors) = _stream_to_text_anchor($self);
-            # TODO add locations in counts to current counts context?
-            # (see _align_environment)
             pop @{$self->{'count_context'}};
             foreach my $anchor (@$anchors) {
               $self->add_target_location($anchor);
@@ -4505,8 +4502,13 @@ sub _convert($$) {
                   $indent_done = 1;
                 }
               }
-              $line_width
+              if (defined($pending_text->[1])
+                  and $pending_text->[1]->{'location'} eq 'quoted_image') {
+                $line_width += $IMAGE_WIDTH;
+              } else {
+                $line_width
                 += Texinfo::Convert::Unicode::string_width($pending_text->[0]);
+              }
               push @$result, $pending_text;
             }
           }
@@ -4573,15 +4575,13 @@ sub _convert($$) {
       foreach my $anchor (@$anchors) {
         $self->add_target_location($anchor);
       }
-      # TODO add locations in counts to current counts context?
-      # (see _align_environment)
+      # NB we don't output the below-baseline depth for @displaymath as
+      # it does not need to be aligned with surrounding text.
       my ($image, $lines_count)
          = _insert_image($self,
                          $self->{'elements_images'}->{$element}->{'filename'},
                          $math_text,
                          $self->{'elements_images'}->{$element}->{'dpi'});
-      # NB we don't output the below-baseline depth for @displaymath as
-      # it does not need to be aligned with surrounding text.
       _add_lines_count($self, $lines_count);
       _stream_output($self, $image);
       _ensure_end_of_line($self);
