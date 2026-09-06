@@ -1,3 +1,9 @@
+2026-09-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\txiwarning):
+	Macro to put warnings on their own lines and prefix with line number.
+	Suggestion from Karl.
+
 2026-09-06 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/utils.c (whitespace_chars_except_newline),
