@@ -5,7 +5,11 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 require 't/test_utils.pl';
 
+use Texinfo::XSLoader;
+
 my $XS_convert = Texinfo::XSLoader::XS_modules_enabled();
+
+my $use_XS = ($XS_convert and $Texinfo::XSLoader::core_modules_built);
 
 my $itemize_arguments_text = '
 @itemize ---
@@ -1762,7 +1766,8 @@ undef, {'test_file' => 'simple_only_special_spaces_node.texi',
        {'SPLIT' => 'node', 'TRANSLITERATE_FILE_NAMES' => 0}],
 ['simple_only_special_spaces_node_test_split_section',
 undef, {'test_file' => 'simple_only_special_spaces_node.texi',
-        'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef,
+        'skip' => ($] < 5.014 and not $use_XS)
+                   ? 'Perl too old: /a regex flag needed' : undef,
         'test_split' => 'section',
        },
 ],

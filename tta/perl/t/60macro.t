@@ -5,6 +5,11 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 require 't/test_utils.pl';
 
+use Texinfo::XSLoader;
+
+my $use_XS = (Texinfo::XSLoader::XS_modules_enabled()
+              and $Texinfo::XSLoader::core_modules_built);
+
 my @test_cases = (
 ['zero_argument',
 '@macro foo {}
@@ -178,7 +183,8 @@ second arg: \second\
 
 @parenbr'."\x{00e8}".'ve{e}
 ',
-{'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef, },
+{'skip' => ($] < 5.014 and not $use_XS)
+            ? 'Perl too old: /a regex flag needed' : undef, },
 ],
 ['macro_expansion','
 @macro macroone {arg1, arg2 }

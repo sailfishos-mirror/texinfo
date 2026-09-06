@@ -5,6 +5,11 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 require 't/test_utils.pl';
 
+use Texinfo::XSLoader;
+
+my $use_XS = (Texinfo::XSLoader::XS_modules_enabled()
+              and $Texinfo::XSLoader::core_modules_built);
+
 my @test_cases = (
 ['settitle_and_empty_top',
 '@settitle Title
@@ -1024,12 +1029,14 @@ undef, {'test_file' => 'chinese_mixed_with_en.texi'}
 ['non_break_spaces',
 undef,
 {'test_file' => 'non_break_spaces.texi',
- 'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef, },
+ 'skip' => ($] < 5.014 and not $use_XS)
+            ? 'Perl too old: /a regex flag needed' : undef, },
 ],
 ['all_spaces',
 undef,
 {'test_file' => 'all_spaces.texi',
- 'skip' => ($] < 5.014) ? 'Perl too old: LINE TABULATION in /a needed' : undef, },
+ 'skip' => ($] < 5.014 and not $use_XS)
+            ? 'Perl too old: LINE TABULATION in /a needed' : undef, },
 ],
 ['east_asian_in_w',
 undef, {'test_file' => 'east_asian_in_w.texi'}

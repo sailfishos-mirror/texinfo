@@ -5,6 +5,11 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 require 't/test_utils.pl';
 
+use Texinfo::XSLoader;
+
+my $use_XS = (Texinfo::XSLoader::XS_modules_enabled()
+              and $Texinfo::XSLoader::core_modules_built);
+
 my @test_cases = (
 ['wrong_synindex',
 '@defindex aaa
@@ -644,7 +649,8 @@ This variable represents MMM Mode.
 @printindex cp
 
 ',
-{'skip' => ($] < 5.018) ? 'Perl too old incompatible Unicode collation' : undef,}
+{'skip' => ($] < 5.018 and not $use_XS)
+            ? 'Perl too old incompatible Unicode collation' : undef,}
 ],
 ['explicit_sort_key',
 '@node Top
@@ -1070,18 +1076,21 @@ my @file_encodings_tests = (
 @setfilename encoding_index_ascii.info
 @documentencoding us-ascii
 '.$encoding_index_text,
-{'skip' => ($] < 5.018) ? 'Perl too old incompatible Unicode collation' : undef,},
+{'skip' => ($] < 5.018 and not $use_XS)
+            ? 'Perl too old incompatible Unicode collation' : undef,},
 {'ENABLE_ENCODING' => 0}
 ],
 ['encoding_index_latin1',
 undef,
-{'skip' => ($] < 5.018) ? 'Perl too old incompatible Unicode collation' : undef,
+{'skip' => ($] < 5.018 and not $use_XS)
+            ? 'Perl too old incompatible Unicode collation' : undef,
 'test_file' => 'encoding_index_latin1.texi'},
 {'ENABLE_ENCODING' => 0}
 ],
 ['encoding_index_utf8',
 undef,
-{'skip' => ($] < 5.018) ? 'Perl too old incompatible Unicode collation' : undef,
+{'skip' => ($] < 5.018 and not $use_XS)
+            ? 'Perl too old incompatible Unicode collation' : undef,
 'test_file' => 'encoding_index_utf8.texi',},
 {'ENABLE_ENCODING' => 0},
 ],
@@ -1095,18 +1104,21 @@ undef,
 @setfilename encoding_index_ascii_enable_encoding.info
 @documentencoding us-ascii
 '.$encoding_index_text,
-{'skip' => ($] < 5.018) ? 'Perl too old incompatible Unicode collation' : undef,},
+{'skip' => ($] < 5.018 and not $use_XS)
+            ? 'Perl too old incompatible Unicode collation' : undef,},
 {'ENABLE_ENCODING' => 1,}
 ],
 ['encoding_index_latin1_enable_encoding',
 undef,
-{'skip' => ($] < 5.018) ? 'Perl too old incompatible Unicode collation' : undef,
+{'skip' => ($] < 5.018 and not $use_XS)
+            ? 'Perl too old incompatible Unicode collation' : undef,
 'test_file' => 'encoding_index_latin1.texi',},
 {'ENABLE_ENCODING' => 1, 'OUTPUT_CHARACTERS' => 1}
 ],
 ['encoding_index_utf8_enable_encoding',
 undef,
-{'skip' => ($] < 5.018) ? 'Perl too old incompatible Unicode collation' : undef,
+{'skip' => ($] < 5.018 and not $use_XS)
+            ? 'Perl too old incompatible Unicode collation' : undef,
 'test_file' => 'encoding_index_utf8.texi',},
 {'ENABLE_ENCODING' => 1, 'OUTPUT_CHARACTERS' => 1}
 ],
