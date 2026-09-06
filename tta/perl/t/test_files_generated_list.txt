@@ -1569,6 +1569,7 @@ t/results/info_tests/example_in_multitable_index.pl
 t/results/info_tests/file_only_png.pl
 t/results/info_tests/float_long_captions.pl
 t/results/info_tests/float_without_type.pl
+t/results/info_tests/flushright_empty_line.pl
 t/results/info_tests/format_in_multitable_index.pl
 t/results/info_tests/image_and_punctuation.pl
 t/results/info_tests/image_and_spaces_formatting.pl

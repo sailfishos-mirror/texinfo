@@ -1613,19 +1613,23 @@ sub _align_lines($$$$) {
       my $pending_text = $line->[$j];
       last if (defined($pending_text->[1])
                and $pending_text->[1]->{'conv_type'} eq 'protected_text');
-      $pending_text->[0] =~ s/^(\s*)//;
+      # if there is a newline, we leave it for the next block of code.
+      $pending_text->[0] =~ s/^([^\S\r\n]*)$//;
       if ($pending_text->[0] ne '') {
         last;
       }
     }
     for (my $j = scalar(@$line); $j > 0; $j--) {
       my $pending_text = $line->[$j -1];
+      # In general @center argument does not have an end of line
       if (chomp($pending_text->[0])) {
         $count_context->{'lines'}--;
       }
       last if (defined($pending_text->[1])
                and $pending_text->[1]->{'conv_type'} eq 'protected_text');
-      $pending_text->[0] =~ s/(\s*)$//;
+      # we match against whitespaces except for newlines, but there should not
+      # be any newline anyway.
+      $pending_text->[0] =~ s/([^\S\r\n]*)$//;
       if ($pending_text->[0] ne '') {
         last;
       }

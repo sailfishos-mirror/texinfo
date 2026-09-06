@@ -108,6 +108,9 @@ const char *null_device_names[] = {
  0};
 
 const char *whitespace_chars = " \t\v\f\r\n";
+/* in the perl parser, comments including whitespace_chars_except_newline
+   show where code should be changed if the list of characters changes here */
+const char *whitespace_chars_except_newline = " \t\v\f";
 const char *digit_chars = "0123456789";
 
 const DEF_ALIAS def_aliases[] = {

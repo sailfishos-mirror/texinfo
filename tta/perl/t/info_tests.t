@@ -984,6 +984,25 @@ gg
 
 @printindex cp
 '],
+# an empty line in flushright only happens in @example, otherwise the empty
+# line is outside of a paragraph, and not flushed.
+# In contrast with a regular example environment, empty lines are merged.
+['flushright_empty_line',
+'@node Top
+
+@example
+@flushright
+in   --- flushright
+
+
+
+@cindex mark
+
+@end flushright
+@end example
+
+@printindex cp
+'],
 # if this test is changed, the corresponding test in t/plaintext_tests.t
 # should be changed too
 # @image{figure} is replaced by the figure.txt text.

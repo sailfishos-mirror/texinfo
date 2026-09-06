@@ -63,14 +63,7 @@
 
 
 
-/* in the perl parser, comments including whitespace_chars_except_newline
-   show where code should be changed if the list of characters changes here */
-#define WHITESPACE_CHARS_EXCEPT_NEWLINE " \t\v\f"
-const char *whitespace_chars_except_newline = WHITESPACE_CHARS_EXCEPT_NEWLINE;
-
-const char *linecommand_expansion_delimiters = WHITESPACE_CHARS_EXCEPT_NEWLINE
-                                               "{}@";
-#undef WHITESPACE_CHARS_EXCEPT_NEWLINE
+const char *linecommand_expansion_delimiters = " \t\v\f" "{}@";
 
 DOCUMENT *parsed_document = 0;
 

@@ -57,6 +57,7 @@ enum iconv_error_handling {
 extern const char *null_device_names[];
 
 extern const char *whitespace_chars;
+extern const char *whitespace_chars_except_newline;
 extern const char *digit_chars;
 extern enum command_id
   level_to_structuring_command[BUILTIN_CMD_NUMBER][SECTION_LEVEL_NR];

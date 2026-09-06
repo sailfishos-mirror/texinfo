@@ -2173,8 +2173,9 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
             break;
 
           TEXT *t = &pending_text->text;
+          /* if there is a newline, we leave it for the next block of code. */
           size_t leading_spaces
-             = strspn (t->text, whitespace_chars);
+             = strspn (t->text, whitespace_chars_except_newline);
           if (leading_spaces < t->end)
             {
               size_t remaining = t->end - leading_spaces;
@@ -2196,16 +2197,16 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
           PENDING_TEXT *pending_text = &line->list[j -1];
           TEXT *t = &pending_text->text;
 
-          if (pending_text->type == PLT_protected_text)
+          /* In general @center argument does not have an end of line */
+          if (t->end > 0 && t->text[t->end -1] == '\n')
             {
-              if (t->end > 0 && t->text[t->end -1] == '\n')
-                {
-                  t->text[t->end -1] = '\0';
-                  t->end--;
-                  count_context->lines--;
-                }
-              break;
+              t->text[t->end -1] = '\0';
+              t->end--;
+              count_context->lines--;
             }
+
+          if (pending_text->type == PLT_protected_text)
+            break;
 
           if (t->end > 0)
             {
@@ -2213,11 +2214,11 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
               for (l = t->end; l > 0; l--)
                 {
                   if (t->text[l-1] != '\0'
-                      && strchr (whitespace_chars,
+   /* we match against whitespaces except for newlines, but there should not
+      be any newline anyway. */
+                      && strchr (whitespace_chars_except_newline,
                                  t->text[l-1]))
                     {
-                      if (t->text[l-1] == '\n')
-                        count_context->lines--;
                       t->text[l-1] = '\0';
                       t->end--;
                     }
