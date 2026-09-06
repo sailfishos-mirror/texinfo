@@ -1603,9 +1603,9 @@ sub collect_pending_texts_lines($) {
 }
 
 sub _align_lines($$$$) {
-  my ($self, $pending_texts, $max_column, $direction) = @_;
+  my ($self, $count_context, $max_column, $direction) = @_;
 
-  my $lines = collect_pending_texts_lines($pending_texts);
+  my $lines = collect_pending_texts_lines($count_context->{'pending_text'});
 
   my $line_index = 0;
   foreach my $line (@$lines) {
@@ -1620,7 +1620,9 @@ sub _align_lines($$$$) {
     }
     for (my $j = scalar(@$line); $j > 0; $j--) {
       my $pending_text = $line->[$j -1];
-      chomp($pending_text->[0]);
+      if (chomp($pending_text->[0])) {
+        $count_context->{'lines'}--;
+      }
       last if (defined($pending_text->[1])
                and $pending_text->[1]->{'conv_type'} eq 'protected_text');
       $pending_text->[0] =~ s/(\s*)$//;
@@ -1661,6 +1663,7 @@ sub _align_lines($$$$) {
     # For flushright, it means that it is possible to ignore a fully
     # empty @flushright (although this is not really important).
     if ($line_index < scalar(@$lines) -1) {
+      $count_context->{'lines'}++;
       _stream_output($self, "\n");
     }
 
@@ -1671,13 +1674,13 @@ sub _align_lines($$$$) {
 sub _align_environment($$$) {
   my ($self, $max, $align) = @_;
 
-  my $counts = pop @{$self->{'count_context'}};
-  _align_lines($self, $counts->{'pending_text'}, $max, $align);
+  my $count_context = pop @{$self->{'count_context'}};
+  _align_lines($self, $count_context, $max, $align);
 
   _update_locations_counts($self, $self->{'count_context'}->[-1],
-                           $counts);
+                           $count_context);
 
-  $self->{'count_context'}->[-1]->{'lines'} += $counts->{'lines'};
+  $self->{'count_context'}->[-1]->{'lines'} += $count_context->{'lines'};
 }
 
 sub format_warn_strong_note($) {
@@ -4349,7 +4352,8 @@ sub _convert($$) {
       _convert($self, $content);
 
       #my $pending = $self->{'count_context'}->[-1]->{'pending_text'};
-      #print STDERR "CONVERTED $i ".Texinfo::Common::debug_print_element($content, 1)
+      #print STDERR "CONVERTED $i l:$self->{'count_context'}->[-1]->{'lines'} "
+      #         .Texinfo::Common::debug_print_element($content, 1)
       #            ." '"._debug_print_pending($pending)."'\n";
       #$i++;
     }

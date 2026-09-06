@@ -12,12 +12,6 @@ Before next release
 
 @image outside of a paragraph in @flushright is not flushed right.
 
-investigate t/info_tests.t empty_in_flushright_index_entry issue, the
-errors are not expected, as the end of lines should be removed when
-doing the first flushright formatting.  It could be for the same reason as
-the issue above, the count context is only added for paragraphs, not
-for a whole @flushright.
-
 Some tests do not use Perl anymore, but SKIP is based on Perl.  For example
 'Skipping tests that require compatible unicode collation', or /a missing...
 

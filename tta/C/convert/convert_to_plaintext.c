@@ -2052,7 +2052,7 @@ collect_pending_texts_lines (PENDING_TEXT_LIST_LINES *pending_text_lines,
             text_append_n (&line_pending_text.text, p, remaining);
           else
             {
-              text_append_n (&line_pending_text.text, p, q - p);
+              text_append_n (&line_pending_text.text, p, q - p +1);
               remaining -= q - p +1;
               p = q+1;
             }
@@ -2146,9 +2146,10 @@ free_pending_text_lines (PENDING_TEXT_LIST_LINES *pending_text_lines)
 
 static void
 align_lines (CONVERTER *self, int max_column, enum align_directions direction,
-             PENDING_TEXT_LIST *pending_texts)
+             COUNT_CONTEXT *count_context)
 {
   size_t i;
+  PENDING_TEXT_LIST *pending_texts = &count_context->pending_text;
   PENDING_TEXT_LIST_LINES pending_text_lines;
   memset (&pending_text_lines, 0, sizeof (PENDING_TEXT_LIST_LINES));
   collect_pending_texts_lines (&pending_text_lines, pending_texts);
@@ -2186,7 +2187,9 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
               break;
             }
           else if (leading_spaces > 0)
-            text_reset (t);
+            {
+              text_reset (t);
+            }
         }
       for (j = line->number; j > 0; j--)
         {
@@ -2199,6 +2202,7 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
                 {
                   t->text[t->end -1] = '\0';
                   t->end--;
+                  count_context->lines--;
                 }
               break;
             }
@@ -2212,6 +2216,8 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
                       && strchr (whitespace_chars,
                                  t->text[l-1]))
                     {
+                      if (t->text[l-1] == '\n')
+                        count_context->lines--;
                       t->text[l-1] = '\0';
                       t->end--;
                     }
@@ -2261,7 +2267,10 @@ align_lines (CONVERTER *self, int max_column, enum align_directions direction,
       empty @flushright (although this is not really important).
     */
       if ((size_t)line_index < pending_text_lines.number -1)
-        stream_output_n (self, "\n", 1);
+        {
+          count_context->lines++;
+          stream_output_n (self, "\n", 1);
+        }
 
       line_index++;
     }
@@ -2284,7 +2293,7 @@ align_environment (CONVERTER *self, int max,
 
   pop_count_context (&self_plaintext->count_context);
 
-  align_lines (self, max, direction, &count_context->pending_text);
+  align_lines (self, max, direction, count_context);
   parent_count_context->lines += count_context->lines;
 }
 
