@@ -4665,11 +4665,21 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             }
           else if (cmd == CM_image)
             {
+              enum command_id context_cmd
+                 = *top_(command) (&self_plaintext->context);
               const TEXT pending_word = para_add_pending_word (1);
               stream_output_count_nl (self, pending_word);
 
               /* add an empty word so that following spaces aren't lost */
               para_add_next ("", 0, 0);
+
+          /* Flush right an image outside of paragraph and preformatted. */
+              if (self_plaintext->formatters.number == 1
+                  && context_cmd == CM_flushright)
+                {
+                  push_count_context (&self_plaintext->count_context);
+                }
+
               int lines_count
                 = plaintext_functions[self->format].format_image_element (self,
                                                                       element);
@@ -4685,6 +4695,17 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           used inside a paragraph.) */
               para_add_to_counter (IMAGE_WIDTH);
               add_lines_count (self, lines_count);
+
+              if (self_plaintext->formatters.number == 1
+                  && context_cmd == CM_flushright)
+                {
+                  TEXT_CONTEXT *text_element_context
+                    = top_(text_element_context) (
+                                    &self_plaintext->text_element_context);
+                  align_environment (self, text_element_context->max, AD_right);
+                  ensure_end_of_line (self);
+                }
+
               return;
             }
           else if (cmd == CM_today)

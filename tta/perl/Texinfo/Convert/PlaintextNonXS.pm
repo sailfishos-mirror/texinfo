@@ -3199,6 +3199,15 @@ sub _convert($$) {
                        add_pending_word($formatter->{'container'}, 1));
         # add an empty word so that following spaces aren't lost
         add_next($formatter->{'container'}, '');
+
+        # Flush right an image outside of paragraph and preformatted.
+        if ($self->{'formatters'}->[-1]->{'_top_formatter'}
+            and $self->{'context'}->[-1] eq 'flushright') {
+          push @{$self->{'count_context'}}, {'lines' => 0,
+                                           'index_entry_locations' => [],
+                                           'pending_text' => [['']]};
+        }
+
         my $lines_count = $self->format_image_element($element);
         # We do not how much horizontal space @image will take:
         #   * In plain text output or standalone Info, the replacement
@@ -3212,6 +3221,13 @@ sub _convert($$) {
         Texinfo::Convert::Paragraph::add_to_counter($formatter->{'container'},
                                                     $IMAGE_WIDTH);
         _add_lines_count($self, $lines_count);
+
+        if ($self->{'formatters'}->[-1]->{'_top_formatter'}
+            and $self->{'context'}->[-1] eq 'flushright') {
+          _align_environment($self,
+            $self->{'text_element_context'}->[-1]->{'max'}, 'right');
+          _ensure_end_of_line($self);
+        }
         return;
       } elsif ($cmdname eq 'today') {
         my $today = $self->expand_today();

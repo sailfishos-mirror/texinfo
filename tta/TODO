@@ -10,8 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-@image outside of a paragraph in @flushright is not flushed right.
-
 Some tests do not use Perl anymore, but SKIP is based on Perl.  For example
 'Skipping tests that require compatible unicode collation', or /a missing...
 
