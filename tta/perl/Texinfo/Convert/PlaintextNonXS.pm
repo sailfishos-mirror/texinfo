@@ -1330,7 +1330,20 @@ sub node_name($$) {
     if (!defined($label_element)) {
       # node direction to an external node
       $label_element = $node->{'extra'}->{'node_content'};
+    } elsif (exists($Texinfo::Commands::sectioning_heading_commands{
+                                                  $node->{'cmdname'}})) {
+      # @ref is accepted in section name, not in @node and similar.  It would
+      # be cumbersome to refer to targets with @ref in them, so it
+      # is unlikely for sectioning command with @ref to be used
+      # as targets, but in case they are, we remove the @ref for the label
+      # to be consistent with @node and similar.
+      my $heading_copy
+        = Texinfo::ManipulateTree::copy_contents($label_element);
+      $label_element
+        = Texinfo::ManipulateTree::reference_to_arg_in_tree($heading_copy,
+                                                      $self->{'document'});
     }
+
     my $node_text = Texinfo::TreeElement::new({'type' => '_code',
                                        'contents' => [$label_element]});
 
@@ -3744,6 +3757,12 @@ sub _convert($$) {
           $heading_element =
                     $global_commands->{'settitle'}->{'contents'}->[0];
         }
+      }
+
+      # section command without node (also not conflicting with existing label).
+      if (exists($element->{'extra'})
+          and exists($element->{'extra'}->{'identifier'})) {
+        $self->format_anchor($element);
       }
 
       if (defined($heading_element)) {

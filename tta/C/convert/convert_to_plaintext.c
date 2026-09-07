@@ -1494,8 +1494,9 @@ plaintext_convert_node_name (CONVERTER *self, const ELEMENT *element,
                              STRING_WITH_WIDTH *string_result)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
-  const ELEMENT *label_element = get_label_element (element);
+  ELEMENT *label_element = get_label_element (element);
   ELEMENT *node_text;
+  ELEMENT *heading_copy = 0;
   TEXT result;
 
   if (!label_element)
@@ -1503,10 +1504,23 @@ plaintext_convert_node_name (CONVERTER *self, const ELEMENT *element,
       /* external node */
       label_element = lookup_extra_container (element, AI_key_node_content);
     }
+  else if (command_data[element->e.c->cmd].flags & CF_sectioning_heading)
+    {
+    /*
+    @ref is accepted in section name, not in @node and similar.  It would
+    be cumbersome to refer to targets with @ref in them, so it
+    is unlikely for sectioning command with @ref to be used
+    as targets, but in case they are, we remove the @ref for the label
+    to be consistent with @node and similar.
+     */
+      heading_copy = copy_contents (label_element, 0, ET_NONE);
+      label_element = reference_to_arg_in_tree (heading_copy,
+                                                self->document);
+    }
 
   node_text = new_element (ET__code);
   /* cast to drop const */
-  add_to_contents_as_array (node_text, (ELEMENT *)label_element);
+  add_to_contents_as_array (node_text, label_element);
 
   if (!node_names_formatter)
     {
@@ -1528,7 +1542,10 @@ plaintext_convert_node_name (CONVERTER *self, const ELEMENT *element,
   string_result->width = para_counter ();
 
   para_end_line ();
-  destroy_element (node_text);
+  if (heading_copy)
+    destroy_element_and_children (node_text);
+  else
+    destroy_element (node_text);
 
   pop_count_context (&self_plaintext->count_context);
   pop_formatter (self, 1);
@@ -5602,6 +5619,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         {
           const ELEMENT *heading_element = 0;
           const ELEMENT *line_arg;
+          const char *identifier = lookup_extra_string (element,
+                                                      AI_key_identifier);
           /* use settitle for empty @top
              ignore @part */
           if (cmd_data->flags & CF_root)
@@ -5625,6 +5644,11 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   heading_element = settitle->e.c->contents.list[0];
                 }
             }
+
+ /* section command without node (also not conflicting with existing label). */
+          if (identifier)
+            plaintext_functions[self->format].format_anchor (self, element);
+
 
           if (heading_element)
             {

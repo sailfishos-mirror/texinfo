@@ -842,7 +842,9 @@ File: ,  Node: node between part and chapter,  Up: Top
 
 Tag Table:
 Node: Top43
+Ref: chap in Top node172
 Node: part chapter node223
+Ref: with part no node368
 Node: node between part and chapter421
 
 End Tag Table

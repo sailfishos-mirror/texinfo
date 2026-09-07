@@ -133,6 +133,7 @@ Top node
 
 
 Tag Table:
+Ref: before nodes27
 Node: Top69
 
 End Tag Table
@@ -142,6 +143,11 @@ Local Variables:
 coding: utf-8
 End:
 ');
+
+$result_converted_errors{'info'}->{'unnumbered_before_node_top_top'} = '* W l1|@unnumbered outside of any node
+ warning: @unnumbered outside of any node
+
+';
 
 
 $result_converted{'html'}->{'unnumbered_before_node_top_top'} = '<!DOCTYPE html>

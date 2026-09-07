@@ -55,6 +55,7 @@ top
 
 
 Tag Table:
+Ref: Top27
 
 End Tag Table
 
@@ -66,6 +67,9 @@ End:
 
 $result_converted_errors{'info'}->{'no_node_but_top'} = '* W |document without nodes
  warning: document without nodes
+
+* W l1|@top outside of any node
+ warning: @top outside of any node
 
 ';
 

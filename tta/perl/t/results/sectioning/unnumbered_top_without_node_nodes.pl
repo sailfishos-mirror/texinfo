@@ -219,6 +219,7 @@ Text of chapter
 
 Tag Table:
 Node: a node27
+Ref: top section102
 Node: second140
 
 End Tag Table

@@ -293,6 +293,7 @@ Ref to anchor *note An anchor::
 Tag Table:
 Ref: An anchor27
 Ref: float anchor136
+Ref: section262
 Ref: Anchor in footnote427
 
 End Tag Table
@@ -318,6 +319,9 @@ $result_converted_errors{'info'}->{'placed_things_before_element_no_use_node'} =
 
 * W l17|@float outside of any node
  warning: @float outside of any node
+
+* W l30|@section outside of any node
+ warning: @section outside of any node
 
 * W l11|@anchor outside of any node
  warning: @anchor outside of any node

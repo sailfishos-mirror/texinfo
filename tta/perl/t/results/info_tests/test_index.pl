@@ -1527,6 +1527,11 @@ Tag Table:
 Node: Top27
 Node: name330
 Node: name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong982
+Ref: appendixsec2865
+Ref: appendixsubsec2898
+Ref: appendixsubsubsec2941
+Ref: centerchap3019
+Ref: chapter end3042
 Ref: a counting anchor3071
 
 End Tag Table

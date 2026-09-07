@@ -1,3 +1,16 @@
+2026-09-07 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_convert_node_name),
+	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (node_name): handle section
+	command.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal),
+	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_convert): call
+	format_anchor for sectioning @-commands with extra identifier defined.
+	They correspond to sectioning commands that can be used as targets,
+	also called shadow targets.
+
 2026-09-06 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/t/*.t: do not skip tests that require some features of Perl
@@ -6922,7 +6935,7 @@
 	(process_verb_contents): protect end of line and always add an end of
 	line.
 
-	* tta/C/parsetexi/*.c: prepand debug messagaes by C| to distinguish
+	* tta/C/parsetexi/*.c: prepend debug messagaes by C| to distinguish
 	from Perl parser debug messages.
 
 2026-05-16 Patrice Dumas  <pertusus@free.fr>
@@ -8882,7 +8895,7 @@
 
 	* tta/perl/Makefile.tres, tta/perl/t/transformations.t
 	(index_entry_before_item_with_subentry): test index entry with
-	@subentry before @item with with move_index_entries_after_items.
+	@subentry before @item with move_index_entries_after_items.
 
 2026-04-06 Patrice Dumas  <pertusus@free.fr>
 

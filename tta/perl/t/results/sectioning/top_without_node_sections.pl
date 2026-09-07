@@ -142,6 +142,7 @@ Text of chapter
 
 
 Tag Table:
+Ref: top section27
 Node: second65
 
 End Tag Table
@@ -154,6 +155,9 @@ End:
 
 $result_converted_errors{'info'}->{'top_without_node_sections'} = '* W |document without Top node
  warning: document without Top node
+
+* W l1|@top outside of any node
+ warning: @top outside of any node
 
 ';
 

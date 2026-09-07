@@ -96,6 +96,9 @@ $result_headings_list{'extension_undef'} = '';
 $result_converted_errors{'file_info'}->{'extension_undef'} = '* W extension_undef.texi|document without Top node
  warning: document without Top node
 
+* W l2|@top outside of any node
+ warning: @top outside of any node
+
 ';
 
 1;

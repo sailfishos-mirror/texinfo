@@ -537,7 +537,7 @@ sub output($$) {
 
     if ($element->{'cmdname'} eq 'node') {
       $prefix = 'Node';
-    } else { # anchor and namedanchor
+    } else { # anchor, namedanchor, float and section without node
       $prefix = 'Ref';
     }
 

@@ -537,6 +537,8 @@ File: ,  Node:          　,  Prev: ᠎ ,  Up: Top
 Tag Table:
 Node: Top64
 Node:    221
+Ref: CHARACTER TABULATION| | FORM FEED| | LINE TABULATION| |350
+Ref: CARRIAGE RETURN| |467
 Node:   510
 Node: ᠎ 603
 Node:          　724

@@ -144,7 +144,9 @@ in chapter
 
 
 Tag Table:
+Ref: before61
 Node: Top76
+Ref: Chapter135
 
 End Tag Table
 
@@ -153,6 +155,11 @@ Local Variables:
 coding: utf-8
 End:
 ');
+
+$result_converted_errors{'info'}->{'section_before_after_top_node'} = '* W l1|@unnumbered outside of any node
+ warning: @unnumbered outside of any node
+
+';
 
 
 $result_converted{'html'}->{'section_before_after_top_node'} = '<!DOCTYPE html>

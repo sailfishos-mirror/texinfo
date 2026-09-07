@@ -1147,6 +1147,19 @@ Tag Table:
 Node: Top27
 Node: node223
 Node: chap346
+Ref: for example node (node) (Top)443
+Ref: node node, crossref arg2572
+Ref: node code node, samptitle arg3677
+Ref: node code node, file name784
+Ref: node node and manual883
+Ref: Top Top and manual954
+Ref: Manual no node just manual1021
+Ref: file name no node just file name1098
+Ref: a inforef a b c1199
+Ref: (Top) pxref Top file name, spaces1266
+Ref: (file name) pxref file name only, spaces1383
+Ref: Top, xref Top filename only, no spaces1502
+Ref: filename. xref filename only, no spaces1627
 
 End Tag Table
 

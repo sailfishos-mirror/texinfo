@@ -95,6 +95,7 @@ Title titlefont
 
 
 Tag Table:
+Ref: before nodes27
 Node: Top54
 
 End Tag Table
@@ -104,6 +105,11 @@ Local Variables:
 coding: utf-8
 End:
 ');
+
+$result_converted_errors{'info'}->{'unnumbered_before_top_node'} = '* W l1|@unnumbered outside of any node
+ warning: @unnumbered outside of any node
+
+';
 
 
 $result_converted{'html'}->{'unnumbered_before_top_node'} = '<!DOCTYPE html>

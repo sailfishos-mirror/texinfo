@@ -557,6 +557,11 @@ In chapter 2
 
 
 Tag Table:
+Ref: unnumbered1105
+Ref: top (chapter) section2187
+Ref: second3286
+Ref: Chapter5402
+Ref: Chapter 26484
 
 End Tag Table
 
@@ -627,6 +632,21 @@ $result_converted_errors{'info'}->{'index_no_node_no_top_no_node'} = '* W index_
 
 * W index_no_node_no_top.texi:l13|entry for index `cp\' outside of any node
  warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l8|@unnumbered outside of any node
+ warning: @unnumbered outside of any node
+
+* W index_no_node_no_top.texi:l17|@unnumbered outside of any node
+ warning: @unnumbered outside of any node
+
+* W index_no_node_no_top.texi:l32|@section outside of any node
+ warning: @section outside of any node
+
+* W index_no_node_no_top.texi:l40|@chapter outside of any node
+ warning: @chapter outside of any node
+
+* W index_no_node_no_top.texi:l47|@chapter outside of any node
+ warning: @chapter outside of any node
 
 ';
 
