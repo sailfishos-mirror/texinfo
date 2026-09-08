@@ -1358,21 +1358,21 @@ mkdir ../res_iwyu_hdr
 
 for file in */*.h ; do bfile=`basename $file .h`; include-what-you-use -DDATADIR='"/usr"' -I ../ -I main $file 2>../res_iwyu_hdr/$bfile.2 ; done
 
-for file in main/build_perl_info.h main/get_perl_info.h */build_html_perl_info.h *//build_html_perl_state.h */build_perl_tree_elements.h convert/get_converter_perl_info.h */get_perl_tree_elements.h ../perl/XSTexinfo/*/*.h ; do bfile=`basename $file .h`; include-what-you-use -I . -I main -I convert -D_LARGEFILE64_SOURCE -I /usr/lib/x86_64-linux-gnu/perl/5.42.2/CORE/ $file 2>../res_iwyu_hdr/$bfile.2 ; done
+for file in main/build_perl_info.h main/get_perl_info.h */build_html_perl_info.h *//build_html_perl_state.h */build_perl_tree_elements.h convert/get_converter_perl_info.h */get_perl_tree_elements.h ../perl/XSTexinfo/*/*.h ; do bfile=`basename $file .h`; include-what-you-use -I . -I main -I convert -D_LARGEFILE64_SOURCE -I /usr/lib/x86_64-linux-gnu/perl/5.42/CORE/ $file 2>../res_iwyu_hdr/$bfile.2 ; done
 
 rm -rf ../res_iwyu_code
 mkdir ../res_iwyu_code
 for file in */*.c ; do bfile=`basename $file .c`; include-what-you-use -DDATADIR='"/usr"' -DHAVE_CONFIG_H -I ../ -I main -I structuring_transfo -I parsetexi -I ../gnulib/lib $file 2>../res_iwyu_code/$bfile.2 ; done
 
-Remove filles that are directly included and files that do not compile
+Remove filles that are directly included and files that are not compiled
 for file in accent_tables_8bit_codepoints cmd_unicode command_data global_multi_commands_case global_unique_commands_case build_perl_tree_elements get_perl_tree_elements ; do rm -f ../res_iwyu_code/${file}.2 ; done
 
-for file in main/api_to_perl.c convert/build_html_perl_info.c convert/build_html_perl_state.c main/build_perl_info.c convert/call_conversion_perl.c main/call_document_perl_functions.c convert/call_embed_perl.c convert/call_html_perl_function.c main/call_perl_function.c convert/get_converter_perl_info.c main/get_perl_info.c main/options_get_perl.c ; do bfile=`basename $file .c`; include-what-you-use -I . -I main -I convert -D_LARGEFILE64_SOURCE -I /usr/lib/x86_64-linux-gnu/perl/5.42.2/CORE/ $file 2>../res_iwyu_code/$bfile.2 ; done
+for file in main/api_to_perl.c convert/build_html_perl_info.c convert/build_html_perl_state.c main/build_perl_info.c convert/call_conversion_perl.c main/call_document_perl_functions.c convert/call_embed_perl.c convert/call_html_perl_function.c main/call_perl_function.c convert/get_converter_perl_info.c main/get_perl_info.c main/options_get_perl.c ; do bfile=`basename $file .c`; include-what-you-use -I . -I main -I convert -D_LARGEFILE64_SOURCE -I /usr/lib/x86_64-linux-gnu/perl/5.42/CORE/ $file 2>../res_iwyu_code/$bfile.2 ; done
 
 NOTE: run make after changing an XS file.
 rm -rf ../res_iwyu_xs
 mkdir ../res_iwyu_xs
-for file in ../perl/XSTexinfo/*.c ../perl/XSTexinfo/*/*.c ; do bfile=`basename $file .c`; include-what-you-use -I . -I main -I convert -I structuring_transfo -I parsetexi -D_LARGEFILE64_SOURCE -I /usr/lib/x86_64-linux-gnu/perl/5.42.2/CORE/ $file 2>../res_iwyu_xs/$bfile.2 ; done
+for file in ../perl/XSTexinfo/*.c ../perl/XSTexinfo/*/*.c ; do bfile=`basename $file .c`; include-what-you-use -I . -I main -I convert -I structuring_transfo -I parsetexi -D_LARGEFILE64_SOURCE -I /usr/lib/x86_64-linux-gnu/perl/5.42/CORE/ $file 2>../res_iwyu_xs/$bfile.2 ; done
 
 include-what-you-use -I main ../perl/XSTexinfo/xsmisc.c
 

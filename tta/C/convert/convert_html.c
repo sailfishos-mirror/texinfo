@@ -235,6 +235,7 @@ html_cache_translate_string (CONVERTER *self, const char *string,
             }
           text_reset (&result->translation);
           text_append (&result->translation, translated_string);
+          free (translated_string);
           return result;
         }
       else if (debug_level >= 2)
@@ -249,6 +250,7 @@ html_cache_translate_string (CONVERTER *self, const char *string,
       text_append (&result->translation, translated_string);
 
       free (translated_context_string);
+      free (translated_string);
 
       return result;
     }
@@ -1364,6 +1366,8 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
         explanation_str = "NO EXPLANATION";
       fprintf (stderr, "C|ELEMENT(%s) %s: %s\n", explanation_str,
                                                contexts_str, element_str);
+      free (element_str);
+      free (contexts_str);
     }
 
   /* Process text */
