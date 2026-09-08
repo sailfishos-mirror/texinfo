@@ -113,6 +113,14 @@
 # define PATH_SEP      ":"
 #endif /* not O_BINARY */
 
+/* for dealing with differences between execvp() (POSIX) and
+   _execvp() (Windows) */
+#ifdef _WIN32
+# define EXEC_CONST const
+#else
+# define EXEC_CONST
+#endif
+
 static const char *conf_file_name = "texi2any-config.pm";
 
 typedef struct FORMAT_COMMAND_LINE_NAME {
@@ -3927,7 +3935,7 @@ main (int argc, char *argv[], char *env[])
 
   if (call_texi2dvi && texi2dvi)
     {
-      char **argv;
+      EXEC_CONST char **argv;
       size_t i;
 
       if (debug)
@@ -3936,7 +3944,9 @@ main (int argc, char *argv[], char *env[])
           fprintf (stderr, "EXEC %s\n", texi2dvi_call);
           free (texi2dvi_call);
         }
-      argv = (char **) malloc ((texi2dvi_args.number +1) * sizeof (char *));
+      argv
+        = (EXEC_CONST char **)
+          malloc ((texi2dvi_args.number + 1) * sizeof (EXEC_CONST char *));
       for (i = 0; i < texi2dvi_args.number; i++)
         argv[i] = strdup (texi2dvi_args.list[i]);
       argv[texi2dvi_args.number] = NULL;

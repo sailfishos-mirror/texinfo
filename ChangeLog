@@ -1,5 +1,12 @@
 2026-09-08 Bruno Haible <bruno@clisp.org>
 
+	tta: Fix compilation error on mingw with an ISO C23 compiler.
+
+	* tta/C/texi2any.c (EXEC_CONST): New macro.
+	(main): Use it for argv.
+
+2026-09-08 Bruno Haible <bruno@clisp.org>
+
 	info: Fix compilation error on mingw with an ISO C23 compiler.
 
 	* info/signals.c (signal_info): Define as a function that takes an
