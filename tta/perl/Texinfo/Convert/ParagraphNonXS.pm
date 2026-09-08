@@ -36,9 +36,8 @@ use Carp qw(cluck confess);
 
 # same ordering as in C
 my @para_ordered_conf = ('debug', 'indent_length', 'indent_length_next',
-   'frenchspacing',
-   'counter', 'unfilled', 'max', 'keep_end_lines', 'no_final_newline',
-   'add_final_space', 'ignore_columns');
+   'frenchspacing', 'counter', 'unfilled', 'max', 'keep_end_lines',
+   'no_final_newline', 'add_final_space', 'ignore_columns');
 
 # used if debugging only, to have legible identifier for debug messages
 my @para_array;
@@ -47,16 +46,21 @@ my @para_array;
 sub new(;$) {
   my $conf = shift;
 
-  my $self = {'max' => 72, 'indent_length' => 0, 'counter' => 0,
-              'word_counter' => 0, 'space' => '', 'frenchspacing' => 0,
-              'lines_counter' => 0, 'end_line_count' => 0,
-              'unfilled' => 0, 'last_letter' => '', 'word' => '',
-              # When 'word' eq '', this indicates a word of length 0.
-              'invisible_pending_word' => 0,
-              'add_final_space' => 0,
-              'keep_end_lines' => 0,
-              'no_final_newline' => 0,
-              'ignore_columns' => 0,};
+  my $self = {
+    # defaults that can be changed with conf, in the same order as
+    # @para_ordered_conf
+    'debug' => 0, 'indent_length' => 0, 'indent_length_next' => undef,
+    'frenchspacing' => 0, 'counter' => 0, 'unfilled' => 0, 'max' => 72,
+    'keep_end_lines' => 0, 'no_final_newline' => 0, 'add_final_space' => 0,
+    'ignore_columns' => 0,
+    # set by function calls, not by $conf
+    # 'no_break' => 0, 'double_width_no_break' => 0,
+
+    # state
+    'word_counter' => 0, 'space' => '', 'lines_counter' => 0,
+    'end_line_count' => 0, 'last_letter' => '', 'word' => '',
+    # When 'word' eq '', this indicates a word of length 0.
+    'invisible_pending_word' => 0,};
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
       $self->{$key} = $conf->{$key};

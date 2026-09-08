@@ -13,6 +13,11 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
+/* This code should only be called when there is XS but no Texinfo
+   libraries, which should only happen with specific configure settings or
+   non-functioning iconv.
+ */
+
 #define PERL_NO_GET_CONTEXT
 #include "EXTERN.h"
 #include "perl.h"
@@ -34,6 +39,11 @@ para_set_state (int state)
 # Return an identifier for the paragraph container.  In Perl the paragraph
 # container hash reference itself is returned.
 # Optional CONF parameter.
+# NOTE the order of setting configuration variables is not fixed,
+# in contrast with pure C or pure Perl codes, which means non-reproducible
+# order for debugging messages.  It could be fixed by having
+# PARA_CONF_VARIABLES_LIST order based on C and Perl order, and
+# changing the code to hv_fetch the variables in that order.
 SV *
 para_new (...)
     PREINIT:
@@ -62,12 +72,7 @@ para_new (...)
             char *var_name = "debug";
             SV **debug_sv = hv_fetch (conf, var_name, strlen (var_name), 0);
             if (debug_sv && SvOK (*debug_sv))
-              {
-                SV *value_sv = *debug_sv;
-                if (0)
-                  {}
-                PARA_CONF_VARIABLES_LIST
-              }
+              para_set_conf_debug (SvIV (*debug_sv));
 
             hv_number = hv_iterinit (conf);
 

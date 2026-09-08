@@ -65,6 +65,7 @@ typedef struct {
     int in_use; /* used in paragraph state array */
 
     /* configuration variables - can be set directly via access functions. */
+    /* Next can be set when creating a new paragraph */
     int counter;            /* Columns so far on this line. */
     int max;                /* Maximum length of line. */
     int indent_length;      /* Columns to indent this line. */
@@ -73,16 +74,18 @@ typedef struct {
                                as-is. */
     int no_final_newline;   /* Do not terminate with a final newline. */
     int add_final_space;    /* Terminate with any trailing space. */
+    int ignore_columns;     /* Don't cut line at right margin.  Used by
+                               @flushleft and @flushright. */
+    int keep_end_lines;     /* A newline in the input ends a line in the output.
+                               Used by @flushleft and @flushright. */
+    int frenchspacing;      /* Only one space, not two, after a full stop. */
+    int debug;              /* output debugging messages */
+
+    /* Not set when creating a new paragraph */
+    int double_width_no_break; /* No line break between double width chars. */
 
     /* Options set with set_space_protection. */
     int no_break;       /* Line break forbidden, as in @w. */
-    int ignore_columns; /* Don't cut line at right margin.  Used by
-                           @flushleft and @flushright. */
-    int keep_end_lines; /* A newline in the input ends a line in the output.
-                           Used by @flushleft and @flushright. */
-    int frenchspacing;  /* Only one space, not two, after a full stop. */
-    int double_width_no_break; /* No line break between double width chars. */
-    int debug;
 
 } PARAGRAPH;
 
