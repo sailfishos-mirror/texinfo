@@ -51,7 +51,6 @@ typedef struct PARAGRAPH {
     /* When word.end == 0, this indicates a word of length 0. */
     int invisible_pending_word;
 
-    int space_counter; /* Length of space in multibyte characters. */
     int word_counter;  /* Characters added so far in current word. */
 
     int end_line_count; /* Number of newlines so far in an output unit, i.e.
@@ -256,7 +255,6 @@ para__end_line (void)
 {
   state.counter = 0;
   state.space.end = 0;
-  state.space_counter = 0;
 
   /* This will only be true for the first line of output. */
   if (state.indent_length_next != -1)
@@ -309,7 +307,6 @@ para__add_pending_word (TEXT *result, int add_spaces)
       if (!state.unfilled)
         {
           state.space.end = 0;
-          state.space_counter = 0;
         }
     }
 
@@ -317,7 +314,7 @@ para__add_pending_word (TEXT *result, int add_spaces)
     {
       text_append_n (result, state.space.text, state.space.end);
 
-      state.counter += state.space_counter;
+      state.counter += state.space.end;
 
       if (state.debug)
         fprintf (stderr, "ADD_SPACES(%d+%d) `%s'\n", state.counter,
@@ -325,7 +322,6 @@ para__add_pending_word (TEXT *result, int add_spaces)
                       para__print_escaped_spaces (state.space.text,
                                                   state.space.end));
       state.space.end = 0;
-      state.space_counter = 0;
     }
 
   if (state.word.end > 0 || state.invisible_pending_word)
@@ -493,7 +489,7 @@ para__add_next (TEXT *result, const char *word, int word_len,
 
 
       if (state.counter != 0
-          && state.counter + state.word_counter + state.space_counter
+          && state.counter + state.word_counter + (int)state.space.end
               > state.max)
         {
           para__cut_line (result);
@@ -708,7 +704,6 @@ para_add_text (const char *text, int len)
               else
                 {
                   text_append_n (&state.space, p, q - p);
-                  state.space_counter += q - p;
                 }
             }
           else if (state.no_break)
@@ -731,7 +726,7 @@ para_add_text (const char *text, int len)
 
                   if (state.counter != 0
                       && state.counter + state.word_counter
-                          + state.space_counter > state.max)
+                          + (int)state.space.end > state.max)
                     {
                       para__cut_line (&result);
                     }
@@ -751,15 +746,13 @@ para_add_text (const char *text, int len)
                     {
                       state.space.end = 0;
                       text_append_n (&state.space, "  ", 2);
-                      state.space_counter = 2;
                     }
                   else /* Not at end of sentence. */
                     {
                       /* Only save the first space. */
-                      if (state.space_counter < 1)
+                      if (state.space.end < 1)
                         {
                           text_append_n (&state.space, " ", 1);
-                          state.space_counter++;
                         }
                     }
                 }
@@ -767,7 +760,7 @@ para_add_text (const char *text, int len)
 
           /* If not enough space in the line for the pending space, start
              a new line. */
-          if (state.counter + state.space_counter > state.max)
+          if (state.counter + (int)state.space.end > state.max)
             {
               para__cut_line (&result);
             }
