@@ -2890,7 +2890,6 @@ sub _convert($$) {
              $preformatted_context_commands{$self->{'context'}->[-1]})) {
           _stream_output_add_text($self, "\n");
         } else {
-          # TODO was inlined before for efficiency
           _add_newline_if_needed($self);
         }
         return;
@@ -2931,7 +2930,6 @@ sub _convert($$) {
           $text = _process_text_internal($text);
         }
 
-        # TODO was inlined before for efficiency
         _stream_output_add_text($self, $text);
       }
     } elsif (defined($type) and $type eq 'spaces_before_paragraph') {
