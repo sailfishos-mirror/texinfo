@@ -391,8 +391,7 @@ sub _insert_menu_comment_content($$$;$) {
 
 # Creates a new @menu element based on $NODE sectioning information.
 # $LANG_TRANSLATIONS and $DEBUG are only used for the top menu.
-sub new_complete_node_menu($;$$$)
-{
+sub new_complete_node_menu($;$$$) {
   my ($node_relations, $lang_translations, $debug, $use_sections) = @_;
 
   my @node_childs
@@ -442,7 +441,7 @@ sub new_complete_node_menu($;$$$)
            = Texinfo::Translations::gdt('Part: {part_title}',
                                         $lang_translations,
                                      {'part_title' => $part_title_copy},
-                                         undef, undef, $debug);
+                                         undef, $debug);
           _insert_menu_comment_content($new_menu->{'contents'}, $content_index,
                                        $part_title, ($content_index == 0));
           $content_index++;

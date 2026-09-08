@@ -1,5 +1,26 @@
 2026-09-08 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Structuring.pm (new_complete_node_menu): fix call
+	of gdt.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (set_output_units_files): do
+	not call set_output_unit_file for $file_output_unit, since it has
+	already be done.  Show debugging output after having done all the
+	modifications.
+
+	* tta/perl/Texinfo/Indices.pm (merge_indices): sort index names for
+	reproducible ordering of index entries in merged indices for messages.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): add missing end of line for message,
+	refine message.
+
+	* tta/C/convert/convert_to_plaintext.c (fill_formatter),
+	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (new_formatter): set debug
+	for paragraph formatter if debug leevel is > 1.
+
+2026-09-08 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_convert): remove TODO
 	related to functions being inlined in the past.  If efficiency is
 	needed, it is better to use the C implementation.

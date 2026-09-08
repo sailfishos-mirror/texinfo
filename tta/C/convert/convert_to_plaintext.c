@@ -285,11 +285,8 @@ fill_formatter (FORMATTER *formatter, CONVERTER *self, enum formatter_type type,
   enum command_id context_cmd = *top_(command) (&self_plaintext->context);
   int frenchspacing = 0;
 
-  /* TODO this is not true, there is some debugging output in the C code.
-  # There is no corresponding debugging output in the C code.
   if (self->conf->DEBUG.o.integer > 1)
     para_set_conf_debug (1);
-  */
 
   if (indent_length != -1)
     {
@@ -5231,7 +5228,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                             {
                               if (self->conf->DEBUG.o.integer > 0)
                                 fprintf (stderr,
-                                         "C|conversion hex sscanf failed %s",
+                                  "C|conversion hex sscanf failed for `%s'\n",
                                          arg_text->text);
                             }
                           else if (val < 0x10FFFF)

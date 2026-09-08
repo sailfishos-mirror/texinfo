@@ -911,8 +911,10 @@ sub set_output_units_files($$$$$$) {
           }
         }
       }
-      $self->set_output_unit_file($output_unit,
+      if ($file_output_unit ne $output_unit) {
+        $self->set_output_unit_file($output_unit,
                     $file_output_unit->{'unit_filename'});
+      }
     }
   }
 
@@ -921,12 +923,17 @@ sub set_output_units_files($$$$$$) {
     $self->{'file_counters'}->{$output_unit_filename} = 0
        if (!exists($self->{'file_counters'}->{$output_unit_filename}));
     $self->{'file_counters'}->{$output_unit_filename}++;
-    print STDERR 'Page '
-     # uncomment for Perl object name
-     #."$output_unit "
-     .Texinfo::OutputUnits::output_unit_texi($output_unit)
-     .": $output_unit_filename($self->{'file_counters'}->{$output_unit_filename})\n"
-              if ($self->get_conf('DEBUG'));
+  }
+
+  if ($self->get_conf('DEBUG')) {
+    foreach my $output_unit (@$output_units) {
+      my $output_unit_filename = $output_unit->{'unit_filename'};
+      print STDERR 'Page '
+       # uncomment for Perl object name
+       #."$output_unit "
+         .Texinfo::OutputUnits::output_unit_texi($output_unit)
+ .": $output_unit_filename($self->{'file_counters'}->{$output_unit_filename})\n";
+    }
   }
 }
 

@@ -897,12 +897,8 @@ sub new_formatter($$;$$$) {
 
   my $container_conf = {};
 
-  # TODO this is not true, there is some debugging output in the C code.
-  # There is no corresponding debugging output in the C code.
-  # need to be uncommented and only if debug > 1
-  #$container_conf->{'debug'} = 1 if (defined($self->{'debug'})
-  #                                   and $self->{'debug'} > 1);
-  #$container_conf->{'debug'} = 1;
+  $container_conf->{'debug'} = 1 if (defined($self->{'debug'})
+                                     and $self->{'debug'} > 1);
 
   $container_conf->{'indent_length'} = (defined($indent_length) ? $indent_length
            : $self->{'format_context'}->[-1]->{'context_indent_len'});
@@ -2934,10 +2930,11 @@ sub _convert($$) {
       }
     } elsif (defined($type) and $type eq 'spaces_before_paragraph') {
       my $indent = $self->get_conf('paragraphindent');
+      # NOTE in other cases than paragraphindent -2/'asis', form feeds
+      # are ignored.
       if ($indent == -2) { # 'asis'
         _stream_output($self, $element->{'text'});
       }
-      # TODO if not asis, output _get_form_feeds($element->{'text'})?
     # ignore text outside of any format, but warn if ignored text not empty
     } else {
       if (defined($type)) {

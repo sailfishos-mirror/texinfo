@@ -114,7 +114,9 @@ sub merge_indices($) {
   my $indices_information = shift;
 
   my $merged_index_entries;
-  foreach my $index_name (keys(%$indices_information)) {
+  # sort for reproducible error or debug messages within merged
+  # indices.
+  foreach my $index_name (sort(keys(%$indices_information))) {
     my $index_info = $indices_information->{$index_name};
     if ($index_info->{'index_entries'}) {
       $merged_index_entries = {} if (! $merged_index_entries);
