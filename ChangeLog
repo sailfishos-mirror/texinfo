@@ -1,5 +1,29 @@
 2026-09-08 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/plaintext_paragraph.c (para_set_conf_*)
+	(para__end_line, para__add_pending_word): change formatting of conf
+	debug message, add additional messages to be like Perl and protect
+	space shown.
+
+	* tta/C/convert/plaintext_paragraph.c (para_add_text): show UTF-8
+	representation of state.last_letter.
+
+	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm (new, *): use 'debug' for
+	debugging information field.
+
+	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm (new, @para_array): set
+	an identifier for paragraph is debugging is on for better error
+	messages, same as in C.
+
+	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm (new): set default for
+	more fields.
+
+	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm (new)
+	(@para_ordered_conf): show conf set from caller in debugging output, 
+	as in C.
+
+2026-09-08 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_html.c (html_cache_translate_string): free
 	translated string.
 

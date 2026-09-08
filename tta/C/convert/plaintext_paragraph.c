@@ -207,7 +207,7 @@ para_set_state (int paragraph)
 void para_set_conf_##variable (int variable) { \
   state.variable = variable; \
   if (state.debug) \
-    fprintf (stderr, "CONF %d: " #variable " %d\n", current_state, variable); \
+    fprintf (stderr, "CONF %d " #variable ": %d\n", current_state, variable); \
 }
 
 PARA_CONF_VARIABLES_LIST
@@ -267,6 +267,8 @@ para__end_line (void)
   state.end_line_count++;
   /* could be set to other values, anything that is not upper case. */
   state.last_letter = (char32_t) '\n';
+  if (state.debug)
+    fprintf (stderr, "END_LINE\n");
 }
 
 static const TEXT new_line_text = {"\n", 1, 1};
@@ -316,11 +318,11 @@ para__add_pending_word (TEXT *result, int add_spaces)
 
       state.counter += state.space_counter;
 
-      /* TODO protect spaces shown */
       if (state.debug)
         fprintf (stderr, "ADD_SPACES(%d+%d) `%s'\n", state.counter,
-                                 state.word_counter, state.space.text);
-
+                                 state.word_counter,
+                      para__print_escaped_spaces (state.space.text,
+                                                  state.space.end));
       state.space.end = 0;
       state.space_counter = 0;
     }
@@ -537,6 +539,9 @@ para_add_end_sentence (void)
 void
 para_allow_end_sentence (void)
 {
+  if (state.debug)
+    fprintf (stderr, "ALLOW END SENTENCE\n");
+
   state.last_letter = (char32_t) 'a'; /* A lower-case letter. */
 }
 
@@ -592,12 +597,18 @@ para_add_text (const char *text, int len)
     {
       if (state.debug)
         {
-          fprintf(stderr, "p (%d+%d) s `%s', l `%" PRIuLEAST32 "', w%d `%s'\n",
+          uint8_t first_char_u8[7];
+          int first_char_len = u8_uctomb (first_char_u8, state.last_letter, 6);
+          if (first_char_len < 0)
+            fatal ("u8_uctomb returns negative value");
+          first_char_u8[first_char_len] = 0;
+
+          fprintf(stderr, "p (%d+%d) s `%s', l `%s', w%d `%s'\n",
                     state.counter, state.word_counter,
                     state.space.end == 0 ? ""
                       : para__print_escaped_spaces (state.space.text,
                                                       state.space.end),
-                    state.last_letter, state.invisible_pending_word,
+                    (char *)first_char_u8, state.invisible_pending_word,
                     state.word.text);
         }
 

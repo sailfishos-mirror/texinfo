@@ -34,6 +34,15 @@ use Unicode::EastAsianWidth;
 use Texinfo::Convert::Unicode;
 use Carp qw(cluck confess);
 
+# same ordering as in C
+my @para_ordered_conf = ('debug', 'indent_length', 'indent_length_next',
+   'frenchspacing',
+   'counter', 'unfilled', 'max', 'keep_end_lines', 'no_final_newline',
+   'add_final_space', 'ignore_columns');
+
+# used if debugging only, to have legible identifier for debug messages
+my @para_array;
+
 # initialize a paragraph hash.
 sub new(;$) {
   my $conf = shift;
@@ -43,13 +52,41 @@ sub new(;$) {
               'lines_counter' => 0, 'end_line_count' => 0,
               'unfilled' => 0, 'last_letter' => '', 'word' => '',
               # When 'word' eq '', this indicates a word of length 0.
-              'invisible_pending_word' => 0, };
+              'invisible_pending_word' => 0,
+              'add_final_space' => 0,
+              'keep_end_lines' => 0,
+              'no_final_newline' => 0,
+              'ignore_columns' => 0,};
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
       $self->{$key} = $conf->{$key};
     }
   }
-  #$self->{'DEBUG'} = 1;
+  #$self->{'debug'} = 1;
+  if ($self->{'debug'}) {
+    # setup an identifier number in the same way as in C for better
+    # debugging messages
+    my $id = 0;
+    my $array_len = scalar(@para_array);
+    for (my $i = 0; $i < $array_len; $i++) {
+      if (!defined($para_array[$i])) {
+        $para_array[$i] = $self;
+        $self->{'id'} = $i;
+        last;
+      }
+    }
+    if (!exists($self->{'id'})) {
+      $self->{'id'} = $array_len;
+      push @para_array, $self;
+    }
+    if (defined($conf)) {
+      foreach my $key (@para_ordered_conf) {
+        if (defined($conf->{$key})) {
+          print STDERR "CONF $self->{'id'} $key: $conf->{$key}\n";
+        }
+      }
+    }
+  }
   return $self;
 }
 
@@ -111,7 +148,7 @@ sub _end_line($) {
   $paragraph->{'end_line_count'}++;
   # could be set to other values, anything that is not upper case.
   $paragraph->{'last_letter'} = "\n";
-  print STDERR "END_LINE\n" if ($paragraph->{'DEBUG'});
+  print STDERR "END_LINE\n" if ($paragraph->{'debug'});
   return "\n";
 }
 
@@ -137,14 +174,15 @@ sub _add_pending_word($;$) {
     $result .= ' ' x ($paragraph->{'indent_length'} - $paragraph->{'counter'});
     $paragraph->{'counter'} = $paragraph->{'indent_length'};
     print STDERR "INDENT($paragraph->{'counter'}+$paragraph->{'word_counter'})\n"
-                 if ($paragraph->{'DEBUG'});
+                 if ($paragraph->{'debug'});
     $paragraph->{'space'} = '' unless $paragraph->{'unfilled'};
   }
   if ($paragraph->{'space'} ne '') {
     $result .= $paragraph->{'space'};
     $paragraph->{'counter'} += length($paragraph->{'space'});
-    print STDERR "ADD_SPACES($paragraph->{'counter'}+$paragraph->{'word_counter'})\n"
-       if ($paragraph->{'DEBUG'});
+    print STDERR "ADD_SPACES($paragraph->{'counter'}+$paragraph->{'word_counter'})"
+         . " `"._print_escaped_spaces($paragraph->{'space'})."'\n"
+       if ($paragraph->{'debug'});
     $paragraph->{'space'} = '';
   }
   if ($paragraph->{'word'} ne '' or $paragraph->{'invisible_pending_word'}) {
@@ -152,7 +190,7 @@ sub _add_pending_word($;$) {
     $paragraph->{'counter'} += $paragraph->{'word_counter'};
     print STDERR "ADD_WORD[$paragraph->{'word'}]+$paragraph->{'word_counter'}"
       ." ($paragraph->{'counter'})\n"
-        if ($paragraph->{'DEBUG'});
+        if ($paragraph->{'debug'});
     $paragraph->{'word'} = '';
     $paragraph->{'word_counter'} = 0;
     $paragraph->{'invisible_pending_word'} = 0;
@@ -165,7 +203,7 @@ sub end($) {
   my $paragraph = shift;
 
   $paragraph->{'end_line_count'} = 0;
-  print STDERR "PARA END\n" if ($paragraph->{'DEBUG'});
+  print STDERR "PARA END\n" if ($paragraph->{'debug'});
   my $result = _add_pending_word($paragraph, $paragraph->{'add_final_space'});
   # probably not really useful, but cleaner
   $paragraph->{'last_letter'} = '';
@@ -180,8 +218,9 @@ sub end($) {
 sub destroy($) {
   my $paragraph = shift;
 
-  if ($paragraph->{'DEBUG'}) {
-    print STDERR "SET UNUSED $paragraph\n";
+  if ($paragraph->{'debug'}) {
+    $para_array[$paragraph->{'id'}] = undef;
+    print STDERR "SET UNUSED $paragraph->{'id'}\n";
   }
   $paragraph = undef;
 }
@@ -236,7 +275,7 @@ sub _add_next($;$$$) {
       $result .= _cut_line($paragraph);
     }
   }
-  if ($paragraph->{'DEBUG'}) {
+  if ($paragraph->{'debug'}) {
     print STDERR "WORD+ $word -> $paragraph->{'word'}\n";
   }
 
@@ -265,7 +304,7 @@ sub add_end_sentence($) {
 sub allow_end_sentence($) {
   my $paragraph = shift;
 
-  printf STDERR "ALLOW END SENTENCE\n" if $paragraph->{'DEBUG'};
+  printf STDERR "ALLOW END SENTENCE\n" if $paragraph->{'debug'};
   $paragraph->{'last_letter'} = 'a'; # lower-case
 }
 
@@ -312,7 +351,7 @@ sub add_text($$) {
   # try to eliminate regex checks later.
   my $newline_possible_flag = ($text =~ /\n/);
 
-  my $debug_flag = $paragraph->{'DEBUG'};
+  my $debug_flag = $paragraph->{'debug'};
   while (@segments) {
     # $empty_segment should be an empty string; the other variables
     # here were recognized as field separators by split.  One of the
@@ -415,14 +454,14 @@ sub add_text($$) {
         } else {
           $paragraph->{'end_sentence'} = eos_present;
         }
-        print STDERR "END_SENTENCE\n" if ($paragraph->{'DEBUG'});
+        print STDERR "END_SENTENCE\n" if ($paragraph->{'debug'});
       } else {
         print STDERR "delete END_SENTENCE($paragraph->{'end_sentence'})\n"
-          if (exists($paragraph->{'end_sentence'}) and $paragraph->{'DEBUG'});
+          if (exists($paragraph->{'end_sentence'}) and $paragraph->{'debug'});
         delete $paragraph->{'end_sentence'};
       }
     } elsif (defined($fullwidth_segment)) {
-      print STDERR "FULLWIDTH\n" if ($paragraph->{'DEBUG'});
+      print STDERR "FULLWIDTH\n" if ($paragraph->{'debug'});
 
       $paragraph->{'word'} .= $fullwidth_segment;
       $paragraph->{'word_counter'} += 2;
