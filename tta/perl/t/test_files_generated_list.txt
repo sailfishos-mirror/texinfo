@@ -234,6 +234,18 @@ t/results/converters_tests/setfilename_no_extension/res_info/setfilename_no_exte
 t/results/converters_tests/setfilename_no_extension/res_latex/setfilename_no_extension.tex
 t/results/converters_tests/setfilename_no_extension/res_plaintext/setfilename_no_extension.txt
 t/results/converters_tests/setfilename_no_extension/res_xml/setfilename_no_extension.xml
+t/results/converters_tests/shadow_links_to_sections.pl
+t/results/converters_tests/shadow_links_to_sections/res_docbook/shadow_links_to_sections.xml
+t/results/converters_tests/shadow_links_to_sections/res_html/bar.html
+t/results/converters_tests/shadow_links_to_sections/res_html/first.html
+t/results/converters_tests/shadow_links_to_sections/res_html/foo.html
+t/results/converters_tests/shadow_links_to_sections/res_html/index.html
+t/results/converters_tests/shadow_links_to_sections/res_html/two.html
+t/results/converters_tests/shadow_links_to_sections/res_html/with-foo-after.html
+t/results/converters_tests/shadow_links_to_sections/res_info/shadow_links_to_sections.info
+t/results/converters_tests/shadow_links_to_sections/res_latex/shadow_links_to_sections.tex
+t/results/converters_tests/shadow_links_to_sections/res_plaintext/shadow_links_to_sections.txt
+t/results/converters_tests/shadow_links_to_sections/res_xml/shadow_links_to_sections.xml
 t/results/converters_tests/simplest_no_node_section.pl
 t/results/converters_tests/simplest_no_node_section/res_docbook/simplest_no_node_section.xml
 t/results/converters_tests/simplest_no_node_section/res_html/index.html
@@ -497,6 +509,7 @@ t/results/docbook_tests/between_node_and_section.pl
 t/results/docbook_tests/empty_quotation_with_arg_followed_by_quotation.pl
 t/results/docbook_tests/maketitle_documentinfo_publication.pl
 t/results/docbook_tests/multiple_documentlanguage.pl
+t/results/docbook_tests/shadow_links_to_sections_in_top_node.pl
 t/results/docbook_tests/special_docbook_unnumbered.pl
 t/results/docbook_tests/titlefont_for_docbook.pl
 t/results/epub_tests/chapter_before_top_epub.pl

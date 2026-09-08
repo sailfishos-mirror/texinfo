@@ -1,0 +1,74 @@
+This is shadow_links_to_sections.info, produced from
+shadow_links_to_sections.texi.
+
+
+File: shadow_links_to_sections.info,  Node: Top,  Next: first,  Up: (dir)
+
+Shadow
+******
+
+* Menu:
+
+* first::
+* foo::
+
+
+File: shadow_links_to_sections.info,  Node: first,  Prev: Top,  Up: Top
+
+1 First chap
+************
+
+*Note two::.  -- goes to one of the section named two
+
+2 foo
+*****
+
+Aaaaaaaaaa.  *Note bar::.
+
+3 bar
+*****
+
+Bbbbbbbbbbb.  *Note foo::.  - goes to baz chapter.
+
+3.1 two
+=======
+
+CCCCCCC.
+
+   *Note baz::.  -- fails
+
+
+File: shadow_links_to_sections.info,  Node: foo,  Up: Top
+
+4 baz
+*****
+
+LLLLLLLLLLL.
+
+4.1 two
+=======
+
+DDDDDDDDD.
+
+4.2 with *note b: foo. after
+============================
+
+*Note with *note b: foo. after::.  -- link to section with @ref in name
+
+   *Note two::.  -- another link to a section named two.
+
+
+Tag Table:
+Node: Top85
+Node: first205
+Ref: bar402
+Ref: two467
+Node: foo521
+Ref: with foo after638
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:

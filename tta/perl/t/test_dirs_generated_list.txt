@@ -90,6 +90,13 @@ t/results/converters_tests/setfilename_no_extension/res_info
 t/results/converters_tests/setfilename_no_extension/res_latex
 t/results/converters_tests/setfilename_no_extension/res_plaintext
 t/results/converters_tests/setfilename_no_extension/res_xml
+t/results/converters_tests/shadow_links_to_sections
+t/results/converters_tests/shadow_links_to_sections/res_docbook
+t/results/converters_tests/shadow_links_to_sections/res_html
+t/results/converters_tests/shadow_links_to_sections/res_info
+t/results/converters_tests/shadow_links_to_sections/res_latex
+t/results/converters_tests/shadow_links_to_sections/res_plaintext
+t/results/converters_tests/shadow_links_to_sections/res_xml
 t/results/converters_tests/simplest_no_node_section
 t/results/converters_tests/simplest_no_node_section/res_docbook
 t/results/converters_tests/simplest_no_node_section/res_html

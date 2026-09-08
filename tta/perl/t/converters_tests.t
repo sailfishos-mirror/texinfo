@@ -1662,6 +1662,46 @@ undef, {'test_file' => 'simplest.texi',},
 
 @node some node
 '],
+# similar with 'shadow_links_to_sections_in_top_node' in t/docbook_tests.t
+# but without anything in Top node
+['shadow_links_to_sections',
+'@node Top
+@top Shadow
+
+@node first
+@chapter First chap
+
+@xref{two}. --- goes to one of the section named two
+
+@chapter foo
+
+Aaaaaaaaaa.  @xref{bar}.
+
+@chapter bar
+
+Bbbbbbbbbbb.  @xref{foo}. -- goes to baz chapter.
+
+@section two
+
+CCCCCCC.
+
+@xref{baz}. --- fails
+
+@node foo
+@chapter baz
+
+LLLLLLLLLLL.
+
+@section two
+
+DDDDDDDDD.
+
+@section with @ref{foo, b} after
+
+@xref{with foo after}. --- link to section with @@ref in name
+
+@xref{two}. --- another link to a section named two.
+', {'test_input_file_name' => 'shadow_links_to_sections.texi'}, ],
 ['indices_in_begin_tables_lists',
 undef, {'test_file' => '../../../tests/formatting/indices_in_begin_tables_lists.texi'},
 {'SPLIT' => '', 'USE_NODES' => 0}],

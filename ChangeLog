@@ -1,5 +1,19 @@
 2026-09-08 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/LaTeX.pm
+	(_associate_other_nodes_to_sections): associate a section with
+	identifier to itself.
+
+	* tta/perl/t/test_dirs_generated_list.txt,
+	tta/perl/t/test_files_generated_list.txt,
+	tta/perl/t/converters_tests.t (shadow_links_to_sections),
+	tta/perl/t/docbook_tests.t (shadow_links_to_sections_in_top_node): add
+	test for links to sections without associated node, with unique label,
+	with duplicates and with same name as a node, for shadow targets.
+	Derived from Gavin test file.
+
+2026-09-08 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/info_tests.t: remove obsolete TODO.
 
 2026-09-08 Patrice Dumas  <pertusus@free.fr>

@@ -91,6 +91,43 @@ my @test_doc = (
 ['maketitle_documentinfo_publication',
 undef, {'test_file' => 'maketitle_documentinfo_publication.texi'},
 ],
+# similar with 'shadow_links_to_sections' in t/converters_tests.t but with
+# several constructs in Top node.
+['shadow_links_to_sections_in_top_node',
+'@node Top
+@top Shadow
+
+@xref{two}. --- goes to one of the section named two
+
+@chapter foo
+
+Aaaaaaaaaa.  @xref{bar}.
+
+@chapter bar
+
+Bbbbbbbbbbb.  @xref{foo}. -- goes to baz chapter.
+
+@section two
+
+CCCCCCC.
+
+@xref{baz}. --- fails
+
+@node foo
+@chapter baz
+
+LLLLLLLLLLL.
+
+@section two
+
+DDDDDDDDD.
+
+@section with @ref{foo, b} after
+
+@xref{with foo after}. --- link to section with @@ref in name
+
+@xref{two}. --- another link to a section named two.
+', {'test_formats' => ['latex']}]
 );
 
 foreach my $test (@test_cases) {
@@ -98,7 +135,7 @@ foreach my $test (@test_cases) {
 }
 
 foreach my $test (@test_doc) {
-  $test->[2]->{'test_formats'} = ['docbook_doc'];
+  push @{$test->[2]->{'test_formats'}}, 'docbook_doc';
 }
 
 

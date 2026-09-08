@@ -1136,6 +1136,14 @@ sub _associate_other_nodes_to_sections($$$) {
     } elsif (exists($element_content->{'cmdname'})
           and exists($root_commands{$element_content->{'cmdname'}})) {
       $current_sectioning_command = $element_content;
+      if (exists($element_content->{'extra'})
+          and exists($element_content->{'extra'}->{'identifier'})) {
+       # section without associated node, and with unique label.  Associate
+       # to itself
+        $additional_node_section_associations
+              ->{$element_content->{'extra'}->{'identifier'}}
+                   = $element_content;
+      }
       if (scalar(@$pending_nodes)) {
         foreach my $normalized_node_name (@$pending_nodes) {
           $additional_node_section_associations->{$normalized_node_name}

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE texinfo PUBLIC "-//GNU//DTD TexinfoML V7.3//EN" "http://www.gnu.org/software/texinfo/dtd/7.3/texinfo.dtd">
+<texinfo>
+<filename file="shadow_links_to_sections.xml"></filename>
+<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> first</nodenext></node>
+<top><sectiontitle> Shadow</sectiontitle>
+
+</top>
+<node identifier="first"><nodename> first</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> First chap</sectiontitle>
+
+<para><xref label="two"><xrefnodename>two</xrefnodename></xref>. &textmdash; goes to one of the section named two
+</para>
+</chapter>
+<chapter><sectiontitle> foo</sectiontitle>
+
+<para>Aaaaaaaaaa.  <xref label="bar"><xrefnodename>bar</xrefnodename></xref>.
+</para>
+</chapter>
+<chapter><sectiontitle> bar</sectiontitle>
+
+<para>Bbbbbbbbbbb.  <xref label="foo"><xrefnodename>foo</xrefnodename></xref>. &textndash; goes to baz chapter.
+</para>
+<section><sectiontitle> two</sectiontitle>
+
+<para>CCCCCCC.
+</para>
+<para><xref label="baz"><xrefnodename>baz</xrefnodename></xref>. &textmdash; fails
+</para>
+</section>
+</chapter>
+<node identifier="foo"><nodename> foo</nodename><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> baz</sectiontitle>
+
+<para>LLLLLLLLLLL.
+</para>
+<section><sectiontitle> two</sectiontitle>
+
+<para>DDDDDDDDD.
+</para>
+</section>
+<section><sectiontitle> with <ref label="foo"><xrefnodename>foo</xrefnodename><xrefinfoname> b</xrefinfoname></ref> after</sectiontitle>
+
+<para><xref label="with-foo-after"><xrefnodename>with foo after</xrefnodename></xref>. &textmdash; link to section with &arobase;ref in name
+</para>
+<para><xref label="two"><xrefnodename>two</xrefnodename></xref>. &textmdash; another link to a section named two.
+</para></section>
+</chapter>
+</texinfo>
