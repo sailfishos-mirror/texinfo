@@ -952,8 +952,6 @@ something
 
 @end flushright
 '],
-# TODO result is incorrect, contiguous empty lines are replaced by one
-# empty line, but the index entry lines count are not updated.
 ['empty_in_flushright_index_entry',
 '@node Top
 
