@@ -696,7 +696,7 @@ $result_converted{'xml'}->{'non_empty_part'} = '<part><sectiontitle> part before
 
 $result_converted{'docbook'}->{'non_empty_part'} = '<part label="">
 <title>part I</title>
-<chapter label="1">
+<chapter label="1" id="chap-in-Top-node">
 <title>chap in Top node</title>
 
 <para>Content I
@@ -732,7 +732,7 @@ $result_converted{'docbook'}->{'non_empty_part'} = '<part label="">
 </part>
 <part label="">
 <title>Part V</title>
-<chapter label="3">
+<chapter label="3" id="with-part-no-node">
 <title>with part no node</title>
 
 <para>Content V
@@ -761,6 +761,7 @@ $result_converted{'latex_text'}->{'non_empty_part'} = '\\begin{document}
 Content I
 
 \\Texinfochapter{{chap in Top node}}
+\\label{anchor:chap-in-Top-node}%
 
 \\Texinfounnumberedpart{{Part II}}
 
@@ -782,6 +783,7 @@ Content IV
 Content V
 
 \\Texinfochapter{{with part no node}}
+\\label{anchor:with-part-no-node}%
 
 \\Texinfounnumberedpart{{Part VI}}
 

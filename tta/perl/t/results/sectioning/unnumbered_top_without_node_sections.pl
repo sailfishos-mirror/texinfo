@@ -306,6 +306,7 @@ $result_converted{'latex_text'}->{'unnumbered_top_without_node_sections'} = '\\b
 in unnumbered
 
 \\part*{{top section}}
+\\label{anchor:top-section}%
 Top section
 
 \\Texinfochapter{{Chapter}}

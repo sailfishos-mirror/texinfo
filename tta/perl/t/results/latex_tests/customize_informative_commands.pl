@@ -51,6 +51,7 @@ $result_headings_list{'customize_informative_commands'} = '';
 
 $result_converted{'latex_text'}->{'customize_informative_commands'} = '\\begin{document}
 \\Texinfochapter{{chap}}
+\\label{anchor:chap}%
 ';
 
 1;

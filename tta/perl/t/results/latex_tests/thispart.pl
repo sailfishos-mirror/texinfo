@@ -315,6 +315,7 @@ In chap2
 \\appendix
 \\renewcommand{\\Texinfoheadingchaptername}{\\appendixname}
 \\Texinfochapter{{Appendix}}
+\\label{anchor:Appendix}%
 
 In appendix
 ';

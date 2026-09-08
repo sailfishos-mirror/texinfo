@@ -318,7 +318,7 @@ $result_converted{'docbook'}->{'sections_and_printindex'} = '<chapter label="1" 
 <indexterm role="cp"><primary>entry2</primary></indexterm>
 </sect1>
 </chapter>
-<appendix label="A">
+<appendix label="A" id="App">
 <title>App</title>
 
 <index role="cp"></index>
@@ -340,6 +340,7 @@ $result_converted{'latex_text'}->{'sections_and_printindex'} = '\\begin{document
 \\appendix
 \\renewcommand{\\Texinfoheadingchaptername}{\\appendixname}
 \\Texinfochapter{{App}}
+\\label{anchor:App}%
 
 \\printindex[cp]
 

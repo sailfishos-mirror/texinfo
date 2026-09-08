@@ -4415,7 +4415,7 @@ sub _convert($$) {
         if (not $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {
           my $heading = '';
           my $line_arg;
-          if ($root_commands{$element->{'cmdname'}}) {
+          if (exists($root_commands{$element->{'cmdname'}})) {
             # arguments_line type element
             my $arguments_line = $element->{'contents'}->[0];
             $line_arg = $arguments_line->{'contents'}->[0];
@@ -4449,12 +4449,13 @@ sub _convert($$) {
         }
         # we add a label even if in_skipped_node_top (should only
         # be for the Top node, as another node ends in_skipped_node_top).
+        my $node_label;
         my $sections_list;
         if ($self->{'document'}) {
           $sections_list = $self->{'document'}->sections_list();
         }
-        if ($sections_list and $element->{'extra'}
-            and $element->{'extra'}->{'section_number'}) {
+        if ($sections_list and exists($element->{'extra'})
+            and defined($element->{'extra'}->{'section_number'})) {
           my $section_relations
             = $sections_list->[$element->{'extra'}->{'section_number'} -1];
           if ($section_relations->{'associated_node'}) {
@@ -4463,9 +4464,17 @@ sub _convert($$) {
             # arguments_line type element
             my $arguments_line = $associated_node->{'contents'}->[0];
             my $line_arg = $arguments_line->{'contents'}->[0];
-            my $node_label = _tree_anchor_label($line_arg);
-            $result .= "\\label{$node_label}%\n";
+            $node_label = _tree_anchor_label($line_arg);
           }
+        }
+        if (!defined($node_label) and exists($element->{'extra'})
+            and defined($element->{'extra'}->{'identifier'})) {
+         # section without associated node, and with unique label
+          my $line_arg = $element->{'contents'}->[0]->{'contents'}->[0];
+          $node_label = _tree_anchor_label($line_arg);
+        }
+        if (defined($node_label)) {
+          $result .= "\\label{$node_label}%\n";
         }
       }
       return $result unless ($root_commands{$element->{'cmdname'}});

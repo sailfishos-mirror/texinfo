@@ -145,6 +145,7 @@ $result_converted{'docbook'}->{'node_sectop_before_chapter_no_node'} = '';
 
 $result_converted{'latex_text'}->{'node_sectop_before_chapter_no_node'} = '\\begin{document}
 \\label{anchor:Top}%
+\\label{anchor:chap}%
 ';
 
 1;

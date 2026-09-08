@@ -948,10 +948,13 @@ $result_converted{'latex_text'}->{'custom_heading_with_include_in_command'} = '\
 
 
 \\Texinfochapter{{Chapter in included file Include}}
+\\label{anchor:Chapter-in-included-file-Include}%
 
 \\section{{Section Include}}
+\\label{anchor:Section-Include}%
 
 \\subsection{{Subsection Include}}
+\\label{anchor:Subsection-Include}%
 
 
 Now include file

@@ -91,12 +91,13 @@ $result_converted{'html_text'}->{'footnote_no_node'} = '<div class="top-level-ex
 
 $result_converted{'latex_text'}->{'footnote_no_node'} = '\\begin{document}
 \\part*{{top}}
+\\label{anchor:Top}%
 
 F\\footnote{In footnote}.
 ';
 
 
-$result_converted{'docbook'}->{'footnote_no_node'} = '<chapter label="">
+$result_converted{'docbook'}->{'footnote_no_node'} = '<chapter label="" id="Top">
 <title>top</title>
 
 <para>F<footnote><para>In footnote</para></footnote>.

@@ -216,6 +216,7 @@ In smallbook
 After afourpaper
 
 \\Texinfochapter{{afourpaper reset}}
+\\label{anchor:afourpaper-reset}%
 
 In afourpaper reset
 ';

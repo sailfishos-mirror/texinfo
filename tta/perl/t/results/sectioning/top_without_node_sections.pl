@@ -206,7 +206,7 @@ span:hover a.copiable-link {visibility: visible}
 ';
 
 
-$result_converted{'docbook'}->{'top_without_node_sections'} = '<chapter label="">
+$result_converted{'docbook'}->{'top_without_node_sections'} = '<chapter label="" id="top-section">
 <title>top section</title>
 <para>Top section
 </para>

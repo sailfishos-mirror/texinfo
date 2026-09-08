@@ -151,7 +151,7 @@ span:hover a.copiable-link {visibility: visible}
 ';
 
 
-$result_converted{'docbook'}->{'unnumbered_before_top_node'} = '<chapter label="">
+$result_converted{'docbook'}->{'unnumbered_before_top_node'} = '<chapter label="" id="before-nodes">
 <title>before nodes</title>
 
 </chapter>

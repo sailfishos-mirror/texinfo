@@ -224,20 +224,23 @@ $result_converted{'latex'}->{'no_empty_line_between_headings'} = '\\documentclas
 
 \\begin{document}
 \\part*{{Top}}
+\\label{anchor:Top}%
 \\subsection*{{Subheading}}
 \\Texinfochapter{{Chapter}}
+\\label{anchor:Chapter}%
 \\section{{Section}}
+\\label{anchor:Section}%
 \\end{document}
 ';
 
 
-$result_converted{'docbook'}->{'no_empty_line_between_headings'} = '<chapter label="">
+$result_converted{'docbook'}->{'no_empty_line_between_headings'} = '<chapter label="" id="Top">
 <title>Top</title>
 <bridgehead renderas="sect2">Subheading</bridgehead>
 </chapter>
-<chapter label="1">
+<chapter label="1" id="Chapter">
 <title>Chapter</title>
-<sect1 label="1.1">
+<sect1 label="1.1" id="Section">
 <title>Section</title>
 </sect1>
 </chapter>

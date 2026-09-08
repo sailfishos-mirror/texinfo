@@ -123,13 +123,13 @@ $result_converted{'xml'}->{'top_part_chapter'} = '<top><sectiontitle> top</secti
 ';
 
 
-$result_converted{'docbook'}->{'top_part_chapter'} = '<chapter label="">
+$result_converted{'docbook'}->{'top_part_chapter'} = '<chapter label="" id="Top">
 <title>top</title>
 
 </chapter>
 <part label="">
 <title>part</title>
-<chapter label="1">
+<chapter label="1" id="chapter">
 <title>chapter</title>
 
 </chapter>

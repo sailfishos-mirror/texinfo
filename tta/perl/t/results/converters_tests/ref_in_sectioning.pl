@@ -983,55 +983,55 @@ $result_converted{'docbook'}->{'ref_in_sectioning'} = '<chapter label="1" id="no
 <chapter label="2" id="chap">
 <title><link linkend="node">node</link> just node</title>
 
-<sect1 label="2.1">
+<sect1 label="2.1" id="for-example-node-_0028node_0029-_0028Top_0029">
 <title>for example <link linkend="node">node</link> (see <link linkend="node">node</link>) (see <citetitle>Manual</citetitle>)</title>
 
 </sect1>
-<sect1 label="2.2">
+<sect1 label="2.2" id="node-node_002c-crossref-arg2">
 <title><link linkend="node">cross ref name</link>  node, crossref arg2</title>
 
 </sect1>
-<sect1 label="2.3">
+<sect1 label="2.3" id="node-code-node_002c-samptitle-arg3">
 <title><link linkend="node">&#8216;<literal>title</literal>&#8217;</link>  code node, samptitle arg3</title>
 
 </sect1>
-<sect1 label="2.4">
+<sect1 label="2.4" id="node-code-node_002c-file-name">
 <title>&#8220;<literal>node</literal>&#8221; in <filename>file name</filename> code node, file name</title>
 
 </sect1>
-<sect1 label="2.5">
+<sect1 label="2.5" id="node-node-and-manual">
 <title>&#8220;node&#8221; in <citetitle>Manual</citetitle> node and manual</title>
 
 </sect1>
-<sect1 label="2.6">
+<sect1 label="2.6" id="Top-Top-and-manual">
 <title><citetitle>Manual</citetitle> Top and manual</title>
 
 </sect1>
-<sect1 label="2.7">
+<sect1 label="2.7" id="Manual-no-node-just-manual">
 <title><citetitle>Manual</citetitle> no node just manual</title>
 
 </sect1>
-<sect1 label="2.8">
+<sect1 label="2.8" id="file-name-no-node-just-file-name">
 <title><filename>file name</filename> no node just file name</title>
 
 </sect1>
-<sect1 label="2.9">
+<sect1 label="2.9" id="a-inforef-a-b-c">
 <title>See section &#8220;b&#8221; in <filename>c</filename> inforef a b c</title>
 
 </sect1>
-<sect1 label="2.10">
+<sect1 label="2.10" id="_0028Top_0029-pxref-Top-file-name_002c-spaces">
 <title>(see <filename>file name</filename>) pxref Top file name, spaces</title>
 
 </sect1>
-<sect1 label="2.11">
+<sect1 label="2.11" id="_0028file-name_0029-pxref-file-name-only_002c-spaces">
 <title>(see <filename>file name</filename>) pxref file name only, spaces</title>
 
 </sect1>
-<sect1 label="2.12">
+<sect1 label="2.12" id="Top_002c-xref-Top-filename-only_002c-no-spaces">
 <title>See <filename>filename</filename>, xref Top filename only, no spaces</title>
 
 </sect1>
-<sect1 label="2.13">
+<sect1 label="2.13" id="filename_002e-xref-filename-only_002c-no-spaces">
 <title>See <filename>filename</filename>. xref filename only, no spaces</title>
 
 </sect1>
@@ -1050,30 +1050,43 @@ $result_converted{'latex_text'}->{'ref_in_sectioning'} = '
 \\label{anchor:chap}%
 
 \\section{{for example \\texorpdfstring{\\hyperref[anchor:node]{\\chaptername~\\ref*{anchor:node} [node], page~\\pageref*{anchor:node}}}{node} (\\texorpdfstring{see \\hyperref[anchor:node]{\\chaptername~\\ref*{anchor:node} [node], page~\\pageref*{anchor:node}}}{see node}) (see Section ``Top\'\' in \\textsl{Manual})}}
+\\label{anchor:for-example-node-_0028node_0029-_0028Top_0029}%
 
 \\section{{\\texorpdfstring{\\hyperref[anchor:node]{\\chaptername~\\ref*{anchor:node} [node], page~\\pageref*{anchor:node}}}{node}  node, crossref arg2}}
+\\label{anchor:node-node_002c-crossref-arg2}%
 
 \\section{{\\texorpdfstring{\\hyperref[anchor:node]{\\chaptername~\\ref*{anchor:node} [`\\texttt{title}\'], page~\\pageref*{anchor:node}}}{`\\texttt{title}\'}  code node, samptitle arg3}}
+\\label{anchor:node-code-node_002c-samptitle-arg3}%
 
 \\section{{Section ``\\texttt{node}\'\' in \\texttt{file name} code node, file name}}
+\\label{anchor:node-code-node_002c-file-name}%
 
 \\section{{Section ``node\'\' in \\textsl{Manual} node and manual}}
+\\label{anchor:node-node-and-manual}%
 
 \\section{{Section ``Top\'\' in \\textsl{Manual} Top and manual}}
+\\label{anchor:Top-Top-and-manual}%
 
 \\section{{\\textsl{Manual} no node just manual}}
+\\label{anchor:Manual-no-node-just-manual}%
 
 \\section{{\\texttt{file name} no node just file name}}
+\\label{anchor:file-name-no-node-just-file-name}%
 
 \\section{{Section ``a\'\' in \\texttt{c} inforef a b c}}
+\\label{anchor:a-inforef-a-b-c}%
 
 \\section{{(see Section ``Top\'\' in \\texttt{file name}) pxref Top file name, spaces}}
+\\label{anchor:_0028Top_0029-pxref-Top-file-name_002c-spaces}%
 
 \\section{{(see \\texttt{file name}) pxref file name only, spaces}}
+\\label{anchor:_0028file-name_0029-pxref-file-name-only_002c-spaces}%
 
 \\section{{See Section ``Top\'\' in \\texttt{filename}, xref Top filename only, no spaces}}
+\\label{anchor:Top_002c-xref-Top-filename-only_002c-no-spaces}%
 
 \\section{{See \\texttt{filename}. xref filename only, no spaces}}
+\\label{anchor:filename_002e-xref-filename-only_002c-no-spaces}%
 
 ';
 

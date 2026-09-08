@@ -596,6 +596,7 @@ In figure
 \\end{figure}
 
 \\Texinfochapter{{refs}}
+\\label{anchor:refs}%
 
 See \\hyperref[anchor:no-type]{\\ref*{anchor:no-type}}.
 See \\hyperref[anchor:no-type]{\\ref*{anchor:no-type}}.
@@ -616,6 +617,7 @@ See Section ``three\'\' in \\texttt{four}.
 See Section ``three\'\' in \\textsl{five}.
 
 \\Texinfochapter{{lists}}
+\\label{anchor:lists}%
 
 \\listof{TexinfoFloat}{}
 \\listoffigures

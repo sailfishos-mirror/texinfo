@@ -306,20 +306,25 @@ $result_converted{'latex_text'}->{'fonttextsize'} = '\\changefontsize{10}
 \\label{anchor:chapter}%
 
 \\section{{section}}
+\\label{anchor:section}%
 
 \\subsection{{Subsection 10pts}}
+\\label{anchor:Subsection-10pts}%
 In 10pts
 
 \\changefontsize{11}
 \\subsection{{Subsection 11pts}}
+\\label{anchor:Subsection-11pts}%
 
 In 11pts
 
 \\subsection{{Subsection 8pts}}
+\\label{anchor:Subsection-8pts}%
 
 In 8pts
 
 \\subsection{{Subsection 15pts}}
+\\label{anchor:Subsection-15pts}%
 
 In 15pts
 ';

@@ -1,3 +1,10 @@
+2026-09-08 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/DocBook.pm (_convert),
+	tta/perl/Texinfo/Convert/LaTeX.pm (_convert): add anchor for section
+	without associated node, and with unique label, also called shadow
+	targets.
+
 2026-09-07 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/convert_to_plaintext.c (plaintext_convert_node_name),
@@ -3161,8 +3168,6 @@
 
 2026-07-23 Patrice Dumas  <pertusus@free.fr>
 
-2026-07-23 Patrice Dumas  <pertusus@free.fr>
-
 	* tta/C/convert/converter.c (set_output_units_files),
 	tta/perl/Texinfo/Convert/Converter.pm (set_output_units_files),
 	tta/perl/Texinfo/Convert/Info.pm (output):
@@ -4695,7 +4700,7 @@
 
 	Fix excess elements in array initialiser warning
 
-	* tta/maintain/generate_code_convert_data.pl,
+	* tta/maintain/generate_code_convert_data.pl:
 	Use CUSTOMIZED_SPECIAL_UNIT_INFO_TYPE_NR instead of
 	SPECIAL_UNIT_INFO_TYPE_NR as number of elements in
 	'special_unit_info_type_names' array.

@@ -239,7 +239,7 @@ span:hover a.copiable-link {visibility: visible}
 ';
 
 
-$result_converted{'docbook'}->{'section_before_after_top_node_last_node'} = '<chapter label="">
+$result_converted{'docbook'}->{'section_before_after_top_node_last_node'} = '<chapter label="" id="before">
 <title>before</title>
 
 </chapter>
@@ -249,8 +249,10 @@ $result_converted{'docbook'}->{'section_before_after_top_node_last_node'} = '<ch
 
 $result_converted{'latex_text'}->{'section_before_after_top_node_last_node'} = '\\begin{document}
 \\Texinfounnumberedchapter{{before}}
+\\label{anchor:before}%
 
 \\label{anchor:Top}%
+\\label{anchor:Chapter}%
 \\label{anchor:node-after}%
 ';
 

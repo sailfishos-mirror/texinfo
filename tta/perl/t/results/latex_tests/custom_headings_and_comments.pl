@@ -268,8 +268,10 @@ after ch--ap first page
 after ch--ap second page
 
 \\section{{sec1}}
+\\label{anchor:sec1}%
 
 \\Texinfochapter{{chap 2}}
+\\label{anchor:chap-2}%
 
 ';
 

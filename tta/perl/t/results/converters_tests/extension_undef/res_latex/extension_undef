@@ -84,6 +84,7 @@
 \begin{document}
 node Top
 \part*{{top}}
+\label{anchor:Top}%
 
 \Texinfochapter{{Chap}}
 \label{anchor:chapter}%

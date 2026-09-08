@@ -192,6 +192,7 @@ $result_converted{'latex_text'}->{'pagesizes'} = '\\newgeometry{textheight=200mm
 \\newgeometry{textheight=11.5in}
 
 \\Texinfochapter{{other pagesizes}}
+\\label{anchor:other-pagesizes}%
 
 \\newgeometry{textwidth=130mm}
 

@@ -149,21 +149,21 @@ list:
 $result_headings_list{'hole_in_sectioning'} = '';
 
 
-$result_converted{'docbook'}->{'hole_in_sectioning'} = '<chapter label="">
+$result_converted{'docbook'}->{'hole_in_sectioning'} = '<chapter label="" id="Top">
 <title>Top</title>
 
 </chapter>
-<chapter label="1">
+<chapter label="1" id="Chapter">
 <title>Chapter</title>
 
-<sect1 label="1.1">
+<sect1 label="1.1" id="section">
 <title>section</title>
 
-<sect2 label="1.1.1">
+<sect2 label="1.1.1" id="subsubsection-with-no-subsection-above">
 <title>subsubsection with no subsection above</title>
 
 </sect2>
-<sect2 label="1.1.2">
+<sect2 label="1.1.2" id="the-subsection">
 <title>the subsection</title>
 </sect2>
 </sect1>

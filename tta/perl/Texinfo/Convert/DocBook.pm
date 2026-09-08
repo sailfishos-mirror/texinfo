@@ -1158,15 +1158,24 @@ sub _convert($$;$) {
               $section_attribute .= " label=\"$label\"";
             }
             my $section_relations;
+            my $id;
             if (exists($self->{'document'})) {
               my $sections_list = $self->{'document'}->sections_list();
               $section_relations
             = $sections_list->[$opened_element->{'extra'}->{'section_number'} -1];
               if (exists($section_relations->{'associated_node'})) {
-                # FIXME DocBook 5 id -> xml:id
-                $section_attribute
-    .= " id=\"$section_relations->{'associated_node'}->{'element'}->{'extra'}->{'identifier'}\"";
+                $id = $section_relations->{'associated_node'}
+                        ->{'element'}->{'extra'}->{'identifier'};
               }
+            }
+            # section without associated node, and with unique label
+            if (!defined($id) and exists($opened_element->{'extra'})
+                and defined($opened_element->{'extra'}->{'identifier'})) {
+              $id = $opened_element->{'extra'}->{'identifier'};
+            }
+            if (defined($id)) {
+              # FIXME DocBook 5 id -> xml:id
+              $section_attribute .= " id=\"$id\"";
             }
             my $language = '';
             my $bcp47_locale = $self->current_bcp47_locale();

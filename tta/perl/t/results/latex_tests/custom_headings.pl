@@ -358,8 +358,10 @@ after ch--ap first page
 after ch--ap second page
 
 \\section{{sec1}}
+\\label{anchor:sec1}%
 
 \\Texinfochapter{{chap 2}}
+\\label{anchor:chap-2}%
 
 \\renewpagestyle{custom}{%
 \\sethead[toto][titi][]%
@@ -380,6 +382,7 @@ after everyheading before chap 3 first page
 after everyheading before chap 3 second page
 
 \\Texinfochapter{{chap 3}}
+\\label{anchor:chap-3}%
 
 \\newpage{}%
 \\phantom{blabla}%
