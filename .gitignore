@@ -376,9 +376,6 @@ tta/C/texi2any
 tta/C/texistatic
 tta/C/.libs
 tta/C/*.la
-tta/C/config.h.in
-tta/C/config.h
-tta/C/stamp-h1
 tta/C/main/.libs
 tta/C/main/*.lo
 tta/C/main/unicode-collation/*.lo
