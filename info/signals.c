@@ -107,7 +107,7 @@ restore_termsig (int sig, const signal_info *saved)
   sigaction (sig, saved, NULL);
 }
 #else /* !HAVE_SIGACTION */
-typedef void (*signal_info) ();
+typedef void (*signal_info) (int);
 #define set_termsig(sig, old) (void)(*(old) = signal (sig, info_signal_proc))
 #define restore_termsig(sig, saved) (void)signal (sig, *(saved))
 #endif /* !HAVE_SIGACTION */

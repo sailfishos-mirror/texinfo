@@ -1,3 +1,10 @@
+2026-09-08 Bruno Haible <bruno@clisp.org>
+
+	info: Fix compilation error on mingw with an ISO C23 compiler.
+
+	* info/signals.c (signal_info): Define as a function that takes an
+	'int' parameter.
+
 2026-09-08 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/plaintext_paragraph.c,
