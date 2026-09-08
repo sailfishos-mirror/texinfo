@@ -398,7 +398,47 @@ $latin1_accents_text, {}, {'ENABLE_ENCODING' => 1, 'OUTPUT_CHARACTERS' => 1}
 ],
 );
 
+# the tests are ordered such as to have skipped tests at the end
+# and in skip conditions homogeneous blocks, to get readable
+# comparisons of debugging output.
 my @file_tests = (
+['char_us_ascii_latin1_in_refs_no_translit_files',
+undef, {'test_file' => 'char_us_ascii_latin1_in_refs.texi'},
+# to test without transliteration too
+{'TRANSLITERATE_FILE_NAMES' => 0},
+],
+['char_latin2_latin2_in_refs',
+undef, {'test_file' => 'char_latin2_latin2_in_refs.texi'},
+# to test transliteration too
+{'TRANSLITERATE_FILE_NAMES' => 1},
+],
+['sample_utf8',
+undef, {'test_file' => 'sample_utf8.texi'},
+],
+['manual_simple_utf8_with_error',
+undef, {'test_file' => 'manual_simple_utf8_with_error.texi'}
+],
+['manual_simple_latin1_with_error',
+undef, {'test_file' => 'manual_simple_latin1_with_error.texi'}
+],
+['multiple_include_encodings',
+undef, {'test_file' => 'multiple_include_encodings.texi',
+        'skip' => $Texinfo::Configure::conversion_from_euc_cn ne 'yes'
+                   ? 'No conversion from EUC-CN' : undef, }
+],
+['japanese_shift_jis',
+# test fails on solaris11 with recent Perl, with encoding errors.  Could
+# be because of solaris iconv.  Use conversion from EUC-CN as an evidence
+# for problematic iconv even though it is not the actual issue.
+# No test of transliteration, even though it could have been nice
+# because of differences between C and Perl transliterations.
+undef, {'test_file' => 'japanese_shift_jis.texi',
+        'skip' => $Texinfo::Configure::conversion_from_euc_cn ne 'yes'
+         ? 'No conversion from EUC-CN assuming errors with shift_jis' : undef,},
+#{'TRANSLITERATE_FILE_NAMES' => 1},
+],
+# No test of transliteration, even though it could have been nice
+# because of differences between C and Perl transliterations.
 ['char_utf8_latin1_in_refs',
 undef, {'test_file' => 'char_utf8_latin1_in_refs.texi',
   'skip' => $XS_convert ? 'Non reproducible transliteration' : undef,},
@@ -426,44 +466,6 @@ undef, {'test_file' => 'char_us_ascii_latin1_in_refs.texi',
   'skip' => $XS_convert ? 'Non reproducible transliteration' : undef,},
 # to test transliteration too
 {'TRANSLITERATE_FILE_NAMES' => 1},
-],
-['char_us_ascii_latin1_in_refs_no_translit_files',
-undef, {'test_file' => 'char_us_ascii_latin1_in_refs.texi'},
-# to test without transliteration too
-{'TRANSLITERATE_FILE_NAMES' => 0},
-],
-['char_latin2_latin2_in_refs',
-undef, {'test_file' => 'char_latin2_latin2_in_refs.texi'},
-# to test transliteration too
-{'TRANSLITERATE_FILE_NAMES' => 1},
-],
-['japanese_shift_jis',
-# test fails on solaris11 with recent Perl, with encoding errors.  Could
-# be because of solaris iconv.  Use conversion from EUC-CN as an evidence
-# for problematic iconv even though it is not the actual issue.
-# No test of transliteration, even though it could have been nice
-# because of differences between C and Perl transliterations.
-undef, {'test_file' => 'japanese_shift_jis.texi',
-        'skip' => $Texinfo::Configure::conversion_from_euc_cn ne 'yes'
-         ? 'No conversion from EUC-CN assuming errors with shift_jis' : undef,},
-#{'TRANSLITERATE_FILE_NAMES' => 1},
-],
-# No test of transliteration, even though it could have been nice
-# because of differences between C and Perl transliterations.
-['sample_utf8',
-undef, {'test_file' => 'sample_utf8.texi'},
-#{'TRANSLITERATE_FILE_NAMES' => 1},
-],
-['manual_simple_utf8_with_error',
-undef, {'test_file' => 'manual_simple_utf8_with_error.texi'}
-],
-['manual_simple_latin1_with_error',
-undef, {'test_file' => 'manual_simple_latin1_with_error.texi'}
-],
-['multiple_include_encodings',
-undef, {'test_file' => 'multiple_include_encodings.texi',
-        'skip' => $Texinfo::Configure::conversion_from_euc_cn ne 'yes'
-                   ? 'No conversion from EUC-CN' : undef, }
 ],
 ['at_commands_in_refs_utf8',
 '@setfilename at_commands_in_refs_utf8.info

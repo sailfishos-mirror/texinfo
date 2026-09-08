@@ -1,5 +1,11 @@
 2026-09-08 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/formats_encodings.t (@file_tests): order the tests such
+	as to have skipped tests at the end and in skip conditions homogeneous
+	blocks, to get readable comparisons of debugging output.
+
+2026-09-08 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Structuring.pm (new_complete_node_menu): fix call
 	of gdt.
 
