@@ -42,7 +42,7 @@ enum eos_status { eos_unset = -2, eos_inhibited = 0, eos_present = 1,
    eos_present_frenchspacing - at end of sentence but frenchspacing is on. */
 
 
-typedef struct {
+typedef struct PARAGRAPH {
     TEXT space; /* Pending space, to be output before the pending word. */
     TEXT word;  /* Pending word.  If outputting this would have led to
                    the line to be too long, the line should have been cut before
@@ -54,7 +54,6 @@ typedef struct {
     int space_counter; /* Length of space in multibyte characters. */
     int word_counter;  /* Characters added so far in current word. */
 
-    int lines_counter; /* Lines so far added in paragraph. */
     int end_line_count; /* Number of newlines so far in an output unit, i.e.
                            with add_text or add_next. */
 
@@ -266,7 +265,6 @@ para__end_line (void)
       state.indent_length_next = -1;
     }
 
-  state.lines_counter++;
   state.end_line_count++;
   /* could be set to other values, anything that is not upper case. */
   state.last_letter = (char32_t) '\n';
@@ -378,7 +376,6 @@ para_end (void)
   if (!state.no_final_newline && state.counter != 0)
     {
       text_append_n (&ret, "\n", 1);
-      state.lines_counter++;
       state.end_line_count++;
     }
 

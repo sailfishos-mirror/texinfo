@@ -57,7 +57,7 @@ sub new(;$) {
     # 'no_break' => 0, 'double_width_no_break' => 0,
 
     # state
-    'word_counter' => 0, 'space' => '', 'lines_counter' => 0,
+    'word_counter' => 0, 'space' => '',
     'end_line_count' => 0, 'last_letter' => '', 'word' => '',
     # When 'word' eq '', this indicates a word of length 0.
     'invisible_pending_word' => 0,};
@@ -148,7 +148,6 @@ sub _end_line($) {
     $paragraph->{'indent_length'} = $paragraph->{'indent_length_next'};
     delete $paragraph->{'indent_length_next'};
   }
-  $paragraph->{'lines_counter'}++;
   $paragraph->{'end_line_count'}++;
   # could be set to other values, anything that is not upper case.
   $paragraph->{'last_letter'} = "\n";
@@ -213,7 +212,6 @@ sub end($) {
   $paragraph->{'last_letter'} = '';
   if (!$paragraph->{'no_final_newline'} and $paragraph->{'counter'} != 0) {
     $result .= "\n";
-    $paragraph->{'lines_counter'}++;
     $paragraph->{'end_line_count'}++;
   }
   return $result;

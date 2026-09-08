@@ -1,3 +1,10 @@
+2026-09-08 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/plaintext_paragraph.c (PARAGRAPH, para__end_line)
+	(para_end), tta/perl/Texinfo/Convert/ParagraphNonXS.pm (new)
+	(_end_line, end): remove lines_counter field of paragraph, it is not
+	used.
+
 2026-09-08 Bruno Haible <bruno@clisp.org>
 
 	tta: Fix compilation error on mingw with an ISO C23 compiler.
