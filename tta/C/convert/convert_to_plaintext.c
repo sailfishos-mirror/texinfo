@@ -1048,7 +1048,13 @@ protect_sentence_ends (const char *text)
       while (p > t.text && strchr (after_punctuation_characters, *(p-1)))
         p--;
       if (p == t.text)
-        return t.text;
+        {
+          /* not really sure that it makes sense to add the control character
+             when there are only after punctuation characters, but it is
+             the same as in Perl */
+          text_append_n (&t, "\x08", 1);
+          return t.text;
+        }
       if (!strchr (whitespace_chars, *(p-1)))
         {
           int len = 0;
@@ -1067,6 +1073,18 @@ protect_sentence_ends (const char *text)
             }
         }
     }
+
+  /* For debugging
+    {
+      char visible_text[t.end];
+      memcpy (visible_text, t.text, t.end+1);
+      size_t i;
+      for (i = 0; i < t.end; i++)
+        if (visible_text[i] == '\x08')
+          visible_text[i] = '~';
+      fprintf (stderr, "CPSE '%s'\n", visible_text);
+    }
+   */
   return t.text;
 }
 
@@ -3441,7 +3459,7 @@ plaintext_stream_image_formatted_text (CONVERTER *self, const ELEMENT *element,
       PENDING_TEXT_LIST *pending = &count_context->pending_text;
       const char *p = text.text;
       size_t len = text.end;
-      /* split lines and add them to pending texts as protexted text */
+      /* split lines and add them to pending texts as protected text */
       while (len > 0)
         {
           PENDING_TEXT *pending_text

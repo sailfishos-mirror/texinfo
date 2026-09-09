@@ -855,6 +855,10 @@ sub _protect_sentence_ends($) {
              (?=[$end_sentence][$after_punctuation]*(?:\s|$))
              /\x08/xg;
 
+  #my $visible_text_f = $text;
+  #$visible_text_f =~ s/\x08/\~/g;
+  #print STDERR "0PSE '$text' '$visible_text_f'\n";
+
   # Also insert a control character at end of string, to protect a full stop
   # that may follow later.
 
@@ -864,6 +868,10 @@ sub _protect_sentence_ends($) {
   $text = reverse $text;
   $text =~ s/^(?=[$after_punctuation]*(?:[^\p{Upper}\s]))/\x08/;
   $text = reverse $text;
+
+  #my $visible_text = $text;
+  #$visible_text =~ s/\x08/\~/g;
+  #print STDERR "PSE '$visible_text'\n";
 
   return $text;
 }
