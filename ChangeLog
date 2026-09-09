@@ -1,3 +1,17 @@
+2026-09-09 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/plaintext_paragraph.c (para__add_pending_word): call
+	text_reset on state.word, do not set only end to 0.  This does not
+	change the output, but fixes debugging messages.
+
+	* tta/C/convert/plaintext_paragraph.c (para_add_text): return early if
+	at the end of the string, there is no point in gatering next text in
+	that case and it could even be wrong.
+
+	* tta/C/convert/plaintext_paragraph.c (para_add_text): show debugging
+	information after first type has been determined, to avoid showing the
+	same information twice.
+
 2026-09-08 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/plaintext_paragraph.c (PARAGRAPH, para_add_text)

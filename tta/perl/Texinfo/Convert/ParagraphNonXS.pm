@@ -57,10 +57,11 @@ sub new(;$) {
     # 'no_break' => 0, 'double_width_no_break' => 0,
 
     # state
-    'word_counter' => 0, 'space' => '',
+    'word_counter' => 0, 'space' => '', # 'end_sentence' is unset
     'end_line_count' => 0, 'last_letter' => '', 'word' => '',
     # When 'word' eq '', this indicates a word of length 0.
     'invisible_pending_word' => 0,};
+
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
       $self->{$key} = $conf->{$key};
@@ -83,6 +84,7 @@ sub new(;$) {
       $self->{'id'} = $array_len;
       push @para_array, $self;
     }
+    # show the conf, in reproducible order
     if (defined($conf)) {
       foreach my $key (@para_ordered_conf) {
         if (defined($conf->{$key})) {
@@ -284,10 +286,14 @@ sub _add_next($;$$$) {
   return $result;
 }
 
-# Values for 'end_sentence'.  'end_sentence' can also be unset.
+# Values for 'end_sentence'.
+# 'end_sentence' can also be unset, meaning not at the end of a sentence.
 use constant {
+  # end of sentence is inhibited
   eos_inhibited => 0,
+  # at end of sentence
   eos_present => 1,
+  # at end of sentence but frenchspacing is on.
   eos_present_frenchspacing => -1,
 };
 
@@ -381,7 +387,7 @@ sub add_text($$) {
         my $at_two_spaces_end_sentence = 0;
         $at_two_spaces_end_sentence = 1
                            if (exists($paragraph->{'end_sentence'})
-                               and  $paragraph->{'end_sentence'} == eos_present
+                               and $paragraph->{'end_sentence'} == eos_present
                                and !$paragraph->{'frenchspacing'});
         if ($paragraph->{'no_break'}) {
           if (substr($paragraph->{'word'}, -1) ne ' ') {

@@ -333,7 +333,7 @@ para__add_pending_word (TEXT *result, int add_spaces)
         fprintf (stderr, "ADD_WORD[%s]+%d (%d)\n", state.word.text,
                  state.word_counter, state.counter);
 
-      state.word.end = 0;
+      text_reset (&state.word);
       state.word_counter = 0;
       state.invisible_pending_word = 0;
     }
@@ -572,7 +572,7 @@ enum text_class { type_NULL, type_spaces, type_regular,
 TEXT
 para_add_text (const char *text, int len)
 {
-  const char *p = text, *q = 0;
+  const char *p = text;
   char32_t wc_fw = (char32_t) '0';
   size_t next_len = 0;
   int width;
@@ -591,29 +591,17 @@ para_add_text (const char *text, int len)
 
   while (1)
     {
-      if (state.debug)
-        {
-          uint8_t first_char_u8[7];
-          int first_char_len = u8_uctomb (first_char_u8, state.last_letter, 6);
-          if (first_char_len < 0)
-            fatal ("u8_uctomb returns negative value");
-          first_char_u8[first_char_len] = 0;
-
-          fprintf(stderr, "p (%d+%d) s `%s', l `%s', w%d `%s'\n",
-                    state.counter, state.word_counter,
-                    state.space.end == 0 ? ""
-                      : para__print_escaped_spaces (state.space.text,
-                                                      state.space.end),
-                    (char *)first_char_u8, state.invisible_pending_word,
-                    state.word.text);
-        }
-
       /* p is now at the beginning of the text we have left to process.
-         next_type is set to the type of the next block, or is null. */
+         next_type is set to the type of the next block, or is type_NULL
+         before the beginning, or is type_finished after the last block. */
 
       type = next_type;
 
-      q = p;
+      /* at the end of the string */
+      if (type == type_finished)
+        break;
+
+      const char *q = p;
       q += next_len; len -= next_len; /* Skip over the last character
                                          processed. */
 
@@ -678,12 +666,29 @@ para_add_text (const char *text, int len)
       if (type == type_NULL)
         continue;
 
+      /* show the debugging information here, not when the first character
+         type is determined to avoid presenting redundant information */
+      if (state.debug)
+        {
+          uint8_t first_char_u8[7];
+          int first_char_len = u8_uctomb (first_char_u8, state.last_letter, 6);
+          if (first_char_len < 0)
+            fatal ("u8_uctomb returns negative value");
+          first_char_u8[first_char_len] = 0;
+
+          fprintf(stderr, "p (%d+%d) s `%s', l `%s', w%d `%s'\n",
+                    state.counter, state.word_counter,
+                    state.space.end == 0 ? ""
+                      : para__print_escaped_spaces (state.space.text,
+                                                      state.space.end),
+                    (char *)first_char_u8, state.invisible_pending_word,
+                    state.word.text);
+        }
+
       /* Now type is the type of the block we are about to operate on, and
          next_type the one after it.  p is the beginning of the span and q
          is the end. */
 
-      if (type == type_finished)
-        break;
       /*************** Whitespace character. *********************/
       if (type == type_spaces)
         {
