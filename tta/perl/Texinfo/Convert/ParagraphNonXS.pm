@@ -309,22 +309,30 @@ sub add_end_sentence($) {
   $paragraph->{'end_sentence'} = eos_present;
 }
 
+# Reset 'last_letter' to a lower-case letter to allow an end of
+# sentence to occur.
 sub allow_end_sentence($) {
   my $paragraph = shift;
 
-  printf STDERR "ALLOW END SENTENCE\n" if $paragraph->{'debug'};
+  printf STDERR "ALLOW END SENTENCE\n" if ($paragraph->{'debug'});
   $paragraph->{'last_letter'} = 'a'; # lower-case
 }
 
 sub set_frenchspacing($$) {
   my ($paragraph, $val) = @_;
 
+  if ($paragraph->{'debug'}) {
+    print STDERR "CONF $paragraph->{'id'} frenchspacing: $val\n";
+  }
   $paragraph->{'frenchspacing'} = $val;
 }
 
 sub set_double_width_no_break($$) {
   my ($paragraph, $val) = @_;
 
+  if ($paragraph->{'debug'}) {
+    print STDERR "CONF $paragraph->{'id'} double_width_no_break: $val\n";
+  }
   $paragraph->{'double_width_no_break'} = $val;
 }
 
@@ -430,9 +438,8 @@ sub add_text($$) {
       }
       $paragraph->{'last_letter'} = ' ';
     } elsif (defined($allow_eos)) {
-      # Reset 'last_letter' to a lower-case letter to allow an end of
-      # sentence to occur.
-      $paragraph->{'last_letter'} = 'a';
+      # allow an end of sentence to occur.
+      allow_end_sentence($paragraph);
     } elsif (defined($added_word)) {
       my $tmp = $added_word;
       # Prepend 'last_letter' to add the information on the last
