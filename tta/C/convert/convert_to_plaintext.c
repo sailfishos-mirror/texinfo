@@ -427,6 +427,7 @@ push_top_formatter (CONVERTER *self, enum command_id cmd)
     their own formatters, however it happens that there is some text
     outside any content that needs to be formatted, as @sp for example. */
   FORMATTER top_formatter = new_formatter (self, formatter_line, -1, -1);
+  top_formatter.is_top_formatter = 1;
   push_formatter (self, &top_formatter);
 }
 
@@ -4163,8 +4164,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           return;
         }
 
-      /* In Perl !$formatter->{'_top_formatter'} */
-      if (self_plaintext->formatters.number > 1)
+      FORMATTER *top_formatter
+        = top_(formatter) (&self_plaintext->formatters);
+      if (!top_formatter->is_top_formatter)
         {
           if (type == ET_raw)
             stream_output_add_next (self, element->e.text->text,
@@ -4720,6 +4722,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             {
               enum command_id context_cmd
                  = *top_(command) (&self_plaintext->context);
+              FORMATTER *top_formatter
+                = top_(formatter) (&self_plaintext->formatters);
               const TEXT pending_word = para_add_pending_word (1);
               stream_output_count_nl (self, pending_word);
 
@@ -4727,7 +4731,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               para_add_next ("", 0, 0);
 
           /* Flush right an image outside of paragraph and preformatted. */
-              if (self_plaintext->formatters.number == 1
+              if (top_formatter->is_top_formatter
                   && context_cmd == CM_flushright)
                 {
                   push_count_context (&self_plaintext->count_context);
@@ -4749,7 +4753,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               para_add_to_counter (IMAGE_WIDTH);
               add_lines_count (self, lines_count);
 
-              if (self_plaintext->formatters.number == 1
+              top_formatter
+                = top_(formatter) (&self_plaintext->formatters);
+              if (top_formatter->is_top_formatter
                   && context_cmd == CM_flushright)
                 {
                   TEXT_CONTEXT *text_element_context
@@ -5300,6 +5306,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             }
           else if (cmd == CM_value)
             {
+              FORMATTER *top_formatter
+               = top_(formatter) (&self_plaintext->formatters);
               ELEMENT *expansion;
               ELEMENT *value_arg_copy
                 = copy_element_tree (element->e.c->contents.list[0], 0);
@@ -5310,8 +5318,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               expansion = cdt_tree ("@{No value for `{value}'@}",
                                            self, substrings, 0);
 
-              /* In Perl $formatter->{'_top_formatter'} */
-              if (self_plaintext->formatters.number == 1)
+              if (top_formatter->is_top_formatter)
                 {
                   ELEMENT *value_paragraph = new_element (ET_paragraph);
                   add_to_element_contents (value_paragraph, expansion);

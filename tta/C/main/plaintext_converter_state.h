@@ -59,6 +59,7 @@ typedef struct FORMATTER {
     INTEGER_STACK frenchspacing_stack;
     int suppress_styles;
     int no_added_eol;
+    int is_top_formatter;
 } FORMATTER;
 
 def_list_type(FORMATTER_STACK, FORMATTER);

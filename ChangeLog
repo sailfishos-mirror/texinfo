@@ -1,5 +1,14 @@
 2026-09-09 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c (push_top_formatter)
+	(convert_to_plaintext_internal),
+	tta/C/main/plaintext_converter_state.h (FORMATTER): add an
+	is_top_formatter field similar to Perl _top_formatter instead of
+	useing the formatter number.  Indeed, formatter in footnote is a top
+	formatter, but is not the first on the stack.
+
+2026-09-09 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_plaintext.c (protect_sentence_ends): add a
 	protection control character when there are only after punctualtion
 	characters in the text being processed.  It is not obviously right,
