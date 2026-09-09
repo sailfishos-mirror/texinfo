@@ -1,5 +1,11 @@
 2026-09-09 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c (get_n_spaces)
+	(convert_to_plaintext_internal): prepare a string of white spaces to
+	copy from instead of adding spaces one at a time.
+
+2026-09-09 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/plaintext_paragraph.c (para__add_pending_word): call
 	text_reset on state.word, do not set only end to 0.  This does not
 	change the output, but fixes debugging messages.

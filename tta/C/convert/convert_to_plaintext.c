@@ -4062,6 +4062,21 @@ convert_def_line (CONVERTER *self, const ELEMENT *element)
   destroy_parsed_def (parsed_def);
 }
 
+/* setup a string long enough to copy contiguous spaces from that string */
+static const char *
+get_n_spaces (size_t n)
+{
+  static TEXT spaces;
+  if (spaces.end < n)
+    {
+      size_t i;
+      size_t len = n - spaces.end;
+      for (i = 0; i < len; i++)
+        text_append_n (&spaces, " ", 1);
+    }
+  return spaces.text;
+}
+
 static int listoffloat_entry_length = 41;
 /* computed as 32/72, rounded up */
 static double description_align_column_factor = 0.45;
@@ -4382,13 +4397,17 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               if (strcmp (accented_text_original, ""))
                 {
                   if (font_type->monospace || upper_case->var)
-                    para_allow_end_sentence ();
+                    {
+                      para_allow_end_sentence ();
+                    }
                   else
                     {
                       if (isascii (accented_text_original[0]))
                         {
                           if (islower (accented_text_original[0]))
-                            para_allow_end_sentence ();
+                            {
+                              para_allow_end_sentence ();
+                            }
                         }
                       else
                         {
@@ -4400,7 +4419,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                           u8_mbtouc (&wc, (uint8_t *) accented_text_original,
                                      char_len);
                           if (!uc_is_upper (wc))
-                            para_allow_end_sentence ();
+                            {
+                              para_allow_end_sentence ();
+                            }
                         }
                     }
                 }
@@ -4785,7 +4806,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
       /* This is to have @TeX{}, for example, not to prevent end sentences. */
                       if (!(command_other_flags (element) & CF_letter_no_arg))
-                        para_allow_end_sentence ();
+                        {
+                          para_allow_end_sentence ();
+                        }
 
                       if (cmd == CM_dots)
                         para_remove_end_sentence ();
@@ -4799,7 +4822,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
                   if (upper_case->var
                       || font_type->monospace)
-                    para_allow_end_sentence ();
+                    {
+                      para_allow_end_sentence ();
+                    }
                 }
 
               return;
@@ -5986,10 +6011,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                         }
                       else
                         {
-                          int k;
                           int space_nr = listoffloat_entry_length - line_width;
-                          for (k = 0; k < space_nr; k++)
-                            stream_output_add_next (self, " ", 1);
+                          const char *spaces = get_n_spaces (space_nr);
+                          stream_output_add_next (self, spaces, space_nr);
                         }
 
                       find_float_caption_shortcaption (float_elt,
@@ -6713,7 +6737,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           int line_idx;
           for (line_idx = 0; line_idx < max_lines; line_idx++)
             {
-              int k;
               int line_width = indent_len;
               int cell_idx;
               int indent_done = 0;
@@ -6763,8 +6786,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                                     {
                                       PENDING_TEXT *spaces
                                       = add_top_pending_text (result, PLT_text);
-                                      for (k = 0; k < indent_len; k++)
-                                        text_append_n (&spaces->text, " ", 1);
+                                      const char *spaces_str
+                                        = get_n_spaces (indent_len);
+                                      text_append_n (&spaces->text, spaces_str,
+                                                     indent_len);
                                       indent_done = 1;
                                     }
                                 }
@@ -6788,8 +6813,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                             {
                               PENDING_TEXT *spaces
                                  = add_top_pending_text (result, PLT_text);
-                              for (k = 0; k < indent_len; k++)
-                                text_append_n (&spaces->text, " ", 1);
+                              const char *spaces_str = get_n_spaces (indent_len);
+                              text_append_n (&spaces->text,
+                                             spaces_str, indent_len);
                               indent_done = 1;
                             }
                           spaces_nr = indent_len
@@ -6799,8 +6825,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                             {
                               PENDING_TEXT *spaces
                                  = add_top_pending_text (result, PLT_text);
-                              for (k = 0; k < spaces_nr; k++)
-                                text_append_n (&spaces->text, " ", 1);
+                              const char *spaces_str = get_n_spaces (spaces_nr);
+                              text_append_n (&spaces->text,
+                                             spaces_str, spaces_nr);
                             }
                           line_width += spaces_nr;
                         }
