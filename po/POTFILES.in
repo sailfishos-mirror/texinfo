@@ -50,6 +50,7 @@ tta/perl/Texinfo/ParserNonXS.pm
 tta/perl/Texinfo/Report.pm
 tta/perl/Texinfo/StructuringNonXS.pm
 tta/perl/Texinfo/Structuring.pm
+tta/perl/Texinfo/TransformationsNonXS.pm
 tta/perl/Texinfo/Transformations.pm
 tta/perl/Texinfo/Translations.pm
 tta/perl/init/chm.pm
