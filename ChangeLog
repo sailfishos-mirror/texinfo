@@ -1,8 +1,14 @@
 2026-09-12 Patrice Dumas  <pertusus@free.fr>
 
+	update gnulib
+
+	* tta/: Run "gnulib-tool --add-import
+
+2026-09-12 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/formats_encodings.t (char_latin2_latin2_in_refs): skip if
 	XS, transliteration is not reproducible in NetBSD, where it seems that
-	there is no transliteration at all.
+	there is no transliteration at all in that situation.
 
 2026-09-12 Patrice Dumas  <pertusus@free.fr>
 
