@@ -179,10 +179,10 @@ sub converter_remove_output_units($) {
   $self->perl_converter_remove_output_units();
 }
 
-# ALTIMP convert/texinfo.c txi_destroy_converter
-#        convert/converter.c destroy_converter
+# ALTIMP convert/converter.c destroy_converter
 # Has an XS override, that calls the converter_perl_release Perl function
-# in addition to C code.
+# in addition to C code.  The texi2any.c code also calls both Perl
+# and C code.
 sub destroy_converter($) {
   my $self = shift;
 

@@ -1,5 +1,9 @@
 2026-09-12 Patrice Dumas  <pertusus@free.fr>
 
+	remove references to removed texinfo.c file
+
+2026-09-12 Patrice Dumas  <pertusus@free.fr>
+
 	update gnulib
 
 	* tta/: Run "gnulib-tool --add-import

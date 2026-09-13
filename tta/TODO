@@ -139,8 +139,7 @@ libtexinfo.
 The list:
 C/main/customization_options.h: txi_base_options, txi_base_sorted_options,
 txi_options_command_map => libtexinfo-convert (converter.c, format_html.c...)
-C/main/document.h: txi_paths_info => libtexinfo-convert (convert_html.c...),
-                                     libtexinfo-main (texinfo.c)
+C/main/document.h: txi_paths_info => libtexinfo-convert (convert_html.c...)
 C/main/translations.h: translation_cache
   => libtexinfo-convert (converter.c, convert_to_text.c)
 C/main/unicode.h: unicode_character_brace_no_arg_commands

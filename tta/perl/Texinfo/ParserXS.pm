@@ -32,7 +32,7 @@ use warnings;
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
-# ALTIMP C/convert/texinfo.c txi_parser
+# ALTIMP C/parsetexi/parser_api.c parser
 # ALTIMP perl/Texinfo/ParserNonXS.pm
 #
 # Initialize the parser
