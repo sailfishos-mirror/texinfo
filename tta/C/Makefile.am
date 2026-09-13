@@ -47,6 +47,11 @@ AM_LDFLAGS = $(perl_conf_LDFLAGS)
 
 librarydir = $(converterlibdir)/lib
 
+# path from libraries directory to bin directory such that libtool can
+# install libraries in bin on platforms where thay may only be found in
+# that place (Windows).
+library_bindir = -bindir=$(librarydir)/../../../bin
+
 # -------------------------------------------------------
 
 noinst_LTLIBRARIES =
@@ -270,7 +275,7 @@ libtexinfo_la_LIBADD = libcallperl_libtexinfo.la $(platform_PERL_LIBADD)
 # is moved to another library it could be possible to use uchar-h although
 # it is probably better for future uses to have uchar-h-c23.
 C_libtexinfo_LIBS = $(HARD_LOCALE_LIB) $(LIBPTHREAD) $(LIBTHREAD) $(LTLIBC32CONV) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(MBRTOWC_LIB) $(PTHREAD_ONCE_LIB) $(SETLOCALE_NULL_LIB)
-libtexinfo_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS) $(C_libtexinfo_LIBS)
+libtexinfo_la_LDFLAGS = $(library_bindir) -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS) $(C_libtexinfo_LIBS)
 
 #libtexinfo_la_LDFLAGS = -version-info 1:0:0 -Wl,--no-undefined $(perl_conf_LIB_LDFLAGS) $(perl_conf_LIBS) $(C_libtexinfo_LIBS)
 
@@ -464,7 +469,7 @@ libtexinfoxs_la_SOURCES= \
 # locate include files under out-of-source builds.
 libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(perl_conf_CPPFLAGS)
 libtexinfoxs_la_LIBADD = libtexinfo.la $(platform_PERL_LIBADD)
-libtexinfoxs_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS)
+libtexinfoxs_la_LDFLAGS = $(library_bindir) -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS)
 # example to trigger errors associated with no undefined
 #libtexinfoxs_la_LDFLAGS = -version-info 1:0:0 -Wl,--no-undefined $(perl_conf_LIB_LDFLAGS) $(perl_conf_LIBS)
 
@@ -551,7 +556,7 @@ libtexinfo_convert_la_SOURCES = \
 # locate include files under out-of-source builds.
 libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 libtexinfo_convert_la_LIBADD = $(libtexinfoxs_la_as_dependency) libtexinfo.la libcallperl_libtexinfo_convert.la $(platform_PERL_LIBADD)
-libtexinfo_convert_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+libtexinfo_convert_la_LDFLAGS = $(library_bindir) -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 # example to trigger errors associated with no undefined
 #libtexinfo_convert_la_LDFLAGS = -version-info 1:0:0 -Wl,--no-undefined $(perl_conf_LIB_LDFLAGS) $(perl_conf_LIBS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
@@ -588,7 +593,7 @@ EXTRA_DIST +=          tree_elements/build_perl_tree_elements.h \
 # locate include files under out-of-source builds.
 libtexinfo_convertxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(perl_conf_CPPFLAGS)
 libtexinfo_convertxs_la_LIBADD = libtexinfo-convert.la libtexinfoxs.la libtexinfo.la $(platform_PERL_LIBADD)
-libtexinfo_convertxs_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS)
+libtexinfo_convertxs_la_LDFLAGS = $(library_bindir) -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS)
 # example to trigger errors associated with no undefined
 #libtexinfo_convertxs_la_LDFLAGS = -version-info 1:0:0 -Wl,--no-undefined $(perl_conf_LIB_LDFLAGS) $(perl_conf_LIBS)
 
@@ -668,7 +673,7 @@ if PERL_EMBEDDED
 libtexinfo_main_la_LIBADD += $(perl_conf_LIBS)
 endif
 # contains part of ExtUtils::Embed ldopts corresponding to LDFLAGS
-libtexinfo_main_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LIB_LDFLAGS) $(LTLIBINTL)
+libtexinfo_main_la_LDFLAGS = $(library_bindir) -version-info 0:0:0 $(perl_conf_LIB_LDFLAGS) $(LTLIBINTL)
 # example to trigger errors associated with no undefined
 #libtexinfo_main_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LIB_LDFLAGS) $(LTLIBINTL) $(perl_conf_LIBS)
 

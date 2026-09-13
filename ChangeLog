@@ -1,14 +1,22 @@
-2026-09-12 Patrice Dumas  <pertusus@free.fr>
+2026-09-13 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/Makefile.am (library_bindir, libtexinfo_*la_LDFLAGS): add
+	-bindir to the path leading from libraries directory to bin directory
+	such that libtool can install libraries in bin on platforms where thay
+	may only be found in that place (Windows).  Based on Bruno Haible
+	information.
+
+2026-09-13 Patrice Dumas  <pertusus@free.fr>
 
 	update gnulib in main directory
 
 	Run "gnulib-tool --add-import
 
-2026-09-12 Patrice Dumas  <pertusus@free.fr>
+2026-09-13 Patrice Dumas  <pertusus@free.fr>
 
 	remove references to removed texinfo.c file
 
-2026-09-12 Patrice Dumas  <pertusus@free.fr>
+2026-09-13 Patrice Dumas  <pertusus@free.fr>
 
 	update gnulib in tta
 
