@@ -312,7 +312,8 @@ _GL_EXTERN_C void *memset_explicit (void *__s, int __c, size_t __n)
 #if @GNULIB_EXPLICIT_BZERO@
 # if ! @HAVE_EXPLICIT_BZERO@
 _GL_FUNCDECL_SYS (explicit_bzero, void,
-                  (void *__dest, size_t __n), _GL_ARG_NONNULL ((1)));
+                  (void *__dest, size_t __n),
+                  _GL_ATTRIBUTE_NONNULL_IF_NONZERO (1, 2));
 # endif
 _GL_CXXALIAS_SYS (explicit_bzero, void, (void *__dest, size_t __n));
 _GL_CXXALIASWARN (explicit_bzero);
@@ -420,16 +421,19 @@ _GL_WARN_ON_USE_CXX (memchr,
 
 /* Are S1 and S2, of size N, bytewise equal?  */
 #if @GNULIB_MEMEQ@ && !@HAVE_DECL_MEMEQ@
-# ifdef __cplusplus
+# if !GNULIB_defined_memeq
+#  ifdef __cplusplus
 extern "C" {
-# endif
+#  endif
 _GL_MEMEQ_INLINE bool
 memeq (void const *__s1, void const *__s2, size_t __n)
 {
   return !memcmp (__s1, __s2, __n);
 }
-# ifdef __cplusplus
+#  ifdef __cplusplus
 }
+#  endif
+#  define GNULIB_defined_memeq 1
 # endif
 #endif
 
@@ -479,7 +483,8 @@ _GL_WARN_ON_USE (memmem, "memmem is unportable and often quadratic - "
 _GL_FUNCDECL_RPL (mempcpy, void *,
                   (void *restrict __dest, void const *restrict __src,
                    size_t __n),
-                  _GL_ARG_NONNULL ((1, 2)));
+                  _GL_ATTRIBUTE_NONNULL_IF_NONZERO (1, 3)
+                  _GL_ATTRIBUTE_NONNULL_IF_NONZERO (2, 3));
 _GL_CXXALIAS_RPL (mempcpy, void *,
                   (void *restrict __dest, void const *restrict __src,
                    size_t __n));
@@ -488,7 +493,8 @@ _GL_CXXALIAS_RPL (mempcpy, void *,
 _GL_FUNCDECL_SYS (mempcpy, void *,
                   (void *restrict __dest, void const *restrict __src,
                    size_t __n),
-                  _GL_ARG_NONNULL ((1, 2)));
+                  _GL_ATTRIBUTE_NONNULL_IF_NONZERO (1, 3)
+                  _GL_ATTRIBUTE_NONNULL_IF_NONZERO (2, 3));
 #  endif
 _GL_CXXALIAS_SYS (mempcpy, void *,
                   (void *restrict __dest, void const *restrict __src,
@@ -642,7 +648,8 @@ _GL_WARN_ON_USE (stpcpy, "stpcpy is unportable - "
 _GL_FUNCDECL_RPL (stpncpy, char *,
                   (char *restrict __dst, char const *restrict __src,
                    size_t __n),
-                  _GL_ARG_NONNULL ((1, 2)));
+                  _GL_ATTRIBUTE_NONNULL_IF_NONZERO (1, 3)
+                  _GL_ATTRIBUTE_NONNULL_IF_NONZERO (2, 3));
 _GL_CXXALIAS_RPL (stpncpy, char *,
                   (char *restrict __dst, char const *restrict __src,
                    size_t __n));
@@ -651,7 +658,8 @@ _GL_CXXALIAS_RPL (stpncpy, char *,
 _GL_FUNCDECL_SYS (stpncpy, char *,
                   (char *restrict __dst, char const *restrict __src,
                    size_t __n),
-                  _GL_ARG_NONNULL ((1, 2)));
+                  _GL_ATTRIBUTE_NONNULL_IF_NONZERO (1, 3)
+                  _GL_ATTRIBUTE_NONNULL_IF_NONZERO (2, 3));
 #  endif
 _GL_CXXALIAS_SYS (stpncpy, char *,
                   (char *restrict __dst, char const *restrict __src,
@@ -805,16 +813,19 @@ _GL_CXXALIASWARN (strdup);
 
 /* Are strings S1 and S2 equal?  */
 #if @GNULIB_STREQ@ && !@HAVE_DECL_STREQ@
-# ifdef __cplusplus
+# if !GNULIB_defined_streq
+#  ifdef __cplusplus
 extern "C" {
-# endif
+#  endif
 _GL_STREQ_INLINE bool
 streq (char const *__s1, char const *__s2)
 {
   return !strcmp (__s1, __s2);
 }
-# ifdef __cplusplus
+#  ifdef __cplusplus
 }
+#  endif
+#  define GNULIB_defined_streq 1
 # endif
 #endif
 
@@ -855,7 +866,8 @@ _GL_WARN_ON_USE (strncat, "strncat is unportable - "
 _GL_FUNCDECL_RPL (strncpy, char *,
                   (char *restrict __dst, char const *restrict __src,
                    size_t __n),
-                  _GL_ARG_NONNULL ((1, 2)));
+                  _GL_ATTRIBUTE_NONNULL_IF_NONZERO (1, 3)
+                  _GL_ATTRIBUTE_NONNULL_IF_NONZERO (2, 3));
 _GL_CXXALIAS_RPL (strncpy, char *,
                   (char *restrict __dst, char const *restrict __src,
                    size_t __n));
@@ -940,13 +952,13 @@ _GL_WARN_ON_USE (strndup, "strndup is unportable - "
 #  endif
 _GL_FUNCDECL_RPL (strnlen, size_t, (char const *__s, size_t __maxlen),
                                    _GL_ATTRIBUTE_PURE
-                                   _GL_ARG_NONNULL ((1)));
+                                   _GL_ATTRIBUTE_NONNULL_IF_NONZERO (1, 2));
 _GL_CXXALIAS_RPL (strnlen, size_t, (char const *__s, size_t __maxlen));
 # else
 #  if ! @HAVE_DECL_STRNLEN@
 _GL_FUNCDECL_SYS (strnlen, size_t, (char const *__s, size_t __maxlen),
                                    _GL_ATTRIBUTE_PURE
-                                   _GL_ARG_NONNULL ((1)));
+                                   _GL_ATTRIBUTE_NONNULL_IF_NONZERO (1, 2));
 #  endif
 _GL_CXXALIAS_SYS (strnlen, size_t, (char const *__s, size_t __maxlen));
 # endif
@@ -1041,7 +1053,7 @@ _GL_WARN_ON_USE_CXX (strrchr,
    If *STRINGP was already NULL, nothing happens.
    Return the old value of *STRINGP.
 
-   This is a variant of strtok() that is multithread-safe and supports
+   This is a variant of strtok() that is thread-safe and supports
    empty fields.
 
    Caveat: It modifies the original string.
@@ -1179,7 +1191,7 @@ _GL_WARN_ON_USE (strcasestr, "strcasestr does work correctly on character "
         x = strtok_r(NULL, "=", &sp);   // x = NULL
                 // s = "abc\0-def\0"
 
-   This is a variant of strtok() that is multithread-safe.
+   This is a variant of strtok() that is thread-safe.
 
    For the POSIX documentation for this function, see:
    https://pubs.opengroup.org/onlinepubs/9699919799/functions/strtok.html
@@ -1245,9 +1257,10 @@ _GL_WARN_ON_USE (strtok_r, "strtok_r is unportable - "
      string + strlen (string)
    or to
      strchr (string, '\0').  */
-# ifdef __cplusplus
+# if !GNULIB_defined_strnul
+#  ifdef __cplusplus
 extern "C" {
-# endif
+#  endif
 _GL_STRNUL_INLINE const char *_gl_strnul (const char *string)
      _GL_ATTRIBUTE_PURE
      _GL_ARG_NONNULL ((1));
@@ -1261,10 +1274,11 @@ _GL_STRNUL_INLINE const char *_gl_strnul (const char *string)
      option '-fno-builtin' is in use.  */
   return string + strlen (string);
 }
-# ifdef __cplusplus
+#  ifdef __cplusplus
 }
-# endif
-# ifdef __cplusplus
+#  endif
+#  ifdef __cplusplus
+extern "C++" { /* needed for AIX and Solaris 10 */
 _GL_BEGIN_NAMESPACE
 template <typename T> T strnul (T);
 template <> inline const char *strnul<const char *> (const char *s)
@@ -1272,11 +1286,12 @@ template <> inline const char *strnul<const char *> (const char *s)
 template <> inline       char *strnul<      char *> (      char *s)
 { return const_cast<char *>(_gl_strnul (s)); }
 _GL_END_NAMESPACE
-# else
-#  if (defined __GNUC__ && __GNUC__ + (__GNUC_MINOR__ >= 9) > 4 && !defined __cplusplus) \
-      || (defined __clang__ && __clang_major__ >= 3) \
-      || (defined __SUNPRO_C && __SUNPRO_C >= 0x5150) \
-      || (__STDC_VERSION__ >= 201112L && !defined __GNUC__)
+}
+#  else
+#   if (defined __GNUC__ && __GNUC__ + (__GNUC_MINOR__ >= 9) > 4 && !defined __cplusplus) \
+       || (defined __clang__ && __clang_major__ >= 3) \
+       || (defined __SUNPRO_C && __SUNPRO_C >= 0x5150) \
+       || (__STDC_VERSION__ >= 201112L && !defined __GNUC__)
 /* The compiler supports _Generic from ISO C11.  */
 /* Since in C (but not in C++!), any function that accepts a '[const] char *'
    also accepts a '[const] void *' as argument, we make sure that the function-
@@ -1284,14 +1299,16 @@ _GL_END_NAMESPACE
      char *, void *             -> void *
      const char *, const void * -> const void *
    This mapping is done through the conditional expression.  */
-#   define strnul(s) \
-      _Generic (1 ? (s) : (void *) 99, \
-                void *       : (char *) _gl_strnul (s), \
-                const void * : _gl_strnul (s))
-#  else
-#   define strnul(s) \
-      ((char *) _gl_strnul (s))
+#    define strnul(s) \
+       _Generic (1 ? (s) : (void *) 99, \
+                 void *       : (char *) _gl_strnul (s), \
+                 const void * : _gl_strnul (s))
+#   else
+#    define strnul(s) \
+       ((char *) _gl_strnul (s))
+#   endif
 #  endif
+#  define GNULIB_defined_strnul 1
 # endif
 #endif
 
@@ -1341,7 +1358,7 @@ _GL_CXXALIASWARN (mbslen);
    at STRING and ending at STRING + LEN.  */
 _GL_EXTERN_C size_t mbsnlen (const char *string, size_t len)
      _GL_ATTRIBUTE_PURE
-     _GL_ARG_NONNULL ((1));
+     _GL_ATTRIBUTE_NONNULL_IF_NONZERO (1, 2);
 #endif
 
 #if @GNULIB_MBSCHR@
@@ -1400,7 +1417,7 @@ _GL_EXTERN_C char * mbsstr (const char *haystack, const char *needle)
 /* Don't silently convert a 'const char *' to a 'char *'.  Programmers want
    compiler warnings for 'const' related mistakes.  */
 #  ifdef __cplusplus
-extern "C++" { /* needed for AIX */
+extern "C++" { /* needed for AIX and Solaris 10 */
 template <typename T>
   T * mbsstr_template (T* haystack, const char *needle);
 template <>
@@ -1449,7 +1466,8 @@ _GL_EXTERN_C int mbscasecmp (const char *s1, const char *s2)
    But beware that N is not a byte count but a character count!  */
 _GL_EXTERN_C int mbsncasecmp (const char *s1, const char *s2, size_t n)
      _GL_ATTRIBUTE_PURE
-     _GL_ARG_NONNULL ((1, 2));
+     _GL_ATTRIBUTE_NONNULL_IF_NONZERO (1, 3)
+     _GL_ATTRIBUTE_NONNULL_IF_NONZERO (2, 3);
 #endif
 
 #if @GNULIB_MBSPCASECMP@
@@ -1468,7 +1486,7 @@ _GL_EXTERN_C char * mbspcasecmp (const char *string, const char *prefix)
 /* Don't silently convert a 'const char *' to a 'char *'.  Programmers want
    compiler warnings for 'const' related mistakes.  */
 #  ifdef __cplusplus
-extern "C++" { /* needed for AIX */
+extern "C++" { /* needed for AIX and Solaris 10 */
 template <typename T>
   T * mbspcasecmp_template (T* string, const char *prefix);
 template <>
@@ -1506,7 +1524,7 @@ _GL_EXTERN_C char * mbscasestr (const char *haystack, const char *needle)
 /* Don't silently convert a 'const char *' to a 'char *'.  Programmers want
    compiler warnings for 'const' related mistakes.  */
 #  ifdef __cplusplus
-extern "C++" { /* needed for AIX */
+extern "C++" { /* needed for AIX and Solaris 10 */
 template <typename T>
   T * mbscasestr_template (T* haystack, const char *needle);
 template <>
@@ -1636,15 +1654,21 @@ _GL_EXTERN_C bool mbs_endswith (const char *string, const char *suffix)
 
 /* Map any int, typically from errno, into an error message.  */
 #if @GNULIB_STRERROR@
+/* The return type 'const char *' serves the purpose of producing warnings
+   for invalid uses of the value returned from this function.  */
 # if @REPLACE_STRERROR@
 #  if !(defined __cplusplus && defined GNULIB_NAMESPACE)
 #   undef strerror
 #   define strerror rpl_strerror
+#   define GNULIB_defined_strerror 1
 #  endif
-_GL_FUNCDECL_RPL (strerror, char *, (int), );
-_GL_CXXALIAS_RPL (strerror, char *, (int));
+_GL_FUNCDECL_RPL (strerror, const char *, (int), );
+_GL_CXXALIAS_RPL (strerror, const char *, (int));
 # else
-_GL_CXXALIAS_SYS (strerror, char *, (int));
+_GL_CXXALIAS_SYS_CAST (strerror, const char *, (int));
+#  if !defined strerror && !defined __cplusplus
+#   define strerror(...) ((const char *) strerror (__VA_ARGS__))
+#  endif
 # endif
 # if __GLIBC__ >= 2
 _GL_CXXALIASWARN (strerror);
@@ -1655,7 +1679,7 @@ _GL_WARN_ON_USE (strerror, "strerror is unportable - "
                  "use gnulib module strerror to guarantee non-NULL result");
 #endif
 
-/* Map any int, typically from errno, into an error message.  Multithread-safe.
+/* Map any int, typically from errno, into an error message.  Thread-safe.
    Uses the POSIX declaration, not the glibc declaration.  */
 #if @GNULIB_STRERROR_R@
 # if @REPLACE_STRERROR_R@
@@ -1711,7 +1735,7 @@ _GL_WARN_ON_USE (strerror_l, "strerror_l is unportable - "
 # endif
 #endif
 
-/* Map any int, typically from errno, into an error message.  Multithread-safe,
+/* Map any int, typically from errno, into an error message.  Thread-safe,
    with locale_t argument.
    Not portable! Only provided by gnulib.  */
 #if @GNULIB_STRERROR_L@

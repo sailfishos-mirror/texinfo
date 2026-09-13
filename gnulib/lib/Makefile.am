@@ -189,6 +189,14 @@ EXTRA_DIST += basename-lgpl.h
 
 ## end   gnulib module basename-lgpl
 
+## begin gnulib module btoc32
+
+if gl_GNULIB_ENABLED_btoc32
+libgnu_a_SOURCES += btoc32.c
+
+endif
+## end   gnulib module btoc32
+
 ## begin gnulib module btowc
 
 if gl_GNULIB_ENABLED_btowc
@@ -198,6 +206,22 @@ endif
 
 endif
 ## end   gnulib module btowc
+
+## begin gnulib module c32_apply_type_test
+
+if gl_GNULIB_ENABLED_c32_apply_type_test
+libgnu_a_SOURCES += c32_apply_type_test.c
+
+endif
+## end   gnulib module c32_apply_type_test
+
+## begin gnulib module c32_get_type_test
+
+if gl_GNULIB_ENABLED_c32_get_type_test
+libgnu_a_SOURCES += c32_get_type_test.c
+
+endif
+## end   gnulib module c32_get_type_test
 
 ## begin gnulib module c32isalnum
 
@@ -295,6 +319,16 @@ EXTRA_DIST += c32is-impl.h
 
 ## end   gnulib module c32isxdigit
 
+## begin gnulib module c32rtomb
+
+if gl_GNULIB_ENABLED_c32rtomb
+if GL_COND_OBJ_C32RTOMB
+libgnu_a_SOURCES += c32rtomb.c
+endif
+
+endif
+## end   gnulib module c32rtomb
+
 ## begin gnulib module c32tolower
 
 libgnu_a_SOURCES += c32tolower.c
@@ -302,6 +336,16 @@ libgnu_a_SOURCES += c32tolower.c
 EXTRA_DIST += c32to-impl.h
 
 ## end   gnulib module c32tolower
+
+## begin gnulib module c32toupper
+
+if gl_GNULIB_ENABLED_c32toupper
+libgnu_a_SOURCES += c32toupper.c
+
+endif
+EXTRA_DIST += c32to-impl.h
+
+## end   gnulib module c32toupper
 
 ## begin gnulib module c32width
 
@@ -975,6 +1019,16 @@ endif
 endif
 ## end   gnulib module localeconv
 
+## begin gnulib module localeinfo
+
+if gl_GNULIB_ENABLED_localeinfo
+libgnu_a_SOURCES += localeinfo.c
+
+endif
+EXTRA_DIST += localeinfo.h
+
+## end   gnulib module localeinfo
+
 ## begin gnulib module lock
 
 if gl_GNULIB_ENABLED_lock
@@ -1032,6 +1086,12 @@ EXTRA_DIST += mbchar.h
 libgnu_a_SOURCES += mbiter.h mbiter.c
 
 ## end   gnulib module mbiter
+
+## begin gnulib module mbiter-aux
+
+libgnu_a_SOURCES += mbiter-aux.h mbiter-aux.c
+
+## end   gnulib module mbiter-aux
 
 ## begin gnulib module mbiterf
 
@@ -2747,6 +2807,18 @@ endif
 EXTRA_DIST += unicase/simple-mapping.h unicase/tolower.h
 
 ## end   gnulib module unicase/tolower
+
+## begin gnulib module unicase/toupper
+
+if gl_GNULIB_ENABLED_de98e0c57af8bc9b7f574d6bd2cb675f
+if LIBUNISTRING_COMPILE_UNICASE_TOUPPER
+libgnu_a_SOURCES += unicase/toupper.c
+endif
+
+endif
+EXTRA_DIST += unicase/simple-mapping.h unicase/toupper.h
+
+## end   gnulib module unicase/toupper
 
 ## begin gnulib module unictype/base
 
