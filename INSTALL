@@ -75,6 +75,13 @@ Installation notes specific to Texinfo:
   the unprefixed variants, e.g. CFLAGS instead of PERL_EXT_CFLAGS.  Exception:
   you cannot override CPPFLAGS this way, as gnulib uses this variable.)
 
+  We recommend not using the configure --config-cache nor setting --cache-file
+  because of the differences between the main directory and texi2any
+  settings.  The features found in the main directory may be different from
+  the features available in texi2any.  Using cached values could bring in
+  values found for the main directory that are not correct in the context of
+  texi2any.
+
 * After building the program, you can control the use of XS modules by
   the Perl texi2any implementation with the `TEXINFO_XS' environment
   variable, which may be useful for troubleshooting.

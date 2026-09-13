@@ -1,8 +1,14 @@
 2026-09-13 Patrice Dumas  <pertusus@free.fr>
 
+	* INSTALL: recommend not using configure --config-cache/--cache-file.
+	This is because of the differences between the main directory and
+	texi2any build settings.
+
+2026-09-13 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/Makefile.am (library_bindir, libtexinfo_*la_LDFLAGS): add
 	-bindir to the path leading from libraries directory to bin directory
-	such that libtool can install libraries in bin on platforms where thay
+	such that libtool can install libraries in bin on platforms where they
 	may only be found in that place (Windows).  Based on Bruno Haible
 	information.
 
