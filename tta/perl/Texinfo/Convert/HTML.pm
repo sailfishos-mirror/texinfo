@@ -2357,8 +2357,8 @@ sub _convert_image_command($$$$) {
     if (defined($self->get_conf('IMAGE_LINK_PREFIX'))) {
       $image_file = $self->get_conf('IMAGE_LINK_PREFIX') . $image_file;
     } elsif (defined($image_path) and $used_inc_dir
-             and $self->get_conf('COPY_IMAGES')) {
-      # copy image file if it does not already exist
+             and $self->get_conf('HTML_COPY_IMAGES')) {
+      # copy image file if it is more recent
       my ($volume, $directories, $image_basefile_name)
         = File::Spec->splitpath($image_file);
       my $destination_directory = '';
@@ -2389,18 +2389,29 @@ sub _convert_image_command($$$$) {
           = $image_destination_directory . $image_basefile_name;
         my ($encoded_image_dest_path_name, $image_dest_path_encoding)
             = $self->encoded_output_file_name($image_destination_path_name);
-        if (! -e $encoded_image_dest_path_name) {
-          my $copy_succeeded = copy($image_path, $encoded_image_dest_path_name);
-          if (not $copy_succeeded) {
-            my $image_path_text;
-            if (defined($image_path_encoding)) {
-              $image_path_text = decode($image_path_encoding, $image_path);
-            } else {
-              $image_path_text = $image_path;
+        if ($image_path ne $encoded_image_dest_path_name) {
+          my $to_copy = 1;
+          if (-e $encoded_image_dest_path_name) {
+            my @image_path_stat = stat($image_path);
+            my @dest_path_stat = stat($encoded_image_dest_path_name);
+            if (not (scalar(@image_path_stat) and scalar(@dest_path_stat)
+                     and $image_path_stat[9] > $dest_path_stat[9])) {
+              $to_copy = 0;
             }
-            $self->converter_document_error(sprintf(__(
+          }
+          if ($to_copy) {
+            my $copy_succeeded = copy($image_path, $encoded_image_dest_path_name);
+            if (not $copy_succeeded) {
+              my $image_path_text;
+              if (defined($image_path_encoding)) {
+                $image_path_text = decode($image_path_encoding, $image_path);
+              } else {
+                $image_path_text = $image_path;
+              }
+              $self->converter_document_error(sprintf(__(
                    "could not copy `%s' to `%s': %s"),
                       $image_path_text, $image_destination_path_name, $!));
+            }
           }
         }
       }

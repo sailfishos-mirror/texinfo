@@ -6845,7 +6845,7 @@ html_convert_image_command (CONVERTER *self, const enum command_id cmd,
         }
       else if (image_path_info->image_path
                && image_path_info->use_include_directory
-               && self->conf->COPY_IMAGES.o.integer)
+               && self->conf->HTML_COPY_IMAGES.o.integer)
         {
           HTML_CONVERTER_STATE *self_html = self->html_converter;
           char *file_name_and_directories[3];
@@ -6906,8 +6906,6 @@ html_convert_image_command (CONVERTER *self, const enum command_id cmd,
             {
               char *encoded_image_dest_path_name;
               char *image_dest_path_encoding;
-              int status;
-              struct stat dummy;
 
               text_append (&image_destination_path_name, image_basefile_name);
               encoded_image_dest_path_name
@@ -6916,20 +6914,37 @@ html_convert_image_command (CONVERTER *self, const enum command_id cmd,
                                         image_destination_path_name.text,
                                           &image_dest_path_encoding, 0);
 
-              status = stat (encoded_image_dest_path_name, &dummy);
-
-              if (status != 0)
+              if (strcmp (image_path_info->image_path,
+                          encoded_image_dest_path_name))
                 {
-                  int status;
-                  char *image_path_text
-                    = decode_string (image_path_info->image_path_encoding,
-                                     image_path_info->image_path, &status, 0);
-                  copy_file_to (self, image_path_info->image_path,
-                                encoded_image_dest_path_name,
-                                image_path_text,
-                                image_destination_path_name.text);
+                  int to_copy = 1;
+                  int stat_status;
+                  struct stat dest_path_stat;
+                  stat_status = stat (encoded_image_dest_path_name,
+                                      &dest_path_stat);
 
-                  free (image_path_text);
+                  if (stat_status == 0)
+                    {
+                      struct stat image_path_stat;
+                      stat_status = stat (image_path_info->image_path,
+                                          &image_path_stat);
+                      if (!(stat_status == 0
+                    && image_path_stat.st_mtime > dest_path_stat.st_mtime))
+                        to_copy = 0;
+                    }
+                  if (to_copy)
+                    {
+                      int status;
+                      char *image_path_text
+                       = decode_string (image_path_info->image_path_encoding,
+                                    image_path_info->image_path, &status, 0);
+                      copy_file_to (self, image_path_info->image_path,
+                                    encoded_image_dest_path_name,
+                                    image_path_text,
+                                    image_destination_path_name.text);
+
+                      free (image_path_text);
+                    }
                 }
             }
         }

@@ -39,7 +39,6 @@ initialize_options (OPTIONS *options)
   initialize_option (&options->TOP_NODE_UP, GOT_char, "TOP_NODE_UP", 0);
   initialize_option (&options->BASEFILENAME_LENGTH, GOT_integer, "BASEFILENAME_LENGTH", 0);
   initialize_option (&options->CASE_INSENSITIVE_FILENAMES, GOT_integer, "CASE_INSENSITIVE_FILENAMES", 0);
-  initialize_option (&options->COPY_IMAGES, GOT_integer, "COPY_IMAGES", 0);
   initialize_option (&options->DEBUG, GOT_integer, "DEBUG", OF_parser_option);
   initialize_option (&options->DOC_ENCODING_FOR_INPUT_FILE_NAME, GOT_integer, "DOC_ENCODING_FOR_INPUT_FILE_NAME", OF_parser_option);
   initialize_option (&options->DOC_ENCODING_FOR_OUTPUT_FILE_NAME, GOT_integer, "DOC_ENCODING_FOR_OUTPUT_FILE_NAME", 0);
@@ -92,6 +91,7 @@ initialize_options (OPTIONS *options)
   initialize_option (&options->HEADER_IN_TABLE, GOT_integer, "HEADER_IN_TABLE", 0);
   initialize_option (&options->HIGHLIGHT_SYNTAX, GOT_char, "HIGHLIGHT_SYNTAX", 0);
   initialize_option (&options->HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE, GOT_char, "HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE", 0);
+  initialize_option (&options->HTML_COPY_IMAGES, GOT_integer, "HTML_COPY_IMAGES", 0);
   initialize_option (&options->HTML_MATH, GOT_char, "HTML_MATH", 0);
   initialize_option (&options->HTML_ROOT_ELEMENT_ATTRIBUTES, GOT_char, "HTML_ROOT_ELEMENT_ATTRIBUTES", 0);
   initialize_option (&options->HTMLXREF_FILE, GOT_char, "HTMLXREF_FILE", 0);
@@ -305,45 +305,45 @@ setup_sortable_options (OPTION **to_sort, OPTIONS *options)
   to_sort[26] = &options->CONTENTS_OUTPUT_LOCATION;   /* converter_customization */
   to_sort[27] = &options->CONVERT_TO_LATEX_IN_MATH;   /* converter_customization */
   to_sort[28] = &options->COPIABLE_LINKS;   /* converter_customization */
-  to_sort[29] = &options->COPY_IMAGES;   /* converter_customization */
-  to_sort[30] = &options->CPP_LINE_DIRECTIVES;   /* parser */
-  to_sort[31] = &options->CSS_FILES;   /* array_cmdline */
-  to_sort[32] = &options->CSS_REFS;   /* array_cmdline */
-  to_sort[33] = &options->DATE_IN_HEADER;   /* converter_customization */
-  to_sort[34] = &options->DEBUG;   /* converter_customization */
-  to_sort[35] = &options->DEFAULT_RULE;   /* converter_customization */
-  to_sort[36] = &options->DEF_TABLE;   /* converter_customization */
-  to_sort[37] = &options->DOCTYPE;   /* converter_customization */
-  to_sort[38] = &options->DOCUMENTLANGUAGE_COLLATION;   /* converter_customization */
-  to_sort[39] = &options->DOC_ENCODING_FOR_INPUT_FILE_NAME;   /* converter_customization */
-  to_sort[40] = &options->DOC_ENCODING_FOR_OUTPUT_FILE_NAME;   /* converter_customization */
-  to_sort[41] = &options->DO_ABOUT;   /* converter_customization */
-  to_sort[42] = &options->DUMP_STRUCTURE;   /* program_customization */
-  to_sort[43] = &options->DUMP_TEXI;   /* program_customization */
-  to_sort[44] = &options->DUMP_TREE;   /* program_customization */
-  to_sort[45] = &options->ENABLE_ENCODING;   /* converter_cmdline */
-  to_sort[46] = &options->END_USEPACKAGE;   /* converter_customization */
-  to_sort[47] = &options->EPUB_CREATE_CONTAINER_FILE;   /* converter_customization */
-  to_sort[48] = &options->EPUB_KEEP_CONTAINER_FOLDER;   /* converter_customization */
-  to_sort[49] = &options->ERROR_LIMIT;   /* program_cmdline */
-  to_sort[50] = &options->EXPANDED_FORMATS;   /* array_cmdline */
-  to_sort[51] = &options->EXTENSION;   /* converter_customization */
-  to_sort[52] = &options->EXTERNAL_CROSSREF_EXTENSION;   /* converter_customization */
-  to_sort[53] = &options->EXTERNAL_CROSSREF_SPLIT;   /* converter_customization */
-  to_sort[54] = &options->EXTERNAL_DIR;   /* converter_customization */
-  to_sort[55] = &options->EXTRA_HEAD;   /* converter_customization */
-  to_sort[56] = &options->FILLCOLUMN;   /* converter_cmdline */
-  to_sort[57] = &options->FOOTNOTE_END_HEADER_LEVEL;   /* converter_customization */
-  to_sort[58] = &options->FOOTNOTE_SEPARATE_HEADER_LEVEL;   /* converter_customization */
-  to_sort[59] = &options->FORCE;   /* program_cmdline */
-  to_sort[60] = &options->FORMAT_MENU;   /* program_cmdline */
-  to_sort[61] = &options->HANDLER_FATAL_ERROR_LEVEL;   /* converter_customization */
-  to_sort[62] = &options->HEADERS;   /* converter_cmdline */
-  to_sort[63] = &options->HEADER_IN_TABLE;   /* converter_customization */
-  to_sort[64] = &options->HIGHLIGHT_SYNTAX;   /* converter_customization */
-  to_sort[65] = &options->HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE;   /* converter_customization */
-  to_sort[66] = &options->HTMLXREF_FILE;   /* converter_customization */
-  to_sort[67] = &options->HTMLXREF_MODE;   /* converter_customization */
+  to_sort[29] = &options->CPP_LINE_DIRECTIVES;   /* parser */
+  to_sort[30] = &options->CSS_FILES;   /* array_cmdline */
+  to_sort[31] = &options->CSS_REFS;   /* array_cmdline */
+  to_sort[32] = &options->DATE_IN_HEADER;   /* converter_customization */
+  to_sort[33] = &options->DEBUG;   /* converter_customization */
+  to_sort[34] = &options->DEFAULT_RULE;   /* converter_customization */
+  to_sort[35] = &options->DEF_TABLE;   /* converter_customization */
+  to_sort[36] = &options->DOCTYPE;   /* converter_customization */
+  to_sort[37] = &options->DOCUMENTLANGUAGE_COLLATION;   /* converter_customization */
+  to_sort[38] = &options->DOC_ENCODING_FOR_INPUT_FILE_NAME;   /* converter_customization */
+  to_sort[39] = &options->DOC_ENCODING_FOR_OUTPUT_FILE_NAME;   /* converter_customization */
+  to_sort[40] = &options->DO_ABOUT;   /* converter_customization */
+  to_sort[41] = &options->DUMP_STRUCTURE;   /* program_customization */
+  to_sort[42] = &options->DUMP_TEXI;   /* program_customization */
+  to_sort[43] = &options->DUMP_TREE;   /* program_customization */
+  to_sort[44] = &options->ENABLE_ENCODING;   /* converter_cmdline */
+  to_sort[45] = &options->END_USEPACKAGE;   /* converter_customization */
+  to_sort[46] = &options->EPUB_CREATE_CONTAINER_FILE;   /* converter_customization */
+  to_sort[47] = &options->EPUB_KEEP_CONTAINER_FOLDER;   /* converter_customization */
+  to_sort[48] = &options->ERROR_LIMIT;   /* program_cmdline */
+  to_sort[49] = &options->EXPANDED_FORMATS;   /* array_cmdline */
+  to_sort[50] = &options->EXTENSION;   /* converter_customization */
+  to_sort[51] = &options->EXTERNAL_CROSSREF_EXTENSION;   /* converter_customization */
+  to_sort[52] = &options->EXTERNAL_CROSSREF_SPLIT;   /* converter_customization */
+  to_sort[53] = &options->EXTERNAL_DIR;   /* converter_customization */
+  to_sort[54] = &options->EXTRA_HEAD;   /* converter_customization */
+  to_sort[55] = &options->FILLCOLUMN;   /* converter_cmdline */
+  to_sort[56] = &options->FOOTNOTE_END_HEADER_LEVEL;   /* converter_customization */
+  to_sort[57] = &options->FOOTNOTE_SEPARATE_HEADER_LEVEL;   /* converter_customization */
+  to_sort[58] = &options->FORCE;   /* program_cmdline */
+  to_sort[59] = &options->FORMAT_MENU;   /* program_cmdline */
+  to_sort[60] = &options->HANDLER_FATAL_ERROR_LEVEL;   /* converter_customization */
+  to_sort[61] = &options->HEADERS;   /* converter_cmdline */
+  to_sort[62] = &options->HEADER_IN_TABLE;   /* converter_customization */
+  to_sort[63] = &options->HIGHLIGHT_SYNTAX;   /* converter_customization */
+  to_sort[64] = &options->HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE;   /* converter_customization */
+  to_sort[65] = &options->HTMLXREF_FILE;   /* converter_customization */
+  to_sort[66] = &options->HTMLXREF_MODE;   /* converter_customization */
+  to_sort[67] = &options->HTML_COPY_IMAGES;   /* converter_customization */
   to_sort[68] = &options->HTML_MATH;   /* converter_customization */
   to_sort[69] = &options->HTML_ROOT_ELEMENT_ATTRIBUTES;   /* converter_customization */
   to_sort[70] = &options->ICONS;   /* converter_customization */

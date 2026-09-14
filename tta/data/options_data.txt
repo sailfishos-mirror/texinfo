@@ -182,7 +182,6 @@ TOP_NODE_UP                        converter_customization (dir)   char
 BASEFILENAME_LENGTH                converter_customization 255-10  integer
 CASE_INSENSITIVE_FILENAMES         converter_customization 0       integer
 # currently only used in HTML
-COPY_IMAGES                        converter_customization 0       integer
 DEBUG                              converter_customization 0       integer
 DOC_ENCODING_FOR_INPUT_FILE_NAME   converter_customization 1       integer
 DOC_ENCODING_FOR_OUTPUT_FILE_NAME  converter_customization 0       integer
@@ -254,6 +253,7 @@ HEADER_IN_TABLE                    converter_customization undef   integer
 HIGHLIGHT_SYNTAX                   converter_customization undef   char
 # for ext/highlight_syntax.pm
 HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE  converter_customization undef   char
+HTML_COPY_IMAGES                   converter_customization 0       integer
 HTML_MATH                          converter_customization undef   char
 HTML_ROOT_ELEMENT_ATTRIBUTES       converter_customization undef   char
 HTMLXREF_FILE                      converter_customization undef   char

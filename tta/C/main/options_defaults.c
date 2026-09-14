@@ -88,7 +88,6 @@ set_converter_customization_options_defaults (OPTIONS *options)
   option_set_conf (&options->TOP_NODE_UP, -2, "(dir)");
   option_set_conf (&options->BASEFILENAME_LENGTH, 255-10, 0);
   option_set_conf (&options->CASE_INSENSITIVE_FILENAMES, 0, 0);
-  option_set_conf (&options->COPY_IMAGES, 0, 0);
   option_set_conf (&options->DEBUG, 0, 0);
   option_set_conf (&options->DOC_ENCODING_FOR_INPUT_FILE_NAME, 1, 0);
   option_set_conf (&options->DOC_ENCODING_FOR_OUTPUT_FILE_NAME, 0, 0);
@@ -141,6 +140,7 @@ set_converter_customization_options_defaults (OPTIONS *options)
   option_set_conf (&options->HEADER_IN_TABLE, -1, 0);
   option_set_conf (&options->HIGHLIGHT_SYNTAX, -2, 0);
   option_set_conf (&options->HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE, -2, 0);
+  option_set_conf (&options->HTML_COPY_IMAGES, 0, 0);
   option_set_conf (&options->HTML_MATH, -2, 0);
   option_set_conf (&options->HTML_ROOT_ELEMENT_ATTRIBUTES, -2, 0);
   option_set_conf (&options->HTMLXREF_FILE, -2, 0);
@@ -233,7 +233,6 @@ add_converter_customization_options_defaults (OPTIONS_LIST *options_list)
   add_option_value (options_list, "TOP_NODE_UP", -2, "(dir)");
   add_option_value (options_list, "BASEFILENAME_LENGTH", 255-10, 0);
   add_option_value (options_list, "CASE_INSENSITIVE_FILENAMES", 0, 0);
-  add_option_value (options_list, "COPY_IMAGES", 0, 0);
   add_option_value (options_list, "DEBUG", 0, 0);
   add_option_value (options_list, "DOC_ENCODING_FOR_INPUT_FILE_NAME", 1, 0);
   add_option_value (options_list, "DOC_ENCODING_FOR_OUTPUT_FILE_NAME", 0, 0);
@@ -286,6 +285,7 @@ add_converter_customization_options_defaults (OPTIONS_LIST *options_list)
   add_option_value (options_list, "HEADER_IN_TABLE", -1, 0);
   add_option_value (options_list, "HIGHLIGHT_SYNTAX", -2, 0);
   add_option_value (options_list, "HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE", -2, 0);
+  add_option_value (options_list, "HTML_COPY_IMAGES", 0, 0);
   add_option_value (options_list, "HTML_MATH", -2, 0);
   add_option_value (options_list, "HTML_ROOT_ELEMENT_ATTRIBUTES", -2, 0);
   add_option_value (options_list, "HTMLXREF_FILE", -2, 0);
