@@ -7821,7 +7821,9 @@ If you want to install image files for use by Info readers too, we
 recommend putting them in a subdirectory like @samp{@var{foo}-figures}
 for a package @var{foo}.  Copying the files into
 @code{$(infodir)/@var{foo}-figures/} should be done in your
-@code{Makefile}.
+@code{Makefile}.  If you want to copy images to HTML output directories,
+you can either do it by yourself, or set the @code{HTML_COPY_IMAGES}
+customization variable to 1 (@pxref{HTML Customization of Specific Output}).
 
 The @var{width} and @var{height} arguments are described in the next
 section.
@@ -19069,6 +19071,11 @@ By default footnotes are numbered.  With @option{--no-number-footnotes} or if
 @code{NO_NUMBER_FOOTNOTE_SYMBOL} customization variable value, if set.
 @end vtable
 
+If you set @code{HTML_COPY_IMAGES} to 1, @command{texi2any} should copy
+any image file that does not begin with @samp{.} nor @samp{..} and that is not
+an absolute file name to HTML output directory, if there is no
+such file in the destination directory or the destination file is older than the
+source file.
 
 @node HTML Customization for Math
 @subsection HTML Customization for Math
@@ -19470,6 +19477,12 @@ command-line for the external program (@pxref{Syntax Highlighting}).
 @item HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE
 The default language used for syntax highlighting when there is no
 language information.
+
+@item HTML_COPY_IMAGES
+If set, copy image files that do not begin with @samp{.} nor @samp{..} and that
+is not an absolute file name to HTML output directory, if there is no such file
+in the destination directory or the destination file is older than the source
+file.
 
 @item HTML_MATH
 Method to use to render @code{@@math} (@pxref{HTML Customization for Math}).

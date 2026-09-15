@@ -1,3 +1,9 @@
+2026-09-16 Patrice Dumas  <pertusus@free.fr>
+
+	* NEWS, doc/texinfo.texi (Image Syntax)
+	(HTML Customization of Specific Output)
+	(HTML Customization Variables List): document HTML_COPY_IMAGES.
+
 2026-09-14 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/data/options_data.txt (HTML_COPY_IMAGES): rename COPY_IMAGES as

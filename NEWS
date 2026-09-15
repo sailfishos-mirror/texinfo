@@ -28,6 +28,10 @@ X.Y ()
   . USE_UNIDECODE removed.  former effect is now always on.
   . Do not heed separate variables TEXINFO_XS_PARSER, TEXINFO_XS_STRUCTURE
     or TEXINFO_XS_CONVERT when deciding whether to load XS modules.
+  . HTML output:
+      .  add HTML_COPY_IMAGES customization variable.  If on, copy image
+         files to destination directory, unless image begins with . or ..
+         or is an absolute file name.
 
 * Distribution
   . Remove --enable-refcounts-checks, --enable-perl-api-texi-build
