@@ -129,7 +129,7 @@
 	(convert_to_plaintext_internal),
 	tta/C/main/plaintext_converter_state.h (FORMATTER): add an
 	is_top_formatter field similar to Perl _top_formatter instead of
-	useing the formatter number.  Indeed, formatter in footnote is a top
+	using the formatter number.  Indeed, formatter in footnote is a top
 	formatter, but is not the first on the stack.
 
 2026-09-09 Patrice Dumas  <pertusus@free.fr>
@@ -163,7 +163,7 @@
 	change the output, but fixes debugging messages.
 
 	* tta/C/convert/plaintext_paragraph.c (para_add_text): return early if
-	at the end of the string, there is no point in gatering next text in
+	at the end of the string, there is no point in gathering next text in
 	that case and it could even be wrong.
 
 	* tta/C/convert/plaintext_paragraph.c (para_add_text): show debugging
@@ -220,7 +220,7 @@
 	debugging information field.
 
 	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm (new, @para_array): set
-	an identifier for paragraph is debugging is on for better error
+	an identifier for paragraph if debugging is on for better error
 	messages, same as in C.
 
 	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm (new): set default for
@@ -263,7 +263,7 @@
 
 	* tta/C/convert/convert_to_plaintext.c (fill_formatter),
 	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (new_formatter): set debug
-	for paragraph formatter if debug leevel is > 1.
+	for paragraph formatter if debug level is > 1.
 
 2026-09-08 Patrice Dumas  <pertusus@free.fr>
 
@@ -408,11 +408,11 @@
 
 2026-09-04 Patrice Dumas  <pertusus@free.fr>
 
-	* tta/perl/t/info_tests.t: remove TODO for text fixed.
+	* tta/perl/t/info_tests.t: remove TODO for test fixed.
 
 2026-09-04 Patrice Dumas  <pertusus@free.fr>
 
-	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm: rename pending txts
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm: rename pending texts
 	'location' to 'conv_type'.
 
 2026-09-04 Patrice Dumas  <pertusus@free.fr>
@@ -927,11 +927,12 @@
 
 	* tta/perl/t/test_utils.pl (protect_encode_string): add function that
 	calls protect_perl_string and also encode to UTF-8.  Do not set
-	encoding in binmode for the whole reference file, instead replace the calls
-	of protect_perl_string by calls of protect_encode_string function.
-	For the Info strings, which a re already encoded, call
+	encoding in binmode for the whole reference file, instead replace the
+	calls of protect_perl_string by calls of protect_encode_string
+	function.  For the Info strings, which are already encoded, call
 	protect_encode_string and add a call to Encode::encode to the
-	generated code to encode the character string to UTF-8 upon reading by Perl.
+	generated code to encode the character string to UTF-8 upon reading by
+	Perl.
 
 2026-08-29 Patrice Dumas  <pertusus@free.fr>
 
@@ -1038,7 +1039,7 @@
 	if debugging.
 
 	* tta/perl/XSTexinfo/ParagraphXS.xs (para_new): set debug before other
-	configuration varaibles to have all the variables configuration shown
+	configuration variables to have all the variables configuration shown
 	in debugging.
 
 	* tta/C/convert/convert_to_plaintext.c (fill_formatter): move code
@@ -1105,7 +1106,7 @@
 	protect_non_ascii and use it to protect the Info output string, in
 	double quotes, such that the code output only contains ASCII
 	characters and can be encoded to UTF-8 without change, as for the
-	remaining of the reference test .pl file..
+	remaining of the reference test .pl file.
 
 	* tta/perl/t/test_utils.pl (test): do not encode Info output to a file
 	with -o option.
