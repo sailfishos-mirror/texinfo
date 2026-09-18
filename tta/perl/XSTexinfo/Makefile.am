@@ -80,7 +80,7 @@ MiscXS_la_LIBADD = $(platform_PERL_LIBADD)
 
 
 # C only convenience library internal for ParagraphXS solely used to set
-# different values than code including Perl headers to include
+# different compilation flags than code including Perl headers to include
 # configure/Gnulib headers but no Perl header.
 noinst_LTLIBRARIES += libparagraph.la
 libparagraph_la_SOURCES = ../../C/convert/plaintext_paragraph.c \
