@@ -1,5 +1,14 @@
 2026-09-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Makefile.am (dist_init_DATA, test_files),
+	tta/perl/t/init/sc_formatting_with_css.pm: move
+	sc_formatting_with_css.pm to t/init/.
+
+	* tta/perl/init/book.pm (book_convert_heading_command): sync comments
+	with default formatting function.
+
+2026-09-19 Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Simple Customization of Containers): comment
 	out reference to texi2any_internals.
 

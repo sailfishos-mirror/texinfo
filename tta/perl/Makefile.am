@@ -182,8 +182,7 @@ dist_init_DATA = \
  init/breadcrumb_navigation.pm \
  init/chm.pm \
  init/documentation_examples.pm \
- init/html32.pm \
- init/sc_formatting_with_css.pm
+ init/html32.pm
 
 test_files = \
  t/README \
@@ -254,6 +253,7 @@ test_files = \
  t/init/redefined_buttons.pm \
  t/init/redirection_file_collision_with_special.init \
  t/init/redirection_file_collision_with_user_def.init \
+ t/init/sc_formatting_with_css.pm \
  t/init/set_global_direction_for_relative.pm \
  t/init/set_unit_file_name_filepath.pm \
  t/init/special_element_customization.pm \

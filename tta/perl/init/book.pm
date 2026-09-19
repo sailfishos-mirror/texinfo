@@ -211,8 +211,6 @@ sub book_convert_heading_command($$$$$) {
   my $element_id = $self->command_id($element);
 
   print STDERR "CONVERT elt heading "
-        # uncomment next line for the perl object name
-        #."$element "
         .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($element)."\n"
           if ($self->get_conf('DEBUG'));
 
@@ -350,9 +348,11 @@ sub book_convert_heading_command($$$$$) {
            and exists($element->{'extra'}->{'section_level'})) {
     $heading_level = $element->{'extra'}->{'section_level'};
   } else {
-    # for *heading* @-commands which do not have a level
-    # in the document as they are not associated with the
-    # sectioning tree, but still have a $heading_level
+    # for *heading* @-commands which do not have a level in the document
+    # as they are not associated with the sectioning tree, but still
+    # have a $heading_level.  For all sectioning elements if
+    # Structuring sectioning_structure was not called on the
+    # document (cannot happen in main program nor test_utils.pl based tests)
     $heading_level = Texinfo::Common::section_level($element);
   }
 
@@ -368,7 +368,7 @@ sub book_convert_heading_command($$$$$) {
       $level = $opening_section->{'extra'}->{'section_level'};
     } else {
       # if Structuring sectioning_structure was not called on the
-      # document (cannot happen in main program or test_utils.pl tests)
+      # document (cannot happen in main program nor test_utils.pl based tests)
       $level = Texinfo::Common::section_level($opening_section);
     }
     my $closed_strings = $self->close_registered_sections_level(
