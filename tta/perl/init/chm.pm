@@ -207,11 +207,22 @@ sub chm_init($) {
   my $verbose = $self->get_conf('VERBOSE');
 
   my $document_name = $self->get_info('document_name');
-  my $outdir = $self->get_info('destination_directory');
-  $outdir = File::Spec->curdir() if ($outdir eq '');
+  my $destination_directory = $self->get_info('destination_directory');
+  $destination_directory = File::Spec->curdir()
+                              if ($destination_directory eq '');
+
+  my ($encoded_destination_directory, $dir_encoding)
+    = $self->encoded_output_file_name($destination_directory);
+  my $succeeded
+    = $self->create_destination_directory($encoded_destination_directory,
+                                          $destination_directory);
+
+  if (!$succeeded) {
+    return 1;
+  }
 
   my $hhk_filename = $document_name . ".hhk";
-  my $hhk_file_path_name = join('/', ($outdir, $hhk_filename));
+  my $hhk_file_path_name = join('/', ($destination_directory, $hhk_filename));
   my ($encoded_hhk_file_path_name, $hhk_path_encoding)
     = $self->encoded_output_file_name($hhk_file_path_name);
   my ($hhk_fh, $hhk_error_message)
@@ -303,7 +314,7 @@ sub chm_init($) {
   }
 
   my $hhc_filename = $document_name . ".hhc";
-  my $hhc_file_path_name = join('/', ($outdir, $hhc_filename));
+  my $hhc_file_path_name = join('/', ($destination_directory, $hhc_filename));
   my ($encoded_hhc_file_path_name, $hhc_path_encoding)
     = $self->encoded_output_file_name($hhc_file_path_name);
   my ($hhc_fh, $hhc_error_message)
@@ -392,7 +403,7 @@ sub chm_init($) {
   }
 
   my $hhp_filename = $document_name . ".hhp";
-  my $hhp_file_path_name = join('/', ($outdir, $hhp_filename));
+  my $hhp_file_path_name = join('/', ($destination_directory, $hhp_filename));
   my ($encoded_hhp_file_path_name, $hhp_path_encoding)
     = $self->encoded_output_file_name($hhp_file_path_name);
   my ($hhp_fh, $hhp_error_message)
