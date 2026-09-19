@@ -22,7 +22,7 @@
 #
 #-##############################################################################
 #
-# TODO there are id attributes in many places in the default HTML output
+# NOTE there are id attributes in many places in the default HTML output
 # that should be replaced with <a name=...></a> to be compliant with HTML3.2.
 # HTML3.2 is not very interesting as an output format, this file is mostly
 # a check that the API allows to output different variants of HTML.  Therefore
@@ -68,8 +68,7 @@ texinfo_set_from_init_file('CLOSE_QUOTE_SYMBOL', "'");
 
 
 # &quot; is not in html 3.2
-sub html32_format_protect_text($$)
-{
+sub html32_format_protect_text($$) {
   my ($converter, $text) = @_;
 
   $text =~ s/&/&amp;/g;

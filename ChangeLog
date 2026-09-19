@@ -1,6 +1,14 @@
 2026-09-19 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Makefile.am (dist_init_DATA, test_files),
+	tta/perl/t/init/documentation_examples.pm, tta/perl/t/init/html32.pm:
+	move documentation_examples.pm and html32.pm to t/init.
+	documentation_examples.pm code is redundant with examples in the
+	texi2any HTML API manual.  html32.pm is not interesting for users.
+
+2026-09-19 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Makefile.am (dist_init_DATA, test_files),
 	tta/perl/t/init/sc_formatting_with_css.pm: move
 	sc_formatting_with_css.pm to t/init/.
 

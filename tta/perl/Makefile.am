@@ -180,9 +180,7 @@ initdir = $(converterdatadir)/init
 dist_init_DATA = \
  init/book.pm \
  init/breadcrumb_navigation.pm \
- init/chm.pm \
- init/documentation_examples.pm \
- init/html32.pm
+ init/chm.pm
 
 test_files = \
  t/README \
@@ -239,7 +237,9 @@ test_files = \
  t/init/cvs.init \
  t/init/directions_string_undef.pm \
  t/init/directions_buttons.pm \
+ t/init/documentation_examples.pm \
  t/init/footnote_mark_in_inline_content.pm \
+ t/init/html32.pm \
  t/init/icons.init \
  t/init/ignore_and_comments_output.init \
  t/init/index_direction_from_index_name.pm \
