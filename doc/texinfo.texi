@@ -12187,8 +12187,8 @@ This was a commonly used encoding for the Ukrainian language before UTF-8.
 @end table
 
 For most output formats, the output encoding is set to the input encoding.
-For EPUB and LaTeX output, however, the input encoding is ignored and output
-encoding is set to UTF-8.  You can set the @code{OUTPUT_ENCODING_NAME}
+For EPUB and LaTeX output, however, the input encoding is ignored and the
+output encoding is set to UTF-8.  You can set the @code{OUTPUT_ENCODING_NAME}
 customization variable to set the output encoding name to a different value,
 except for EPUB.  When outputting EPUB, the @code{OUTPUT_ENCODING_NAME} value
 is ignored because the encoding is mandated by the standard.
