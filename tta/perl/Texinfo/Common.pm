@@ -77,6 +77,9 @@ __ __p
 # TODO document?
 use constant {
    MESSAGES_TEXTDOMAIN => 'texinfo',
+   # In general, it is better to leave the language unspecified, but when
+   # it is not possible, this constant can be used to use the same as the
+   # default language for translations in texi2any.
    DEFAULT_STRINGS_LANG => 'en',
 };
 

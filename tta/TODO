@@ -49,6 +49,9 @@ and replace
 by
 \usepackage{unicode-math}
 
+
+Add breadcrumbs navigation to NEWS or somewhere else?
+
 Bugs
 ====
 

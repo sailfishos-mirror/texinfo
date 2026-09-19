@@ -24,7 +24,7 @@ use warnings;
 use Texinfo::Structuring;
 
 # To check if there is no erroneous autovivification
-no autovivification qw(fetch delete exists store strict);
+#no autovivification qw(fetch delete exists store strict);
 
 sub _txi_readcrumb_nav_format_navigation_panel($$$$;$$) {
   my ($self, $buttons, $cmdname, $source_command, $vertical, $in_header) = @_;

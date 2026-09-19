@@ -1,3 +1,11 @@
+2026-09-19 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/init/breadcrumb_navigation.pm: comment out no
+	autovivification.
+
+	* tta/perl/init/chm.pm: change beginning of functions.  Change in
+	spacing.  Use exists or defined if the value is not used.
+
 2026-09-18 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (@code{@@documentencoding}): explain how output
