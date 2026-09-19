@@ -83,10 +83,10 @@ converter takes a Texinfo tree as input and transforms it to HTML@.  The
 code that is used to go through the tree cannot be customized, but the
 conversion of tree elements can be fully customized.
 
-@c Do we want to describe the tree in the manual?  It is already described
-@c in (texi2any_internals)Texinfo::Parser TEXINFO TREE
-@c  The tree structure will be described in future versions of the
-@c manual.
+@c TODO Do we want to describe the tree in the manual?  It is already described
+@c in (texi2any_internals)Texinfo::Parser TEXINFO TREE, but the
+@c the texi2any_internals manual is not supposed to be published on the
+@c internet.
 
 
 @node Loading Init Files
@@ -859,8 +859,9 @@ texinfo_register_type_code('menu_comment', 1);
 texinfo_register_type_pre_class('menu_comment', 'menu-between');
 @end example
 
-@xref{Texinfo::Parser Types of container elements,,,texi2any_internals}, for a
-description of container types.
+@c description of the tree should be put elsewhere
+@c @xref{Texinfo::Parser Types of container elements,,,texi2any_internals}, for a
+@c description of container types.
 
 
 @node Simple headers customizations
