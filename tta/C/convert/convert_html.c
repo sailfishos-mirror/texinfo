@@ -555,6 +555,12 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
           no_arg_command_context->translated_converted
             = strdup (no_arg_ref->translated_converted);
         }
+      if (no_arg_ref->element && reset_context != HCC_type_string)
+        {
+          free (no_arg_command_context->element);
+          no_arg_command_context->element
+            = strdup (no_arg_ref->element);
+        }
     }
 
   if (translate

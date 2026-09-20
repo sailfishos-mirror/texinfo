@@ -99,7 +99,7 @@ $result_converted{'html'}->{'documentscript_documentlanguagevariant'} = '<!DOCTY
 
 <body>
 
-<p>error&rarr;.
+<p>error<span class="arrow">&rarr;</span>.
 </p>
 
 

@@ -4257,7 +4257,7 @@ span:hover a.copiable-link {visibility: visible}
 <li><a href="#-_0021-_002e-_002e-_003f-_0040" accesskey="2">&nbsp; &nbsp; ! <br> .  . ? @</a></li>
 <li><a href="#g_t_0040-_007b-_007d-_005c-_0023" accesskey="3">@ { } \\ #</a></li>
 <li><a href="#LaTeX-TeX-_002c-_2026-_002e_002e_002e" accesskey="4">LaTeX TeX , &hellip; <small class="enddots">...</small></a></li>
-<li><a href="#error_002d_002d_003e-_20ac-_00a1" accesskey="5">error&rarr; &euro; &iexcl;</a></li>
+<li><a href="#error_002d_002d_003e-_20ac-_00a1" accesskey="5">error<span class="arrow">&rarr;</span> &euro; &iexcl;</a></li>
 <li><a href="#g_t_00aa-_00ba-_00bf" accesskey="6">&ordf; &ordm; &iquest;</a></li>
 <li><a href="#a-b-_00e5" accesskey="7">a&nbsp;b a sunny day &aring;</a></li>
 <li><a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00fe" accesskey="8">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &thorn;</a></li>
@@ -4304,7 +4304,7 @@ span:hover a.copiable-link {visibility: visible}
 </div>
 <div class="chapter-level-extent" id="LaTeX-TeX-_002c-_2026-_002e_002e_002e">
 <p class="nav-panel">
-<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#error_002d_002d_003e-_20ac-_00a1" accesskey="n" rel="next">error&rarr; &euro; &iexcl;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_0040-_007b-_007d-_005c-_0023" accesskey="p" rel="prev">@ { } \\ #</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#error_002d_002d_003e-_20ac-_00a1" accesskey="n" rel="next">error<span class="arrow">&rarr;</span> &euro; &iexcl;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_0040-_007b-_007d-_005c-_0023" accesskey="p" rel="prev">@ { } \\ #</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h2 class="chapter" id="LaTeX-TeX-_002c-_2026-_002e_002e_002e-1"><span>4 LaTeX TeX , &hellip; <small class="enddots">...</small><a class="copiable-link" href="#LaTeX-TeX-_002c-_2026-_002e_002e_002e-1"> &para;</a></span></h2>
 
 <hr>
@@ -4312,13 +4312,13 @@ span:hover a.copiable-link {visibility: visible}
 <div class="chapter-level-extent" id="error_002d_002d_003e-_20ac-_00a1">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_00aa-_00ba-_00bf" accesskey="n" rel="next">&ordf; &ordm; &iquest;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#LaTeX-TeX-_002c-_2026-_002e_002e_002e" accesskey="p" rel="prev">LaTeX TeX , &hellip; <small class="enddots">...</small></a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="error_002d_002d_003e-_20ac-_00a1-1"><span>5 error&rarr; &euro; &iexcl;<a class="copiable-link" href="#error_002d_002d_003e-_20ac-_00a1-1"> &para;</a></span></h2>
+<h2 class="chapter" id="error_002d_002d_003e-_20ac-_00a1-1"><span>5 error<span class="arrow">&rarr;</span> &euro; &iexcl;<a class="copiable-link" href="#error_002d_002d_003e-_20ac-_00a1-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="g_t_00aa-_00ba-_00bf">
 <p class="nav-panel">
-<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#a-b-_00e5" accesskey="n" rel="next">a&nbsp;b a sunny day &aring;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#error_002d_002d_003e-_20ac-_00a1" accesskey="p" rel="prev">error&rarr; &euro; &iexcl;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#a-b-_00e5" accesskey="n" rel="next">a&nbsp;b a sunny day &aring;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#error_002d_002d_003e-_20ac-_00a1" accesskey="p" rel="prev">error<span class="arrow">&rarr;</span> &euro; &iexcl;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h2 class="chapter" id="g_t_00aa-_00ba-_00bf-1"><span>6 &ordf; &ordm; &iquest;<a class="copiable-link" href="#g_t_00aa-_00ba-_00bf-1"> &para;</a></span></h2>
 
 <hr>
@@ -4469,7 +4469,7 @@ span:hover a.copiable-link {visibility: visible}
 </p>
 <p><a class="ref" href="#LaTeX-TeX-_002c-_2026-_002e_002e_002e">LaTeX TeX , &hellip; <small class="enddots">...</small></a>
 </p>
-<p><a class="ref" href="#error_002d_002d_003e-_20ac-_00a1">error&rarr; &euro; &iexcl;</a>
+<p><a class="ref" href="#error_002d_002d_003e-_20ac-_00a1">error<span class="arrow">&rarr;</span> &euro; &iexcl;</a>
 </p>
 <p><a class="ref" href="#g_t_00aa-_00ba-_00bf">&ordf; &ordm; &iquest;</a>
 </p>
@@ -4515,9 +4515,9 @@ span:hover a.copiable-link {visibility: visible}
 </p>
 <p><a class="ref" href="#g_t_2022-_00a9-_2261">&bull; &copy; &equiv;</a>
 </p>
-<p><a class="ref" href="#g_t_2265-_2264-_2192-_21a6-_2212">&ge; &le; &rarr; &rarr; &minus;</a>
+<p><a class="ref" href="#g_t_2265-_2264-_2192-_21a6-_2212">&ge; &le; <span class="arrow">&rarr;</span> <span class="expansion">&rarr;</span> &minus;</a>
 </p>
-<p><a class="ref" href="#g_t_22c6-_00a3-_22a3-_00ae-_21d2">&lowast; &pound; &#8867; &reg; &rArr;</a>
+<p><a class="ref" href="#g_t_22c6-_00a3-_22a3-_00ae-_21d2"><span class="point">&lowast;</span> &pound; <span class="print">&#8867;</span> &reg; <span class="result">&rArr;</span></a>
 </p>
 <p><a class="ref" href="#g_t_00b0-_00de">&deg; &THORN;</a>
 </p>
@@ -4525,35 +4525,35 @@ span:hover a.copiable-link {visibility: visible}
 
 <ul class="mini-toc">
 <li><a href="#g_t_2022-_00a9-_2261" accesskey="1">&bull; &copy; &equiv;</a></li>
-<li><a href="#g_t_2265-_2264-_2192-_21a6-_2212" accesskey="2">&ge; &le; &rarr; &rarr; &minus;</a></li>
-<li><a href="#g_t_22c6-_00a3-_22a3-_00ae-_21d2" accesskey="3">&lowast; &pound; &#8867; &reg; &rArr;</a></li>
+<li><a href="#g_t_2265-_2264-_2192-_21a6-_2212" accesskey="2">&ge; &le; <span class="arrow">&rarr;</span> <span class="expansion">&rarr;</span> &minus;</a></li>
+<li><a href="#g_t_22c6-_00a3-_22a3-_00ae-_21d2" accesskey="3"><span class="point">&lowast;</span> &pound; <span class="print">&#8867;</span> &reg; <span class="result">&rArr;</span></a></li>
 <li><a href="#g_t_00b0-_00de" accesskey="4">&deg; &THORN;</a></li>
 </ul>
 <hr>
 <div class="section-level-extent" id="g_t_2022-_00a9-_2261">
 <p class="nav-panel">
-<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_2265-_2264-_2192-_21a6-_2212" accesskey="n" rel="next">&ge; &le; &rarr; &rarr; &minus;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls" accesskey="u" rel="up"><a class="url" href="http://somewhere_aaa">http://somewhere_aaa</a> <a class="url" href="url">text</a> <a class="uref" href="/man.cgi/1/ls">ls</a></a></span></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_2265-_2264-_2192-_21a6-_2212" accesskey="n" rel="next">&ge; &le; <span class="arrow">&rarr;</span> <span class="expansion">&rarr;</span> &minus;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls" accesskey="u" rel="up"><a class="url" href="http://somewhere_aaa">http://somewhere_aaa</a> <a class="url" href="url">text</a> <a class="uref" href="/man.cgi/1/ls">ls</a></a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h3 class="section" id="g_t_2022-_00a9-_2261-1"><span>26.1 &bull; &copy; &equiv;<a class="copiable-link" href="#g_t_2022-_00a9-_2261-1"> &para;</a></span></h3>
 
 <hr>
 </div>
 <div class="section-level-extent" id="g_t_2265-_2264-_2192-_21a6-_2212">
 <p class="nav-panel">
-<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_22c6-_00a3-_22a3-_00ae-_21d2" accesskey="n" rel="next">&lowast; &pound; &#8867; &reg; &rArr;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_2022-_00a9-_2261" accesskey="p" rel="prev">&bull; &copy; &equiv;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls" accesskey="u" rel="up"><a class="url" href="http://somewhere_aaa">http://somewhere_aaa</a> <a class="url" href="url">text</a> <a class="uref" href="/man.cgi/1/ls">ls</a></a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h3 class="section" id="g_t_2265-_2264-_2192-_21a6-_2212-1"><span>26.2 &ge; &le; &rarr; &rarr; &minus;<a class="copiable-link" href="#g_t_2265-_2264-_2192-_21a6-_2212-1"> &para;</a></span></h3>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_22c6-_00a3-_22a3-_00ae-_21d2" accesskey="n" rel="next"><span class="point">&lowast;</span> &pound; <span class="print">&#8867;</span> &reg; <span class="result">&rArr;</span></a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_2022-_00a9-_2261" accesskey="p" rel="prev">&bull; &copy; &equiv;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls" accesskey="u" rel="up"><a class="url" href="http://somewhere_aaa">http://somewhere_aaa</a> <a class="url" href="url">text</a> <a class="uref" href="/man.cgi/1/ls">ls</a></a></span></span><span class="nav-button"> &nbsp; </span></p>
+<h3 class="section" id="g_t_2265-_2264-_2192-_21a6-_2212-1"><span>26.2 &ge; &le; <span class="arrow">&rarr;</span> <span class="expansion">&rarr;</span> &minus;<a class="copiable-link" href="#g_t_2265-_2264-_2192-_21a6-_2212-1"> &para;</a></span></h3>
 
 <hr>
 </div>
 <div class="section-level-extent" id="g_t_22c6-_00a3-_22a3-_00ae-_21d2">
 <p class="nav-panel">
-<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_00b0-_00de" accesskey="n" rel="next">&deg; &THORN;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_2265-_2264-_2192-_21a6-_2212" accesskey="p" rel="prev">&ge; &le; &rarr; &rarr; &minus;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls" accesskey="u" rel="up"><a class="url" href="http://somewhere_aaa">http://somewhere_aaa</a> <a class="url" href="url">text</a> <a class="uref" href="/man.cgi/1/ls">ls</a></a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h3 class="section" id="g_t_22c6-_00a3-_22a3-_00ae-_21d2-1"><span>26.3 &lowast; &pound; &#8867; &reg; &rArr;<a class="copiable-link" href="#g_t_22c6-_00a3-_22a3-_00ae-_21d2-1"> &para;</a></span></h3>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_00b0-_00de" accesskey="n" rel="next">&deg; &THORN;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_2265-_2264-_2192-_21a6-_2212" accesskey="p" rel="prev">&ge; &le; <span class="arrow">&rarr;</span> <span class="expansion">&rarr;</span> &minus;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls" accesskey="u" rel="up"><a class="url" href="http://somewhere_aaa">http://somewhere_aaa</a> <a class="url" href="url">text</a> <a class="uref" href="/man.cgi/1/ls">ls</a></a></span></span><span class="nav-button"> &nbsp; </span></p>
+<h3 class="section" id="g_t_22c6-_00a3-_22a3-_00ae-_21d2-1"><span>26.3 <span class="point">&lowast;</span> &pound; <span class="print">&#8867;</span> &reg; <span class="result">&rArr;</span><a class="copiable-link" href="#g_t_22c6-_00a3-_22a3-_00ae-_21d2-1"> &para;</a></span></h3>
 
 <hr>
 </div>
 <div class="section-level-extent" id="g_t_00b0-_00de">
 <p class="nav-panel">
-<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_22c6-_00a3-_22a3-_00ae-_21d2" accesskey="p" rel="prev">&lowast; &pound; &#8867; &reg; &rArr;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls" accesskey="u" rel="up"><a class="url" href="http://somewhere_aaa">http://somewhere_aaa</a> <a class="url" href="url">text</a> <a class="uref" href="/man.cgi/1/ls">ls</a></a></span></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_22c6-_00a3-_22a3-_00ae-_21d2" accesskey="p" rel="prev"><span class="point">&lowast;</span> &pound; <span class="print">&#8867;</span> &reg; <span class="result">&rArr;</span></a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls" accesskey="u" rel="up"><a class="url" href="http://somewhere_aaa">http://somewhere_aaa</a> <a class="url" href="url">text</a> <a class="uref" href="/man.cgi/1/ls">ls</a></a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h3 class="section" id="g_t_00b0-_00de-1"><span>26.4 &deg; &THORN;<a class="copiable-link" href="#g_t_00b0-_00de-1"> &para;</a></span></h3>
 
 </div>

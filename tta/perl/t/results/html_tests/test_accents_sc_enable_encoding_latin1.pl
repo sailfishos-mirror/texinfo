@@ -348,8 +348,8 @@ $result_converted{'html_text'}->{'test_accents_sc_enable_encoding_latin1'} = '
 </p>
 <p>é, &mdash; <em class="dfn">def</em> &ndash; <code class="code">in code</code>. &lsquo;<samp class="samp">in samp</samp>&rsquo; aé. , ¡. &hellip;
 </p>
-<p>&ge; <small class="enddots">...</small> Å é &#550; &#322;. ©. error&rarr;.
-&ldquo; in quotes &rdquo;. &rarr;
+<p>&ge; <small class="enddots">...</small> Å é &#550; &#322;. ©. error<span class="arrow">&rarr;</span>.
+&ldquo; in quotes &rdquo;. <span class="expansion">&rarr;</span>
 &minus; ®
 </p>
 

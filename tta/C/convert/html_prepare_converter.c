@@ -330,6 +330,9 @@ html_format_setup (enum converter_format format)
   const enum command_id indented_format[] = {
     CM_example, CM_display, CM_lisp, 0
   };
+  const enum command_id styled_no_arg_commands[] = {
+    CM_expansion, CM_arrow, CM_point, CM_print, CM_result, 0
+  };
 
   html_default_options_setup ();
 
@@ -564,6 +567,12 @@ html_format_setup (enum converter_format format)
   default_no_arg_commands_formatting[CM_ASTERISK][HCC_type_normal].text = "<br>";
   set_no_arg_commands_formatting (
    &default_no_arg_commands_formatting[CM_ASTERISK][HCC_type_preformatted], "\n");
+
+  for (i = 0; styled_no_arg_commands[i]; i++)
+    {
+      default_no_arg_commands_formatting[styled_no_arg_commands[i]]
+                               [HCC_type_normal].element = "span";
+    }
 
   for (i = 0; i < no_arg_formatted_cmd_nr; i++)
     {

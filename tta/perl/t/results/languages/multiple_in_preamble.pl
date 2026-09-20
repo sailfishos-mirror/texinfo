@@ -420,7 +420,7 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 <dl class="first-defcv first-defivar-alias-first-defcv def-block">
 <dt class="defcv defivar-alias-defcv def-line" id="index-BBB-of-hr"><span class="category-def">Variable d&rsquo;instance de <code class="code">hr</code>&nbsp;: </span><span><strong class="def-name">BBB</strong> <var class="def-var-arguments">CCC</var><a class="copiable-link" href="#index-BBB-of-hr"> &para;</a></span></dt>
-<dd><p>erreur&rarr;
+<dd><p>erreur<span class="arrow">&rarr;</span>
 </p></dd></dl>
 
 

@@ -5960,28 +5960,39 @@ conversion_function_cmd_conversion (CONVERTER *self,
 static void
 text_element_conversion (CONVERTER *self,
                          const HTML_NO_ARG_COMMAND_CONVERSION *specification,
-                         const enum command_id cmd,
-                         TEXT *result)
+                         const enum command_id cmd, TEXT *result)
 {
   if (specification->element)
     {
-      char *attribute_class;
+      char *open;
+      int opened;
 
       STRING_LIST *classes = new_string_list ();
       add_string (classes, builtin_command_name (cmd));
 
-      attribute_class
-       = html_attribute_class (self, specification->element, classes);
+      open
+        = html_attribute_class (self, specification->element, classes);
+      opened = strcmp (open, "");
       destroy_strings_list (classes);
-      text_append (result, attribute_class);
-      free (attribute_class);
 
-      text_append_n (result, ">", 1);
+      if (opened)
+        {
+          text_append (result, open);
+          text_append_n (result, ">", 1);
+        }
+
+      if (open)
+        free (open);
+
       if (specification->text)
         text_append (result, specification->text);
-      text_append_n (result, "</", 2);
-      text_append (result, specification->element);
-      text_append_n (result, ">", 1);
+
+      if (opened)
+        {
+          text_append_n (result, "</", 2);
+          text_append (result, specification->element);
+          text_append_n (result, ">", 1);
+        }
     }
   else if (specification->text)
     text_append (result, specification->text);
@@ -6120,7 +6131,7 @@ html_convert_style_command (CONVERTER *self, const enum command_id cmd,
   if (formatting_spec->element)
     {
       char *open;
-      size_t open_len;
+      int opened;
 
       STRING_LIST *classes = new_string_list ();
       add_string (classes, builtin_command_name (style_cmd));
@@ -6140,10 +6151,10 @@ html_convert_style_command (CONVERTER *self, const enum command_id cmd,
 
       open
         = html_attribute_class (self, formatting_spec->element, classes);
-      open_len = strlen (open);
+      opened = strcmp (open, "");
       destroy_strings_list (classes);
 
-      if (open_len > 0)
+      if (opened)
         {
           text_append (result, open);
           text_append_n (result, ">", 1);
@@ -6154,7 +6165,7 @@ html_convert_style_command (CONVERTER *self, const enum command_id cmd,
 
       text_append (result, args_formatted->args[0].formatted[AFT_type_normal]);
 
-      if (open_len > 0)
+      if (opened)
         {
           text_append_n (result, "</", 2);
           text_append (result, formatting_spec->element);

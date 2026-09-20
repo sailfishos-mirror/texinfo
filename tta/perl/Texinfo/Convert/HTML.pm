@@ -1736,6 +1736,15 @@ $default_no_arg_commands_formatting{'normal'}->{'*'} = {'text' => '<br>'};
 # in that context, '<br>' could be better.
 $default_no_arg_commands_formatting{'preformatted'}->{'*'} = {'text' => "\n"};
 
+my $default_no_arg_normal = $default_no_arg_commands_formatting{'normal'};
+foreach my $styled_no_arg_command ('expansion', 'arrow', 'point', 'print',
+                                   'result') {
+  if (!exists($default_no_arg_normal->{$styled_no_arg_command})) {
+    $default_no_arg_normal->{$styled_no_arg_command} = {};
+  }
+  $default_no_arg_normal->{$styled_no_arg_command}->{'element'} = 'span';
+}
+
 # escaped code points in CSS
 # https://www.w3.org/TR/css-syntax/#consume-escaped-code-point
 # Consume as many hex digits as possible, but no more than 5. Note that this means 1-6 hex digits have been consumed in total. If the next input code point is whitespace, consume it as well. Interpret the hex digits as a hexadecimal number.
@@ -1834,11 +1843,13 @@ sub _text_element_conversion($$$) {
   }
 
   if (exists($specification->{'element'})) {
-    return $self->html_attribute_class($specification->{'element'}, [$cmdname])
-               .'>'. $text . '</'.$specification->{'element'}.'>';
-  } else {
-    return $text;
+    my $open
+      = $self->html_attribute_class($specification->{'element'}, [$cmdname]);
+    if ($open ne '') {
+      return $open . '>' . $text . "</$specification->{'element'}>";
+    }
   }
+  return $text;
 }
 
 sub _convert_no_arg_command($$$) {

@@ -383,7 +383,7 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 <dl class="first-defcv first-defivar-alias-first-defcv def-block">
 <dt class="defcv defivar-alias-defcv def-line" id="index-BBB-of-c"><span class="category-def">Instanzvariable of <code class="code">c</code>: </span><span><strong class="def-name">BBB</strong> <var class="def-var-arguments">CCC</var><a class="copiable-link" href="#index-BBB-of-c"> &para;</a></span></dt>
-<dd><p>error&rarr;
+<dd><p>error<span class="arrow">&rarr;</span>
 </p></dd></dl>
 </div>
 </div>

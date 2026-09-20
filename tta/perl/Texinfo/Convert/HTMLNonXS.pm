@@ -1747,6 +1747,7 @@ sub _reset_unset_no_arg_commands_formatting_context($$$$;$) {
 
   if (defined($ref_context) and exists($no_arg_command_context->{'unset'})) {
     foreach my $key (keys(%{$conversion_contexts->{$ref_context}})) {
+      next if ($reset_context eq 'string' and $key eq 'element');
       # If present, both 'translated_converted' and (possibly translated)
       # 'text' are referred to.
       # In case of 'text', if 'translated_tree' is referred to and

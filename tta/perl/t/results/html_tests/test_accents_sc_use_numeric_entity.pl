@@ -334,8 +334,8 @@ $result_converted{'html_text'}->{'test_accents_sc_use_numeric_entity'} = '<div c
 </p>
 <p>&#233;, &#8212; <em class="dfn">def</em> &#8211; <code class="code">in code</code>. &#8216;<samp class="samp">in samp</samp>&#8217; aé. &#44; &#161;. &#8230;
 </p>
-<p>&#8805; <small class="enddots">...</small> &#197; &#233; &#550; &#322;. &#169;. error&#8594;.
-&#8220; in quotes &#8221;. &#8614;
+<p>&#8805; <small class="enddots">...</small> &#197; &#233; &#550; &#322;. &#169;. error<span class="arrow">&#8594;</span>.
+&#8220; in quotes &#8221;. <span class="expansion">&#8614;</span>
 &#8722; &#174;
 </p>
 

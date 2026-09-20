@@ -183,9 +183,9 @@ span:hover a.copiable-link {visibility: visible}
 <h4 class="footnotes-heading">Footnotes</h4>
 
 <h5 class="footnote-body-heading"><a id="t_flistoffloats_FOOT1_1" href="#t_flistoffloats_DOCF1_1">(1)</a></h5>
-<p>in footnote error&rarr;</p>
+<p>in footnote error<span class="arrow">&rarr;</span></p>
 <h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(2)</a></h5>
-<p>in footnote error&rarr;</p>
+<p>in footnote error<span class="arrow">&rarr;</span></p>
 </div>
 
 

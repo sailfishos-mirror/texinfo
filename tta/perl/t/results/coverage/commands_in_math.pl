@@ -495,7 +495,7 @@ a sunny day
 <pre class="displaymath">&rarr;
 &#x0075;
 TeX LaTeX &bull; &copy; ... ... &equiv;
-error&rarr; &rarr; &minus; &lowast; &#8867; &rArr;
+error<span class="arrow">&rarr;</span> <span class="expansion">&rarr;</span> &minus; <span class="point">&lowast;</span> <span class="print">&#8867;</span> <span class="result">&rArr;</span>
 &aring; &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH;
 &THORN; &eth; &thorn; &iexcl; &iquest; &pound;
 &reg; &ordf; &ordm; , 
@@ -503,7 +503,7 @@ error&rarr; &rarr; &minus; &lowast; &#8867; &rArr;
 <pre class="displaymath">&ldquo; &rdquo;
 &lsquo; &rsquo; &bdquo; &sbquo; &laquo;
 &raquo; &laquo; &raquo; &lsaquo;
-&rsaquo; &deg; &euro; &rarr; &le; &ge;
+&rsaquo; &deg; &euro; <span class="arrow">&rarr;</span> &le; &ge;
 </pre>';
 
 

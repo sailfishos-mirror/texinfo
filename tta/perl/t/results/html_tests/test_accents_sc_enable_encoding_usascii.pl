@@ -352,8 +352,8 @@ $result_converted{'html_text'}->{'test_accents_sc_enable_encoding_usascii'} = '
 </p>
 <p>&eacute;, &mdash; <em class="dfn">def</em> &ndash; <code class="code">in code</code>. &lsquo;<samp class="samp">in samp</samp>&rsquo; a&eacute;. , &iexcl;. &hellip;
 </p>
-<p>&ge; <small class="enddots">...</small> &Aring; &eacute; &#550; &#322;. &copy;. error&rarr;.
-&ldquo; in quotes &rdquo;. &rarr;
+<p>&ge; <small class="enddots">...</small> &Aring; &eacute; &#550; &#322;. &copy;. error<span class="arrow">&rarr;</span>.
+&ldquo; in quotes &rdquo;. <span class="expansion">&rarr;</span>
 &minus; &reg;
 </p>
 
