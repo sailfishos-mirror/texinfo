@@ -49,17 +49,19 @@ for manual_proj_dir in manuals/*/ ; do
           continue
         fi
 
-        diff_file=result_check_perlVSC/${proj_dir}-${manual_name}-${bfile}.diff
-        diff -u -r perl_refs_html/$proj_dir/$bfile/ compare_C_html/$proj_dir/$bfile/ > $diff_file
-        diff_file_CVSC=result_check_CVSC/${proj_dir}-${manual_name}-${bfile}.diff
-        diff -u -r compare_C_html/$proj_dir/$bfile/ compare_native_html/$proj_dir/$bfile/ > $diff_file_CVSC
-        #echo "diffing ${proj_dir}-${manual_name}-${bfile}" 1>&2
-        if test -s $diff_file ; then :
-        else rm -f $diff_file
-        fi
-        if test -s $diff_file_CVSC ; then :
-        else rm -f $diff_file_CVSC
-        fi
+        for format in html info plaintext ; do
+          diff_file=result_check_perlVSC/${proj_dir}-${manual_name}-${bfile}-${format}.diff
+          diff -u -r perl_refs_${format}/$proj_dir/$bfile/ compare_C_${format}/$proj_dir/$bfile/ > $diff_file
+          diff_file_CVSC=result_check_CVSC/${proj_dir}-${manual_name}-${bfile}-${format}.diff
+          diff -u -r compare_C_${format}/$proj_dir/$bfile/ compare_native_${format}/$proj_dir/$bfile/ > $diff_file_CVSC
+          #echo "diffing ${proj_dir}-${manual_name}-${bfile}-${format}" 1>&2
+          if test -s $diff_file ; then :
+          else rm -f $diff_file
+          fi
+          if test -s $diff_file_CVSC ; then :
+          else rm -f $diff_file_CVSC
+          fi
+        done
       fi
     done
     if test $one_manual_found = 'no' ; then
