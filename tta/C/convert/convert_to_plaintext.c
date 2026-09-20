@@ -7433,7 +7433,7 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
   char *encoded_destination_directory;
   int succeeded;
   TEXT result;
-  OUTPUT_UNIT_LIST output_units;
+  OUTPUT_UNIT_LIST output_units = { 0 };
   const NODE_RELATIONS_LIST *nodes_list;
   TEXT output_unit_result;
 
@@ -7503,8 +7503,6 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
       status = 0;
       goto finalization;
     }
-
-  memset (&output_units, 0, sizeof (OUTPUT_UNIT_LIST));
 
   if (self->conf->USE_NODES.o.integer > 0)
     split_by_node (document, &output_units);

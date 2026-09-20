@@ -253,7 +253,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
   char *encoded_destination_directory;
   int succeeded;
   TEXT result;
-  OUTPUT_UNIT_LIST output_units;
+  OUTPUT_UNIT_LIST output_units= { 0 };
   int need_unsplit = 0;
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   const enum command_id *informative_global_commands
@@ -405,8 +405,6 @@ info_output (CONVERTER *self, DOCUMENT *document)
   plaintext_cache_node_names (self, &self->document->nodes_list);
 
   info_header (self, input_basefile, output_filename, &header);
-
-  memset (&output_units, 0, sizeof (OUTPUT_UNIT_LIST));
 
   split_by_node (document, &output_units);
 

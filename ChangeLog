@@ -1,5 +1,12 @@
 2026-09-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_info.c (info_output),
+	tta/C/convert/convert_to_plaintext.c (plaintext_output): initialize
+	output_units at definition, such that it is initialized even if there
+	are errors.
+
+2026-09-20 Patrice Dumas  <pertusus@free.fr>
+
 	* contrib/mass_test/check_perlVSC.sh: show diffs for all the formats.
 
 2026-09-20 Patrice Dumas  <pertusus@free.fr>
