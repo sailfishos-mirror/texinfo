@@ -17507,6 +17507,174 @@ to adjust (and for standards to reincorporate useful features that were
 dropped@dots{}).
 
 
+@node HTML Output Description
+@nodedescription Features of the @command{texi2any} output.
+@section Description of the HTML output from @command{texi2any}
+
+As stated in the previous section, the HTML output by @command{texi2any}
+is intended to be usual HTML that is widely portable.  The result would
+be suitable for uploading to a web server for a user to read in a web
+browser.
+
+However, in this section, we attempt to describe some aspects of the
+@command{texi2any} HTML output that would potentially be useful for a
+more specialized program used for browsing HTML documentation, especially
+one installed locally on a user's computer.
+
+We expect to make these aspects into requirements for @command{texi2any}
+that should be held to in future Texinfo releases.
+
+@cartouche Warning
+This is a draft section and details could change.
+Please feel free to email @email{bug-texinfo@@gnu.org} with any feedback
+that you feel could be helpful.
+@end cartouche
+
+Computer code that avails itself of these aspects of the HTML output
+includes @samp{info.js}, the augmented browsing interface implemented in
+JavaScript that is output with the @code{INFO_JS_DIR} variable
+(@pxref{JavaScript Interface and Licenses}), and the
+experimental/demonstration program @samp{infog} (using an embedded WebKitGTK
+browser) which is under the @samp{infog/} subdirectory of the Texinfo
+development repository (@uref{https://savannah.gnu.org/git/?group=texinfo}).
+However, the Texinfo developers have limited ability to push development
+of these further, and widespread adoption of either appears extremely
+unlikely at this stage.
+
+We document these aspects here in the hope that they may be used more
+widely in programs reading locally installed HTML documentation.
+@footnote{In our opinion, the benefits of locally installed documentation
+are often ignored.  It is reliable, does not depend on an Internet
+connection, respects the user's privacy, and matches the version of
+software a user has installed.}
+
+Some of these aspects are intended to allow replicating the benefits
+of the Info format (@pxref{Info Files}) while getting the full benefits
+of HTML:
+
+@subheading Cross-references to other Texinfo manuals
+
+Links to other Texinfo manuals are made with the @code{<a>} tag,
+with the web location of the target in the @code{href} attribute,
+and the name of the target Texinfo manual (corresponding to the fourth
+argument to @code{@@xref}; see @ref{Four and Five Arguments}) is placed
+in the @code{data-manual} attribute.@c
+@footnote{Exception: the @code{data-manual} attribute is not output if
+the @code{NO_CUSTOM_HTML_ATTRIBUTE} variable is set.  @xref{HTML Features
+Customization}.}
+
+For example, here is a possible link to the @samp{What information is
+listed} node within the @samp{coreutils} manual:
+
+@example
+<a data-manual="coreutils"
+href="https://www.gnu.org/software/coreutils/manual/coreutils#What-information-is-listed">
+Verbose listing
+</a>
+@end example
+(@strong{FIXME:} use a shorter example that fits in the page width)
+
+The value of the @code{data-manual} attribute could be used by a help
+browsing program to search for the manual on the user's computer, rather
+than using the target in @code{href}.  This would allow for manuals to
+installed in multiple locations and for a search path to be used, similar
+to @env{INFOPATH} in the @command{info} program (@pxref{Invoking Info,,,
+info-stnd, Stand-alone GNU Info}) or @env{MANPATH} used by the @command{man}
+program.
+
+The node name (or anchor name) comes from the end of the address in
+the @code{href} value.
+(@strong{FIXME:} check if we should use the fragment
+@samp{#What-information-is-listed} or if we need a file name from a
+reference to a manual split by node.)
+
+@subheading Indices
+
+In the main table of contents (in the @samp{Top} node in @code{index.html}),
+links to the nodes containing indices are annotated with the @code{rel}
+attribute.  For example:
+
+@example
+<a id="toc-Index-of-Command-Line-Options-1"
+   href="#Index-of-Command-Line-Options"
+   rel="index">
+Appendix H Index of Command Line Options
+</a>
+@end example
+
+The table of contents is contained with a @code{<div>} element with
+a @code{class} attribute equal to @samp{contents}.
+
+This aids in identifying index nodes, which can be used to provide an
+index search function to users.
+
+(@strong{FIXME:} @file{info.js} doesn't seem to check @code{rel} attribute?)
+
+Within each index node, each index entry occurs as an @code{<a>} element
+inside an element with a class of @samp{printindex-index-entry}.  For
+example:
+
+@example
+<td class="printindex-index-entry">
+<a href="A4-Paper.html#index-A4-paper_002c-printing-on">
+A4 paper, printing on
+</a>
+</td>
+@end example
+
+Secondary or tertiary index entries appear as @code{<a>} elements inside
+an element with the class @samp{printindex-index-subentry-level-1} or
+@samp{printindex-index-subentry-level-2} respectively.  These occur after
+an entry for the superior entry or other subentries at the same level.
+For example, the following shows a primary entry, followed by a secondary
+entry, followed by a tertiary entry.  In this example, only the tertiary
+entry has a link:
+
+@example
+<tr>
+  <td class="printindex-index-entry">
+  asterisk (<code class="code">*?</code>)
+  </td>
+
+  <td></td>
+</tr>
+
+<tr>
+  <td class="printindex-index-entry index-entry-level-1">
+  <code class="code">*?</code> operator
+  </td>
+
+  <td></td>
+</tr>
+
+<tr>
+  <td class="printindex-index-entry index-entry-level-2">
+  <a href="Regexp-Operator-Details.html#index-asterisk-_0028_002a_003f_0029-_002a_003f-operator-as-regexp-operator">
+  as regexp operator
+  </a>
+  </td>
+
+  <td class="printindex-index-section">
+  <a href="Regexp-Operator-Details.html">
+  Regexp Operator Details
+  </a>
+  </td>
+</tr>
+@end example
+
+(@strong{FIXME:} use shorter examples that fit in the page width)
+
+The index @code{<a>} links are to the output file and anchor (with
+a name beginning with @samp{index-}) containing the target of the index
+entry.
+
+(@strong{FIXME:} check since what version of Texinfo these classes have
+been used.)
+
+
+
+
+
 @node HTML Splitting
 @nodedescription How HTML output is split.
 @section HTML Splitting
