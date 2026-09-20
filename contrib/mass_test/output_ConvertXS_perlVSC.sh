@@ -1,5 +1,5 @@
 #! /bin/sh
-# Setup HTML output using XS in conversion
+# Setup output using XS in conversion
 #
 # Copyright 2024-2026 Free Software Foundation, Inc.
 #
@@ -16,4 +16,6 @@ set -e
 
 unset TEXINFO_XS
 
-./generate_perlVSC.sh compare_C_HTML $1
+./generate_perlVSC.sh html compare_C $1
+./generate_perlVSC.sh info compare_C $1
+./generate_perlVSC.sh plaintext compare_C $1

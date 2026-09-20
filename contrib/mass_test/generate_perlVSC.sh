@@ -1,5 +1,5 @@
 #! /bin/sh
-# Output HTML with texi2any.pl
+# Output with texi2any.pl
 #
 # Copyright 2024-2026 Free Software Foundation, Inc.
 #
@@ -14,16 +14,27 @@
 
 set -e
 
-dir=$1
+format=$1
 
-test -z $dir && exit 1
+test -z $format && exit 1
+
+shift
+
+input_dir=$1
+
+test -z $input_dir && exit 1
+
+dir=${input_dir}_${format}
 
 shift
 
 one_test=no
 if test -n "$1"; then
-  one_test=yes
-  the_test=$1
+  if test "z$1" != zno ; then
+    one_test=yes
+    the_test=$1
+  fi
+  shift
 fi
 
 mkdir -p $dir
@@ -45,18 +56,18 @@ for manual_proj_dir in manuals/*/ ; do
           continue
         fi
 
-        echo "doing $file"
+        echo "doing ${format} $file"
         mkdir -p $dir/$proj_dir
 
         out_dir=$dir/$proj_dir/$bfile
         rm -rf $out_dir
         mkdir $out_dir
-        err_file=${out_dir}/${bfile}-html_nodes.err
+        err_file=${out_dir}/${bfile}-${format}_nodes.err
         # the -I directory is for gcc, could add more
         if test $one_test = 'yes' ; then
-          echo "../../tta/perl/texi2any.pl -I manuals/$proj_dir/include/ --force --error-limit=10000 -c TEST=1 --html -o ${out_dir}/html_nodes/ $file"
+          echo "../../tta/perl/texi2any.pl -I manuals/$proj_dir/include/ --force --error-limit=10000 -c TEST=1 --${format} -o ${out_dir}/${format}_nodes/ $file"
         fi
-        ../../tta/perl/texi2any.pl -I manuals/$proj_dir/include/ --force --error-limit=10000 -c TEST=1 --html -o ${out_dir}/html_nodes/ $file 2>$err_file
+        ../../tta/perl/texi2any.pl -I manuals/$proj_dir/include/ --force --error-limit=10000 -c TEST=1 --${format} -o ${out_dir}/${format}_nodes/ $file 2>$err_file
         if test -s $err_file ; then :
         else rm -f $err_file
         fi

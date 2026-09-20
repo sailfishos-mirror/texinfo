@@ -15,13 +15,13 @@ extract_manuals.sh: extract manuals and postprocess some of them, fixing/adding
 Comparison of Perl and C results
 ================================
 
-Following two scripts are called by other scripts:
-generate_perlVSC.sh: output HTML with texi2any.pl
-generate_C.sh: output HTML with ctexi2any
+Following two scripts are called by other scripts.  First argument is format.
+generate_perlVSC.sh: output with texi2any.pl
+generate_C.sh: output with ctexi2any
 
-setup_reference_perlVSC.sh: pure Perl HTML output with texi2any.pl
-output_ConvertXS_perlVSC.sh: Perl with XS extension HTML output
-output_convert_C.sh: C main program HTML output (with embedded Perl)
+setup_reference_perlVSC.sh: pure Perl output with texi2any.pl
+output_ConvertXS_perlVSC.sh: Perl with XS extension output
+output_convert_C.sh: C main program output (with embedded Perl)
 
 check_perlVSC.sh: compare Perl and XS, and XS and C (with embedded Perl)
 

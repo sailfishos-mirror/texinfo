@@ -1,5 +1,5 @@
 #! /bin/sh
-# Setup HTML output using C in conversion
+# Setup output using C in conversion
 #
 # Copyright 2024-2026 Free Software Foundation, Inc.
 #
@@ -14,4 +14,6 @@
 
 set -e
 
-./generate_C.sh compare_native_HTML $1
+./generate_C.sh html compare_native $1
+./generate_C.sh info compare_native $1
+./generate_C.sh plaintext compare_native $1

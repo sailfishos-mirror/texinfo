@@ -1,5 +1,5 @@
 #! /bin/sh
-# Setup reference HTML output using the perl converter
+# Setup reference output using the perl converter
 #
 # Copyright 2024-2026 Free Software Foundation, Inc.
 #
@@ -17,4 +17,6 @@ set -e
 TEXINFO_XS=omit
 export TEXINFO_XS
 
-./generate_perlVSC.sh perl_HTML_refs $1
+./generate_perlVSC.sh html perl_refs $1
+./generate_perlVSC.sh info perl_refs $1
+./generate_perlVSC.sh plaintext perl_refs $1
