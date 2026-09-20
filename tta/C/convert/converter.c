@@ -1244,7 +1244,7 @@ determine_files_and_directory (CONVERTER *self, const char *output_format,
       free (output_file_filename_and_directory[0]);
     }
 
-  if (strlen (destination_directory))
+  if (strcmp (destination_directory, ""))
     {
       char *new_destination_directory
         = file_separator_canonpath (destination_directory);

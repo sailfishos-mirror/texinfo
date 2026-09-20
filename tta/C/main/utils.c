@@ -1343,7 +1343,8 @@ remove_extension (const char *input_string)
 /* ALTIMP perl/Texinfo/Common.pm file_separator_canonpath
           using File::Spec->canonpath */
 /* try to do at least part of what File::Spec->canonpath does for
-   file_separator_canonpath to have tests passing.
+   file_separator_canonpath to have tests passing and have . removed
+   for canonicalized path names.
    Replace backslashes by forward slashes.
  */
 char *
@@ -1365,10 +1366,21 @@ file_separator_canonpath (const char *input_file)
           /* omit a / at the end of the path */
           if (!*p)
             return (result.text);
+
+          if (*p == '.' && IS_SLASH(*(p+1)))
+            {/* remove /./ */
+              p += 2;
+              /* omit a / at the end of the path */
+              if (!*p)
+                return (result.text);
+              continue;
+            }
+
         /* This variant keeps the original separator
           text_append_n (&result, q, 1);
          */
           text_append_n (&result, "/", 1);
+
           q = strpbrk (p, FILE_SLASH);
           if (q)
             {
