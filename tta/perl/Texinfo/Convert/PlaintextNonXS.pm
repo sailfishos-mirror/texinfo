@@ -3890,8 +3890,15 @@ sub _convert($$) {
             Texinfo::Convert::Paragraph::end($formatter->{'container'}));
           destroy_formatter(pop @{$self->{'formatters'}});
         } else {
+          # remains 0 if at top level
+          my $exdent_indent_len = 0;
+          if (scalar(@{$self->{'format_context'}} > 1)) {
+            # in a block command
+            $exdent_indent_len
+              = $self->{'format_context'}->[-2]->{'context_indent_len'};
+          }
           $self->convert_line($element->{'contents'}->[0],
-             $self->{'format_context'}->[-2]->{'context_indent_len'});
+                              $exdent_indent_len);
         }
       }
       _ensure_end_of_line($self);

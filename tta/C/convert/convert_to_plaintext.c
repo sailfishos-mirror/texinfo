@@ -5890,11 +5890,11 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             {
               enum command_id context_cmd
                  = *top_(command) (&self_plaintext->context);
-              int indent = self_plaintext->format_context.list[
-                self_plaintext->format_context.number -2].context_indent_len;
               if (plaintext_commands_data[context_cmd].flags
                                               & PF_preformatted_context)
                 {
+                  int indent = self_plaintext->format_context.list[
+                   self_plaintext->format_context.number -2].context_indent_len;
                   FORMATTER new_preformatted
                     = new_formatter (self, formatter_unfilled, indent, -1);
 
@@ -5911,6 +5911,13 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 }
               else
                 {
+                  /* remains 0 if at top level */
+                  int indent = 0;
+                  if (self_plaintext->format_context.number > 1)
+                    {/* in a block command */
+                      indent = self_plaintext->format_context.list[
+                   self_plaintext->format_context.number -2].context_indent_len;
+                    }
                   plaintext_convert_line (self, exdent_line_arg, indent,
                                           -1, 0, 0);
                 }

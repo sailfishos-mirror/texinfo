@@ -560,6 +560,9 @@ following
 after exdented
 @end example
 '],
+['exdent_in_top_level',
+'@exdent in exdented not in block command
+'],
 ['verbatiminclude',
 '
 @verbatiminclude incl-incl.txi

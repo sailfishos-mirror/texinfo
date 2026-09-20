@@ -1,5 +1,16 @@
 2026-09-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal),
+	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_convert): handle @exdent
+	at top level.
+
+	* tta/perl/t/02coverage.t (exdent_in_top_level),
+	tta/perl/t/test_files_generated_list.txt: add exdent_in_top_level
+	test.
+
+2026-09-20 Patrice Dumas  <pertusus@free.fr>
+
 	* contrib/mass_test/README, contrib/mass_test/check_perlVSC.sh,
 	contrib/mass_test/generate_C.sh,
 	contrib/mass_test/generate_perlVSC.sh,

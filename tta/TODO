@@ -50,7 +50,8 @@ by
 \usepackage{unicode-math}
 
 
-Add breadcrumbs navigation to NEWS or somewhere else?
+Add breadcrumbs navigation to NEWS?
+Document init files? (asked on the mailing list).
 
 Bugs
 ====

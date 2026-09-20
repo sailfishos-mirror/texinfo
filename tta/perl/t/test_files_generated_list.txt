@@ -338,6 +338,7 @@ t/results/coverage/empty_w.pl
 t/results/coverage/end_bad_end_argument_and_superfluous_arg.pl
 t/results/coverage/exdent_and_commands.pl
 t/results/coverage/exdent_and_formats.pl
+t/results/coverage/exdent_in_top_level.pl
 t/results/coverage/flushleft_flushright.pl
 t/results/coverage/flushleft_flushright_in_quotation.pl
 t/results/coverage/flushright_example_nested.pl
