@@ -10,47 +10,51 @@ mkdir -p download
 (
 cd download
 
+# there is a Crawl Delay : 4 in robots.txt, so set wait to 8
+
 # -l 3 is needed for manuals with indirections, plotutils or texinfo for
 # example
-wget -v -N -r -l 3 --accept-regex='www.gnu.org/software/[^/]+/manual/(([^/]+/)?(.+.texi.tar.gz)?|([^/.]+)|([^/.]+/[^/.]+))$' https://www.gnu.org/manual/manual.html
+wget --random-wait --wait=8 -v -N -r -l 3 --accept-regex='www.gnu.org/software/[^/]+/manual/(([^/]+/)?(.+.texi.tar.gz)?|([^/.]+)|([^/.]+/[^/.]+))$' https://www.gnu.org/manual/manual.html
 
 # 4 indirections from the main gnu page, select an intermediate url
-wget -v -N -r -l 3 --accept-regex='www.gnu.org/software/[^/]+/manual/(([^/]+/)?(.+.texi.tar.gz)?|([^/.]+)|([^/.]+/[^/.]+))$' https://www.gnu.org/software/smalltalk/manual/
+wget --random-wait --wait=8 -v -N -r -l 3 --accept-regex='www.gnu.org/software/[^/]+/manual/(([^/]+/)?(.+.texi.tar.gz)?|([^/.]+)|([^/.]+/[^/.]+))$' https://www.gnu.org/software/smalltalk/manual/
 
 # no direct link to the page from the main gnu page
-wget -v -N -r -l 3 --accept-regex='www.gnu.org/software/[^/]+/manual/(([^/]+/)?(.+.texi.tar.gz)?|([^/.]+)|([^/.]+/[^/.]+))$' https://www.gnu.org/software/artanis/manual/
-wget -v -N -r -l 3 --accept-regex='www.gnu.org/software/[^/]+/manual/(([^/]+/)?(.+.texi.tar.gz)?|([^/.]+)|([^/.]+/[^/.]+))$' https://www.gnu.org/software/libextractor/manual/
+wget --random-wait --wait=8 -v -N -r -l 3 --accept-regex='www.gnu.org/software/[^/]+/manual/(([^/]+/)?(.+.texi.tar.gz)?|([^/.]+)|([^/.]+/[^/.]+))$' https://www.gnu.org/software/artanis/manual/
+wget --random-wait --wait=8 -v -N -r -l 3 --accept-regex='www.gnu.org/software/[^/]+/manual/(([^/]+/)?(.+.texi.tar.gz)?|([^/.]+)|([^/.]+/[^/.]+))$' https://www.gnu.org/software/libextractor/manual/
 
 # looks superficially the same but actually different, be it only
 # because the .texi is gzipped, but not in an archive
-wget -v -N -r -l 3 --accept-regex='www.gnu.org/software/groff/manual/(([^/]+/)?(.+.texi.(tar.)?gz)?|([^/.]+)|([^/.]+/[^/.]+))$' https://www.gnu.org/software/groff/manual/
+wget --random-wait --wait=8 -v -N -r -l 3 --accept-regex='www.gnu.org/software/groff/manual/(([^/]+/)?(.+.texi.(tar.)?gz)?|([^/.]+)|([^/.]+/[^/.]+))$' https://www.gnu.org/software/groff/manual/
 
 # we do not want to get all manuals in html to get the main grub manuals
 # url, so we do a separate call to wget
-wget -v -N -r -l 3 --accept-regex='www.gnu.org/software/grub/manual/[^/]+/(.+.texi.tar.gz)?$' https://www.gnu.org/software/grub/grub-documentation.html
+wget --random-wait --wait=8 -v -N -r -l 3 --accept-regex='www.gnu.org/software/grub/manual/[^/]+/(.+.texi.tar.gz)?$' https://www.gnu.org/software/grub/grub-documentation.html
 
 #https://www.gnu.org/software/emacs/manual/index.html
 #https://www.gnu.org/software/emacs/manual/texi/eintr.texi.tar.gz
-wget -v -N -r --accept-regex='www.gnu.org/software/emacs/manual/texi/(.+.texi.tar.gz)?$' https://www.gnu.org/software/emacs/manual/texi/
+wget --random-wait --wait=8 -v -N -r --accept-regex='www.gnu.org/software/emacs/manual/texi/(.+.texi.tar.gz)?$' https://www.gnu.org/software/emacs/manual/texi/
 
-wget -v -N -r -l 3 --accept-regex='https://www.gnu.org/software/guile-gnome/docs/(([^/]+/)?(.+.texi.tar.gz)?|([^/.]+))$' https://www.gnu.org/software/guile-gnome/docs/
+wget --random-wait --wait=8 -v -N -r -l 3 --accept-regex='https://www.gnu.org/software/guile-gnome/docs/(([^/]+/)?(.+.texi.tar.gz)?|([^/.]+))$' https://www.gnu.org/software/guile-gnome/docs/
 
-wget -v -N -r --accept-regex='www.gnu.org/prep/[^/]+/(.+.texi.tar.gz)?$' https://www.gnu.org/prep/
+wget --random-wait --wait=8 -v -N -r --accept-regex='www.gnu.org/prep/[^/]+/(.+.texi.tar.gz)?$' https://www.gnu.org/prep/
 
-wget -v -N -r https://gcc.gnu.org/onlinedocs/gcc-13.2.0/docs-sources.tar.gz
+#wget -v -N -r https://gcc.gnu.org/onlinedocs/gcc-16.2.0/docs-sources.tar.gz
+wget -v -N -r https://gcc.gnu.org/onlinedocs/docs-sources.tar.gz
 
-wget -v -N -r -l 3 --accept-regex='sourceware.org/glibc/manual/latest/texi/(.+.texi.tar.gz)?$' https://sourceware.org/glibc/manual/
+# Crawl-Delay: 60
+wget --random-wait --wait=120 -v -N -r -l 3 --accept-regex='sourceware.org/glibc/manual/latest/texi/(.+.texi.tar.gz)?$' https://sourceware.org/glibc/manual/
 
 wget -v -N -r -l 3 --accept-regex='mailutils.org/manual/(([^/]+/)?(.+.texi.tar.gz)?|([^/.]+)|([^/.]+/[^/.]+))$' https://mailutils.org/manual/
 
-wget -v -N -r https://www.gnu.org/software/c-graph/manual/c-graph.texi
+wget --random-wait --wait=8 -v -N -r https://www.gnu.org/software/c-graph/manual/c-graph.texi
 
-wget -v -N -r https://www.gnu.org/software/bc/manual/texi/bc.texi
+wget --random-wait --wait=8 -v -N -r https://www.gnu.org/software/bc/manual/texi/bc.texi
 
-wget -v -N -r https://www.gnu.org/software/epsilon/manual/epsilon.texi
+wget --random-wait --wait=8 -v -N -r https://www.gnu.org/software/epsilon/manual/epsilon.texi
 
 # not an archive, a gzipped manual
-wget -v -N -r https://www.gnu.org/software/gnubg/manual/gnubg.texi.gz
+wget --random-wait --wait=8 -v -N -r https://www.gnu.org/software/gnubg/manual/gnubg.texi.gz
 )
 
 # no downloadable Texinfo manual:

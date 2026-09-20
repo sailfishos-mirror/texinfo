@@ -1,5 +1,11 @@
 2026-09-20 Patrice Dumas  <pertusus@free.fr>
 
+	* contrib/mass_test/get_manuals.sh: add --random-wait --wait
+	consistent with Crawl Delay in robots.txt.  (It does not allow to
+	download the manuals, though).
+
+2026-09-20 Patrice Dumas  <pertusus@free.fr>
+
 	add span for styling of brace no arg commands possibly highlighted
 
 	* tta/C/convert/format_html.c (text_element_conversion),
