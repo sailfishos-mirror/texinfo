@@ -1538,6 +1538,7 @@ t/results/indices/subentry_and_sortas.pl
 t/results/indices/subentry_and_sortas_spaces.pl
 t/results/indices/syncode_index_print_both.pl
 t/results/indices/syncodeindex_to_plain.pl
+t/results/indices/test_sorting_symbols.pl
 t/results/indices/transparent_sort_chars.pl
 t/results/indices/unknown_index_entry.pl
 t/results/indices/unknown_printindex.pl

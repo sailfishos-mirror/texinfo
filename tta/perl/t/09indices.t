@@ -896,6 +896,18 @@ c
 
 @printindex cp
 ', {'test_formats' => ['docbook']}],
+['test_sorting_symbols',
+'@node top
+@top top
+
+@node chapter index
+@chapter Index
+
+@findex \'\'
+@findex @quotesinglbase{} (single low-9 quotation mark)
+
+@printindex fn
+', {'skip' => $use_XS ? 'Different collation in C' : undef,} ],
 # test with only sectioning commands, no node command
 ['index_no_node_no_top',
 undef, {'test_file' => 'index_no_node_no_top.texi'},
