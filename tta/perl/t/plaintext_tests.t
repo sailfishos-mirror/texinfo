@@ -101,6 +101,18 @@ Before samp. @samp{a}. after samp, w @w{in   w. after dot}  afterw
 # and splitting by commands (also tested in other tests)
 ['split_punctuation_detection_in_commands',
 'Before @asis{B}@asis{)}@asis{.}]]? Afte@strong{R}@emph{"!}\'? Last'],
+# test uppercase in @*ref command closing before punctuation and space,
+# with the line cut before the uppercase in @*ref.  The use of @*ref is
+# not important, any @-command that isolates the . from the previous
+# uppercase text would do.
+['end_sentence_upper_case_in_ref',
+'@node Top
+@top top
+
+@anchor{LINKS}
+
+Some text known to work correctly, define function is available cut @ref{LINKS}.  Something more.
+'],
 ['html_expanded',
 'Before
 @html

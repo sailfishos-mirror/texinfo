@@ -151,8 +151,6 @@ sub _end_line($) {
     delete $paragraph->{'indent_length_next'};
   }
   $paragraph->{'end_line_count'}++;
-  # could be set to other values, anything that is not upper case.
-  $paragraph->{'last_letter'} = "\n";
   print STDERR "END_LINE\n" if ($paragraph->{'debug'});
   return "\n";
 }
@@ -445,10 +443,7 @@ sub add_text($$) {
       my $tmp = $added_word;
       # Prepend 'last_letter' to add the information on the last
       # letter even if it was read as part of a previous string
-      # Add it here because _add_next overwrites it.  Note that
-      # if _add_next overwrote it, it wouldn't lead to an invalid
-      # result, as the wrong prepended 'last_letter' would not match
-      # at the end of the $added_word in the regex below anyway.
+      # Add it here because _add_next overwrites it.
       $tmp = $paragraph->{'last_letter'} . $tmp;
 
       $result .= _add_next($paragraph, $added_word, undef,
