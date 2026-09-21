@@ -2570,6 +2570,7 @@ t/results/plaintext_tests/east_asian_in_w.pl
 t/results/plaintext_tests/east_asian_in_w/res_plaintext/east_asian_in_w.txt
 t/results/plaintext_tests/empty_line_in_example_end.pl
 t/results/plaintext_tests/empty_multitable_in_itemize.pl
+t/results/plaintext_tests/empty_type_float_empty_line_with_noindent.pl
 t/results/plaintext_tests/end_sentence_space_protected.pl
 t/results/plaintext_tests/end_sentence_upper_case_in_ref.pl
 t/results/plaintext_tests/expanded_tex.pl

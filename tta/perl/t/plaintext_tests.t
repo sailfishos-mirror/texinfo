@@ -424,6 +424,16 @@ follows}.
 '@documentencoding utf-8
 @U{00FF} (should be a real y-dieresis in UTF-8).
 '],
+# test that a float with empty type does not lead to an empty line,
+# with @noindent
+['empty_type_float_empty_line_with_noindent',
+'@float
+toto
+@end float
+@noindent
+Titi
+
+'],
 ['flushright_not_closed_and_format',
 '@flushright
 flushright

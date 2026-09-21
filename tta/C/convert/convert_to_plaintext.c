@@ -7031,7 +7031,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           const char *float_number
             = lookup_extra_string (element, AI_key_float_number);
 
-          if (float_type || float_number || caption || shortcaption)
+          if ((float_type && strcmp (float_type, ""))
+              || float_number || caption || shortcaption)
             {
               FLOAT_CAPTION_PREPENDED_ELEMENT *caption_prepended
                 = float_name_caption (self, element);

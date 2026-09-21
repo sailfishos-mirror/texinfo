@@ -1,3 +1,13 @@
+2026-09-21 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): also check that float type is not an
+	empty line as part of doing the end of float formatting.
+
+	* tta/perl/t/plaintext_tests.t
+	(empty_type_float_empty_line_with_noindent): add test that a float
+	with empty type does not lead to an empty line, with @noindent.
+
 2026-09-22  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Printing Indices & Menus):
