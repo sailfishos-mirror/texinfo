@@ -264,8 +264,6 @@ para__end_line (void)
     }
 
   state.end_line_count++;
-  /* could be set to other values, anything that is not upper case. */
-  state.last_letter = (char32_t) '\n';
   if (state.debug)
     fprintf (stderr, "END_LINE\n");
 }
@@ -286,7 +284,11 @@ void
 para__add_pending_word (TEXT *result, int add_spaces)
 {
   if (state.word.end == 0 && !state.invisible_pending_word && !add_spaces)
-    return;
+    {
+      if (state.debug)
+        fprintf (stderr, "ADD_PENDING, nothing to add\n");
+      return;
+    }
 
   if (state.indent_length > state.counter)
     {
@@ -670,18 +672,19 @@ para_add_text (const char *text, int len)
          type is determined to avoid presenting redundant information */
       if (state.debug)
         {
-          uint8_t first_char_u8[7];
-          int first_char_len = u8_uctomb (first_char_u8, state.last_letter, 6);
-          if (first_char_len < 0)
+          uint8_t last_letter_u8[7];
+          int last_letter_len
+            = u8_uctomb (last_letter_u8, state.last_letter, 6);
+          if (last_letter_len < 0)
             fatal ("u8_uctomb returns negative value");
-          first_char_u8[first_char_len] = 0;
+          last_letter_u8[last_letter_len] = 0;
 
           fprintf(stderr, "p (%d+%d) s `%s', l `%s', w%d `%s'\n",
                     state.counter, state.word_counter,
                     state.space.end == 0 ? ""
                       : para__print_escaped_spaces (state.space.text,
                                                       state.space.end),
-                    (char *)first_char_u8, state.invisible_pending_word,
+                    (char *)last_letter_u8, state.invisible_pending_word,
                     state.word.text);
         }
 

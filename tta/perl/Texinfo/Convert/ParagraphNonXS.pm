@@ -172,6 +172,7 @@ sub _add_pending_word($;$) {
 
   if ($paragraph->{'word'} eq '' and not $paragraph->{'invisible_pending_word'}
       and not $add_spaces) {
+    print STDERR "ADD_PENDING, nothing to add\n" if ($paragraph->{'debug'});
     return $result;
   }
 

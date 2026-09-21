@@ -44,6 +44,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaa BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
 10AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA BBBBB
 11AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA BBBBB
 '],
+# this test is designed to have upper-case letters followed by punctuation
+# and space right after a line cut.  The line cut happens to be at an end of
+# line, but it should not be important, it could also have been a space that
+# triggers the line cut.
+['line_begin_upper_case_letter_punctuation_space',
+'it read and process the user configuration file and connects to to the
+ MTA. Of course, the client is not able to.
+'],
 ['commands_and_punctuation',
 'SomthingA@.   and now inhibit.@: Now dots @dots{} and enddots @enddots{} and'],
 ['inhibit_punctuation',
