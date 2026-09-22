@@ -8510,6 +8510,18 @@ file is what is actually used to print the index.
 a traditional two-column index, with index terms and page numbers.
 
 @item
+When processing with @command{texi2any}, the sorting of index entries
+is affected by the following variables:
+@code{COLLATION_LANGUAGE}, @code{USE_UNICODE_COLLATION}, and
+@code{DOCUMENTLANGUAGE_COLLATION}.  @xref{Global Customization Variables}.
+
+@command{texi2any} is expected to sort indices in a reproducible order when
+run on the same input file with the same options.  However, the exact order
+may differ between @command{texi2any} installations depending on the
+underlying system features used for sorting (e.g.@: version of Perl
+installed or version of the C standard library).
+
+@item
 In Info output, @code{@@printindex} produces a special menu containing
 the line number of the entry, relative to the start of the node.  Info
 readers can use this to go to the exact line of an entry, not just the
