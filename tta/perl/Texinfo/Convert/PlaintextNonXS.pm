@@ -1286,6 +1286,14 @@ sub _add_newline_if_needed($) {
         return;
       }
     }
+    # This can only happen at the beginning of the preamble, otherwise
+    # there will already be a title.  Also, this function is mainly
+    # called at toplevel, and content different from end of line is
+    # not common, could be form feeds and raw output text mainly.
+    if ($pending_text ne '' and $pending_text ne "\n") {
+      _stream_output($self, "\n");
+      _add_lines_count($self, 1);
+    }
   }
 
   return;
@@ -2590,7 +2598,7 @@ sub _get_form_feeds($) {
   my $form_feeds = shift;
 
   $form_feeds =~ s/^[^\f]*//;
-  $form_feeds =~ s/[^\f]$//;
+  $form_feeds =~ s/[^\f]*$//;
   return $form_feeds;
 }
 

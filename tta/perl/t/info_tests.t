@@ -1398,6 +1398,21 @@ f(x) = @anchor{equal point} \frac{a}{b} @anchor{displm point}
 
 @node first
 '],
+['form_feeds_in_preamble',
+'@settitle A manual
+
+
+@c comment
+
+@macro cdfRef{field}
+@ref{\field\ (Compact Disc fields)}
+@end macro
+
+
+
+@node Top
+@top The
+']
 );
 
 my @file_tests = (
