@@ -212,7 +212,7 @@ clean=no
 copy=no
 #mydir=
 
-while [ z"$1" = 'z-clean' -o z"$1" = 'z-copy' -o z"$1" = 'z-dir' -o z"$1" = 'z-native' ]; do
+while [ z"$1" = 'z-clean' -o z"$1" = 'z-copy' -o z"$1" = 'z-native' ]; do
   if [ z"$1" = 'z-clean' ]; then
     clean=yes
     shift
@@ -222,15 +222,15 @@ while [ z"$1" = 'z-clean' -o z"$1" = 'z-copy' -o z"$1" = 'z-dir' -o z"$1" = 'z-n
   elif [ z"$1" = 'z-native' ]; then
     tested_command='C/ctexi2any'
     shift
-  elif [ z"$1" = 'z-dir' ]; then
-    shift
-    testdir=`echo "$1" | sed 's:/*$::'`
-    shift
   fi
 done
 
+testdir=$1
+shift
+
 if [ "z$testdir" = 'z' ]; then
-  testdir=.
+  echo "Missing test directory" 1>&2
+  exit 1
 fi
 
 if [ "z$srcdir" = 'z' ]; then

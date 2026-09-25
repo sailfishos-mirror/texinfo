@@ -12,7 +12,7 @@ dir=encoded
 name='verbatiminclude_names_latin1_explicit_encoding_rawtext'
 mkdir -p $dir
 
-"$srcdir"/run_parser_all.sh -native -dir $dir $name
+"$srcdir"/run_parser_all.sh -native $dir $name
 exit_status=$?
 cat $dir/$one_test_logs_dir/native_$name.log
 exit $exit_status

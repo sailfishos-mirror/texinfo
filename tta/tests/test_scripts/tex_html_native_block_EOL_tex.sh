@@ -18,7 +18,7 @@ dir=tex_html
 name='block_EOL_tex'
 mkdir -p $dir
 
-"$srcdir"/run_parser_all.sh -native -dir $dir $name
+"$srcdir"/run_parser_all.sh -native $dir $name
 exit_status=$?
 cat $dir/$one_test_logs_dir/native_$name.log
 exit $exit_status

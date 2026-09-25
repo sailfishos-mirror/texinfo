@@ -12,7 +12,7 @@ dir=formatting
 name='index_entries_relate_to_item'
 mkdir -p $dir
 
-"$srcdir"/run_parser_all.sh  -dir $dir $name
+"$srcdir"/run_parser_all.sh  $dir $name
 exit_status=$?
 cat $dir/$one_test_logs_dir/perl_$name.log
 exit $exit_status

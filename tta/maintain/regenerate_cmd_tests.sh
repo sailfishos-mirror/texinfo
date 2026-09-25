@@ -128,7 +128,7 @@ fi
 name='$name'
 "'mkdir -p $dir
 
-"$srcdir"'"$relative_command_dir"'/run_parser_all.sh '"$language_option"' -dir $dir $name
+"$srcdir"'"$relative_command_dir"'/run_parser_all.sh '"$language_option"' $dir $name
 exit_status=$?
 cat $dir/$one_test_logs_dir/'"${language_type}"'_$name.log
 exit $exit_status

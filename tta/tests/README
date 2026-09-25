@@ -28,14 +28,14 @@ This testsuite can be run one of the following ways:
 These tests use the scripts under the test_scripts directory.
 
 * Using ./run_parser_all.sh with the directories one want to run the 
-tests in given as arguments, for example "./run_parser_all.sh -dir formatting".
+tests in given as arguments, for example "./run_parser_all.sh formatting".
 To run just one test, give the test name, e.g.
-"./run_parser_all.sh -dir formatting cond".
+"./run_parser_all.sh formatting cond".
 
 In the default case, ./run_parser_all.sh tests the Perl command, to test
 the native command, call with -native option:
 
-"./run_parser_all.sh -native -dir formatting cond".
+"./run_parser_all.sh -native formatting cond".
 
 The native command tests are enabled in the Makefile only if the native
 command is built.
@@ -223,7 +223,7 @@ Creating a new test
 - choose the subdir here for the new test.
 - add the line to subdir/list-of-tests as described above.
 - most probably, create the needed subdir/*.texi file
-- ./run_parser_all.sh -dir subdir newtest
+- ./run_parser_all.sh subdir newtest
 
 This will create subdir/out_perl/newtest/ with the test results
 (as explained above), as well as stdout in newtest.1 and stderr in newtest.2.

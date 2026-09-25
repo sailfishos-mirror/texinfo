@@ -18,7 +18,7 @@ dir=tex_html
 name='tex_httex'
 mkdir -p $dir
 
-"$srcdir"/run_parser_all.sh  -dir $dir $name
+"$srcdir"/run_parser_all.sh  $dir $name
 exit_status=$?
 cat $dir/$one_test_logs_dir/perl_$name.log
 exit $exit_status

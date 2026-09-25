@@ -12,7 +12,7 @@ dir=formatting
 name='no_detailmenu_lang_at_begin_end'
 mkdir -p $dir
 
-"$srcdir"/run_parser_all.sh  -dir $dir $name
+"$srcdir"/run_parser_all.sh  $dir $name
 exit_status=$?
 cat $dir/$one_test_logs_dir/perl_$name.log
 exit $exit_status
