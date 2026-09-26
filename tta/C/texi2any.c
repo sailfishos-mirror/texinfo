@@ -2024,19 +2024,6 @@ main (int argc, char *argv[], char *env[])
             OPTION *option = &cmdline_options.options->OUTFILE;
             /* actually const but constrained by prototypes */
             char *decoded_string = GNUT_decode_input ((char *) optarg);
-            if (strcmp (optarg, "-"))
-              {
-                size_t opt_len = strlen (optarg);
-                struct stat finfo;
-
-                if (optarg[opt_len -1] == '/'
-                    || (stat (optarg, &finfo) == 0 && S_ISDIR (finfo.st_mode)))
-                  {
-                    GNUT_set_from_cmdline (&cmdline_options,
-                                      option->number, "undef");
-                    option = &cmdline_options.options->SUBDIR;
-                  }
-              }
             GNUT_set_from_cmdline (&cmdline_options,
                                    option->number, decoded_string);
             free (decoded_string);
@@ -2226,11 +2213,8 @@ main (int argc, char *argv[], char *env[])
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "  -o, --output=DEST           output to DEST.\n"
-   "                                With split output, create DEST as a directory\n"
+   "                                With page split output, create DEST as a directory\n"
    "                                and put the output files there.\n"
-   "                                With non-split output, if DEST is already\n"
-   "                                a directory or ends with a /,\n"
-   "                                put the output file there.\n"
    "                                Otherwise, DEST names the output file."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(

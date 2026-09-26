@@ -90,7 +90,7 @@ mkdir $outdir
 
 # note that it is important to have -c 'COMMAND_LINE_ENCODING UTF-8' before --out
 # such that --out is correctly decoded
-cmd="$prepended_command $command_run --set-customization-variable TEST=$test_level -c 'COMMAND_LINE_ENCODING UTF-8' --out $outdir/encodé/ $srcdir/../formatting/simplest.texi -c OUTPUT_FILE_NAME_ENCODING=UTF-8 --force >> $outdir/$stdout_file 2>$outdir/${basename}.2"
+cmd="$prepended_command $command_run --set-customization-variable TEST=$test_level -c 'COMMAND_LINE_ENCODING UTF-8' --out $outdir/encodé/simplest.info $srcdir/../formatting/simplest.texi -c OUTPUT_FILE_NAME_ENCODING=UTF-8 --force >> $outdir/$stdout_file 2>$outdir/${basename}.2"
 echo "$cmd" >> $logfile
 eval $cmd
 

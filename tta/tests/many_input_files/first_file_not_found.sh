@@ -80,7 +80,7 @@ raw_outdir=$raw_out_dir/${basename}_${dir_suffix}
 mkdir $outdir
 : > $outdir/$stdout_file
 
-cmd="$prepended_command $command_run --set-customization-variable TEST=$test_level --out $outdir/ file_not_existing.texi $srcdir/../formatting/simplest.texi --force >> $outdir/$stdout_file 2>$outdir/${basename}.2"
+cmd="$prepended_command $command_run --set-customization-variable TEST=$test_level -c SUBDIR=$outdir/ file_not_existing.texi $srcdir/../formatting/simplest.texi --force >> $outdir/$stdout_file 2>$outdir/${basename}.2"
 echo "$cmd" >> $logfile
 eval $cmd
 

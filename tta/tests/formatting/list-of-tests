@@ -46,4 +46,5 @@ info_extension_warning foo.info
 js_license_reuse_output_file split_nocopying.texi --html -o. -c JS_WEBLABELS_FILE=Ch1.html -c INFO_JS_DIR=js
 
 # test --macro-expand with the same name as output file.
-reuse_macro_expand_file simplest.texi -o. --macro-expand=@OUT_DIR@simplest.info
+# FIXME ./simplest.info and simplest.info are not considered to conflict
+reuse_macro_expand_file simplest.texi -o ./simplest.info --macro-expand=@OUT_DIR@simplest.info

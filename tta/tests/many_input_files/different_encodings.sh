@@ -87,7 +87,7 @@ mkdir $outdir
 
 # no transliteration, as Perl and C transliterate differently
 # --transliterate-file-name
-cmd="$prepended_command $command_run --html --no-split --set-customization-variable TEST=$test_level --enable-encoding -c OUTPUT_CHARACTERS=1 --out $outdir/ $srcdir/../../perl/t/input_files/char_latin1_latin1_in_refs.texi $srcdir/../../perl/t/input_files/char_utf8_latin1_in_refs.texi --force >> $outdir/$stdout_file 2>$outdir/${basename}.2"
+cmd="$prepended_command $command_run --html --no-split --set-customization-variable TEST=$test_level --enable-encoding -c OUTPUT_CHARACTERS=1 -c SUBDIR=$outdir/ $srcdir/../../perl/t/input_files/char_latin1_latin1_in_refs.texi $srcdir/../../perl/t/input_files/char_utf8_latin1_in_refs.texi --force >> $outdir/$stdout_file 2>$outdir/${basename}.2"
 echo "$cmd" >> $logfile
 eval $cmd
 

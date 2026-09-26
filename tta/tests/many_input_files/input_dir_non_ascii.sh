@@ -88,7 +88,7 @@ raw_outdir=$raw_out_dir/${basename}_${dir_suffix}
 mkdir $outdir
 : > $outdir/$stdout_file
 
-cmd="$prepended_command $command_run --html --no-split --set-customization-variable TEST=$test_level -I ../built_input/non_ascii/dir_înclùde --out $outdir/ $srcdir/input_files/simple_including_file.texi --force >> $outdir/$stdout_file 2>$outdir/${basename}.2"
+cmd="$prepended_command $command_run --html --no-split --set-customization-variable TEST=$test_level -I ../built_input/non_ascii/dir_înclùde --out $outdir/simple_including_file.html $srcdir/input_files/simple_including_file.texi --force >> $outdir/$stdout_file 2>$outdir/${basename}.2"
 echo "$cmd" >> $logfile
 eval $cmd
 

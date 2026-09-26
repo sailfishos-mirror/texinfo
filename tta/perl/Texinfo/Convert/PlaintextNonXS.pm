@@ -675,6 +675,12 @@ sub output($$) {
   }
   if ($self->get_conf('SPLIT')) {
     $self->set_conf('NODE_FILES', 1);
+    if (defined($self->get_conf('OUTFILE'))) {
+      if (!defined($self->get_conf('SUBDIR'))) {
+        $self->set_conf('SUBDIR', $self->get_conf('OUTFILE'));
+      }
+      $self->force_conf('OUTFILE', undef);
+    }
   }
 
   my ($output_file, $destination_directory, $output_filename,

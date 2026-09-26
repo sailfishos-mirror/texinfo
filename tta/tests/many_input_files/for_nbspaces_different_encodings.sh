@@ -83,7 +83,7 @@ raw_outdir=$raw_out_dir/${basename}_${dir_suffix}
 mkdir $outdir
 : > $outdir/$stdout_file
 
-cmd="$prepended_command $command_run --html --no-split --set-customization-variable TEST=$test_level --enable-encoding -c OUTPUT_CHARACTERS=1 --conf-dir $srcdir/../../perl/t/init --init-file t2h_buttons.pm --out $outdir/ $srcdir/../../perl/t/input_files/command_non_break_spaces_utf8.texi $srcdir/../../perl/t/input_files/command_non_break_spaces_koi8-r.texi --force >> $outdir/$stdout_file 2>$outdir/${basename}.2"
+cmd="$prepended_command $command_run --html --no-split --set-customization-variable TEST=$test_level --enable-encoding -c OUTPUT_CHARACTERS=1 --conf-dir $srcdir/../../perl/t/init --init-file t2h_buttons.pm -c SUBDIR=$outdir/ $srcdir/../../perl/t/input_files/command_non_break_spaces_utf8.texi $srcdir/../../perl/t/input_files/command_non_break_spaces_koi8-r.texi --force >> $outdir/$stdout_file 2>$outdir/${basename}.2"
 echo "$cmd" >> $logfile
 eval $cmd
 

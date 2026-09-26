@@ -5108,6 +5108,12 @@ sub _setup_output($) {
   }
   if ($self->get_conf('SPLIT')) {
     $self->set_conf('NODE_FILES', 1);
+    if (defined($self->get_conf('OUTFILE'))) {
+      if (!defined($self->get_conf('SUBDIR'))) {
+        $self->set_conf('SUBDIR', $self->get_conf('OUTFILE'));
+      }
+      $self->force_conf('OUTFILE', undef);
+    }
   }
   $self->set_conf('EXTERNAL_CROSSREF_SPLIT', $self->get_conf('SPLIT'));
 

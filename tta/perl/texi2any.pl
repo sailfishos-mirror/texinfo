@@ -1080,11 +1080,8 @@ the behavior is identical, and does not depend on the installed name.")."\n"
 "      --[no-]number-footnotes  number footnotes sequentially; default is on")."\n"
 .__(
 "  -o, --output=DEST           output to DEST.
-                                With split output, create DEST as a directory
+                                With page split output, create DEST as a directory
                                 and put the output files there.
-                                With non-split output, if DEST is already
-                                a directory or ends with a /,
-                                put the output file there.
                                 Otherwise, DEST names the output file.")."\n"
 .__(
 "      --disable-encoding      do not output accented and special characters
@@ -1234,10 +1231,6 @@ There is NO WARRANTY, to the extent permitted by law."), "2026")."\n";
                    },
  'output|out|o=s' => sub {
     my $var = 'OUTFILE';
-    if ($_[1] ne '-' and ($_[1] =~ m:/$: or -d $_[1])) {
-      set_from_cmdline($var, undef);
-      $var = 'SUBDIR';
-    }
     set_from_cmdline($var, _decode_input($_[1]));
     push @texi2dvi_args, '-o', $_[1];
   },

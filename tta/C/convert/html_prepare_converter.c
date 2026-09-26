@@ -4133,7 +4133,7 @@ html_setup_output (CONVERTER *self, char **paths)
       int i;
       int need_unsplit = 0;
       const char *outfile = self->conf->OUTFILE.o.string;
-      if (!strlen(outfile) || !strcmp (outfile, "-"))
+      if (!strcmp (outfile, "") || !strcmp (outfile, "-"))
         need_unsplit = 1;
       else
         {
@@ -4153,8 +4153,19 @@ html_setup_output (CONVERTER *self, char **paths)
         }
     }
 
-  if (self->conf->SPLIT.o.string && strlen (self->conf->SPLIT.o.string))
-    option_set_conf (&self->conf->NODE_FILES, 1, 0);
+  if (self->conf->SPLIT.o.string
+      && strcmp (self->conf->SPLIT.o.string, ""))
+    {
+      option_set_conf (&self->conf->NODE_FILES, 1, 0);
+
+      if (self->conf->OUTFILE.o.string)
+        {
+          if (!self->conf->SUBDIR.o.string)
+            option_set_conf (&self->conf->SUBDIR, 0,
+                             self->conf->OUTFILE.o.string);
+          option_force_conf (&self->conf->OUTFILE, 0, 0);
+        }
+    }
 
   option_set_conf (&self->conf->EXTERNAL_CROSSREF_SPLIT, 0,
             self->conf->SPLIT.o.string);

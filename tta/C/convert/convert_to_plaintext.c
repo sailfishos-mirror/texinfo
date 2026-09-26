@@ -7441,12 +7441,13 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
   plaintext_conversion_initialization (self, document);
 
   if (self->conf->OUTFILE.o.string
-      && self->conf->SPLIT.o.string && strcmp (self->conf->SPLIT.o.string, ""))
+      && self->conf->SPLIT.o.string
+      && strcmp (self->conf->SPLIT.o.string, ""))
     {
       int i;
       int need_unsplit = 0;
       const char *outfile = self->conf->OUTFILE.o.string;
-      if (!strlen(outfile) || !strcmp (outfile, "-"))
+      if (!strcmp (outfile, "") || !strcmp (outfile, "-"))
         need_unsplit = 1;
       else
         {
@@ -7471,7 +7472,17 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
 
   if (self->conf->SPLIT.o.string
       && strcmp (self->conf->SPLIT.o.string, ""))
-    option_set_conf (&self->conf->NODE_FILES, 1, 0);
+    {
+      option_set_conf (&self->conf->NODE_FILES, 1, 0);
+
+      if (self->conf->OUTFILE.o.string)
+        {
+          if (!self->conf->SUBDIR.o.string)
+            option_set_conf (&self->conf->SUBDIR, 0,
+                             self->conf->OUTFILE.o.string);
+          option_force_conf (&self->conf->OUTFILE, 0, 0);
+        }
+    }
 
   text_init (&result);
   text_append (&result, "");

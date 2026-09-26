@@ -83,7 +83,7 @@ raw_outdir=$raw_out_dir/${basename}_${dir_suffix}
 mkdir $outdir
 : > $outdir/$stdout_file
 
-cmd="$prepended_command $command_run --html --no-split -c FORMAT_MENU=menu -c TREE_TRANSFORMATIONS=regenerate_master_menu --set-customization-variable TEST=$test_level --out $outdir/ $srcdir/input_files/no_master_menu_fr.texi $srcdir/input_files/no_master_menu_no_documentlanguage.texi --force >> $outdir/$stdout_file 2>$outdir/${basename}.2"
+cmd="$prepended_command $command_run --html --no-split -c FORMAT_MENU=menu -c TREE_TRANSFORMATIONS=regenerate_master_menu --set-customization-variable TEST=$test_level -c SUBDIR=$outdir/ $srcdir/input_files/no_master_menu_fr.texi $srcdir/input_files/no_master_menu_no_documentlanguage.texi --force >> $outdir/$stdout_file 2>$outdir/${basename}.2"
 echo "$cmd" >> $logfile
 eval $cmd
 
