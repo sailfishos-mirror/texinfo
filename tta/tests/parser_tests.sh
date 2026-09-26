@@ -24,7 +24,7 @@ while [ z"$1" != 'z' ]; do
   dir=$1
   shift
   [ -d "$dir" ] || mkdir $dir
-  "$srcdir"/"$command" $dir $arg
+  "$srcdir"/"$command" $arg $dir
   result=$?
   if [ "z$result" = 'z0' ]; then
     result_text=ok
