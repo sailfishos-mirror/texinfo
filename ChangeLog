@@ -1,3 +1,10 @@
+2026-09-26 Patrice Dumas  <pertusus@free.fr>
+
+	* contrib/mass_test/generate_C.sh,
+	contrib/mass_test/generate_perlVSC.sh: cd to the output directory and
+	setup -o for html and plaintext especially.
+	This prepare for erroring with -o DIR when a file is expected.
+
 2026-09-26  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\ignorenode): Stop ignoring node at top-level

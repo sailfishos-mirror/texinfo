@@ -41,6 +41,15 @@ mkdir -p $dir
 
 #set -x
 
+# prepended to path to go back from the directory where the command tested is
+# called to the directory the current script is called from.
+to_current=../../../../
+
+format_output_option=
+if test $format = html ; then
+  format_output_option='-o.'
+fi
+
 for manual_proj_dir in manuals/*/ ; do
   proj_dir=`basename $manual_proj_dir`
   test $one_test != 'yes' && rm -rf $dir/$proj_dir
@@ -62,12 +71,19 @@ for manual_proj_dir in manuals/*/ ; do
         out_dir=$dir/$proj_dir/$bfile
         rm -rf $out_dir
         mkdir $out_dir
-        err_file=${out_dir}/${bfile}-${format}_nodes.err
-        # the -I directory is for gcc, could add more
-        if test $one_test = 'yes' ; then
-          echo "../../tta/C/ctexi2any -I manuals/$proj_dir/include/ --force --error-limit=10000 -c TEST=1 --${format} -o ${out_dir}/${format}_nodes/ $file"
+        mkdir $out_dir/${format}_nodes/
+        err_file_name=${bfile}-${format}_nodes.err
+        err_file=${out_dir}/${err_file_name}
+        file_output_option=
+        if test $format = plaintext ; then
+          file_output_option="-o ${bfile}.txt"
         fi
-        ../../tta/C/ctexi2any -I manuals/$proj_dir/include/ --force --error-limit=10000 -c TEST=1 --${format} -o ${out_dir}/${format}_nodes/ $file 2>$err_file
+        # the -I directory is for gcc, could add more
+        cmd="(cd ${out_dir}/${format}_nodes/ && ${to_current}../../tta/C/ctexi2any -I ${to_current}manuals/$proj_dir/include/ --force --error-limit=10000 -c TEST=1 --${format} ${format_output_option} ${file_output_option} ${to_current}$file 2>../$err_file_name)"
+        if test $one_test = 'yes' ; then
+          echo "$cmd"
+        fi
+        eval $cmd
         if test -s $err_file ; then :
         else rm -f $err_file
         fi
