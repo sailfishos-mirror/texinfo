@@ -1,5 +1,10 @@
 2026-09-25 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/utils.c (file_separator_canonpath): when removing .,
+	place the pointer on the next /, not past it.
+
+2026-09-25 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/tests/parser_tests.sh: args before dir.
 
 2026-09-25 Patrice Dumas  <pertusus@free.fr>

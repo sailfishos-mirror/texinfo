@@ -1369,9 +1369,9 @@ file_separator_canonpath (const char *input_file)
 
           if (*p == '.' && IS_SLASH(*(p+1)))
             {/* remove /./ */
-              p += 2;
+              p += 1;
               /* omit a / at the end of the path */
-              if (!*p)
+              if (!*(p+1))
                 return (result.text);
               continue;
             }
