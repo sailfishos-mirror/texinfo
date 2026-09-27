@@ -830,6 +830,7 @@ my %formats_table = (
  'info' => {
              'nodes_tree' => 1,
              'floats' => 1,
+             'insert_nodes_for_sectioning_commands' => 1,
              'module' => 'Texinfo::Convert::Info'
            },
   'plaintext' => {
@@ -846,6 +847,7 @@ my %formats_table = (
              'move_index_entries_after_items' => 1,
              'relate_index_entries_to_table_items' => 1,
              'no_warn_non_empty_parts' => 1,
+             'insert_nodes_for_sectioning_commands' => 1,
              'module' => 'Texinfo::Convert::HTML'
            },
   'latex' => {
@@ -1981,7 +1983,9 @@ while (@input_files) {
                                                                  $document);
   }
 
-  if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {
+  if (exists(
+      $formats_table{$converted_format}->{'insert_nodes_for_sectioning_commands'})
+      or $tree_transformations{'insert_nodes_for_sectioning_commands'}) {
     Texinfo::Transformations::insert_nodes_for_sectioning_commands($document);
   }
 

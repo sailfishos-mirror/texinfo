@@ -2,10 +2,17 @@ This is non_asçî_i.info, produced by texi2any version from
 simplest.texi.
 
 
-File: non_asçî_i.info,  Node: Top,  Up: (dir)
+File: non_asçî_i.info,  Node: Top,  Next: Chapter,  Up: (dir)
 
 top section
 ***********
+
+* Menu:
+
+* Chapter::
+
+
+File: non_asçî_i.info,  Node: Chapter,  Prev: Top,  Up: Top
 
 1 Chapter
 *********
@@ -15,7 +22,7 @@ This is a very simple texi manual   <>.
 
 Tag Table:
 Node: Top77
-Ref: Chapter153
+Node: Chapter191
 
 End Tag Table
 

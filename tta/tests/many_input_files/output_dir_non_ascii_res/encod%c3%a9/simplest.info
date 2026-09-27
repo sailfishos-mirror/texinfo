@@ -1,10 +1,17 @@
 This is simplest.info, produced by texi2any version from simplest.texi.
 
 
-File: simplest.info,  Node: Top,  Up: (dir)
+File: simplest.info,  Node: Top,  Next: Chapter,  Up: (dir)
 
 top section
 ***********
+
+* Menu:
+
+* Chapter::
+
+
+File: simplest.info,  Node: Chapter,  Prev: Top,  Up: Top
 
 1 Chapter
 *********
@@ -14,7 +21,7 @@ This is a very simple texi manual   <>.
 
 Tag Table:
 Node: Top73
-Ref: Chapter145
+Node: Chapter183
 
 End Tag Table
 
