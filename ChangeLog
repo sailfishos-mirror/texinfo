@@ -1,9 +1,21 @@
+2026-09-27 Patrice Dumas  <pertusus@free.fr>
+
+	* NEWS: explain change of -o and that SUBDIR can be used instead.
+
+	* doc/texinfo.texi (Invoking @command{texi2any}): plaintext split is
+	the same as HTML split for -o.
+
+	* doc/texinfo.texi (Customization Variables and Options)
+	(Global Customization Variables): remove SUBDIR from "Customization
+	Variables and Options" and add a separate entry in the "Global
+	Customization Variables" list.
+
 2026-09-26 Patrice Dumas  <pertusus@free.fr>
 
 	do not set SUBDIR based on -o command-line option
 
 	* tta/C/texi2any.c (main), tta/perl/texi2any.pl: never set SUBDIR
-	based on -o/--output-file command-line option.  Update --help.
+	based on -o/--output command-line option.  Update --help.
 
 	* tta/C/convert/convert_to_plaintext.c (plaintext_output),
 	tta/C/convert/html_prepare_converter.c (html_setup_output), 

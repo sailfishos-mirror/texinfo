@@ -15318,9 +15318,9 @@ a @code{@@setfilename} command found in the Texinfo source.  If neither
 @code{@@setfilename} nor this option are specified, the input file name is
 used to determine the output name.  @xref{Setting the Output File Name}.
 
-When generating HTML and output is split, @var{file} is used as the
-name for the directory into which all files are written.  For example,
-@samp{texi2any -o bar --html foo.texi} will write
+When generating HTML or plaintext and output is split, @var{file} is used
+as the name for the directory into which all files are written.
+For example, @samp{texi2any -o bar --html foo.texi} will write
 @file{bar/index.html}, among other files.  Note that if the output
 directory already exists, @command{texi2any} will not delete any
 pre-existing files in that directory, only overwriting an existing file
@@ -15835,8 +15835,7 @@ meaning of the options.
 @option{--number-sections}   @tab @code{NUMBER_SECTIONS}
 @item
 @vindex OUTFILE
-@vindex SUBDIR
-@option{--output}            @tab @code{OUTFILE}, @code{SUBDIR}
+@option{--output}            @tab @code{OUTFILE}
 @item
 @vindex paragraphindent
 @option{--paragraph-indent}  @tab @code{paragraphindent}
@@ -16155,6 +16154,16 @@ the @file{util/} directory of the Texinfo source distribution
 @item SORT_ELEMENT_COUNT_WORDS
 When dumping the elements-by-size file (see preceding item), use word
 counts instead of line counts; default false.
+
+@item SUBDIR
+When generating HTML or plaintext and output is split, sets the subdirectory
+into which all files are written.  For HTML, the default is set to the input
+file base name (that is, any extension is removed), with @code{_html} appended
+(@pxref{HTML Splitting}).  If @code{OUTFILE} or @option{--output} is set, the
+corresponding value is used as default.
+
+Otherwise, there is an output file and @code{SUBDIR} specifies a subdirectory
+where the output file is written.  In that case, the default is undef.
 
 @item TEST
 If set to a positive integer, some variables which are normally dynamically
@@ -17934,6 +17943,7 @@ the files and directories needed for the EPUB file by setting the
 
 @cindex Container directory for EPUB
 @cindex EPUB Container directory
+@vindex SUBDIR @subentry @r{for EPUB}
 A directory containing the files and directories needed for the
 EPUB format is created when outputting EPUB@.  The name of this
 container directory is derived from the base name of the input file (that
@@ -17951,6 +17961,7 @@ of the container directory.  Image files referred to from the Texinfo manual,
 if found, are copied to subdirectories of the container directory.
 
 @cindex EPUB output file
+@vindex OUTFILE @subentry @r{for EPUB}
 The EPUB output file is a ZIP archive of the container directory.
 The file name is derived from the base name, with the @code{.epub}
 extension postpended.  If an output file is specified, with
