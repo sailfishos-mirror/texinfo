@@ -1,5 +1,22 @@
 2026-09-27 Patrice Dumas  <pertusus@free.fr>
 
+	no reference target for sections added nodes if ambiguous
+
+	* tta/C/structuring_transfo/transformations.c (new_node),
+	tta/perl/Texinfo/TransformationsNonXS.pm (_new_node): add a new
+	argumet that can be used to start with a postpended number, if one
+	does not want to have the reference name used.
+
+	* tta/C/structuring_transfo/transformations.c
+	(ELEMENT_WITH_ADDED_INFO, insert_nodes_for_sectioning_commands),
+	tta/perl/Texinfo/TransformationsNonXS.pm
+	(insert_nodes_for_sectioning_commands): determine first the number of
+	sections without node associated to a given normalized name.  If there
+	is more than one, consider that there is ambiguity and add nodes with
+	postpended numbers for all these sections.  For Gavin.
+
+2026-09-27 Patrice Dumas  <pertusus@free.fr>
+
 	* NEWS: explain change of -o and that SUBDIR can be used instead.
 
 	* doc/texinfo.texi (Invoking @command{texi2any}): plaintext split is

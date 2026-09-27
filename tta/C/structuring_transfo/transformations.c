@@ -34,6 +34,7 @@
 #include "options_data.h"
 /* fatal */
 #include "base_utils.h"
+#include "hashmap.h"
 #include "tree.h"
 #include "extra.h"
 #include "structure_list.h"
@@ -609,9 +610,10 @@ move_index_entries_after_items_in_document (DOCUMENT *document)
    node_tree is actually used as an element list, but we use an
    element to be able to do the transformations in new_node.
  */
-ELEMENT *
+static ELEMENT *
 new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
-          DOCUMENT *document, const ELEMENT *associated_command)
+          DOCUMENT *document, const ELEMENT *associated_command,
+          int starting_appended)
 {
   const C_HASHMAP *identifiers_target = &document->identifiers_target;
   int empty_node = 0;
@@ -688,7 +690,9 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
   if (!new_line_at_end && !comment_at_end)
     text_append (&spaces_after_argument, "\n");
 
-  appended_number = 0+empty_node;
+  appended_number = 0+starting_appended;
+  if (appended_number == 0)
+    appended_number += empty_node;
 
   while (1)
     {
@@ -932,6 +936,11 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
   return 0;
 }
 
+typedef struct ELEMENT_WITH_ADDED_INFO {
+    ELEMENT *new_node_tree;
+    char *normalized;
+} ELEMENT_WITH_ADDED_INFO;
+
 ELEMENT_LIST *
 insert_nodes_for_sectioning_commands (DOCUMENT *document)
 {
@@ -943,6 +952,17 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
   NODE_RELATIONS *previous_node_relations = 0;
   size_t node_idx = 0;
 
+  /* associate normalized reference added name to the number of
+     section commands with such a normalized name. */
+  C_HASHMAP *normalized_nr = new_c_hashmap (sections_list->number);
+
+  /* cache information to avoid redoing the computations and avoid
+     duplicating code. */
+  ELEMENT_WITH_ADDED_INFO *elements_with_added = (ELEMENT_WITH_ADDED_INFO *)
+     malloc (sizeof (ELEMENT_WITH_ADDED_INFO) * sections_list->number);
+
+  /* First determine the number of sections for a given normalized name
+     to know which one are ambiguous */
   for (idx = 0; idx < root->e.c->contents.number; idx++)
     {
       ELEMENT *content = root->e.c->contents.list[idx];
@@ -961,9 +981,11 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
 
           if (!section_relations->associated_node)
             {
-              ELEMENT *added_node;
               /* NOTE new_node_tree content is copied in new_node */
               ELEMENT *new_node_tree;
+              char *normalized;
+              int found;
+              uintptr_t normalized_nr_count;
 
               document->modified_information
                              |= F_DOCM_tree | F_DOCM_nodes_list;
@@ -983,8 +1005,65 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
                     = arguments_line->e.c->contents.list[0];
                   new_node_tree = copy_contents (line_arg, 0, ET_NONE);
                 }
+              normalized = convert_to_node_identifier (new_node_tree);
+
+              normalized_nr_count
+                 = (uintptr_t)c_hashmap_value (normalized_nr, normalized,
+                                               &found);
+              if (found)
+                {
+                  normalized_nr_count++;
+                  c_hashmap_set_value (normalized_nr,
+                           normalized, (const void *)normalized_nr_count);
+                }
+              else
+                {
+                  normalized_nr_count = 1;
+                  c_hashmap_register (normalized_nr,
+                           normalized, (const void *)normalized_nr_count);
+                }
+
+              elements_with_added[section_number -1].normalized = normalized;
+              elements_with_added[section_number -1].new_node_tree
+                = new_node_tree;
+            }
+        }
+    }
+
+  /* add the nodes */
+  for (idx = 0; idx < root->e.c->contents.number; idx++)
+    {
+      ELEMENT *content = root->e.c->contents.list[idx];
+      enum command_id data_cmd = element_builtin_data_cmd (content);
+      unsigned long flags = command_data[data_cmd].flags;
+
+      if (data_cmd && data_cmd != CM_node && data_cmd != CM_part
+          && flags & CF_root)
+        {
+          int status;
+          size_t section_number
+            = lookup_extra_integer (content,
+                                    AI_key_section_number, &status);
+          SECTION_RELATIONS *section_relations
+            = sections_list->list[section_number -1];
+
+          if (!section_relations->associated_node)
+            {
+              ELEMENT *added_node;
+              char *normalized
+                = elements_with_added[section_number -1].normalized;
+              ELEMENT *new_node_tree
+                = elements_with_added[section_number -1].new_node_tree;
+              int found;
+              uintptr_t normalized_nr_count
+                 = (uintptr_t)c_hashmap_value (normalized_nr, normalized,
+                                               &found);
+
+              free (normalized);
+
               added_node = new_node (&document->error_messages, new_node_tree,
-                                     document, content);
+                                     document, content,
+                                     (normalized_nr_count > 1 ? 1 : 0));
               destroy_element (new_node_tree);
               if (added_node)
                 {
@@ -1029,6 +1108,12 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
             }
         }
     }
+
+  clear_c_hashmap (normalized_nr);
+  free (normalized_nr);
+
+  free (elements_with_added);
+
   return added_nodes;
 }
 

@@ -294,8 +294,8 @@ sub _reassociate_to_node($$$) {
 # The $DOCUMENT error_messages is used to register error messages.
 # Does not matter much, as the code checks that the new node target label does
 # not exist already, therefore there cannot be any error.
-sub _new_node($$;$) {
-  my ($node_tree, $document, $associated_command) = @_;
+sub _new_node($$;$$) {
+  my ($node_tree, $document, $associated_command, $starting_appended) = @_;
 
   # We protect for all the contexts, as the node name should be
   # the same in the different contexts, even if some protections
@@ -348,7 +348,12 @@ sub _new_node($$;$) {
   $spaces_after_text .= "\n" unless ($spaces_after_text =~ /\n/
                                          or $comment_at_end);
 
-  my $appended_number = 0 +$empty_node;
+  my $appended_number = 0;
+  if (defined($starting_appended)) {
+    $appended_number += $starting_appended;
+  } elsif ($empty_node) {
+    $appended_number += $empty_node;
+  }
   my ($node, $normalized, $normalized_reference);
 
   my $identifier_target = $document->labels_information();
@@ -482,6 +487,9 @@ sub insert_nodes_for_sectioning_commands($) {
   my $root = $document->tree();
   my $nodes_list = $document->nodes_list();
   my $sections_list = $document->sections_list();
+  # TODO this is probably not relevant anymore that the code called is either
+  # pure Perl or XS for parsing, structuring and conversion.
+  #
   # this is not used in the function.  The call makes sure that the C code
   # considers that the C data is up to date and do not attempts to rebuild
   # from C afterwards and instead returns the Perl data. This is important
@@ -491,8 +499,16 @@ sub insert_nodes_for_sectioning_commands($) {
 
   my @added_nodes;
   my $previous_node_relations;
+  # associate normalized reference added name to the number of
+  # section commands with such a normalized name
+  my %normalized_nr;
   my $contents_nr = scalar(@{$root->{'contents'}});
   my $node_idx = 0;
+  # cache information to avoid redoing the computations and avoid
+  # duplicating code.
+  my %elements_with_added;
+  # First determine the number of sections for a given normalized name
+  # to know which one are ambiguous
   for (my $idx = 0; $idx < $contents_nr; $idx++) {
     my $content = $root->{'contents'}->[$idx];
     if (exists($content->{'cmdname'}) and $content->{'cmdname'} ne 'node'
@@ -514,7 +530,28 @@ sub insert_nodes_for_sectioning_commands($) {
         $new_node_tree
          = Texinfo::ManipulateTree::copy_contents($line_arg);
       }
-      my $new_node = _new_node($new_node_tree, $document, $content);
+      my $normalized = 
+       Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(
+           $new_node_tree);
+      if (!exists($normalized_nr{$normalized})) {
+        $normalized_nr{$normalized} = 1;
+      } else {
+        $normalized_nr{$normalized}++;
+      }
+      $elements_with_added{$content} = [$content, $new_node_tree,
+                                        $section_relations,
+                                        \$normalized_nr{$normalized}];
+    }
+  }
+
+  # add the nodes
+  for (my $idx = 0; $idx < $contents_nr; $idx++) {
+    my $content = $root->{'contents'}->[$idx];
+    if (exists($elements_with_added{$content})) {
+      my ($content, $new_node_tree, $section_relations, $normalized_nr_ref)
+        = @{$elements_with_added{$content}};
+      my $new_node = _new_node($new_node_tree, $document, $content,
+                               ($$normalized_nr_ref > 1) ? 1 : undef);
       if (defined($new_node)) {
         # insert before $content
         splice(@{$root->{'contents'}}, $idx, 0, $new_node);

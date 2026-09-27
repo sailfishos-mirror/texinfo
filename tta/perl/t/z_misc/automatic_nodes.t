@@ -71,10 +71,10 @@ Text.
 @node sub2
 @subsection sub2 @c comment
 
-@node section
+@node section [+1+]
 @section section
 
-@node section [+1+]
+@node section [+2+]
 @section section
 
 @node  [+1+]
