@@ -820,6 +820,14 @@ sub format_ref($$$) {
   }
 
   if (defined($label_element)) {
+    my $quoting_required = 0;
+
+    if (defined($target_element) and substr($node_name, 0, 1) eq '(') {
+      if ($self->{'info_special_chars_quote'}) {
+        $quoting_required = 1;
+      }
+    }
+
     my $check_chars;
     if (defined($name)) {
       $check_chars = quotemeta ",\t.";
@@ -827,7 +835,6 @@ sub format_ref($$$) {
       $check_chars = quotemeta ":";
     }
 
-    my $quoting_required = 0;
     if ($node_name =~ /([$check_chars])/m) {
       if ($self->{'info_special_chars_warning'}) {
         $self->plaintext_line_warn($self, sprintf(__(
@@ -994,6 +1001,15 @@ sub format_node($$;$) {
         my $pre_quote = '';
         my $post_quote = '';
         my ($node_text, undef) = $self->node_name($node_direction);
+
+        if (substr($node_text, 0, 1) eq '('
+            and !exists($node_direction->{'extra'}->{'manual_content'})) {
+          if ($self->{'info_special_chars_quote'}) {
+            $pre_quote = "\x{7f}";
+            $post_quote = $pre_quote;
+          }
+        }
+
         # Up may not strictly need protection, as it is the last direction,
         # but we protect consistently
         if ($node_text =~ /,/) {

@@ -1157,6 +1157,12 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
       const char *check_chars;
       const char *p;
 
+      if (target_element && node_name[0] == '(')
+        {
+          if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
+            quoting_required = 1;
+        }
+
       if (name)
         check_chars = ",\t.";
       else
@@ -1451,6 +1457,12 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
               int quoting_required = 0;
 
               plaintext_node_name (self, node_direction, &node_text);
+
+              if (node_text.string[0] == '(' && !manual_content)
+                {
+                  if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
+                    quoting_required = 1;
+                }
 
               if (warn_special_char
                   || self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)

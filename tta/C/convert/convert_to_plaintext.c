@@ -6337,6 +6337,16 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   formatter->suppress_styles = 0;
                   formatter->no_added_eol = 0;
 
+                  if (node_text.text[0] == '('
+                      && self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
+                    {
+                      const ELEMENT *manual_content
+                            = lookup_extra_container (menu_entry_node,
+                                                      AI_key_manual_content);
+                      if (!manual_content)
+                        node_quoting_required = 1;
+                    }
+
                   if (warn_special_char
                       || self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
                     {

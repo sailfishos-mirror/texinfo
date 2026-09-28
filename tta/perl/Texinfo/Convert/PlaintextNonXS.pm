@@ -4180,7 +4180,18 @@ sub _convert($$) {
 
           delete $self->{'formatters'}->[-1]->{'suppress_styles'};
           delete $self->{'formatters'}->[-1]->{'no_added_eol'};
+
           $pre_quote = $post_quote = '';
+
+          # Quote a node beginning with a parenthesis that is not an external
+          # name.  Happens for nodes added for sectioning commands.
+          if (substr($node_text, 0, 1) eq '('
+              and !exists($menu_entry_node->{'extra'}->{'manual_content'})) {
+            if ($self->{'info_special_chars_quote'}) {
+              $pre_quote = $post_quote = "\x{7f}";
+            }
+          }
+
           if ($entry_name_seen) {
             if ($node_text =~ /([,\t]|\.\s)/) {
               if ($self->{'info_special_chars_warning'}) {

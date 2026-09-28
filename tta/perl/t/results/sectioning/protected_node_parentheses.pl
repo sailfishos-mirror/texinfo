@@ -59,7 +59,7 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
      {menu}
      {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C6 l9 {@asis{(}manual) name}
+ *@node C8 l9 {@asis{(}manual) name}
  |EXTRA
  |identifier:{_0028manual_0029-name}
  |is_target:{1}
@@ -95,6 +95,18 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
        {(}
      {manual2) name2}
    {.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *@ref C1 l15
+    *brace_arg C2
+    |EXTRA
+    |node_content:{@asis{(}manual) name}
+    |normalized:{_0028manual_0029-name}
+     *@asis C1 l15
+      *brace_container C1
+       {(}
+     {manual) name}
+   {.\\n}
 ';
 
 
@@ -111,6 +123,8 @@ $result_texis{'protected_node_parentheses'} = '
 @anchor{@asis{(}manual2) name2}
 
 @ref{@asis{(}manual2) name2}.
+
+@ref{@asis{(}manual) name}.
 ';
 
 
@@ -122,6 +136,8 @@ $result_texts{'protected_node_parentheses'} = 'top
 
 
 (manual2) name2.
+
+(manual) name.
 ';
 
 $result_errors{'protected_node_parentheses'} = '';
@@ -159,18 +175,20 @@ top
 
 * Menu:
 
-* (manual) name::
+* (manual) name::
 
 
 File: ,  Node: (manual) name,  Up: first
 
-*note (manual2) name2::.
+*note (manual2) name2::.
+
+   *note (manual) name::.
 
 
 Tag Table:
 Node: first27
-Node: (manual) name88
-Ref: (manual2) name2132
+Node: (manual) name90
+Ref: (manual2) name2134
 
 End Tag Table
 
@@ -220,6 +238,8 @@ span:hover a.copiable-link {visibility: visible}
 
 <a class="anchor" id="g_t_0028manual2_0029-name2"></a>
 <p><a class="ref" href="#g_t_0028manual2_0029-name2">(manual2) name2</a>.
+</p>
+<p><a class="ref" href="#g_t_0028manual_0029-name">(manual) name</a>.
 </p></div>
 
 

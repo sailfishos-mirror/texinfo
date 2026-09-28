@@ -1412,7 +1412,53 @@ f(x) = @anchor{equal point} \frac{a}{b} @anchor{displm point}
 
 @node Top
 @top The
-']
+'],
+# We need insert_nodes_for_sectioning_commands to have a valid node with
+# parenthesis, as an added node for section, and also to test the default
+# for Info output.
+# We also test a node with : in name, though it may already be tested
+# in other tests.
+['parenthesis_in_node_name_implicit_refs',
+'@node Top
+@top
+
+in top.
+
+@node One:
+@chapter One:
+
+AA.
+
+@chapter (Two)
+
+AA.
+',
+{'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands'}],
+# Same comment as previous test.
+['parenthesis_in_node_name_explicit_refs',
+'@node Top
+@top
+
+in top.
+
+@menu
+* One@asis{:}::
+* (Two)::
+@end menu
+
+@node One:, (Two), Top, Top
+@chapter One:
+
+AA.
+
+@chapter (Two)
+
+AA.
+
+@xref{(Two)}.
+',
+{'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands'}],
+
 );
 
 my @file_tests = (

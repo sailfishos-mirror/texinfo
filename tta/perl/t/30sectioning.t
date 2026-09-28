@@ -948,6 +948,8 @@ $unnumbered_top_without_node_text,
 @anchor{@asis{(}manual2) name2}
 
 @ref{@asis{(}manual2) name2}.
+
+@ref{@asis{(}manual) name}.
 '],
 ['automatic_menu_referencing_node',
 '@node Top
