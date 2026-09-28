@@ -118,11 +118,17 @@ post_process_output ()
     cp -pr ${outdir}$dir/ "${raw_outdir}"
 
     # remove files that are not reproducible
-    rm -f "${outdir}$dir/$basename.1" ${outdir}$dir/*.png ${outdir}$dir/*.svg \
-          ${outdir}$dir/*_l2h_images.log ${outdir}$dir/*_l2h_images.pdf ${outdir}$dir/*_tex4ht_*.log \
-          ${outdir}$dir/*_tex4ht_*.idv ${outdir}$dir/*_tex4ht_*.dvi \
-          ${outdir}$dir/*_l2h.html.*
-          #${outdir}$dir/*_tex4ht_tex.html*
+    rm -f "${outdir}$dir/$basename.1"
+    if test "$use_info_math2img" = 'yes'; then
+      rm -f ${outdir}$dir/*_info_images/*.png
+    else
+      rm -f ${outdir}$dir/*.png ${outdir}$dir/*.svg \
+            ${outdir}$dir/*_l2h_images.log ${outdir}$dir/*_l2h_images.pdf \
+            ${outdir}$dir/*_tex4ht_*.log \
+            ${outdir}$dir/*_tex4ht_*.idv ${outdir}$dir/*_tex4ht_*.dvi \
+            ${outdir}$dir/*_l2h.html.*
+            #${outdir}$dir/*_tex4ht_tex.html*
+    fi
   else
     mkdir -p "${raw_outdir}$dir/"
     cp -p "${outdir}$dir/$basename.2" "${raw_outdir}$dir/"
@@ -168,8 +174,9 @@ post_process_output ()
       sed -e "s/${dir_suffix}/${ref_dir_suffix}/" \
           $raw_outdir$dir/$basename.2 > $outdir$dir/$basename.2
       if test "$use_info_math2img" = 'yes' ; then
-        rm -f ${outdir}$dir/*info_math2img.aux ${outdir}$dir/*info_math2img.log \
-          ${outdir}$dir/*info_math2img.dvi
+        rm -f ${outdir}$dir/*_info_images/*info_math2img.aux \
+              ${outdir}$dir/*_info_images/*info_math2img.log \
+          ${outdir}$dir/*_info_images/*info_math2img.dvi
       fi
     fi
   fi

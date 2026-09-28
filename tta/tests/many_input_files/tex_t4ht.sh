@@ -81,7 +81,7 @@ raw_outdir=$raw_out_dir/${basename}_${dir_suffix}
 mkdir $outdir
 : > $outdir/$stdout_file
 
-cmd="$prepended_command $command_run --set-customization-variable 'TEXI2HTML 1' --set-customization-variable TEST=$test_level --conf-dir $srcdir/../../perl/ext --init-file tex4ht.pm --iftex --out $outdir/ $srcdir/../tex_html/tex_complex.texi $srcdir/../tex_html/tex.texi --force >> $outdir/$stdout_file 2>$outdir/${basename}.2"
+cmd="$prepended_command $command_run --set-customization-variable 'TEXI2HTML 1' --set-customization-variable TEST=$test_level --conf-dir $srcdir/../../perl/ext --init-file tex4ht.pm --iftex -c SUBDIR=$outdir/ $srcdir/../tex_html/tex_complex.texi $srcdir/../tex_html/tex.texi --force >> $outdir/$stdout_file 2>$outdir/${basename}.2"
 echo "$cmd" >> $logfile
 eval $cmd
 

@@ -445,7 +445,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
 
       element_images = call_latex_convert_math_to_images (self,
                                                   self->document, prefix,
-                                                  destination_directory);
+                                                  math_images_dir);
 
       if (element_images)
         self_plaintext->element_images = element_images;

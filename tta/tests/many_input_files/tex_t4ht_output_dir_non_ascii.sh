@@ -85,9 +85,9 @@ raw_outdir=$raw_out_dir/${basename}_${dir_suffix}
 mkdir $outdir
 : > $outdir/$stdout_file
 
-# note that it is important to have -c 'COMMAND_LINE_ENCODING UTF-8' before --out
-# such that --out is correctly decoded
-cmd="$prepended_command $command_run --set-customization-variable 'TEXI2HTML 1' --set-customization-variable TEST=$test_level --conf-dir $srcdir/../../perl/ext --init-file tex4ht.pm --iftex -c 'COMMAND_LINE_ENCODING UTF-8' --out $outdir/encodé/ ../built_input/non_ascii/tex_encodé_utf8.texi $srcdir/../tex_html/tex_complex.texi -c OUTPUT_FILE_NAME_ENCODING=UTF-8 --force >> $outdir/$stdout_file 2>$outdir/${basename}.2"
+# note that it is important to have -c 'COMMAND_LINE_ENCODING UTF-8' before SUBDIR
+# such that it is correctly decoded
+cmd="$prepended_command $command_run --set-customization-variable 'TEXI2HTML 1' --set-customization-variable TEST=$test_level --conf-dir $srcdir/../../perl/ext --init-file tex4ht.pm --iftex -c 'COMMAND_LINE_ENCODING UTF-8' -c SUBDIR=$outdir/encodé/ ../built_input/non_ascii/tex_encodé_utf8.texi $srcdir/../tex_html/tex_complex.texi -c OUTPUT_FILE_NAME_ENCODING=UTF-8 --force >> $outdir/$stdout_file 2>$outdir/${basename}.2"
 echo "$cmd" >> $logfile
 eval $cmd
 
