@@ -183,14 +183,13 @@ correct_level (const ELEMENT *section, ELEMENT *parent, int modifier)
     }
 }
 
-/* COMMAND_HEADING_CONTENT is an element whose content can be used for the
-   heading of the sectioning command used to fill a gap in sectioning.
+/* COMMAND_HEADING_TEXI Texinfo code is used for the heading of the
+   sectioning command used to fill a gap in sectioning if set.
  */
-ELEMENT_LIST *
+void
 fill_gaps_in_sectioning_in_document (DOCUMENT *document,
                                      const char *commands_heading_texi)
 {
-  ELEMENT_LIST *added_sections = new_list ();
   size_t nr_current_section = 0;
   size_t nr_next_section = 0;
   size_t idx = 0;
@@ -234,10 +233,10 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
     }
 
   if (nr_current_section == 0)
-    return 0;
+    return;
 
   if (nr_next_section == 0)
-    return added_sections;
+    return;
 
   idx_current_section = nr_current_section -1;
   idx_next_section = nr_next_section -1;
@@ -319,10 +318,6 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
                                           new_sections, 0,
                                           new_sections->number);
           idx_next_section += new_sections->number;
-          insert_list_slice_into_list (added_sections,
-                                      added_sections->number,
-                                      new_sections, 0,
-                                      new_sections->number);
           correct_level (next_section,
                          new_sections->list[new_sections->number -1], -1);
           destroy_list (new_sections);
@@ -351,8 +346,6 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
 
   if (commands_heading_content)
     destroy_element_and_children (commands_heading_content);
-
-  return added_sections;
 }
 
 static void

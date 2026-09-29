@@ -92,8 +92,6 @@ sub fill_gaps_in_sectioning_in_document($;$) {
 
   my $contents_nr = scalar(@{$root->{'contents'}});
 
-  my @added_sections;
-
   # prepare contents to be inserted as added sectioning commands arguments
   my $commands_heading_content;
   if (defined($commands_heading_texi)) {
@@ -122,9 +120,6 @@ sub fill_gaps_in_sectioning_in_document($;$) {
 
   return undef
     if ($idx_current_section < 0);
-
-  return \@added_sections
-    if ($idx_next_section < 0);
 
   # index in sections_list
   my $section_idx = 0;
@@ -194,7 +189,6 @@ sub fill_gaps_in_sectioning_in_document($;$) {
       splice (@{$root->{'contents'}}, $idx_current_section+1, 0, @new_sections);
       $idx_next_section += scalar(@new_sections);
       $contents_nr += scalar(@new_sections);
-      push @added_sections, @new_sections;
       _correct_level($next_section, $new_sections[-1], -1);
     }
     $idx_current_section = $idx_next_section;
@@ -215,8 +209,6 @@ sub fill_gaps_in_sectioning_in_document($;$) {
       last;
     }
   }
-
-  return \@added_sections;
 }
 
 # Has an XS override. Defined to be able to test Perl and XS. Undocumented

@@ -43,7 +43,6 @@ void
 fill_gaps_in_sectioning_in_document (SV *document_in, SV *commands_heading_texi_sv=0)
     PROTOTYPE: $;$
     PREINIT:
-        ELEMENT_LIST *added_sections;
         DOCUMENT *document;
      CODE:
         document = get_sv_document_document (document_in,
@@ -53,11 +52,8 @@ fill_gaps_in_sectioning_in_document (SV *document_in, SV *commands_heading_texi_
             const char *commands_heading_texi = 0;
             if (commands_heading_texi_sv && SvOK(commands_heading_texi_sv))
               commands_heading_texi = SvPVutf8_nolen (commands_heading_texi_sv);
-            added_sections = fill_gaps_in_sectioning_in_document (document,
-                                                   commands_heading_texi);
-            /* cannot easily be used as it does not match with perl tree.
-               Also the return would not be usable as error status */
-            destroy_list (added_sections);
+            fill_gaps_in_sectioning_in_document (document,
+                                                 commands_heading_texi);
           }
 
 void

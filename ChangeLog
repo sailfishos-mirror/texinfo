@@ -1,6 +1,16 @@
 2026-09-28 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/structuring_transfo/transformations.c
+	(fill_gaps_in_sectioning_in_document),
+	tta/perl/Texinfo/TransformationsNonXS.pm
+	(fill_gaps_in_sectioning_in_document),
+	tta/perl/XSTexinfo/parser_document/TransformationsXS.xs
+	(fill_gaps_in_sectioning_in_document): do not return the added
+	sections list.
+
+2026-09-28 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/structuring_transfo/transformations.c
 	(insert_nodes_for_sectioning_commands),
 	tta/perl/Texinfo/TransformationsNonXS.pm
 	(insert_nodes_for_sectioning_commands): do not return the list of
