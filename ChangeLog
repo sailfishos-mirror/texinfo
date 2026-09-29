@@ -1,9 +1,18 @@
 2026-09-28 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/structuring_transfo/transformations.c
+	(insert_nodes_for_sectioning_commands),
+	tta/perl/Texinfo/TransformationsNonXS.pm
+	(insert_nodes_for_sectioning_commands): do not return the list of
+	added nodes.  Update callers.
+
+2026-09-28 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_info.c (info_format_ref, info_format_node),
 	tta/C/convert/convert_to_plaintext.c (convert_to_plaintext_internal),
 	tta/perl/Texinfo/Convert/InfoNonXS.pm (format_ref, format_node),
-	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_convert): 
+	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_convert): protect
+	reference to internal node starting with a parenthesis.
 
 	* tta/perl/t/30sectioning.t (protected_node_parentheses): add a ref to
 	the protected @node.

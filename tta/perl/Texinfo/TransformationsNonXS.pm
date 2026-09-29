@@ -497,7 +497,6 @@ sub insert_nodes_for_sectioning_commands($) {
   # such that the C data is not up to date and should not be accessed again.
   my $labels_list = $document->labels_list();
 
-  my @added_nodes;
   my $previous_node_relations;
   # associate normalized reference added name to the number of
   # section commands with such a normalized name
@@ -566,7 +565,6 @@ sub insert_nodes_for_sectioning_commands($) {
         $section_relations->{'associated_node'} = $new_node_relations;
         $new_node->{'parent'} = $content->{'parent'}
           if (exists($content->{'parent'}));
-        push @added_nodes, $new_node;
         # reassociate index entries and menus
         Texinfo::ManipulateTree::modify_tree($content, \&_reassociate_to_node,
                              [$new_node_relations, $previous_node_relations]);
@@ -589,7 +587,6 @@ sub insert_nodes_for_sectioning_commands($) {
       $content->{'extra'}->{'node_number'} = $node_idx;
     }
   }
-  return \@added_nodes;
 }
 
 sub _prepend_new_menu_in_node_section($$$) {

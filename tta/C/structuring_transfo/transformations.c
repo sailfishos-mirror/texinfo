@@ -941,13 +941,12 @@ typedef struct ELEMENT_WITH_ADDED_INFO {
     char *normalized;
 } ELEMENT_WITH_ADDED_INFO;
 
-ELEMENT_LIST *
+void
 insert_nodes_for_sectioning_commands (DOCUMENT *document)
 {
   const SECTION_RELATIONS_LIST *sections_list = &document->sections_list;
 
   ELEMENT *root = document->tree;
-  ELEMENT_LIST *added_nodes = new_list ();
   size_t idx;
   NODE_RELATIONS *previous_node_relations = 0;
   size_t node_idx = 0;
@@ -1091,7 +1090,6 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
                   modify_tree (content, &reassociate_to_node,
                                (void *)&new_previous);
                   free (new_previous.list);
-                  add_to_element_list (added_nodes, added_node);
                 }
             }
         }
@@ -1113,8 +1111,6 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
   free (normalized_nr);
 
   free (elements_with_added);
-
-  return added_nodes;
 }
 
 void
