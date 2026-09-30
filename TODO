@@ -156,7 +156,8 @@ After next release:
 
 * texi2any:
   Remove TEXINFO_DTD_VERSION and TXI_MARKUP_NO_SECTION_EXTENT customization
-  variables completely (leave at least for one release after X.Y).
+  variables completely from texi2any and from txivarcheck (leave at least
+  for one release after X.Y).
 
 * texi2any, Texinfo TeX:
   Remove completely @xml, @ifxml and @ifnotxml (leave at least for a few

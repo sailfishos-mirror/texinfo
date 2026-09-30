@@ -465,6 +465,7 @@ contrib/mass_test/perl_refs_plaintext
 contrib/mass_test/result_check_CVSC
 contrib/mass_test/result_check_perlVSC
 
+contrib/nontests/foo.dir
 contrib/nontests/logs
 contrib/nontests/testSubDir
 contrib/nontests/tmpdir_txitextest

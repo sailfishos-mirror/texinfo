@@ -19,7 +19,8 @@ X.Y ()
 
 * texi2any
   . Texinfo XML deprecated as an output format.  Remove options --xml,
-     --ifxml and --no-ifxml.
+    --ifxml and --no-ifxml.  Remove TXI_MARKUP_NO_SECTION_EXTENT
+    and TEXINFO_DTD_VERSION.
     Can still be selected by setting TEXINFO_OUTPUT_FORMAT=texinfoxml
     until fully removed.
   . -o/--output is a directory if output format are split HTML or

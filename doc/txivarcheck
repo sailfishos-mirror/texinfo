@@ -178,7 +178,10 @@ sub read_vars {
              # internal customization variables
              or $var =~ /^_/
              # not interesting to document/classify
-             or $var eq "SILENT");
+             or $var eq 'SILENT'
+             # no effect anymore, should be removed in the future
+             or $var eq 'TXI_MARKUP_NO_SECTION_EXTENT'
+             or $var eq 'TEXINFO_DTD_VERSION');
 
     push (@ret, $var);
   }
