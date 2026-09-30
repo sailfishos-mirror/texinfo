@@ -15947,6 +15947,10 @@ This table gives the customization variables which affect the global behavior
 of @command{texi2any}.
 
 @vtable @code
+@item AUTO_SECTION_NODE
+If set, insert nodes for sectioning commands lacking a corresponding node.
+Done by default in @command{texi2any} for Info and HTML output.
+
 @item CHECK_MISSING_MENU_ENTRY
 When a @code{@@menu} block occurs in a node, check if there is a menu
 entry for all subordinate nodes in the document sectioning structure.  On
@@ -16223,9 +16227,6 @@ menus are based on the sectioning tree.
 Adds empty @code{@@unnumbered...} sections in a tree to fill gaps in
 sectioning.  For example, an @code{@@unnumberedsec} will be inserted
 if a @code{@@chapter} is followed by a @code{@@subsection}.
-
-@item insert_nodes_for_sectioning_commands
-Insert nodes for sectioning commands lacking a corresponding node.
 
 @item move_index_entries_after_items
 In @code{@@enumerate} and @code{@@itemize}, move index entries

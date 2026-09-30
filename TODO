@@ -171,6 +171,14 @@ After next release:
   Decide at that time if the Perl modules in Example and the formats in
   texi2any formats_table should be removed.
 
+* texi2any:
+  Remove completly insert_nodes_for_sectioning_commands as tree
+  transformation, in texi2any, in valid transformations names
+  and transformation flags.  Leave the effect for a few releases (for
+  the sake of outputs other than Info and HTML, for Info and HTML it is
+  already the default).  Leave the name as a valid transformation name
+  for some more years after X.Y even if it has no effect anymore.
+
 * tta:
   The following gnulib modules are only needed for
   tta/C/main/unicode-collation, and could be considered for removal

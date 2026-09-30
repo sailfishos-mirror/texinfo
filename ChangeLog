@@ -1,5 +1,13 @@
 2026-09-30 Patrice Dumas  <pertusus@free.fr>
 
+	AUTO_SECTION_NODE instead of transformation in documentation
+
+	* NEWS, TODO, doc/texinfo.texi (Global Customization Variables): add
+	AUTO_SECTION_NODE and remove insert_nodes_for_sectioning_commands
+	mention as tree transformation.
+
+2026-09-30 Patrice Dumas  <pertusus@free.fr>
+
 	replace tree transformation by AUTO_SECTION_NODE variable
 
 	* tta/data/options_data.txt (AUTO_SECTION_NODE),

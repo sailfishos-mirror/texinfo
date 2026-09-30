@@ -20,6 +20,11 @@ a @*heading*, we should keep a track of this, such that users relying on
 1 messages awaiting Gavin answer:
 https://lists.gnu.org/archive/html/bug-texinfo/2026-08/msg00031.html
 
+There is basic documentation of AUTO_SECTION_NODE, but the information
+that nodes are added for sectioning commands without node for formats
+for which is makes a difference need to be integrated in the
+main Node/chapter structuring sections of the document.
+
 + add to documentation and NEWS
 
 
