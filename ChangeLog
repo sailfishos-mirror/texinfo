@@ -1,3 +1,8 @@
+2026-09-30  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/mkwebdir.pl: add helper program for creating directory listing
+	files for the website.
+
 2026-09-30  zhaiyn <zhaiyn-free@foxmail.com>
 
 	* doc/translations/zh_CN/texinfo-zh_CN.texi: Add Chinese translation
