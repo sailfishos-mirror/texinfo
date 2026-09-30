@@ -10,24 +10,14 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-Add "shadow targets" or nodes to sectioning commands without nodes <- DONE
-(and change USE_NODES to have 3 possible meaning?)
-[no] output units are split at sections, and lone nodes are associated to
-   the section.  A book-like setup, currently corresponding to USE_NODES=0.
-   Sections have a "shadow" target added.
-[nodes] output units are split at nodes, and lone sections do not have an
-   associated node added.  They have a "shadow" target added.  Currently
-   corresponds to USE_NODES=1.
-[add] output units are split at nodes, but lone sections have an associated
-   node automatically added.  Same as the tree transformation
-   insert_nodes_for_sectioning_commands.  No shadow targets added.
+make maintainer-clean removes products_regenerate_file_lists, which is right,
+but make does not regenerate the file, only make dist.  Bug?
 
 No "shadow targets" nor nodes added when a node is associated to
 a @*heading*, we should keep a track of this, such that users relying on
 @heading know that it is different for heading and keep this in a TODO.
 
-2 messages awaiting Gavin answer:
-https://lists.gnu.org/archive/html/bug-texinfo/2026-08/msg00032.html
+1 messages awaiting Gavin answer:
 https://lists.gnu.org/archive/html/bug-texinfo/2026-08/msg00031.html
 
 + add to documentation and NEWS

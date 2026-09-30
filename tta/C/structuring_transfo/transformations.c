@@ -1775,7 +1775,7 @@ protect_first_parenthesis_in_targets_in_document (DOCUMENT *document)
 */
 void
 complete_transform_document (DOCUMENT *document, unsigned long flags,
-                             int format_menu,
+                             int format_menu, int auto_section_node,
                              const char *commands_heading_texi)
 {
   int use_sections = (flags & STTF_complete_menus_use_sections);
@@ -1790,7 +1790,7 @@ complete_transform_document (DOCUMENT *document, unsigned long flags,
   if (flags & STTF_move_index_entries_after_items)
     move_index_entries_after_items_in_document (document);
 
-  if (flags & STTF_insert_nodes_for_sectioning_commands)
+  if (auto_section_node > 0)
     insert_nodes_for_sectioning_commands (document);
 
   sectioning_structure (document);

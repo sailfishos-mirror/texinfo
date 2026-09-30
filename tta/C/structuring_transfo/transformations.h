@@ -18,16 +18,16 @@
 
 /* sync relevant flags with swig/texinfo.i */
 /* document tree transformations selection flags, only used in
-   complete_transform_document, calle from C */
+   complete_transform_document, called from C */
 #define STTF_complete_tree_nodes_menus              0x0001
 #define STTF_complete_tree_nodes_missing_menu       0x0002
 #define STTF_fill_gaps_in_sectioning                0x0004
-#define STTF_insert_nodes_for_sectioning_commands   0x0008
-#define STTF_move_index_entries_after_items         0x0010
-#define STTF_regenerate_master_menu                 0x0020
-#define STTF_relate_index_entries_to_table_items    0x0040
+#define STTF_move_index_entries_after_items         0x0008
+#define STTF_regenerate_master_menu                 0x0010
+#define STTF_relate_index_entries_to_table_items    0x0020
 
 /* document structuring selection flags */
+#define STTF_auto_section_node                      0x0040
 #define STTF_floats                                 0x0080
 #define STTF_no_warn_non_empty_parts                0x0100
 #define STTF_nodes_tree                             0x0200
@@ -44,6 +44,9 @@
 #define STTF_internal_links                         0x2000
 /* mark a format handled by texi2dvi */
 #define STTF_texi2dvi_format                        0x4000
+
+/* backward compatibility */
+#define STTF_insert_nodes_for_sectioning_commands   0x8000
 
 void fill_gaps_in_sectioning_in_document (DOCUMENT *document,
                                      const char *commands_heading_texi);
@@ -62,7 +65,7 @@ void protect_first_parenthesis_in_targets (ELEMENT *tree);
 void protect_first_parenthesis_in_targets_in_document (DOCUMENT *document);
 
 void complete_transform_document (DOCUMENT *document, unsigned long flags,
-                                  int format_menu,
+                                  int format_menu, int auto_section_node,
                                   const char *commands_heading_texi);
 
 #endif

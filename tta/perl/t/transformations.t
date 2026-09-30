@@ -108,7 +108,7 @@ Text.
 
 @section @asis{}
 
-@bye',{'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands'},],
+@bye',{'AUTO_SECTION_NODE' => 1},],
 ['test_fill_gaps_in_sectioning',
 '@top top
 
@@ -126,7 +126,8 @@ Text.
 @section Section
 
 @subsubsection There
-', {'TREE_TRANSFORMATIONS' => 'fill_gaps_in_sectioning,insert_nodes_for_sectioning_commands'},],
+', {'TREE_TRANSFORMATIONS' => 'fill_gaps_in_sectioning',
+    'AUTO_SECTION_NODE' => 1},],
 ['test_insert_nodes_with_empty_headings',
 '@top top
 
@@ -138,7 +139,7 @@ Text.
 
 @node @strong{}
 @section @strong{}
-', {'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands',},],
+', {'AUTO_SECTION_NODE' => 1,},],
 ['index_entry_before_item_with_subentry',
 '@node Top
 @top top
@@ -160,8 +161,7 @@ Text.
 ', {'TREE_TRANSFORMATIONS' => 'move_index_entries_after_items'},
 ],
 # Test addition of nodes with diverse protection and transformations needing
-# to be done on node names more than insert_nodes_for_sectioning_commands
-# as such.
+# to be done on node names more than AUTO_SECTION_NODE=1 as such.
 ['various_added_nodes_and_refs',
 '@top otp
 
@@ -192,7 +192,7 @@ Text.
 @ref{a::b	 c}
 
 
-', {'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands'},
+', {'AUTO_SECTION_NODE' => 1},
 ],
 ['test_new_node_empty_ref',
 '@top top
@@ -203,7 +203,7 @@ Text.
 
 @subsection @ref
 
-', {'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands'},
+', {'AUTO_SECTION_NODE' => 1},
 ],
 );
 
@@ -220,7 +220,7 @@ my @tests_converted = (
 
 @subsection Subsec
 
-', {'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands',
+', {'AUTO_SECTION_NODE' => 1,
     'FORMAT_MENU' => 'menu'},
    {'FORMAT_MENU' => 'menu'},
 ],
@@ -242,7 +242,7 @@ D2
 
 @subsection Subsec
 
-', {'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands',
+', {'AUTO_SECTION_NODE' => 1,
     'FORMAT_MENU' => 'menu'},
    {'FORMAT_MENU' => 'menu'},
 ],

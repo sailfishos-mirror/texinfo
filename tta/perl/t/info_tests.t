@@ -1413,7 +1413,7 @@ f(x) = @anchor{equal point} \frac{a}{b} @anchor{displm point}
 @node Top
 @top The
 '],
-# We need insert_nodes_for_sectioning_commands to have a valid node with
+# We need AUTO_SECTION_NODE to have a valid node with
 # parenthesis, as an added node for section, and also to test the default
 # for Info output.
 # We also test a node with : in name, though it may already be tested
@@ -1433,7 +1433,7 @@ AA.
 
 AA.
 ',
-{'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands'}],
+{'AUTO_SECTION_NODE' => 1}],
 # Same comment as previous test.
 ['parenthesis_in_node_name_explicit_refs',
 '@node Top
@@ -1457,7 +1457,7 @@ AA.
 
 @xref{(Two)}.
 ',
-{'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands'}],
+{'AUTO_SECTION_NODE' => 1}],
 
 );
 

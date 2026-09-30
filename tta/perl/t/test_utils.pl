@@ -709,7 +709,8 @@ sub test($$) {
 
   my $additional_tree_transformations;
   my %tree_transformations;
-  if ($parser_options->{'TREE_TRANSFORMATIONS'}) {
+  if ($parser_options->{'TREE_TRANSFORMATIONS'}
+      or $parser_options->{'AUTO_SECTION_NODE'}) {
     require Texinfo::Transformations;
     Texinfo::Transformations->import();
     # Not valid tree transformation, but we want to test them anyway.
@@ -955,6 +956,7 @@ sub test($$) {
   # Structuring/Transformations methods needing access to configuration
   # information.
   foreach my $parser_and_structuring_option ('FORMAT_MENU', 'DEBUG',
+                                             'AUTO_SECTION_NODE',
                                              'documentlanguage',
                                              'documentscript') {
     if (exists($completed_parser_options->{$parser_and_structuring_option})) {
@@ -1013,7 +1015,7 @@ sub test($$) {
                                                                    $document);
   }
 
-  if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {
+  if ($document->get_conf('AUTO_SECTION_NODE')) {
     Texinfo::Transformations::insert_nodes_for_sectioning_commands(
                                                              $document);
   }

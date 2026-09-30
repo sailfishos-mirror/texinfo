@@ -550,6 +550,7 @@ add_program_cmdline_options_defaults (OPTIONS_LIST *options_list)
 void
 set_program_customization_options_defaults (OPTIONS *options)
 {
+  option_set_conf (&options->AUTO_SECTION_NODE, -1, 0);
   option_set_conf (&options->CHECK_NORMAL_MENU_STRUCTURE, 1, 0);
   option_set_conf (&options->CHECK_MISSING_MENU_ENTRY, 1, 0);
   option_set_conf (&options->DUMP_STRUCTURE, -2, 0);
@@ -565,6 +566,7 @@ set_program_customization_options_defaults (OPTIONS *options)
 void
 add_program_customization_options_defaults (OPTIONS_LIST *options_list)
 {
+  add_option_value (options_list, "AUTO_SECTION_NODE", -1, 0);
   add_option_value (options_list, "CHECK_NORMAL_MENU_STRUCTURE", 1, 0);
   add_option_value (options_list, "CHECK_MISSING_MENU_ENTRY", 1, 0);
   add_option_value (options_list, "DUMP_STRUCTURE", -2, 0);

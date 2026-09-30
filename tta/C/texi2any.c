@@ -154,14 +154,14 @@ typedef struct FORMAT_SPECIFICATION {
 
 static FORMAT_SPECIFICATION formats_table[] = {
   {"info", STTF_nodes_tree | STTF_floats
-           | STTF_insert_nodes_for_sectioning_commands,
+           | STTF_auto_section_node,
    NULL, "Texinfo::Convert::Info", NULL},
   {"html", STTF_relate_index_entries_to_table_items
            | STTF_move_index_entries_after_items
            | STTF_no_warn_non_empty_parts
            | STTF_nodes_tree | STTF_floats | STTF_split
            | STTF_internal_links
-           | STTF_insert_nodes_for_sectioning_commands,
+           | STTF_auto_section_node,
    NULL, "Texinfo::Convert::HTML", NULL},
   {"plaintext", STTF_nodes_tree | STTF_floats | STTF_split,
    NULL, "Texinfo::Convert::Plaintext", NULL},
@@ -1223,6 +1223,7 @@ main (int argc, char *argv[], char *env[])
   const OPTION *show_builtin_css_rules_option;
   const OPTION *documentlanguage_collation_option;
   const OPTION *collation_language_option;
+  const OPTION *auto_section_node_option;
   int no_warn = 0;
   int test_mode_set = 0;
   int debug = 0;
@@ -2847,6 +2848,9 @@ main (int argc, char *argv[], char *env[])
   sort_element_count_option
     = GNUT_get_conf (program_options.options->SORT_ELEMENT_COUNT.number);
 
+  auto_section_node_option
+    = GNUT_get_conf (program_options.options->AUTO_SECTION_NODE.number);
+
   initialize_options_list (&parser_options);
   /* Copy relevant customization variables into the parser options. */
   for (i = 0; i < TXI_OPTIONS_NR; i++)
@@ -2946,6 +2950,7 @@ main (int argc, char *argv[], char *env[])
       size_t file_path_len;
       size_t j;
       OPTIONS_LIST *file_cmdline_options;
+      int auto_section_node = -1;
 
       input_file_arg = input_files.list[file_index];
 
@@ -3233,10 +3238,18 @@ main (int argc, char *argv[], char *env[])
 
       /* structure and transformations */
 
+      if (auto_section_node_option && auto_section_node_option->o.integer > 0
+          || ((!auto_section_node_option
+               || auto_section_node_option->o.integer < 0)
+              && converted_format_specification->flags & STTF_auto_section_node)
+          || transformation_flags & STTF_insert_nodes_for_sectioning_commands)
+        auto_section_node = 1;
+
       /* do_menu corresponds to FORMAT_MENU undef or set to menu */
       complete_transform_document (document,
                                    converted_format_specification->flags
-                                    | transformation_flags, do_menu, 0);
+                                    | transformation_flags,
+                                   do_menu, auto_section_node, 0);
 
       merge_error_messages_lists (&document->parser_error_messages,
                                   &document->error_messages);

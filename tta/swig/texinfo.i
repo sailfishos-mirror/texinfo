@@ -288,10 +288,9 @@ void set_document_options (DOCUMENT *document,
 #define STTF_complete_tree_nodes_menus              0x0001
 #define STTF_complete_tree_nodes_missing_menu       0x0002
 #define STTF_fill_gaps_in_sectioning                0x0004
-#define STTF_insert_nodes_for_sectioning_commands   0x0008
-#define STTF_move_index_entries_after_items         0x0010
-#define STTF_regenerate_master_menu                 0x0020
-#define STTF_relate_index_entries_to_table_items    0x0040
+#define STTF_move_index_entries_after_items         0x0008
+#define STTF_regenerate_master_menu                 0x0010
+#define STTF_relate_index_entries_to_table_items    0x0020
 
 /* document structuring selection flags */
 #define STTF_floats                                 0x0080
@@ -303,8 +302,11 @@ void set_document_options (DOCUMENT *document,
    and regenerate_master_menu */
 #define STTF_complete_menus_use_sections            0x0800
 
+/* backward compatibility */
+#define STTF_insert_nodes_for_sectioning_commands   0x8000
+
 void complete_transform_document (DOCUMENT *document, unsigned long flags,
-                                  int format_menu,
+                                  int format_menu, int auto_section_node=0,
                                   const char *fill_gap_heading_texi=0);
 
 // manipulate_tree.h

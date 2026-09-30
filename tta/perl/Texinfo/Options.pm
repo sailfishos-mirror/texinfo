@@ -229,6 +229,7 @@ our %program_cmdline_options = (
 );
 
 our %program_customization_options = (
+  'AUTO_SECTION_NODE'                => undef,
   'CHECK_NORMAL_MENU_STRUCTURE'      => 1,
   'CHECK_MISSING_MENU_ENTRY'         => 1,
   'DUMP_STRUCTURE'                   => undef,

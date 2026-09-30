@@ -161,6 +161,8 @@ TRACE_INCLUDES  program_cmdline 0      integer
 FORMAT_MENU     program_cmdline menu   char
 
 
+# set in the default case for Info and HTML output
+AUTO_SECTION_NODE            program_customization undef     integer
 # output warnings when node with
 # automatic direction and directions in menu are not consistent
 # with sectionning, and when node directions are not consistent

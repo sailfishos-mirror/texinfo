@@ -1,7 +1,29 @@
 2026-09-30 Patrice Dumas  <pertusus@free.fr>
 
-	* NEWS: document that TXI_MARKUP_NO_SECTION_EXTENT and TEXINFO_DTD_VERSION
-	are removed.
+	replace tree transformation by AUTO_SECTION_NODE variable
+
+	* tta/data/options_data.txt (AUTO_SECTION_NODE),
+	tta/C/structuring_transfo/transformations.c
+	(complete_transform_document),
+	tta/C/structuring_transfo/transformations.h, tta/C/texi2any.c
+	(formats_table, main), tta/perl/t/test_utils.pl (test),
+	tta/perl/texi2any.pl (%formats_table), tta/swig/texinfo.i
+	(complete_transform_document): add AUTO_SECTION_NODE customization
+	variable, and replace insert_nodes_for_sectioning_commands tree
+	transformation by this customization variable.  Use an argument to
+	complete_transform_document to pass the information on automatic
+	section nodes generation instead of using a flag.  Update main
+	programs.  Keep insert_nodes_for_sectioning_commands as a tree
+	transformation for backward compatibility.
+
+	* tta/perl/t/info_tests.t, tta/perl/t/transformations.t: replace 
+	insert_nodes_for_sectioning_commands tree transformation by
+	AUTO_SECTION_NODE.
+
+2026-09-30 Patrice Dumas  <pertusus@free.fr>
+
+	* NEWS: document that TXI_MARKUP_NO_SECTION_EXTENT and
+	TEXINFO_DTD_VERSION are removed.
 
 	* TODO, doc/txivarcheck (read_vars): ignore
 	TXI_MARKUP_NO_SECTION_EXTENT and TEXINFO_DTD_VERSION.
