@@ -1,5 +1,9 @@
 2026-09-30 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/ppport.h: update.
+
+2026-09-30 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/configure.ac: determine use_shared_txi_libraries right after
 	with_swig is set.  Do the SWIG related tests only if both with_swig
 	and use_shared_txi_libraries are set. 
