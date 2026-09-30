@@ -109,8 +109,9 @@ if test "z$refcount_checks" = 'zyes' ; then
 fi
 AC_SUBST([DEFAULT_TEST_LEVEL])
 
-dnl NOTE we mandate Unicode::Collate now in toplevel configure.ac,
-dnl so this should always be yes.
+dnl NOTE we mandate Unicode::Collate now in toplevel configure.ac.
+dnl 5.18.1 is chosen as a minimum version because it corresponds to a
+dnl verified compatible version for collation (see comment in Indices.pm).
 AC_MSG_CHECKING([Perl version for tests requiring unicode collation])
 if $PERL -e "use 5.018_001; use Unicode::Collate" >/dev/null 2>&1; then
   perl_unicode_collation_requirement='yes'
@@ -267,10 +268,13 @@ if test x$enable_xs != xno; then
     CC=$PERL_CONF_cc
   fi
 
-  # The usual configure checks use the Autoconf/Gnulib includes, but
-  # are used for code never compiled with the Perl headers.  Therefore
-  # we do not set the Perl CPPFLAGS, but still use the user-defined
-  # PERL_EXT_var variables used as defaults for all the compilations.
+  # We set the PERL_EXT_var variables used as defaults for all the
+  # compilations.
+
+  # Most configure checks use the Autoconf/Gnulib includes (not the Perl
+  # specific checks), for code never compiled with the Perl headers.
+  # In the compilation, the Perl CPPFLAGS are not set for those codes
+  # either, therefore we do not set the Perl CPPFLAGS here.
   CPPFLAGS=$PERL_EXT_CPPFLAGS
 
   # For compilation of code not compiled against Perl we use the Perl CFLAGS,
@@ -302,8 +306,11 @@ ac_cv_prog_ac_ct_CC= ; unset ac_cv_prog_ac_ct_CC
 
 AC_PROG_CC
 
-# Test for linking against libperl.  Used to set LIBPERL_LINK conditional
-# which is used for SWIG interface in swig/Makefile.am.
+# Test for linking against libperl.  Used to diagnose linking
+# errors happening during build mainly for platforms that require
+# linking against Perl.  Note that:
+# * in general, on such platforms libperl is always available,
+
 # Having XS enabled and the Perl headers does not ensure that it is
 # possible to link against libperl as the .so/.a may not be present.
 # Linking against libperl is not needed to load XS extensions on some
@@ -317,10 +324,7 @@ if test x$enable_xs != xno ; then
 fi
 AM_CONDITIONAL([LIBPERL_LINK], [test "z$libperl_link" = 'zyes'])
 
-# it is unlikely to be very useful, as
-# * in general, on such platforms libperl is always available,
-# * this is a warning, not an error.
-# It could still help diagnose linking errors happening during build.
+# note that this is a warning, not an error, for diagnostic.
 if test x$enable_xs != xno -a "z$libperl_link" != 'zyes' ; then
   # this should match the corresponding case in txi_perl_conf.m4
   case "$host" in *-mingw32 | *-mingw64 | *-cygwin )
@@ -381,9 +385,8 @@ AC_SUBST([use_libintl_perl_in_xs])
 
 
 # Check if it is possible to embed a Perl interpreter.  Set PERL_EMBEDDED
-# conditional, used in C/Makefile.am and swig/python/Makefile.am.  This
-# is only used for the ctexi2any implementation of texi2any and for the SWIG
-# interface.
+# conditional, used in C/Makefile.am and to enable native command tests.  This
+# is only used for the ctexi2any implementation of texi2any.
 
 # This check is necessary because having XS enabled, the Perl headers
 # corresponding to libperl and ExtUtils::Embed installed does not ensure
@@ -453,26 +456,16 @@ AC_MSG_RESULT([$with_swig])
 
 AM_CONDITIONAL([SWIG_INTERFACES], [test "x$with_swig" = "xyes"])
 
-with_swig_python=no
-if test $with_swig = 'yes' ; then
-  # python executable and installation paths
-  AM_PATH_PYTHON(,, [:])
-
-  if test "$PYTHON" != : ; then
-    # Get CPPFLAGS, etc., for Python module compilation
-    # http://www.gnu.org/software/autoconf-archive/ax_python_devel.html
-    AX_PYTHON_DEVEL([], [true])
-
-    if test z$ax_python_devel_found = 'zyes' ; then
-      # Get SWIGFLAGS, CPPFLAGS, etc., for Python generation by swig
-      # http://www.gnu.org/software/autoconf-archive/ax_swig_python.html
-      AX_SWIG_PYTHON
-      with_swig_python=yes
-    fi
-  fi
+use_shared_txi_libraries=no
+if test "x$am_func_iconv" = "xyes"; then
+  test "z$enable_xs" = zyes && use_shared_txi_libraries=yes
+  test "z$enable_additional_tests" = zyes && use_shared_txi_libraries=yes
+  test "z$with_swig" = zyes && use_shared_txi_libraries=yes
 fi
 
-AM_CONDITIONAL([SWIG_PYTHON_INTERFACE], [test "x$with_swig_python" = "xyes"])
+AM_CONDITIONAL([USE_SHARED_TXI_LIBRARIES],
+               [test "z$use_shared_txi_libraries" = zyes])
+AC_SUBST([use_shared_txi_libraries])
 
 # The following can be set by the user on the configure command line:
 #
@@ -495,64 +488,76 @@ if test "z$perl_install_mode" != zsite \
   perl_install_mode=site
 fi
 
+with_swig_python=no
 swig_perl_tests=no
-if test x$enable_xs != xno ; then
-  if $PERL -e "use Test::More; use Data::Compare; use Test::Deep;" > /dev/null 2>&AS_MESSAGE_LOG_FD;
-  then
-    swig_perl_tests=yes
+if test $with_swig = 'yes' -a "z$use_shared_txi_libraries" = zyes ; then
+  # python executable and installation paths
+  AM_PATH_PYTHON(,, [:])
+
+  if test "$PYTHON" != : ; then
+    # Get CPPFLAGS, etc., for Python module compilation
+    # http://www.gnu.org/software/autoconf-archive/ax_python_devel.html
+    AX_PYTHON_DEVEL([], [true])
+
+    if test z$ax_python_devel_found = 'zyes' ; then
+      # Get SWIGFLAGS, CPPFLAGS, etc., for Python generation by swig
+      # http://www.gnu.org/software/autoconf-archive/ax_swig_python.html
+      AX_SWIG_PYTHON
+      with_swig_python=yes
+    fi
   fi
 
-  if test $perl_install_mode = custom ; then
-    perlarchdir='${libdir}/perl5'
-    perllibdir='${libdir}/perl5'
-  else
-    # We replace $PERL_CONF_siteprefix by ${prefix} to obey user prefix
-    # as specified in the GNU Standards and to have make distcheck work.
-    if test $perl_install_mode = site ; then
-      txi_LOOKUP_PERL_CONF([siteprefix])
+  # SWIG uses XS for Perl
+  if test x$enable_xs != xno ; then
+    # Perl SWIG tests and installation paths
+    if $PERL -e "use Test::More; use Data::Compare; use Test::Deep;" > /dev/null 2>&AS_MESSAGE_LOG_FD;
+    then
+      swig_perl_tests=yes
+    fi
 
-      if test "z$perl_installsitearch" = z ; then
-        txi_LOOKUP_PERL_CONF([installsitearch])
-        perl_installsitearch=`echo "$PERL_CONF_installsitearch" | sed "s,$PERL_CONF_siteprefix,\\\${prefix},"`
+    if test $perl_install_mode = custom ; then
+      perlarchdir='${libdir}/perl5'
+      perllibdir='${libdir}/perl5'
+    else
+      # We replace $PERL_CONF_siteprefix by ${prefix} to obey user prefix
+      # as specified in the GNU Standards and to have make distcheck work.
+      if test $perl_install_mode = site ; then
+        txi_LOOKUP_PERL_CONF([siteprefix])
+
+        if test "z$perl_installsitearch" = z ; then
+          txi_LOOKUP_PERL_CONF([installsitearch])
+          perl_installsitearch=`echo "$PERL_CONF_installsitearch" | sed "s,$PERL_CONF_siteprefix,\\\${prefix},"`
+        fi
+        perlarchdir=$perl_installsitearch
+
+        if test "z$perl_installsitelib" = z ; then
+          txi_LOOKUP_PERL_CONF([installsitelib])
+          perl_installsitelib=`echo "$PERL_CONF_installsitelib" | sed "s,$PERL_CONF_siteprefix,\\\${prefix},"`
+        fi
+        perllibdir=$perl_installsitelib
+
+      elif test $perl_install_mode = vendor ; then
+        txi_LOOKUP_PERL_CONF([vendorprefix])
+
+        if test "z$perl_installvendorarch" = z ; then
+          txi_LOOKUP_PERL_CONF([installvendorarch])
+          perl_installvendorarch=`echo "$PERL_CONF_installvendorarch" | sed "s,$PERL_CONF_vendorprefix,\\\${prefix},"`
+        fi
+        perlarchdir=$perl_installvendorarch
+
+        if test "z$perl_installvendorlib" = z ; then
+          txi_LOOKUP_PERL_CONF([installvendorlib])
+          perl_installvendorlib=`echo "$PERL_CONF_installvendorlib" | sed "s,$PERL_CONF_vendorprefix,\\\${prefix},"`
+        fi
+        perllibdir=$perl_installvendorlib
       fi
-      perlarchdir=$perl_installsitearch
-
-      if test "z$perl_installsitelib" = z ; then
-        txi_LOOKUP_PERL_CONF([installsitelib])
-        perl_installsitelib=`echo "$PERL_CONF_installsitelib" | sed "s,$PERL_CONF_siteprefix,\\\${prefix},"`
-      fi
-      perllibdir=$perl_installsitelib
-
-    elif test $perl_install_mode = vendor ; then
-      txi_LOOKUP_PERL_CONF([vendorprefix])
-
-      if test "z$perl_installvendorarch" = z ; then
-        txi_LOOKUP_PERL_CONF([installvendorarch])
-        perl_installvendorarch=`echo "$PERL_CONF_installvendorarch" | sed "s,$PERL_CONF_vendorprefix,\\\${prefix},"`
-      fi
-      perlarchdir=$perl_installvendorarch
-
-      if test "z$perl_installvendorlib" = z ; then
-        txi_LOOKUP_PERL_CONF([installvendorlib])
-        perl_installvendorlib=`echo "$PERL_CONF_installvendorlib" | sed "s,$PERL_CONF_vendorprefix,\\\${prefix},"`
-      fi
-      perllibdir=$perl_installvendorlib
     fi
   fi
 fi
 
+AM_CONDITIONAL([SWIG_PYTHON_INTERFACE], [test "x$with_swig_python" = "xyes"])
+
 AM_CONDITIONAL([SWIG_PERL_TESTS], [test "z$swig_perl_tests" = 'zyes'])
-
-use_shared_txi_libraries=no
-if test "x$am_func_iconv" = "xyes"; then
-  test "z$enable_xs" = zyes && use_shared_txi_libraries=yes
-  test "z$enable_additional_tests" = zyes && use_shared_txi_libraries=yes
-  test "z$with_swig" = zyes && use_shared_txi_libraries=yes
-fi
-
-AM_CONDITIONAL([USE_SHARED_TXI_LIBRARIES],
-               [test "z$use_shared_txi_libraries" = zyes])
-AC_SUBST([use_shared_txi_libraries])
 
 AC_ARG_ENABLE([using-c-texi2any],
     AS_HELP_STRING([--enable-using-c-texi2any],[Install texi2any program implemented in C if built]),
