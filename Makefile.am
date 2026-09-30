@@ -147,7 +147,7 @@ po_document-check:
 	      texinfo-*/*) continue;;					\
 	      tta/maintain/*) continue;;				\
 	      tta/perl/Texinfo/Example/*) continue;;			\
-	      tta/perl/init/documentation_examples.pm) continue;;	\
+	      tta/perl/t/init/documentation_examples.pm) continue;;	\
 	    esac;							\
 	    files="$$files $$file";					\
 	  done;								\

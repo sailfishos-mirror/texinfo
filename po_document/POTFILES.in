@@ -8,12 +8,12 @@
 # the output from processing Texinfo documents.
 
 tta/perl/ext/epub3.pm
-tta/perl/init/html32.pm
 tta/perl/Texinfo/Common.pm
 tta/perl/Texinfo/HTMLData.pm
 tta/perl/Texinfo/Indices.pm
 tta/perl/Texinfo/Structuring.pm
 tta/perl/Texinfo/Translations.pm
+tta/perl/t/init/html32.pm
 tta/perl/Texinfo/Convert/Converter.pm
 tta/perl/Texinfo/Convert/DocBook.pm
 tta/perl/Texinfo/Convert/LaTeX.pm
