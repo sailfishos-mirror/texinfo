@@ -1,5 +1,9 @@
 2026-09-30 Patrice Dumas  <pertusus@free.fr>
 
+	update po
+
+2026-09-30 Patrice Dumas  <pertusus@free.fr>
+
 	* po_document/POTFILES.in, Makefile.am (po_document-check): update for
 	the change in html32.pm location.
 
