@@ -281,9 +281,6 @@ translate_string (const char *string, const char *language_env,
                   const char *translation_context)
 {
   char *saved_LANGUAGE;
-  char *saved_LANG;
-  char *saved_LC_ALL;
-  char *saved_LC_MESSAGES;
   TEXT translated_string;
   text_init (&translated_string);
 
@@ -334,6 +331,10 @@ translate_string (const char *string, const char *language_env,
   LC_MESSAGES was reported not to exist for Perl on MS-Windows. */
 
 # ifndef _WIN32
+  char *saved_LANG;
+  char *saved_LC_ALL;
+  char *saved_LC_MESSAGES;
+
   /* In
    https://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html
     Note: The variable LANGUAGE is ignored if the locale is set to ‘C’. In

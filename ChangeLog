@@ -1,3 +1,23 @@
+2026-10-01 Patrice Dumas  <pertusus@free.fr>
+
+	Handle warnings from clang
+
+	* tta/C/texi2any.c (main): add missing parenthesis.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): initialize @link text argument
+	element in case the command is empty.
+
+	* tta/C/parsetexi/macro.c (expand_linemacro_arguments): initialize
+	to 0 to help compiler understand that it cannot be uninitialized, as
+	the knowledge comes from another part of the code.
+
+	* tta/C/main/translations.c (translate_string): move definition of
+	variables in the pre-processor conditional they are used in.
+
+	* tta/C/texi2any.c (main): move definition of variables in the
+	pre-processor conditional where it is used.
+
 2026-09-30 Patrice Dumas  <pertusus@free.fr>
 
 	AUTO_SECTION_NODE instead of transformation in documentation

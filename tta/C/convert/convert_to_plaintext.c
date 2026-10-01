@@ -4697,7 +4697,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             {
               if (element->e.c->contents.number > 0)
                 {
-                  const ELEMENT *text_arg;
+                  const ELEMENT *text_arg = 0;
          /* Use arg 2 if present, otherwise use arg 1.  Do not produce
             functional link in Info/plaintext output. */
                   if (element->e.c->contents.number >= 2

@@ -1174,7 +1174,6 @@ int
 main (int argc, char *argv[], char *env[])
 {
   int getopt_long_index;
-  const char *langinfo_locale_encoding;
   char *locale_encoding = 0;
   char *console_output_encoding = 0;
   const char *input_file_arg;
@@ -1416,6 +1415,7 @@ main (int argc, char *argv[], char *env[])
   /* needs to be called after setlocale */
   /* from Gnulib codeset.m4 */
 #ifdef HAVE_LANGINFO_CODESET
+  const char *langinfo_locale_encoding;
   langinfo_locale_encoding = nl_langinfo (CODESET);
   if (langinfo_locale_encoding)
     {
@@ -3238,7 +3238,7 @@ main (int argc, char *argv[], char *env[])
 
       /* structure and transformations */
 
-      if (auto_section_node_option && auto_section_node_option->o.integer > 0
+      if ((auto_section_node_option && auto_section_node_option->o.integer > 0)
           || ((!auto_section_node_option
                || auto_section_node_option->o.integer < 0)
               && converted_format_specification->flags & STTF_auto_section_node)

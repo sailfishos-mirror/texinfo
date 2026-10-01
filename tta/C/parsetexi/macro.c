@@ -628,10 +628,15 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
   for (i = 0; i < current->e.c->contents.number; i++)
     {
       const ELEMENT *argument = current->e.c->contents.list[i];
-      /* compiler may warn that argument_content may be used uninitialized,
+      /* If argument_content is not explicitly initialized,
+         compiler may warn that argument_content may be used uninitialized,
          but we know that it is not possible, as there is textual
-         content in argument */
-      ELEMENT *argument_content;
+         content in argument.
+         clang proposes to remove the "j < argument->e.c->contents.number"
+         if always true.  It is safer and clearer to keep this condition,
+         so initialize to remove the unknown for the compiler. 
+       */
+      ELEMENT *argument_content = 0;
       size_t j;
       for (j = 0; j < argument->e.c->contents.number; j++)
         {
