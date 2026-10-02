@@ -21,6 +21,11 @@
 
 int xvasprintf (char **ptr, const char *format, va_list ap);
 
+/* TEXT defined as macro in winnt.h on MSYS2. */
+#ifdef TEXT
+#undef TEXT
+#endif
+
 typedef struct TEXT {
     char *text;
     size_t space; /* Allocated bytes in 'text', including terminating null. */

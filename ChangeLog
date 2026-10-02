@@ -1,3 +1,8 @@
+2026-10-01 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/text.h: undef TEXT as a macro, in case it was defined as
+	such in winnt.h on MSYS2.  From Gavin.
+
 2026-10-02  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Naming the Output Directory):
