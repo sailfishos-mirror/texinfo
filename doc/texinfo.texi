@@ -15526,6 +15526,9 @@ characters@footnote{@command{texi2any} can handle non ASCII characters
 in input file names, but non ASCII characters in output name will create
 problems for some output formats, especially for cross-references.}.
 
+You can give the @option{-o} option to change the output file name;
+see @ref{Invoking @command{texi2any}}.
+
 If the input has a @code{@@setfilename} line (@pxref{@code{@@setfilename}}),
 the argument is the output filename for Info output.
 When producing another output format, @command{texi2any} will replace any
@@ -15533,26 +15536,19 @@ final extension with the output format-specific extension (@samp{html}
 when generating HTML, for example), or add a dot followed by the
 extension (@samp{.html} for HTML) if the given name has no extension.
 
-You can give the @option{-o} option to change the output file name;
-see @ref{Invoking @command{texi2any}}.
-
-For split Info output, the names of the subfiles are set the same way.
-@xref{Tag and Split Files}.
+For split Info output, the names of the subfiles are set by appending
+@samp{-1}, @samp{-2}, @dots{}, @samp{-10}, @samp{-11}, and so on to the
+original output file name.  @xref{Tag and Split Files}.
 
 @cindex Length of file names
 @cindex File name collision
 @cindex Info file name, choosing
-Although an explicit @samp{.info} extension is preferable for Info
-files, some operating systems cannot handle long file names.  You can
-run into a problem even when the file name you specify is itself short
-enough. This occurs because the Info formatters split a long Info file
-into short indirect subfiles, and name them by appending @samp{-1},
-@samp{-2}, @dots{}, @samp{-10}, @samp{-11}, and so on, to the original
-file name.  The subfile name @file{texinfo.info-10}, for example,
-is too long for old systems with a 14-character limit on filenames;
-so the Info file name for this document could be @file{texinfo} rather
-than @file{texinfo.info} on such a system.  @code{@@setfilename} is a
-way to specify an alternative name.
+On operating systems with limited file name length, you may find it
+necessary to override the default output file name.  For example, on
+old systems with a 14-character limit, the subfile name
+@file{texinfo.info-10} would be too long.  One way to shorten the
+name would be to specify @samp{@@setfilename texinfo} in the input file,
+so that the subfile would be called @file{texinfo-10} instead.
 
 
 @node @command{texi2any} Environment Variables

@@ -1,5 +1,9 @@
 2026-10-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Setting the Output File Name): edit
+
+2026-10-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	usage message for --output
 
 	* tta/perl/texi2any.pl (makeinfo_help), tta/C/texi2any.c (main):
