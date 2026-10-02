@@ -15304,13 +15304,13 @@ with hierarchically structured manuals.  You should specify
 @code{--no-number-sections} if your manual is not normally structured.
 
 
-@item --output=@var{file}
-@itemx -o @var{file}
-@opindex --output=@var{file}
-@opindex -o @var{file}
+@item --output=@var{dest}
+@itemx -o @var{dest}
+@opindex --output=@var{dest}
+@opindex -o @var{dest}
 @c @vindex OUTFILE
 @c @vindex SUBDIR
-Specify that the output should be directed to @var{file}.  If @var{file}
+Specify that the output should be directed to @var{dest}.  If @var{dest}
 is @samp{-}, output goes to standard output.
 
 A value given with @option{--output} overrides any file name specified in
@@ -15318,7 +15318,7 @@ a @code{@@setfilename} command found in the Texinfo source.  If neither
 @code{@@setfilename} nor this option are specified, the input file name is
 used to determine the output name.  @xref{Setting the Output File Name}.
 
-When generating HTML or plaintext and output is split, @var{file} is used
+When generating HTML or plaintext and output is split, @var{dest} is used
 as the name for the directory into which all files are written.
 For example, @samp{texi2any -o bar --html foo.texi} will write
 @file{bar/index.html}, among other files.  Note that if the output
@@ -15330,17 +15330,10 @@ directory may contain stale files from previous runs of @command{texi2any}
 before running @command{texi2any}.
 
 @ignore
-If @var{file} is a directory or ends with a @samp{/} the usual rules
-are used to determine the output file name (namely, use
-@code{@@setfilename} or the input file name) but the files are written
-to the @var{file} directory.  For example, @samp{texi2any -o bar/
-foo.texi}, with or without @option{--no-split}, will write
-@file{bar/foo.info}, and possibly other files, under @file{bar/}.
-
 When generating EPUB a container directory for the files and directories needed
-for the EPUB format is created, as well as the EPUB output file.  If @var{file}
-corresponds to a directory, the container directory is placed within @var{file}.
-The EPUB output file is never put in this directory.  If @var{file} corresponds
+for the EPUB format is created, as well as the EPUB output file.  If @var{dest}
+corresponds to a directory, the container directory is placed within @var{dest}.
+The EPUB output file is never put in this directory.  If @var{dest} corresponds
 to a file, it is used for the EPUB output file name.
 @end ignore
 

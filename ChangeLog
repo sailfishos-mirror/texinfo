@@ -1,5 +1,12 @@
 2026-10-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Invoking @command{texi2any}) <--output>:
+	Change @var{file} to @var{dest} for consistency with output of
+	"texi2any --help".  Remove part of ignored block discussing use
+	of directory as the --output argument.
+
+2026-10-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Setting the Output File Name): edit
 
 2026-10-02  Gavin Smith <gavinsmith0123@gmail.com>
