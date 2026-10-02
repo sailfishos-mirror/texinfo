@@ -1,3 +1,10 @@
+2026-10-02  Gavin Smith <gavinsmith0123@gmail.com>
+
+	usage message for --output
+
+	* tta/perl/texi2any.pl (makeinfo_help), tta/C/texi2any.c (main):
+	Edit usage message for --output.
+
 2026-09-30  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/mkwebdir.pl: add helper program for creating directory listing

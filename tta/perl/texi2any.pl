@@ -1081,10 +1081,10 @@ the behavior is identical, and does not depend on the installed name.")."\n"
 .__(
 "      --[no-]number-footnotes  number footnotes sequentially; default is on")."\n"
 .__(
-"  -o, --output=DEST           output to DEST.
-                                With page split output, create DEST as a directory
-                                and put the output files there.
-                                Otherwise, DEST names the output file.")."\n"
+"  -o, --output=DEST           use DEST as name of output file.
+                                With split HTML or split plaintext output,
+                                create DEST as a directory and put the output
+                                files there.")."\n"
 .__(
 "      --disable-encoding      do not output accented and special characters
                                 in Info and plain text output based on document

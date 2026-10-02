@@ -2215,10 +2215,10 @@ main (int argc, char *argv[], char *env[])
    "      --[no-]number-footnotes  number footnotes sequentially; default is on"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
-   "  -o, --output=DEST           output to DEST.\n"
-   "                                With page split output, create DEST as a directory\n"
-   "                                and put the output files there.\n"
-   "                                Otherwise, DEST names the output file."));
+   "  -o, --output=DEST           use DEST as name of output file.\n"
+   "                                With split HTML or split plaintext output,\n"
+   "                                create DEST as a directory and put the output\n"
+   "                                files there."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "      --disable-encoding      do not output accented and special characters\n"
