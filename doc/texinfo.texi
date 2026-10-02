@@ -15545,8 +15545,16 @@ way to an output file name: in order of priority, by a @option{-o}
 option, by a @code{@@setfilename} command, or derived from the name of
 the input file.
 
-For example, @samp{texi2any -o bar --html foo.texi} will write
-@file{bar/index.html}, among other files.
+For split HTML, the name of the output directory is derived from the
+input file name in two steps.  First, a stem is obtained by removing
+any @file{.texi} file extension or other recognized extension (as in
+the single-file case described above).  Second, the output-format-dependent
+suffix @samp{_html} is appended to this stem.
+
+For example, @samp{texi2any --html foo.texi} will write
+@file{foo_html/index.html}, among other files.
+@samp{texi2any -o bar --html foo.texi} will write @file{bar/index.html},
+among other files.
 
 Note that if the output directory already exists, @command{texi2any} will
 not delete any pre-existing files in that directory, only overwriting
@@ -17747,12 +17755,12 @@ with the relevant sectioning command.  Also, unless
 for every node in order to more reliably support cross-references to
 that manual (@pxref{HTML Xref}).
 
-When splitting, the HTML output files are written into a subdirectory.  The
-subdirectory name is derived from the base name (that
-is, any extension is removed), with @code{_html} appended. For example, HTML
+When splitting, the HTML output files are written into a subdirectory.  By
+default, the subdirectory name is derived from the base name (that is, any
+extension is removed), with @code{_html} appended.  For example, HTML
 output for @file{gcc.texi} would be written into a subdirectory
-named @samp{gcc_html/}.  The subdirectory name is based on @code{@@setfilename}
-or on the input file name (@pxref{Setting the Output File Name}).
+named @samp{gcc_html/}.  @xref{Naming the Output Directory} for more
+details.
 
 @noindent In any case, the top-level output file within the directory
 is always named @samp{index.html}.

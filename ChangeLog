@@ -1,5 +1,12 @@
 2026-10-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (HTML Splitting): Give slightly less detail
+	and update xref to refer to "Naming the Output Directory"
+	instead of "Setting the Output File Name".
+	(Naming the Output Directory): Give more detail.
+
+2026-10-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Invoking @command{texi2any}) <--output>,
 	(Setting the Output File Name, Naming the Output Directory):
 	Add @anchor and @subheading under "Setting the Output File Name".
