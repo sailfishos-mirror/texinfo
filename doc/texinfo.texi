@@ -15320,14 +15320,7 @@ used to determine the output name.  @xref{Setting the Output File Name}.
 
 When generating HTML or plaintext and output is split, @var{dest} is used
 as the name for the directory into which all files are written.
-For example, @samp{texi2any -o bar --html foo.texi} will write
-@file{bar/index.html}, among other files.  Note that if the output
-directory already exists, @command{texi2any} will not delete any
-pre-existing files in that directory, only overwriting an existing file
-if it creates an output file with the same name.  This means the output
-directory may contain stale files from previous runs of @command{texi2any}
---- you need to delete these manually, or simply wipe the output directory
-before running @command{texi2any}.
+@xref{Naming the Output Directory}.
 
 @ignore
 When generating EPUB a container directory for the files and directories needed
@@ -15542,6 +15535,26 @@ old systems with a 14-character limit, the subfile name
 @file{texinfo.info-10} would be too long.  One way to shorten the
 name would be to specify @samp{@@setfilename texinfo} in the input file,
 so that the subfile would be called @file{texinfo-10} instead.
+
+@anchor{Naming the Output Directory}
+@subheading Naming the Output Directory
+
+For split HTML and split plaintext output, a directory takes the place
+of a single output file.  The name of this directory is given in a similar
+way to an output file name: in order of priority, by a @option{-o}
+option, by a @code{@@setfilename} command, or derived from the name of
+the input file.
+
+For example, @samp{texi2any -o bar --html foo.texi} will write
+@file{bar/index.html}, among other files.
+
+Note that if the output directory already exists, @command{texi2any} will
+not delete any pre-existing files in that directory, only overwriting
+an existing file if it creates an output file with the same name.
+This means the output directory may contain stale files from previous
+runs of @command{texi2any} --- you need to delete these manually, or
+simply wipe the output directory before running @command{texi2any}.
+
 
 
 @node @command{texi2any} Environment Variables
