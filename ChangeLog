@@ -1,5 +1,10 @@
 2026-10-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Naming the Output Directory):
+	Add xref to "HTML Splitting" node.
+
+2026-10-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (HTML Splitting): Give slightly less detail
 	and update xref to refer to "Naming the Output Directory"
 	instead of "Setting the Output File Name".

@@ -15539,11 +15539,11 @@ so that the subfile would be called @file{texinfo-10} instead.
 @anchor{Naming the Output Directory}
 @subheading Naming the Output Directory
 
-For split HTML and split plaintext output, a directory takes the place
-of a single output file.  The name of this directory is given in a similar
-way to an output file name: in order of priority, by a @option{-o}
-option, by a @code{@@setfilename} command, or derived from the name of
-the input file.
+For split HTML (@pxref{HTML Splitting}) and split plaintext output,
+a directory takes the place of a single output file.  The name of this
+directory is given in a similar way to an output file name: in order of
+priority, by a @option{-o} option, by a @code{@@setfilename} command,
+or derived from the name of the input file.
 
 For split HTML, the name of the output directory is derived from the
 input file name in two steps.  First, a stem is obtained by removing
