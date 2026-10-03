@@ -1,4 +1,10 @@
-2026-10-01 Patrice Dumas  <pertusus@free.fr>
+2026-10-03 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/replace_perl_api_call.c (call_eval_use_module),
+	tta/C/convert/replace_call_embed_perl.c: move to the right file to
+	match where the real implementation is and what uses the function.
+
+2026-10-02 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/text.h: undef TEXT as a macro, in case it was defined as
 	such in winnt.h on MSYS2.  From Gavin.

@@ -75,6 +75,11 @@ get_sv_hv (const void *sv)
 }
 
 /* call_perl_function.h */
+void
+call_eval_use_module (const char *module_name)
+{
+}
+
 /* it is up to the caller to do something useful if NULL text is returned */
 TEXT
 call_translations_translate_string (const char *string,
