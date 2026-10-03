@@ -39,7 +39,7 @@ perl_texinfo_wrap.c Texinfo.pm: $(srcdir)/../texinfo.i $(SWIG_header_dependencie
 
 endif
 
-all-local: .libs/auto/Texinfo
+#all-local: .libs/auto/Texinfo
 
 # SWIG generated Texinfo.pm XS loading code calls Dynaloader bootstrap,
 # which searches first in @INC directories auto/Texinfo/ subdirectories.
@@ -51,9 +51,15 @@ all-local: .libs/auto/Texinfo
 # do a link from auto/Texinfo to .libs, such that the first extension
 # loaded is in .libs/auto/Texinfo in .libs in build directory.
 
-.libs/auto/Texinfo:
-	$(MKDIR_P) .libs/auto
-	$(LN_S) .. .libs/auto/Texinfo
+# This does not work when LN_S is cp
+#.libs/auto/Texinfo:
+#	$(MKDIR_P) .libs/auto
+#	$(LN_S) .. .libs/auto/Texinfo
+
+all-local: Texinfo.la
+	rm -rf .libs/auto
+	cp -pR .libs libs_Texinfo_copy.$$$$ && $(MKDIR_P) .libs/auto && \
+		 mv libs_Texinfo_copy.$$$$ .libs/auto/Texinfo
 
 # We do not add an explicit clean action as .libs is already removed with
 # clean.

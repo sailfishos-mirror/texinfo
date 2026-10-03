@@ -1,5 +1,11 @@
 2026-10-03 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/perl/Makefile.am (all-local): copy .libs in .libs/auto
+	using an explicit copy taking care that we wnat to copy in a
+	subdirectory instead of using LN_S, in case LN_S does a copy.
+
+2026-10-03 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/replace_perl_api_call.c (call_eval_use_module),
 	tta/C/convert/replace_call_embed_perl.c: move to the right file to
 	match where the real implementation is and what uses the function.
