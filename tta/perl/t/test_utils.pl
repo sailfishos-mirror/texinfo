@@ -77,6 +77,7 @@ use Texinfo::Document;
 use Texinfo::Convert::PlainTexinfo;
 use Texinfo::ManipulateTree;
 use Texinfo::Structuring;
+use Texinfo::Transformations;
 use Texinfo::OutputUnits;
 use Texinfo::Indices;
 use Texinfo::Translations;
@@ -709,10 +710,7 @@ sub test($$) {
 
   my $additional_tree_transformations;
   my %tree_transformations;
-  if ($parser_options->{'TREE_TRANSFORMATIONS'}
-      or $parser_options->{'AUTO_SECTION_NODE'}) {
-    require Texinfo::Transformations;
-    Texinfo::Transformations->import();
+  if ($parser_options->{'TREE_TRANSFORMATIONS'}) {
     # Not valid tree transformation, but we want to test them anyway.
     # There are other specific tests for comparison to texinfo, but here
     # we also get the tree.
@@ -880,7 +878,8 @@ sub test($$) {
   # structuring options from parser options.
   my $test_customization_options = {};
   # gather options for structuring.
-  foreach my $structuring_option ('CHECK_NORMAL_MENU_STRUCTURE',
+  foreach my $structuring_option ('AUTO_SECTION_NODE',
+                                  'CHECK_NORMAL_MENU_STRUCTURE',
                                   'CHECK_MISSING_MENU_ENTRY',
        # Not structuring options, but used for index sorting strings tests
                                   'USE_UNICODE_COLLATION',
@@ -956,7 +955,6 @@ sub test($$) {
   # Structuring/Transformations methods needing access to configuration
   # information.
   foreach my $parser_and_structuring_option ('FORMAT_MENU', 'DEBUG',
-                                             'AUTO_SECTION_NODE',
                                              'documentlanguage',
                                              'documentscript') {
     if (exists($completed_parser_options->{$parser_and_structuring_option})) {

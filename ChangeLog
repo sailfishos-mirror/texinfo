@@ -1,5 +1,12 @@
 2026-10-03 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/test_utils.pl: always use Texinfo::Transformations.
+
+	* tta/perl/t/test_utils.pl (test): handle AUTO_SECTION_NODE as
+	a structuring option only, not a parser option.
+
+2026-10-03 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/perl/Makefile.am (all-local): copy .libs in .libs/auto
 	using an explicit copy taking care that we wnat to copy in a
 	subdirectory instead of using LN_S, in case LN_S does a copy.
