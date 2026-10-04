@@ -160,12 +160,21 @@ sub compare_dirs_files($$;$$) {
   }
   foreach my $file (sort(keys(%dir1_files))) {
     if (exists($dir2_files{$file})) {
+      # for a binary format, we can use directly File::Compare::compare
       if ($binary) {
         my $status = compare("$dir1/$file", "$dir2/$file");
         if ($status) {
           push @errors, "$dir1/$file and $dir2/$file differ: $status";
         }
       } else {
+        # for text-based resulting files, we have in general LF in reference
+        # file but can have LF or CRLF end of line in generated files (CRLF
+        # on mingw based native Windows platforms or with native Perl).
+        # We therefore want to normalize the end of lines for the comparisons.
+        # To do that, we open the files ourselves to set binary mode to be sure
+        # that only LF is used for line splitting, independently of the
+        # platform, and remove any trailing end of line, LF or CRLF, in
+        # _compare_no_cr before comparing the lines.
         my $fh1 = do { local *FH1 };
         if (!open($fh1, "$dir1/$file")) {
           push @errors, "could not open $dir1/$file: $!";
@@ -185,6 +194,8 @@ sub compare_dirs_files($$;$$) {
             push @errors, "$dir1/$file and $dir2/$file differ: $status";
           }
         }
+        close($fh1) if (defined($fh1));
+        close($fh2) if (defined($fh2));
       }
       delete $dir2_files{$file};
     } else {
