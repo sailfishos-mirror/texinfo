@@ -115,8 +115,8 @@ sub configure_document_locales($) {
 
 sub _compare_no_cr {
   my ($line1, $line2) = @_;
-  $line1 =~ s/\R$//;
-  $line2 =~ s/\R$//;
+  $line1 =~ s/\r$//;
+  $line2 =~ s/\r$//;
   return ($line1 ne $line2);
 }
 
