@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Variáveis Globais de Personalização (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Variáveis Globais de Personalização (GNU Texinfo 7.3)">
+<meta name="keywords" content="Variáveis Globais de Personalização (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Vari_00e1veis-de-Personaliza_00e7_00e3o.html" rel="up" title="Variáveis de Personalização">
+<link href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-Info-e-de-Texto-Simples.html" rel="next" title="Variáveis de Personalização do Info e de Texto Simples">
+<link href="Sele_00e7_00e3o-do-Formato-de-Sa_00edda.html" rel="prev" title="Seleção do Formato de Saída">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Vari_00e1veis-Globais-de-Personaliza_00e7_00e3o">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-Info-e-de-Texto-Simples.html" accesskey="n" rel="next">Variáveis de Personalização do Info e de Texto Simples</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Sele_00e7_00e3o-do-Formato-de-Sa_00edda.html" accesskey="p" rel="prev">Seleção do Formato de Saída</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o.html" accesskey="u" rel="up">Variáveis de Personalização</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Vari_00e1veis-Globais-de-Personaliza_00e7_00e3o-1"><span>20.4.4 Variáveis Globais de Personalização<a class="copiable-link" href="#Vari_00e1veis-Globais-de-Personaliza_00e7_00e3o-1"> &para;</a></span></h4>
+
+<p>Esta tabela fornece as variáveis de personalização que afetam o
+comportamento global do <code class="command">texi2any</code>.
+</p>
+<dl class="vtable">
+<dt><a id="index-CHECK_005fMISSING_005fMENU_005fENTRY"></a><span><code class="code">CHECK_MISSING_MENU_ENTRY</code><a class="copiable-link" href="#index-CHECK_005fMISSING_005fMENU_005fENTRY"> &para;</a></span></dt>
+<dd><p>Quando um bloco <code class="code">@menu</code> ocorrer em um nó, verificar se existe uma
+entrada de menu para todos os nós subordinados na estrutura de seccionamento
+do documento. Ligada por padrão.
+</p>
+</dd>
+<dt><a id="index-CHECK_005fNORMAL_005fMENU_005fSTRUCTURE"></a><span><code class="code">CHECK_NORMAL_MENU_STRUCTURE</code><a class="copiable-link" href="#index-CHECK_005fNORMAL_005fMENU_005fSTRUCTURE"> &para;</a></span></dt>
+<dd><p>Avisa se os ponteiros do nó (configurados ou explícita ou automaticamente)
+não estão consistentes com a ordem das entradas do menu do nó. Essa é uma
+verificação de estrutura mais completa que aquela fornecida por
+<code class="code">CHECK_MISSING_MENU_ENTRY</code>. Ligada por padrão.
+</p>
+</dd>
+<dt><a id="index-COLLATION_005fLANGUAGE"></a><span><code class="code">COLLATION_LANGUAGE</code><a class="copiable-link" href="#index-COLLATION_005fLANGUAGE"> &para;</a></span></dt>
+<dd><p>Por padrão, <code class="command">texi2any</code> ordena os índices de documentos de acordo com
+o <em class="dfn">Algoritmo de Agrupamento Unicode</em> (definido em
+<a class="uref" href="http://www.unicode.org/reports/tr10/">Padrão Técnico Unicode nº 10</a>),
+sem adaptação de agrupamento específico do idioma. Se configurado, usar o
+idioma para adaptação linguística da ordenação de índice.
+</p>
+<p>Atualmente, <code class="command">texi2any</code> não avisa se não existir suporte para
+adaptação linguística devido ou à ausência de software ou à ausência de
+suporte para o idioma especificado.
+</p>
+<p>Em Perl, o módulo <code class="code">Unicode::Collate::Locale</code> é usado para adaptação
+linguística; portanto, se esse módulo não estiver instalado, a variável será
+ignorada silenciosamente.
+</p>
+<p>Se <code class="code">USE_UNICODE_COLLATION</code> estiver configurada como &lsquo;<samp class="samp">0</samp>&rsquo;, não
+existirá agrupamento Unicode e, portanto, também não existirá adaptação
+linguística.
+</p>
+<p>Veja-se também a variável <code class="code">DOCUMENTLANGUAGE_COLLATION</code>, descrita
+abaixo.
+</p>
+</dd>
+<dt><a id="index-COMMAND_005fLINE_005fENCODING"></a><span><code class="code">COMMAND_LINE_ENCODING</code><a class="copiable-link" href="#index-COMMAND_005fLINE_005fENCODING"> &para;</a></span></dt>
+<dd><p>Codificação usada para decodificar e codificar argumentos de linha de
+comando. O padrão é baseado na codificação da localidade. Isso possivelmente
+afete nomes de arquivos inseridos nos arquivos da saída gerada ou mensagens
+de erro impressas pelo programa.
+</p>
+<p>Observe que alguns nomes de arquivos e de diretórios provenientes da linha
+de comando possivelmente não sejam decodificados imediatamente e
+possivelmente nem mesmo sejam decodificados.
+</p>
+<p>Também é usado para codificar argumentos de linha de comando passados para
+comandos chamados a partir do <code class="command">texi2any</code>. Por exemplo,
+<code class="command">latex2html</code> será chamado a partir do <code class="command">texi2any</code> se
+<code class="code">HTML_MATH</code> estiver configurada como &lsquo;<samp class="samp">l2h</samp>&rsquo;.
+</p>
+</dd>
+<dt><a id="index-CPP_005fLINE_005fDIRECTIVES"></a><span><code class="code">CPP_LINE_DIRECTIVES</code><a class="copiable-link" href="#index-CPP_005fLINE_005fDIRECTIVES"> &para;</a></span></dt>
+<dd><p>Reconhecer diretivas <code class="code">#line</code> em uma passagem de &ldquo;pré processamento&rdquo;
+(veja-se <a class="pxref" href="Processadores-Externos-de-Macro.html">Processadores Externos de Macro: Diretivas de Linha</a>); ligada por padrão.
+</p>
+</dd>
+<dt><a id="index-DEBUG"></a><span><code class="code">DEBUG</code><a class="copiable-link" href="#index-DEBUG"> &para;</a></span></dt>
+<dd><p>Se configurada, saída de depuração será gerada; padrão é desligada (zero).
+</p>
+</dd>
+<dt><a id="index-DOC_005fENCODING_005fFOR_005fINPUT_005fFILE_005fNAME"></a><span><code class="code">DOC_ENCODING_FOR_INPUT_FILE_NAME</code><a class="copiable-link" href="#index-DOC_005fENCODING_005fFOR_005fINPUT_005fFILE_005fNAME"> &para;</a></span></dt>
+<dd><p>Se configurada, usar as informações de codificação do documento Texinfo de
+entrada para a codificação de nomes de arquivos de entrada, tais como nomes
+de arquivos especificados como argumentos <code class="code">@include</code> ou
+<code class="code">@verbatiminclude</code>. Se desconfigurada, usar a codificação de
+localidade. O padrão é configurada, exceto no MS-Windows onde a codificação
+de localidade é usada por padrão.
+</p>
+<p>Observe que isso é somente para nomes de arquivos; a codificação padrão ou
+<code class="code">@documentencoding</code> é sempre usada para a codificação do conteúdo do
+arquivo (veja-se <a class="pxref" href="_0040documentencoding.html"><code class="code">@documentencoding <var class="var">codificação</var></code>: Configurar Codificação de Entrada</a>).
+</p>
+<p>A variável <code class="code">INPUT_FILE_NAME_ENCODING</code> substitui essa variável.
+</p>
+</dd>
+<dt><a id="index-DOC_005fENCODING_005fFOR_005fOUTPUT_005fFILE_005fNAME"></a><span><code class="code">DOC_ENCODING_FOR_OUTPUT_FILE_NAME</code><a class="copiable-link" href="#index-DOC_005fENCODING_005fFOR_005fOUTPUT_005fFILE_005fNAME"> &para;</a></span></dt>
+<dd><p>Se configurada, usar as informações de codificação do documento Texinfo de
+entrada para a codificação de nomes de arquivos de saída, tais como arquivos
+especificados com <samp class="option">--output</samp>. Se desconfigurada, usar a codificação
+de localidade. O padrão é desconfigurada, de forma que os nomes dos arquivos
+serão codificados usando a localidade atual.
+</p>
+<p>Observe que isso é somente para nomes de arquivos;
+<code class="code">OUTPUT_ENCODING_NAME</code> será usada para a codificação do conteúdo do
+arquivo.
+</p>
+<p>A variável <code class="code">OUTPUT_FILE_NAME_ENCODING</code> substitui essa variável.
+</p>
+</dd>
+<dt><a id="index-DOCUMENTLANGUAGE_005fCOLLATION"></a><span><code class="code">DOCUMENTLANGUAGE_COLLATION</code><a class="copiable-link" href="#index-DOCUMENTLANGUAGE_005fCOLLATION"> &para;</a></span></dt>
+<dd><p>Se configurada, tentar usar o idioma especificado em uma diretiva
+<code class="code">@documentlanguage</code> para adaptação específica do idioma na ordenação
+de índice. Veja-se também a variável <code class="code">COLLATION_LANGUAGE</code>, descrita
+acima. (Veja-se <a class="xref" href="_0040documentlanguage.html"><code class="code">@documentlanguage <var class="var">ll</var>[_<var class="var">cc</var>]</code>: Configurar o Idioma do Documento</a>).
+</p>
+</dd>
+<dt><a id="index-DUMP_005fSTRUCTURE"></a><span><code class="code">DUMP_STRUCTURE</code><a class="copiable-link" href="#index-DUMP_005fSTRUCTURE"> &para;</a></span></dt>
+<dd><p>Para depuração. Se configurada, a árvore construída ao analisar um documento
+do Texinfo e determinar a estrutura do documento será gerada para o arquivo;
+se configurada para &lsquo;<samp class="samp">-</samp>&rsquo; para erro padrão. Padrão falso.
+</p>
+</dd>
+<dt><a id="index-DUMP_005fTEXI"></a><span><code class="code">DUMP_TEXI</code><a class="copiable-link" href="#index-DUMP_005fTEXI"> &para;</a></span></dt>
+<dd><p>Para depuração. Se configurada, nenhuma conversão será feita, somente
+análise e expansão de macro. Se a opção <samp class="option">--macro-expand</samp> estiver
+configurada, o fonte do Texinfo também será expandido para o arquivo
+correspondente. Padrão falso.
+</p>
+</dd>
+<dt><a id="index-DUMP_005fTREE"></a><span><code class="code">DUMP_TREE</code><a class="copiable-link" href="#index-DUMP_005fTREE"> &para;</a></span></dt>
+<dd><p>Para depuração. Se configurada, a árvore construída ao analisar um documento
+do Texinfo será gerada para o arquivo; se configurada para &lsquo;<samp class="samp">-</samp>&rsquo; para
+erro padrão. Para compatibilidade retroativa, para um lançamento, também
+gera para erro padrão se configurada para &lsquo;<samp class="samp">1</samp>&rsquo;. Padrão falso.
+</p>
+</dd>
+<dt><a id="index-FORMAT_005fMENU"></a><span><code class="code">FORMAT_MENU</code><a class="copiable-link" href="#index-FORMAT_005fMENU"> &para;</a></span></dt>
+<dd><p>Se configurada como &lsquo;<samp class="samp">menu</samp>&rsquo;, gera menus do Texinfo. Esse é o padrão para
+Info. &lsquo;<samp class="samp">sectiontoc</samp>&rsquo; é a configuração padrão para HTML, onde em vez do
+conteúdo dos blocos do <code class="code">@menu</code> ser gerado, uma lista de seções
+subordinadas é gerada em cada nó. Configurar para &lsquo;<samp class="samp">menu_no_detailmenu</samp>&rsquo;,
+em vez de &lsquo;<samp class="samp">menu</samp>&rsquo; no HTML, se você quiser menus, porém não
+&lsquo;<samp class="samp">@detailmenu</samp>&rsquo; automaticamente gerado no menu mestre do nó Topo. Se
+configurada como &lsquo;<samp class="samp">nomenu</samp>&rsquo;, não gera menus.
+</p>
+<p>Essa variável é configurada como &lsquo;<samp class="samp">nomenu</samp>&rsquo; ao gerar DocBook ou quando
+<samp class="option">--no-headers</samp> for especificada.
+</p>
+
+</dd>
+<dt><a id="index-IGNORE_005fSPACE_005fAFTER_005fBRACED_005fCOMMAND_005fNAME"></a><span><code class="code">IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME</code><a class="copiable-link" href="#index-IGNORE_005fSPACE_005fAFTER_005fBRACED_005fCOMMAND_005fNAME"> &para;</a></span></dt>
+<dd><p>Se configurada, espaços serão ignorados depois de um comando @ que use
+colchetes. Padrão verdadeiro, correspondendo ao comportamento do TeX.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-Codificando-nomes-de-arquivo-de-entrada"></a>
+<a id="index-INPUT_005fFILE_005fNAME_005fENCODING"></a><span><code class="code">INPUT_FILE_NAME_ENCODING</code><a class="copiable-link" href="#index-INPUT_005fFILE_005fNAME_005fENCODING"> &para;</a></span></dt>
+<dd><p>Codificação usada para nomes de arquivos de entrada. Essa variável substitui
+qualquer codificação proveniente do documento ou da localidade
+atual. Normalmente, você não precisa configurar essa variável, mas ela pode
+ser usada se os nomes dos arquivos estiverem em uma determinada codificação
+de caracteres em um sistema de arquivos. Uma alternativa é a de configurar
+<code class="code">DOC_ENCODING_FOR_INPUT_FILE_NAME</code> como &lsquo;<samp class="samp">0</samp>&rsquo; para usar a
+codificação de localidade. Veja-se também <code class="code">OUTPUT_FILE_NAME_ENCODING</code>.
+</p>
+</dd>
+<dt><a id="index-LOCALE_005fENCODING"></a><span><code class="code">LOCALE_ENCODING</code><a class="copiable-link" href="#index-LOCALE_005fENCODING"> &para;</a></span></dt>
+<dd><p>Codificação de localidade obtida a partir do sistema. Você não deveria
+precisar configurar explicitamente essa variável.
+</p>
+</dd>
+<dt><a id="index-MAX_005fMACRO_005fCALL_005fNESTING"></a><span><code class="code">MAX_MACRO_CALL_NESTING</code><a class="copiable-link" href="#index-MAX_005fMACRO_005fCALL_005fNESTING"> &para;</a></span></dt>
+<dd><p>O número máximo de chamadas recursivas de comandos @ definidos por meio de
+<code class="code">@rmacro</code>; o padrão é 100000. O propósito dessa variável é o de evitar
+recursões infinitas.
+</p>
+</dd>
+<dt><a id="index-MESSAGE_005fENCODING"></a><span><code class="code">MESSAGE_ENCODING</code><a class="copiable-link" href="#index-MESSAGE_005fENCODING"> &para;</a></span></dt>
+<dd><p>Codificação usada para codificar mensagens emitidas pelo
+<code class="command">texi2any</code>. O padrão é baseado na codificação de localidade.
+</p>
+</dd>
+<dt><a id="index-NO_005fINDEX"></a><span><code class="code">NO_INDEX</code><a class="copiable-link" href="#index-NO_005fINDEX"> &para;</a></span></dt>
+<dd><p>Se configurada, as entradas de índice não são registradas e os comandos @
+relacionados aos índices, como <code class="code">@printindex</code>, <code class="code">@synindex</code> ou
+<code class="code">@defindex</code> não terão efeito. Padrão falso.
+</p>
+</dd>
+<dt><a id="index-NO_005fUSER_005fCOMMANDS"></a><span><code class="code">NO_USER_COMMANDS</code><a class="copiable-link" href="#index-NO_005fUSER_005fCOMMANDS"> &para;</a></span></dt>
+<dd><p>Se configurada, as definições de comando @ definidas por usuário(a) serão
+ignoradas. <code class="code">@alias</code>, <code class="code">@definfoenclose</code>, <code class="code">@defindex</code>,
+<code class="code">@macro</code> e comandos @ semelhantes não terão efeito. Padrão falso.
+</p>
+</dd>
+<dt><a id="index-OUTPUT_005fENCODING_005fNAME"></a><span><code class="code">OUTPUT_ENCODING_NAME</code><a class="copiable-link" href="#index-OUTPUT_005fENCODING_005fNAME"> &para;</a></span></dt>
+<dd><p>Nome normalizado de codificação usado para arquivos de saída gerada. Deveria
+ser um nome de conjunto de caracteres usável em HTML, tipicamente um dos
+nomes de codificação preferidos da IANA. Por padrão, se uma codificação de
+entrada for configurada (tipicamente por meio de <code class="code">@documentencoding</code>),
+essas informações serão usadas para configurar o nome da codificação da
+saída gerada, caso contrário, a codificação da saída gerada será baseada na
+codificação padrão. Veja-se <a class="xref" href="_0040documentencoding.html"><code class="code">@documentencoding <var class="var">codificação</var></code>: Configurar Codificação de Entrada</a>.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-Codificacao-nomes-de-arquivos-da-saida-gerada"></a>
+<a id="index-OUTPUT_005fFILE_005fNAME_005fENCODING"></a><span><code class="code">OUTPUT_FILE_NAME_ENCODING</code><a class="copiable-link" href="#index-OUTPUT_005fFILE_005fNAME_005fENCODING"> &para;</a></span></dt>
+<dd><p>Codificação usada para nomes de arquivos da saída gerada. Essa variável
+substitui qualquer codificação originária do documento ou da localidade
+atual.
+</p>
+<p>Normalmente, você não precisa configurar essa variável, mas ela pode ser
+usada se nomes de arquivos devessem ser criados em uma determinada
+codificação de caracteres em um sistema de arquivos. Veja-se também
+<code class="code">INPUT_FILE_NAME_ENCODING</code>.
+</p>
+</dd>
+<dt><a id="index-PACKAGE"></a><span><code class="code">PACKAGE</code><a class="copiable-link" href="#index-PACKAGE"> &para;</a></span></dt>
+<dt><a id="index-PACKAGE_005fVERSION"></a><span><code class="code">PACKAGE_VERSION</code><a class="copiable-link" href="#index-PACKAGE_005fVERSION"> &para;</a></span></dt>
+<dt><a id="index-PACKAGE_005fAND_005fVERSION"></a><span><code class="code">PACKAGE_AND_VERSION</code><a class="copiable-link" href="#index-PACKAGE_005fAND_005fVERSION"> &para;</a></span></dt>
+<dt><a id="index-PACKAGE_005fURL"></a><span><code class="code">PACKAGE_URL</code><a class="copiable-link" href="#index-PACKAGE_005fURL"> &para;</a></span></dt>
+<dt><a id="index-PACKAGE_005fNAME"></a><span><code class="code">PACKAGE_NAME</code><a class="copiable-link" href="#index-PACKAGE_005fNAME"> &para;</a></span></dt>
+<dd><p>O nome abreviado do pacote da implementação, a versão do pacote, o nome do
+pacote e a versão concatenada, URL&nbsp;do pacote e o nome completo do pacote,
+respectivamente. Por padrão, essas variáveis são todas configuradas por meio
+do Autoconf, Automake e <code class="code">configure</code>.
+</p>
+</dd>
+<dt><a id="index-PREFIX"></a><span><code class="code">PREFIX</code><a class="copiable-link" href="#index-PREFIX"> &para;</a></span></dt>
+<dd><p>O prefixo do arquivo da saída gerada, que é preposto a alguns nomes de
+arquivos de saída gerada. Por padrão, ele é configurado pelo
+<code class="code">@setfilename</code> ou a partir arquivo de entrada (veja-se <a class="pxref" href="_0040setfilename.html#Configurando-o-Nome-do-Arquivo-da-Sa_00edda-Gerada">Configurando o Nome do Arquivo da Saída Gerada</a>). Como esse valor é usado depende do valor
+de outras variáveis de personalização ou de opções de linha de comando, como
+quando a saída gerada for dividida. O padrão é desconfigurada.
+</p>
+</dd>
+<dt><a id="index-PROGRAM"></a><span><code class="code">PROGRAM</code><a class="copiable-link" href="#index-PROGRAM"> &para;</a></span></dt>
+<dd><p>Nome do programa usado. Por padrão, ela está configurada com o nome do
+programa iniciado, com &lsquo;<samp class="samp">.pl</samp>&rsquo; à direita removido.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-texi_002delements_002dby_002dsize"></a>
+<a class="index-entry-id" id="index-Nos-mais-longos_002c-achando"></a>
+<a class="index-entry-id" id="index-Ordenando-nos-por-tamanho"></a>
+<a id="index-SORT_005fELEMENT_005fCOUNT"></a><span><code class="code">SORT_ELEMENT_COUNT</code><a class="copiable-link" href="#index-SORT_005fELEMENT_005fCOUNT"> &para;</a></span></dt>
+<dd><p>Se configurada, o nome de um arquivo para o qual uma lista de elementos (nós
+ou seções, dependendo do formato da saída gerada) será despejada, ordenada
+pelo número de linhas que eles contiverem depois da remoção dos comandos @;
+padrão desconfigurada. Isso é usado pelo programa
+<code class="code">texi-elements-by-size</code> no diretório <samp class="file">util/</samp> da distribuição do
+fonte do Texinfo (veja-se <a class="pxref" href="Dicas.html#texi_002delements_002dby_002dsize">texi-elements-by-size</a>).
+</p>
+</dd>
+<dt><a id="index-SORT_005fELEMENT_005fCOUNT_005fWORDS"></a><span><code class="code">SORT_ELEMENT_COUNT_WORDS</code><a class="copiable-link" href="#index-SORT_005fELEMENT_005fCOUNT_005fWORDS"> &para;</a></span></dt>
+<dd><p>Ao despejar o arquivo de elementos por tamanho (veja-se o item anterior),
+usar contagens de palavras em vez de contagens de linhas; padrão falso.
+</p>
+</dd>
+<dt><a id="index-TEST"></a><span><code class="code">TEST</code><a class="copiable-link" href="#index-TEST"> &para;</a></span></dt>
+<dd><p>Se configurada como um número inteiro positivo, algumas variáveis que
+normalmente são geradas dinamicamente novamente para cada execução (data,
+nome do programa, versão) serão configuradas como valores fixos e
+fornecidos. Alguns nomes de arquivos também podem ter a parte de diretório
+removida. Também pode ser selecionado código que forneça resultados mais
+reproduzíveis. Isso é útil para comparar a saída gerada com um arquivo de
+referência, como é feito para os testes. Recursos não selecionados no caso
+padrão, mas interessantes para testes, também estarão habilitados. Por
+exemplo, código relacionado à liberação de memória e a verificações de
+memória liberada. Se o valor for maior, mais verificações serão habilitadas,
+o que pode exigir a instalação de módulos Perl adicionais. O padrão é
+indefinida.
+</p>
+</dd>
+<dt><a id="index-TEXINFO_005fOUTPUT_005fFORMAT"></a><span><code class="code">TEXINFO_OUTPUT_FORMAT</code><a class="copiable-link" href="#index-TEXINFO_005fOUTPUT_005fFORMAT"> &para;</a></span></dt>
+<dd><p>O formato de saída gerado. Configurar a partir da linha de comando com
+opções como <samp class="option">--html</samp>, como o valor da variável de ambiente
+<code class="env">TEXINFO_OUTPUT_FORMAT</code> (veja-se <a class="pxref" href="Vari_00e1veis-de-Ambiente-do-texi2any.html">Variáveis de Ambiente Reconhecidas pelo <code class="command">texi2any</code></a>) ou como uma opção de personalização. Veja-se <a class="xref" href="Sele_00e7_00e3o-do-Formato-de-Sa_00edda.html">Seleção do Formato de Saída</a>.
+</p>
+<p>O valor configurado na variável <code class="code">TEXINFO_OUTPUT_FORMAT</code> é em geral o
+mesmo que o nome usado para configurar o formato, mas nem sempre. Se o
+formato for configurado como <code class="code">xml</code>, com <samp class="option">--xml</samp>, com a variável
+de ambiente <code class="env">TEXINFO_OUTPUT_FORMAT</code> ou com uma variável de
+personalização, a variável de personalização <code class="code">TEXINFO_OUTPUT_FORMAT</code>
+será configurada com um nome de formato de saída mais específico
+<code class="code">texinfoxml</code>. Esse tipo de diferença na nomenclatura deveria não ter
+nenhuma consequência visível para o(a) usuário(a).
+</p>
+</dd>
+<dt><a id="index-TREE_005fTRANSFORMATIONS"></a><span><code class="code">TREE_TRANSFORMATIONS</code><a class="copiable-link" href="#index-TREE_005fTRANSFORMATIONS"> &para;</a></span></dt>
+<dd><p>O valor associado é uma lista separada por vírgulas de transformações que
+podem ser aplicadas à árvore do Texinfo antes se gerar o resultado. Se mais
+que um for especificado, o ordenamento será irrelevante; cada um será sempre
+aplicado no ponto necessário durante o processamento.
+</p>
+<p>Por padrão, as transformações de árvore
+&lsquo;<samp class="samp">move_index_entries_after_items</samp>&rsquo; e
+&lsquo;<samp class="samp">relate_index_entries_to_table_entries</samp>&rsquo; são executadas para saída HTML
+e DocBook. Aqui está um exemplo de atualização do menu mestre em um
+documento:
+</p>
+<div class="example">
+<pre class="example-preformatted">texi2any \
+  -c TREE_TRANSFORMATIONS=regenerate_master_menu \
+  -c TEXINFO_OUTPUT_FORMAT=plaintexinfo \
+  meudoc.texi \
+  -o /tmp/saida
+</pre></div>
+
+<p>(Advertência: como a saída de &lsquo;<samp class="samp">plaintexinfo</samp>&rsquo; expande macros e
+condicionais do Texinfo, é necessário remover quaisquer dessas diferenças
+antes de se instalar as atualizações no documento original. Isso
+possivelmente seja remediado em um lançamento futuro).
+</p>
+<p>As seguintes transformações são atualmente suportadas (muitas são usadas no
+utilitário <code class="code">pod2texi</code> distribuído com Texinfo; veja-se <a class="pxref" href="Invocando-pod2texi.html">Invocando <code class="command">pod2texi</code>: Converter Pod para Texinfo</a>):
+</p>
+<dl class="ftable">
+<dt><a id="index-complete_005ftree_005fnodes_005fmenus"></a><span>&lsquo;<samp class="samp">complete_tree_nodes_menus</samp>&rsquo;<a class="copiable-link" href="#index-complete_005ftree_005fnodes_005fmenus"> &para;</a></span></dt>
+<dd><p>Adicionar entradas de menu ou menus inteiros para nós associados com seções
+de qualquer nível, com base na árvore de seccionamento.
+</p>
+</dd>
+<dt><a id="index-complete_005ftree_005fnodes_005fmissing_005fmenu"></a><span>&lsquo;<samp class="samp">complete_tree_nodes_missing_menu</samp>&rsquo;<a class="copiable-link" href="#index-complete_005ftree_005fnodes_005fmissing_005fmenu"> &para;</a></span></dt>
+<dd><p>Adicionar menus inteiros para nós associados com seções sem menu. Os menus
+são baseados na árvore de seccionamento.
+</p>
+</dd>
+<dt><a id="index-fill_005fgaps_005fin_005fsectioning"></a><span>&lsquo;<samp class="samp">fill_gaps_in_sectioning</samp>&rsquo;<a class="copiable-link" href="#index-fill_005fgaps_005fin_005fsectioning"> &para;</a></span></dt>
+<dd><p>Adiciona seções <code class="code">@unnumbered...</code> vazias em uma árvore para preencher
+lacunas no seccionamento. Por exemplo, um <code class="code">@unnumberedsec</code> será
+inserido se um <code class="code">@chapter</code> for seguido por um <code class="code">@subsection</code>.
+</p>
+</dd>
+<dt><a id="index-insert_005fnodes_005ffor_005fsectioning_005fcommands"></a><span>&lsquo;<samp class="samp">insert_nodes_for_sectioning_commands</samp>&rsquo;<a class="copiable-link" href="#index-insert_005fnodes_005ffor_005fsectioning_005fcommands"> &para;</a></span></dt>
+<dd><p>Inserir nós para comandos de seccionamento carecentes de um nó
+correspondente.
+</p>
+</dd>
+<dt><a id="index-move_005findex_005fentries_005fafter_005fitems"></a><span>&lsquo;<samp class="samp">move_index_entries_after_items</samp>&rsquo;<a class="copiable-link" href="#index-move_005findex_005fentries_005fafter_005fitems"> &para;</a></span></dt>
+<dd><p>Em <code class="code">@enumerate</code> e <code class="code">@itemize</code>, mover entradas de índice que
+aparecem logo antes de <code class="code">@item</code> para logo depois de
+<code class="code">@item</code>. Linhas de comentários entre entradas de índice também serão
+movidas. Conforme mencionado, isso sempre é feito para saída HTML e DocBook.
+</p>
+</dd>
+<dt><a id="index-regenerate_005fmaster_005fmenu"></a><span>&lsquo;<samp class="samp">regenerate_master_menu</samp>&rsquo;<a class="copiable-link" href="#index-regenerate_005fmaster_005fmenu"> &para;</a></span></dt>
+<dd><p>Atualizar o menu mestre do nó Top, ou substituindo o (primeiro)
+<code class="code">@detailmenu</code> no menu do nó Top ou criando-o no final do menu do nó
+Top.
+</p>
+</dd>
+<dt><a id="index-relate_005findex_005fentries_005fto_005ftable_005fentries"></a><span>&lsquo;<samp class="samp">relate_index_entries_to_table_entries</samp>&rsquo;<a class="copiable-link" href="#index-relate_005findex_005fentries_005fto_005ftable_005fentries"> &para;</a></span></dt>
+<dd><p>Em <code class="code">@table</code>, <code class="code">@vtable</code> e <code class="code">@ftable</code>, reassociar as
+informações de entrada do índice originárias de um comando @ de índice que
+aparece logo depois uma linha <code class="code">@item</code> com o primeiro elemento do
+<code class="code">@item</code>. Remover o comando @ de índice da árvore.
+</p>
+</dd>
+</dl>
+
+</dd>
+<dt><a id="index-USE_005fSETFILENAME_005fEXTENSION"></a><span><code class="code">USE_SETFILENAME_EXTENSION</code><a class="copiable-link" href="#index-USE_005fSETFILENAME_005fEXTENSION"> &para;</a></span></dt>
+<dd><p>O padrão é ativado para Info e desativado para outras saídas. Se
+configurada, usar exatamente o que <code class="code">@setfilename</code> fornecer para o nome
+do arquivo da saída gerada, incluindo a extensão. Você não deveria precisar
+configurar explicitamente essa variável.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-Unicode_003a_003aCollate"></a>
+<a id="index-USE_005fUNICODE_005fCOLLATION"></a><span><code class="code">USE_UNICODE_COLLATION</code><a class="copiable-link" href="#index-USE_005fUNICODE_005fCOLLATION"> &para;</a></span></dt>
+<dd><p>Por padrão, <code class="command">texi2any</code> ordena os índices de documentos de acordo com
+o <em class="dfn">Algoritmo de Agrupamento Unicode</em> (definido em
+<a class="uref" href="http://www.unicode.org/reports/tr10/">Padrão Técnico Unicode nº 10</a>),
+que realiza uma ordenação <em class="dfn">multi-nível</em> de sequências de caracteres
+contendo pontos de código Unicode. (Para fazer isso, o programa usa o módulo
+<code class="code">Unicode::Collate</code>, uma parte padrão das instalações Perl). No entanto,
+o uso desse algoritmo incorre em tempos de execução notavelmente mais longos
+ao processar manuais com índices grandes.
+</p>
+<p>Configure essa variável como &lsquo;<samp class="samp">0</samp>&rsquo; para usar um algoritmo de ordenação
+mais simples e mais rápido.
+</p>
+<p>Você pode achar isso útil para acelerar o <code class="command">texi2any</code> se você não
+tiver muitos caracteres não-ASCII no texto de entrada do índice ou se não se
+importar em ter os índices ordenados corretamente, especialmente ao
+trabalhar no rascunho de um manual.
+</p>
+
+</dd>
+<dt><a class="index-entry-id" id="index-Text_003a_003aUnidecode"></a>
+<a id="index-USE_005fUNIDECODE"></a><span><code class="code">USE_UNIDECODE</code><a class="copiable-link" href="#index-USE_005fUNIDECODE"> &para;</a></span></dt>
+<dd><p>Se configurada como falso, não usar o módulo Perl <code class="code">Text::Unidecode</code>
+para transliterar mais caracteres provenientes do código Perl; padrão
+verdadeiro.
+</p>
+</dd>
+</dl>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-Info-e-de-Texto-Simples.html">Variáveis de Personalização do Info e de Texto Simples</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Sele_00e7_00e3o-do-Formato-de-Sa_00edda.html">Seleção do Formato de Saída</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o.html">Variáveis de Personalização</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Lista de Comandos (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Lista de Comandos (GNU Texinfo 7.3)">
+<meta name="keywords" content="Lista de Comandos (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Detalhes-do-Comando-_0040.html" rel="up" title="Detalhes do Comando @">
+<link href="Contextos-de-Comando.html" rel="next" title="Contextos de Comando">
+<link href="Sintaxe-de-Comando.html" rel="prev" title="Sintaxe de Comando">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+kbd.kbd {font-style: oblique}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Lista-de-Comandos">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Contextos-de-Comando.html" accesskey="n" rel="next">Contextos do Comando @</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Sintaxe-de-Comando.html" accesskey="p" rel="prev">Sintaxe de Comando @</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Detalhes-do-Comando-_0040.html" accesskey="u" rel="up">Detalhes do Comando @</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Lista-de-Comandos-_0040"><span>A.2 Lista de Comandos @<a class="copiable-link" href="#Lista-de-Comandos-_0040"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Lista-alfabetica-de-comandos-_0040"></a>
+<a class="index-entry-id" id="index-Lista-dos-comandos-_0040"></a>
+<a class="index-entry-id" id="index-Comandos-_0040-lista-dos"></a>
+<a class="index-entry-id" id="index-Referencia-para-comandos-_0040"></a>
+
+<p>Aqui está uma lista alfabética dos comandos @ no Texinfo. Colchetes,
+<code class="t">[</code>&nbsp;<!-- /@w --><code class="t">]</code>, indicam argumentos opcionais; uma reticência,
+&lsquo;<samp class="samp">&hellip;</samp>&rsquo;, indica texto repetido.
+</p>
+<dl class="table">
+<dt><code class="code">@<var class="var">espaçoembranco</var></code></dt>
+<dd><p>Um <code class="code">@</code> seguido por um espaço, tabulação ou nova linha produz um espaço
+entre palavras normal e extensível. Veja-se <a class="xref" href="Espa_00e7os-M_00faltiplos.html">Espaços Múltiplos</a>.
+</p>
+</dd>
+<dt><code class="code">@!</code></dt>
+<dd><p>Produzir um ponto de exclamação que termine uma frase (geralmente depois de
+uma letra maiúscula no final da frase). Veja-se <a class="xref" href="Finalizando-uma-Frase.html">Finalizando uma Frase</a>.
+</p>
+</dd>
+<dt><code class="code">@&quot;</code></dt>
+<dt><code class="code">@'</code></dt>
+<dd><p>Gerar um trema ou um acento agudo, respectivamente, sobre o próximo
+caractere, como em &ouml; e em &oacute;. Veja-se <a class="xref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+</dd>
+<dt><code class="code">@&amp;</code></dt>
+<dt><code class="code">@ampchar{}</code></dt>
+<dd><p>Gerar um E Comercial. Veja-se <a class="xref" href="Inserindo-um-E-Comercial.html">Inserindo &lsquo;&amp;&rsquo; com <code class="code">@&amp;</code> e <code class="code">@ampchar{}</code></a>.
+</p>
+</dd>
+<dt><code class="code">@*</code></dt>
+<dd><p>Forçar uma quebra de linha. Veja-se <a class="xref" href="Quebras-de-Linha.html"><code class="code">@*</code> e <code class="code">@/</code>: Gerar e Permitir Quebras de Linha</a>.
+</p>
+</dd>
+<dt><code class="code">@,{<var class="var">c</var>}</code></dt>
+<dd><p>Gerar um acento de cedilha sob <var class="var">c</var>, como em &ccedil;. Veja-se <a class="xref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+</dd>
+<dt><code class="code">@-</code></dt>
+<dd><p>Inserir um ponto discricionário de hifenização. Veja-se <a class="xref" href="_0040_002d-_0040hyphenation.html"><code class="code">@-</code> e <code class="code">@hyphenation</code>: Hifenização em Saída Impressa</a>.
+</p>
+</dd>
+<dt><code class="code">@.</code></dt>
+<dd><p>Produzir um ponto final que termine uma frase (geralmente depois de uma
+letra maiúscula no final da frase). Veja-se <a class="xref" href="Finalizando-uma-Frase.html">Finalizando uma Frase</a>.
+</p>
+</dd>
+<dt><code class="code">@/</code></dt>
+<dd><p>Não produz saída, porém permite uma quebra de linha. Veja-se <a class="xref" href="Quebras-de-Linha.html"><code class="code">@*</code> e <code class="code">@/</code>: Gerar e Permitir Quebras de Linha</a>.
+</p>
+</dd>
+<dt><code class="code">@:</code></dt>
+<dd><p>Dizer aos processadores de saída impressa para evitarem inserir espaços em
+branco extras depois de um ponto final, ponto de interrogação, ponto de
+exclamação ou dois pontos imediatamente anteriores. Veja-se <a class="xref" href="N_00e3o-Finalizando-uma-Frase.html">Não Finalizando uma Frase</a>.
+</p>
+</dd>
+<dt><code class="code">@=</code></dt>
+<dd><p>Gerar um acento macron (barra) sobre o próximo caractere, como em
+&#333;. Veja-se <a class="xref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+</dd>
+<dt><code class="code">@?</code></dt>
+<dd><p>Produzir um ponto de interrogação que termine uma frase (geralmente depois
+de uma letra maiúscula no final da frase). Veja-se <a class="xref" href="Finalizando-uma-Frase.html">Finalizando uma Frase</a>.
+</p>
+</dd>
+<dt><code class="code">@@</code></dt>
+<dt><code class="code">@atchar{}</code></dt>
+<dd><p>Inserir um sinal de arroba, &lsquo;<samp class="samp">@</samp>&rsquo;. Veja-se <a class="xref" href="Inserindo-um-S_00edmbolo-Arroba.html">Inserindo &lsquo;@&rsquo; com <code class="code">@@</code> e <code class="code">@atchar{}</code></a>.
+</p>
+</dd>
+<dt><code class="code">@\</code></dt>
+<dt><code class="code">@backslashchar{}</code></dt>
+<dd><p>Inserir uma barra invertida, &lsquo;<samp class="samp">\</samp>&rsquo;; <code class="code">@backslashchar{}</code> funciona
+em qualquer lugar, enquanto <code class="code">@\</code> funciona somente dentro de
+<code class="code">@math</code>. Veja-se <a class="xref" href="Inserindo-uma-Barra-Invertida.html">Inserindo &lsquo;\&rsquo; com <code class="code">@backslashchar{}</code></a> e <a class="ref" href="Inserindo-F_00f3rmulas-Matem_00e1ticas.html">Formatando Expressões Matemáticas</a>.
+</p>
+</dd>
+<dt><code class="code">@^</code></dt>
+<dt><code class="code">@`</code></dt>
+<dd><p>Gerar um acento circunflexo (chapéu) ou grave, respectivamente, sobre o
+próximo caractere, como em &ocirc; e &egrave;. Veja-se <a class="xref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+</dd>
+<dt><code class="code">@{</code></dt>
+<dt><code class="code">@lbracechar{}</code></dt>
+<dd><p>Inserir uma chave esquerda &lsquo;<samp class="samp">{</samp>&rsquo;. Veja-se <a class="xref" href="Inserindo-Chaves.html">Inserindo &lsquo;{ &lsquo;}&rsquo; com <code class="code">@{ @}</code> e <code class="code">@l rbracechar{}</code></a>.
+</p>
+</dd>
+<dt><code class="code">@}</code></dt>
+<dt><code class="code">@rbracechar{}</code></dt>
+<dd><p>Inserir uma chave direita &lsquo;<samp class="samp">}</samp>&rsquo;. Veja-se <a class="xref" href="Inserindo-Chaves.html">Inserindo &lsquo;{ &lsquo;}&rsquo; com <code class="code">@{ @}</code> e <code class="code">@l rbracechar{}</code></a>.
+</p>
+</dd>
+<dt><code class="code">@~</code></dt>
+<dd><p>Gerar um acento til sobre o próximo caractere, como em &Ntilde;. Veja-se <a class="xref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+</dd>
+<dt><code class="code">@AA{}</code></dt>
+<dt><code class="code">@aa{}</code></dt>
+<dd><p>Gerar as letras maiúsculas e minúsculas do anel A escandinavo,
+respectivamente: &Aring;, &aring;. Veja-se <a class="xref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+</dd>
+<dt><code class="code">@abbr{<var class="var">abreviação</var>}</code></dt>
+<dd><p>Indicar uma abreviação geral, como em &lsquo;Comput.&rsquo;. Veja-se <a class="xref" href="_0040abbr.html"><code class="code">@abbr</code>{<var class="var">abreviação</var>[, <var class="var">significado</var>]}</a>.
+</p>
+</dd>
+<dt><code class="code">@acronym{<var class="var">sigla</var>}</code></dt>
+<dd><p>Indicar uma sigla em letras todas maiúsculas, como em
+&lsquo;NASA&rsquo;. Veja-se <a class="xref" href="_0040acronym.html"><code class="code">@acronym</code>{<var class="var">sigla</var>[, <var class="var">significado</var>]}</a>.
+</p>
+</dd>
+<dt><code class="code">@AE{}</code></dt>
+<dt><code class="code">@ae{}</code></dt>
+<dd><p>Gerar as ligaduras AE maiúsculas e minúsculas, respectivamente: &AElig;,
+&aelig;. Veja-se <a class="xref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+</dd>
+<dt><code class="code">@afivepaper</code></dt>
+<dd><p>Mudar dimensões de página para o tamanho de papel A5. Veja-se <a class="xref" href="Papel-A4.html">Imprimir em Papel A4</a>.
+</p>
+</dd>
+<dt><code class="code">@afourlatex</code></dt>
+<dt><code class="code">@afourpaper</code></dt>
+<dt><code class="code">@afourwide</code></dt>
+<dd><p>Mudar dimensões de página para o tamanho de papel A4. Veja-se <a class="xref" href="Papel-A4.html">Imprimir em Papel A4</a>.
+</p>
+</dd>
+<dt><code class="code">@alias <var class="var">novo</var>=<var class="var">existente</var></code></dt>
+<dd><p>Tornar o comando &lsquo;<samp class="samp">@<var class="var">novo</var></samp>&rsquo; um sinônimo para o comando existente
+&lsquo;<samp class="samp">@<var class="var">existente</var></samp>&rsquo;. Veja-se <a class="xref" href="_0040alias.html">&lsquo;<samp class="samp">@alias <var class="var">novo</var>=<var class="var">existente</var></samp>&rsquo;</a>.
+</p>
+</dd>
+<dt><code class="code">@allowcodebreaks <var class="var">verdadeiro-falso</var></code></dt>
+<dd><p>Controlar quebra em &lsquo;<samp class="samp">-</samp>&rsquo; e &lsquo;<samp class="samp">_</samp>&rsquo; na saída
+impressa. Veja-se <a class="xref" href="_0040allowcodebreaks.html"><code class="code">@allowcodebreaks</code>: Controle Quebras de Linha no <code class="code">@code</code></a>.
+</p>
+</dd>
+<dt><code class="code">@anchor{<var class="var">nome</var>}</code></dt>
+<dd><p>Definir <var class="var">nome</var> como o local atual para uso como um alvo de referência
+cruzada. Veja-se <a class="xref" href="_0040anchor.html"><code class="code">@anchor</code>: Definindo Alvos Arbitrários de Referências Cruzadas</a>.
+</p>
+</dd>
+<dt><code class="code">@appendix <var class="var">título</var></code></dt>
+<dd><p>Começar um apêndice. O título aparece no sumário. Veja-se <a class="xref" href="_0040unnumbered-_0040appendix.html"><code class="code">@unnumbered</code>, <code class="code">@appendix</code>: Capítulos com Outra Rotulagem</a>.
+</p>
+</dd>
+<dt><code class="code">@appendixsec <var class="var">título</var></code></dt>
+<dt><code class="code">@appendixsection <var class="var">título</var></code></dt>
+<dd><p>Começar uma seção de apêndice dentro de um apêndice. O título da seção
+aparece no sumário. <code class="code">@appendixsection</code> é uma ortografia mais longa do
+comando <code class="code">@appendixsec</code>. Veja-se <a class="xref" href="_0040unnumberedsec-_0040appendixsec-_0040heading.html"><code class="code">@unnumberedsec</code>, <code class="code">@appendixsec</code>, <code class="code">@heading</code></a>.
+</p>
+</dd>
+<dt><code class="code">@appendixsubsec <var class="var">título</var></code></dt>
+<dd><p>Começar uma subseção do apêndice. O título aparece no
+sumário. Veja-se <a class="xref" href="_0040unnumberedsubsec-_0040appendixsubsec-_0040subheading.html">Os Comandos do Tipo <code class="code">@subsection</code></a>.
+</p>
+</dd>
+<dt><code class="code">@appendixsubsubsec <var class="var">título</var></code></dt>
+<dd><p>Começar uma subsubseção do apêndice. O título aparece no
+índice. Veja-se <a class="xref" href="_0040subsubsection.html"><code class="code">@subsubsection</code> e Outros Comandos Subsub</a>.
+</p>
+</dd>
+<dt><code class="code">@arrow{}</code></dt>
+<dd><p>Gerar um glifo de seta para a direita: &lsquo;<samp class="samp">&rarr;</samp>&rsquo;. Usado por padrão
+para <code class="code">@click</code>. Veja-se <a class="xref" href="Sequ_00eancias-de-Cliques.html">Sequências de Cliques</a>.
+</p>
+</dd>
+<dt><code class="code">@asis</code></dt>
+<dd><p>Manter o argumento como está. Usado seguinte a <code class="code">@table</code>,
+<code class="code">@ftable</code> e <code class="code">@vtable</code> para imprimir a primeira coluna da tabela
+sem realçar (&ldquo;como está&rdquo;). Veja-se <a class="xref" href="_0040table.html#g_t_0040asis"><code class="code">@asis</code></a>.
+</p>
+</dd>
+<dt><code class="code">@author <var class="var">autor(a)</var></code></dt>
+<dd><p>Configurar um(a) autor(a) do manual na página de título. Veja-se <a class="xref" href="_0040title-_0040subtitle-_0040author.html"><code class="code">@title</code>, <code class="code">@subtitle</code> e <code class="code">@author</code></a>. Configurar um(a) autor(a) de citação em
+<code class="code">@quotation</code>. Veja-se <a class="xref" href="_0040quotation.html"><code class="code">@quotation</code>: Citações de Bloco</a>.
+</p>
+</dd>
+<dt><code class="code">@b{<var class="var">texto</var>}</code></dt>
+<dd><p>Configurar <var class="var">texto</var> em uma fonte <b class="b">negrito</b>, se possível. Veja-se <a class="xref" href="Fontes.html">Fontes para Impressão</a>.
+</p>
+</dd>
+<dt><code class="code">@bullet{}</code></dt>
+<dd><p>Gerar um ponto redondo grande, &bull;, ou a coisa mais próxima possível
+de um. Frequentemente usado com <code class="code">@itemize</code>. Veja-se <a class="xref" href="_0040bullet.html"><code class="code">@bullet</code> (&bull;)</a>.
+</p>
+</dd>
+<dt><code class="code">@bsixpaper</code></dt>
+<dd><p>Mudar dimensões de página para o tamanho de papel B6. Veja-se <a class="xref" href="Papel-A4.html">Imprimir em Papel A4</a>.
+</p>
+</dd>
+<dt><code class="code">@bye</code></dt>
+<dd><p>Parar processamento de um arquivo. Os processadores não veem nada no arquivo
+de entrada seguinte a <code class="code">@bye</code>. Veja-se <a class="xref" href="Finalizando-um-Arquivo.html">Finalizando um Arquivo do Texinfo</a>.
+</p>
+</dd>
+<dt><code class="code">@c <var class="var">comentário</var></code></dt>
+<dd><p>Começar um comentário no Texinfo. O resto da linha não aparece em nenhuma
+saída gerada. Um sinônimo para <code class="code">@comment</code>. <kbd class="kbd">DEL</kbd> também inicia um
+comentário. Veja-se <a class="xref" href="Coment_00e1rios.html">Comentários</a>.
+</p>
+</dd>
+<dt><code class="code">@caption</code></dt>
+<dd><p>Definir a legenda completa para um <code class="code">@float</code>. Veja-se <a class="xref" href="_0040caption-_0040shortcaption.html"><code class="code">@caption</code> e <code class="code">@shortcaption</code></a>.
+</p>
+</dd>
+<dt><code class="code">@cartouche</code></dt>
+<dd><p>Destacar um exemplo ou citação desenhando-se uma caixa com cantos
+arredondados ao redor dela, se possível. Emparelhar com <code class="code">@end
+cartouche</code>. Veja-se <a class="xref" href="_0040cartouche.html"><code class="code">@cartouche</code>: Retângulos Arredondados</a>.
+</p>
+</dd>
+<dt><code class="code">@center <var class="var">linha-de-texto</var></code></dt>
+<dd><p>Centralizar a linha de texto seguinte ao comando. Veja-se <a class="xref" href="_0040titlefont-_0040center-_0040sp.html"><code class="code">@titlefont</code>, <code class="code">@center</code> e <code class="code">@sp</code></a>.
+</p>
+</dd>
+<dt><code class="code">@centerchap <var class="var">linha-de-texto</var></code></dt>
+<dd><p>Como <code class="code">@chapter</code>, porém centraliza o título do
+capítulo. Veja-se <a class="xref" href="_0040chapter.html"><code class="code">@chapter</code>: Estruturamento de Capítulo</a>.
+</p>
+</dd>
+<dt><code class="code">@chapheading <var class="var">título</var></code></dt>
+<dd><p>Imprimir um título semelhante a um capítulo sem numeração, porém omita-o do
+sumário. Veja-se <a class="xref" href="_0040majorheading-_0040chapheading.html"><code class="code">@majorheading</code>, <code class="code">@chapheading</code>: Cabeçalhos de Nível de Capítulo</a>.
+</p>
+</dd>
+<dt><code class="code">@chapter <var class="var">título</var></code></dt>
+<dd><p>Começar um capítulo numerado. O título do capítulo aparece no
+sumário. Veja-se <a class="xref" href="_0040chapter.html"><code class="code">@chapter</code>: Estruturamento de Capítulo</a>.
+</p>
+</dd>
+<dt><code class="code">@cindex <var class="var">entrada</var></code></dt>
+<dd><p>Adicionar <var class="var">entrada</var> ao índice de conceitos. Veja-se <a class="xref" href="Entradas-de-_00cdndice.html">Definindo as Entradas de um Índice</a>.
+</p>
+</dd>
+<dt><code class="code">@cite{<var class="var">referência</var>}</code></dt>
+<dd><p>Realçar o nome de um livro ou outra referência que não tenha arquivo Info
+complementar. Veja-se <a class="xref" href="_0040cite.html"><code class="code">@cite</code>{<var class="var">referência</var>}</a>.
+</p>
+</dd>
+<dt><code class="code">@clear <var class="var">sinalizador</var></code></dt>
+<dd><p>Desconfigurar <var class="var">sinalizador</var>, evitando que os comandos de formatação do
+Texinfo formatem texto entre pares subsequentes de comandos <code class="code">@ifset
+<var class="var">sinalizador</var></code> e <code class="code">@end ifset</code> e evitando que
+<code class="code">@value{<var class="var">sinalizador</var>}</code> se expanda para o valor para o qual
+<var class="var">sinalizador</var> estiver configurado. Veja-se <a class="xref" href="_0040set-_0040clear-_0040value.html">Sinalizadores: <code class="code">@set</code>, <code class="code">@clear</code>, condicionais e <code class="code">@value</code></a>.
+</p>
+</dd>
+<dt><code class="code">@click{}</code></dt>
+<dd><p>Representar um &ldquo;clique&rdquo; em uma GUI. Usado dentro de
+<code class="code">@clicksequence</code>. Veja-se <a class="xref" href="Sequ_00eancias-de-Cliques.html">Sequências de Cliques</a>.
+</p>
+</dd>
+<dt><code class="code">@clicksequence{<var class="var">ação</var> @click{} <var class="var">ação</var>}</code></dt>
+<dd><p>Representa uma sequência de cliques em uma GUI. Veja-se <a class="xref" href="Sequ_00eancias-de-Cliques.html">Sequências de Cliques</a>.
+</p>
+</dd>
+<dt><code class="code">@clickstyle @<var class="var">comando</var></code></dt>
+<dd><p>Esse comando está obsoleto; não o use. Executar @<var class="var">comando</var> para cada
+<code class="code">@click</code>; o padrão é <code class="code">@arrow</code>. As chaves vazias usuais seguintes
+a @<var class="var">comando</var> são omitidas. Veja-se <a class="xref" href="Sequ_00eancias-de-Cliques.html">Sequências de Cliques</a>.
+</p>
+</dd>
+<dt><code class="code">@code{<var class="var">código-modelo</var>}</code></dt>
+<dd><p>Indicar uma expressão, um token sintaticamente completo de um programa ou um
+nome de programa. Veja-se <a class="xref" href="_0040code.html"><code class="code">@code</code>{<var class="var">código-amostra</var>}</a>.
+</p>
+</dd>
+<dt><code class="code">@codequotebacktick <var class="var">on-off</var></code></dt>
+<dt><code class="code">@codequoteundirected <var class="var">on-off</var></code></dt>
+<dd><p>Controlar saída gerada de <code class="code">`</code> e <code class="code">'</code> em exemplos de
+código. Veja-se <a class="xref" href="Inserindo-Caracteres-de-Aspas.html">Inserindo Caracteres de Aspas</a>.
+</p>
+</dd>
+<dt><code class="code">@comma{}</code></dt>
+<dd><p>Inserir um caractere de vírgula &lsquo;,&rsquo;; necessário somente quando uma vírgula
+literal fosse considerada como um separador de argumentos. Veja-se <a class="xref" href="Inserindo-uma-V_00edrgula.html">Inserindo &lsquo;,&rsquo; com <code class="code">@comma{}</code></a>.
+</p>
+</dd>
+<dt><code class="code">@command{<var class="var">nome-comando</var>}</code></dt>
+<dd><p>Indicar um nome de comando, como em <code class="command">ls</code>. Veja-se <a class="xref" href="_0040command.html"><code class="code">@command</code>{<var class="var">nome-comando</var>}</a>.
+</p>
+</dd>
+<dt><code class="code">@comment <var class="var">comentário</var></code></dt>
+<dd><p>Começar um comentário no Texinfo. O resto da linha não aparece em nenhuma
+saída gerada. Um sinônimo para <code class="code">@c</code>. Veja-se <a class="xref" href="Coment_00e1rios.html">Comentários</a>.
+</p>
+</dd>
+<dt><code class="code">@contents</code></dt>
+<dd><p>Imprimir um sumário completo ou especificar que um sumário deveria ser
+gerado, para formatos que podem gerar um sumário. Veja-se <a class="xref" href="Conte_00fado.html">Gerando
+um Sumário</a>.
+</p>
+</dd>
+<dt><code class="code">@copying</code></dt>
+<dd><p>Especificar titulares dos direitos autorais e condições de cópia para o
+documento. Emparelhar com <code class="code">@end copying</code>. Veja-se <a class="xref" href="_0040copying.html"><code class="code">@copying</code>: Declarar Permissões de Cópia</a>.
+</p>
+</dd>
+<dt><code class="code">@copyright{}</code></dt>
+<dd><p>Gerar o símbolo de copirraite &copy;. Veja-se <a class="xref" href="_0040copyright.html"><code class="code">@copyright{}</code> (&copy;)</a>.
+</p>
+</dd>
+<dt><code class="code">@defblock</code></dt>
+<dd><p>Iniciar um bloco contendo definições. Emparelhar com &lsquo;<samp class="samp">@end
+defblock</samp>&rsquo;. Veja-se <a class="xref" href="Comandos-Gen_00e9ricos-de-Defini_00e7_00e3o.html">Comandos Genéricos de Definição</a>.
+</p>
+</dd>
+<dt><code class="code">@defcodeindex <var class="var">nome-índice</var></code></dt>
+<dd><p>Definir um novo índice e o comando de indexação dele. Imprimir entradas em
+uma fonte <code class="code">@code</code>. Veja-se <a class="xref" href="Novos-_00cdndices.html">Definindo Novos Índices</a>.
+</p>
+</dd>
+<dt><code class="code">@defcv <var class="var">categoria</var> <var class="var">classe</var> <var class="var">nome</var></code></dt>
+<dt><code class="code">@defcvx <var class="var">categoria</var> <var class="var">classe</var> <var class="var">nome</var></code></dt>
+<dd><p>Formatar uma descrição para uma variável associada com uma classe na
+programação orientada a objetos. Recebe três argumentos: a categoria da
+coisa sendo definida, a classe à qual ela pertence e o nome
+dela. Veja-se <a class="xref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a>.
+</p>
+</dd>
+<dt><code class="code">@deffn <var class="var">categoria</var> <var class="var">nome</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dt><code class="code">@deffnx <var class="var">categoria</var> <var class="var">nome</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dd><p>Formatar uma descrição para uma função, comando interativo ou entidade
+semelhante que possa receber argumentos. <code class="code">@deffn</code> recebe como
+argumentos a categoria da entidade sendo descrita, o nome dessa entidade
+específica e os argumentos dela, se existirem. Veja-se <a class="xref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a>.
+</p>
+</dd>
+<dt><code class="code">@defindex <var class="var">nome-índice</var></code></dt>
+<dd><p>Definir um novo índice e o comando de indexação dele. Imprimir entradas em
+uma fonte romana. Veja-se <a class="xref" href="Novos-_00cdndices.html">Definindo Novos Índices</a>.
+</p>
+</dd>
+<dt><code class="code">@definfoenclose <var class="var">novocomando</var>, <var class="var">antes</var>, <var class="var">depois</var></code></dt>
+<dd><p>Criar um novo comando <code class="code">@<var class="var">novocomando</var></code> para formatos online que
+marca texto colocando-o em sequências de caracteres que precedem e seguem o
+texto. Veja-se <a class="xref" href="_0040definfoenclose.html"><code class="code">@definfoenclose</code>: Realçamento Personalizado</a>.
+</p>
+</dd>
+<dt><code class="code">@defivar <var class="var">classe</var> <var class="var">instância-variável-nome</var></code></dt>
+<dt><code class="code">@defivarx <var class="var">classe</var> <var class="var">nome-variável-instância</var></code></dt>
+<dd><p>Formatar uma descrição para uma variável de instância na programação
+orientada a objetos. O comando é equivalente a &lsquo;<samp class="samp">@defcv {Instância
+Variável} &hellip;</samp>&rsquo;. Veja-se <a class="xref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a>.
+</p>
+</dd>
+<dt><code class="code">@defline <var class="var">categoria</var> <var class="var">nome</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dd><p>Usar em um ambiente <code class="code">@defblock</code> para fornecer a linha de protótipo de
+título para um símbolo sendo definido. Esse comando não cria nenhuma entrada
+de índice. Veja-se <a class="xref" href="Comandos-Gen_00e9ricos-de-Defini_00e7_00e3o.html">Comandos Genéricos de Definição</a>.
+</p>
+</dd>
+<dt><code class="code">@defmac <var class="var">nomemacro</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dt><code class="code">@defmacx <var class="var">nomemacro</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dd><p>Formatar uma descrição para uma macro; equivalente a &lsquo;<samp class="samp">@deffn Macro
+&hellip;</samp>&rsquo;. Veja-se <a class="xref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a>.
+</p>
+</dd>
+<dt><code class="code">@defmethod <var class="var">classe</var> <var class="var">nome-método</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dt><code class="code">@defmethodx <var class="var">classe</var> <var class="var">nome-método</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dd><p>Formatar uma descrição para um método na programação orientada a objetos;
+equivalente para &lsquo;<samp class="samp">@defop Método &hellip;</samp>&rsquo;. Veja-se <a class="xref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a>.
+</p>
+</dd>
+<dt><code class="code">@defop <var class="var">categoria</var> <var class="var">classe</var> <var class="var">nome</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dt><code class="code">@defopx <var class="var">categoria</var> <var class="var">classe</var> <var class="var">nome</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dd><p>Formatar uma descrição para uma operação na programação orientada a
+objetos. <code class="code">@defop</code> recebe como argumentos o nome da categoria de
+operação, o nome da classe da operação, o nome da operação e os argumentos
+dela, se existirem. Veja-se <a class="xref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a> e <a class="ref" href="Objetos-Abstratos.html">Programação Orientada a Objetos</a>.
+</p>
+</dd>
+<dt><code class="code">@defopt <var class="var">nome-opção</var></code></dt>
+<dt><code class="code">@defoptx <var class="var">nome-opção</var></code></dt>
+<dd><p>Formatar uma descrição para uma opção de usuário(a); equivalente para
+&lsquo;<samp class="samp">@defvr {Opção de Usuário(a)} &hellip;</samp>&rsquo;. Veja-se <a class="xref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a>.
+</p>
+</dd>
+<dt><code class="code">@defspec <var class="var">nome-forma-especial</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dt><code class="code">@defspecx <var class="var">nome-forma-especial</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dd><p>Formatar uma descrição para uma forma especial; equivalente para
+&lsquo;<samp class="samp">@deffn {Forma Especial} &hellip;</samp>&rsquo;. Veja-se <a class="xref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a>.
+</p>
+</dd>
+<dt><code class="code">@deftp <var class="var">categoria</var> <var class="var">nome-do-tipo</var> <var class="var">atributos</var>&hellip;</code></dt>
+<dt><code class="code">@deftpx <var class="var">categoria</var> <var class="var">nome-do-tipo</var> <var class="var">atributos</var>&hellip;</code></dt>
+<dd><p>Formatar uma descrição para um tipo de dados; os argumentos dela são a
+categoria, o nome do tipo (por exemplo, &lsquo;<samp class="samp">int</samp>&rsquo;) e, em seguida, os nomes
+dos atributos dos objetos desse tipo. Veja-se <a class="xref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a> e
+<a class="ref" href="Tipos-de-Dados.html">Tipos de Dados</a>.
+</p>
+</dd>
+<dt><code class="code">@deftypecv <var class="var">categoria</var> <var class="var">classe</var> <var class="var">tipo-dados</var> <var class="var">nome</var></code></dt>
+<dt><code class="code">@deftypecvx <var class="var">categoria</var> <var class="var">classe</var> <var class="var">tipo-dados</var> <var class="var">nome</var></code></dt>
+<dd><p>Formatar uma descrição para uma variável de classe tipada na programação
+orientada a objetos. Veja-se <a class="xref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a> e <a class="ref" href="Objetos-Abstratos.html">Programação Orientada a Objetos</a>.
+</p>
+</dd>
+<dt><code class="code">@deftypefn <var class="var">categoria</var> <var class="var">tipo-dados</var> <var class="var">nome</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dt><code class="code">@deftypefnx <var class="var">categoria</var> <var class="var">tipo-dados</var> <var class="var">nome</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dd><p>Formatar uma descrição para uma função ou entidade semelhante que possa
+receber argumentos e que seja tipada. <code class="code">@deftypefn</code> recebe como
+argumentos a categoria da entidade sendo descrita, o tipo, o nome da
+entidade e os argumentos dela, se existirem. Veja-se <a class="xref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a>.
+</p>
+</dd>
+<dt><code class="code">@deftypefnnewline <var class="var">ligada-desligada</var></code></dt>
+<dd><p>Especifica se os tipos de retorno para <code class="code">@deftypefn</code> e similares são
+impressos sozinhos nas linhas; o padrão é desligado. Veja-se <a class="xref" href="Fun_00e7_00f5es-Tipadas.html">Funções em Linguagens Tipadas</a>.
+</p>
+</dd>
+<dt><code class="code">@deftypefun <var class="var">tipo-dados</var> <var class="var">nome-função</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dt><code class="code">@deftypefunx <var class="var">tipo-dados</var> <var class="var">nome-função</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dd><p>Formatar uma descrição para uma função em uma linguagem tipada. O comando é
+equivalente para &lsquo;<samp class="samp">@deftypefn Função &hellip;</samp>&rsquo;. Veja-se <a class="xref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a>.
+</p>
+</dd>
+<dt><code class="code">@deftypeivar <var class="var">classe</var> <var class="var">tipo-dados</var> <var class="var">nome-variável</var></code></dt>
+<dt><code class="code">@deftypeivarx <var class="var">classe</var> <var class="var">tipo-dados</var> <var class="var">nome-variável</var></code></dt>
+<dd><p>Formatar uma descrição para uma variável tipada de instância na programação
+orientada a objetos. Veja-se <a class="xref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a> e <a class="ref" href="Objetos-Abstratos.html">Programação Orientada a Objetos</a>.
+</p>
+</dd>
+<dt><code class="code">@deftypeline <var class="var">categoria</var> <var class="var">tipo-dados</var> <var class="var">nome</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dd><p>Usar dentro de um ambiente <code class="code">@defblock</code> para fornecer a linha de
+protótipo de título para um símbolo sendo definido, com tipos de dados. Esse
+comando não cria quaisquer entradas de índice. Veja-se <a class="xref" href="Comandos-Gen_00e9ricos-de-Defini_00e7_00e3o.html">Comandos Genéricos de Definição</a>.
+</p>
+</dd>
+<dt><code class="code">@deftypemethod <var class="var">classe</var> <var class="var">tipo-dados</var> <var class="var">nome-método</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dt><code class="code">@deftypemethodx <var class="var">classe</var> <var class="var">tipo-dados</var> <var class="var">nome-método</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dd><p>Formatar uma descrição para um método tipado na programação orientada a
+objetos. Veja-se <a class="xref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a>.
+</p>
+</dd>
+<dt><code class="code">@deftypeop <var class="var">categoria</var> <var class="var">classe</var> <var class="var">tipo-dados</var> <var class="var">nome</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dt><code class="code">@deftypeopx <var class="var">categoria</var> <var class="var">classe</var> <var class="var">tipo-dados</var> <var class="var">nome</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dd><p>Formatar uma descrição para uma operação tipada na programação orientada a
+objetos. Veja-se <a class="xref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a> e <a class="ref" href="Objetos-Abstratos.html">Programação Orientada a Objetos</a>.
+</p>
+</dd>
+<dt><code class="code">@deftypevar <var class="var">tipo-dados</var> <var class="var">nome-variável</var></code></dt>
+<dt><code class="code">@deftypevarx <var class="var">tipo-dados</var> <var class="var">nome-variável</var></code></dt>
+<dd><p>Formatar uma descrição para uma variável em uma linguagem tipada. O comando
+é equivalente para &lsquo;<samp class="samp">@deftypevr Variável &hellip;</samp>&rsquo;. Veja-se <a class="xref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a>.
+</p>
+</dd>
+<dt><code class="code">@deftypevr <var class="var">categoria</var> <var class="var">tipo-dados</var> <var class="var">nome</var></code></dt>
+<dt><code class="code">@deftypevrx <var class="var">categoria</var> <var class="var">tipo-dados</var> <var class="var">nome</var></code></dt>
+<dd><p>Formatar uma descrição para algo como uma variável em uma linguagem
+tipada–&ndash;uma entidade que registra um valor. Recebe como argumentos a
+categoria da entidade sendo descrita, o tipo e o nome da
+entidade. Veja-se <a class="xref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a>.
+</p>
+</dd>
+<dt><code class="code">@defun <var class="var">nome-função</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dt><code class="code">@defunx <var class="var">nome-função</var> <var class="var">argumentos</var>&hellip;</code></dt>
+<dd><p>Formatar uma descrição para uma função; equivalente para &lsquo;<samp class="samp">@deffn
+Função &hellip;</samp>&rsquo;. Veja-se <a class="xref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a>.
+</p>
+</dd>
+<dt><code class="code">@defvar <var class="var">nome-variável</var></code></dt>
+<dt><code class="code">@defvarx <var class="var">nome-variável</var></code></dt>
+<dd><p>Formatar uma descrição para uma variável; equivalente para &lsquo;<samp class="samp">@defvr
+Variável &hellip;</samp>&rsquo;. Veja-se <a class="xref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a>.
+</p>
+</dd>
+<dt><code class="code">@defvr <var class="var">categoria</var> <var class="var">nome</var></code></dt>
+<dt><code class="code">@defvrx <var class="var">categoria</var> <var class="var">nome</var></code></dt>
+<dd><p>Formatar uma descrição para qualquer tipo de variável. <code class="code">@defvr</code> recebe
+como argumentos a categoria da entidade e o nome da entidade. Veja-se <a class="xref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a>.
+</p>
+</dd>
+<dt><code class="code">@detailmenu</code></dt>
+<dd><p>Marcar a listagem detalhada de nós (opcional) em um menu
+mestre. Veja-se <a class="xref" href="Partes-do-Menu-Mestre.html">Partes de um Menu Mestre</a>.
+</p>
+</dd>
+<dt><code class="code">@dfn{<var class="var">termo</var>}</code></dt>
+<dd><p>Indica o uso introdutório ou definidor de um termo.  Veja-se <a class="xref" href="_0040dfn.html"><code class="code">@dfn</code>{<var class="var">termo</var>}</a>.
+</p>
+</dd>
+<dt><code class="code">@DH{}</code></dt>
+<dt><code class="code">@dh{}</code></dt>
+<dd><p>Gerar a letra islandesa maiúscula e minúscula eth, respectivamente: &ETH;,
+&eth;. Veja-se <a class="xref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+</dd>
+<dt><code class="code">@dircategory <var class="var">partediretório</var></code></dt>
+<dd><p>Especificar uma categoria para o manual. Veja-se <a class="xref" href="Categoria-de-Diret_00f3rio.html">Categoria de Diretório</a>.
+</p>
+</dd>
+<dt><code class="code">@direntry</code></dt>
+<dd><p>Iniciar a entrada do menu do diretório Info para esse arquivo. Emparelhar
+com <code class="code">@end direntry</code>. Veja-se <a class="xref" href="Instalando-Entradas-de-Diret_00f3rio.html">Instalando Arquivos de Diretório Info</a>.
+</p>
+</dd>
+<dt><code class="code">@display</code></dt>
+<dd><p>Iniciar uma espécie de exemplo. Como <code class="code">@example</code> (recuar o texto, não
+preencher), mas não selecionar uma nova fonte. Emparelhar com <code class="code">@end
+display</code>. Veja-se <a class="xref" href="_0040display.html"><code class="code">@display</code>: Exemplos Usando a Fonte de Texto</a>.
+</p>
+</dd>
+<dt><code class="code">@displaymath</code></dt>
+<dd><p>Formatar um bloco de matemática no formato &ldquo;display&rdquo;. Veja-se <a class="xref" href="Inserindo-F_00f3rmulas-Matem_00e1ticas.html">Formatando Expressões Matemáticas</a>.
+</p> 
+</dd>
+<dt><code class="code">@dmn{<var class="var">dimensão</var>}</code></dt>
+<dd><p>Formatar uma unidade de medida, como em 12<span class="dmn">pt</span>. Veja-se <a class="xref" href="_0040dmn.html"><code class="code">@dmn</code>{<var class="var">dimensão</var>}: Formatar uma Dimensão</a>.
+</p>
+</dd>
+<dt><code class="code">@docbook</code></dt>
+<dd><p>Entrar no DocBook completamente. Emparelhar com <code class="code">@end
+docbook</code>. Veja-se <a class="xref" href="Comandos-Brutos-do-Formatador.html">Comandos Brutos do Formatador</a>.
+</p>
+</dd>
+<dt><code class="code">@documentdescription</code></dt>
+<dd><p>Configurar o texto de descrição do documento, incluído na saída gerada
+HTML. Emparelhar com <code class="code">@end
+documentdescription</code>. Veja-se <a class="xref" href="_0040documentdescription.html"><code class="code">@documentdescription</code>: Texto do Sumário</a>.
+</p>
+</dd>
+<dt><code class="code">@documentencoding <var class="var">codificação</var></code></dt>
+<dd><p>Declarar a codificação de entrada como
+<var class="var">codificação</var>. Veja-se <a class="xref" href="_0040documentencoding.html"><code class="code">@documentencoding <var class="var">codificação</var></code>: Configurar Codificação de Entrada</a>.
+</p>
+</dd>
+<dt><code class="code">@documentinfo</code></dt>
+<dd><p>Iniciar o bloco de metadados do documento. Emparelhar com &lsquo;<samp class="samp">@end
+documentinfo</samp>&rsquo;. Veja-se <a class="xref" href="Metadados-de-Documento.html">Metadados do Documento e o Comando <code class="code">@maketitle</code></a>.
+</p>
+</dd>
+<dt><code class="code">@documentlanguage <var class="var">CC</var></code></dt>
+<dd><p>Declarar o idioma do documento como a abreviatura ISO-639 de dois caracteres
+<var class="var">CC</var>. Veja-se <a class="xref" href="_0040documentlanguage.html"><code class="code">@documentlanguage <var class="var">ll</var>[_<var class="var">cc</var>]</code>: Configurar o Idioma do Documento</a>.
+</p>
+</dd>
+<dt><code class="code">@dotaccent{<var class="var">c</var>}</code></dt>
+<dd><p>Gerar um acento de ponto sobre o caractere <var class="var">c</var>, como em
+&#559;. Veja-se <a class="xref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+</dd>
+<dt><code class="code">@dotless{<var class="var">i-ou-j</var>}</code></dt>
+<dd><p>Gerar i sem ponto (&lsquo;&inodot;&rsquo;) e j sem ponto
+(&lsquo;&#567;&rsquo;). Veja-se <a class="xref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+</dd>
+<dt><code class="code">@dots{}</code></dt>
+<dd><p>Gerar reticências, &lsquo;<samp class="samp">&hellip;</samp>&rsquo;. Veja-se <a class="xref" href="_0040dots.html"><code class="code">@dots</code> (&hellip;) e <code class="code">@enddots</code> (<small class="enddots">...</small>)</a>.
+</p>
+</dd>
+<dt><code class="code">@email{<var class="var">endereço</var>[, <var class="var">texto-exibido</var>]}</code></dt>
+<dd><p>Indica um endereço de correio eletrônico.  Veja-se <a class="xref" href="_0040email.html"><code class="code">@email</code>{<var class="var">endereço-correio-eletrônico</var>[, <var class="var">texto-exibido</var>]}</a>.
+</p>
+</dd>
+<dt><code class="code">@emph{<var class="var">texto</var>}</code></dt>
+<dd><p>Enfatizar <var class="var">texto</var>. Veja-se <a class="xref" href="_00canfase.html">Enfatizando Texto</a>.
+</p>
+</dd>
+<dt><code class="code">@end <var class="var">ambiente</var></code></dt>
+<dd><p>Termina <var class="var">ambiente</var>, como em &lsquo;<samp class="samp">@end example</samp>&rsquo;. Veja-se <a class="xref" href="Conven_00e7_00f5es.html#Comandos-de-Formata_00e7_00e3o">comandos @</a>.
+</p>
+</dd>
+<dt><code class="code">@enddots{}</code></dt>
+<dd><p>Gerar reticências no final da frase, como esta: <small class="enddots">...</small>
+Veja-se <a class="xref" href="_0040dots.html"><code class="code">@dots</code> (&hellip;) e <code class="code">@enddots</code> (<small class="enddots">...</small>)</a>.
+</p>
+</dd>
+<dt><code class="code">@enumerate [<var class="var">número-ou-letra</var>]</code></dt>
+<dd><p>Começar uma lista numerada, usando <code class="code">@item</code> para cada
+entrada. Opcionalmente, iniciar lista com <var class="var">número-ou-letra</var>. Emparelhar
+com <code class="code">@end enumerate</code>. Veja-se <a class="xref" href="_0040enumerate.html"><code class="code">@enumerate</code>: Fazendo Uma Lista Numerada ou Com Letras</a>.
+</p>
+</dd>
+<dt><code class="code">@env{<var class="var">variável-de-ambiente</var>}</code></dt>
+<dd><p>Indicar um nome de variável de ambiente, como
+<code class="env">PATH</code>. Veja-se <a class="xref" href="_0040env.html"><code class="code">@env</code>{<var class="var">variável-ambiente</var>}</a>.
+</p>
+</dd>
+<dt><code class="code">@equiv{}</code></dt>
+<dd><p>Indicar para o(a) leitor(a) a equivalência exata de duas formas com um
+glifo: &lsquo;<samp class="samp">&equiv;</samp>&rsquo;. Veja-se <a class="xref" href="_0040equiv.html"><code class="code">@equiv{}</code> (&equiv;): Indicando Equivalência</a>.
+</p>
+</dd>
+<dt><code class="code">@error{}</code></dt>
+<dd><p>Indicar para o(a) leitor(a) com um glifo que o texto seguinte é uma mensagem
+de erro: &lsquo;<samp class="samp">error&rarr;</samp>&rsquo;. Veja-se <a class="xref" href="_0040error.html"><code class="code">@error{}</code> (error&rarr;): Indicando uma Mensagem de Erro</a>.
+</p>
+</dd>
+<dt><code class="code">@errormsg{<var class="var">mensagem</var>}</code></dt>
+<dd><p>Informar <var class="var">mensagem</var> como um erro para erro padrão e saia sem sucesso. Os
+comandos do Texinfo dentro de <var class="var">mensagem</var> são expandidos para texto
+simples. Veja-se <a class="xref" href="Condicionais.html">Texto Condicionalmente Visível</a> e <a class="ref" href="Processadores-Externos-de-Macro.html">Processadores Externos de Macro: Diretivas de Linha</a>.
+</p>
+</dd>
+<dt><code class="code">@euro{}</code></dt>
+<dd><p>Gerar o símbolo da moeda Euro. Veja-se <a class="xref" href="_0040euro.html"><code class="code">@euro</code> (&euro;): Símbolo da Moeda Euro</a>.
+</p>
+</dd>
+<dt><code class="code">@evenfooting [<var class="var">esquerda</var>] @| [<var class="var">centro</var>] @| [<var class="var">direita</var>]</code></dt>
+<dt><code class="code">@evenheading [<var class="var">esquerda</var>] @| [<var class="var">centro</var>] @| [<var class="var">direita</var>]</code></dt>
+<dd><p>Especificar os rodapés das páginas resp. títulos para páginas pares (à
+esquerda). Veja-se <a class="xref" href="Cabe_00e7alhos-Personalizados.html">Como Fazer Teus Próprios
+Cabeçalhos</a>.
+</p>
+</dd>
+<dt><code class="code">@everyfooting [<var class="var">esquerda</var>] @| [<var class="var">centro</var>] @| [<var class="var">direita</var>]</code></dt>
+<dt><code class="code">@everyheading [<var class="var">esquerda</var>] @| [<var class="var">centro</var>] @| [<var class="var">direita</var>]</code></dt>
+<dd><p>Especificar os rodapés das páginas resp. títulos para cada página. Não
+relevante Info. Veja-se <a class="xref" href="Cabe_00e7alhos-Personalizados.html">Como Fazer Teus Próprios
+Cabeçalhos</a>.
+</p>
+</dd>
+<dt><code class="code">@example</code></dt>
+<dd><p>Começar um exemplo. Recuar o texto, não preencher e selecionar uma fonte de
+largura fixa. Emparelhar com <code class="code">@end example</code>. <code class="code">@example</code> aceita
+argumentos opcionais, separados por vírgulas. É recomendado configurar o
+primeiro argumento para o idioma do código de
+exemplo. Veja-se <a class="xref" href="_0040example.html"><code class="code">@example</code>: Texto de Exemplo</a>.
+</p>
+</dd>
+<dt><code class="code">@exampleindent <var class="var">recuo</var></code></dt>
+<dd><p>Recuar ambientes semelhantes a exemplos por <var class="var">recuo</var> número de espaços
+(talvez 0). Veja-se <a class="xref" href="_0040exampleindent.html"><code class="code">@exampleindent</code>: Recuo do Ambiente</a>.
+</p>
+</dd>
+<dt><code class="code">@exclamdown{}</code></dt>
+<dd><p>Gerar um ponto de exclamação invertido. Veja-se <a class="xref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+</dd>
+<dt><code class="code">@exdent <var class="var">linha-do-texto</var></code></dt>
+<dd><p>Remover qualquer recuo que uma linha possa ter. Veja-se <a class="xref" href="_0040exdent.html"><code class="code">@exdent</code>: Desfazendo o Recuo de Uma Linha</a>.
+</p>
+</dd>
+<dt><code class="code">@expansion{}</code></dt>
+<dd><p>Indicar o resultado de uma expansão de macro para o(a) leitor(a) com um
+glifo especial: &lsquo;<samp class="samp">&rarr;</samp>&rsquo;. Veja-se <a class="xref" href="_0040expansion.html"><code class="code">@expansion{}</code> (&rarr;): Indicando uma Expansão</a>.
+</p>
+</dd>
+<dt><code class="code">@file{<var class="var">nomearquivo</var>}</code></dt>
+<dd><p>Realçar o nome de um arquivo, buffer, nó, diretório, entre
+outros. Veja-se <a class="xref" href="_0040file.html"><code class="code">@file</code>{<var class="var">nome-arquivo</var>}</a>.
+</p>
+</dd>
+<dt><code class="code">@finalout</code></dt>
+<dd><p>Evitar que o TeX imprima grandes retângulos pretos de aviso ao lado de
+linhas muito largas. Veja-se <a class="xref" href="hboxes-lotados.html">&ldquo;hboxes&rdquo; lotados</a>.
+</p>
+</dd>
+<dt><code class="code">@findex <var class="var">entrada</var></code></dt>
+<dd><p>Adicionar <var class="var">entrada</var> ao índice de funções. Veja-se <a class="xref" href="Entradas-de-_00cdndice.html">Definindo as Entradas de um Índice</a>.
+</p>
+</dd>
+<dt><code class="code">@firstparagraphindent <var class="var">palavra</var></code></dt>
+<dd><p>Controlar o recuo do primeiro parágrafo depois dos cabeçalhos das seções de
+acordo com <var class="var">palavra</var>, entre &lsquo;none&rsquo; ou
+&lsquo;insert&rsquo;. Veja-se <a class="xref" href="_0040firstparagraphindent.html"><code class="code">@firstparagraphindent</code>: Recuo Depois de Cabeçalhos</a>.
+</p>
+</dd>
+<dt><code class="code">@float</code></dt>
+<dd><p>Ambiente para definir material flutuante. Emparelhar com <code class="code">@end
+float</code>. Veja-se <a class="xref" href="Flutuadores.html">Flutuadores</a>.
+</p>
+</dd>
+<dt><code class="code">@flushleft</code></dt>
+<dt><code class="code">@flushright</code></dt>
+<dd><p>Não preencher texto; deixar (direita) justificar cada linha, deixando a
+extremidade direita (esquerda) irregular. Deixar a fonte como
+está. Emparelhar com <code class="code">@end flushleft</code> (<code class="code">@end
+flushright</code>). Veja-se <a class="xref" href="_0040flushleft-_0040flushright.html"><code class="code">@flushleft</code> e <code class="code">@flushright</code></a>.
+</p>
+</dd>
+<dt><code class="code">@fonttextsize <var class="var">10-11</var></code></dt>
+<dd><p>Mudar o tamanho da fonte do corpo principal na saída
+impressa. Veja-se <a class="xref" href="Fontes.html">Fontes para Impressão</a>.
+</p>
+</dd>
+<dt><code class="code">@footnote{<var class="var">texto-da-notarodapé</var>}</code></dt>
+<dd><p>Inserir uma nota de rodapé, para uma referência que documente ou elucide o
+texto principal. O texto da nota de rodapé é impresso na parte inferior da
+página na saída impressa. Em outros formatos, o texto da nota de rodapé pode
+ser gerado no mesmo nó, em um nó separado ou simplesmente ser marcado como
+sendo texto de nota de rodapé. Veja-se <a class="xref" href="Notas-de-Rodap_00e9.html">Notas de Rodapé</a>.
+</p>
+</dd>
+<dt><code class="code">@footnotestyle <var class="var">estilo</var></code></dt>
+<dd><p>Especificar um estilo de nota de rodapé, &lsquo;<samp class="samp">end</samp>&rsquo; para o estilo do nó
+final ou &lsquo;<samp class="samp">separate</samp>&rsquo; para o estilo separado. No estilo separado, as
+notas de rodapé são colocadas em um nó ou arquivo separado. Veja-se <a class="xref" href="Estilos-de-Notas-de-Rodap_00e9.html">Estilos de Notas de Rodapé</a>.
+</p>
+</dd>
+<dt><code class="code">@format</code></dt>
+<dd><p>Começar uma espécie de exemplo. Como <code class="code">@display</code>, mas não
+recuar. Emparelhar com <code class="code">@end format</code>. Veja-se <a class="xref" href="_0040example.html"><code class="code">@example</code>: Texto de Exemplo</a>.
+</p>
+</dd>
+<dt><code class="code">@frenchspacing <var class="var">ligado-desligado</var></code></dt>
+<dd><p>Controlar espaçamento depois de pontuação. Veja-se <a class="xref" href="_0040frenchspacing.html"><code class="code">@frenchspacing</code> <var class="var">val</var>: Espaçamento de Controle de Frase</a>.
+</p>
+</dd>
+<dt><code class="code">@ftable <var class="var">comando-formatação</var></code></dt>
+<dd><p>Começar uma tabela de duas colunas, usando <code class="code">@item</code> para cada
+entrada. Inserir automaticamente cada um dos itens da primeira coluna no
+índice de funções. Emparelhar com <code class="code">@end ftable</code>. O mesmo que
+<code class="code">@table</code>, exceto pela indexação. Veja-se <a class="xref" href="_0040ftable-_0040vtable.html"><code class="code">@ftable</code> e <code class="code">@vtable</code></a>.
+</p>
+</dd>
+<dt><code class="code">@geq{}</code></dt>
+<dd><p>Gerar um sinal de maior que ou igual a, &lsquo;&ge;&rsquo;. Veja-se <a class="xref" href="_0040geq-_0040leq.html"><code class="code">@geq</code> (&ge;) e <code class="code">@leq</code> (&le;): Inserindo Relações</a>.
+</p>
+</dd>
+<dt><code class="code">@group</code></dt>
+<dd><p>Proibir quebras de página dentro do texto seguinte. Emparelhar com
+<code class="code">@end group</code>. Ignorado no Info. Veja-se <a class="xref" href="_0040group.html"><code class="code">@group</code>: Impedir Quebras de Página</a>.
+</p>
+</dd>
+<dt><code class="code">@guillemetleft{}</code></dt>
+<dt><code class="code">@guillemetright{}</code></dt>
+<dt><code class="code">@guillemotleft{}</code></dt>
+<dt><code class="code">@guillemotright{}</code></dt>
+<dt><code class="code">@guilsinglleft{}</code></dt>
+<dt><code class="code">@guilsinglright{}</code></dt>
+<dd><p>Aspas duplas e simples: &laquo; &raquo; &lsaquo;
+&rsaquo;. <code class="code">@guillemotleft</code> e <code class="code">@guillemotright</code> são
+sinônimos para <code class="code">@guillemetleft</code> e
+<code class="code">@guillemetright</code>. Veja-se <a class="xref" href="Inserindo-Aspas.html">Inserindo Aspas</a>.
+</p>
+</dd>
+<dt><code class="code">@H{<var class="var">c</var>}</code></dt>
+<dd><p>Gerar o longo acento húngaro sobre <var class="var">c</var>, como em &#337;.
+</p>
+</dd>
+<dt><code class="code">@hashchar{}</code></dt>
+<dd><p>Inserir um caractere cerquilha &lsquo;#&rsquo;; necessário somente quando uma cerquilha
+literal introduzisse a diretiva <code class="code">#line</code>. Veja-se <a class="xref" href="Inserindo-um-S_00edmbolo-Cerquilha.html">Inserindo &lsquo;#&rsquo; com <code class="code">@hashchar{}</code></a> e <a class="ref" href="Processadores-Externos-de-Macro.html">Processadores Externos de Macro: Diretivas de Linha</a>.
+</p>
+</dd>
+<dt><code class="code">@heading <var class="var">título</var></code></dt>
+<dd><p>Imprimir um título semelhante a uma seção não numerada, mas omitir do
+sumário. Veja-se <a class="xref" href="_0040unnumberedsec-_0040appendixsec-_0040heading.html"><code class="code">@unnumberedsec</code>, <code class="code">@appendixsec</code>, <code class="code">@heading</code></a>.
+</p>
+</dd>
+<dt><code class="code">@headings <var class="var">ligado-desligado-simples-duplo</var></code></dt>
+<dd><p>Ligar ou desligar cabeçalhos de página, e(ou) especificar cabeçalhos de
+página de um lado ou de dois lados para impressão. Veja-se <a class="xref" href="_0040headings.html">O Comando <code class="code">@headings</code></a>.
+</p>
+</dd>
+<dt><code class="code">@headitem</code></dt>
+<dd><p>Começar uma linha de cabeçalho em uma tabela múltipla. Veja-se <a class="xref" href="Linhas-de-Multi-Tabelas.html">Linhas de Multi Tabelas</a>.
+</p>
+</dd>
+<dt><code class="code">@headitemfont{<var class="var">texto</var>}</code></dt>
+<dd><p>Configurar <var class="var">texto</var> na fonte usada para linhas de cabeçalho de múltiplas
+tabelas; principalmente útil em modelos de multitabelas. Veja-se <a class="xref" href="Linhas-de-Multi-Tabelas.html">Linhas de Multi Tabelas</a>.
+</p>
+</dd>
+<dt><code class="code">@html</code></dt>
+<dd><p>Inserir HTML completamente. Emparelhar com <code class="code">@end html</code>. Veja-se <a class="xref" href="Comandos-Brutos-do-Formatador.html">Comandos Brutos do Formatador</a>.
+</p>
+</dd>
+<dt><code class="code">@hyphenation{<var class="var">palavras hi-fe-na-das</var>}</code></dt>
+<dd><p>Definir explicitamente pontos de hifenização. Veja-se <a class="xref" href="_0040_002d-_0040hyphenation.html"><code class="code">@-</code> e <code class="code">@hyphenation</code>: Hifenização em Saída Impressa</a>.
+</p>
+</dd>
+<dt><code class="code">@i{<var class="var">texto</var>}</code></dt>
+<dd><p>Configurar <var class="var">texto</var> em uma fonte <i class="i">itálica</i>, quando
+possível. Veja-se <a class="xref" href="Fontes.html">Fontes para Impressão</a>.
+</p>
+</dd>
+<dt><code class="code">@ifclear <var class="var">variáveltexi</var></code></dt>
+<dd><p>Se a variável Texinfo <var class="var">variáveltexi</var> não estiver configurada, formatar o
+texto a seguir. Emparelhar com <code class="code">@end ifclear</code>. Veja-se <a class="xref" href="_0040set-_0040clear-_0040value.html">Sinalizadores: <code class="code">@set</code>, <code class="code">@clear</code>, condicionais e <code class="code">@value</code></a>.
+</p>
+</dd>
+<dt><code class="code">@ifcommanddefined <var class="var">comandotexi</var></code></dt>
+<dt><code class="code">@ifcommandnotdefined <var class="var">comandotexi</var></code></dt>
+<dd><p>Se o código Texinfo &lsquo;<samp class="samp">@<var class="var">comandotexi</var></samp>&rsquo; (não) estiver definido,
+formatar o texto a seguir. Emparelhar com o <code class="code">@end secomando...</code>
+correspondente. Veja-se <a class="xref" href="Testagem-para-Comandos-do-Texinfo.html">Testagem para Comandos do Texinfo: <code class="code">@ifcommanddefined</code>, <code class="code">@ifcommandnotdefined</code></a>.
+</p>
+</dd>
+<dt><code class="code">@ifdocbook</code></dt>
+<dt><code class="code">@ifhtml</code></dt>
+<dt><code class="code">@ifinfo</code></dt>
+<dt><code class="code">@iflatex</code></dt>
+<dt><code class="code">@ifplaintext</code></dt>
+<dt><code class="code">@ifxml</code></dt>
+<dd><p>Iniciar texto que aparecerá somente no formato de saída fornecido. A saída
+<code class="code">@ifinfo</code> aparece em ambas as saídas geradas, Info e (para
+compatibilidade histórica) texto simples. Emparelhar com <code class="code">@end
+ifdocbook</code> resp. <code class="code">@end ifhtml</code><small class="enddots">...</small> Veja-se <a class="xref" href="Condicionais.html">Texto Condicionalmente Visível</a>.
+</p>
+</dd>
+<dt><code class="code">@ifnotdocbook</code></dt>
+<dt><code class="code">@ifnothtml</code></dt>
+<dt><code class="code">@ifnotlatex</code></dt>
+<dt><code class="code">@ifnotplaintext</code></dt>
+<dt><code class="code">@ifnottex</code></dt>
+<dt><code class="code">@ifnotxml</code></dt>
+<dd><p>Começar texto para ser ignorado em um formato de saída, mas não nos
+outros. O texto <code class="code">@ifnothtml</code> é omitido da saída HTML, entre
+outras. Emparelhar com o <code class="code">@end ifnot<var class="var">formato</var></code>
+correspondente. Veja-se <a class="xref" href="Condicionais.html">Texto Condicionalmente Visível</a>.
+</p>
+</dd>
+<dt><code class="code">@ifnotinfo</code></dt>
+<dd><p>Começar texto para aparecer na saída diferente da Info e (para
+compatibilidade histórica) texto simples. Emparelhar com <code class="code">@end
+ifnotinfo</code>. Veja-se <a class="xref" href="Condicionais.html">Texto Condicionalmente Visível</a>.
+</p>
+</dd>
+<dt><code class="code">@ifset <var class="var">variáveltexi</var></code></dt>
+<dd><p>Se a variável Texinfo <var class="var">variáveltexi</var> estiver configurada, formatar o
+texto a seguir. Emparelhar com <code class="code">@end ifset</code>. Veja-se <a class="xref" href="_0040set-_0040clear-_0040value.html">Sinalizadores: <code class="code">@set</code>, <code class="code">@clear</code>, condicionais e <code class="code">@value</code></a>.
+</p>
+</dd>
+<dt><code class="code">@iftex</code></dt>
+<dd><p>Começar texto para aparecer somente na saída do TeX. Emparelhar com
+<code class="code">@end iftex</code>. Veja-se <a class="xref" href="Condicionais.html">Texto Condicionalmente Visível</a>.
+</p>
+</dd>
+<dt><code class="code">@ignore</code></dt>
+<dd><p>Iniciar texto que não aparecerá em nenhuma saída gerada. Emparelhar com
+<code class="code">@end ignore</code>. Veja-se <a class="xref" href="Coment_00e1rios.html">Comentários e Texto Ignorado</a>.
+</p>
+</dd>
+<dt><code class="code">@image{<var class="var">nomearquivo</var>, [<var class="var">largura</var>], [<var class="var">altura</var>], [<var class="var">alt</var>], [<var class="var">ext</var>]}</code></dt>
+<dd><p>Incluir imagem gráfica em <var class="var">nomearquivo</var> externo dimensionado para
+<var class="var">largura</var> e(ou) <var class="var">altura</var> fornecidos, usando texto <var class="var">alt</var> e
+procurando por &lsquo;<samp class="samp"><var class="var">nomearquivo</var>.<var class="var">ext</var></samp>&rsquo; no HTML. Veja-se <a class="xref" href="Imagens.html">Inserindo Imagens</a>.
+</p>
+</dd>
+<dt><code class="code">@include <var class="var">nomearquivo</var></code></dt>
+<dd><p>Ler o conteúdo do arquivo fonte do Texinfo <var class="var">nomearquivo</var>. Veja-se <a class="xref" href="Arquivos-de-Inclus_00e3o.html">Arquivos de Inclusão</a>.
+</p>
+</dd>
+<dt><code class="code">@indent</code></dt>
+<dd><p>Inserir recuo de parágrafo. Veja-se <a class="xref" href="_0040indent.html"><code class="code">@indent</code>: Forçando Recuo</a>.
+</p>
+</dd>
+<dt><code class="code">@indentedblock</code></dt>
+<dd><p>Recuar um bloco de texto arbitrário à esquerda. Emparelhar com <code class="code">@end
+indentedblock</code>. Veja-se <a class="xref" href="_0040indentedblock.html"><code class="code">@indentedblock</code>: Blocos recuados de texto</a>.
+</p>
+</dd>
+<dt><code class="code">@indicateurl{<var class="var">indicarurl</var>}</code></dt>
+<dd><p>Indicar texto que é um localizador uniforme de recursos para a World Wide
+Web. Veja-se <a class="xref" href="_0040indicateurl.html"><code class="code">@indicateurl</code>{<var class="var">localizador-uniforme-de-recurso</var>}</a>.
+</p>
+</dd>
+<dt><code class="code">@inforef{<var class="var">nome-nó</var>, [<var class="var">nome-entrada</var>], <var class="var">nome-arquivo-info</var>}</code></dt>
+<dd><p>Fazer uma referência cruzada para um arquivo Info para o qual não existe
+manual impresso. Veja-se <a class="xref" href="_0040inforef.html"><code class="code">@inforef</code>: Referências cruzadas para material unicamente Info</a>.
+</p>
+</dd>
+<dt><code class="code">@inlinefmt{<var class="var">formato</var>, <var class="var">texto</var>}</code></dt>
+<dd><p>Inserir <var class="var">texto</var> somente se o formato da saída gerada for
+<var class="var">formato</var>. Veja-se <a class="xref" href="Condicionais-Inline.html">Condicionais Inline: <code class="code">@inline</code>, <code class="code">@inlineifelse</code>, <code class="code">@inlineraw</code></a>.
+</p>
+</dd>
+<dt><code class="code">@inlinefmtifelse{<var class="var">formato</var>, <var class="var">texto</var>, <var class="var">texto-senão</var>}</code></dt>
+<dd><p>Inserir <var class="var">texto</var> se o formato da saída gerada for <var class="var">formato</var>, caso
+contrário, <var class="var">texto-senão</var>.
+</p>
+</dd>
+<dt><code class="code">@inlineifclear{<var class="var">variável</var>, <var class="var">texto</var>}</code></dt>
+<dt><code class="code">@inlineifset{<var class="var">variável</var>, <var class="var">texto</var>}</code></dt>
+<dd><p>Inserir <var class="var">texto</var> somente se a variável Texinfo <var class="var">variável</var> (não)
+estiver configurada.
+</p>
+</dd>
+<dt><code class="code">@inlineraw{<var class="var">formato</var>, <var class="var">texto-bruto</var>}</code></dt>
+<dd><p>Inserir <var class="var">texto</var> como em uma condicional bruta, somente se o formato da
+saída gerada for <var class="var">formato</var>.
+</p>
+</dd>
+<dt><code class="code">\input <var class="var">arquivo-definições-macro</var></code></dt>
+<dd><p>Usar o arquivo de definições de macro especificado. Esse comando é usado
+somente na primeira linha de um arquivo Texinfo para fazer com que TeX
+faça uso do arquivo de definições de macro <samp class="file">texinfo</samp>. A <code class="code">\</code> em
+<code class="code">\input</code> é usada em vez de um <code class="code">@</code> porque TeX não reconhece
+<code class="code">@</code> até depois que tiver lido o arquivo de definições. Veja-se <a class="xref" href="Cabe_00e7alho-do-Arquivo-do-Texinfo.html">Cabeçalho do Arquivo do Texinfo</a>.
+</p>
+</dd>
+<dt><code class="code">@insertcopying</code></dt>
+<dd><p>Inserir o texto previamente definido com o ambiente
+<code class="code">@copying</code>. Veja-se <a class="xref" href="_0040insertcopying.html"><code class="code">@insertcopying</code>: Incluir Texto de Permissões</a>.
+</p>
+</dd>
+<dt><code class="code">@item</code></dt>
+<dd><p>Indicar o início de um parágrafo marcado para <code class="code">@itemize</code> e
+<code class="code">@enumerate</code>; indicar o início do texto de uma entrada da primeira
+coluna para <code class="code">@table</code>, <code class="code">@ftable</code> e <code class="code">@vtable</code>. Veja-se <a class="xref" href="Listas-e-Tabelas.html">Listas e Tabelas</a>.
+</p>
+</dd>
+<dt><code class="code">@itemize <var class="var">marca-gerando-caractere-ou-comando</var></code></dt>
+<dd><p>Começar uma lista desordenada: parágrafos recuados com uma marca, tal como
+<code class="code">@bullet</code>, dentro da margem esquerda no início de cada
+item. Emparelhar com <code class="code">@end itemize</code>. Veja-se <a class="xref" href="_0040itemize.html"><code class="code">@itemize</code>: Construindo Uma Lista de Itens</a>.
+</p>
+</dd>
+<dt><code class="code">@itemx</code></dt>
+<dd><p>Como <code class="code">@item</code> em <code class="code">@table</code>, <code class="code">@ftable</code> e <code class="code">@vtable</code>,
+porém não gerar espaço vertical extra acima do texto do item. Assim, quando
+vários itens tiverem a mesma descrição, usar <code class="code">@item</code> para o primeiro e
+<code class="code">@itemx</code> para os demais. Veja-se <a class="xref" href="_0040itemx.html"><code class="code">@itemx</code>: Segundo e Itens Subsequentes</a>.
+</p>
+</dd>
+<dt><code class="code">@kbd{<var class="var">caracteres-de-teclado</var>}</code></dt>
+<dd><p>Indicar caracteres de entrada a serem digitados por
+usuários(as). Veja-se <a class="xref" href="_0040kbd.html"><code class="code">@kbd</code>{<var class="var">caracteres-de-teclado</var>}</a>.
+</p>
+</dd>
+<dt><code class="code">@kbdinputstyle <var class="var">estilo</var></code></dt>
+<dd><p>Especificar quando <code class="code">@kbd</code> deveria usar uma fonte distinta da de
+<code class="code">@code</code> de acordo com <var class="var">estilo</var>: <code class="code">code</code>, <code class="code">distinct</code>,
+<code class="code">example</code>. Veja-se <a class="xref" href="_0040kbd.html"><code class="code">@kbd</code>{<var class="var">caracteres-de-teclado</var>}</a>.
+</p>
+</dd>
+<dt><code class="code">@key{<var class="var">nome-de-tecla</var>}</code></dt>
+<dd><p>Indicar o nome de uma tecla em um teclado. Veja-se <a class="xref" href="_0040key.html"><code class="code">@key</code>{<var class="var">nome-tecla</var>}</a>.
+</p>
+</dd>
+<dt><code class="code">@kindex <var class="var">entrada</var></code></dt>
+<dd><p>Adicionar <var class="var">entrada</var> ao índice de chaves. Veja-se <a class="xref" href="Entradas-de-_00cdndice.html">Definindo as Entradas de um Índice</a>.
+</p>
+</dd>
+<dt><code class="code">@L{}</code></dt>
+<dt><code class="code">@l{}</code></dt>
+<dd><p>Gerar as letras L suprimidas em polonês maiúsculo e minúsculo,
+respectivamente: &#321;, &#322;.
+</p>
+</dd>
+<dt><code class="code">@LaTeX{}</code></dt>
+<dd><p>Gerar a logomarca do LaTeX. Veja-se <a class="xref" href="_0040LaTeX-do-_0040TeX.html"><code class="code">@TeX</code>{} (TeX) e <code class="code">@LaTeX</code>{} (LaTeX)</a>.
+</p>
+</dd>
+<dt><code class="code">@latex</code></dt>
+<dd><p>Entrar no LaTeX completamente. Emparelhar com <code class="code">@end
+latex</code>. Veja-se <a class="xref" href="Comandos-Brutos-do-Formatador.html">Comandos Brutos do Formatador</a>.
+</p>
+</dd>
+<dt><code class="code">@leq{}</code></dt>
+<dd><p>Gerar um sinal de menor que ou igual a, &lsquo;&le;&rsquo;. Veja-se <a class="xref" href="_0040geq-_0040leq.html"><code class="code">@geq</code> (&ge;) e <code class="code">@leq</code> (&le;): Inserindo Relações</a>.
+</p>
+</dd>
+<dt><code class="code">@linemacro <var class="var">nomemacro</var> {<var class="var">parâmetros</var>}</code></dt>
+<dd><p>Definir uma nova macro que receba o restante da linha como argumento e se
+expanda para um número inteiro de linhas completas. Veja-se <a class="xref" href="Macros-de-Linha.html">Macros de Linha</a>.
+</p>
+</dd>
+<dt><code class="code">@link{<var class="var">nomenó</var>, <var class="var">rótulo</var>, <var class="var">nome-manual</var>}</code></dt>
+<dd><p>Criar um linque simples sem marcação visível ou referência de
+página. Veja-se <a class="xref" href="_0040link.html"><code class="code">@link</code>: Simples, hiperlink desadornado</a>.
+</p>
+</dd>
+<dt><code class="code">@lisp</code></dt>
+<dd><p>Começar um exemplo de código Lisp. Recuar texto, não preencher, e selecionar
+fonte de largura fixa. Emparelhar com <code class="code">@end
+lisp</code>. Veja-se <a class="xref" href="_0040lisp.html"><code class="code">@lisp</code>: Marcando um Exemplo da Lisp</a>.
+</p>
+</dd>
+<dt><code class="code">@listoffloats</code></dt>
+<dd><p>Produzir uma listagem de <code class="code">@float</code>s, semelhante a um
+sumário. Veja-se <a class="xref" href="_0040listoffloats.html"><code class="code">@listoffloats</code>: Sumários para Flutuadores</a>.
+</p>
+</dd>
+<dt><code class="code">@lowersections</code></dt>
+<dd><p>Mudar capítulos subsequentes para seções, seções para subseções e assim por
+diante. Veja-se <a class="xref" href="Elevar_002frebaixar-se_00e7_00f5es.html"><code class="code">@raisesections</code> e
+<code class="code">@lowersections</code></a>.
+</p>
+</dd>
+<dt><code class="code">@macro <var class="var">nomemacro</var> {<var class="var">parâmetros</var>}</code></dt>
+<dd><p>Definir um novo comando Texinfo
+<code class="code">@<var class="var">nomemacro</var>{<var class="var">parâmetros</var>}</code>. Emparelhar com <code class="code">@end
+macro</code>. Veja-se <a class="xref" href="Definindo-Macros.html">Definindo Macros</a>.
+</p>
+</dd>
+<dt><code class="code">@maketitle</code></dt>
+<dd><p>Gerar uma página de título e, possivelmente, também a página
+seguinte. Veja-se <a class="xref" href="Metadados-de-Documento.html">Metadados do Documento e o Comando <code class="code">@maketitle</code></a>.
+</p>
+</dd>
+<dt><code class="code">@majorheading <var class="var">título</var></code></dt>
+<dd><p>Imprimir um título semelhante a um capítulo sem numeração, mas omitir do
+sumário. Isso gera mais espaços em branco verticais antes do título que o
+comando <code class="code">@chapheading</code>. Veja-se <a class="xref" href="_0040majorheading-_0040chapheading.html"><code class="code">@majorheading</code>, <code class="code">@chapheading</code>: Cabeçalhos de Nível de Capítulo</a>.
+</p>
+</dd>
+<dt><code class="code">@math{<var class="var">expressão-matemática</var>}</code></dt>
+<dd><p>Formatar uma expressão matemática. Veja-se <a class="xref" href="Inserindo-F_00f3rmulas-Matem_00e1ticas.html">Formatando Expressões Matemáticas</a>. 
+</p>
+</dd>
+<dt><code class="code">@menu</code></dt>
+<dd><p>Marcar o início de um menu de nós. Nenhum efeito em um manual
+impresso. Emparelhar com <code class="code">@end menu</code>. Veja-se <a class="xref" href="Menus.html">Menus</a>.
+</p>
+</dd>
+<dt><code class="code">@microtype <var class="var">ligada-desligada</var></code></dt>
+<dd><p>Ative ou desative microtipo. Veja-se <a class="xref" href="Microtipografia.html">Microtipografia</a>.
+</p>
+</dd>
+<dt><code class="code">@minus{}</code></dt>
+<dd><p>Gerar um sinal de menos, &lsquo;&minus;&rsquo;. Veja-se <a class="xref" href="_0040minus.html"><code class="code">@minus</code> (&minus;): Inserindo um Sinal de Menos</a>.
+</p>
+</dd>
+<dt><code class="code">@multitable <var class="var">especificação-largura-coluna</var></code></dt>
+<dd><p>Começar uma tabela com várias colunas. Começar cada linha com <code class="code">@item</code>
+ou <code class="code">@headitem</code> e separar colunas com <code class="code">@tab</code>. Emparelhar com
+<code class="code">@end multitable</code>. Veja-se <a class="xref" href="Larguras-de-Colunas-de-Multi-Tabelas.html">Larguras de Colunas de Multi Tabelas</a>.
+</p>
+</dd>
+<dt><code class="code">@namedanchor{<var class="var">nome-âncora</var>, <var class="var">nome-xref</var>}</code></dt>
+<dd><p>Definir um alvo para uma referência cruzada. Veja-se <a class="xref" href="_0040anchor.html"><code class="code">@anchor</code>: Definindo Alvos Arbitrários de Referências Cruzadas</a>.
+</p>
+</dd>
+<dt><code class="code">@need <var class="var">n</var></code></dt>
+<dd><p>Iniciar uma nova página em um manual impresso se menos que <var class="var">n</var> mils
+(milésimos de polegada) restarem na página atual. Veja-se <a class="xref" href="_0040need.html"><code class="code">@need <var class="var">mils</var></code>: Impedir Quebras de Página</a>.
+</p>
+</dd>
+<dt><code class="code">@node <var class="var">nome</var>, [<var class="var">próximo</var>], [<var class="var">anterior</var>], [<var class="var">acima</var>]</code></dt>
+<dd><p>Começar um novo nó. Somente o primeiro argumento é
+obrigatório. Veja-se <a class="xref" href="Escrevendo-um-N_00f3.html">Escrevendo uma Linha de <code class="code">@node</code></a>.
+</p>
+</dd>
+<dt><code class="code">@nodedescription <var class="var">descrição-nó</var></code></dt>
+<dd><p>Fornecer uma breve elaboração da finalidade de um nó. Veja-se <a class="xref" href="Descri_00e7_00f5es-de-N_00f3.html">Descrições de Nó</a>.
+</p>
+</dd>
+<dt><code class="code">@nodedescriptionblock</code></dt>
+<dd><p>Emparelhar com &lsquo;<samp class="samp">@end nodedescriptionblock</samp>&rsquo;. Usado para iniciar uma
+descrição mais longa de nó. Veja-se <a class="xref" href="Descri_00e7_00f5es-de-N_00f3.html">Descrições de Nó</a>.
+</p>
+</dd>
+<dt><code class="code">@noindent</code></dt>
+<dd><p>Evitar que o texto seja recuado como se fosse um novo
+parágrafo. Veja-se <a class="xref" href="_0040noindent.html"><code class="code">@noindent</code>: Omitindo Recuo</a>.
+</p>
+</dd>
+<dt><code class="code">@novalidate</code></dt>
+<dd><p>Suprimir validação de referências de nós e omitir criação de arquivos
+auxiliares com TeX. Usar antes de quaisquer comandos de seccionamento ou
+de referência cruzada. Veja-se <a class="xref" href="Invocando-texi2any.html#Valida_00e7_00e3o-de-Ponteiro">Validação de Ponteiro</a>.
+</p>
+</dd>
+<dt><code class="code">@O{}</code></dt>
+<dt><code class="code">@o{}</code></dt>
+<dd><p>Gerar as letras maiúsculas e minúsculas O com barra, respectivamente: &Oslash;,
+&oslash;.
+</p>
+</dd>
+<dt><code class="code">@oddfooting [<var class="var">esquerda</var>] @| [<var class="var">centro</var>] @| [<var class="var">direita</var>]</code></dt>
+<dt><code class="code">@oddheading [<var class="var">esquerda</var>] @| [<var class="var">centro</var>] @| [<var class="var">direita</var>]</code></dt>
+<dd><p>Especificar rodapés de páginas resp. títulos para páginas ímpares (à
+direita). Veja-se <a class="xref" href="Cabe_00e7alhos-Personalizados.html">Como Fazer Teus Próprios
+Cabeçalhos</a>.
+</p>
+</dd>
+<dt><code class="code">@OE{}</code></dt>
+<dt><code class="code">@oe{}</code></dt>
+<dd><p>Gerar as ligaduras OE maiúsculas e minúsculas, respectivamente: &OElig;,
+&oelig;. Veja-se <a class="xref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+</dd>
+<dt><code class="code">@ogonek{<var class="var">c</var>}</code></dt>
+<dd><p>Gerar um diacrítico ogonek sob o próximo caractere, como em
+&#261;. Veja-se <a class="xref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+</dd>
+<dt><code class="code">@option{<var class="var">nome-opção</var>}</code></dt>
+<dd><p>Indicar uma opção de linha de comando, como <samp class="option">-l</samp> ou em
+<samp class="option">--help</samp>. Veja-se <a class="xref" href="_0040option.html"><code class="code">@option</code>{<var class="var">nome-opção</var>}</a>.
+</p>
+</dd>
+<dt><code class="code">@ordf{}</code></dt>
+<dt><code class="code">@ordm{}</code></dt>
+<dd><p>Gerar os ordinais espanhóis femininos e masculinos, respectivamente:
+&ordf;, &ordm;. Veja-se <a class="xref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+</dd>
+<dt><code class="code">@page</code></dt>
+<dd><p>Começar uma nova página em um manual impresso. Veja-se <a class="xref" href="_0040page.html"><code class="code">@page</code>: Comece uma Nova Página</a>.
+</p>
+</dd>
+<dt><code class="code">@pagesizes [<var class="var">largura</var>][, <var class="var">altura</var>]</code></dt>
+<dd><p>Mudar dimensões de página. Veja-se <a class="xref" href="_0040pagesizes.html#pagesizes">pagesizes</a>.
+</p>
+</dd>
+<dt><code class="code">@paragraphindent <var class="var">recuo</var></code></dt>
+<dd><p>Recuar parágrafos por <var class="var">recuo</var> número de espaços (talvez 0); preservar
+recuo do arquivo de origem se <var class="var">recuo</var> for
+<code class="code">asis</code>. Veja-se <a class="xref" href="_0040paragraphindent.html"><code class="code">@paragraphindent</code>: Controlando Recuo do Parágrafo</a>.
+</p>
+</dd>
+<dt><code class="code">@part <var class="var">título</var></code></dt>
+<dd><p>Começar um grupo de capítulos ou de apêndices; incluído no
+sumário. Veja-se <a class="xref" href="_0040part.html"><code class="code">@part</code>: Grupos de Capítulos</a>.
+</p>
+</dd>
+<dt><code class="code">@pindex <var class="var">entrada</var></code></dt>
+<dd><p>Adicionar <var class="var">entrada</var> ao índice de programas. Veja-se <a class="xref" href="Entradas-de-_00cdndice.html">Definindo as Entradas de um Índice</a>.
+</p>
+</dd>
+<dt><code class="code">@publication</code></dt>
+<dd><p>Iniciar informações acerca da publicação do documento. Emparelhar com
+&lsquo;<samp class="samp">@end publicação</samp>&rsquo;. Veja-se <a class="xref" href="Metadados-de-Documento.html">Metadados do Documento e o Comando <code class="code">@maketitle</code></a>.
+</p>
+</dd>
+<dt><code class="code">@point{}</code></dt>
+<dd><p>Indicar a posição do ponto em um buffer para o(a) leitor(a) com um glifo:
+&lsquo;<samp class="samp">&lowast;</samp>&rsquo;. Veja-se <a class="xref" href="_0040point.html"><code class="code">@point{}</code> (&lowast;): Indicando Ponto em um Buffer</a>.
+</p>
+</dd>
+<dt><code class="code">@pounds{}</code></dt>
+<dd><p>Gerar o símbolo da libra esterlina,
+&lsquo;<samp class="samp">&pound;</samp>&rsquo;. Veja-se <a class="xref" href="_0040pounds.html"><code class="code">@pounds</code> (&pound;): Libras Esterlinas</a>.
+</p>
+</dd>
+<dt><code class="code">@print{}</code></dt>
+<dd><p>Indicar saída impressa para o(a) leitor(a) com um glifo:
+&lsquo;<samp class="samp">&#8867;</samp>&rsquo;. Veja-se <a class="xref" href="_0040print.html"><code class="code">@print{}</code> (&#8867;): Indicando Saída Gerada</a>.
+</p>
+</dd>
+<dt><code class="code">@printindex <var class="var">nome-índice</var></code></dt>
+<dd><p>Gerar o índice para <var class="var">nome-índice</var>. Veja-se <a class="xref" href="Imprimindo-_00cdndices-e-Menus.html">Imprimindo Índices e Menus</a>.
+</p>
+</dd>
+<dt><code class="code">@pxref{<var class="var">nó</var>, [<var class="var">entrada</var>], [<var class="var">título-nó</var>], [<var class="var">arquivo-info</var>], [<var class="var">manual-impresso</var>]}</code></dt>
+<dd><p>Fazer uma referência para ser usada entre parênteses. Começa com um
+&lsquo;veja-se&rsquo; minúsculo em um manual impresso. O primeiro argumento é
+obrigatório, exceto para referências para manuais inteiros. Para se referir
+a outro manual como um todo, o <var class="var">manual-impresso</var> e(ou) o
+<var class="var">arquivo-info</var> são os únicos argumentos exigidos. Veja-se <a class="xref" href="_0040pxref.html"><code class="code">@pxref</code></a>.
+</p>
+</dd>
+<dt><code class="code">@questiondown{}</code></dt>
+<dd><p>Gerar um ponto de interrogação invertido. Veja-se <a class="xref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+</dd>
+<dt><code class="code">@quotation</code></dt>
+<dd><p>Estreitar as margens para indicar texto que seja citado a partir de outra
+obra. Recebe argumento opcional especificando texto do prefixo. Emparelhar
+com <code class="code">@end quotation</code>. Veja-se <a class="xref" href="_0040quotation.html"><code class="code">@quotation</code>: Citações de Bloco</a>.
+</p>
+</dd>
+<dt><code class="code">@quotedblleft{}</code></dt>
+<dt><code class="code">@quotedblright{}</code></dt>
+<dt><code class="code">@quoteleft{}</code></dt>
+<dt><code class="code">@quoteright{}</code></dt>
+<dt><code class="code">@quotedblbase{}</code></dt>
+<dt><code class="code">@quotesinglbase{}</code></dt>
+<dd><p>Produzir várias aspas: &ldquo; &rdquo; &lsquo;
+&rsquo; &bdquo; &sbquo;. Veja-se <a class="xref" href="Inserindo-Aspas.html">Inserindo Aspas</a>.
+</p>
+</dd>
+<dt><code class="code">@r{<var class="var">texto</var>}</code></dt>
+<dd><p>Configurar <var class="var">texto</var> na fonte <span class="r">romana</span> normal, se
+possível. Veja-se <a class="xref" href="Fontes.html">Fontes para Impressão</a>.
+</p>
+</dd>
+<dt><code class="code">@raggedright</code></dt>
+<dd><p>Preencher texto; justifique cada linha à esquerda, deixando a extremidade
+direita irregular. Deixar fonte como está. Emparelhar com <code class="code">@end
+raggedright</code>. Veja-se <a class="xref" href="_0040raggedright.html"><code class="code">@raggedright</code>: Texto Irregular à Direita</a>.
+</p>
+</dd>
+<dt><code class="code">@raisesections</code></dt>
+<dd><p>Mudar seções subsequentes para capítulos, subseções para seções e assim por
+diante. Veja-se <a class="xref" href="Elevar_002frebaixar-se_00e7_00f5es.html">Elevar/rebaixar Seções: <code class="code">@raisesections</code> e <code class="code">@lowersections</code></a>.
+</p>
+</dd>
+<dt><code class="code">@ref{<var class="var">nó</var>, [<var class="var">entrada</var>], [<var class="var">título-nó</var>], [<var class="var">arquivo-info</var>], [<var class="var">manual-impresso</var>]}</code></dt>
+<dd><p>Fazer uma referência simples que não comece com nenhum texto
+especial. Seguir comando com um sinal de pontuação. O primeiro argumento é
+obrigatório, exceto para referências para manuais inteiros. Para referenciar
+outro manual como um todo, o <var class="var">manual-impresso</var> e(ou) o
+<var class="var">arquivo-info</var> são os únicos argumentos exigidos. Veja-se <a class="xref" href="_0040ref.html"><code class="code">@ref</code></a>.
+</p>
+</dd>
+<dt><code class="code">@registeredsymbol{}</code></dt>
+<dd><p>Gerar o símbolo jurídico
+&reg;. Veja-se <a class="xref" href="_0040registeredsymbol.html"><code class="code">@registeredsymbol{}</code> (&reg;)</a>.
+</p>
+</dd>
+<dt><code class="code">@result{}</code></dt>
+<dd><p>Indicar o resultado de uma expressão para o(a) leitor(a) com um glifo
+especial: &lsquo;<samp class="samp">&rArr;</samp>&rsquo;. Veja-se <a class="xref" href="_0040result.html"><code class="code">@result{}</code> (&rArr;): Resultado de uma Expressão</a>.
+</p>
+</dd>
+<dt><code class="code">@ringaccent{<var class="var">c</var>}</code></dt>
+<dd><p>Gerar um acento circular sobre o próximo caractere, como em
+o&#778;. Veja-se <a class="xref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+</dd>
+<dt><code class="code">@samp{<var class="var">texto</var>}</code></dt>
+<dd><p>Indicar um exemplo literal de uma sequência de caracteres, em
+geral. Veja-se <a class="xref" href="_0040samp.html"><code class="code">@samp</code>{<var class="var">texto</var>}</a>.
+</p>
+</dd>
+<dt><code class="code">@sansserif{<var class="var">texto</var>}</code></dt>
+<dd><p>Configurar <var class="var">texto</var> em uma fonte <span class="sansserif">sans serif</span>, se
+possível. Veja-se <a class="xref" href="Fontes.html">Fontes para Impressão</a>.
+</p>
+</dd>
+<dt><code class="code">@sc{<var class="var">texto</var>}</code></dt>
+<dd><p>Configurar <var class="var">texto</var> em uma fonte minúscula, se possível, e maiúscula no
+Info. Veja-se <a class="xref" href="Versaletes.html"><code class="code">@sc</code>{<var class="var">texto</var>}: A Fonte de Versaletes</a>.
+</p>
+</dd>
+<dt><code class="code">@section <var class="var">título</var></code></dt>
+<dd><p>Começar uma seção dentro de um capítulo. O título da seção aparece no
+sumário. Dentro de <code class="code">@chapter</code> e de <code class="code">@appendix</code>, o título da
+seção é numerado; dentro de <code class="code">@unnumbered</code>, a seção é
+inumerada. Veja-se <a class="xref" href="_0040section.html"><code class="code">@section</code>: Seções Abaixo de Capítulos</a>.
+</p>
+</dd>
+<dt><code class="code">@seealso{<var class="var">texto-índice</var>}</code></dt>
+<dd><p>Usar em uma entrada de índice para referenciar o(a) leitor(a) para outra
+entrada de índice relevante. Veja-se <a class="xref" href="Indexa_00e7_00e3o-Avan_00e7ada.html">Comandos Avançados de Indexação</a>.
+</p>
+</dd>
+<dt><code class="code">@seeentry{<var class="var">texto-índice</var>}</code></dt>
+<dd><p>Usar em uma entrada de índice para redirecionar o(a) leitor(a) para outra
+entrada de índice. Veja-se <a class="xref" href="Indexa_00e7_00e3o-Avan_00e7ada.html">Comandos Avançados de Indexação</a>.
+</p>
+</dd>
+<dt><code class="code">@set <var class="var">variáveltexinfo</var> [<var class="var">sequênciacaracteres</var>]</code></dt>
+<dd><p>Definir a variável Texinfo <var class="var">variáveltexinfo</var>, opcionalmente com o valor
+<var class="var">sequenciacaracteres</var>. Veja-se <a class="xref" href="_0040set-_0040clear-_0040value.html">Sinalizadores: <code class="code">@set</code>, <code class="code">@clear</code>, condicionais e <code class="code">@value</code></a>.
+</p>
+</dd>
+<dt><code class="code">@setchapternewpage <var class="var">impar-ligado-desligado</var></code></dt>
+<dd><p>Especificar se capítulos iniciam em novas páginas e, em caso afirmativo, se
+em novas páginas ímpares (à direita). Veja-se <a class="xref" href="_0040setchapternewpage.html"><code class="code">@setchapternewpage</code>: Páginas em Branco Antes dos Capítulos</a>.
+</p>
+</dd>
+<dt><code class="code">@setfilename <var class="var">nome-arquivo-info</var></code></dt>
+<dd><p>Fornecer um nome para ser usado para os arquivos de saída. Esse comando é
+ignorado para formatação do TeX. Veja-se <a class="xref" href="_0040setfilename.html"><code class="code">@setfilename</code>: Configure o Nome do Arquivo da Saída Gerada</a>.
+</p>
+</dd>
+<dt><code class="code">@settitle <var class="var">título</var></code></dt>
+<dd><p>Especificar o título para cabeçalhos de páginas em um manual impresso e o
+título padrão do documento para HTML. Veja-se <a class="xref" href="_0040settitle.html"><code class="code">@settitle</code>: Configura o Título do Documento</a>.
+</p>
+</dd>
+<dt><code class="code">@shortcaption</code></dt>
+<dd><p>Definir a legenda curta para um <code class="code">@float</code>. Veja-se <a class="xref" href="_0040caption-_0040shortcaption.html"><code class="code">@caption</code> e <code class="code">@shortcaption</code></a>.
+</p>
+</dd>
+<dt><code class="code">@shortcontents</code></dt>
+<dd><p>Imprimir um sumário curto, somente com entradas em nível de capítulo, ou
+especificar que um sumário curto deveria ser gerado. Para formatos que podem
+gerar um sumário curto. Veja-se <a class="xref" href="Conte_00fado.html">Gerando um Sumário</a>.
+</p>
+</dd>
+<dt><code class="code">@shorttitlepage <var class="var">título</var></code></dt>
+<dd><p>Gerar uma página mínima de título. Veja-se <a class="xref" href="P_00e1gina-de-T_00edtulo-e-P_00e1gina-de-Copirraite.html">Páginas de Título e de Direitos Autorais</a>.
+</p>
+</dd>
+<dt><code class="code">@slanted{<var class="var">texto</var>}</code></dt>
+<dd><p>Configurar <var class="var">texto</var> em uma fonte <i class="slanted">inclinada</i>, se
+possível. Veja-se <a class="xref" href="Fontes.html">Fontes para Impressão</a>.
+</p>
+</dd>
+<dt><code class="code">@smallbook</code></dt>
+<dd><p>Na saída impressa, usar um formato de 7 por 9,25 polegadas em vez do formato
+normal de 8,5 por 11 polegadas. Veja-se <a class="xref" href="_0040smallbook.html"><code class="code">@smallbook</code>: Imprimindo Livros &ldquo;Pequenos&rdquo;</a>.
+</p>
+</dd>
+<dt><code class="code">@smalldisplay</code></dt>
+<dd><p>Começar uma espécie de exemplo. Como <code class="code">@display</code>, mas usar um tamanho
+de fonte menor onde possível. Emparelhar com <code class="code">@end
+smalldisplay</code>. Veja-se <a class="xref" href="small.html"><code class="code">@small&hellip;</code> Comandos de Bloco</a>.
+</p>
+</dd>
+<dt><code class="code">@smallexample</code></dt>
+<dd><p>Começar um exemplo. Como <code class="code">@example</code>, mas usar um tamanho de fonte
+menor onde possível. Emparelhar com <code class="code">@end smallexample</code>. Veja-se <a class="xref" href="small.html"><code class="code">@small&hellip;</code> Comandos de Bloco</a>.
+</p>
+</dd>
+<dt><code class="code">@smallformat</code></dt>
+<dd><p>Começar uma espécie de exemplo. Como <code class="code">@format</code>, mas usar um tamanho de
+fonte menor onde possível. Emparelhar com <code class="code">@end
+smallformat</code>. Veja-se <a class="xref" href="small.html"><code class="code">@small&hellip;</code> Comandos de Bloco</a>.
+</p>
+</dd>
+<dt><code class="code">@smallindentedblock</code></dt>
+<dd><p>Como <code class="code">@indentedblock</code>, mas usar um tamanho de fonte menor onde
+possível. Emparelhar com <code class="code">@end smallindentedblock</code>. Veja-se <a class="xref" href="small.html"><code class="code">@small&hellip;</code> Comandos de Bloco</a>.
+</p>
+</dd>
+<dt><code class="code">@smalllisp</code></dt>
+<dd><p>Começar um exemplo de código Lisp. O mesmo que
+<code class="code">@smallexample</code>. Emparelhar com <code class="code">@end smalllisp</code>. Veja-se <a class="xref" href="small.html"><code class="code">@small&hellip;</code> Comandos de Bloco</a>.
+</p>
+</dd>
+<dt><code class="code">@smallquotation</code></dt>
+<dd><p>Como <code class="code">@quotation</code>, mas usar um tamanho de fonte menor onde
+possível. Emparelhar com <code class="code">@end smallquotation</code>. Veja-se <a class="xref" href="small.html"><code class="code">@small&hellip;</code> Comandos de Bloco</a>.
+</p>
+</dd>
+<dt><code class="code">@sortas {<var class="var">chave</var>}</code></dt>
+<dd><p>Usado nos argumentos para indexar comandos para fornecer uma sequência de
+caracteres pela qual a entrada do índice deveria ser
+ordenada. Veja-se <a class="xref" href="Comandos-de-Indexa_00e7_00e3o.html">Definindo as Entradas de um Índice</a>.
+</p>
+</dd>
+<dt><code class="code">@sp <var class="var">n</var></code></dt>
+<dd><p>Ignorar <var class="var">n</var> linhas em branco. Veja-se <a class="xref" href="_0040sp.html"><code class="code">@sp <var class="var">n</var></code>: Inserir Linhas em Branco</a>.
+</p>
+</dd>
+<dt><code class="code">@ss{}</code></dt>
+<dd><p>Gerar a letra alemã S sustenido es-zet, &szlig;. Veja-se <a class="xref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+</dd>
+<dt><code class="code">@strong {<var class="var">texto</var>}</code></dt>
+<dd><p>Enfatizar <var class="var">texto</var> com mais força que <code class="code">@emph</code>. Veja-se <a class="xref" href="_0040emph-_0040strong.html#emph-_0026-strong">Enfatizando Texto</a>.
+</p>
+</dd>
+<dt><code class="code">@sub {<var class="var">texto</var>}</code></dt>
+<dd><p>Configurar <var class="var">texto</var> como um subscrito. Veja-se <a class="xref" href="Inserindo-Subscritos-e-Sobrescritos.html"><code class="code">@sub</code> e <code class="code">@sup</code>: Inserindo Subscritos e Sobrescritos</a>.
+</p>
+</dd>
+<dt><code class="code">@subentry</code></dt>
+<dd><p>Usar em uma entrada de índice para separar partes de uma entrada
+multinível. Veja-se <a class="xref" href="Indexa_00e7_00e3o-Avan_00e7ada.html">Comandos Avançados de Indexação</a>.
+</p>
+</dd>
+<dt><code class="code">@subheading <var class="var">título</var></code></dt>
+<dd><p>Imprimir um título semelhante a uma subseção não numerado, porém omitir do
+sumário de um manual impresso. Veja-se <a class="xref" href="_0040unnumberedsubsec-_0040appendixsubsec-_0040subheading.html">Os Comandos do Tipo <code class="code">@subsection</code></a>.
+</p>
+</dd>
+<dt><code class="code">@subsection <var class="var">título</var></code></dt>
+<dd><p>Começar uma subseção dentro de uma seção. O título da subseção aparece no
+sumário. Mesma numeração dependente do contexto que
+<code class="code">@section</code>. Veja-se <a class="xref" href="_0040subsection.html"><code class="code">@subsection</code>: Subseções Abaixo de Seções</a>.
+</p>
+</dd>
+<dt><code class="code">@subsubheading <var class="var">título</var></code></dt>
+<dd><p>Imprimir um título semelhante a uma subsubseção não numerado, porém omitir
+do sumário de um manual impresso. Veja-se <a class="xref" href="_0040subsubsection.html"><code class="code">@subsubsection</code> e Outros Comandos Subsub</a>.
+</p>
+</dd>
+<dt><code class="code">@subsubsection <var class="var">título</var></code></dt>
+<dd><p>Começar uma subsubseção dentro de uma subseção. O título da subsubseção
+aparece no sumário. Mesma numeração dependente do contexto que
+<code class="code">@section</code>. Veja-se <a class="xref" href="_0040subsubsection.html"><code class="code">@subsubsection</code> e Outros Comandos Subsub</a>.
+</p>
+</dd>
+<dt><code class="code">@subtitle <var class="var">título</var></code></dt>
+<dd><p>Configurar um subtítulo para a página de título. Veja-se <a class="xref" href="_0040title-_0040subtitle-_0040author.html"><code class="code">@title</code>, <code class="code">@subtitle</code> e <code class="code">@author</code></a>.
+</p>
+</dd>
+<dt><code class="code">@summarycontents</code></dt>
+<dd><p>Imprimir ou especificar um sumário curto. Sinônimo para
+<code class="code">@shortcontents</code>. Veja-se <a class="xref" href="Conte_00fado.html">Gerando um Sumário</a>.
+</p>
+</dd>
+<dt><code class="code">@sup {<var class="var">texto</var>}</code></dt>
+<dd><p>Configurar <var class="var">texto</var> como sobrescrito. Veja-se <a class="xref" href="Inserindo-Subscritos-e-Sobrescritos.html"><code class="code">@sub</code> e <code class="code">@sup</code>: Inserindo Subscritos e Sobrescritos</a>.
+</p>
+</dd>
+<dt><code class="code">@syncodeindex <var class="var">índice-origem</var> <var class="var">índice-destino</var></code></dt>
+<dd><p>Mesclar o índice nominado no primeiro argumento no índice nominado no
+segundo argumento, formatando as entradas a partir do primeiro índice com
+<code class="code">@code</code>. Veja-se <a class="xref" href="Combinando-_00cdndices.html">Combinando Índices</a>.
+</p>
+</dd>
+<dt><code class="code">@synindex <var class="var">índice-origem</var> <var class="var">índice-destino</var></code></dt>
+<dd><p>Mesclar o índice nominado no primeiro argumento com o índice nominado no
+segundo argumento. Não mudar a fonte das entradas
+<var class="var">índice-origem</var>. Veja-se <a class="xref" href="Combinando-_00cdndices.html">Combinando Índices</a>.
+</p>
+</dd>
+<dt><code class="code">@t{<var class="var">texto</var>}</code></dt>
+<dd><p>Configurar <var class="var">texto</var> em uma fonte de <code class="t">largura fixa</code>, semelhante a
+máquina de escrever. Veja-se <a class="xref" href="Fontes.html">Fontes para Impressão</a>.
+</p>
+</dd>
+<dt><code class="code">@tab</code></dt>
+<dd><p>Separar colunas em uma linha de uma multitabela. Veja-se <a class="xref" href="Linhas-de-Multi-Tabelas.html">Linhas de Multi Tabelas</a>.
+</p>
+</dd>
+<dt><code class="code">@table <var class="var">comando-formatação</var></code></dt>
+<dd><p>Começar uma tabela de duas colunas (lista de descrição), usando
+<code class="code">@item</code> para cada entrada. Escrever cada entrada da primeira coluna na
+mesma linha que <code class="code">@item</code>. Entradas da primeira coluna são impressas na
+fonte resultante de <var class="var">comando-formatação</var>. Emparelhar com <code class="code">@end
+table</code>. Veja-se <a class="xref" href="Tabelas-de-Duas-Colunas.html">Criando uma Tabela de Duas
+Colunas</a>. Veja-se também <a class="ref" href="_0040ftable-_0040vtable.html"><code class="code">@ftable</code> e <code class="code">@vtable</code></a> e
+<a class="ref" href="_0040itemx.html"><code class="code">@itemx</code>: Segundo e Itens Subsequentes</a>.
+</p>
+</dd>
+<dt><code class="code">@TeX{}</code></dt>
+<dd><p>Gerar a logomarca do TeX. Veja-se <a class="xref" href="_0040LaTeX-do-_0040TeX.html"><code class="code">@TeX</code>{} (TeX) e <code class="code">@LaTeX</code>{} (LaTeX)</a>.
+</p>
+</dd>
+<dt><code class="code">@tex</code></dt>
+<dd><p>Entrar no TeX completamente. Emparelhar com <code class="code">@end
+tex</code>. Veja-se <a class="xref" href="Comandos-Brutos-do-Formatador.html">Comandos Brutos do Formatador</a>.
+</p>
+</dd>
+<dt><code class="code">@textdegree{}</code></dt>
+<dd><p>Gerar o símbolo grau. Veja-se <a class="xref" href="_0040textdegree.html"><code class="code">@textdegree</code> (&deg;): Símbolo de Graus</a>.
+</p>
+</dd>
+<dt><code class="code">@thischapter</code></dt>
+<dt><code class="code">@thischaptername</code></dt>
+<dt><code class="code">@thischapternum</code></dt>
+<dt><code class="code">@thissection</code></dt>
+<dt><code class="code">@thissectionname</code></dt>
+<dt><code class="code">@thissectionnum</code></dt>
+<dt><code class="code">@thispart</code></dt>
+<dt><code class="code">@thisfile</code></dt>
+<dt><code class="code">@thispage</code></dt>
+<dt><code class="code">@thistitle</code></dt>
+<dd><p>Permitido somente em um cabeçalho ou rodapé. Representa, respectivamente, o
+número e o nome do capítulo atual (no formato &lsquo;Capítulo 1: Título&rsquo;), somente
+o nome do capítulo atual, somente o número do capítulo atual, o número e o
+nome da seção atual, somente o nome da seção atual, somente o número da
+seção atual, o nome atual da parte, o nome do arquivo, o número da página
+atual e o título do documento. Veja-se <a class="xref" href="Cabe_00e7alhos-Personalizados.html">Como Criar
+Teus Próprios Cabeçalhos</a>.
+</p>
+</dd>
+<dt><code class="code">@TH{}</code></dt>
+<dt><code class="code">@th{}</code></dt>
+<dd><p>Gerar a letra maiúscula e minúscula islandesa thorn, respectivamente: &THORN;,
+&thorn;. Veja-se <a class="xref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+</dd>
+<dt><code class="code">@tie{}</code></dt>
+<dd><p>Gerar um espaço normal entre palavras no qual uma quebra de linha não é
+permitida. Veja-se <a class="xref" href="_0040tie.html"><code class="code">@tie{}</code>: Inserindo um Espaço Inquebrável</a>.
+</p>
+</dd>
+<dt><code class="code">@tieaccent{<var class="var">cc</var>}</code></dt>
+<dd><p>Gerar um acento de ligação sobre os próximos dois caracteres <var class="var">cc</var>, como
+em &lsquo;o&#865;o&rsquo;. Veja-se <a class="xref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+</dd>
+<dt><code class="code">@tindex <var class="var">entrada</var></code></dt>
+<dd><p>Adicionar <var class="var">entrada</var> ao índice de tipos de dados. Veja-se <a class="xref" href="Entradas-de-_00cdndice.html">Definindo as Entradas de um Índice</a>.
+</p>
+</dd>
+<dt><code class="code">@title <var class="var">título</var></code></dt>
+<dd><p>Configurar o título para a página de título. Veja-se <a class="xref" href="_0040title-_0040subtitle-_0040author.html"><code class="code">@title</code>, <code class="code">@subtitle</code> e <code class="code">@author</code></a>.
+</p>
+</dd>
+<dt><code class="code">@titlefont{<var class="var">texto</var>}</code></dt>
+<dd><p>Imprimir <var class="var">texto</var> em uma fonte maior que a normal, se
+possível. Veja-se <a class="xref" href="_0040titlefont-_0040center-_0040sp.html"><code class="code">@titlefont</code>, <code class="code">@center</code> e <code class="code">@sp</code></a>.
+</p>
+</dd>
+<dt><code class="code">@titlepage</code></dt>
+<dd><p>Iniciar a página de título. Escrever o comando em uma linha própria,
+emparelhado com <code class="code">@end titlepage</code>. A página de título não será gerada,
+no caso padrão, em formatos online. Veja-se <a class="xref" href="_0040titlepage.html"><code class="code">@titlepage</code></a>.
+</p>
+</dd>
+<dt><code class="code">@today{}</code></dt>
+<dd><p>Inserir a data atual, no estilo &lsquo;1 de janeiro de 1900&rsquo;. Veja-se <a class="xref" href="Cabe_00e7alhos-Personalizados.html">Como Fazer Teus Próprios Cabeçalhos</a>.
+</p>
+</dd>
+<dt><code class="code">@top <var class="var">título</var></code></dt>
+<dd><p>Marcar o <code class="code">@node</code> mais alto no arquivo, que precisa ser definido na
+linha imediatamente precedente ao comando <code class="code">@top</code>. O título é formatado
+como um cabeçalho de nível de capítulo. No TeX, o comando <code class="code">@top</code> é
+meramente um sinônimo para <code class="code">@unnumbered</code>.
+</p>
+</dd>
+<dt><code class="code">@U{<var class="var">hexadecimal</var>}</code></dt>
+<dd><p>Produz uma representação do caractere Unicode
+U+<var class="var">hexadecimal</var>. Veja-se <a class="xref" href="Inserindo-Unicode.html">Inserindo Unicode: <code class="code">@U</code></a>.
+</p>
+</dd>
+<dt><code class="code">@u{<var class="var">c</var>}</code></dt>
+<dt><code class="code">@ubaraccent{<var class="var">c</var>}</code></dt>
+<dt><code class="code">@udotaccent{<var class="var">c</var>}</code></dt>
+<dd><p>Gerar um acento breve, um sublinhado ou um ponto, respectivamente, sobre ou
+sob o caractere <var class="var">c</var>, como em &#335;, o&#818;,
+&#7885;. Veja-se <a class="xref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+</dd>
+<dt><code class="code">@unmacro <var class="var">nomemacro</var></code></dt>
+<dd><p>Indefine a macro <code class="code">@<var class="var">nomemacro</var></code> se ela tiver sido
+definida. Veja-se <a class="xref" href="Definindo-Macros.html">Definindo Macros</a>.
+</p>
+</dd>
+<dt><code class="code">@unnumbered <var class="var">título</var></code></dt>
+<dd><p>Iniciar um capítulo que aparece sem números de capítulo de qualquer tipo. O
+título aparece no sumário. Veja-se <a class="xref" href="_0040unnumbered-_0040appendix.html"><code class="code">@unnumbered</code>, <code class="code">@appendix</code>: Capítulos com Outra Rotulagem</a>.
+</p>
+</dd>
+<dt><code class="code">@unnumberedsec <var class="var">título</var></code></dt>
+<dd><p>Iniciar uma seção que aparece sem números de seção de qualquer tipo. O
+título aparece no sumário. Veja-se <a class="xref" href="_0040unnumberedsec-_0040appendixsec-_0040heading.html"><code class="code">@unnumberedsec</code>, <code class="code">@appendixsec</code>, <code class="code">@heading</code></a>.
+</p>
+</dd>
+<dt><code class="code">@unnumberedsubsec <var class="var">título</var></code></dt>
+<dd><p>Iniciar uma subseção não numerada. O título aparece no
+sumário. Veja-se <a class="xref" href="_0040unnumberedsubsec-_0040appendixsubsec-_0040subheading.html">Os Comandos do Tipo <code class="code">@subsection</code></a>.
+</p>
+</dd>
+<dt><code class="code">@unnumberedsubsubsec <var class="var">título</var></code></dt>
+<dd><p>Iniciar uma subsubseção não numerada. O título aparece no
+sumário. Veja-se <a class="xref" href="_0040subsubsection.html"><code class="code">@subsubsection</code> e Outros Comandos Subsub</a>.
+</p>
+</dd>
+<dt><code class="code">@uref{<var class="var">url</var>[, <var class="var">texto-exibido</var>][, <var class="var">substituição</var>}</code></dt>
+<dt><code class="code">@url{<var class="var">url</var>[, <var class="var">texto-exibido</var>][, <var class="var">substituição</var>}</code></dt>
+<dd><p>Define uma referência cruzada para um localizador externo uniforme de
+recursos, por exemplo, para a World Wide Web. Veja-se <a class="xref" href="_0040url.html"><code class="code">@url</code>, <code class="code">@uref{<var class="var">url</var>[, <var class="var">texto</var>][, <var class="var">substituição</var>]}</code></a>.
+</p>
+</dd>
+<dt><code class="code">@urefbreakstyle <var class="var">estilo</var></code></dt>
+<dd><p>Especificar como <code class="code">@uref</code>/<code class="code">@url</code> deveria quebrar em caracteres
+especiais: <code class="code">after</code>, <code class="code">before</code>, <code class="code">none</code>. Veja-se <a class="xref" href="_0040url.html"><code class="code">@url</code>, <code class="code">@uref{<var class="var">url</var>[, <var class="var">texto</var>][, <var class="var">substituição</var>]}</code></a>.
+</p>
+</dd>
+<dt><code class="code">@v{<var class="var">c</var>}</code></dt>
+<dd><p>Gerar acento caron sobre o caractere <var class="var">c</var>, como em &#466;. Veja-se <a class="xref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+</dd>
+<dt><code class="code">@value{<var class="var">variáveltexinfo</var>}</code></dt>
+<dd><p>Inserir o valor, se existir, da variável do Texinfo <var class="var">variáveltexinfo</var>,
+previamente definida por <code class="code">@set</code>. Veja-se <a class="xref" href="_0040set-_0040clear-_0040value.html">Sinalizadores: <code class="code">@set</code>, <code class="code">@clear</code>, condicionais e <code class="code">@value</code></a>.
+</p>
+</dd>
+<dt><code class="code">@var{<var class="var">variável-metassintática</var>}</code></dt>
+<dd><p>Realçar uma variável metassintática, que é algo que representa outro pedaço
+de texto. Veja-se <a class="xref" href="_0040var.html"><code class="code">@var</code>{<var class="var">variável-metassintática</var>}</a>.
+</p>
+</dd>
+<dt><code class="code">@verb{<var class="var">delimitador</var> <var class="var">literal</var> <var class="var">delimitador</var>}</code></dt>
+<dd><p>Emitir <var class="var">literal</var>, delimitada pelo caractere único <var class="var">delimitador</var>,
+exatamente como está (na fonte de largura fixa), incluindo quaisquer espaços
+em branco ou caracteres especiais do Texinfo. Veja-se <a class="xref" href="_0040verb.html"><code class="code">@verb</code>{<var class="var">char</var><var class="var">text</var><var class="var">char</var>}</a>.
+</p>
+</dd>
+<dt><code class="code">@verbatim</code></dt>
+<dd><p>Emitir o texto do ambiente exatamente como está (na fonte de largura
+fixa). Emparelhar com <code class="code">@end verbatim</code>. Veja-se <a class="xref" href="_0040verbatim.html"><code class="code">@verbatim</code>: Texto Literal</a>.
+</p>
+</dd>
+<dt><code class="code">@verbatiminclude <var class="var">nomearquivo</var></code></dt>
+<dd><p>Emitir o conteúdo de <var class="var">nomearquivo</var> exatamente como está (na fonte de
+largura fixa). Veja-se <a class="xref" href="_0040verbatiminclude.html"><var class="var">arquivo</var> <code class="code">@verbatiminclude</code>: Incluir um Literal de Arquivo</a>.
+</p>
+</dd>
+<dt><code class="code">@vindex <var class="var">entrada</var></code></dt>
+<dd><p>Adicionar <var class="var">entrada</var> ao índice de variáveis. Veja-se <a class="xref" href="Entradas-de-_00cdndice.html">Definindo as Entradas de um Índice</a>.
+</p>
+</dd>
+<dt><code class="code">@vskip <var class="var">quantidade</var></code></dt>
+<dd><p>Em um manual impresso, inserir espaços em branco de forma a empurrar o texto
+no restante da página em direção ao final da página. Usado na formatação da
+página de copirraite com o argumento &lsquo;<samp class="samp">0pt plus 1filll</samp>&rsquo;. (Observe a
+grafia de &lsquo;<samp class="samp">filll</samp>&rsquo;). Veja-se <a class="xref" href="_0040titlepage.html#Direitos-Autorais">Direitos Autorais</a>.
+</p>
+</dd>
+<dt><code class="code">@vtable <var class="var">comando-formatação</var></code></dt>
+<dd><p>Iniciar uma tabela de duas colunas, usando <code class="code">@item</code> para cada
+entrada. Inserir automaticamente cada um dos itens da primeira coluna no
+índice de variáveis. Emparelhar com <code class="code">@end vtable</code>. O mesmo que
+<code class="code">@table</code>, exceto pela indexação. Veja-se <a class="xref" href="_0040ftable-_0040vtable.html"><code class="code">@ftable</code> e <code class="code">@vtable</code></a>.
+</p>
+</dd>
+<dt><code class="code">@w{<var class="var">texto</var>}</code></dt>
+<dd><p>Proíbe quebras de linha em <var class="var">texto</var>. Veja-se <a class="xref" href="_0040w.html"><code class="code">@w</code>{<var class="var">texto</var>}: Impedir Quebras de Linha</a>.
+</p>
+</dd>
+<dt><code class="code">@xml</code></dt>
+<dd><p>Entrar no XML completamente. Emparelhar com <code class="code">@end xml</code>. Veja-se <a class="xref" href="Comandos-Brutos-do-Formatador.html">Comandos Brutos do Formatador</a>.
+</p>
+</dd>
+<dt><code class="code">@xref{<var class="var">nó</var>, [<var class="var">entrada</var>], [<var class="var">título-nó</var>], [<var class="var">arquivo-info</var>], [<var class="var">manual-impresso</var>]}</code></dt>
+<dd><p>Fazer uma referência que comece com &lsquo;Veja&rsquo; em um manual impresso. Seguir o
+comando com um sinal de pontuação. O primeiro argumento é obrigatório,
+exceto para referências para manuais inteiros. Para se referir a outro
+manual como um todo, o <var class="var">manual-impresso</var> e(ou) o <var class="var">arquivo-info</var> são
+os únicos argumentos exigidos. Veja-se <a class="xref" href="_0040xref.html"><code class="code">@xref</code></a>.
+</p>
+</dd>
+<dt><code class="code">@xrefautomaticsectiontitle <var class="var">on-off</var></code></dt>
+<dd><p>Por padrão, usar o título da seção em vez do nome do nó em referências
+cruzadas, inclusive nos cabeçalhos dos nós em HTML. Veja-se <a class="xref" href="Tr_00eas-Argumentos.html"><code class="code">@xref</code> com Três Argumentos</a>.
+</p>
+</dd>
+<dt><code class="code">@xrefname <var class="var">nome-xref</var></code></dt>
+<dd><p>Usar imediatamente depois de uma linha <code class="code">@node</code> para fornecer texto
+para lincar a esse nó quando <code class="code">xrefautomaticsectiontitle</code> estiver
+ativado, sem imprimir um cabeçalho. Veja-se <a class="xref" href="N_00f3s-Desestruturados.html">Nós Desestruturados</a>.
+</p>
+</dd>
+</dl>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Contextos-de-Comando.html">Contextos do Comando @</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Sintaxe-de-Comando.html">Sintaxe de Comando @</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Detalhes-do-Comando-_0040.html">Detalhes do Comando @</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Combinando Índices (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como combinar índices.">
+<meta name="keywords" content="Como combinar índices.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="_00cdndices.html" rel="up" title="Índices">
+<link href="Novos-_00cdndices.html" rel="next" title="Novos Índices">
+<link href="Imprimindo-_00cdndices-e-Menus.html" rel="prev" title="Imprimindo Índices e Menus">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Combinando-_00cdndices">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Novos-_00cdndices.html" accesskey="n" rel="next">Definindo Novos Índices</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Imprimindo-_00cdndices-e-Menus.html" accesskey="p" rel="prev">Imprimindo Índices e Menus</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="_00cdndices.html" accesskey="u" rel="up">Índices</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Combinando-_00cdndices-1"><span>10.6 Combinando Índices<a class="copiable-link" href="#Combinando-_00cdndices-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Combinando-indices"></a>
+<a class="index-entry-id" id="index-Indices_002c-combinando_002dos"></a>
+
+<p>Às vezes você irá querer combinar dois índices, como funções e conceitos,
+talvez porque tenha poucas entradas suficientes que um índice separado
+pareceria bobo.
+</p>
+<p>Você poderia colocar funções no índice de conceito escrevendo comandos
+<code class="code">@cindex</code> para elas em vez de comandos <code class="code">@findex</code> e produzir um
+manual consistente imprimindo o índice de conceito com o título &lsquo;Índice de
+Função e Conceito&rsquo; e não imprimir o &lsquo;Índice de Função&rsquo; em absoluto; mas esse
+não é um procedimento robusto.  Ele funciona somente se o teu documento
+nunca for incluído como parte de outro documento que seja projetado para ter
+um índice de função separado; se o teu documento fosse incluído em tal
+documento, as funções oriundas do teu documento e aquelas oriundas do outro
+não terminariam juntas.  Além disso, para fazer com que os teus nomes de
+funções apareçam na fonte correta no índice de conceito, você precisaria
+circundar cada uma delas entre chaves de <code class="code">@code</code>.
+</p>
+
+<ul class="mini-toc">
+<li><a href="_0040syncodeindex.html" accesskey="1"><code class="code">@syncodeindex</code>: Combinando Índices Usando <code class="code">@code</code></a></li>
+<li><a href="_0040synindex.html" accesskey="2"><code class="code">@synindex</code>: Combinando Índices</a></li>
+</ul>
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Novos-_00cdndices.html">Definindo Novos Índices</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Imprimindo-_00cdndices-e-Menus.html">Imprimindo Índices e Menus</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="_00cdndices.html">Índices</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Formatar com texi2dvi ou texi2pdf (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="A maneira mais simples para formatar.">
+<meta name="keywords" content="A maneira mais simples para formatar.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Impresso-com-TeX.html" rel="up" title="Impresso com TeX">
+<link href="Formatar-com-tex_002ftexindex.html" rel="next" title="Formatar com tex/texindex">
+<link href="Use-TeX.html" rel="prev" title="Use TeX">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+kbd.kbd {font-style: oblique}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Formatar-com-texi2dvi-ou-texi2pdf">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Formatar-com-tex_002ftexindex.html" accesskey="n" rel="next">Formatar com <code class="command">tex</code>/<code class="command">texindex</code></a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Use-TeX.html" accesskey="p" rel="prev">Use TeX</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Impresso-com-TeX.html" accesskey="u" rel="up">Formatando e Imprimindo com TeX</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Formatar-com-texi2dvi-ou-texi2pdf-1"><span>19.2 Formatar com <code class="command">texi2dvi</code> ou <code class="command">texi2pdf</code><a class="copiable-link" href="#Formatar-com-texi2dvi-ou-texi2pdf-1"> &para;</a></span></h3>
+
+<a class="anchor" id="Sa_00edda-PDF"></a><a class="anchor" id="Formatar-com-texi2dvi"></a>
+<a class="index-entry-id" id="index-texi2dvi-_0028script-de-shell_0029"></a>
+<a class="index-entry-id" id="index-texi2pdf-_0028script-de-shell_0029"></a>
+<a class="index-entry-id" id="index-DVI_002c-saida-em"></a>
+<a class="index-entry-id" id="index-Saida-PDF"></a>
+<a class="index-entry-id" id="index-Saida_002c-em-PDF"></a>
+
+<p>O programa <code class="code">texi2dvi</code> se encarrega de todas as etapas para produzir um
+arquivo DVI do TeX a partir de um documento do Texinfo.  Similarmente,
+<code class="code">texi2pdf</code> produz um arquivo PDF<a class="footnote" id="DOCF9" href="#FOOT9"><sup>9</sup></a>.
+</p>
+<p>Para executar <code class="code">texi2dvi</code> ou <code class="code">texi2pdf</code> sobre um arquivo de entrada
+<samp class="file">foo.texi</samp>, faça isto (onde &lsquo;<samp class="samp">prompt$ </samp>&rsquo; é o prompt do teu shell):
+</p>
+<div class="example">
+<pre class="example-preformatted">prompt$ <kbd class="kbd">texi2dvi foo.texi</kbd>
+prompt$ <kbd class="kbd">texi2pdf foo.texi</kbd>
+</pre></div>
+
+<p>Conforme mostrado nesse exemplo, os nomes dos arquivos fornecidos para
+<code class="command">texi2dvi</code> e <code class="command">texi2pdf</code> precisam incluir alguma extensão,
+como &lsquo;<samp class="samp">.texi</samp>&rsquo;.
+</p>
+<p>Para uma lista de todas as opções, execute &lsquo;<samp class="samp">texi2dvi --help</samp>&rsquo;.  Algumas
+das opções são discutidas abaixo.
+</p>
+<a class="index-entry-id" id="index-_002d_002dpdf_002c-para-texi2dvi"></a>
+<a class="index-entry-id" id="index-pdftexi2dvi"></a>
+<p>Com a opção <samp class="option">--pdf</samp>, <code class="command">texi2dvi</code> produz saída PDF em vez de
+DVI, executando <code class="command">pdftex</code> em vez de <code class="command">tex</code>.  Alternativamente,
+o comando <code class="command">texi2pdf</code> é uma abreviação para executar &lsquo;<samp class="samp">texi2dvi
+--pdf</samp>&rsquo;.  O comando <code class="command">pdftexi2dvi</code> também é fornecido como uma
+conveniência para AUC-TeX (veja-se <cite class="cite"><a data-manual="auctex" href="https://www.gnu.org/software/auctex/manual/auctex/index.html#Top">AUC-TeX</a></cite>, pois ele
+prefere meramente antepor &lsquo;<samp class="samp">pdf</samp>&rsquo; às ferramentas de produção de DVI para
+ter ferramentas de produção de PDF.
+</p>
+<a class="index-entry-id" id="index-_002d_002ddvipdf_002c-para-texi2dvi"></a>
+<a class="index-entry-id" id="index-dvipdfmx"></a>
+<p>Com a opção <samp class="option">--dvipdf</samp>, <code class="command">texi2dvi</code> produz saída PDF
+executando TeX e então um programa DVI-para-PDF: se a variável de
+ambiente <code class="env">DVIPDF</code> estiver configurada, esse valor será usado, senão o
+primeiro programa existente entre <code class="code">dvipdfmx</code>, <code class="code">dvipdfm</code>,
+<code class="code">dvipdf</code>, <code class="code">dvi2pdf</code>, <code class="code">dvitopdf</code>.  Esse método geralmente
+suporta melhor a tipografia CJK que o <code class="command">pdftex</code>.
+</p>
+<a class="index-entry-id" id="index-_002d_002dps_002c-para-texi2dvi"></a>
+<a class="index-entry-id" id="index-dvips"></a>
+<p>Com a opção <samp class="option">--ps</samp>, <code class="command">texi2dvi</code> produz PostScript em vez de
+DVI, executando <code class="command">tex</code> e então <code class="command">dvips</code> (veja-se <cite class="cite"><a data-manual="dvips" href="https://tug.org/texinfohtml/dvips.html#Top">Dvips</a></cite>).  (Ou o valor da variável de ambiente <code class="env">DVIPS</code>, se configurada).
+</p>
+<a class="index-entry-id" id="index-_002d_002dlanguage_002c-para-texi2dvi"></a>
+<a class="index-entry-id" id="index-LaTeX_002c-processando-com-texi2dvi"></a>
+<p><code class="command">texi2dvi</code> também pode ser usado para processar arquivos do
+LaTeX.  Normalmente, <code class="command">texi2dvi</code> é capaz de adivinhar a linguagem
+do arquivo de entrada pelo conteúdo e extensão de nome de arquivo dele; no
+entanto, se ele adivinhar errado, você consegue especificar explicitamente a
+linguagem de entrada usando a opção de linha de comando
+<samp class="option">--language=<var class="var">linguagem</var></samp>, onde <var class="var">linguagem</var> é ou &lsquo;<samp class="samp">latex</samp>&rsquo;
+ou &lsquo;<samp class="samp">texinfo</samp>&rsquo;.
+</p>
+<a class="index-entry-id" id="index-_002d_002dcommand_002c-para-texi2dvi"></a>
+<p>Uma opção útil para <code class="code">texi2dvi</code> é &lsquo;<samp class="samp">--command=<var class="var">comando</var></samp>&rsquo;.  Isso
+insere <var class="var">comando</var> em uma linha própria no início de um arquivo em uma
+cópia temporária do arquivo de entrada, antes de executar o TeX.  Com
+isso, você pode especificar diferentes formatos de impressão, tais como
+<code class="code">@smallbook</code> (veja-se <a class="pxref" href="_0040smallbook.html"><code class="code">@smallbook</code>: Imprimindo Livros &ldquo;Pequenos&rdquo;</a>), <code class="code">@afourpaper</code>
+(veja-se <a class="pxref" href="Papel-A4.html">Imprimir em Papel A4</a>) ou <code class="code">@pagesizes</code> (veja-se <a class="pxref" href="_0040pagesizes.html"><code class="code">@pagesizes</code> [<var class="var">largura</var>][, <var class="var">altura</var>]: Tamanhos Personalizados de Página</a>), sem
+realmente mudar o fonte do documento.  (Você também pode fazer isso em todo
+o site com <samp class="file">texinfo.cnf</samp>; veja-se <a class="pxref" href="Preparando-para-TeX.html">Preparando para TeX</a>).
+</p>
+<p>A opção <samp class="option">-E</samp> (equivalentemente, <samp class="option">-e</samp> e <samp class="option">--expand</samp>) faz
+a expansão de macro do Texinfo usando <code class="command">texi2any</code> em vez da
+implementação do TeX (veja-se <a class="pxref" href="Detalhes-de-Macro.html">Detalhes e Ressalvas de Macro</a>).  Cada implementação tem
+limitações e vantagens próprias delas.
+</p>
+<p><code class="command">texi2dvi</code> recebe a opção <samp class="option">--build=<var class="var">modo</var></samp> para
+especificar onde a compilação do TeX acontece e, como consequência, como
+os arquivos auxiliares são tratados.  O modo de construção também pode ser
+configurado usando-se a variável de ambiente <code class="env">TEXI2DVI_BUILD_MODE</code>.  Os
+valores válidos para <var class="var">modo</var> são:
+</p>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">local</samp>&rsquo;</dt>
+<dd><p>Compile no diretório atual, deixando todos os arquivos auxiliares por aí.
+Esse é o uso tradicional do TeX.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">tidy</samp>&rsquo;</dt>
+<dd><p>Compile em um diretório local <code class="code">*.t2d</code>, onde os arquivos auxiliares são
+deixados.  Os arquivos de saída são copiados de volta para o arquivo
+original.
+</p>
+<p>Usar o modo &lsquo;<samp class="samp">tidy</samp>&rsquo; traz várias vantagens:
+ </p><ul class="itemize" style="list-style-type: '-'">
+<li>o diretório atual não fica abarrotado com uma abundância de arquivos temporários.
+ </li><li>a desordem pode ser reduzida ainda mais usando-se <samp class="option">--build-dir=diretório</samp>: todos
+   os diretórios <code class="code">*.t2d</code> ficam armazenados lá.
+ </li><li>a desordem pode ser reduzida a zero usando-se, por exemplo,
+   <samp class="option">--build-dir=/tmp/\$USER.t2d</samp> ou <samp class="option">--build-dir=\$HOME/.t2d</samp>.
+ </li><li>o arquivo da saída gerada é atualizado depois de cada execução bem-sucedida do TeX, por
+   para fins de visualização concorrente da saída gerada. Em uma construção
+&lsquo;<samp class="samp">local</samp>&rsquo;, o visualizador para durante a execução inteira do TeX.
+ </li><li>se a compilação falhar, o estado anterior do arquivo da saída gerada
+   será preservado.
+ </li><li>As compilações de <abbr class="acronym">PDF</abbr> e de <abbr class="acronym">DVI</abbr> são mantidas em separado
+   subdiretórios, evitando qualquer possibilidade de incompatibilidade dos
+arquivos auxiliares.
+ </li></ul>
+
+<p>Por outro lado, como a compilação &lsquo;<samp class="samp">tidy</samp>&rsquo; ocorre em outro diretório,
+ocasionalmente o TeX não conseguirá encontrar alguns arquivos (por
+exemplo, ao usar <code class="code">\graphicspath</code>): nesse caso, use <samp class="option">-I</samp> para
+especificar os diretórios adicionais a considerar.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">clean</samp>&rsquo;</dt>
+<dd><p>O mesmo que &lsquo;<samp class="samp">tidy</samp>&rsquo;, mas remove o diretório auxiliar depois.  Cada
+compilação, portanto, exige o ciclo completo.
+</p></dd>
+</dl>
+
+<a class="index-entry-id" id="index-etex"></a>
+<p><code class="command">texi2dvi</code> usará <code class="command">etex</code> se estiver disponível, porque ele
+executa mais rápido em alguns casos e fornece informações adicionais de
+rastreamento ao depurar <samp class="file">texinfo.tex</samp>.  No entanto, essa versão
+estendida do TeX não é exigida, e a saída DVI é idêntica.
+</p>
+<a class="index-entry-id" id="index-gravador-de-arquivo-para-TeX"></a>
+<a class="index-entry-id" id="index-linha-_005copenout-em-arquivo-de-registro"></a>
+<p><code class="command">texi2dvi</code> tenta detectar arquivos auxiliares gerados pelo TeX,
+seja usando a opção <samp class="option">-recorder</samp> seja procurando por &lsquo;<samp class="samp">\openout</samp>&rsquo;
+no arquivo de registro que uma execução do TeX produzir.  Você pode
+controlar como <code class="command">texi2dvi</code> faz isso com a variável de ambiente
+<code class="env">TEXI2DVI_USE_RECORDER</code>.  Os valores válidos são:
+</p>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">yes</samp>&rsquo;</dt>
+<dd><p>use a opção <samp class="option">-recorder</samp>, sem verificações.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">no</samp>&rsquo;</dt>
+<dd><p>procure por &lsquo;<samp class="samp">\openout</samp>&rsquo; no arquivo de registro, sem verificações.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">yesmaybe</samp>&rsquo;</dt>
+<dd><p>verifique se a opção <samp class="option">-recorder</samp> é suportada e, se sim, use-a; caso
+contrário, verifique se o rastreamento de &lsquo;<samp class="samp">\openout</samp>&rsquo; no arquivo de
+registro é suportado e, se sim, use-o; caso contrário, será um erro.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">nomaybe</samp>&rsquo;</dt>
+<dd><p>o mesmo que &lsquo;<samp class="samp">yesmaybe</samp>&rsquo;, exceto que o rastreamento de &lsquo;<samp class="samp">\openout</samp>&rsquo; no
+arquivo de registro é verificado primeiro.
+</p></dd>
+</dl>
+
+<p>O padrão é &lsquo;<samp class="samp">nomaybe</samp>&rsquo;.  Essa variável de ambiente é fornecida para fins
+de solução de problemas e possivelmente mude ou desapareça no futuro.
+</p>
+
+</div>
+<div class="footnotes-segment">
+<hr>
+<h4 class="footnotes-heading">Notas de Rodapé</h4>
+
+<h5 class="footnote-body-heading"><a id="FOOT9" href="#DOCF9">(9)</a></h5>
+<p><em class="dfn">PDF</em> significa &lsquo;Portable
+Document Format&rsquo;.  Foi inventado pela Adobe Systems para intercâmbio de
+documentos, baseado na linguagem PostScript deles(as).</p>
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Formatar-com-tex_002ftexindex.html">Formatar com <code class="command">tex</code>/<code class="command">texindex</code></a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Use-TeX.html">Use TeX</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Impresso-com-TeX.html">Formatando e Imprimindo com TeX</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

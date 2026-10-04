@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Tabela Indireta do Formato Info (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Tabela Indireta do Formato Info (GNU Texinfo 7.3)">
+<meta name="keywords" content="Tabela Indireta do Formato Info (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Especifica_00e7_00e3o-do-Formato-Info.html" rel="up" title="Especificação do Formato Info">
+<link href="Tabela-de-Etiquetas-do-Formato-Info.html" rel="next" title="Tabela de Etiquetas do Formato Info">
+<link href="Pre_00e2mbulo-do-Formato-Info.html" rel="prev" title="Preâmbulo do Formato Info">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Tabela-Indireta-do-Formato-Info">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Tabela-de-Etiquetas-do-Formato-Info.html" accesskey="n" rel="next">Formato Info: Tabela de Etiquetas</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Pre_00e2mbulo-do-Formato-Info.html" accesskey="p" rel="prev">Formato Info: Preâmbulo</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Especifica_00e7_00e3o-do-Formato-Info.html" accesskey="u" rel="up">Especificação do Formato Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Formato-Info_003a-Tabela-Indireta"><span>F.3 Formato Info: Tabela Indireta<a class="copiable-link" href="#Formato-Info_003a-Tabela-Indireta"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Tabela-Indireta_002c-no-formato-Info"></a>
+
+<div class="example">
+<pre class="example-preformatted">    &lt;tabela indireta&gt; =
+&lt;separador&gt;
+Indireto:
+(&lt;nome do arquivo&gt;: &lt;bytepos&gt;)*
+</pre></div>
+
+<p>A tabela indireta é escrita no arquivo principal somente no caso de saída
+dividida. Ela especifica, como um número inteiro decimal, a posição inicial
+do byte (baseado em zero) que o primeiro nó de cada subarquivo teria se os
+subarquivos fossem concatenados em ordem, sem incluir o arquivo de nível
+superior. O primeiro nó do conteúdo real é apontado pela primeira entrada.
+</p>
+<p>Como exemplo, suponha que a saída dividida seja gerada para o manual do
+GDB. O arquivo de nível superior <samp class="file">gdb.info</samp> conterá algo assim:
+</p>
+<div class="example">
+<pre class="example-preformatted">&lt;separador&gt;
+Indireto:
+gdb.info-1: 1878
+gdb.info-2: 295733
+...
+</pre></div>
+
+<p>Isso informa aos visualizadores do Info que o primeiro nó do manual ocorre
+no byte 1.878 do arquivo <samp class="file">gdb.info-1</samp> (que seria depois do preâmbulo
+desse arquivo). O primeiro nó no subarquivo <samp class="file">gdb.info-2</samp> começaria no
+byte 295.733 se <samp class="file">gdb.info-2</samp> fosse posposto a <samp class="file">gdb.info-1</samp>,
+incluindo quaisquer seções de preâmbulo em ambos os arquivos.
+</p>
+<p>Infelizmente, programas de criação do Info como o <code class="command">makeinfo</code> nem
+sempre implementaram essas regras perfeitamente, devido a vários defeitos e
+descuidos. Portanto, visualizadores robustos do Info deveriam voltar para
+procurar por um nó &ldquo;próximo&rdquo; à posição fornecida, em vez de desistir
+imediatamente se a posição não estiver exatamente no início de um nó.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Tabela-de-Etiquetas-do-Formato-Info.html">Formato Info: Tabela de Etiquetas</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Pre_00e2mbulo-do-Formato-Info.html">Formato Info: Preâmbulo</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Especifica_00e7_00e3o-do-Formato-Info.html">Especificação do Formato Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

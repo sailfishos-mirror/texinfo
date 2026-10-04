@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Expansão de Comando do Xref do HTML (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Expansão de Comando do Xref do HTML (GNU Texinfo 7.3)">
+<meta name="keywords" content="Expansão de Comando do Xref do HTML (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Xref-do-HTML.html" rel="up" title="Xref do HTML">
+<link href="Expans_00e3o-de-Caracteres-de-8-bits-do-Xref-do-HTML.html" rel="next" title="Expansão de Caracteres de 8 bits do Xref do HTML">
+<link href="Expans_00e3o-de-Nome-de-N_00f3-do-Xref-do-HTML.html" rel="prev" title="Expansão de Nome de Nó do Xref do HTML">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Expans_00e3o-de-Comando-do-Xref-do-HTML">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Expans_00e3o-de-Caracteres-de-8-bits-do-Xref-do-HTML.html" accesskey="n" rel="next">Expansão do Caractere de 8 Bits da Referência Cruzada do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Expans_00e3o-de-Nome-de-N_00f3-do-Xref-do-HTML.html" accesskey="p" rel="prev">Expansão de Nome de Nó de Referência Cruzada do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Xref-do-HTML.html" accesskey="u" rel="up">Referências Cruzadas do HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Expans_00e3o-do-Comando-de-Refer_00eancia-Cruzada-do-HTML"><span>22.7.3 Expansão do Comando de Referência Cruzada do HTML<a class="copiable-link" href="#Expans_00e3o-do-Comando-de-Refer_00eancia-Cruzada-do-HTML"> &para;</a></span></h4>
+<a class="index-entry-id" id="index-Referencias-cruzadas-do-HTML-expansao-de-comando"></a>
+
+<p>Os nomes dos nós podem conter comandos @ (veja-se <a class="pxref" href="Exig_00eancias-da-Linha-do-N_00f3.html">Exigências da Linha de <code class="code">@node</code></a>). Esta seção descreve como eles são manuseados.
+</p>
+<p>Primeiro, comentários são removidos.
+</p>
+<p>Em seguida, quaisquer comandos <code class="code">@value</code> (veja-se <a class="pxref" href="_0040set-_0040value.html"><code class="code">@set</code> e <code class="code">@value</code></a>)
+e invocações de macro (veja-se <a class="pxref" href="Invocando-Macros.html">Invocando Macros</a>) são totalmente expandidos.
+</p>
+<p>Então, para os comandos a seguir, o nome do comando e as chaves são
+removidos e o texto do argumento é transformado recursivamente:
+</p>
+<div class="example">
+<pre class="example-preformatted">@asis @b @cite @code @command @dfn @dmn @dotless
+@emph @env @file @i @indicateurl @kbd @key
+@samp @sansserif @sc @slanted @strong @sub @sup
+@t @U @var @verb @w
+</pre></div>
+
+<p>Além disso, os comandos a seguir são substituídos por texto constante,
+conforme mostrado abaixo. Se algum desses comandos tiver argumentos não
+vazios, como em <code class="code">@TeX{bad}</code>, é um erro e o resultado será
+inespecificado. Nesta tabela, &lsquo;(espaço)&rsquo; significa um caractere de espaço e
+&lsquo;(nada)&rsquo; significa a sequência vazia de caracteres. A notação &lsquo;U+<var class="var">hhhh</var>&rsquo;
+significa ponto de código Unicode <var class="var">hhhh</var> (em hexadecimal, como sempre).
+</p>
+<p>Existem outras transformações de muitas dessas expansões para produzir o
+arquivo final ou outro nome de alvo, tais como caracteres de espaço para
+&lsquo;<samp class="samp">-</samp>&rsquo;, entre outras, de acordo com as outras regras.
+</p>
+<table class="multitable">
+<tbody><tr><td width="30%"><code class="code">@(newline)</code></td><td width="50%">(espaço)</td></tr>
+<tr><td width="30%"><code class="code">@(space)</code></td><td width="50%">(espaço)</td></tr>
+<tr><td width="30%"><code class="code">@(tab)</code></td><td width="50%">(espaço)</td></tr>
+<tr><td width="30%"><code class="code">@!</code></td><td width="50%">&lsquo;<samp class="samp">!</samp>&rsquo;</td></tr>
+<tr><td width="30%"><code class="code">@*</code></td><td width="50%">(espaço)</td></tr>
+<tr><td width="30%"><code class="code">@-</code></td><td width="50%">(nada)</td></tr>
+<tr><td width="30%"><code class="code">@.</code></td><td width="50%">&lsquo;<samp class="samp">.</samp>&rsquo;</td></tr>
+<tr><td width="30%"><code class="code">@:</code></td><td width="50%">(nada)</td></tr>
+<tr><td width="30%"><code class="code">@?</code></td><td width="50%">&lsquo;<samp class="samp">?</samp>&rsquo;</td></tr>
+<tr><td width="30%"><code class="code">@@</code></td><td width="50%">&lsquo;<samp class="samp">@</samp>&rsquo;</td></tr>
+<tr><td width="30%"><code class="code">@{</code></td><td width="50%">&lsquo;<samp class="samp">{</samp>&rsquo;</td></tr>
+<tr><td width="30%"><code class="code">@}</code></td><td width="50%">&lsquo;<samp class="samp">}</samp>&rsquo;</td></tr>
+<tr><td width="30%"><code class="code">@LaTeX</code></td><td width="50%">&lsquo;<samp class="samp">LaTeX</samp>&rsquo;</td></tr>
+<tr><td width="30%"><code class="code">@TeX</code></td><td width="50%">&lsquo;<samp class="samp">TeX</samp>&rsquo;</td></tr>
+<tr><td width="30%"><code class="code">@arrow</code></td><td width="50%">U+2192</td></tr>
+<tr><td width="30%"><code class="code">@bullet</code></td><td width="50%">U+2022</td></tr>
+<tr><td width="30%"><code class="code">@comma</code></td><td width="50%">&lsquo;<samp class="samp">,</samp>&rsquo;</td></tr>
+<tr><td width="30%"><code class="code">@copyright</code></td><td width="50%">U+00A9</td></tr>
+<tr><td width="30%"><code class="code">@dots</code></td><td width="50%">U+2026</td></tr>
+<tr><td width="30%"><code class="code">@enddots</code></td><td width="50%">&lsquo;<samp class="samp">...</samp>&rsquo;</td></tr>
+<tr><td width="30%"><code class="code">@equiv</code></td><td width="50%">U+2261</td></tr>
+<tr><td width="30%"><code class="code">@error</code></td><td width="50%">&lsquo;<samp class="samp">erro--&gt;</samp>&rsquo;</td></tr>
+<tr><td width="30%"><code class="code">@euro</code></td><td width="50%">U+20AC</td></tr>
+<tr><td width="30%"><code class="code">@exclamdown</code></td><td width="50%">U+00A1</td></tr>
+<tr><td width="30%"><code class="code">@expansion</code></td><td width="50%">U+21A6</td></tr>
+<tr><td width="30%"><code class="code">@geq</code></td><td width="50%">U+2265</td></tr>
+<tr><td width="30%"><code class="code">@leq</code></td><td width="50%">U+2264</td></tr>
+<tr><td width="30%"><code class="code">@minus</code></td><td width="50%">U+2212</td></tr>
+<tr><td width="30%"><code class="code">@ordf</code></td><td width="50%">U+00AA</td></tr>
+<tr><td width="30%"><code class="code">@ordm</code></td><td width="50%">U+00BA</td></tr>
+<tr><td width="30%"><code class="code">@point</code></td><td width="50%">U+22C6</td></tr>
+<tr><td width="30%"><code class="code">@pounds</code></td><td width="50%">U+00A3</td></tr>
+<tr><td width="30%"><code class="code">@print</code></td><td width="50%">U+22A3</td></tr>
+<tr><td width="30%"><code class="code">@questiondown</code></td><td width="50%">U+00BF</td></tr>
+<tr><td width="30%"><code class="code">@registeredsymbol</code></td><td width="50%">U+00AE</td></tr>
+<tr><td width="30%"><code class="code">@result</code></td><td width="50%">U+21D2</td></tr>
+<tr><td width="30%"><code class="code">@textdegree</code></td><td width="50%">U+00B0</td></tr>
+<tr><td width="30%"><code class="code">@tie</code></td><td width="50%">(espaço)</td></tr>
+</tbody>
+</table>
+
+<p>Comandos @ de aspas (<code class="code">@quotedblright{}</code> e similares) também são
+substituídos pelos valores Unicode deles. <em class="emph">Caracteres</em> de citação
+normal (por exemplo, &lsquo; e &rsquo; do ASCII) não são alterados. Veja-se <a class="xref" href="Inserindo-Aspas.html">Inserindo Aspas</a>.
+</p>
+<p>Quaisquer comandos <code class="code">@acronym</code>, <code class="code">@abbr</code>, <code class="code">@email</code> e
+<code class="code">@image</code> são substituídos pelo primeiro argumento deles. (Para esses
+comandos, todos os argumentos subsequentes são opcionais e ignorados
+aqui). Veja-se <a class="xref" href="_0040acronym.html"><code class="code">@acronym</code>{<var class="var">sigla</var>[, <var class="var">significado</var>]}</a>, <a class="ref" href="_0040email.html"><code class="code">@email</code>{<var class="var">endereço-correio-eletrônico</var>[, <var class="var">texto-exibido</var>]}</a> e <a class="ref" href="Imagens.html">Inserindo Imagens</a>.
+</p>
+<p>Acentos são manuseados de acordo com a próxima seção.
+</p>
+<p>Qualquer outro comando é um erro e o resultado é inespecificado.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Expans_00e3o-de-Caracteres-de-8-bits-do-Xref-do-HTML.html">Expansão do Caractere de 8 Bits da Referência Cruzada do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Expans_00e3o-de-Nome-de-N_00f3-do-Xref-do-HTML.html">Expansão de Nome de Nó de Referência Cruzada do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Xref-do-HTML.html">Referências Cruzadas do HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@ifset @ifclear (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Formate uma região se um sinalizador estiver configurado.">
+<meta name="keywords" content="Formate uma região se um sinalizador estiver configurado.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="_0040set-_0040clear-_0040value.html" rel="up" title="@set @clear @value">
+<link href="_0040inlineifset-_0040inlineifclear.html" rel="next" title="@inlineifset @inlineifclear">
+<link href="_0040set-_0040value.html" rel="prev" title="@set @value">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="g_t_0040ifset-_0040ifclear">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040inlineifset-_0040inlineifclear.html" accesskey="n" rel="next"><code class="code">@inlineifset</code> e <code class="code">@inlineifclear</code></a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040set-_0040value.html" accesskey="p" rel="prev"><code class="code">@set</code> e <code class="code">@value</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="_0040set-_0040clear-_0040value.html" accesskey="u" rel="up">Sinalizadores: <code class="code">@set</code>, <code class="code">@clear</code>, condicionais e <code class="code">@value</code></a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="g_t_0040ifset-e-_0040ifclear"><span>16.5.2 <code class="code">@ifset</code> e <code class="code">@ifclear</code><a class="copiable-link" href="#g_t_0040ifset-e-_0040ifclear"> &para;</a></span></h4>
+
+<a class="anchor" id="ifset-ifclear"></a><a class="index-entry-id" id="index-ifset"></a>
+
+<p>Quando um <var class="var">sinalizador</var> for configurado, os comandos de formatação do
+Texinfo formatam o texto entre pares subsequentes de comandos <code class="code">@ifset
+<var class="var">sinalizador</var></code> e <code class="code">@end ifset</code>.  Quando o <var class="var">sinalizador</var> for
+limpo, os comandos de formatação do Texinfo <em class="emph">não</em> formatam o texto.
+<code class="code">@ifclear</code> opera analogamente.
+</p>
+<p>Escreva o texto formatado condicionalmente entre comandos <code class="code">@ifset
+<var class="var">sinalizador</var></code> e <code class="code">@end ifset</code>, assim:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@ifset <var class="var">sinalizador</var>
+<var class="var">texto-condicional</var>
+@end ifset
+</pre></div></div>
+
+<p>Por exemplo, você pode criar um documento que tenha duas variantes, como um
+manual para um modelo &lsquo;grande&rsquo; e &lsquo;pequeno&rsquo;:
+</p>
+<a class="index-entry-id" id="index-Arbusto"></a>
+<div class="example">
+<pre class="example-preformatted">Você pode usar esta máquina para desenterrar arbustos
+sem machucá-los.
+
+@set grande
+
+@ifset grande
+Ela também pode desenterrar árvores adultas.
+@end ifset
+
+Lembre-se de replantar imediatamente ...
+</pre></div>
+
+<p>No exemplo, os comandos de formatação formatarão o texto entre <code class="code">@ifset
+grande</code> e <code class="code">@end ifset</code> porque o sinalizador <code class="code">grande</code> está
+configurado.
+</p>
+<p>Quando <var class="var">sinalizador</var> for limpo, os comandos de formatação do Texinfo
+<em class="emph">não</em> formatam o texto entre <code class="code">@ifset <var class="var">sinalizador</var></code> e
+<code class="code">@end ifset</code>; esse texto é ignorado e não aparece na saída gerada.
+</p>
+<p>Por exemplo, se você limpar o sinalizador do exemplo precedente escrevendo
+um comando <code class="code">@clear grande</code> depois do comando <code class="code">@set grande</code> (mas
+antes do texto condicional), então os comandos de formatação do Texinfo
+ignorarão o texto entre os comandos <code class="code">@ifset grande</code> e <code class="code">@end
+ifset</code>.  Na saída formatada, esse texto não aparece; você vê somente as
+linhas que dizem, &ldquo;Você pode usar esta máquina para desenterrar arbustos
+sem machucá-los. Lembre-se de replantar imediatamente &hellip;&rdquo;.
+</p>
+<a class="index-entry-id" id="index-ifclear"></a>
+<p>Se um sinalizador for limpo com um comando <code class="code">@clear <var class="var">sinalizador</var></code>,
+então os comandos de formatação formatam o texto entre pares subsequentes de
+comandos <code class="code">@ifclear</code> e <code class="code">@end ifclear</code>.  Mas se o sinalizador for
+configurado com <code class="code">@set <var class="var">sinalizador</var></code>, então os comandos de
+formatação <em class="emph">não</em> formatam o texto entre um comando <code class="code">@ifclear</code> e
+um <code class="code">@end ifclear</code>; em vez disso, eles ignoram esse texto.  Um comando
+<code class="code">@ifclear</code> se parece com isto:
+</p>
+<div class="example">
+<pre class="example-preformatted">@ifclear <var class="var">sinalizador</var>
+</pre></div>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040inlineifset-_0040inlineifclear.html"><code class="code">@inlineifset</code> e <code class="code">@inlineifclear</code></a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040set-_0040value.html"><code class="code">@set</code> e <code class="code">@value</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="_0040set-_0040clear-_0040value.html">Sinalizadores: <code class="code">@set</code>, <code class="code">@clear</code>, condicionais e <code class="code">@value</code></a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

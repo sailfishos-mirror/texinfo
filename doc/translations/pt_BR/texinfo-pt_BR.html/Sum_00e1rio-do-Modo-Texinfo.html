@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Sumário do Modo Texinfo (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Resumo de todos os comandos do modo Texinfo.">
+<meta name="keywords" content="Resumo de todos os comandos do modo Texinfo.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Modo-Texinfo.html" rel="up" title="Modo Texinfo">
+<link href="Formatando-arquivos-do-Info.html" rel="next" title="Formatando arquivos do Info">
+<link href="Imprimindo-com-o-Emacs.html" rel="prev" title="Imprimindo com o Emacs">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+kbd.kbd {font-style: oblique}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Sum_00e1rio-do-Modo-Texinfo">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Formatando-arquivos-do-Info.html" accesskey="n" rel="next">Formatação Direta de arquivos do Info</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Imprimindo-com-o-Emacs.html" accesskey="p" rel="prev">Formatando e Imprimindo com o Emacs</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Modo-Texinfo.html" accesskey="u" rel="up">Usando Modo Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Sum_00e1rio-do-Modo-Texinfo-1"><span>D.8 Sumário do Modo Texinfo<a class="copiable-link" href="#Sum_00e1rio-do-Modo-Texinfo-1"> &para;</a></span></h3>
+
+<p>No modo Texinfo, cada conjunto de comandos tem atalhos de teclado padrão que
+começam com as mesmas teclas. Todos os comandos que sejam personalizadamente
+criados para o modo Texinfo começam com <kbd class="kbd">C-c</kbd>. As teclas são um tanto
+mnemônicas.
+</p>
+<h4 class="subheading" id="Comandos-de-Inser_00e7_00e3o"><span>Comandos de Inserção<a class="copiable-link" href="#Comandos-de-Inser_00e7_00e3o"> &para;</a></span></h4>
+
+<p>Os comandos de inserção são invocados digitando-se <kbd class="kbd">C-c</kbd> duas vezes e
+depois a primeira letra do comando @ a ser inserida. (Pode fazer mais
+sentido mnemonicamente usar <kbd class="kbd">C-c C-i</kbd>, para &lsquo;inserção personalizada&rsquo;,
+mas <kbd class="kbd">C-c C-c</kbd> é rápido de digitar).
+</p>
+<div class="example">
+<pre class="example-preformatted">C-c C-c c       <span class="r">Inserir</span> &lsquo;<samp class="samp">@code</samp>&rsquo;.
+C-c C-c d       <span class="r">Inserir</span> &lsquo;<samp class="samp">@dfn</samp>&rsquo;.
+C-c C-c e       <span class="r">Inserir</span> &lsquo;<samp class="samp">@end</samp>&rsquo;.
+C-c C-c i       <span class="r">Inserir</span> &lsquo;<samp class="samp">@item</samp>&rsquo;.
+C-c C-c n       <span class="r">Inserir</span> &lsquo;<samp class="samp">@node</samp>&rsquo;.
+C-c C-c s       <span class="r">Inserir</span> &lsquo;<samp class="samp">@samp</samp>&rsquo;.
+C-c C-c v       <span class="r">Inserir</span> &lsquo;<samp class="samp">@var</samp>&rsquo;.
+C-c {       <span class="r">Inserir chaves.</span>
+C-c ]
+C-c }       <span class="r">Mover para fora das chaves cercantes.</span>
+
+</pre><div class="group"><pre class="example-preformatted">C-c C-c C-d     <span class="r">Inserir título da seção de um nó</span>
+               <span class="r">no espaço para a descrição</span>
+               <span class="r">em uma linha de entrada do menu.</span>
+</pre></div></div>
+
+<h4 class="subheading" id="Mostrar-Estrutura"><span>Mostrar Estrutura<a class="copiable-link" href="#Mostrar-Estrutura"> &para;</a></span></h4>
+
+<p>O comando <code class="code">texinfo-show-structure</code> frequentemente é usado em uma região
+estreitada.
+</p>
+<div class="example">
+<pre class="example-preformatted">C-c C-s         <span class="r">Listar todos os títulos.</span>
+</pre></div>
+
+<h4 class="subheading" id="O-Comando-Mestre-de-Atualiza_00e7_00e3o"><span>O Comando Mestre de Atualização<a class="copiable-link" href="#O-Comando-Mestre-de-Atualiza_00e7_00e3o"> &para;</a></span></h4>
+
+<p>O comando <code class="code">texinfo-master-menu</code> cria um menu mestre; e também pode ser
+usado para atualizar cada nó e menu em um arquivo.
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">C-c C-u m
+M-x texinfo-master-menu
+               <span class="r">Criar ou atualizar um menu mestre.</span>
+</pre></div><pre class="example-preformatted">
+
+</pre><div class="group"><pre class="example-preformatted">C-u C-c C-u m   <span class="r">Com <kbd class="kbd">C-u</kbd> como um argumento de prefixo, primeiro</span>
+               <span class="r">criar ou atualizar todos os nós e menus regulares</span>
+               <span class="r">e, em seguida, criar um menu mestre.</span>
+</pre></div></div>
+
+<h4 class="subheading" id="Atualizar-Ponteiros"><span>Atualizar Ponteiros<a class="copiable-link" href="#Atualizar-Ponteiros"> &para;</a></span></h4>
+
+<p>Os comandos de atualização de ponteiro são invocados digitando-se <kbd class="kbd">C-c
+C-u</kbd> e, então, ou <kbd class="kbd">C-n</kbd> para <code class="code">texinfo-update-node</code> ou <kbd class="kbd">C-e</kbd>
+para <code class="code">texinfo-every-node-update</code>.
+</p>
+<div class="example">
+<pre class="example-preformatted">C-c C-u C-n     <span class="r">Atualizar um nó.</span>
+C-c C-u C-e     <span class="r">Atualizar cada nó no buffer.</span>
+</pre></div>
+
+<h4 class="subheading" id="Menus-de-Atualiza_00e7_00e3o"><span>Menus de Atualização<a class="copiable-link" href="#Menus-de-Atualiza_00e7_00e3o"> &para;</a></span></h4>
+
+<p>Invocar os comandos de atualização de menu digitando <kbd class="kbd">C-c C-u</kbd> e, então,
+ou <kbd class="kbd">C-m</kbd> para <code class="code">texinfo-make-menu</code> ou <kbd class="kbd">C-a</kbd> para
+<code class="code">texinfo-all-menus-update</code>. Para atualizar ambos, nós e menus, ao mesmo
+tempo, preceder <kbd class="kbd">C-c C-u C-a</kbd> com <kbd class="kbd">C-u</kbd>.
+</p>
+<div class="example">
+<pre class="example-preformatted">C-c C-u C-m     <span class="r">Criar ou atualizar um menu.</span>
+
+</pre><div class="group"><pre class="example-preformatted">C-c C-u C-a     <span class="r">Criar ou atualizar todos</span>
+               <span class="r">os menus em um buffer.</span>
+</pre></div><pre class="example-preformatted">
+
+</pre><div class="group"><pre class="example-preformatted">C-u C-c C-u C-a <span class="r">Com <kbd class="kbd">C-u</kbd> como um argumento de prefixo,</span>
+               <span class="r">primeiro criar ou atualizat todos os nós e, então,</span>
+               <span class="r">criar os atualizar todos os menus.</span>
+</pre></div></div>
+
+<h4 class="subheading" id="Formatar-para-Info"><span>Formatar para Info<a class="copiable-link" href="#Formatar-para-Info"> &para;</a></span></h4>
+
+<p>Os comandos de formatação do Info que sejam escritos em Emacs Lisp são
+invocados digitando-se <kbd class="kbd">C-c C-e</kbd> e, então, ou <kbd class="kbd">C-r</kbd> para uma região
+ou <kbd class="kbd">C-b</kbd> para o buffer inteiro.
+</p>
+<p>Os comandos de formatação do Info que sejam baseados no programa
+<code class="command">texi2any</code>/<code class="command">makeinfo</code> são invocados digitando-se <kbd class="kbd">C-c
+C-m</kbd> e, então, ou <kbd class="kbd">C-r</kbd> para uma região ou <kbd class="kbd">C-b</kbd> para o buffer
+inteiro.
+</p>
+<p>Usar os comandos <code class="code">texinfo-format&hellip;</code>:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">C-c C-e C-r     <span class="r">Formatar a região.</span>
+C-c C-e C-b     <span class="r">Formatar o buffer.</span>
+</pre></div></div>
+
+<p>Usar <code class="command">texi2any</code>/<code class="command">makeinfo</code>:
+</p>
+<div class="example">
+<pre class="example-preformatted">C-c C-m C-r     <span class="r">Formatar a região.</span>
+C-c C-m C-b     <span class="r">Formatar o buffer.</span>
+C-c C-m C-l     <span class="r">Recentralizar o buffer da saída do <code class="command">texi2any</code>.</span>
+C-c C-m C-k     <span class="r">Encerra o trabalho de formatação do <code class="command">texi2any</code>.</span>
+</pre></div>
+
+<h4 class="subheading" id="Tipografia-e-Impress_00e3o"><span>Tipografia e Impressão<a class="copiable-link" href="#Tipografia-e-Impress_00e3o"> &para;</a></span></h4>
+
+<p>Os comandos de tipografia e de impressão do TeX são invocados
+digitando-se <kbd class="kbd">C-c C-t</kbd> e, em seguida, outro comando de controle:
+<kbd class="kbd">C-r</kbd> para <code class="code">texinfo-tex-region</code>, <kbd class="kbd">C-b</kbd> para
+<code class="code">texinfo-tex-buffer</code> e assim por diante.
+</p>
+<div class="example">
+<pre class="example-preformatted">C-c C-t C-r     <span class="r">Executar TeX sobre a região.</span>
+C-c C-t C-b     <span class="r">Executar</span> <code class="command">texi2dvi</code> <span class="r">sobre o buffer.</span>
+C-c C-t C-i     <span class="r">Executar</span> <code class="command">texindex</code>.
+C-c C-t C-p     <span class="r">Imprimir o arquivo DVI.</span>
+C-c C-t C-q     <span class="r">Mostrar a fila de impressão.</span>
+C-c C-t C-d     <span class="r">Deletar um trabalho da fila de impressão.</span>
+C-c C-t C-k     <span class="r">Elimina o trabalho atual de formatação do TeX.</span>
+C-c C-t C-x     <span class="r">Fecha um trabalho de formatação do TeX atualmente interrompido.</span>
+C-c C-t C-l     <span class="r">Recentralizar a saída gerada de buffer.</span>
+</pre></div>
+
+<h4 class="subheading" id="Outros-Comandos-de-Atualiza_00e7_00e3o-2"><span>Outros Comandos de Atualização<a class="copiable-link" href="#Outros-Comandos-de-Atualiza_00e7_00e3o-2"> &para;</a></span></h4>
+
+<p>Os comandos de atualização restantes não têm atalhos padrão de teclado
+porque raramente eles são usados.
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">M-x texinfo-insert-node-lines
+               <span class="r">Inserir linhas <code class="code">@node</code> ausentes na região.</span>
+               <span class="r">Com <kbd class="kbd">C-u</kbd> como argumento de prefixo,</span>
+               <span class="r">usar títulos de seção como nomes de nós.</span>
+</pre></div><pre class="example-preformatted">
+
+</pre><div class="group"><pre class="example-preformatted">M-x texinfo-multiple-files-update
+               <span class="r">Atualizar um documento com vários arquivos.</span>
+               <span class="r">Com <kbd class="kbd">C-u 2</kbd> como um argumento de prefixo,</span>
+               <span class="r">criar ou atualizar todos os nós e menus</span>
+               <span class="r">em todos os arquivos incluídos primeiro.</span>
+</pre></div><pre class="example-preformatted">
+
+</pre><div class="group"><pre class="example-preformatted">M-x texinfo-indent-menu-description
+               <span class="r">Recuar descrições.</span>
+</pre></div><pre class="example-preformatted">
+
+</pre><div class="group"><pre class="example-preformatted">M-x texinfo-sequential-node-update
+               <span class="r">Inserir ponteiros de nó em sequência estrita.</span>
+</pre></div></div>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Formatando-arquivos-do-Info.html">Formatação Direta de arquivos do Info</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Imprimindo-com-o-Emacs.html">Formatando e Imprimindo com o Emacs</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Modo-Texinfo.html">Usando Modo Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

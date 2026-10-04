@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Métodos Orientados a Objetos (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Métodos Orientados a Objetos (GNU Texinfo 7.3)">
+<meta name="keywords" content="Métodos Orientados a Objetos (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Objetos-Abstratos.html" rel="up" title="Objetos Abstratos">
+<link href="Vari_00e1veis-Orientadas-a-Objetos.html" rel="prev" title="Variáveis Orientadas a Objetos">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsubsection-level-extent" id="M_00e9todos-Orientados-a-Objetos">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Vari_00e1veis-Orientadas-a-Objetos.html" accesskey="p" rel="prev">Variáveis Orientadas a Objetos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Objetos-Abstratos.html" accesskey="u" rel="up">Programação Orientada a Objetos</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsubsection" id="M_00e9todos-Orientados-a-Objetos-1"><span>14.6.6.2 Métodos Orientados a Objetos<a class="copiable-link" href="#M_00e9todos-Orientados-a-Objetos-1"> &para;</a></span></h4>
+
+<a class="index-entry-id" id="index-Metodos_002c-orientados-a-objetos"></a>
+
+<p>Esses comandos permitem que você defina diferentes tipos de entidades
+semelhantes a funções que lembram métodos em linguagens de programação
+orientadas a objetos.  Essas entidades recebem argumentos, como as funções,
+mas são associadas a classes específicas de objetos.
+</p>
+<dl class="table">
+<dt><a id="index-defop"></a><span><code class="code">@defop <var class="var">categoria</var> <var class="var">classe</var> <var class="var">nome</var> <var class="var">argumentos</var>&hellip;</code><a class="copiable-link" href="#index-defop"> &para;</a></span></dt>
+<dd><p>O comando <code class="code">@defop</code> é o comando de definição para essas entidades
+semelhantes a métodos. com argumentos simples
+</p>
+<p>Por exemplo, alguns sistemas tem construções chamadas <em class="dfn">involucradores</em>
+que são associadas a classes, como métodos, mas que agem mais como macros
+que como funções.  Você poderia usar <code class="code">@defop Involucrador</code> para
+descrever uma delas.
+</p>
+<p>Ocasionalmente, é útil distinguir métodos e <em class="dfn">operações</em>.  Você pode
+pensar em uma operação como a especificação para um método.  Assim, um
+sistema de janelas pode especificar que todas as classes de janelas tem um
+método chamado <code class="code">expor</code>; nós diríamos que esse sistema de janelas define
+uma operação <code class="code">expor</code> sobre janelas em geral.  Normalmente, a operação
+tem um nome e também especifica o padrão de argumentos; todos os métodos que
+implementem a operação precisam aceitar os mesmos argumentos, já que
+aplicações que usem a operação o fazem sem saber qual método a implementará.
+</p>
+<p>Frequentemente faz mais sentido documentar operações que métodos.  Por
+exemplo, desenvolvedores(as) de aplicações de janela precisam saber acerca
+da operação <code class="code">expor</code>, mas não precisam se preocupar se uma determinada
+classe de janelas tem o próprio método dela para implementar essa operação.
+Para descrever essa operação, você escreveria:
+</p>
+<div class="example">
+<pre class="example-preformatted">@defop Operação janelas expor
+</pre></div>
+
+<p>O comando <code class="code">@defop</code> é escrito no início de uma linha e é seguido na
+mesma linha pelo nome geral da categoria da operação, pelo nome da classe da
+operação, pelo nome da operação e pelos argumentos dela, se existirem.
+</p>
+<p><code class="code">@defop</code> cria uma entrada, como &lsquo;<code class="code">expor</code> sobre <code class="code">janelas</code>&rsquo;,
+no índice de funções.
+</p>
+</dd>
+<dt><a id="index-deftypeop"></a><span><code class="code">@deftypeop <var class="var">categoria</var> <var class="var">classe</var> <var class="var">tipo-dados</var> <var class="var">nome</var> <var class="var">argumentos</var>&hellip;</code><a class="copiable-link" href="#index-deftypeop"> &para;</a></span></dt>
+<dd><p>O comando <code class="code">@deftypeop</code> é o comando genérico de definição para
+operações em programação orientada a objetos.  Ele é especificamente
+adequado para linguagens tipadas orientadas a objetos.  Ele é semelhante ao
+<code class="code">@defop</code> com a adição do parâmetro <var class="var">tipo-dados</var> para especificar
+informações acerca do valor de retorno do método, por exemplo o tipo de
+retorno.
+</p>
+</dd>
+<dt><a id="index-defmethod"></a><span><code class="code">@defmethod <var class="var">classe</var> <var class="var">nome</var> <var class="var">argumentos</var>&hellip;</code><a class="copiable-link" href="#index-defmethod"> &para;</a></span></dt>
+<dd><p>O comando <code class="code">@defmethod</code> é o comando de definição para métodos em
+programação orientada a objetos.  Um método é um tipo de função que
+implementa uma operação para uma classe particular de objetos e as
+subclasses dela.
+</p>
+<p><code class="code">@defmethod</code> é equivalente a &lsquo;<samp class="samp">@defop Método &hellip;</samp>&rsquo;.  O comando
+é escrito no início de uma linha e é seguido pelo nome da classe do método,
+pelo nome do método e pelos argumentos dele, se existirem.
+</p>
+<p>Por exemplo:
+</p><div class="example">
+<div class="group"><pre class="example-preformatted">@defmethod <code class="code">classe-barra</code> método-barra argumento
+...
+@end defmethod
+</pre></div></div>
+
+<p>ilustra a definição para um método chamado <code class="code">método-barra</code> da classe
+<code class="code">classe-barra</code>.  O método recebe um argumento.
+</p>
+<p><code class="code">@defmethod</code> cria uma entrada no índice de funções.
+</p>
+</dd>
+<dt><a id="index-deftypemethod"></a><span><code class="code">@deftypemethod <var class="var">classe</var> <var class="var">tipo-dados</var> <var class="var">nome</var> <var class="var">argumentos</var>&hellip;</code><a class="copiable-link" href="#index-deftypemethod"> &para;</a></span></dt>
+<dd><p>O comando <code class="code">@deftypemethod</code> é o comando de definição para métodos em
+linguagens orientadas a objetos, em particular para linguagens tipadas como
+C++ e Java.  Ele é semelhante ao comando <code class="code">@defmethod</code> com a adição do
+parâmetro <var class="var">tipo-dados</var> para especificar informações acerca do valor de
+retorno do método, por exemplo o tipo de retorno.
+</p>
+</dd>
+</dl>
+
+<p>Os comandos com informação acerca de valores de retorno são afetados pela
+opção <code class="code">@deftypefnnewline</code> (veja-se <a class="pxref" href="Fun_00e7_00f5es-Tipadas.html">Funções em
+Linguagens Tipadas</a>).
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Vari_00e1veis-Orientadas-a-Objetos.html">Variáveis Orientadas a Objetos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Objetos-Abstratos.html">Programação Orientada a Objetos</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

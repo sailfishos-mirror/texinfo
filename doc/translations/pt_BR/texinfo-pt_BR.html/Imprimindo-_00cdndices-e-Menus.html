@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Imprimindo Índices e Menus (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como imprimir um índice em cópia impressa e gerar menus de">
+<meta name="keywords" content="Como imprimir um índice em cópia impressa e gerar menus de">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="_00cdndices.html" rel="up" title="Índices">
+<link href="Combinando-_00cdndices.html" rel="next" title="Combinando Índices">
+<link href="Entradas-de-_00cdndice.html" rel="prev" title="Entradas de Índice">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Imprimindo-_00cdndices-e-Menus">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Combinando-_00cdndices.html" accesskey="n" rel="next">Combinando Índices</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Entradas-de-_00cdndice.html" accesskey="p" rel="prev">Criando Entradas de Índice</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="_00cdndices.html" accesskey="u" rel="up">Índices</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<p>índice no Info.
+</p><h3 class="section" id="Imprimindo-_00cdndices-e-Menus-1"><span>10.5 Imprimindo Índices e Menus<a class="copiable-link" href="#Imprimindo-_00cdndices-e-Menus-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Imprimindo-um-indice"></a>
+<a class="index-entry-id" id="index-Indices_002c-imprimindo-e-menus"></a>
+<a class="index-entry-id" id="index-Gerando-menus-com-indices"></a>
+<a class="index-entry-id" id="index-Menus-gerados-com-indices"></a>
+
+
+<a class="index-entry-id" id="index-printindex"></a>
+<p><code class="code">@printindex</code> recebe um argumento, uma abreviação de duas letras do
+índice.  Você precisa incluir o comando <code class="code">@printindex</code> no local do
+documento onde quiser que o índice apareça.  Isso não acontece
+automaticamente só porque você usa <code class="code">@cindex</code> ou outros comandos
+geradores de entradas de índice no arquivo Texinfo; esses somente fazem com
+que os dados brutos para o índice sejam acumulados.
+</p>
+<p>Você deveria preceder o comando <code class="code">@printindex</code> com um comando adequado
+de seção ou capítulo (geralmente <code class="code">@appendix</code> ou <code class="code">@unnumbered</code>)
+para fornecer o título do capítulo e inserir o índice no sumário.  Preceda o
+título do capítulo com uma linha <code class="code">@node</code>, como de costume.
+</p>
+<p>Por exemplo:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@node Índice Variável
+@unnumbered Índice Variável
+
+@printindex vr
+</pre></div><pre class="example-preformatted">
+
+</pre><div class="group"><pre class="example-preformatted">@node Índice de Conceito
+@unnumbered Índice de Conceito
+
+@printindex cp
+</pre></div></div>
+
+<p>O texto &lsquo;<samp class="samp">Index</samp>&rsquo; precisa aparecer no nome do nó que contém o índice para
+que o índice seja encontrado por leitores Info.
+</p>
+<p>Se você tiver mais que um índice, nós recomendamos colocar o índice de
+conceito por último.
+</p>
+<p>Outros detalhes da saída do índice em formatos de saída:
+</p>
+<ul class="itemize mark-bullet">
+<li>Como parte do processo de criação de um manual impresso com o TeX, você
+executa um programa chamado <code class="command">texindex</code> (veja-se <a class="pxref" href="Impresso-com-TeX.html">Formatando e Imprimindo com TeX</a>)
+para ordenar os dados brutos para produzir um arquivo de índice ordenado.  O
+arquivo de índice ordenado é o que, na verdade, é usado para imprimir o
+índice.
+
+<p><code class="code">@printindex</code> lê o correspondente arquivo de índice ordenado e produz
+um índice tradicional de duas colunas, com termos de índice e números de
+página.
+</p>
+</li><li>Na saída Info, <code class="code">@printindex</code> produz um menu especial contendo o número
+da linha da entrada, relativo ao início do nó.  Leitores Info podem usar
+isso para ir para a linha exata de uma entrada, não apenas para o nó que a
+contém.  (Leitores Info mais antigos irão apenas para o nó).  Aqui está um
+exemplo:
+
+<div class="example">
+<pre class="example-preformatted">* Primeira entrada de índice:   Topo.   (linha  7)
+</pre></div>
+
+</li><li>Na saída de texto simples, a formatação de <code class="code">@printindex</code> geralmente é
+semelhante a um menu no Info, mostrando o número da linha de cada entrada
+relativa ao início do arquivo.
+
+</li><li>Na saída HTML, <code class="code">@printindex</code> produz linques para as entradas do
+índice.
+
+</li><li>Na saída DocBook e LaTeX, ele simplesmente registra o índice a ser
+impresso.
+</li></ul>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Combinando-_00cdndices.html">Combinando Índices</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Entradas-de-_00cdndice.html">Criando Entradas de Índice</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="_00cdndices.html">Índices</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Comandos de Atualização (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Cinco principais comandos de atualização.">
+<meta name="keywords" content="Cinco principais comandos de atualização.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Atualizando-N_00f3s-e-Menus.html" rel="up" title="Atualizando Nós e Menus">
+<link href="Exig_00eancias-de-Atualiza_00e7_00e3o.html" rel="next" title="Exigências de Atualização">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+kbd.kbd {font-style: oblique}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Comandos-de-Atualiza_00e7_00e3o">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Exig_00eancias-de-Atualiza_00e7_00e3o.html" accesskey="n" rel="next">Exigências de Atualização</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Atualizando-N_00f3s-e-Menus.html" accesskey="u" rel="up">Atualizando Nós e Menus</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Os-Comandos-de-Atualiza_00e7_00e3o"><span>D.5.1 Os Comandos de Atualização<a class="copiable-link" href="#Os-Comandos-de-Atualiza_00e7_00e3o"> &para;</a></span></h4>
+
+<p>Você consegue usar os comandos de atualização para:
+</p>
+<ul class="itemize mark-bullet">
+<li>inserir ou atualizar os ponteiros &lsquo;Próximo&rsquo;, &lsquo;Anterior&rsquo; e &lsquo;Acima&rsquo;, de um nó,
+
+</li><li>inserir ou atualizar o menu para uma seção, e
+
+</li><li>criar um menu mestre para um arquivo fonte do Texinfo.
+</li></ul>
+
+<p>Você também consegue usar os comandos para atualizar todos os nós e menus em
+uma região ou em um arquivo inteiro do Texinfo.
+</p>
+<p>Os comandos de atualização funcionam somente com arquivos convencionais do
+Texinfo, que sejam estruturados hierarquicamente como livros. Nesses
+arquivos, uma linha com um comando de estruturação precisa seguir logo
+depois de cada linha <code class="code">@node</code>, exceto para a linha &lsquo;Top&rsquo; do
+<code class="code">@node</code>.
+</p>
+<p>Você consegue escrever o comando de estruturação na linha que segue
+imediatamente depois de uma linha <code class="code">@node</code> ou então na linha que segue
+depois de uma linha de <code class="code">@comment</code> único ou de uma linha de
+<code class="code">@ifinfo</code> único. Você não pode interpor mais que uma linha entre a
+linha <code class="code">@node</code> e a linha do comando de estruturação; e você pode
+interpor somente uma linha <code class="code">@comment</code> ou uma linha <code class="code">@ifinfo</code>.
+</p>
+<p>Comandos que funcionam sobre um buffer inteiro exigem que o nó &lsquo;Top&rsquo; seja
+seguido por um nó com um <code class="code">@chapter</code> ou comando de nível
+equivalente. Os comandos de atualização de menu não criarão um menu
+principal ou mestre para um arquivo do Texinfo que tenha somente nós de
+nível <code class="code">@chapter</code>! Os comandos de atualização de menu criam somente nós
+de menus <em class="emph">dentro</em> para nós de nível inferior. Para criar um menu de
+capítulos, você precisa fornecer um nó &lsquo;Top&rsquo;.
+</p>
+<p>Os comandos de atualização de menu removem entradas de menu que referenciem
+a outros arquivos do Info, uma vez que elas não referenciam a nós dentro do
+buffer atual. Isso é uma deficiência. Em vez de usar entradas de menu, você
+consegue usar referências cruzadas para referenciar a outros arquivos do
+Info. Nenhum dos comandos de atualização afeta referências cruzadas.
+</p>
+<p>O modo Texinfo tem cinco comandos de atualização que são usados mais
+frequentemente: dois são para atualizar os ponteiros de nó ou menu de um nó
+único (ou região); dois são para atualizar cada ponteiro de nó e menu em um
+arquivo; e um, o comando <code class="code">texinfo-master-menu</code>, é para criar um menu
+mestre para um arquivo completo e, opcionalmente, para atualizar cada nó e
+menu no arquivo inteiro do Texinfo.
+</p>
+<p>O comando <code class="code">texinfo-master-menu</code> é o comando primário:
+</p>
+<dl class="table">
+<dt><a id="index-texinfo_002dmaster_002dmenu"></a><span><kbd class="kbd">C-c C-u m</kbd><a class="copiable-link" href="#index-texinfo_002dmaster_002dmenu"> &para;</a></span></dt>
+<dt><kbd class="kbd">M-x texinfo-master-menu</kbd></dt>
+<dd><p>Criar ou atualizar um menu mestre que inclua todos os outros menus
+(incorporando as descrições originárias de menus preexistentes, se
+existirem).
+</p>
+<p>Com um argumento (argumento de prefixo, <kbd class="kbd">C-u,</kbd> se interativo), primeiro
+criar ou atualizar todos os nós e todos os menus regulares no buffer antes
+de construir o menu mestre. (Veja-se <a class="xref" href="O-N_00f3-Top.html">O Nó Top e o Menu Mestre</a>,
+para mais acerca de um menu mestre).
+</p>
+<p>Para <code class="code">texinfo-master-menu</code> funcionar, o arquivo do Texinfo precisa ter
+um nó &lsquo;Top&rsquo; e pelo menos um nó subsequente.
+</p>
+<p>Depois de editar extensivamente um arquivo do Texinfo, você pode digitar o
+seguinte:
+</p>
+<div class="example">
+<pre class="example-preformatted">C-u M-x texinfo-master-menu
+</pre><pre class="exdent">ou
+</pre><pre class="example-preformatted">C-u C-c C-u m
+</pre></div>
+
+<p>Isso atualiza todos os nós e menus completamente e de uma vez.
+</p></dd>
+</dl>
+
+<p>Os outros comandos principais de atualização realizam trabalhos menores e
+são projetados para a pessoa que atualiza nós e menus enquanto escreve um
+arquivo do Texinfo.
+</p>
+<p>Os comandos são:
+</p>
+<dl class="table">
+<dt><a id="index-texinfo_002dupdate_002dnode"></a><span><kbd class="kbd">C-c C-u C-n</kbd><a class="copiable-link" href="#index-texinfo_002dupdate_002dnode"> &para;</a></span></dt>
+<dt><kbd class="kbd">M-x texinfo-update-node</kbd></dt>
+<dd><p>Inserir os ponteiros &lsquo;Próximo&rsquo;, &lsquo;Anterior&rsquo; e &lsquo;Acima&rsquo; para o nó em que o
+ponto está (ou seja, para o ponto anterior da linha <code class="code">@node</code>). Se a
+linha <code class="code">@node</code> tiver ponteiros preexistentes &lsquo;Próximo&rsquo;, &lsquo;Anterior&rsquo; ou
+&lsquo;Acima&rsquo;, os ponteiros antigos serão removidos e novos serão inseridos. Com
+um argumento (argumento de prefixo, <kbd class="kbd">C-u</kbd>, se interativo), esse comando
+atualiza todas as linhas <code class="code">@node</code> na região (que é o texto entre o
+ponto e a marca).
+</p>
+</dd>
+<dt><a id="index-texinfo_002dmake_002dmenu"></a><span><kbd class="kbd">C-c C-u C-m</kbd><a class="copiable-link" href="#index-texinfo_002dmake_002dmenu"> &para;</a></span></dt>
+<dt><kbd class="kbd">M-x texinfo-make-menu</kbd></dt>
+<dd><p>Criar ou atualizar o menu no nó em que o ponto está. Com um argumento
+(<kbd class="kbd">C-u</kbd> como argumento de prefixo, se interativo), o comando cria ou
+atualiza menus para os nós que ou estejam dentro ou sejam uma parte da
+região.
+</p>
+<p>Sempre que <code class="code">texinfo-make-menu</code> atualizar um menu existente, as
+descrições originárias desse menu serão incorporadas no novo menu. Isso é
+feito copiando as descrições originárias do menu existente para as entradas
+no novo menu que tenham os mesmos nomes de nós. Se os nomes de nós forem
+diferentes, as descrições não serão copiadas para o novo menu.
+</p>
+</dd>
+<dt><a id="index-texinfo_002devery_002dnode_002dupdate"></a><span><kbd class="kbd">C-c C-u C-e</kbd><a class="copiable-link" href="#index-texinfo_002devery_002dnode_002dupdate"> &para;</a></span></dt>
+<dt><kbd class="kbd">M-x texinfo-every-node-update</kbd></dt>
+<dd><p>Inserir ou atualizar os ponteiros &lsquo;Próximo&rsquo;, &lsquo;Anterior&rsquo; e &lsquo;Acima&rsquo; para cada
+nó no buffer.
+</p>
+</dd>
+<dt><a id="index-texinfo_002dall_002dmenus_002dupdate"></a><span><kbd class="kbd">C-c C-u C-a</kbd><a class="copiable-link" href="#index-texinfo_002dall_002dmenus_002dupdate"> &para;</a></span></dt>
+<dt><kbd class="kbd">M-x texinfo-all-menus-update</kbd></dt>
+<dd><p>Criar ou atualizar todos os menus no buffer. Com um argumento (<kbd class="kbd">C-u</kbd>
+como argumento de prefixo, se interativo), primeiro inserir ou atualizar
+todos os ponteiros de nó antes de trabalhar nos menus.
+</p>
+<p>Se um menu mestre existir, o comando <code class="code">texinfo-all-menus-update</code> o
+atualiza; mas o comando não cria um novo menu mestre se já não existir
+nenhum. (Usar o comando <code class="code">texinfo-master-menu</code> para isso).
+</p>
+<p>Ao trabalhar em um documento que não merece um menu mestre, você pode
+digitar o seguinte:
+</p>
+<div class="example">
+<pre class="example-preformatted">C-u C-c C-u C-a
+</pre><pre class="exdent">ou
+</pre><pre class="example-preformatted">C-u M-x texinfo-all-menus-update
+</pre></div>
+
+<p>Isso atualiza todos os nós e menus.
+</p></dd>
+</dl>
+
+<p>A variável <code class="code">texinfo-column-for-description</code> especifica a coluna para a
+qual descrições de menu são recuadas. Por padrão, o valor é 32, embora possa
+ser útil reduzi-lo para 24. Você pode configurar a variável por meio de
+personalização (veja-se <a data-manual="emacs" href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Personaliza_00e7_00e3o.html#Personaliza_00e7_00e3o">Personalização</a> em <cite class="cite">O Manual do GNU Emacs</cite>) ou
+com o comando <kbd class="kbd">M-x set-variable</kbd> (veja-se <a data-manual="emacs" href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Examinando.html#Examinando">Examinando e
+Configurando Variáveis</a> em <cite class="cite">O Manual do GNU Emacs</cite>).
+</p>
+<p>Além disso, o comando <code class="code">texinfo-indent-menu-description</code> pode ser usado
+para recuar descrições existentes de menu para uma coluna
+especificada. Finalmente, se desejar, você consegue usar o comando
+<code class="code">texinfo-insert-node-lines</code> para inserir linhas <code class="code">@node</code> ausentes
+em um arquivo. Em particular, você consegue ignorar completamente linhas
+<code class="code">@node</code> em teu primeiro rascunho e então usar o comando
+<code class="code">texinfo-insert-node-lines</code> para criar linhas <code class="code">@node</code> para
+você. No entanto, nós não recomendamos essa prática. É melhor nominar o
+próprio nó ao mesmo tempo em que você escrever um segmento, de modo que
+consiga facilmente fazer referências cruzadas. Referências cruzadas úteis
+são um recurso especialmente importante de um bom manual do
+Texinfo. (Veja-se <a class="xref" href="Outros-Comandos-de-Atualiza_00e7_00e3o.html">Outros Comandos de Atualização</a>, para mais informações).
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Exig_00eancias-de-Atualiza_00e7_00e3o.html">Exigências de Atualização</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Atualizando-N_00f3s-e-Menus.html">Atualizando Nós e Menus</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

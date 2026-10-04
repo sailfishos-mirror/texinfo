@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@headings (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Uma opção para ativar e desativar cabeçalhos e impressão frente e verso ou
+em um lado.
+">
+<meta name="keywords" content="Uma opção para ativar e desativar cabeçalhos e impressão frente e verso ou
+em um lado.
+">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Cabe_00e7alhos.html" rel="up" title="Cabeçalhos">
+<link href="Formato-do-Cabe_00e7alho.html" rel="next" title="Formato do Cabeçalho">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="g_t_0040headings">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Formato-do-Cabe_00e7alho.html" accesskey="n" rel="next">Formatos Padrão de Cabeçalho</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Cabe_00e7alhos.html" accesskey="u" rel="up">Cabeçalhos de Página</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="O-Comando-_0040headings"><span>E.2.1 O Comando <code class="code">@headings</code><a class="copiable-link" href="#O-Comando-_0040headings"> &para;</a></span></h4>
+
+<a class="anchor" id="cabe_00e7alhos-ativados-desativados"></a><a class="index-entry-id" id="index-headings"></a>
+
+<p>O comando <code class="code">@headings</code> raramente é usado. Ele especifica quais tipos de
+cabeçalhos e rodapés de página imprimir em cada página. Normalmente, isso é
+controlado pelo comando <code class="code">@setchapternewpage</code>. Você precisará do
+comando <code class="code">@headings</code> somente se o comando <code class="code">@setchapternewpage</code>
+não fizer o que você quiser.
+</p>
+<p>Você consegue usar <code class="code">@headings</code> conforme segue:
+</p>
+<dl class="table">
+<dt><code class="code">@headings off</code></dt>
+<dd><p>Desativar impressão dos cabeçalhos das páginas.
+</p>
+</dd>
+<dt><code class="code">@headings single</code></dt>
+<dd><p>Ativar cabeçalhos de página apropriados para impressão em um lado.
+</p>
+</dd>
+<dt><code class="code">@headings double</code></dt>
+<dd><p>Ativar cabeçalhos de página apropriados para impressão frente e verso.
+</p>
+</dd>
+<dt><code class="code">@headings singleafter</code></dt>
+<dt><code class="code">@headings doubleafter</code></dt>
+<dd><p>Ativar cabeçalhos <code class="code">single</code> ou <code class="code">double</code>, respectivamente, depois
+que a página atual for gerada.
+</p>
+</dd>
+<dt><code class="code">@headings on</code></dt>
+<dd><p>Ativar os cabeçalhos das páginas: <code class="code">single</code> se &lsquo;<samp class="samp">@setchapternewpage
+on</samp>&rsquo;, <code class="code">double</code> caso contrário.
+</p></dd>
+</dl>
+
+<p>Por exemplo, suponha que você escreva <code class="code">@setchapternewpage off</code> antes
+do comando <code class="code">@titlepage</code> para iniciar um novo capítulo na mesma página
+do final do último capítulo. Esse comando também faz com que os cabeçalhos
+das páginas sejam tipografados para impressão em um lado. Para fazer com que
+os cabeçalhos das páginas sejam tipografados para impressão frente e verso,
+escreva <code class="code">@headings double</code>.
+</p>
+<p>Você consegue impedir que quaisquer cabeçalhos de página sejam gerados
+escrevendo <code class="code">@headings off</code> em uma linha própria, como esta:
+</p>
+<div class="example">
+<pre class="example-preformatted">@headings off
+</pre></div>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Formato-do-Cabe_00e7alho.html">Formatos Padrão de Cabeçalho</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Cabe_00e7alhos.html">Cabeçalhos de Página</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

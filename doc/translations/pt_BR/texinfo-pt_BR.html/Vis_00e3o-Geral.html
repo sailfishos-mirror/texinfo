@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Visão Geral (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Texinfo em resumo.">
+<meta name="keywords" content="Texinfo em resumo.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="index.html" rel="up" title="Top">
+<link href="Escrevendo-um-Arquivo-do-Texinfo.html" rel="next" title="Escrevendo um Arquivo do Texinfo">
+<link href="Condi_00e7_00f5es-de-C_00f3pia.html" rel="prev" title="Condições de Cópia">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="chapter-level-extent" id="Vis_00e3o-Geral">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Escrevendo-um-Arquivo-do-Texinfo.html" accesskey="n" rel="next">Escrevendo um Arquivo do Texinfo</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Condi_00e7_00f5es-de-C_00f3pia.html" accesskey="p" rel="prev">Condições de Cópia do Texinfo</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="index.html" accesskey="u" rel="up">Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h2 class="chapter" id="Vis_00e3o-Geral-do-Texinfo"><span>1 Visão Geral do Texinfo<a class="copiable-link" href="#Vis_00e3o-Geral-do-Texinfo"> &para;</a></span></h2>
+<a class="index-entry-id" id="index-Visao-Geral-do-Texinfo"></a>
+<a class="index-entry-id" id="index-Texinfo-visao-geral"></a>
+<a class="index-entry-id" id="index-Usando-Texinfo-em-geral"></a>
+<a class="index-entry-id" id="index-Texinfo_002c-introducao-a"></a>
+<a class="index-entry-id" id="index-Introducao-a-Texinfo"></a>
+<a class="anchor" id="Usando-Texinfo"></a>
+<p><em class="dfn">Texinfo</em> é um sistema de documentação que usa um arquivo fonte único
+para produzir informações online e saída impressa. Isso significa que, em
+vez de escrever vários documentos, um para cada formato de saída, você
+precisa escrever somente um documento.
+</p>
+<p>Usando Texinfo, você consegue criar um documento impresso (via sistema
+tipográfico TeX) em formato PDF, incluindo capítulos, seções, referências
+cruzadas e índices. A partir do mesmo arquivo fonte do Texinfo, você
+consegue criar saída HTML adequada para uso com um navegador web; você
+consegue criar um arquivo do Info para uso no GNU Emacs ou outros programas
+de leitura do Info; e também criar arquivos DocBook, EPUB 3 ou LaTeX.
+</p>
+<a class="index-entry-id" id="index-Formato-do-arquivo-fonte"></a>
+<a class="index-entry-id" id="index-Marcacao-semantica"></a>
+<p>Um arquivo fonte do Texinfo é um arquivo de texto simples contendo texto
+intercalado com <em class="dfn">comandos @</em> (palavras precedidas por um &lsquo;<samp class="samp">@</samp>&rsquo;) que
+informam aos processadores Texinfo o que fazer. Os comandos de marcação do
+Texinfo são quase inteiramente <em class="dfn">semânticos</em>; isto é, eles especificam o
+significado pretendido do texto no documento, em vez de instruções de
+formatação física.
+</p>
+<p>A saída para a maioria dos formatos de saída é manuseada pelo programa
+<code class="command">texi2any</code>. Veja-se <a class="xref" href="Tradutor-Gen_00e9rico-texi2any.html"><code class="command">texi2any</code>: O Tradutor para Texinfo</a>. A exceção é
+quando o código do Texinfo é processado pelo TeX para DVI ou PDF
+(veja-se <a class="pxref" href="Livros-Impressos.html">Livros Impressos</a>, abaixo). O Emacs também oferece comandos para
+converter código Texinfo para Info (veja-se <a class="pxref" href="Comandos-texinfo_002dformat.html">Os comandos <code class="code">texinfo-format&hellip;</code></a>).
+</p>
+<p>O GNU Emacs tem um modo especial, chamado modo Texinfo, que fornece vários
+recursos relacionados ao Texinfo. (Veja-se <a class="xref" href="Modo-Texinfo.html">Usando Modo Texinfo</a>).
+</p>
+<a class="index-entry-id" id="index-Escopo-limitado-do-Texinfo"></a>
+<p>Texinfo foi concebido especificamente para o propósito de escrever
+documentação e manuais de software. Se você quer escrever um bom manual para
+teu programa, Texinfo tem muitos recursos que nós esperamos que tornarão teu
+trabalho mais fácil. No entanto, Texinfo não é destinado para ser um
+programa de formatação de propósito geral. Ele quase não fornece comandos
+para controlar a formatação final, de forma que pode ser inapropriado para
+tuas necessidades se você quiser esquematizar um jornal, conceber um anúncio
+brilhante de revista ou seguir as exigências exatas de formatação de uma
+editora.
+</p>
+<a class="index-entry-id" id="index-Escrita-de-Texinfo"></a>
+<a class="index-entry-id" id="index-Pronuncia-de-Texinfo"></a>
+<p>Escreva-se &ldquo;Texinfo&rdquo; com um &ldquo;T&rdquo; maiúsculo e as outras letras em
+minúsculas. A primeira silaba de &ldquo;Texinfo&rdquo; é pronunciada como &ldquo;speck&rdquo;, e
+não &ldquo;hex&rdquo;. Essa pronúncia estranha é derivada da pronúncia de
+TeX. Pronuncie-se TeX como se o &lsquo;<samp class="samp">X</samp>&rsquo; fosse o último som no nome
+&lsquo;Bach&rsquo;. Na palavra TeX, o &lsquo;<samp class="samp">X</samp>&rsquo; é, em vez da letra do Inglês &ldquo;ex&rdquo;,
+na verdade a letra Grega &ldquo;chi&rdquo;.
+</p>
+<p>Texinfo é o formato oficial de documentação do projeto GNU. Mais
+informações, incluindo manuais para pacotes GNU, estão disponíveis na
+<a class="uref" href="https://www.gnu.org/doc/">página web da documentação GNU</a>.
+</p>
+
+<ul class="mini-toc">
+<li><a href="Informando-Defeitos.html" accesskey="1">Informando Defeitos</a></li>
+<li><a href="Formatos-de-Sa_00edda.html" accesskey="2">Formatos de Saída</a></li>
+<li><a href="Arquivos-do-Info.html" accesskey="3">Arquivos do Info</a></li>
+<li><a href="Livros-Impressos.html" accesskey="4">Livros Impressos</a></li>
+<li><a href="Hist_00f3rico.html" accesskey="5">Histórico</a></li>
+<li><a href="Adicionando-Formatos-de-Sa_00edda.html" accesskey="6">Adicionando Formatos de Saída</a></li>
+</ul>
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Escrevendo-um-Arquivo-do-Texinfo.html">Escrevendo um Arquivo do Texinfo</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Condi_00e7_00f5es-de-C_00f3pia.html">Condições de Cópia do Texinfo</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="index.html">Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

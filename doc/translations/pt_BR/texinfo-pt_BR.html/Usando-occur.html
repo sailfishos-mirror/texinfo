@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Usando occur (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como listar todas as linhas contendo um padrão.">
+<meta name="keywords" content="Como listar todas as linhas contendo um padrão.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Mostrando-a-Estrutura.html" rel="up" title="Mostrando a Estrutura">
+<link href="Usando-texinfo_002dshow_002dstructure.html" rel="prev" title="Usando texinfo-show-structure">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+kbd.kbd {font-style: oblique}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Usando-occur">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Usando-texinfo_002dshow_002dstructure.html" accesskey="p" rel="prev">Usando <code class="code">texinfo-show-structure</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Mostrando-a-Estrutura.html" accesskey="u" rel="up">Mostrando a Estrutura de Seccionamento de um Arquivo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Usando-occur-1"><span>D.4.2 Usando <code class="code">occur</code><a class="copiable-link" href="#Usando-occur-1"> &para;</a></span></h4>
+
+<a class="index-entry-id" id="index-Ocorrencias_002c-listando-com-_0040occur"></a>
+<a class="index-entry-id" id="index-occur"></a>
+
+<p>Às vezes, o comando <code class="code">texinfo-show-structure</code> produz muitas
+informações. Talvez você queira se lembrar da estrutura geral de um arquivo
+do Texinfo e fique impressionado(a) pela lista detalhada produzida por
+<code class="code">texinfo-show-structure</code>. Nesse caso, você consegue usar o comando
+<code class="code">occur</code> diretamente. Para fazer isso, digite:
+</p>
+<div class="example">
+<pre class="example-preformatted"><kbd class="kbd">M-x occur</kbd>
+</pre></div>
+
+<p>e então, quando solicitado(a), digite uma <em class="dfn">regexp</em>, uma expressão
+regular para o padrão que você quiser corresponder. (Veja-se <a data-manual="emacs" href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Regexps.html#Regexps">Expressões Regulares</a> em <cite class="cite">O Manual do GNU Emacs</cite>). O comando <code class="code">occur</code>
+funciona desde o local atual do cursor no buffer até o final do buffer. Se
+você quiser executar <code class="code">occur</code> sobre o buffer inteiro, coloque o cursor
+no início do buffer.
+</p>
+<p>Por exemplo, para ver todas as linhas que contêm a palavra &lsquo;<samp class="samp">@chapter</samp>&rsquo;,
+basta digitar &lsquo;<samp class="samp">@chapter</samp>&rsquo;. Isso produzirá uma lista dos
+capítulos. Também listará todas as frases com &lsquo;<samp class="samp">@chapter</samp>&rsquo; no meio da
+linha.
+</p>
+<p>Se você quiser ver somente as linhas que comecem com a palavra
+&lsquo;<samp class="samp">@chapter</samp>&rsquo;, digite &lsquo;<samp class="samp">^@chapter</samp>&rsquo; quando solicitado(a) por
+<code class="code">occur</code>. Se você quiser ver todas as linhas que terminem com uma
+palavra ou frase, termine a última palavra com um &lsquo;<samp class="samp">$</samp>&rsquo;; por exemplo,
+&lsquo;<samp class="samp">capturando erros$</samp>&rsquo;. Isso pode ser útil quando você quiser ver todos os
+nós que sejam parte do mesmo capítulo ou seção e, portanto, têm o mesmo
+ponteiro &lsquo;Acima&rsquo;.
+</p>
+<p>Veja-se <a data-manual="emacs" href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Outra-Pesquisa-Repetitiva.html#Outra-Pesquisa-Repetitiva">Usando Occur</a> em <cite class="cite">O Manual do GNU
+Emacs</cite>, para mais informações.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Usando-texinfo_002dshow_002dstructure.html">Usando <code class="code">texinfo-show-structure</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Mostrando-a-Estrutura.html">Mostrando a Estrutura de Seccionamento de um Arquivo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

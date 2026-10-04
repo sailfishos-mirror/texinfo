@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Condicionais Inline (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Texto condicional e delimitado por chaves.">
+<meta name="keywords" content="Texto condicional e delimitado por chaves.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Condicionais.html" rel="up" title="Condicionais">
+<link href="_0040set-_0040clear-_0040value.html" rel="next" title="@set @clear @value">
+<link href="Comandos-Brutos-do-Formatador.html" rel="prev" title="Comandos Brutos do Formatador">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Condicionais-Inline">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040set-_0040clear-_0040value.html" accesskey="n" rel="next">Sinalizadores: <code class="code">@set</code>, <code class="code">@clear</code>, condicionais e <code class="code">@value</code></a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Comandos-Brutos-do-Formatador.html" accesskey="p" rel="prev">Comandos Brutos do Formatador</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Condicionais.html" accesskey="u" rel="up">Texto Condicionalmente Visível</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Condicionais-Inline_003a-_0040inline_002c-_0040inlineifelse_002c-_0040inlineraw"><span>16.4 Condicionais Inline: <code class="code">@inline</code>, <code class="code">@inlineifelse</code>, <code class="code">@inlineraw</code><a class="copiable-link" href="#Condicionais-Inline_003a-_0040inline_002c-_0040inlineifelse_002c-_0040inlineraw"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-inlinefmt"></a>
+<a class="index-entry-id" id="index-inlinefmtifelse"></a>
+<a class="index-entry-id" id="index-inlineraw"></a>
+<a class="index-entry-id" id="index-Condicionais-inline"></a>
+<a class="index-entry-id" id="index-Comandos-condicionais_002c-inline"></a>
+<a class="index-entry-id" id="index-Texto-condicional-e-delimitado-por-chaves"></a>
+<a class="index-entry-id" id="index-Novas-linhas_002c-evitando-em-condicionais"></a>
+<a class="index-entry-id" id="index-Espaco-em-branco_002c-controlando-em-condicionais"></a>
+
+<p>Texinfo fornece um conjunto de comandos condicionais com argumentos
+fornecidos entre chaves:
+</p>
+<dl class="table">
+<dt><code class="code">@inlinefmt{<var class="var">formato</var>, <var class="var">texto</var>}</code></dt>
+<dd><p>Processa o <var class="var">texto</var> do Texinfo se a saída <var class="var">formato</var> estiver sendo
+gerada.
+</p>
+</dd>
+<dt><code class="code">@inlinefmtifelse{<var class="var">formato</var>, <var class="var">texto-então</var>, <var class="var">texto-docontrário</var>}</code></dt>
+<dd><p>Processa o <var class="var">texto-então</var> do Texinfo se a saída <var class="var">formato</var> estiver
+sendo gerada; caso contrário, processa <var class="var">texto-docontrário</var>.
+</p>
+</dd>
+<dt><code class="code">@inlineraw{<var class="var">formato</var>, <var class="var">texto</var>}</code></dt>
+<dd><p>Similar, porém para <var class="var">texto</var> bruto (veja-se <a class="pxref" href="Comandos-Brutos-do-Formatador.html">Comandos Brutos do Formatador</a>).
+</p></dd>
+</dl>
+
+<p>Os nomes de <var class="var">formato</var> suportados são:
+</p>
+<div class="example">
+<pre class="example-preformatted">docbook  html  info  latex  plaintext  tex  xml
+</pre></div>
+
+<p>Por exemplo,
+</p>
+<div class="example">
+<pre class="example-preformatted">@inlinefmt{html, @emph{texto somente HTML}}
+</pre></div>
+
+<p>é quase equivalente a
+</p>
+<div class="example">
+<pre class="example-preformatted">@ifhtml
+@emph{texto somente HTML}
+@end ifhtml
+</pre></div>
+
+<p>exceto que nenhum espaço em branco é adicionado, como acontece no último
+caso (ambiente).
+</p>
+<p>Nesses comandos, o espaço em branco é ignorado depois da vírgula que separa
+os argumentos, como de costume, mas <em class="emph">não</em> é ignorado no final de
+<var class="var">texto</var>.
+</p>
+<p>Para inserir um sinal de arroba literal, uma chave esquerda ou uma chave
+direita em um dos argumentos, você precisa usar os comandos alfabéticos
+<code class="code">@atchar{}</code> (veja-se <a class="pxref" href="Inserindo-um-S_00edmbolo-Arroba.html">Inserindo &lsquo;@&rsquo; com <code class="code">@@</code> e <code class="code">@atchar{}</code></a>) e
+<code class="code">@lbracechar{}</code> ou <code class="code">@rbracechar{}</code> (veja-se <a class="pxref" href="Inserindo-Chaves.html">Inserindo &lsquo;{ &lsquo;}&rsquo; com <code class="code">@{ @}</code> e <code class="code">@l rbracechar{}</code></a>), ou a análise se tornará confusa.
+</p>
+<p>Com <code class="code">@inlinefmtifelse</code>, também é necessário usar <code class="code">@comma{}</code>
+para evitar confundir uma &lsquo;<samp class="samp">,</samp>&rsquo; no texto com o delimitador.  Com
+<code class="code">@inlinefmt</code> e <code class="code">@inlineraw</code>, <code class="code">@comma{}</code> não é exigido
+(embora seja aceitável usá-lo), pois esses comandos sempre tem exatamente
+dois argumentos.
+</p>
+<p>Para TeX, o <var class="var">texto</var> processado não pode conter comandos delimitados
+por nova linha.  O texto a ser ignorado (por exemplo, para não-TeX) pode,
+no entanto.
+</p>
+<p>Dois outros condicionais <code class="code">@inline...</code> complementam os comandos
+<code class="code">@ifset</code> e <code class="code">@ifclear</code>; veja-se a próxima seção.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040set-_0040clear-_0040value.html">Sinalizadores: <code class="code">@set</code>, <code class="code">@clear</code>, condicionais e <code class="code">@value</code></a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Comandos-Brutos-do-Formatador.html">Comandos Brutos do Formatador</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Condicionais.html">Texto Condicionalmente Visível</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

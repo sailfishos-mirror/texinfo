@@ -1,3 +1,7 @@
+2026-10-04  Jamenson Espindula <jafesp@gmail.com>
+
+	* doc/translations/pt_BR: Add files for texinfo.texi translation.
+
 2026-10-04 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Tests.pm (_compare_no_cr, compare_dirs_files):

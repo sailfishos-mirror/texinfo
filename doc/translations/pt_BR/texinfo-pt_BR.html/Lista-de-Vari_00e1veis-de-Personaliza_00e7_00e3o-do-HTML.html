@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Lista de Variáveis de Personalização do HTML (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Lista de Variáveis de Personalização do HTML (GNU Texinfo 7.3)">
+<meta name="keywords" content="Lista de Variáveis de Personalização do HTML (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html" rel="up" title="Personalização da Saída Gerada HTML">
+<link href="Interface-e-Licen_00e7as-JavaScript.html" rel="prev" title="Interface e Licenças JavaScript">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Lista-de-Vari_00e1veis-de-Personaliza_00e7_00e3o-do-HTML">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Interface-e-Licen_00e7as-JavaScript.html" accesskey="p" rel="prev">Interface e Licenças JavaScript</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html" accesskey="u" rel="up">Personalização da Saída Gerada HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Lista-de-Vari_00e1veis-de-Personaliza_00e7_00e3o-do-HTML-1"><span>22.8.9 Lista de Variáveis de Personalização do HTML<a class="copiable-link" href="#Lista-de-Vari_00e1veis-de-Personaliza_00e7_00e3o-do-HTML-1"> &para;</a></span></h4>
+
+<a class="anchor" id="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-HTML"></a>
+<p>Esta tabela lista as variáveis de personalização que se aplicam para saída
+gerada HTML.
+</p>
+<dl class="table">
+<dt><code class="code">AFTER_BODY_OPEN</code></dt>
+<dd><p>Texto adicionado no início de cada arquivo HTML; padrão desconfigurada.
+</p>
+</dd>
+<dt><code class="code">AFTER_SHORT_TOC_LINES</code></dt>
+<dt><code class="code">AFTER_TOC_LINES</code></dt>
+<dd><p>Texto gerado depois do sumaríssimo para <code class="code">AFTER_SHORT_TOC_LINES</code> e
+depois do sumário para <code class="code">AFTER_TOC_LINES</code> se configurada; caso
+contrário, uma sequência padrão de caracteres será usada. Ao tempo desta
+escrita, um elemento <code class="code">&lt;/div&gt;</code> estava fechado.
+</p>
+<p>Em geral, você deveria configurar <code class="code">BEFORE_SHORT_TOC_LINES</code> se
+<code class="code">AFTER_SHORT_TOC_LINES</code> estiver configurada, e você deveria configurar
+<code class="code">BEFORE_TOC_LINES</code> se <code class="code">AFTER_TOC_LINES</code> estiver configurada.
+</p>
+</dd>
+<dt><code class="code">BASEFILENAME_LENGTH</code></dt>
+<dd><p>O comprimento máximo de um nome de arquivo base para referências cruzadas
+internas; padrão 245.
+</p>
+</dd>
+<dt><code class="code">BEFORE_SHORT_TOC_LINES</code></dt>
+<dt><code class="code">BEFORE_TOC_LINES</code></dt>
+<dd><p>Se configurada, o texto gerado antes do sumaríssimo para
+<code class="code">BEFORE_SHORT_TOC_LINES</code> e antes do sumário para
+<code class="code">BEFORE_TOC_LINES</code>, caso contrário, uma sequência padrão de caracteres
+será usada. Ao tempo desta escrita, um elemento <code class="code">&lt;div ...&gt;</code> está
+aberto.
+</p>
+<p>Em geral, você deveria configurar <code class="code">AFTER_SHORT_TOC_LINES</code> se
+<code class="code">BEFORE_SHORT_TOC_LINES</code> estiver configurada, e você deveria configurar
+<code class="code">AFTER_TOC_LINES</code> se <code class="code">BEFORE_TOC_LINES</code> estiver configurada.
+</p>
+
+</dd>
+<dt><code class="code">BIG_RULE</code></dt>
+<dd><p>Regra usada antes e depois do elemento superior e antes dos elementos
+especiais, mas não para rodapés e cabeçalhos; padrão </p>
+</dd>
+<dt><a class="index-entry-id" id="index-lang_002c-atributo-do-HTML"></a>
+<a id="index-texto-do-_003cbody_003e_002c-personalizando"></a><span><code class="code">BODY_ELEMENT_ATTRIBUTES</code><a class="copiable-link" href="#index-texto-do-_003cbody_003e_002c-personalizando"> &para;</a></span></dt>
+<dd><p>O texto de atributos do <code class="code">&lt;body&gt;</code>. Por padrão, configura o atributo
+<code class="code">lang</code> do HTML para o idioma do documento
+(veja-se <a class="pxref" href="_0040documentlanguage.html"><code class="code">@documentlanguage <var class="var">ll</var>[_<var class="var">cc</var>]</code>: Configurar o Idioma do Documento</a>).
+</p>
+</dd>
+<dt><code class="code">CASE_INSENSITIVE_FILENAMES</code></dt>
+<dd><p>Construa nomes de arquivos de saída como se o sistema de arquivos não
+diferenciasse maiúsculas de minúsculas (veja-se <a class="pxref" href="Dividindo-HTML.html">Dividindo HTML</a>); padrão
+falso.
+</p>
+</dd>
+<dt><code class="code">CHAPTER_HEADER_LEVEL</code></dt>
+<dd><p>Nível de formatação de cabeçalho usado para comandos de seccionamento em
+nível de capítulo; padrão &lsquo;<samp class="samp">2</samp>&rsquo;.
+</p>
+</dd>
+<dt><code class="code">CHECK_HTMLXREF</code></dt>
+<dd><p>Verificar se os manuais que são o alvo de referências cruzadas externas
+(veja-se <a class="pxref" href="Quatro-e-Cinco-Argumentos.html"><code class="code">@xref</code> com Quatro e Cinco Argumentos</a>) estão presentes em <samp class="file">htmlxref.cnf</samp>
+ou em <samp class="file">htmlxref.d/*.cnf</samp> (veja-se <a class="pxref" href="Configura_00e7_00e3o-do-Xref-do-HTML.html">Configuração de Referência Cruzada do HTML</a>); padrão
+verdadeiro.
+</p>
+</dd>
+<dt><code class="code">CONTENTS_OUTPUT_LOCATION</code></dt>
+<dd><p>Se configurada como &lsquo;<samp class="samp">after_top</samp>&rsquo;, produzir o conteúdo no final da seção
+<code class="code">@top</code>. Se configurada como &lsquo;<samp class="samp">inline</samp>&rsquo;, produzir o conteúdo onde o
+<code class="code">@contents</code> e comandos @ semelhantes estão localizados. Se
+configurada como &lsquo;<samp class="samp">separate_element</samp>&rsquo; produzir o conteúdo em elementos
+separados, ou no final do documento, se não dividido, ou em um arquivo
+separado. Se configurada como &lsquo;<samp class="samp">after_title</samp>&rsquo; os índices serão produzidos
+depois do título; padrão &lsquo;<samp class="samp">after_top</samp>&rsquo;.
+</p>
+</dd>
+<dt><code class="code">CONVERT_TO_LATEX_IN_MATH</code></dt>
+<dd><p>Se configurada, tentar converter quaisquer comandos @ do Texinfo dentro de
+<code class="code">@math</code> e de <code class="code">@displaymath</code> para LaTeX, antes de converter o
+<code class="code">@math</code> ou o <code class="code">@displaymath</code> para HTML. Padrão <code class="code">undef</code>. Se
+indefinida, configurar se <code class="code">HTML_MATH</code> estiver configurada.
+</p>
+</dd>
+<dt><code class="code">COPIABLE_LINKS</code></dt>
+<dd><p>Se configurada, produzir linques copiáveis para os comandos de definição
+(veja-se <a class="pxref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a>), comandos de tabela (veja-se <a class="pxref" href="Tabelas-de-Duas-Colunas.html">Fazendo Uma Tabela de Duas Colunas</a>) onde uma entrada de índice estiver definida e cabeçalhos. Um
+linque aparece como um sinal &lsquo;&#x00B6;&rsquo; que aparece quando você passa o
+ponteiro do mouse sobre o texto do cabeçalho.
+</p>
+</dd>
+<dt><code class="code">DATE_IN_HEADER</code></dt>
+<dd><p>Colocar a data de geração do documento no cabeçalho; desligado por padrão.
+</p>
+</dd>
+<dt><code class="code">DEF_TABLE</code></dt>
+<dd><p>Se configurada, uma construção <code class="code">&lt;table&gt;</code> para <code class="code">@deffn</code> e comandos
+@ semelhantes será usada (parecendo mais com a saída gerada do TeX), em
+vez de listas de definição; padrão falso.
+</p>
+</dd>
+<dt><code class="code">DEFAULT_RULE</code></dt>
+<dd><p>Regra usada entre elementos, exceto antes e depois do elemento superior, e
+antes de elementos especiais, e para rodapés e cabeçalhos; padrão
+<code class="code">&lt;hr&gt;</code>.
+</p>
+</dd>
+<dt><code class="code">DO_ABOUT</code></dt>
+<dd><p>Se configurada como 0, nunca fazer um elemento especial Sobre; se
+configurada como 1, sempre fazer um elemento especial Sobre; padrão 0.
+</p>
+</dd>
+<dt><code class="code">EPUB_CREATE_CONTAINER_FILE</code></dt>
+<dd><p>Se configurada como 0, não gera o arquivo de saída EPUB. O padrão é
+configurada como 1.
+</p>
+</dd>
+<dt><code class="code">EPUB_KEEP_CONTAINER_FOLDER</code></dt>
+<dd><p>Se configurada, mantém o diretório contendo os diretórios e arquivos
+necessários para EPUB. O arquivo de saída EPUB é um arquivamento ZIP desse
+diretório. O padrão é não definida. Configurada se não definida e
+<code class="code">TEST</code> ou <code class="code">DEBUG</code> estiver configurada. Veja-se <a class="xref" href="Arquivo-e-Diret_00f3rio-da-Sa_00edda-Gerada-EPUB.html">Diretório do Contêiner e Arquivos da Saída Gerada</a>.
+</p>
+</dd>
+<dt><code class="code">EXTERNAL_CROSSREF_SPLIT</code></dt>
+<dd><p>Para referências cruzadas para outros manuais, isso determina se o outro
+manual é considerado dividido ou monolítico. Por padrão, ela é configurada
+baseada no valor de <code class="code">SPLIT</code>. Veja-se <a class="xref" href="Xref-do-HTML.html">Referências Cruzadas do HTML</a> e veja-se <a class="pxref" href="Configura_00e7_00e3o-do-Xref-do-HTML.html">Configuração de Referência Cruzada do HTML</a>.
+</p>
+</dd>
+<dt><code class="code">EXTERNAL_DIR</code></dt>
+<dd><p>Diretório base para manuais externos; padrão nenhum. É melhor usar o
+mecanismo geral de referência cruzada externa (veja-se <a class="pxref" href="Configura_00e7_00e3o-do-Xref-do-HTML.html">Configuração de Referência Cruzada do HTML</a>) do que essa variável.
+</p>
+</dd>
+<dt><code class="code">EXTERNAL_CROSSREF_EXTENSION</code></dt>
+<dd><p>Extensão de arquivo para referências cruzadas para outros manuais.
+</p>
+</dd>
+<dt><code class="code">EXTRA_HEAD</code></dt>
+<dd><p>Texto adicional aparecendo em <code class="code">&lt;head&gt;</code>; padrão desconfigurada.
+</p>
+</dd>
+<dt><code class="code">FOOTNOTE_END_HEADER_LEVEL</code></dt>
+<dd><p>Nível de formatação de cabeçalho usado para o cabeçalho das notas de rodapé
+com o estilo de nota de rodapé &lsquo;end&rsquo;; padrão &lsquo;<samp class="samp">4</samp>&rsquo;. Veja-se <a class="xref" href="Estilos-de-Notas-de-Rodap_00e9.html">Estilos de Notas de Rodapé</a>.
+</p>
+</dd>
+<dt><code class="code">FOOTNOTE_SEPARATE_HEADER_LEVEL</code></dt>
+<dd><p>Nível de formatação de cabeçalho usado para o cabeçalho das notas de rodapé
+com o estilo de nota de rodapé &lsquo;separate&rsquo;; padrão &lsquo;<samp class="samp">4</samp>&rsquo;. Veja-se <a class="xref" href="Estilos-de-Notas-de-Rodap_00e9.html">Estilos de Notas de Rodapé</a>.
+</p>
+</dd>
+<dt><code class="code">HEADER_IN_TABLE</code></dt>
+<dd><p>Usar tabelas para formatação de cabeçalho em vez de um simples elemento
+<code class="code">&lt;div&gt;</code>; padrão falso.
+</p>
+</dd>
+<dt><code class="code">HIGHLIGHT_SYNTAX</code></dt>
+<dd><p>Se configurada, blocos <code class="code">@example</code> com informações de idioma como
+primeiro argumento serão realçados na saída gerada HTML. Também é possível
+especificar um padrão para o idioma com
+<code class="code">HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE</code>. O realce de sintaxe exige um
+programa externo para gerar o HTML realçado. O valor de
+<code class="code">HIGHLIGHT_SYNTAX</code> permite selecionar um programa específico. As
+possibilidades são <code class="code">source-highlight</code>, <code class="code">highlight</code>,
+<code class="code">pygments</code>, com qualquer outro valor sendo concatenado para o idioma
+para gerar a linha de comando para o programa externo (veja-se <a class="pxref" href="Real_00e7amento-de-Sintaxe.html">Realçamento de Sintaxe de Exemplos de Códigos no HTML</a>).
+</p>
+</dd>
+<dt><code class="code">HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE</code></dt>
+<dd><p>O idioma padrão usado para realce de sintaxe quando não existir informações
+de idioma.
+</p>
+</dd>
+<dt><code class="code">HTML_MATH</code></dt>
+<dd><p>Método a usar-se para renderizar <code class="code">@math</code> (veja-se <a class="pxref" href="Personaliza_00e7_00e3o-do-HTML-para-Matem_00e1tica.html">Personalização do HTML para Matemática</a>). Isso pode ser desconfigurada, configurada como
+&lsquo;<samp class="samp">mathjax</samp>&rsquo; (veja-se <a class="pxref" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-da-MathJax.html">Variáveis de Personalização da MathJax</a>), configurada
+como &lsquo;<samp class="samp">l2h</samp>&rsquo;, que usa <code class="command">latex2html</code> (veja-se <a class="pxref" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-latex2html.html">Variáveis de Personalização do <code class="command">latex2html</code></a>), ou configurada como &lsquo;<samp class="samp">t4h</samp>&rsquo;,
+que usa <code class="command">tex4ht</code> (veja-se <a class="pxref" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-tex4ht.html">Variáveis de Personalização do <code class="command">tex4ht</code></a>). Por padrão, configurar-se <code class="code">HTML_MATH</code> também
+configura <code class="code">CONVERT_TO_LATEX_IN_MATH</code>.
+</p>
+</dd>
+<dt><code class="code">HTML_ROOT_ELEMENT_ATTRIBUTES</code></dt>
+<dd><p>Usar essa string para o elemento raiz <code class="code">&lt;html&gt;</code> do documento
+HTML. Padrão indefinido.
+</p>
+</dd>
+<dt><code class="code">HTMLXREF_FILE</code></dt>
+<dd><p>Configurar o nome do arquivo usado para referências cruzadas para outros
+manuais. Se não definida, <samp class="file">htmlxref.cnf</samp> será usado
+(veja-se <a class="pxref" href="Configura_00e7_00e3o-do-Xref-do-HTML.html">Configuração de Referência Cruzada do HTML</a>). Não definida no caso padrão. Se
+<code class="code">TEST</code> estiver configurada, <code class="code">HTMLXREF_MODE</code> estiver configurada
+para o padrão e <code class="code">HTMLXREF_FILE</code> não estiver definida, informações
+acerca de referências cruzadas para outros manuais não serão usadas.
+</p>
+<p>Se <code class="code">HTMLXREF_MODE</code> estiver configurada como &lsquo;<samp class="samp">file</samp>&rsquo;, o nome do
+arquivo será usado diretamente como a fonte de informação; caso contrário, o
+nome do arquivo será pesquisado em diretórios e todos os arquivos
+encontrados serão usados (veja-se <a class="pxref" href="Configura_00e7_00e3o-do-Xref-do-HTML.html">Configuração de Referência Cruzada do HTML</a>). Arquivos
+<samp class="file">htmlxref.d/*.cnf</samp> também serão usados nesse caso.
+</p>
+
+</dd>
+<dt><code class="code">HTMLXREF_MODE</code></dt>
+<dd><p>Como informações de referências cruzadas para outros manuais são
+determinadas. Se configurada como &lsquo;<samp class="samp">none</samp>&rsquo;, nenhuma informação será
+usada. Se configurada como &lsquo;<samp class="samp">file</samp>&rsquo;, as informações serão determinadas a
+partir de um caminho de arquivo, <samp class="file">htmlxref.cnf</samp> no caso padrão, ou o
+valor de <code class="code">HTMLXREF_FILE</code>. Se não definida (o padrão) ou configurada
+para qualquer outro valor, pesquisar pelo nome do arquivo
+<code class="code">HTMLXREF_FILE</code> e pelo diretório <samp class="file">htmlxref.d</samp> nos diretórios e
+usar todos os arquivos <code class="code">HTMLXREF_FILE</code> e arquivos no diretório
+<samp class="file">htmlxref.d</samp> com a extensão <samp class="file">.cnf</samp> (veja-se <a class="pxref" href="Configura_00e7_00e3o-do-Xref-do-HTML.html">Configuração de Referência Cruzada do HTML</a>).
+</p>
+</dd>
+<dt><code class="code">ICONS</code></dt>
+<dd><p>Usar ícones para o painel de navegação; padrão falso.
+</p>
+</dd>
+<dt><code class="code">IMAGE_LINK_PREFIX</code></dt>
+<dd><p>Se configurada, o valor associado será preposto aos linques do arquivo de
+imagem; padrão desconfigurada.
+</p>
+</dd>
+<dt><code class="code">INDENTED_BLOCK_COMMANDS_IN_TABLE</code></dt>
+<dd><p>Se configurada, usar tabelas para recuo de comandos de blocos recuados;
+padrão falso.
+</p>
+</dd>
+<dt><code class="code">INDEX_ENTRY_COLON</code></dt>
+<dd><p>Símbolo usado entre a entrada de índice e o nó, ou seção, associado; padrão
+é uma sequência vazia de caracteres.
+</p>
+</dd>
+<dt><code class="code">INFO_JS_DIR</code></dt>
+<dd><p>(Experimental). Adicionar uma interface de navegação JavaScript ao manual. O
+valor da variável é o diretório para colocar o código para essa interface,
+de forma que você executaria o programa como por exemplo &lsquo;<samp class="samp">texi2any
+--html -c INFO_JS_DIR=js <var class="var">manual</var>.texi</samp>&rsquo; para colocar arquivos em um
+diretório &lsquo;<samp class="samp">js</samp>&rsquo; sob a saída gerada. Isso fornece algumas das
+funcionalidades dos navegadores Info em um navegador da Web, como navegação
+por teclado e pesquisa de índice. Isso funciona somente com saída HTML não
+dividida.
+</p>
+<p>A interface deveria fornecer uma funcionalidade alternativa aceitável se
+JavaScript ou recursos do navegador da Web não estiverem disponíveis. No
+entanto, por favor, seja cuidadoso(a) ao usar essa opção, caso você torne
+tua documentação mais difícil de acessar para alguns dos teus usuários(as).
+</p>
+</dd>
+<dt><code class="code">IGNORE_REF_TO_TOP_NODE_UP</code></dt>
+<dd><p>Ignorar referências para <code class="code">TOP_NODE_UP</code>, o nó acima para o nó Top.
+</p>
+</dd>
+<dt><code class="code">INLINE_CSS_STYLE</code></dt>
+<dd><p>Colocar CSS diretamente nos elementos HTML, em vez de no início da saída
+gerada; padrão falso.
+</p>
+</dd>
+<dt><code class="code">JS_WEBLABELS</code></dt>
+<dt><code class="code">JS_WEBLABELS_FILE</code></dt>
+<dd><p>Especificar como usar uma página <em class="dfn">rótulos web de licença JavaScript</em>
+para fornecer informações de licenciamento e código-fonte para qualquer
+JavaScript usado nos arquivos HTML para o manual. (Veja-se
+<a class="uref" href="https://www.gnu.org/licenses/javascript-labels.html">https://www.gnu.org/licenses/javascript-labels.html</a>).
+</p>
+<p>Com o valor &lsquo;<samp class="samp">generate</samp>&rsquo; (o padrão), gerar uma página de rótulos em
+<code class="code">JS_WEBLABELS_FILE</code> e lincar a ela nos arquivos de saída HTML. Fazer
+isso somente se realmente referenciar arquivos JavaScript (ou com
+<code class="code">HTML_MATH</code> configurada como &lsquo;<samp class="samp">mathjax</samp>&rsquo; ou ao usar a interface
+experimental de navegação JS quando <code class="code">INFO_JS_DIR</code> estiver
+configurada). Com essa configuração, <code class="code">JS_WEBLABELS_FILE</code> precisa ser um
+nome relativo de arquivo.
+</p>
+<p>Com o valor &lsquo;<samp class="samp">reference</samp>&rsquo;, lincar para o arquivo de rótulos fornecido por
+<code class="code">JS_WEBLABELS_FILE</code> na saída gerada e não gerar um arquivo de
+rótulos. Essa configuração é útil se você mantiver separadamente um arquivo
+de rótulos para um sítio maior que inclua teu manual.
+</p>
+<p>Com &lsquo;<samp class="samp">omit</samp>&rsquo;, nem gerar nem lincar para um arquivo de rótulos.
+</p>
+</dd>
+<dt><code class="code">MAX_HEADER_LEVEL</code></dt>
+<dd><p>Nível máximo de formatação de cabeçalho usado (números mais altos de níveis
+de formatação de cabeçalho correspondem a níveis mais baixos de
+seccionamento); padrão &lsquo;<samp class="samp">4</samp>&rsquo;.
+</p>
+</dd>
+<dt><code class="code">MENU_ENTRY_COLON</code></dt>
+<dd><p>Símbolo usado entre a entrada do menu e a descrição; padrão &lsquo;<samp class="samp">:</samp>&rsquo;.
+</p>
+</dd>
+<dt><code class="code">MENU_SYMBOL</code></dt>
+<dd><p>Símbolo usado em frente das entradas de menu quando nomes de nós forem
+usados para formatação de entradas de menu; o padrão é indefinido e
+configurada como <code class="code">&amp;bull;</code> se <code class="code">USE_NUMERIC_ENTITY</code> não estiver
+configurada, e como <code class="code">&amp;#8217;</code> se configurada.
+</p>
+</dd>
+<dt><code class="code">MONOLITHIC</code></dt>
+<dd><p>Produzir somente um arquivo incluindo o sumário. Configurada por padrão, mas
+relevante somente quando a saída gerada não for dividida.
+</p>
+</dd>
+<dt><code class="code">NO_CSS</code></dt>
+<dd><p>Não usar CSS; padrão falso. Veja-se <a class="xref" href="CSS-do-HTML.html">CSS do HTML</a>.
+</p>
+</dd>
+<dt><code class="code">NO_CUSTOM_HTML_ATTRIBUTE</code></dt>
+<dd><p>Não produzir HTML com atributos personalizados em elementos; padrão falso.
+</p>
+</dd>
+<dt><code class="code">NO_NUMBER_FOOTNOTE_SYMBOL</code></dt>
+<dd><p>Símbolo usado para notas de rodapé se <code class="code">NUMBER_FOOTNOTES</code> for falso. O
+padrão é <code class="code">*</code>.
+</p>
+</dd>
+<dt><code class="code">NODE_NAME_IN_INDEX</code></dt>
+<dd><p>Se verdadeiro, usar nomes de nós nas entradas de índice; caso contrário,
+preferir nomes de seções. Se indefinida, usar valor de <code class="code">USE_NODES</code> no
+HTML. O padrão é indefinida.
+</p>
+</dd>
+<dt><code class="code">NODE_NAME_IN_MENU</code></dt>
+<dd><p>Se configurada, usar nomes de nós nas entradas de menu; caso contrário,
+preferir nomes de seção; padrão verdadeiro.
+</p>
+</dd>
+<dt><code class="code">PRE_BODY_CLOSE</code></dt>
+<dd><p>Se configurada, o texto fornecido aparecerá no rodapé de cada arquivo HTML;
+padrão desconfigurada.
+</p>
+</dd>
+<dt><code class="code">PROGRAM_NAME_IN_ABOUT</code></dt>
+<dd><p>Usada quando um elemento Sobre for gerado. Se configurada, produzir o nome
+do programa e diversas informações relacionadas no elemento especial Sobre;
+padrão falso.
+</p>
+</dd>
+<dt><code class="code">PROGRAM_NAME_IN_FOOTER</code></dt>
+<dd><p>Se configurada, gerar o nome do programa e diversas informações relacionadas
+nos rodapés das páginas; padrão falso.
+</p>
+</dd>
+<dt><code class="code">SECTION_NAME_IN_TITLE</code></dt>
+<dd><p>Se configurada, quando a saída gerada for dividida, usar o argumento do
+comando de estruturação do capítulo (por exemplo, <code class="code">@chapter</code> ou
+<code class="code">@section</code>) no <code class="code">&lt;title&gt;</code> em vez do argumento para <code class="code">@node</code>.
+</p>
+</dd>
+<dt><code class="code">SHORT_TOC_LINK_TO_TOC</code></dt>
+<dd><p>Se configurada, as referências cruzadas no sumário curto se lincam às
+entradas correspondentes do Sumário, se um Sumário for gerado; padrão
+verdadeiro.
+</p>
+</dd>
+<dt><code class="code">SHOW_BUILTIN_CSS_RULES</code></dt>
+<dd><p>Produzir as regras CSS padrão integradas na saída padrão e sair.
+</p>
+</dd>
+<dt><code class="code">SHOW_TITLE</code></dt>
+<dd><p>Se configurada, gerar o título no início do documento; padrão
+&lsquo;<samp class="samp">undef</samp>&rsquo;. Se configurada como &lsquo;<samp class="samp">undef</samp>&rsquo;, configurar-se
+<code class="code">NO_TOP_NODE_OUTPUT</code> também configura <code class="code">SHOW_TITLE</code> para HTML.
+</p>
+</dd>
+<dt><a id="index-compatibilidade_002c-com-texi2html"></a><span><code class="code">TEXI2HTML</code><a class="copiable-link" href="#index-compatibilidade_002c-com-texi2html"> &para;</a></span></dt>
+<dd><p>Gerar HTML e tentar ser o mais compatível possível com <code class="command">texi2html</code>;
+padrão falso.
+</p>
+</dd>
+<dt><code class="code">TOC_LINKS</code></dt>
+<dd><p>Se configurada, linques de títulos para entradas de índice serão criados;
+padrão falso.
+</p>
+</dd>
+<dt><code class="code">TOP_FILE</code></dt>
+<dd><p>Esse nome de arquivo pode ser usado para o arquivo de nível superior. A
+extensão é configurada apropriadamente, se necessário. Isso é usado para
+substituir o padrão e, em geral, só é levado em consideração quando a saída
+gerada for dividida e para HTML.
+</p>
+</dd>
+<dt><code class="code">TOP_NODE_FILE_TARGET</code></dt>
+<dd><p>Nome do arquivo usado para o nó Top em referências cruzadas; o padrão é
+<code class="code">index.html</code>.
+</p>
+</dd>
+<dt><code class="code">TOP_NODE_UP_URL</code></dt>
+<dd><p>Uma URL usada para nó Topo que Acima referencia; o padrão é <code class="code">undef</code>;
+nesse caso, nenhuma referência Acima de nó Topo é gerada. Para substituir o
+nome do ponteiro Acima no caso de <code class="code">TOP_NODE_UP_URL</code> estiver configurada
+e para outros formatos, veja-se <code class="code">TOP_NODE_UP</code> em <a class="ref" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-para-M_00faltiplos-Formatos.html">Variáveis de Personalização para Múltiplos Formatos</a>. Veja-se <a class="xref" href="Personaliza_00e7_00e3o-de-Nomes-de-Arquivo-e-de-Linques-para-HTML.html">Personalização de Nomes de Arquivo e de Linques para HTML</a>. Para mais acerca dos ponteiros do nó Topo,
+veja-se <a class="pxref" href="Primeiro-N_00f3.html">O Primeiro Nó</a>.
+</p>
+</dd>
+<dt><a id="index-accesskey-variavel-de-personalizacao-para"></a><span><code class="code">USE_ACCESSKEY</code><a class="copiable-link" href="#index-accesskey-variavel-de-personalizacao-para"> &para;</a></span></dt>
+<dd><p>Usar <code class="code">accesskey</code> em referências cruzadas; padrão <code class="code">undef</code>. Se
+<code class="code">undef</code>, configurar se a saída gerada for dividida.
+</p>
+</dd>
+<dt><code class="code">USE_ISO</code></dt>
+<dd><p>Usar entidades para caracteres de aspas simples duplicadas (veja-se <a class="pxref" href="Inserindo-Aspas.html">Inserindo Aspas</a>) e &lsquo;<samp class="samp">---</samp>&rsquo; e &lsquo;<samp class="samp">--</samp>&rsquo; (veja-se <a class="pxref" href="Conven_00e7_00f5es.html">Convenções Sintáticas Gerais</a>); padrão verdadeiro.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-Etiqueta-_003chead_003e-do-HTML_002c-e-_003clink_003e"></a>
+<a id="index-Etiqueta-_003clink_003e-do-HTML_002c-no-_003chead_003e"></a><span><code class="code">USE_LINKS</code><a class="copiable-link" href="#index-Etiqueta-_003clink_003e-do-HTML_002c-no-_003chead_003e"> &para;</a></span></dt>
+<dd><p>Gerar elementos <code class="code">&lt;link&gt;</code> na saída <code class="code">&lt;head&gt;</code> do HTML; padrão
+verdadeiro.
+</p>
+</dd>
+<dt><code class="code">USE_NODE_DIRECTIONS</code></dt>
+<dd><p>Se verdadeiro, usar nós para determinar para onde lincar próximo, acima e
+anterior nos cabeçalhos dos nós. Se falso, usar seções. Se indefinida, usar
+valor de <code class="code">USE_NODES</code>. O padrão é indefinida. Observe que essa
+configuração não determina a sequência de caracteres do linque, somente para
+onde os linques apontam; veja-se <a class="ref" href="Tr_00eas-Argumentos.html">xrefautomaticsectiontitle</a> para a personalização da sequência de caracteres
+do linque. Se nós e seções estiverem sistematicamente associados, essa
+personalização não terá efeito prático.
+</p>
+</dd>
+<dt><code class="code">USE_TITLEPAGE_FOR_TITLE</code></dt>
+<dd><p>Usar o <code class="code">@titlepage</code> completo (ou saída proveniente de
+<code class="code">@maketitle</code>) como o título, não uma simples sequência de caracteres
+de título; padrão verdadeiro. Relevante somente se <code class="code">SHOW_TITLE</code> estiver
+configurada.
+</p>
+</dd>
+<dt><code class="code">USE_XML_SYNTAX</code></dt>
+<dd><p>Usar sintaxe compatível com XML/XHTML
+</p>
+</dd>
+<dt><code class="code">VERTICAL_HEAD_NAVIGATION</code></dt>
+<dd><p>Se configurada, um painel vertical de navegação é usado; padrão falso.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-Rodape-de-navegacao"></a>
+<a id="index-Painel-de-navegacao_002c-final-da-pagina"></a><span><code class="code">WORDS_IN_PAGE</code><a class="copiable-link" href="#index-Painel-de-navegacao_002c-final-da-pagina"> &para;</a></span></dt>
+<dd><p>Quando a saída é dividida por nós, especifica o comprimento mínimo
+aproximado da página em que um painel de navegação é colocado na parte
+inferior de uma página. Para evitar que os botões de navegação fiquem na
+parte inferior de uma página, configure isso para um número suficientemente
+grande. O padrão é 200.
+</p>
+</dd>
+<dt><code class="code">XREF_USE_FLOAT_LABEL</code></dt>
+<dd><p>Se configurada, para o nome flutuante em referências cruzadas, usar o rótulo
+flutuante em vez do tipo seguido pelo número flutuante
+(veja-se <a class="pxref" href="_0040float.html"><code class="code">@float</code> [<var class="var">tipo</var>][,<var class="var">rótulo</var>]: Material Flutuante</a>). O padrão é desligado.
+</p>
+</dd>
+<dt><code class="code">XREF_USE_NODE_NAME_ARG</code></dt>
+<dd><p>Relevante somente para comandos de referência cruzada sem nome de referência
+cruzada (segundo argumento). Se configurada como&nbsp;1, usar o argumento
+(primeiro) do nome do nó em comandos @ de referência cruzada para o texto
+exibido como o hiperlinque. Se configurada como&nbsp;0, usar o nome do nó se
+<code class="code">USE_NODES</code> estiver configurada; caso contrário, o nome da seção. Se
+configurada como &lsquo;<samp class="samp">undef</samp>&rsquo;, usar o primeiro argumento em ambientes
+pré-formatados; caso contrário, usar o nome do nó ou o nome da seção,
+dependendo de <code class="code">USE_NODES</code>. O padrão é &lsquo;<samp class="samp">undef</samp>&rsquo;.
+</p>
+</dd>
+</dl>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Interface-e-Licen_00e7as-JavaScript.html">Interface e Licenças JavaScript</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html">Personalização da Saída Gerada HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Categoria de Diretório (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Uma categoria para um manual.">
+<meta name="keywords" content="Uma categoria para um manual.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Escrevendo-um-Arquivo-do-Texinfo.html" rel="up" title="Escrevendo um Arquivo do Texinfo">
+<link href="Permiss_00f5es-do-Documento.html" rel="next" title="Permissões do Documento">
+<link href="Cabe_00e7alho-do-Arquivo-do-Texinfo.html" rel="prev" title="Cabeçalho do Arquivo do Texinfo">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.display {margin-left: 3.2em}
+pre.display-preformatted {font-family: inherit}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Categoria-de-Diret_00f3rio">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Permiss_00f5es-do-Documento.html" accesskey="n" rel="next">Permissões do Documento</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Cabe_00e7alho-do-Arquivo-do-Texinfo.html" accesskey="p" rel="prev">Cabeçalho do Arquivo do Texinfo</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Escrevendo-um-Arquivo-do-Texinfo.html" accesskey="u" rel="up">Escrevendo um Arquivo do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Categoria-de-Diret_00f3rio-1"><span>2.6 Categoria de Diretório<a class="copiable-link" href="#Categoria-de-Diret_00f3rio-1"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-dircategory"></a>
+<p>Use o comando <code class="code">@dircategory</code> para especificar uma categoria para o
+manual.
+</p>
+<p>Comandos <code class="code">@dircategory</code> geralmente são seguidos por blocos
+<code class="code">@direntry</code>, que são usados pelo
+<code class="command">install-info</code>. Veja-se <a class="xref" href="Instalando-Entradas-de-Diret_00f3rio.html">Instalando Arquivos de Diretório Info</a>, para um
+exemplo de como esses comandos são usados.
+</p>
+<p>O primeiro comando <code class="code">@dircategory</code> em um manual é a categoria para o
+manual inteiro. Usos subsequentes de <code class="code">@dircategory</code> configuram a
+categoria somente para blocos <code class="code">@direntry</code> seguintes.
+</p>
+<a class="index-entry-id" id="index-Categorias-de-diretorio_002c-escolhendo"></a>
+<a class="index-entry-id" id="index-Categorias_002c-escolhendo"></a>
+<p>Não existe consistência no uso de categorias de diretório entre manuais, e é
+improvável que alguma vez exista, já que os(as) autores(as) trabalham na
+documentação do Texinfo independentemente, sem nenhuma coordenação central
+que resultaria em tal consistência.
+</p>
+<p>É possível para usuários(as) ou para distribuições de sistemas operacionais
+editarem categorias em arquivos do Info ou do Texinfo, se uma organização
+lógica dentro de arquivos <code class="code">dir</code> for algo que eles(as) valorizem.
+</p>
+<p>Autores(as) de manuais podem considerar usar algumas das seguintes
+categorias para manuais. Para um pacote que instale muitos manuais (como o
+Emacs), pode ser uma boa ideia usar categoria específica de pacote, ou
+categorias, para agrupar os manuais dele.
+</p>
+
+<div class="display">
+<pre class="display-preformatted">Arquivamento
+Áudio
+Negócios e produtividade
+Compressão
+Base de dados
+Dicionários
+Tradução de documentação
+Editores
+Educação
+Correio eletrônico
+Fontes
+Jogos
+Gráficos
+Saúde
+Interface
+Aplicações de Internet
+Comunicações ao vivo
+Localização
+Matemática
+Música
+Aplicações de rede de intercomunicação
+Impressão
+Segurança
+Ciência
+Desenvolvimento de software
+Bibliotecas de software
+Planilhas
+Administração do sistema
+Telefonia
+Criação e manipulação de texto
+Controle de versão
+Vídeo
+Autoria web
+</pre></div>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Permiss_00f5es-do-Documento.html">Permissões do Documento</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Cabe_00e7alho-do-Arquivo-do-Texinfo.html">Cabeçalho do Arquivo do Texinfo</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Escrevendo-um-Arquivo-do-Texinfo.html">Escrevendo um Arquivo do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

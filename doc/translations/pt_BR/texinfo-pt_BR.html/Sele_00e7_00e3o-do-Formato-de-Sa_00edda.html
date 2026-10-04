@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Seleção do Formato de Saída (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Seleção do Formato de Saída (GNU Texinfo 7.3)">
+<meta name="keywords" content="Seleção do Formato de Saída (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Vari_00e1veis-de-Personaliza_00e7_00e3o.html" rel="up" title="Variáveis de Personalização">
+<link href="Vari_00e1veis-Globais-de-Personaliza_00e7_00e3o.html" rel="next" title="Variáveis Globais de Personalização">
+<link href="Vari_00e1veis-e-Op_00e7_00f5es-de-Personaliza_00e7_00e3o.html" rel="prev" title="Variáveis e Opções de Personalização">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Sele_00e7_00e3o-do-Formato-de-Sa_00edda">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Vari_00e1veis-Globais-de-Personaliza_00e7_00e3o.html" accesskey="n" rel="next">Variáveis Globais de Personalização</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Vari_00e1veis-e-Op_00e7_00f5es-de-Personaliza_00e7_00e3o.html" accesskey="p" rel="prev">Variáveis e Opções de Personalização</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o.html" accesskey="u" rel="up">Variáveis de Personalização</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Sele_00e7_00e3o-do-Formato-de-Sa_00edda-1"><span>20.4.3 Seleção do Formato de Saída<a class="copiable-link" href="#Sele_00e7_00e3o-do-Formato-de-Sa_00edda-1"> &para;</a></span></h4>
+
+<p>A variável de personalização <code class="code">TEXINFO_OUTPUT_FORMAT</code> pega o valor do
+formato gerado pelo <code class="command">texi2any</code>. Isso pode ser um dos formatos usuais
+de saída que possam ser especificados com opções, ou vários outros formatos
+especiais de saída:
+</p>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">docbook</samp>&rsquo;</dt>
+<dt>&lsquo;<samp class="samp">dvi</samp>&rsquo;</dt>
+<dt>&lsquo;<samp class="samp">u</samp>&rsquo;</dt>
+<dt>&lsquo;<samp class="samp">epub3</samp>&rsquo;</dt>
+<dt>&lsquo;<samp class="samp">html</samp>&rsquo;</dt>
+<dt>&lsquo;<samp class="samp">info</samp>&rsquo;</dt>
+<dt>&lsquo;<samp class="samp">pdf</samp>&rsquo;</dt>
+<dt>&lsquo;<samp class="samp">plaintext</samp>&rsquo;</dt>
+<dt>&lsquo;<samp class="samp">ps</samp>&rsquo;</dt>
+<dt>&lsquo;<samp class="samp">xml</samp>&rsquo;</dt>
+<dd><p>Eles correspondem às opções de linha de comando (e aos valores da variável
+de ambiente <code class="code">TEXINFO_OUTPUT_FORMAT</code>) de mesmo nome. O valor da variável
+de personalização <code class="code">TEXINFO_OUTPUT_FORMAT</code> é configurado quando opções
+de linha de comando (ou valores da variável de ambiente
+<code class="code">TEXINFO_OUTPUT_FORMAT</code>) configuram o formato da saída
+gerada. Veja-se <a class="xref" href="Invocando-texi2any.html">Invocando <code class="command">texi2any</code> a partir de um Shell</a>.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-depurando-documento_002c-com-representacao-de-arvore"></a>
+<a id="index-representacao-de-arvore_002c-para-depuracao"></a><span>&lsquo;<samp class="samp">debugtree</samp>&rsquo;<a class="copiable-link" href="#index-representacao-de-arvore_002c-para-depuracao"> &para;</a></span></dt>
+<dd><p>Em vez de gerar um formato regular de saída, produzir uma representação de
+texto da árvore obtida pela análise do documento Texinfo de entrada.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">parse</samp>&rsquo;</dt>
+<dd><p>Fazer somente análise do fonte do Texinfo; não existe saída gerada.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">plaintexinfo</samp>&rsquo;</dt>
+<dd><p>Produzir o fonte do Texinfo com todas as macros, <code class="code">@include</code> e
+<code class="code">@value{}</code>, expandidas. Isso é semelhante à configuração de
+<samp class="option">--macro-expand</samp>, mas em vez de ser uma saída além da conversão
+normal, a saída do Texinfo é a saída principal.
+</p>
+</dd>
+<dt><a id="index-saida-de-texto-cru"></a><span>&lsquo;<samp class="samp">rawtext</samp>&rsquo;<a class="copiable-link" href="#index-saida-de-texto-cru"> &para;</a></span></dt>
+<dd><p>Produzir texto bruto, com formatação mínima. Por exemplo, notas de rodapé
+são ignoradas e não existe preenchimento de parágrafo. Isso é usado pelo
+analisador para nomes de arquivos e textos de direitos autorais em
+comentários do HTML, por exemplo.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">structure</samp>&rsquo;</dt>
+<dd><p>Fazer somente análise do fonte do Texinfo e determinação da estrutura do
+documento; não existe saída gerada.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-Expressoes-S_002c-formato-de-saida"></a>
+<a id="index-Saida-SXML"></a><span>&lsquo;<samp class="samp">texinfosxml</samp>&rsquo;<a class="copiable-link" href="#index-Saida-SXML"> &para;</a></span></dt>
+<dd><p>Produzir o documento na representação TexinfoSXML, uma sintaxe para escrever
+dados XML usando expressões S da Lisp.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-contagem-de-palavras"></a>
+<a class="index-entry-id" id="index-detexinfo"></a>
+<a class="index-entry-id" id="index-eliminando-comandos-do-Texinfo"></a>
+<a id="index-verificacao-ortografica"></a><span>&lsquo;<samp class="samp">textcontent</samp>&rsquo;<a class="copiable-link" href="#index-verificacao-ortografica"> &para;</a></span></dt>
+<dd><p>Produzir somente o conteúdo do texto, removidos os comandos; isso é útil
+para verificação ortográfica ou contagem de palavras, por exemplo. A
+configuração trivial do conjunto de comandos sequenciais <code class="code">detexinfo</code>
+está no diretório <samp class="file">util</samp> do fonte do Texinfo como um exemplo. Ela é uma
+linha:
+</p>
+<div class="example">
+<pre class="example-preformatted">exec texi2any -c TEXINFO_OUTPUT_FORMAT=textcontent &quot;$@&quot;
+</pre></div>
+</dd>
+</dl>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Vari_00e1veis-Globais-de-Personaliza_00e7_00e3o.html">Variáveis Globais de Personalização</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Vari_00e1veis-e-Op_00e7_00f5es-de-Personaliza_00e7_00e3o.html">Variáveis e Opções de Personalização</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o.html">Variáveis de Personalização</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

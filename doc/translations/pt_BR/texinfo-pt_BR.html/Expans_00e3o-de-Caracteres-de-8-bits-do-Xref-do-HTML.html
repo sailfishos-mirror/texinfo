@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Expansão de Caracteres de 8 bits do Xref do HTML (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Expansão de Caracteres de 8 bits do Xref do HTML (GNU Texinfo 7.3)">
+<meta name="keywords" content="Expansão de Caracteres de 8 bits do Xref do HTML (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Xref-do-HTML.html" rel="up" title="Xref do HTML">
+<link href="Configura_00e7_00e3o-do-Xref-do-HTML.html" rel="next" title="Configuração do Xref do HTML">
+<link href="Expans_00e3o-de-Comando-do-Xref-do-HTML.html" rel="prev" title="Expansão de Comando do Xref do HTML">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Expans_00e3o-de-Caracteres-de-8-bits-do-Xref-do-HTML">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Configura_00e7_00e3o-do-Xref-do-HTML.html" accesskey="n" rel="next">Configuração de Referência Cruzada do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Expans_00e3o-de-Comando-do-Xref-do-HTML.html" accesskey="p" rel="prev">Expansão do Comando de Referência Cruzada do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Xref-do-HTML.html" accesskey="u" rel="up">Referências Cruzadas do HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Expans_00e3o-do-Caractere-de-8-Bits-da-Refer_00eancia-Cruzada-do-HTML"><span>22.7.4 Expansão do Caractere de 8 Bits da Referência Cruzada do HTML<a class="copiable-link" href="#Expans_00e3o-do-Caractere-de-8-Bits-da-Refer_00eancia-Cruzada-do-HTML"> &para;</a></span></h4>
+<a class="index-entry-id" id="index-Referencias-cruzadas-do-HTML-expansao-do-caractere-de-8-bits"></a>
+<a class="index-entry-id" id="index-Caracteres-de-8-bits_002c-em-referencias-cruzadas-do-HTML"></a>
+<a class="index-entry-id" id="index-Expansao-dos-caracteres-de-8-bits-nas-referencias-cruzadas-do-HTML"></a>
+<a class="index-entry-id" id="index-Transliteracao-dos-caracteres-de-8-bits-nas-referencias-cruzadas-do-HTML"></a>
+
+<p>Normalmente, caracteres diferentes do ASCII simples de 7 bits são
+transformados no(s) correspondente(s) ponto(s) de código do Unicode na Forma
+de Normalização&nbsp;C, a qual usa caracteres pré-compostos quando
+disponíveis. (Essa é a forma de normalização recomendada pelo W3C e outros
+órgãos). Isso vale quando esse ponto de código for <code class="code">0xffff</code> ou menos,
+como quase sempre é.
+</p>
+<p>Eles serão então transformados pelas regras acima na sequência de caracteres
+&lsquo;<samp class="samp">_<var class="var">hhhh</var></samp>&rsquo;, onde <var class="var">hhhh</var> é o ponto de código em hexadecimal.
+</p>
+<p>Por exemplo, combinando essa regra e a seção anterior:
+</p>
+<div class="example">
+<pre class="example-preformatted">@node @b{A} @TeX{} @u{B} @point{}@enddots{}
+&rArr; A-TeX-B_0306-_22C6_002e_002e_002e
+</pre></div>
+
+<p>Aviso: 1)&nbsp;<code class="code">@enddots</code> se expande para três pontos os quais, por
+sua vez, se expandem para três &lsquo;<samp class="samp">_002e</samp>&rsquo;s; 2)&nbsp;<code class="code">@u{B}</code> é um
+&lsquo;B&rsquo; com acento breve, o qual não existe como um caractere pré-acentuado do
+Unicode, portanto se expande para &lsquo;<samp class="samp">B_0306</samp>&rsquo; (B com combinação de breve).
+</p>
+<p>Quando o ponto de código do Unicode estiver acima de <code class="code">0xffff</code>, a
+transformação será &lsquo;<samp class="samp">__<var class="var">xxxxxx</var></samp>&rsquo;, ou seja, dois sublinhados iniciais
+seguidos por seis dígitos hexadecimais. Como o Unicode declarou que o ponto
+de código mais alto deles é <code class="code">0x10ffff</code>, isso é suficiente. (Nós achamos
+que era melhor definir esse escape extra que usar sempre seis dígitos
+hexadecimais, já que os dois primeiros seriam quase sempre zeros).
+</p>
+<p>Esse método funciona bem se o nome do nó consistir principalmente de
+caracteres ASCII e contiver somente alguns de 8 bits. Mas se o documento for
+escrito em um idioma cuja escrita não seja baseada no alfabeto latino (por
+exemplo, ucraniano), ele criará nomes de arquivos que consistem quase
+inteiramente de notações &lsquo;<samp class="samp">_<var class="var">xxxx</var></samp>&rsquo;, o que é inconveniente e quase
+ilegível. Para lidar com esses casos, <code class="command">texi2any</code> oferece a opção de
+linha de comando <samp class="option">--transliterate-file-names</samp>. Essa opção habilita
+<em class="dfn">transliteração</em> de nomes de nós em caracteres ASCII para fins de
+criação de nomes de arquivos. A transliteração é baseada em princípios
+fonéticos, o que torna os nomes dos arquivos gerados mais facilmente
+compreensíveis.
+</p>
+<a class="index-entry-id" id="index-Forma-de-Normalizacao-C_002c-Unicode"></a>
+<p>Para a definição da Forma de Normalização&nbsp;C do Unicode, veja-se o
+informe UAX#15 do Unicode,
+<a class="uref" href="http://www.unicode.org/reports/tr15/">http://www.unicode.org/reports/tr15/</a>. Muitos documentos e
+implementações relacionados estão disponíveis em outros lugares na web.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Configura_00e7_00e3o-do-Xref-do-HTML.html">Configuração de Referência Cruzada do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Expans_00e3o-de-Comando-do-Xref-do-HTML.html">Expansão do Comando de Referência Cruzada do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Xref-do-HTML.html">Referências Cruzadas do HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>#line e TeX (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="#line e TeX (GNU Texinfo 7.3)">
+<meta name="keywords" content="#line e TeX (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Processadores-Externos-de-Macro.html" rel="up" title="Processadores Externos de Macro">
+<link href="Detalhes-da-Sintaxe-da-_0023line.html" rel="next" title="Detalhes da Sintaxe da #line">
+<link href="Diretiva-_0023line.html" rel="prev" title="Diretiva #line">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="g_t_0023line-e-TeX">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Detalhes-da-Sintaxe-da-_0023line.html" accesskey="n" rel="next">Detalhes da Sintaxe da &lsquo;<samp class="samp">#line</samp>&rsquo;</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Diretiva-_0023line.html" accesskey="p" rel="prev">Diretiva &lsquo;<samp class="samp">#line</samp>&rsquo;</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Processadores-Externos-de-Macro.html" accesskey="u" rel="up">Processadores Externos de Macro: Diretivas de Linha</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="g_t_0023line-e-TeX-1"><span>17.7.2 &lsquo;<samp class="samp">#line</samp>&rsquo; e TeX<a class="copiable-link" href="#g_t_0023line-e-TeX-1"> &para;</a></span></h4>
+
+<a class="index-entry-id" id="index-TeX-e-diretivas-_0023line"></a>
+<a class="index-entry-id" id="index-Diretivas-_0023line-nao-processando-com-TeX"></a>
+
+<p>Conforme mencionado, <code class="command">texi2any</code> reconhece as diretivas &lsquo;<samp class="samp">#line</samp>&rsquo;
+descritas na seção anterior.  No entanto, <samp class="file">texinfo.tex</samp> não reconhece e
+não consegue reconhecer.  Portanto, tal linha será incorretamente
+tipografada literal se TeX a vir.  A solução é a de usar as opções de
+expansão de macro do <code class="command">texi2any</code> antes de se executar o TeX.
+Existem três abordagens:
+</p>
+<ul class="itemize mark-bullet">
+<li>Se você executar <code class="command">texi2dvi</code> ou as variantes dele (veja-se <a class="pxref" href="Formatar-com-texi2dvi-ou-texi2pdf.html#Formatar-com-texi2dvi">Formatar com <code class="command">texi2dvi</code></a>), poderá passar <samp class="option">-E</samp> e <code class="command">texi2dvi</code>
+executará <code class="command">texi2any</code> primeiro para expandir macros e eliminar
+&lsquo;<samp class="samp">#line</samp>&rsquo;.
+
+</li><li>Se você executar <code class="command">texi2any</code>, poderá especificar <samp class="option">--no-ifinfo
+--iftex -E algumarquivo.out</samp> e, em seguida, fornecer <samp class="file">algumarquivo.out</samp>
+para <code class="code">texi2dvi</code> em um comando separado.
+
+</li><li>Ou você pode executar <samp class="option">texi2any --dvi --Xopt -E</samp>.  (Ou <samp class="option">--pdf</samp>
+em vez de <samp class="option">--dvi</samp>). <code class="command">texi2any</code> então chamará
+<code class="command">texi2dvi -E</code>.
+</li></ul>
+
+<a class="index-entry-id" id="index-errormsg_002c-e-numeros-de-linha-no-TeX"></a>
+<p>Uma última ressalva relativa ao uso com TeX: como as diretivas
+<code class="code">#line</code> não são reconhecidas, os números de linha emitidos pelo comando
+<code class="code">@errormsg{}</code> (veja-se <a class="pxref" href="Comandos-Condicionais.html">Comandos Condicionais</a>), ou pelo próprio
+TeX, são os números de linha (incorretos) provenientes do arquivo
+derivado que o TeX estiver lendo, em vez dos números de linha
+especificados pelo preprocessador.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Detalhes-da-Sintaxe-da-_0023line.html">Detalhes da Sintaxe da &lsquo;<samp class="samp">#line</samp>&rsquo;</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Diretiva-_0023line.html">Diretiva &lsquo;<samp class="samp">#line</samp>&rsquo;</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Processadores-Externos-de-Macro.html">Processadores Externos de Macro: Diretivas de Linha</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

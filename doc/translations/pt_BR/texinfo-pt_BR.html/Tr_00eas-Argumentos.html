@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Três Argumentos (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="@xref com três argumentos.">
+<meta name="keywords" content="@xref com três argumentos.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Refer_00eancias-Cruzadas.html" rel="up" title="Referências Cruzadas">
+<link href="Quatro-e-Cinco-Argumentos.html" rel="next" title="Quatro e Cinco Argumentos">
+<link href="Dois-Argumentos.html" rel="prev" title="Dois Argumentos">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Tr_00eas-Argumentos">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Quatro-e-Cinco-Argumentos.html" accesskey="n" rel="next"><code class="code">@xref</code> com Quatro e Cinco Argumentos</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Dois-Argumentos.html" accesskey="p" rel="prev"><code class="code">@xref</code> com Dois Argumentos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Refer_00eancias-Cruzadas.html" accesskey="u" rel="up">Referências cruzadas</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section subsection-level-set-section" id="g_t_0040xref-com-Tr_00eas-Argumentos"><span>5.5 <code class="code">@xref</code> com Três Argumentos<a class="copiable-link" href="#g_t_0040xref-com-Tr_00eas-Argumentos"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Forma-de-tres-argumentos-das-referencias-cruzadas"></a>
+
+<p>Um terceiro argumento substitui o nome de nó na saída gerada impressa.  O
+terceiro argumento deveria ser o nome da seção na saída impressa, ou, pelo
+contrário, indicar o tópico debatido pela aquela seção.
+</p>
+<p>O modelo é semelhante a isto:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@xref{<var class="var">nome-nó</var>, <var class="var">rótulo-online</var>, <var class="var">rótulo-impresso</var>}.
+</pre></div></div>
+
+<p>Por exemplo,
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@xref{Efeitos Elétricos, Relâmpago, Trovão e Relâmpago},
+para detalhes.
+</pre></div></div>
+
+<p>produz
+</p>
+<div class="example">
+<pre class="example-preformatted">*Observe Relâmpago: Efeitos Elétricos, para detalhes.
+</pre></div>
+
+<p>no Info e
+</p>
+<blockquote class="quotation">
+<p>Veja-se Seção 5.2 [Trovão e Relâmpago], página 57, para detalhes.
+</p></blockquote>
+
+<p>em um manual impresso.
+</p>
+<p>Se um terceiro argumento for dado e o segundo estiver vazio, então o
+terceiro argumento serve para ambos.  (Observe como duas vírgulas, lado a
+lado, marcam o segundo argumento vazio).
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@xref{Efeitos Elétricos, , Trovão e Relâmpago},
+para detalhes.
+</pre></div></div>
+
+<p>produz
+</p>
+<div class="example">
+<pre class="example-preformatted">*Observe Trovão e Relâmpago: Efeitos Elétricos, para detalhes.
+</pre></div>
+
+<p>no Info e
+</p>
+<blockquote class="quotation">
+<p>Veja-se Seção 5.2 [Trovão e Relâmpago], página 57, para detalhes.
+</p></blockquote>
+
+<p>em um manual impresso.
+</p>
+<p>O terceiro argumento para referências cruzadas compartilha restrições com
+nomes de nó.  O carácter potencialmente problemático nesse contexto é o dois
+pontos.  Veja-se <a class="xref" href="Exig_00eancias-da-Linha-do-N_00f3.html#Restri_00e7_00f5es-de-Nomes-de-N_00f3-do-Info">Restrições de Nomes de Nó do Info</a>.
+</p>
+<p>De um ponto de vista prático, geralmente é melhor escrever referências
+cruzadas apenas com o primeiro argumento se o nome do nó e o título da seção
+forem os mesmos (ou quase), e com o primeiro e terceiro argumentos somente
+se o nome de nó e título forem diferentes.
+</p>
+<a class="index-entry-id" id="index-xrefautomaticsectiontitle"></a>
+<a class="anchor" id="xrefautomaticsectiontitle"></a><p>Texinfo oferece uma configuração para usar o título da seção em vez dos
+nomes de nó por padrão em referências cruzadas (um terceiro argumento
+explicitamente especificado ainda tem precedência):
+</p>
+<div class="example">
+<pre class="example-preformatted">@xrefautomaticsectiontitle on
+</pre></div>
+
+<p>Essa configuração também é usada para referências cruzadas para âncoras
+definidas com <code class="code">@namedanchor</code> (veja-se <a class="pxref" href="_0040anchor.html"><code class="code">@anchor</code>: Definindo Alvos Arbitrários de Referências Cruzadas</a>).
+</p>
+<p>Tipicamente essa linha seria dada próxima do início do documento e usada
+para o manual inteiro.  Porém, você pode desativá-la se quiser
+(<code class="code">@xrefautomaticsectiontitle off</code>), por exemplo, se estiver incluindo
+algum outro subdocumento que não tenha nomes adequados de seção.  Essa
+configuração também se aplica a cabeçalhos de nó no HTML: se
+<code class="code">@xrefautomaticsectiontitle</code> estiver ligado, os nomes de seções serão
+usados em cabeçalhos de nó em vez dos nomes de nó quando possível. Essa
+configuração não tem efeito na saída Info ou na de texto simples.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Quatro-e-Cinco-Argumentos.html"><code class="code">@xref</code> com Quatro e Cinco Argumentos</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Dois-Argumentos.html"><code class="code">@xref</code> com Dois Argumentos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Refer_00eancias-Cruzadas.html">Referências cruzadas</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

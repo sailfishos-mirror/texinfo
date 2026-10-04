@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Comandos de Variáveis (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Comandos para variáveis e entidades similares.">
+<meta name="keywords" content="Comandos para variáveis e entidades similares.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Comandos-de-Defini_00e7_00e3o-em-Detalhe.html" rel="up" title="Comandos de Definição em Detalhe">
+<link href="Vari_00e1veis-Tipadas.html" rel="next" title="Variáveis Tipadas">
+<link href="Fun_00e7_00f5es-Tipadas.html" rel="prev" title="Funções Tipadas">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Comandos-de-Vari_00e1veis">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Vari_00e1veis-Tipadas.html" accesskey="n" rel="next">Variáveis em Linguagens Tipadas</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Fun_00e7_00f5es-Tipadas.html" accesskey="p" rel="prev">Funções em Linguagens Tipadas</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Comandos-de-Defini_00e7_00e3o-em-Detalhe.html" accesskey="u" rel="up">Os Comandos de Definição</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Vari_00e1veis-e-Entidades-Similares"><span>14.6.3 Variáveis e Entidades Similares<a class="copiable-link" href="#Vari_00e1veis-e-Entidades-Similares"> &para;</a></span></h4>
+
+<p>Aqui estão os comandos para se definir variáveis e entidades similares:
+</p>
+<dl class="table">
+<dt><a id="index-defvr"></a><span><code class="code">@defvr <var class="var">categoria</var> <var class="var">nome</var></code><a class="copiable-link" href="#index-defvr"> &para;</a></span></dt>
+<dd><p>O comando <code class="code">@defvr</code> é um comando geral de definição para algo como uma
+variável&mdash;uma entidade que registra um valor.  Você precisa escolher um
+termo para descrever a categoria da entidade sendo definida; por exemplo,
+&ldquo;Variável&rdquo; poderia ser usado se a entidade fosse uma variável.  Escreva o
+comando <code class="code">@defvr</code> no início de uma linha e siga-o na mesma linha pela
+categoria da entidade e o nome da entidade.
+</p>
+<p>Nós recomendamos maiusculizar o nome da categoria, como um título.  Se o
+nome da categoria contiver espaços, como no nome &ldquo;Opção de Usuário(a)&rdquo;,
+circunde-o com chaves.  Caso contrário, a segunda palavra será confundida
+com o nome da entidade.  Por exemplo,
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@defvr {Opção de Usuário(a)} fill-column
+Essa variável local e de buffer especifica
+a largura máxima das linhas preenchidas.
+...
+@end defvr
+</pre></div></div>
+
+<p>Termine a definição com <code class="code">@end defvr</code> em uma linha própria.
+</p>
+<p><code class="code">@defvr</code> cria uma entrada no índice de variáveis para <var class="var">nome</var>.
+</p>
+</dd>
+<dt><a id="index-defvar"></a><span><code class="code">@defvar <var class="var">nome</var></code><a class="copiable-link" href="#index-defvar"> &para;</a></span></dt>
+<dd><p>O comando <code class="code">@defvar</code> é o comando de definição para variáveis.
+<code class="code">@defvar</code> é equivalente a &lsquo;<samp class="samp">@defvr Variável &hellip;</samp>&rsquo;.
+</p>
+<p>Por exemplo:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@defvar kill-ring
+...
+@end defvar
+</pre></div></div>
+
+<p><code class="code">@defvar</code> cria uma entrada no índice de variáveis para <var class="var">nome</var>.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-Opcoes-de-usuario_0028a_0029_002c-marcando"></a>
+<a id="index-defopt"></a><span><code class="code">@defopt <var class="var">nome</var></code><a class="copiable-link" href="#index-defopt"> &para;</a></span></dt>
+<dd><p>O comando <code class="code">@defopt</code> é o comando de definição para <em class="dfn">opções de
+usuário(a)</em>, ou seja, variáveis destinadas para usuários(as) mudarem de
+acordo com o gosto; Emacs tem muitas dessas (veja-se <a data-manual="emacs" href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Variables.html#Variables">Variables</a> em <cite class="cite">O
+Manual do GNU Emacs</cite>).  <code class="code">@defopt</code> é equivalente a &lsquo;<samp class="samp">@defvr
+{Opção de Usuário(a)} &hellip;</samp>&rsquo;.
+</p></dd>
+</dl>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Vari_00e1veis-Tipadas.html">Variáveis em Linguagens Tipadas</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Fun_00e7_00f5es-Tipadas.html">Funções em Linguagens Tipadas</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Comandos-de-Defini_00e7_00e3o-em-Detalhe.html">Os Comandos de Definição</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

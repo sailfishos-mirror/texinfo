@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Estruturamento de Capítulo (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Criando capítulos, seções, apêndices, etc.">
+<meta name="keywords" content="Criando capítulos, seções, apêndices, etc.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="index.html" rel="up" title="Top">
+<link href="Refer_00eancias-Cruzadas.html" rel="next" title="Referências Cruzadas">
+<link href="N_00f3s.html" rel="prev" title="Nós">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="chapter-level-extent" id="Estruturamento-de-Cap_00edtulo">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Refer_00eancias-Cruzadas.html" accesskey="n" rel="next">Referências cruzadas</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="N_00f3s.html" accesskey="p" rel="prev">Nós</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="index.html" accesskey="u" rel="up">Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h2 class="chapter" id="Estruturamento-de-Cap_00edtulo-1"><span>4 Estruturamento de Capítulo<a class="copiable-link" href="#Estruturamento-de-Cap_00edtulo-1"> &para;</a></span></h2>
+<a class="anchor" id="Estruturamento"></a><a class="index-entry-id" id="index-Capitulos_002c-estruturamento-de"></a>
+<a class="index-entry-id" id="index-Estruturamento-de-capitulos"></a>
+<a class="index-entry-id" id="index-Seccionamento"></a>
+
+<p>Os comandos de <em class="dfn">estruturamento de capítulo</em> do Texinfo dividem um
+documento em uma hierarquia de capítulos, seções, subseções e
+subsubseções. Esses comandos geram cabeçalhos grandes no texto, como o
+acima. Eles também fornecem informações para gerar o sumário
+(veja-se <a class="pxref" href="Conte_00fado.html">Gerando Um Sumário</a>).
+</p>
+<p>Normalmente você coloca um comando <code class="code">@node</code> imediatamente antes de cada
+comando de estruturamento de capítulo. Veja-se <a class="xref" href="N_00f3s.html">Nós</a>.
+</p>
+
+<ul class="mini-toc">
+<li><a href="Estruturamento-de-_00c1rvore.html" accesskey="1">Estrutura de Árvore das Seções</a></li>
+<li><a href="Tipos-de-Comandos-Estruturantes.html" accesskey="2">Tipos de Comandos Estruturantes</a></li>
+<li><a href="_0040chapter.html" accesskey="3"><code class="code">@chapter</code>: Estruturamento de Capítulo</a></li>
+<li><a href="_0040unnumbered-_0040appendix.html" accesskey="4"><code class="code">@unnumbered</code>, <code class="code">@appendix</code>: Capítulos com Outra Rotulagem</a></li>
+<li><a href="_0040majorheading-_0040chapheading.html" accesskey="5"><code class="code">@majorheading</code>, <code class="code">@chapheading</code>: Cabeçalhos de Nível de Capítulo</a></li>
+<li><a href="_0040section.html" accesskey="6"><code class="code">@section</code>: Seções Abaixo de Capítulos</a></li>
+<li><a href="_0040unnumberedsec-_0040appendixsec-_0040heading.html" accesskey="7"><code class="code">@unnumberedsec</code>, <code class="code">@appendixsec</code>, <code class="code">@heading</code></a></li>
+<li><a href="_0040subsection.html" accesskey="8"><code class="code">@subsection</code>: Subseções Abaixo de Seções</a></li>
+<li><a href="_0040unnumberedsubsec-_0040appendixsubsec-_0040subheading.html" accesskey="9">Os Comandos do Tipo <code class="code">@subsection</code></a></li>
+<li><a href="_0040subsubsection.html"><code class="code">@subsubsection</code> e Outros Comandos Subsub</a></li>
+<li><a href="_0040part.html"><code class="code">@part</code>: Grupos de Capítulos</a></li>
+<li><a href="Elevar_002frebaixar-se_00e7_00f5es.html">Elevar/rebaixar Seções: <code class="code">@raisesections</code> e <code class="code">@lowersections</code></a></li>
+<li><a href="N_00f3s-Desestruturados.html">Nós Desestruturados</a></li>
+</ul>
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Refer_00eancias-Cruzadas.html">Referências cruzadas</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="N_00f3s.html">Nós</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="index.html">Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Inserindo Caracteres de Aspas (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Inserindo aspas esquerdas e direitas, no código.">
+<meta name="keywords" content="Inserindo aspas esquerdas e direitas, no código.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Inser_00e7_00f5es.html" rel="up" title="Inserções">
+<link href="Inserindo-Espa_00e7o.html" rel="next" title="Inserindo Espaço">
+<link href="Caracteres-Especiais.html" rel="prev" title="Caracteres Especiais">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Inserindo-Caracteres-de-Aspas">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Inserindo-Espa_00e7o.html" accesskey="n" rel="next">Inserindo Espaço</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Caracteres-Especiais.html" accesskey="p" rel="prev">Caracteres Especiais: Inserindo @ {} , \ # &amp;</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Inser_00e7_00f5es.html" accesskey="u" rel="up">Inserções Especiais</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Inserindo-Caracteres-de-Aspas-1"><span>11.2 Inserindo Caracteres de Aspas<a class="copiable-link" href="#Inserindo-Caracteres-de-Aspas-1"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Inserindo-caracteres-de-citacao"></a>
+<a class="index-entry-id" id="index-Caracteres-de-citacao_002c-inserindo"></a>
+
+<p>Conforme explicado na seção anterior acerca de convenções gerais de entrada
+do Texinfo (veja-se <a class="pxref" href="Conven_00e7_00f5es.html">Convenções Sintáticas Gerais</a>), arquivos fonte do Texinfo usam o caractere
+ASCII <code class="code">`</code> (decimal 96) para produzir uma aspa esquerda (&lsquo;), e o ASCII
+<code class="code">'</code> (decimal 39) para produzir uma aspa direita (&rsquo;).  Duplicar esses
+caracteres de entrada (<code class="code">``</code> e <code class="code">''</code>) produz aspas duplas (&ldquo; e
+&rdquo;).  Essas são as convenções usadas pelo TeX.
+</p>
+<p>Em exemplos de código de computador, no entanto, <code class="code">`</code> e <code class="code">'</code>
+produzem renderizações típicas para esses caracteres ASCII: o caractere
+crase (acento grave autônomo) e aspas simples indirecionadas,
+respectivamente.  No passado, glifos direcionados
+foram usados por padrão na saída do TeX.  O Texinfo fornece esses
+comandos para escolher entre estas renderizações alternativas:
+</p>
+<dl class="table">
+<dt><a class="index-entry-id" id="index-aspas-simples-indirecionadas"></a>
+<a id="index-codequoteundirected"></a><span><code class="code">@codequoteundirected <var class="var">on-off</var></code><a class="copiable-link" href="#index-codequoteundirected"> &para;</a></span></dt>
+<dd><p>Configure para &lsquo;<samp class="samp">off</samp>&rsquo; para gerar o caractere <code class="code">'</code> em ambientes de
+código como aspas simples curvas à direita.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-Crase"></a>
+<a class="index-entry-id" id="index-Acento-grave-autonomo"></a>
+<a id="index-codequotebacktick"></a><span><code class="code">@codequotebacktick <var class="var">on-off</var></code><a class="copiable-link" href="#index-codequotebacktick"> &para;</a></span></dt>
+<dd><p>Configure para &lsquo;<samp class="samp">off</samp>&rsquo; para gerar o caractere <code class="code">`</code> em ambientes de
+código como aspas simples curvas à esquerda.
+</p></dd>
+</dl>
+
+<p>Se você quiser essas configurações somente para parte do documento,
+<code class="code">@codequote... on</code> restaurará o comportamento normal, como em
+<code class="code">@codequoteundirected on</code>.
+</p>
+<p>Essas configurações afetam <code class="code">@code</code>, <code class="code">@example</code>, <code class="code">@kbd</code>,
+<code class="code">@samp</code>, <code class="code">@verb</code> e <code class="code">@verbatim</code>.  Veja-se <a class="xref" href="Real_00e7amento-_00datil.html">Comandos de Realçamento são Úteis</a>.
+</p>
+<p>Infelizmente, alguns visualizadores de documentos danificarão os caracteres
+de aspas direcionadas ao copiar e colar.  (O leitor livre de PDF
+<code class="command">xpdf</code> funciona bem, mas outros leitores de PDF, tanto livres quanto
+não livres, tem problemas).
+</p>
+<a class="index-entry-id" id="index-txicodequoteundirected"></a>
+<a class="index-entry-id" id="index-txicodequotebacktick"></a>
+<p>Esse recurso também pode ser controlado usando-se <code class="code">@set</code> e
+<code class="code">@clear</code> sobre as variáveis correspondentes
+<code class="code">txicodequoteundirected</code> e <code class="code">txicodequotebacktick</code>.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Inserindo-Espa_00e7o.html">Inserindo Espaço</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Caracteres-Especiais.html">Caracteres Especiais: Inserindo @ {} , \ # &amp;</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Inser_00e7_00f5es.html">Inserções Especiais</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

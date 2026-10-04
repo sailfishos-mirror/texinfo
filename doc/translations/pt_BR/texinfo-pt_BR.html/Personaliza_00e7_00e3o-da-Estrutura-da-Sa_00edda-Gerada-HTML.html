@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Personalização da Estrutura da Saída Gerada HTML (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Personalização da Estrutura da Saída Gerada HTML (GNU Texinfo 7.3)">
+<meta name="keywords" content="Personalização da Estrutura da Saída Gerada HTML (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html" rel="up" title="Personalização da Saída Gerada HTML">
+<link href="Personaliza_00e7_00e3o-de-Nomes-de-Arquivo-e-de-Linques-para-HTML.html" rel="next" title="Personalização de Nomes de Arquivo e de Linques para HTML">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Personaliza_00e7_00e3o-da-Estrutura-da-Sa_00edda-Gerada-HTML">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-de-Nomes-de-Arquivo-e-de-Linques-para-HTML.html" accesskey="n" rel="next">Personalização de Nomes de Arquivo e de Linques para HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html" accesskey="u" rel="up">Personalização da Saída Gerada HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Personaliza_00e7_00e3o-da-Estrutura-da-Sa_00edda-Gerada-HTML-1"><span>22.8.1 Personalização da Estrutura da Saída Gerada HTML<a class="copiable-link" href="#Personaliza_00e7_00e3o-da-Estrutura-da-Sa_00edda-Gerada-HTML-1"> &para;</a></span></h4>
+
+<p>Você consegue usar variáveis de personalização para controlar a saída gerada
+de títulos e de sumários de documentos ou de outras partes semelhantes de
+documentos. Outras variáveis afetam como <code class="command">texi2any</code> visualiza a
+estrutura de um documento e como a saída gerada é dividida em arquivos da
+saída gerada.
+</p>
+<a class="index-entry-id" id="index-SHOW_005fTITLE"></a>
+<a class="index-entry-id" id="index-USE_005fTITLEPAGE_005fFOR_005fTITLE"></a>
+<p>Se <code class="code">SHOW_TITLE</code> for &lsquo;<samp class="samp">undef</samp>&rsquo;, o padrão, nenhum título será gerado
+no início da saída gerada. Se você configurar essa variável, por padrão o
+conteúdo de <code class="code">@titlepage</code> (ou a saída gerada a partir de
+<code class="code">@maketitle</code>) será usado para o título; desconfigure
+<code class="code">USE_TITLEPAGE_FOR_TITLE</code> para obter uma sequência simples de
+caracteres de título.
+</p>
+<a class="index-entry-id" id="index-NO_005fTOP_005fNODE_005fOUTPUT-para-HTML"></a>
+<p>Por padrão, a saída gerada HTML é adaptada para visualização on-line, com o
+nó Topo sendo gerado como um ponto de partida de nível superior para o
+leitor. Você pode configurar <code class="code">NO_TOP_NODE_OUTPUT</code> para remover o nó
+Topo, o que resulta em saída gerada que pode ser mais semelhante ao formato
+de um livro impresso. Por padrão, configurar-se <code class="code">NO_TOP_NODE_OUTPUT</code>
+também gera um título no início do documento, embora você consiga substituir
+isso configurando <code class="code">SHOW_TITLE</code> como 0.
+</p>
+<a class="index-entry-id" id="index-FORMAT_005fMENU-para-HTML"></a>
+<p>Em cada nó, por padrão, uma lista de seções subordinadas é gerada para
+navegação. Isso corresponde à variável <code class="code">FORMAT_MENU</code> sendo configurada
+como &lsquo;<samp class="samp">sectiontoc</samp>&rsquo;. Para usar menus para navegar no documento (como no
+formato Info; veja-se <a class="pxref" href="Menus.html">Menus</a>), configure <code class="code">FORMAT_MENU</code> como
+&lsquo;<samp class="samp">menu</samp>&rsquo;. Configure <code class="code">FORMAT_MENU</code> como &lsquo;<samp class="samp">menu_no_detailmenu</samp>&rsquo; se
+você quiser menus, mas nenhum <code class="code">@detailmenu</code> gerado automaticamente
+para o menu mestre Topo. Se você não quiser que ou menus ou listas de seções
+subordinadas para navegação sejam exibidas, configure <code class="code">FORMAT_MENU</code>
+como &lsquo;<samp class="samp">nomenu</samp>&rsquo;.
+</p>
+<a class="index-entry-id" id="index-CONTENTS_005fOUTPUT_005fLOCATION"></a>
+<p>Por padrão, o sumário para o documento inteiro é gerado no final da seção
+<code class="code">@top</code>, para ter o local principal para navegação no documento inteiro
+desde o início. Isso corresponde à variável <code class="code">CONTENTS_OUTPUT_LOCATION</code>
+configurada como &lsquo;<samp class="samp">after_top</samp>&rsquo;.
+</p>
+<p>Você consegue ter o sumário gerado depois do título (se <code class="code">SHOW_TITLE</code>
+estiver configurada) configurando <code class="code">CONTENTS_OUTPUT_LOCATION</code> como
+&lsquo;<samp class="samp">after_title</samp>&rsquo;. Para gerar o sumário no final do documento ou em um
+arquivo separado, se a saída gerada for dividida, configure
+<code class="code">CONTENTS_OUTPUT_LOCATION</code> como &lsquo;<samp class="samp">separate_element</samp>&rsquo;. Você também
+pode configurar <code class="code">CONTENTS_OUTPUT_LOCATION</code> como &lsquo;<samp class="samp">inline</samp>&rsquo;: nesse
+caso, o sumário será gerado onde o comando @ correspondente, por exemplo
+<code class="code">@contents</code>, for usado.
+</p>
+<p>Você pode achar útil configurar <code class="code">CONTENTS_OUTPUT_LOCATION</code> quando
+<code class="code">FORMAT_MENU</code> estiver configurada como &lsquo;<samp class="samp">menu</samp>&rsquo; para a finalidade de
+usar menus para navegação. Nesse caso, já deveria existir um menu mestre na
+seção <code class="code">@top</code> (veja-se <a class="pxref" href="Partes-do-Menu-Mestre.html">Partes de um Menu Mestre</a>), e assim o leitor do teu
+manual possivelmente não precise de um sumário no mesmo local.
+</p>
+<a class="index-entry-id" id="index-SPLIT-para-HTML"></a>
+<p>Por padrão, cada nó é gerado em um arquivo separado. Você consegue mudar
+isso com a opção de linha de comando <samp class="option">--split</samp>, que é equivalente a
+configurar a variável <code class="code">SPLIT</code>. <code class="code">SPLIT</code> pode assumir os valores
+&lsquo;<samp class="samp">chapter</samp>&rsquo;, &lsquo;<samp class="samp">section</samp>&rsquo; ou &lsquo;<samp class="samp">node</samp>&rsquo; ou ser configurada como uma
+sequência vazia de caracteres para indicar saída não
+dividida. Veja-se <a class="xref" href="Invocando-texi2any.html#Dividindo-Sa_00edda-Gerada">Dividindo Saída Gerada</a>.
+</p>
+<a class="index-entry-id" id="index-USE_005fNODES-para-HTML"></a>
+<p>Unidades elementares chamadas <em class="dfn">unidades de saída</em> são usadas para saída,
+com cada arquivo de saída contendo o conteúdo de uma ou mais unidades de
+saída, dependendo do valor de <code class="code">SPLIT</code>. As unidades de saída contêm o
+conteúdo associado a um nó ou comando de seccionamento. Em fontes típicas de
+documentos Texinfo, um comando de nó é quase sempre associado com um comando
+de seccionamento imediatamente seguinte.
+</p>
+<p>A variável de personalização <code class="code">USE_NODES</code> determina se o nó ou o comando
+de seccionamento é considerado o comando principal. Por padrão, nós são
+usados como o componente principal para a separação das unidades da saída
+gerada. Você consegue configurar <code class="code">USE_NODES</code> como falso para usar
+preferencialmente seccionamento para decidir onde as unidades da saída
+gerada serão separadas. Quando seções forem os componentes principais das
+unidades da saída gerada, nós &ldquo;isolados&rdquo; não diretamente associados com um
+comando de seccionamento serão associados com o comando de seccionamento
+seguinte, enquanto comandos de seccionamento sem nós constituem unidades da
+saída gerada. Por outro lado, quando nós forem os principais componentes das
+unidades da saída gerada, seções isoladas não associadas com nós serão
+associadas com o nó anterior e nós isolados serão unidades da saída gerada.
+</p>
+<a class="index-entry-id" id="index-USE_005fNODE_005fDIRECTIONS"></a>
+<p>Por padrão, a configuração de <code class="code">USE_NODES</code> também afeta se os linques
+Próximo, Acima e Anterior nos cabeçalhos dos nós lincam-se a nós ou a
+seções, com os nós usados se verdadeira e as seções usadas se falsa. Você
+consegue substituir isso usando a variável <code class="code">USE_NODE_DIRECTIONS</code> (o
+valor padrão é indefinido). Observe que essa configuração não determina a
+sequência de caracteres do linque, somente para onde os linques apontam;
+veja-se <a class="ref" href="Tr_00eas-Argumentos.html">xrefautomaticsectiontitle</a> para a
+personalização da sequência de caracteres do linque. Se os nós e as seções
+estiverem sistematicamente associados, essa personalização não terá efeito
+prático.
+</p>
+<a class="index-entry-id" id="index-DO_005fABOUT"></a>
+<a class="index-entry-id" id="index-PROGRAM_005fNAME_005fIN_005fABOUT"></a>
+<p>Você pode adicionar um elemento especial <em class="dfn">Sobre</em>, explicando como
+navegar, configurando <code class="code">DO_ABOUT</code>; configurada como 0 no caso padrão
+(sem elemento Sobre). Se <code class="code">PROGRAM_NAME_IN_ABOUT</code> também estiver
+configurada, produz o nome do programa e diversas informações relacionadas
+no elemento especial Sobre; padrão falso.
+</p>
+<a class="index-entry-id" id="index-MONOLITHIC"></a>
+<p>No caso de saída gerada não dividida, por padrão, somente um arquivo é
+gerado, o qual contém quaisquer elementos Sobre (com <code class="code">DO_ABOUT</code>) e
+elementos de sumário (com <code class="code">CONTENTS_OUTPUT_LOCATION</code> configurada como
+&lsquo;<samp class="samp">separate_element</samp>&rsquo;). Se você preferir que esses elementos especiais
+sejam separados, configure <code class="code">MONOLITHIC</code> como 0 para gerar elementos
+especiais em arquivos separados.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-de-Nomes-de-Arquivo-e-de-Linques-para-HTML.html">Personalização de Nomes de Arquivo e de Linques para HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html">Personalização da Saída Gerada HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

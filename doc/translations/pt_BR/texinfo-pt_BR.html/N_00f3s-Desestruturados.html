@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Nós Desestruturados (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Nós fora da estrutura principal do documento.">
+<meta name="keywords" content="Nós fora da estrutura principal do documento.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Estruturamento-de-Cap_00edtulo.html" rel="up" title="Estruturamento de Capítulo">
+<link href="Elevar_002frebaixar-se_00e7_00f5es.html" rel="prev" title="Elevar/rebaixar seções">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="N_00f3s-Desestruturados">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Elevar_002frebaixar-se_00e7_00f5es.html" accesskey="p" rel="prev">Elevar/rebaixar Seções: <code class="code">@raisesections</code> e <code class="code">@lowersections</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Estruturamento-de-Cap_00edtulo.html" accesskey="u" rel="up">Estruturamento de Capítulo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="N_00f3s-Desestruturados-1"><span>4.13 Nós Desestruturados<a class="copiable-link" href="#N_00f3s-Desestruturados-1"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Nos-desestruturados"></a>
+<p>Todos os exemplos de nós neste capítulo até agora usaram uma linha
+<code class="code">@node</code> seguida por um comando de estruturação (como
+<code class="code">@chapter</code>).
+</p>
+<p>No entanto, você também pode criar nós sem usar um comando de
+estruturação. Você pode achar isso útil se não quiser que teu manual (ou
+partes de um manual) tenha uma estrutura hierárquica, com capítulos
+superiores às seções, seções superiores às subseções e assim por diante.
+</p>
+
+<p>Para fazer isso, siga a linha <code class="code">@node</code> com um dos comandos de
+cabeçalho. Por exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">@node Tópico
+@heading Tudo acerca do Tópico
+...
+</pre></div>
+
+<p>O argumento para o comando de cabeçalho será impresso normalmente. Quando o
+sinalizador <code class="code">xrefautomaticsectiontitle</code> estiver ativado
+(veja-se <a class="pxref" href="Tr_00eas-Argumentos.html#xrefautomaticsectiontitle"><code class="code">xrefautomaticsectiontitle</code></a>), esse argumento também será usado
+como o texto para quaisquer referências cruzadas para o nó.
+</p>
+<p>Esses nós não são parte de uma estrutura hierárquica de documento. Isso
+significa que eles não estão listados em nenhum sumário e os ponteiros
+automáticos de direção do nó (&lsquo;<samp class="samp">Próximo</samp>&rsquo;, &lsquo;<samp class="samp">Anterior</samp>&rsquo; ou
+&lsquo;<samp class="samp">Acima</samp>&rsquo;; veja-se <a class="pxref" href="Escrevendo-um-N_00f3.html">Escrevendo uma Linha de <code class="code">@node</code></a>) não lincam para ou a partir desses
+nós.
+</p>
+<a class="index-entry-id" id="index-xrefname"></a>
+<p>Se desejar criar um nó não estruturado <em class="emph">sem</em> imprimir um cabeçalho no
+início, você pode usar o comando <code class="code">@xrefname</code> no lugar do comando de
+cabeçalho. Por exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">@node Tópico
+@xrefname Tudo acerca do Tópico
+...
+</pre></div>
+
+<p>O comando <code class="code">@xrefname</code> fornece o texto para referências cruzadas para o
+nó quando o sinalizador <code class="code">xrefautomaticsectiontitle</code> está ativado, de
+modo que &lsquo;<samp class="samp">@xref{Tópico}</samp>&rsquo; produziria uma saída como &ldquo;Veja-se &lsquo;Tudo
+acerca do Tópico&rsquo;<!-- /@w -->&rdquo;.
+</p>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Elevar_002frebaixar-se_00e7_00f5es.html">Elevar/rebaixar Seções: <code class="code">@raisesections</code> e <code class="code">@lowersections</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Estruturamento-de-Cap_00edtulo.html">Estruturamento de Capítulo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

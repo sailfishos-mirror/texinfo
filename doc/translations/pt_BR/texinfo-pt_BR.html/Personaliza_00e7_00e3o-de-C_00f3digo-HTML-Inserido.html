@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Personalização de Código HTML Inserido (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Personalização de Código HTML Inserido (GNU Texinfo 7.3)">
+<meta name="keywords" content="Personalização de Código HTML Inserido (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html" rel="up" title="Personalização da Saída Gerada HTML">
+<link href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-Espec_00edfica-do-HTML.html" rel="next" title="Personalização da Saída Gerada Específica do HTML">
+<link href="Personaliza_00e7_00e3o-de-Recursos-do-HTML.html" rel="prev" title="Personalização de Recursos do HTML">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Personaliza_00e7_00e3o-de-C_00f3digo-HTML-Inserido">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-Espec_00edfica-do-HTML.html" accesskey="n" rel="next">Personalização da Saída Gerada Específica do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-de-Recursos-do-HTML.html" accesskey="p" rel="prev">Personalização de Recursos do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html" accesskey="u" rel="up">Personalização da Saída Gerada HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Personaliza_00e7_00e3o-de-C_00f3digo-HTML-Inserido-1"><span>22.8.5 Personalização de Código HTML Inserido<a class="copiable-link" href="#Personaliza_00e7_00e3o-de-C_00f3digo-HTML-Inserido-1"> &para;</a></span></h4>
+
+<p>Existem variáveis para configurar o código HTML inserido em vários pontos da
+saída gerada.
+</p>
+<a class="index-entry-id" id="index-CLOSE_005fQUOTE_005fSYMBOL-para-HTML"></a>
+<a class="index-entry-id" id="index-OPEN_005fQUOTE_005fSYMBOL-para-HTML"></a>
+<p>Aspa de abertura e aspas de fechamento necessárias, por exemplo, para saída
+<code class="code">@samp</code>, são configuradas como:
+</p>
+<dl class="table">
+<dt><code class="code">&amp;lsquo;</code> e <code class="code">&amp;rsquo;</code></dt>
+<dd><p>Por padrão, com <code class="code">OPEN_QUOTE_SYMBOL</code> e <code class="code">CLOSE_QUOTE_SYMBOL</code>
+desconfiguradas.
+</p>
+</dd>
+<dt><code class="code">&amp;#8216;</code> e <code class="code">&amp;#8217;</code></dt>
+<dd><p>Se você configurar <code class="code">USE_NUMERIC_ENTITY</code>.
+</p>
+</dd>
+<dt>Um caractere de aspa de abertura e de fechamento</dt>
+<dd><p>Se você configurar <code class="code">OUTPUT_CHARACTERS</code> e a codificação da saída gerada
+incluir esse caractere.
+</p>
+</dd>
+<dt><code class="code">OPEN_QUOTE_SYMBOL</code> e <code class="code">CLOSE_QUOTE_SYMBOL</code></dt>
+<dd><p>Se você configurar essas variáveis de personalização.
+</p></dd>
+</dl>
+
+<a class="index-entry-id" id="index-DEFAULT_005fRULE"></a>
+<a class="index-entry-id" id="index-BIG_005fRULE"></a>
+<p>Para mudar o código HTML para quebras (regra horizontal) inseridas em vários
+contextos, configure <code class="code">DEFAULT_RULE</code>, que é usado para a saída da
+maioria dos separadores horizontais no HTML resultante, e configure
+<code class="code">BIG_RULE</code> para o separador mais largo usado algumas vezes.
+</p>
+<a class="index-entry-id" id="index-HTML_005fROOT_005fELEMENT_005fATTRIBUTES"></a>
+<a class="index-entry-id" id="index-EXTRA_005fHEAD"></a>
+<a class="index-entry-id" id="index-Bloco-_003chead_003e_002c-adicionando-ao"></a>
+<a class="index-entry-id" id="index-BODY_005fELEMENT_005fATTRIBUTES"></a>
+<p>Você consegue configurar <code class="code">HTML_ROOT_ELEMENT_ATTRIBUTES</code> para adicionar
+atributos ao elemento <code class="code">&lt;html&gt;</code>. Você pode definir a variável
+<code class="code">EXTRA_HEAD</code> para adicionar texto dentro do elemento <code class="code">&lt;head&gt;</code> do
+HTML. Similarmente, o valor de <code class="code">AFTER_BODY_OPEN</code> é adicionado logo
+depois que <code class="code">&lt;body&gt;</code> for gerado. Essas variáveis ficam vazias por
+padrão.
+</p>
+<a class="index-entry-id" id="index-Etiqueta-_003cbody_003e_002c-atributos-da"></a>
+<p>Você consegue configurar os atributos do elemento <code class="code">&lt;body&gt;</code> definindo a
+variável de personalização <code class="code">BODY_ELEMENT_ATTRIBUTES</code>. Por padrão, o
+atributo <code class="code">lang</code> é configurado como o idioma do documento
+(veja-se <a class="pxref" href="_0040documentlanguage.html"><code class="code">@documentlanguage <var class="var">ll</var>[_<var class="var">cc</var>]</code>: Configurar o Idioma do Documento</a>).
+</p>
+<a class="index-entry-id" id="index-PRE_005fBODY_005fCLOSE"></a>
+<p>Você pode definir a variável <code class="code">PRE_BODY_CLOSE</code> para adicionar texto logo
+antes do elemento <code class="code">&lt;/body&gt;</code> do HTML. Nada é adicionado por padrão.
+</p>
+<p>Similarmente, as seguintes variáveis permitem algum controle útil da
+formatação do sumário e do sumaríssimo:
+</p>
+<dl class="vtable">
+<dt><a id="index-BEFORE_005fTOC_005fLINES"></a><span><code class="code">BEFORE_TOC_LINES</code><a class="copiable-link" href="#index-BEFORE_005fTOC_005fLINES"> &para;</a></span></dt>
+<dd><p>Inserido antes do texto do sumário.
+</p>
+</dd>
+<dt><a id="index-AFTER_005fTOC_005fLINES"></a><span><code class="code">AFTER_TOC_LINES</code><a class="copiable-link" href="#index-AFTER_005fTOC_005fLINES"> &para;</a></span></dt>
+<dd><p>Inserido depois do texto do sumário.
+</p>
+</dd>
+<dt><a id="index-BEFORE_005fSHORT_005fTOC_005fLINES"></a><span><code class="code">BEFORE_SHORT_TOC_LINES</code><a class="copiable-link" href="#index-BEFORE_005fSHORT_005fTOC_005fLINES"> &para;</a></span></dt>
+<dd><p>Inserido antes do texto do sumaríssimo.
+</p>
+</dd>
+<dt><a id="index-AFTER_005fSHORT_005fTOC_005fLINES"></a><span><code class="code">AFTER_SHORT_TOC_LINES</code><a class="copiable-link" href="#index-AFTER_005fSHORT_005fTOC_005fLINES"> &para;</a></span></dt>
+<dd><p>Inserido depois do texto do sumaríssimo.
+</p>
+</dd>
+</dl>
+<p>Ao tempo desta escrita, os valores padrão dessas variáveis eram configurados
+como etiquetas de abertura e de fechamento para um elemento <code class="code">&lt;div&gt;</code> que
+encerra os sumários.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-Espec_00edfica-do-HTML.html">Personalização da Saída Gerada Específica do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-de-Recursos-do-HTML.html">Personalização de Recursos do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html">Personalização da Saída Gerada HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

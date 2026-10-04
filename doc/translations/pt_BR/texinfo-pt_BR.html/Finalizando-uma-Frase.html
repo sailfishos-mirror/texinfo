@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Finalizando uma Frase (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Algumas vezes finaliza.">
+<meta name="keywords" content="Algumas vezes finaliza.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Inserindo-Espa_00e7o.html" rel="up" title="Inserindo Espaço">
+<link href="_0040frenchspacing.html" rel="next" title="@frenchspacing">
+<link href="N_00e3o-Finalizando-uma-Frase.html" rel="prev" title="Não Finalizando uma Frase">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Finalizando-uma-Frase">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040frenchspacing.html" accesskey="n" rel="next"><code class="code">@frenchspacing</code> <var class="var">val</var>: Espaçamento de Controle de Frase</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="N_00e3o-Finalizando-uma-Frase.html" accesskey="p" rel="prev">Não Finalizando uma Frase</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Inserindo-Espa_00e7o.html" accesskey="u" rel="up">Inserindo Espaço</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Finalizando-uma-Frase-1"><span>11.3.3 Finalizando uma Frase<a class="copiable-link" href="#Finalizando-uma-Frase-1"> &para;</a></span></h4>
+
+<a class="index-entry-id" id="index-Finalizando-uma-Frase"></a>
+<a class="index-entry-id" id="index-Pontuacao-de-final-de-frase"></a>
+
+<a class="index-entry-id" id="index-_002e-_0028fim-de-frase_0029"></a>
+<a class="index-entry-id" id="index-_0021-_0028fim-de-frase_0029"></a>
+<a class="index-entry-id" id="index-_003f-_0028fim-de-frase_0029"></a>
+<a class="index-entry-id" id="index-_002e"></a>
+<a class="index-entry-id" id="index-_0021-1"></a>
+<a class="index-entry-id" id="index-_003f-1"></a>
+<a class="index-entry-id" id="index-Espacamento_002c-ao-final-de-frases"></a>
+<p>Como mencionado acima, Texinfo normalmente insere espaço adicional depois do
+fim de uma frase.  Ele usa a mesma heurística para isso que o TeX: uma
+frase termina com um ponto final, ponto de exclamação ou ponto de
+interrogação, seja precedido ou seguido por pontuação opcional de
+fechamento, e, então, espaço em branco, e <em class="emph">não</em> precedido por uma letra
+maiúscula.
+</p>
+<p>Use <code class="code">@.</code> em vez de um ponto, <code class="code">@!</code> em vez de um ponto de
+exclamação e <code class="code">@?</code> em vez de um ponto de interrogação ao final de uma
+frase que termine com uma letra maiúscula.  Não coloque chaves depois de
+quaisquer desses comandos.  Por exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">Dê para M.I.B. e para M.E.W@.  Também, dê para R.J.C@.
+Dê para M.I.B. e para M.E.W.  Também, dê para R.J.C.
+</pre></div>
+
+<p>A saída gerada segue.  Na saída gerada impressa e no Info, você pode ver o
+espaço em branco extra desejado depois do &lsquo;<samp class="samp">W</samp>&rsquo; na primeira linha.
+</p>
+<blockquote class="quotation">
+<p>Dê para M.I.B. e para M.E.W.  Também, dê para R.J.C.<br> Dê para M.I.B. e
+para M.E.W.  Também, dê para R.J.C.
+</p></blockquote>
+
+<p>Em outros formatos de saída, <code class="code">@.</code> é equivalente a um simples
+&lsquo;<samp class="samp">.</samp>&rsquo;; o mesmo vale para <code class="code">@!</code> e <code class="code">@?</code>.
+</p>
+<a class="index-entry-id" id="index-Pontuacao-de-fechamento_002c-e-finalizacao-de-frase"></a>
+<p>A &ldquo;pontuação de fechamento&rdquo; mencionada acima é definida como um parêntese
+à direita (&lsquo;<samp class="samp">)</samp>&rsquo;), colchete à direita (&lsquo;<samp class="samp">]</samp>&rsquo;), ou aspa à direita, seja
+simples ou dupla (&lsquo;<samp class="samp">'</samp>&rsquo; e &lsquo;<samp class="samp">''</samp>&rsquo;; as muitas aspas Unicode adicionais à
+direita possíveis não estão incluídas).  Esses caracteres podem ser
+considerados invisíveis com respeito a se um ponto fornecido finaliza uma
+frase.  (Essa é a mesma regra do TeX).  Por exemplo, os pontos em
+&lsquo;<samp class="samp">foo.) Bar</samp>&rsquo; e &lsquo;<samp class="samp">foo.'' Bar</samp>&rsquo; finalizam frases.
+</p>
+<p>Os significados de <code class="code">@:</code> e <code class="code">@.</code>, etc. no Texinfo são projetados
+para funcionar bem com os comandos de movimento de frase do Emacs
+(veja-se <a data-manual="emacs" href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Sentences.html#Sentences">Sentences</a> em <cite class="cite">O Manual do GNU Emacs</cite>).  Possivelmente ajude
+imaginar que o &lsquo;<samp class="samp">@</samp>&rsquo; em &lsquo;<samp class="samp">@.</samp>&rsquo;, etc., é uma letra minúscula
+invisível &lsquo;a&rsquo; que torna uma letra maiúscula antes dela irrelevante para os
+propósitos de decidir se o ponto final termina a frase.
+</p>
+<p>Alguns comandos do Texinfo não são considerados como sendo uma abreviação,
+mesmo que possam terminar com uma letra maiúscula quando expandidos, de
+forma que você não tenha que inserir <code class="code">@.</code> e acompanhantes.
+Notavelmente, esse é o caso para comandos de realçamento tipo código,
+argumentos <code class="code">@var</code> terminando com uma letra maiúscula, <code class="code">@LaTeX</code> e
+<code class="code">@TeX</code>.  Por exemplo, essa frase terminou com
+&lsquo;<samp class="samp">... @code{@@TeX}.</samp>&rsquo;; <code class="code">@.</code> não foi necessário.  Da mesma
+forma, em <code class="code">... @var{NOMEVARIÁVEL}. Texto</code> o ponto depois de
+<var class="var">NOMEVARIÁVEL</var> termina a frase; não existe necessidade de usar
+<code class="code">@.</code>.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040frenchspacing.html"><code class="code">@frenchspacing</code> <var class="var">val</var>: Espaçamento de Controle de Frase</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="N_00e3o-Finalizando-uma-Frase.html">Não Finalizando uma Frase</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Inserindo-Espa_00e7o.html">Inserindo Espaço</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

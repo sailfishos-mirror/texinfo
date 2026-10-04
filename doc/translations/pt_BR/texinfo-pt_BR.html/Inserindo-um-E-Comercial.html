@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Inserindo um E Comercial (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="&amp; e @ampchar{}.">
+<meta name="keywords" content="&amp; e @ampchar{}.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Caracteres-Especiais.html" rel="up" title="Caracteres Especiais">
+<link href="Inserindo-um-S_00edmbolo-Cerquilha.html" rel="prev" title="Inserindo um Símbolo Cerquilha">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+dt.def-line {font-size: 1rem}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+strong.def-name {font-family: monospace; font-weight: bold}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Inserindo-um-E-Comercial">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Inserindo-um-S_00edmbolo-Cerquilha.html" accesskey="p" rel="prev">Inserindo &lsquo;#&rsquo; com <code class="code">@hashchar{}</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Caracteres-Especiais.html" accesskey="u" rel="up">Caracteres Especiais: Inserindo @ {} , \ # &amp;</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Inserindo-_0060_0026_0027-com-_0040_0026-e-_0040ampchar_007b_007d"><span>11.1.6 Inserindo &lsquo;&amp;&rsquo; com <code class="code">@&amp;</code> e <code class="code">@ampchar{}</code><a class="copiable-link" href="#Inserindo-_0060_0026_0027-com-_0040_0026-e-_0040ampchar_007b_007d"> &para;</a></span></h4>
+
+<a class="index-entry-id" id="index-ampchar"></a>
+<a class="index-entry-id" id="index-_0026-_0028_0026-literal_0029"></a>
+<a class="index-entry-id" id="index-_0026"></a>
+<a class="index-entry-id" id="index-Inserindo-_0026"></a>
+<a class="index-entry-id" id="index-E-Comercial_002c-inserindo"></a>
+
+<p>Normalmente, um &ldquo;e&rdquo; comercial &ldquo;&amp;&rdquo; é um caractere comum no Texinfo que
+pode ser simplesmente digitado na tua entrada, onde você precisar.  O
+resultado é a tipografia do caractere &ldquo;e&rdquo; comercial.
+</p>
+<p>No entanto, o caractere &ldquo;e&rdquo; comercial é tratado especialmente em apenas um
+contexto restrito. No argumento para um comando de definição
+(veja-se <a class="pxref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a>), um &ldquo;e&rdquo; comercial seguido por uma série de
+letras pode ser tipografado especialmente ao se processar com
+TeX<a class="footnote" id="DOCF7" href="#FOOT7"><sup>7</sup></a> (veja-se <a class="pxref" href="Conven_00e7_00f5es-de-Comandos-de-Defini_00e7_00e3o.html">Convenções para Escrita de Definições</a>). Por exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">@defun foo inteiro1 &amp;optional inteiro2 &amp;rest inteiros
+@code{foo} descrito aqui.
+@end defun
+</pre></div>
+
+<p>pode ter &lsquo;<samp class="samp">&amp;optional</samp>&rsquo; e &lsquo;<samp class="samp">&amp;rest</samp>&rsquo; formatados em negrito, mesmo sem
+nenhum comando @ envolvido.
+</p>
+<p>Portanto, para a finalidade de tipografar um &ldquo;e&rdquo; comercial nesse contexto,
+é necessário usar <code class="code">@&amp;</code> ou alguma outra construção.  Aqui está um
+exemplo de uma função C++ que recebe uma referência como parâmetro:
+</p>
+<div class="example">
+<pre class="example-preformatted">@deftypefn Function int foo (const std::vector&lt;int&gt;@&amp; @var{bar})
+Documentação de @code{foo}.
+@end deftypefn
+</pre></div>
+
+<p>Isso fornece a saída 
+</p>
+<dl class="first-deftypefn def-block">
+<dt class="deftypefn def-line" id="index-foo"><span class="category-def">Function: </span><span><code class="def-type">int</code> <strong class="def-name">foo</strong> <code class="def-code-arguments">(const std::vector&lt;int&gt;&amp; <var class="var">bar</var>)</code><a class="copiable-link" href="#index-foo"> &para;</a></span></dt>
+<dd><p>Documentação de <code class="code">foo</code>.
+</p></dd></dl>
+
+<p>Embora &lsquo;<samp class="samp">@&amp;</samp>&rsquo; e &lsquo;<samp class="samp">@ampchar{}</samp>&rsquo; possam ser usados em quase qualquer
+lugar, não existe necessidade deles em nenhum lugar, exceto nesse caso
+incomum.
+</p>
+
+</div>
+<div class="footnotes-segment">
+<hr>
+<h4 class="footnotes-heading">Notas de Rodapé</h4>
+
+<h5 class="footnote-body-heading"><a id="FOOT7" href="#DOCF7">(7)</a></h5>
+<p>Essa sintaxe é usada para palavras-chave da Lisp do
+Emacs. Veja-se <a data-manual="elisp" href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Uma-Descri_00e7_00e3o-de-Fun_00e7_00e3o-de-Amostra.html#Uma-Descri_00e7_00e3o-de-Fun_00e7_00e3o-de-Amostra">Uma Descrição de Função de Amostra</a> em <cite class="cite">Manual de
+Referência da Lisp do GNU Emacs</cite>.</p>
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Inserindo-um-S_00edmbolo-Cerquilha.html">Inserindo &lsquo;#&rsquo; com <code class="code">@hashchar{}</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Caracteres-Especiais.html">Caracteres Especiais: Inserindo @ {} , \ # &amp;</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

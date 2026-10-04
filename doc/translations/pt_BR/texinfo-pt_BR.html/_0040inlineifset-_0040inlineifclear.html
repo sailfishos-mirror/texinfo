@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@inlineifset @inlineifclear (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Condicionais de sinalização e delimitados por chaves.">
+<meta name="keywords" content="Condicionais de sinalização e delimitados por chaves.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="_0040set-_0040clear-_0040value.html" rel="up" title="@set @clear @value">
+<link href="Exemplo-de-_0040value.html" rel="next" title="Exemplo de @value">
+<link href="_0040ifset-_0040ifclear.html" rel="prev" title="@ifset @ifclear">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="g_t_0040inlineifset-_0040inlineifclear">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Exemplo-de-_0040value.html" accesskey="n" rel="next">Exemplo de <code class="code">@value</code></a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040ifset-_0040ifclear.html" accesskey="p" rel="prev"><code class="code">@ifset</code> e <code class="code">@ifclear</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="_0040set-_0040clear-_0040value.html" accesskey="u" rel="up">Sinalizadores: <code class="code">@set</code>, <code class="code">@clear</code>, condicionais e <code class="code">@value</code></a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="g_t_0040inlineifset-e-_0040inlineifclear"><span>16.5.3 <code class="code">@inlineifset</code> e <code class="code">@inlineifclear</code><a class="copiable-link" href="#g_t_0040inlineifset-e-_0040inlineifclear"> &para;</a></span></h4>
+
+<a class="index-entry-id" id="index-inlineifset"></a>
+<a class="index-entry-id" id="index-inlineifclear"></a>
+<a class="index-entry-id" id="index-Condicionais-de-sinalizacao_002c-delimitados-por-chaves"></a>
+<a class="index-entry-id" id="index-Condicionais-de-sinalizadores-e-delimitados-por-chaves"></a>
+
+<p><code class="code">@inlineifset</code> e <code class="code">@inlineifclear</code> fornecem alternativas
+delimitadas por chaves para as formas <code class="code">@ifset</code> e <code class="code">@ifclear</code>,
+similares aos outros comandos <code class="code">@inline...</code> (veja-se <a class="pxref" href="Condicionais-Inline.html">Condicionais Inline: <code class="code">@inline</code>, <code class="code">@inlineifelse</code>, <code class="code">@inlineraw</code></a>).  As mesmas ressalvas acerca de análise de argumentos fornecidas
+ali se aplicam aqui também.
+</p>
+<dl class="table">
+<dt><code class="code">@inlineifset{<var class="var">variável</var>, <var class="var">texto</var>}</code></dt>
+<dd><p>Processa o <var class="var">texto</var> do Texinfo se o sinalizador <var class="var">variável</var> estiver
+definido.
+</p>
+</dd>
+<dt><code class="code">@inlineifclear{<var class="var">variável</var>, <var class="var">texto</var>}</code></dt>
+<dd><p>Processa o <var class="var">texto</var> do Texinfo se o sinalizador <var class="var">variável</var> não
+estiver definido.
+</p></dd>
+</dl>
+
+<p>Exceto para a sintaxe, o comportamento geral e propósitos deles são os
+mesmos de <code class="code">@ifset</code> e <code class="code">@ifclear</code>, descritos na seção anterior.
+</p>
+
+</div>
+
+
+
+</body>
+</html>

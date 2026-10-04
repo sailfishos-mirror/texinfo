@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Tipos de Comandos Estruturantes (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Tipos de Comandos Estruturantes (GNU Texinfo 7.3)">
+<meta name="keywords" content="Tipos de Comandos Estruturantes (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Estruturamento-de-Cap_00edtulo.html" rel="up" title="Estruturamento de Capítulo">
+<link href="_0040chapter.html" rel="next" title="@chapter">
+<link href="Estruturamento-de-_00c1rvore.html" rel="prev" title="Estruturamento de Árvore">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Tipos-de-Comandos-Estruturantes">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040chapter.html" accesskey="n" rel="next"><code class="code">@chapter</code>: Estruturamento de Capítulo</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Estruturamento-de-_00c1rvore.html" accesskey="p" rel="prev">Estrutura de Árvore das Seções</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Estruturamento-de-Cap_00edtulo.html" accesskey="u" rel="up">Estruturamento de Capítulo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Tipos-de-Comandos-Estruturantes-1"><span>4.2 Tipos de Comandos Estruturantes<a class="copiable-link" href="#Tipos-de-Comandos-Estruturantes-1"> &para;</a></span></h3>
+
+<p>Os comandos de estruturamento de capítulo se dividem em quatro grupos, cada
+um dos quais contendo comandos de estruturamento nos níveis de capítulos,
+seções, subseções e subsubseções:
+</p>
+<ul class="itemize mark-bullet">
+<li>Os comandos tipo <code class="code">@chapter</code> e comandos tipo <code class="code">@appendix</code> produzem
+entradas numeradas ou letradas, ambas no corpo de um documento e no sumário
+dele.
+
+</li><li>Os comandos tipo <code class="code">@unnumbered</code> produzem entradas não numeradas, ambas
+no corpo de um documento e no sumário dele.  O comando <code class="code">@top</code>, o qual
+tem um uso especial, é um membro desse grupo (veja-se <a class="pxref" href="Comando-_0040top.html">O Comando de Seccionamento <code class="code">@top</code></a>).  Uma seção <code class="code">@unnumbered</code> é uma parte normal da
+estrutura do documento.
+
+</li><li>Os comandos tipo <code class="code">@heading</code> produzem cabeçalhos não numerados simples
+que não aparecem em um sumário, não são associados com nós e não podem ser
+referenciados cruzadamente.  Esses comandos de cabeçalhos nunca iniciam uma
+nova página.
+</li></ul>
+
+<p>Na saída gerada impressa, os comandos de estruturamento de capítulo produzem
+cabeçalhos no documento.  Quando um comando <code class="code">@setchapternewpage</code> diz
+para fazer isso, os comandos <code class="code">@chapter</code>, <code class="code">@unnumbered</code> e
+<code class="code">@appendix</code> iniciam novas páginas no manual impresso; os comandos
+<code class="code">@heading</code> não.  Veja-se <a class="xref" href="_0040setchapternewpage.html"><code class="code">@setchapternewpage</code>: Páginas em Branco Antes dos Capítulos</a>.
+</p>
+<p>Na saída Info e de texto simples, o comando faz com que o título apareça em
+uma linha por si só, com uma linha de um caractere ASCII (&lsquo;<samp class="samp">*</samp>&rsquo;,
+&lsquo;<samp class="samp">=</samp>&rsquo;, &hellip;) inserido por baixo.  Por exemplo, o cabeçalhos de
+&ldquo;Estruturamento de Capítulo&rdquo; poderia ser:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">5 Estruturamento de Capítulo
+****************************
+</pre></div></div>
+
+<p>O caractere sublinhado é o mesmo para todos os comandos no mesmo nível. Por
+exemplo, é o mesmo para os comandos de nível de capítulo <code class="code">@chapter</code>,
+<code class="code">@apppendix</code>, <code class="code">@unnumbered</code> e <code class="code">@chapheading</code>.
+</p>
+<p>No HTML, os comandos de nível de capítulo produzem um cabeçalho de nível
+<code class="code">&lt;h2&gt;</code> por padrão (controlado pela variável de personalização
+<code class="code">CHAPTER_HEADER_LEVEL</code>, veja-se <a class="pxref" href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-Espec_00edfica-do-HTML.html">Personalização da Saída Gerada Específica do HTML</a>). O nível do elemento de cabeçalho é ajustado para os
+outros comandos.
+</p>
+<p>Na saída gerada DocBook, o nível apropriado do elemento é usado.  O elemento
+produzido inclui todas as seções seguintes até o próximo comando no mesmo
+nível ou superior.  Por exemplo, um elemento <code class="code">&lt;chapter&gt;</code> é produzido
+para <code class="code">@chapter</code>, e contém quaisquer seções ou subseções no capítulo.
+</p>
+<p>Aqui está um sumário:
+</p>
+
+<table class="multitable">
+<tbody><tr><td width="19%"></td><td width="30%"></td><td width="29%"></td><td width="22%">Sem nova página</td></tr>
+<tr><td width="19%"><i class="i">Numerada</i></td><td width="30%"><i class="i">Não numerada</i></td><td width="29%"><i class="i">Letrada/numerada</i></td><td width="22%"><i class="i">Não numerada</i></td></tr>
+<tr><td width="19%">No conteúdo</td><td width="30%">No conteúdo</td><td width="29%">No conteúdo</td><td width="22%">Não no conteúdo</td></tr>
+<tr><td width="19%"></td><td width="30%"><code class="code">@top</code></td><td width="29%"></td><td width="22%"><code class="code">@majorheading</code></td></tr>
+<tr><td width="19%"><code class="code">@chapter</code></td><td width="30%"><code class="code">@unnumbered</code></td><td width="29%"><code class="code">@appendix</code></td><td width="22%"><code class="code">@chapheading</code></td></tr>
+<tr><td width="19%"><code class="code">@section</code></td><td width="30%"><code class="code">@unnumberedsec</code></td><td width="29%"><code class="code">@appendixsec</code></td><td width="22%"><code class="code">@heading</code></td></tr>
+<tr><td width="19%"><code class="code">@subsection</code></td><td width="30%"><code class="code">@unnumberedsubsec</code></td><td width="29%"><code class="code">@appendixsubsec</code></td><td width="22%"><code class="code">@subheading</code></td></tr>
+<tr><td width="19%"><code class="code">@subsubsection</code></td><td width="30%"><code class="code">@unnumberedsubsubsec</code></td><td width="29%"><code class="code">@appendixsubsubsec</code></td><td width="22%"><code class="code">@subsubheading</code></td></tr>
+</tbody>
+</table>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040chapter.html"><code class="code">@chapter</code>: Estruturamento de Capítulo</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Estruturamento-de-_00c1rvore.html">Estrutura de Árvore das Seções</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Estruturamento-de-Cap_00edtulo.html">Estruturamento de Capítulo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

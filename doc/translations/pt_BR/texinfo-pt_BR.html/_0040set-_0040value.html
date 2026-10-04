@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@set @value (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Expanda uma variável de sinalização para uma sequência de">
+<meta name="keywords" content="Expanda uma variável de sinalização para uma sequência de">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="_0040set-_0040clear-_0040value.html" rel="up" title="@set @clear @value">
+<link href="_0040ifset-_0040ifclear.html" rel="next" title="@ifset @ifclear">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="g_t_0040set-_0040value">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040ifset-_0040ifclear.html" accesskey="n" rel="next"><code class="code">@ifset</code> e <code class="code">@ifclear</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="_0040set-_0040clear-_0040value.html" accesskey="u" rel="up">Sinalizadores: <code class="code">@set</code>, <code class="code">@clear</code>, condicionais e <code class="code">@value</code></a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<p>caracteres.
+</p><h4 class="subsection" id="g_t_0040set-e-_0040value"><span>16.5.1 <code class="code">@set</code> e <code class="code">@value</code><a class="copiable-link" href="#g_t_0040set-e-_0040value"> &para;</a></span></h4>
+
+<a class="anchor" id="set-value"></a><a class="index-entry-id" id="index-set"></a>
+<a class="index-entry-id" id="index-value"></a>
+<a class="index-entry-id" id="index-clear"></a>
+
+<p>Você usa o comando <code class="code">@set</code> para especificar um valor para um
+sinalizador, que posteriormente será expandido pelo comando <code class="code">@value</code>.
+</p>
+<p>Um nome de <em class="dfn">sinalizador</em> (também conhecido como <em class="dfn">variável</em>) é um
+identificador que começa com um alfanumérico, um &lsquo;<samp class="samp">-</samp>&rsquo; ou um &lsquo;<samp class="samp">_</samp>&rsquo;.
+Os caracteres subsequentes, se existirem, não podem ser espaços em branco,
+&lsquo;<samp class="samp">@</samp>&rsquo;, chaves, colchetes angulares ou quaisquer de &lsquo;<samp class="samp">~`^+|</samp>&rsquo;; outros
+caracteres, como &lsquo;<samp class="samp">%</samp>&rsquo;, possivelmente funcionem.  No entanto, é melhor
+usar somente letras e numerais em um nome de sinalizador, não &lsquo;<samp class="samp">-</samp>&rsquo; ou
+&lsquo;<samp class="samp">_</samp>&rsquo; ou outros&mdash;eles funcionarão em alguns contextos, mas não em todos,
+devido às limitações no TeX.
+</p>
+<p>O valor é o restante da linha de entrada e pode conter qualquer coisa.
+</p>
+
+<p>Escreva o comando <code class="code">@set</code> assim:
+</p>
+<div class="example">
+<pre class="example-preformatted">@set foo Esta é uma sequência de caracteres.
+</pre></div>
+
+<p>Isso configura o valor do sinalizador <code class="code">foo</code> para &ldquo;Esta é uma sequência
+de caracteres.&rdquo;.
+</p>
+<p>Os processadores do Texinfo então substituem um comando
+<code class="code">@value{<var class="var">sinalizador</var>}</code> pela sequência de caracteres para a qual
+<var class="var">sinalizador</var> estiver configurado.  Assim, quando <code class="code">foo</code> for
+configurado como mostrado acima, os processadores do Texinfo convertem
+assim:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@value{foo}
+</pre><pre class="exdent"><span class="r">para isto:</span>
+</pre><pre class="example-preformatted">Esta é uma sequência de caracteres.
+</pre></div></div>
+
+<p>Você pode escrever um comando <code class="code">@value</code> dentro de um parágrafo; mas
+precisa escrever um comando <code class="code">@set</code> em uma linha própria.
+</p>
+<p>Se você escrever o comando <code class="code">@set</code> assim:
+</p>
+<div class="example">
+<pre class="example-preformatted">@set foo
+</pre></div>
+
+<p>sem especificar uma sequência de caracteres, o valor de <code class="code">foo</code> será a
+sequência vazia de caracteres.
+</p>
+<p>Se você limpar um sinalizador configurado anteriormente com <code class="code">@clear
+<var class="var">sinalizador</var></code>, um comando <code class="code">@value{sinalizador}</code> subsequente
+informará um erro.
+</p>
+<p>Por exemplo, se você configurar <code class="code">foo</code> conforme segue:
+</p>
+<div class="example">
+<pre class="example-preformatted">@set quanto muito, muito, muito
+</pre></div>
+
+<p>então os processadores transformam
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">É um dia @value{quanto} chuvoso.
+</pre><pre class="exdent"><span class="r">into</span>
+</pre><pre class="example-preformatted">É um dia muito, muito, muito chuvoso.
+</pre></div></div>
+
+<p>Se você escrever
+</p>
+<div class="example">
+<pre class="example-preformatted">@clear quanto
+</pre></div>
+
+<p>então os processadores transformam
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">É um dia @value{quanto} chuvoso.
+</pre><pre class="exdent"><span class="r">into</span>
+</pre><pre class="example-preformatted">É um dia {Nenhum valor para &quot;quanto&quot;} chuvoso.
+</pre></div></div>
+
+<p><code class="code">@value</code> não pode ser usado confiavelmente como o argumento para um
+comando de acento (veja-se <a class="pxref" href="Inserindo-Acentos.html">Inserindo Acentos</a>).  Por exemplo, isto falha:
+</p>
+<div class="example">
+<pre class="example-preformatted">@set minhacarta a
+@'@value{minhacarta}    </pre></div>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040ifset-_0040ifclear.html"><code class="code">@ifset</code> e <code class="code">@ifclear</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="_0040set-_0040clear-_0040value.html">Sinalizadores: <code class="code">@set</code>, <code class="code">@clear</code>, condicionais e <code class="code">@value</code></a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

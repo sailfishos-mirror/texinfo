@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Manual Inteiro do Formato Info (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Manuais divididos versus não divididos.">
+<meta name="keywords" content="Manuais divididos versus não divididos.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Especifica_00e7_00e3o-do-Formato-Info.html" rel="up" title="Especificação do Formato Info">
+<link href="Pre_00e2mbulo-do-Formato-Info.html" rel="next" title="Preâmbulo do Formato Info">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Manual-Inteiro-do-Formato-Info">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Pre_00e2mbulo-do-Formato-Info.html" accesskey="n" rel="next">Formato Info: Preâmbulo</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Especifica_00e7_00e3o-do-Formato-Info.html" accesskey="u" rel="up">Especificação do Formato Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Formato-Info_003a-Um-Manual-Inteiro"><span>F.1 Formato Info: Um Manual Inteiro<a class="copiable-link" href="#Formato-Info_003a-Um-Manual-Inteiro"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Manuais-nao-divididos_002c-formato-Info-de"></a>
+<a class="index-entry-id" id="index-Manuais-divididos_002c-formato-Info-de"></a>
+<a class="index-entry-id" id="index-Manual-inteiro_002c-no-formato-Info"></a>
+
+<p>Para começar, um manual do Info ou é <em class="dfn">não dividido</em> (contido
+inteiramente em um arquivo) ou é <em class="dfn">dividido</em> (em vários arquivos).
+</p>
+<p>A sintaxe para um manual não dividido é:
+</p>
+<div class="example">
+<pre class="example-preformatted">    &lt;arquivo do info não dividido&gt; =
+&lt;preâmbulo&gt;
+&lt;nó&gt;*
+&lt;tabela de etiquetas&gt;?
+&lt;variáveis locais&gt;?
+</pre></div>
+
+<p>Quando dividido, existe um <em class="dfn">arquivo principal</em>, o qual contém somente
+ponteiros para os nós fornecidos em outros <em class="dfn">subarquivos</em>. O arquivo
+principal se parece com isto:
+</p>
+<div class="example">
+<pre class="example-preformatted">    &lt;arquivo dividido principal do info&gt; =
+&lt;preâmbulo&gt;
+&lt;tabela indireta&gt;
+&lt;tabela de etiquetas&gt;
+&lt;variáveis locais&gt;?
+</pre></div>
+
+<p>Os subarquivos em um manual dividido têm a seguinte sintaxe:
+</p>
+<div class="example">
+<pre class="example-preformatted">    &lt;subarquivo dividido do info&gt; =
+&lt;preâmbulo&gt;
+&lt;nó&gt;*
+</pre></div>
+
+<p>Observe que a tabela de etiquetas não é opcional para arquivos divididos,
+pois ela é usada com a tabela indireta para deduzir em qual subarquivo um nó
+específico está.
+</p>
+<p>Várias das seções em um arquivo Info (tais como nós ou tabelas de etiquetas)
+começam com uma sequência:
+</p>
+<div class="example">
+<pre class="example-preformatted">    &lt;separador&gt; = (^L)?^_(^L)?^J
+</pre></div>
+
+<p>Ou seja, um caractere &lsquo;<samp class="samp">CTRL-_</samp>&rsquo; seguido por uma nova linha, com
+caracteres formfeed opcionais.
+</p>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Pre_00e2mbulo-do-Formato-Info.html">Formato Info: Preâmbulo</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Especifica_00e7_00e3o-do-Formato-Info.html">Especificação do Formato Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

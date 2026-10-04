@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Histórico (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Agradecimentos, colaboradores(as) e gênese.">
+<meta name="keywords" content="Agradecimentos, colaboradores(as) e gênese.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Vis_00e3o-Geral.html" rel="up" title="Visão Geral">
+<link href="Adicionando-Formatos-de-Sa_00edda.html" rel="next" title="Adicionando Formatos de Saída">
+<link href="Livros-Impressos.html" rel="prev" title="Livros Impressos">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Hist_00f3rico">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Adicionando-Formatos-de-Sa_00edda.html" accesskey="n" rel="next">Adicionando Formatos de Saída</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Livros-Impressos.html" accesskey="p" rel="prev">Livros Impressos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Vis_00e3o-Geral.html" accesskey="u" rel="up">Visão Geral do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Hist_00f3rico-1"><span>1.5 Histórico<a class="copiable-link" href="#Hist_00f3rico-1"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Stallman_002c-Richard-M_002e"></a>
+<a class="index-entry-id" id="index-Chassell_002c-Robert-J_002e"></a>
+<a class="index-entry-id" id="index-Fox_002c-Brian"></a>
+<a class="index-entry-id" id="index-Berry_002c-Karl"></a>
+<a class="index-entry-id" id="index-Smith_002c-Gavin"></a>
+<p>Richard M. Stallman inventou o formato Texinfo, escreveu os processadores
+iniciais e criou a Edição 1.0 deste manual. Robert&nbsp;J. Chassell revisou
+e estendeu muito o manual, começando com a Edição 1.1. Brian Fox foi
+responsável pela distribuição autônoma do Texinfo até a versão 3.8. Karl
+Berry continuou a manutenção a partir do Texinfo 3.8 (edição do manual
+2.22), e Gavin Smith continuou a manutenção desde o Texinfo 6.0.
+</p>
+<a class="index-entry-id" id="index-Historico-do-Texinfo"></a>
+<a class="index-entry-id" id="index-Texinfo_002c-estoria"></a>
+<h4 class="subheading" id="Come_00e7o"><span>Começo<a class="copiable-link" href="#Come_00e7o"> &para;</a></span></h4>
+
+<a class="index-entry-id" id="index-NLS"></a>
+<p>Richard Stallman incluiu um sistema de ajuda de hipertexto online chamado
+Info na implementação original do Emacs (em 1975/6). Stallman foi inspirado
+depois de ver uma apresentação alguns anos antes acerca do sistema de
+hipertexto &ldquo;NLS&rdquo; de Douglas Engelbart.
+</p>
+
+<a class="index-entry-id" id="index-Scribe"></a>
+<a class="index-entry-id" id="index-Reid_002c-Brian"></a>
+<p>Em outro desenvolvimento, na década de 1970 na CMU, Brian Reid desenvolveu
+um programa e formato chamado Scribe para marcar documentos para
+impressão. Ele usava o caractere <code class="code">@</code> para introduzir comandos, como o
+Texinfo faz. Muito mais consequentemente, ele se esforçou para descrever o
+conteúdo do documento em vez da formatação, uma ideia adotada de todo o
+coração pelo Texinfo.
+</p>
+<a class="index-entry-id" id="index-Bolio"></a>
+<a class="index-entry-id" id="index-BoTeX"></a>
+<p>Enquanto isso, pessoas no MIT desenvolveram outro formato chamado
+Bolio. Richard Stallman (RMS) trabalhou na conversão do Bolio para usar
+TeX como a linguagem dele de tipografia, resultando no BoTeX. A versão
+mais antiga do BoTeX parece ter sido 0.02 em 31 de outubro de 1984.
+</p>
+<p>O BoTeX só podia ser usado como uma linguagem de marcação para documentos
+a serem impressos, não para documentos online. RMS combinou o BoTeX e o
+Info para criar o Texinfo, uma linguagem de marcação para texto que se
+destina a ser lido online e como cópia impressa.
+</p>
+<p>O tradutor original para criar o Info foi escrito (principalmente por RMS e
+Bob Chassell) em Emacs Lisp, ou seja, o <code class="code">texinfo-format-buffer</code> e
+outras funções. No início da década de 1990, Brian Fox reimplementou o
+programa de conversão em C, agora chamado <code class="command">makeinfo</code>, bem como o
+programa autônomo <code class="command">info</code>.
+</p>
+<h4 class="subheading" id="Reimplementando-em-Perl"><span>Reimplementando em Perl<a class="copiable-link" href="#Reimplementando-em-Perl"> &para;</a></span></h4>
+
+<a class="index-entry-id" id="index-Cons_002c-Lionel"></a>
+<a class="index-entry-id" id="index-Dumas_002c-Patrice"></a>
+<p>Em 2012, o <code class="command">makeinfo</code> do C foi ele próprio substituído por uma
+implementação Perl genericamente chamada <code class="command">texi2any</code>. Essa versão foi
+inicialmente baseada no <code class="command">texi2html</code>, um programa independente
+escrito originalmente por Lionel Cons, mais tarde com trabalho substancial
+de muitos(as) outros(as). Os recursos necessários para tornar
+<code class="command">texi2html</code> um substituto para <code class="command">makeinfo</code> foram
+implementados por Patrice Dumas. Esse programa, no entanto, nunca foi
+lançado.
+</p>
+<a class="index-entry-id" id="index-Representacao-de-documentos-em-arvore"></a>
+<a class="index-entry-id" id="index-Sintaxe_002c-Representacao-de-documentos-em-arvore"></a>
+<a class="index-entry-id" id="index-Sintaxe-abstrata_002c-Representacao-de-documentos-em-arvore"></a>
+<p>A atual implementação (também escrita por Patrice Dumas) herdou o projeto de
+personalização e outros recursos do <code class="command">texi2html</code> (para mais acerca da
+compatibilidade do <code class="command">texi2html</code>, veja-se <a class="pxref" href="texi2html.html"><code class="command">texi2html</code>: Ancestral do <code class="command">texi2any</code></a>). No
+entanto, o <code class="command">texi2any</code> foi uma reimplementação completa: diferente do
+<code class="command">texi2html</code>, ele constrói uma representação baseada em árvore do
+documento de entrada para todas as estruturas de retaguarda trabalharem.
+</p>
+<p>O novo programa Perl pretendia ter as seguintes vantagens sobre o antigo
+programa C:
+</p>
+<ul class="itemize mark-bullet">
+<li>Personalização do HTML. Muitos pacotes GNU e outros softwares livres têm
+sido felizes no uso dos recursos de personalização de HTML no
+<code class="command">texi2html</code> por anos. Assim, na verdade, duas implementações
+independentes da linguagem Texinfo foram desenvolvidas, e mantê-las em
+sincronia não era simples. Adicionar a possibilidade de personalização de
+HTML no <code class="command">texi2html</code> a um programa C teria sido um esforço enorme na
+época.
+
+</li><li>Unicode e suporte multilíngue em geral, especialmente de idiomas do leste
+asiático. Naquela época, fazer isso em C teria sido equivalente a reescrever
+o programa inteiro.
+
+</li><li>Estruturas adicionais de retaguarda. O código do <code class="command">makeinfo</code> se
+tornou complicado até o ponto onde adicionar-se uma nova estrutura de
+retaguarda era bastante complexo, exigindo interações complexas com
+estruturas de retaguarda existentes. Em contraste, a nova implementação
+fornece uma representação limpa baseada em árvore para todas as estruturas
+de retaguarda trabalharem. Pessoas têm solicitado numerosas estruturas de
+retaguarda (LaTeX, o mais recente (X)HTML, &hellip;); essa mudança as
+tornou muito mais viáveis de implementar.
+
+<a class="index-entry-id" id="index-texi2any_002c-como-implementacao-de-referencia"></a>
+<a class="index-entry-id" id="index-Implementacao-de-referencia"></a>
+<a class="index-entry-id" id="index-Implementacao_002c-texi2any-como-referencia"></a>
+<a class="anchor" id="Implementa_00e7_00e3o-de-refer_00eancia"></a></li><li><code class="command">texi2any</code> foi concebido para ser uma implementação de referência
+que define partes da linguagem não totalmente especificadas pelo manual e
+para fornecer uma referência para opções de linha de comando para qualquer
+outro programa que possa processar o Texinfo no futuro.
+
+</li></ul>
+
+<a class="index-entry-id" id="index-Futuro-das-implementacoes-do-Texinfo"></a>
+<p>Na época, o novo programa Perl era muito mais lento que o antigo programa
+C. Desde então, o analisador, parte do conversor Info e o conversor HTML
+como um todo foram traduzidos para C, levando a importantes ganhos de
+velocidade comparado com a implementação Perl pura do <code class="command">texi2any</code>. O
+programa principal também foi traduzido para C. A implementação C do
+<code class="command">texi2any</code> embute um interpretador Perl para as partes que exigem
+Perl.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Adicionando-Formatos-de-Sa_00edda.html">Adicionando Formatos de Saída</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Livros-Impressos.html">Livros Impressos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Vis_00e3o-Geral.html">Visão Geral do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

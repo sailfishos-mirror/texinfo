@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Instalando Entradas de Diretório (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como especificar qual entrada de menu adicionar ao">
+<meta name="keywords" content="Como especificar qual entrada de menu adicionar ao">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Instalando-um-Arquivo-do-Info.html" rel="up" title="Instalando um Arquivo do Info">
+<link href="Invocando-install_002dinfo.html" rel="next" title="Invocando install-info">
+<link href="Outros-Diret_00f3rios-Info.html" rel="prev" title="Outros Diretórios Info">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Instalando-Entradas-de-Diret_00f3rio">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Invocando-install_002dinfo.html" accesskey="n" rel="next">Invocando <code class="command">install-info</code></a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Outros-Diret_00f3rios-Info.html" accesskey="p" rel="prev">Arquivos Info em Outros Diretórios</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Instalando-um-Arquivo-do-Info.html" accesskey="u" rel="up">Instalando um Arquivo do Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<p>diretório Info.
+</p><h4 class="subsection" id="Instalando-Arquivos-de-Diret_00f3rio-Info"><span>21.1.4 Instalando Arquivos de Diretório Info<a class="copiable-link" href="#Instalando-Arquivos-de-Diret_00f3rio-Info"> &para;</a></span></h4>
+
+<p>Ao instalar um arquivo Info em teu sistema, você pode usar o programa
+<code class="code">install-info</code> para atualizar o arquivo do diretório Info
+<samp class="file">dir</samp>. Normalmente o makefile do pacote executa <code class="code">install-info</code>,
+logo depois de copiar o arquivo Info para o local de instalação apropriado
+dele.
+</p>
+<a class="index-entry-id" id="index-direntry"></a>
+<p>Para a finalidade de que o arquivo Info funcione com <code class="code">install-info</code>,
+você inclui os comandos <code class="code">@dircategory</code> e
+<code class="code">@direntry</code>&hellip;<code class="code">@end direntry</code> no arquivo fonte do Texinfo.
+</p>
+<a class="index-entry-id" id="index-Invocando-nos_002c-incluindo-no-arquivo-dir"></a>
+<p>Usar <code class="code">@dircategory</code> para especificar uma categoria para o manual, que
+determina em qual parte do diretório Info colocá-lo. (Veja-se <a class="xref" href="Categoria-de-Diret_00f3rio.html">Categoria de Diretório</a>). Usar <code class="code">@direntry</code> para especificar a entrada ou entradas
+de menu a serem adicionadas ao arquivo do diretório Info. Alguns manuais
+(como o manual que você está lendo agora, ou o do GNU Coreutils;
+veja-se <cite class="cite"><a data-manual="coreutils" href="https://www.gnu.org/software/coreutils/manual/html_node/index.html#Top">GNU Coreutils</a></cite>) terão diversas entradas. É típico
+ter uma entrada de diretório para cada programa que um pacote instala,
+geralmente para o nó &lsquo;Invocando&rsquo; do programa. Isso permite que os(as)
+usuários(as) encontrem facilmente a documentação para os diferentes
+programas que podem executar. Da mesma forma, um manual para uma biblioteca
+C pode instalar uma entrada de diretório para cada função que fornece.
+</p>
+
+<p>Aqui está como esses comandos são usados neste manual:
+</p>
+<div class="example">
+<pre class="example-preformatted">@dircategory Sistema de documentação do Texinfo
+@direntry
+* Texinfo: (texinfo).           O formato da documentação GNU.
+* install-info: (texinfo)Invocando install-info. ...
+...
+@end direntry
+</pre></div>
+
+<p>Aqui está o que isso produz no arquivo Info:
+</p>
+<div class="example">
+<pre class="example-preformatted">INFO-DIR-SECTION Sistema de documentação do Texinfo
+START-INFO-DIR-ENTRY
+* Texinfo: (texinfo).           O formato da documentação GNU.
+* install-info: (texinfo)Invocando install-info. ...
+...
+END-INFO-DIR-ENTRY
+</pre></div>
+
+<p>O programa <code class="code">install-info</code> vê essas linhas no arquivo Info e é assim que
+ele sabe o que fazer.
+</p>
+<p>Sempre use os comandos <code class="code">@direntry</code> e <code class="code">@dircategory</code> próximos ao
+início da entrada do Texinfo, antes do primeiro comando <code class="code">@node</code>. Se
+você usá-los posteriormente na entrada, <code class="code">install-info</code> não os notará.
+</p>
+<p><code class="code">install-info</code> automaticamente reformatará a descrição das entradas de
+menu que estiver adicionando. Por uma questão de convenção, a descrição da
+entrada principal (acima, &lsquo;<samp class="samp">O formato da documentação GNU</samp>&rsquo;) deveria
+começar na coluna 32, começando em zero (como em <code class="code">what-cursor-position</code>
+no Emacs). Isso fará com que ele se alinhe com a maioria dos outros. É
+melhor que a descrição para utilitários individuais comece na coluna 48,
+sempre que possível. Para mais informações acerca de formatação, vejam-se as
+opções &lsquo;<samp class="samp">--calign</samp>&rsquo;, &lsquo;<samp class="samp">--align</samp>&rsquo; e &lsquo;<samp class="samp">--max-width</samp>&rsquo; em
+<a class="ref" href="Invocando-install_002dinfo.html">Invocando <code class="command">install-info</code></a>.
+</p>
+<p>Se você usar <code class="code">@dircategory</code> mais de uma vez no fonte do Texinfo, cada
+uso especificará a categoria &lsquo;atual&rsquo;; quaisquer comandos <code class="code">@direntry</code>
+subsequentes adicionarão a essa categoria.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Invocando-install_002dinfo.html">Invocando <code class="command">install-info</code></a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Outros-Diret_00f3rios-Info.html">Arquivos Info em Outros Diretórios</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Instalando-um-Arquivo-do-Info.html">Instalando um Arquivo do Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

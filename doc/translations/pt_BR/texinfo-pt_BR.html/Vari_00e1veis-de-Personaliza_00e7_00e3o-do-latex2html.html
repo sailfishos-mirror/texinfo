@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Variáveis de Personalização do latex2html (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Variáveis de Personalização do latex2html (GNU Texinfo 7.3)">
+<meta name="keywords" content="Variáveis de Personalização do latex2html (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Personaliza_00e7_00e3o-do-HTML-para-Matem_00e1tica.html" rel="up" title="Personalização do HTML para Matemática">
+<link href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-tex4ht.html" rel="next" title="Variáveis de Personalização do tex4ht">
+<link href="Vari_00e1veis-de-Personaliza_00e7_00e3o-da-MathJax.html" rel="prev" title="Variáveis de Personalização da MathJax">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsubsection-level-extent" id="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-latex2html">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-tex4ht.html" accesskey="n" rel="next">Variáveis de Personalização do <code class="command">tex4ht</code></a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o-da-MathJax.html" accesskey="p" rel="prev">Variáveis de Personalização da MathJax</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-do-HTML-para-Matem_00e1tica.html" accesskey="u" rel="up">Personalização do HTML para Matemática</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsubsection" id="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-latex2html-1"><span>22.8.7.2 Variáveis de Personalização do <code class="command">latex2html</code><a class="copiable-link" href="#Vari_00e1veis-de-Personaliza_00e7_00e3o-do-latex2html-1"> &para;</a></span></h4>
+
+<p>Esta tabela lista as variáveis de personalização que podem ser usadas quando
+<code class="command">latex2html</code> estiver sendo usado para converter seções
+<code class="code">@math</code>, <code class="code">@displaymath</code>, <code class="code">@latex</code> e <code class="code">@tex</code> para
+HTML. Estas variáveis de personalização serão relevantes somente se
+<code class="code">HTML_MATH</code> estiver configurada como &lsquo;<samp class="samp">l2h</samp>&rsquo;.
+</p>
+<p>Para realmente converter seções <code class="code">@tex</code>, <samp class="option">--iftex</samp> deveria ser
+usada; e para realmente converter seções <code class="code">@latex</code>, <samp class="option">--iflatex</samp>
+deveria ser usada.
+</p>
+<dl class="vtable">
+<dt><a id="index-L2H_005fCLEAN"></a><span><code class="code">L2H_CLEAN</code><a class="copiable-link" href="#index-L2H_005fCLEAN"> &para;</a></span></dt>
+<dd><p>Se configurada, os arquivos intermediários gerados em relação ao
+<code class="command">latex2html</code> serão removidos; padrão verdadeiro.
+</p>
+</dd>
+<dt><a id="index-L2H_005fFILE"></a><span><code class="code">L2H_FILE</code><a class="copiable-link" href="#index-L2H_005fFILE"> &para;</a></span></dt>
+<dd><p>Se configurada, o arquivo fornecido será usado como arquivo de iniciação do
+<code class="command">latex2html</code>; padrão desconfigurada.
+</p>
+</dd>
+<dt><a id="index-L2H_005fHTML_005fVERSION"></a><span><code class="code">L2H_HTML_VERSION</code><a class="copiable-link" href="#index-L2H_005fHTML_005fVERSION"> &para;</a></span></dt>
+<dd><p>A versão do HTML usada na chamada <code class="command">latex2html</code>; padrão
+desconfigurada.
+</p>
+</dd>
+<dt><a id="index-L2H_005fL2H"></a><span><code class="code">L2H_L2H</code><a class="copiable-link" href="#index-L2H_005fL2H"> &para;</a></span></dt>
+<dd><p>O programa invocado como <code class="command">latex2html</code>; padrão é <code class="code">latex2html</code>.
+</p>
+</dd>
+<dt><a id="index-L2H_005fSKIP"></a><span><code class="code">L2H_SKIP</code><a class="copiable-link" href="#index-L2H_005fSKIP"> &para;</a></span></dt>
+<dd><p>Se configurada com um valor verdadeiro, a chamada real para
+<code class="command">latex2html</code> será ignorada; o conteúdo gerado anteriormente será
+reusado. Se configurada como 0, o cache não será usado em absoluto. Se
+configurada como &lsquo;<samp class="samp">undef</samp>&rsquo;, o cache será usado para tantos fragmentos
+TeX quanto possível e para qualquer restante o comando será executado. O
+padrão é &lsquo;<samp class="samp">undef</samp>&rsquo;.
+</p>
+</dd>
+<dt><a id="index-L2H_005fTMP"></a><span><code class="code">L2H_TMP</code><a class="copiable-link" href="#index-L2H_005fTMP"> &para;</a></span></dt>
+<dd><p>Configurar o diretório usado para arquivos temporários. Nenhum dos
+componentes do nome de arquivo nesse nome de diretório pode começar com
+&lsquo;<samp class="samp">.</samp>&rsquo;; caso contrário, <code class="command">latex2html</code> falhará (por causa do
+<code class="command">dvips</code>). O padrão é a sequência vazia de caracteres, a qual
+significa o diretório atual.
+</p></dd>
+</dl>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-tex4ht.html">Variáveis de Personalização do <code class="command">tex4ht</code></a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o-da-MathJax.html">Variáveis de Personalização da MathJax</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-do-HTML-para-Matem_00e1tica.html">Personalização do HTML para Matemática</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

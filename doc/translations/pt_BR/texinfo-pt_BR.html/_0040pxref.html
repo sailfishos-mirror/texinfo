@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@pxref (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como escrever uma referência cruzada entre parênteses.">
+<meta name="keywords" content="Como escrever uma referência cruzada entre parênteses.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Refer_00eancias-Cruzadas.html" rel="up" title="Referências Cruzadas">
+<link href="_0040anchor.html" rel="next" title="@anchor">
+<link href="_0040ref.html" rel="prev" title="@ref">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="g_t_0040pxref">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040anchor.html" accesskey="n" rel="next"><code class="code">@anchor</code>: Definindo Alvos Arbitrários de Referências Cruzadas</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040ref.html" accesskey="p" rel="prev"><code class="code">@ref</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Refer_00eancias-Cruzadas.html" accesskey="u" rel="up">Referências cruzadas</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="g_t_0040pxref-1"><span>5.10 <code class="code">@pxref</code><a class="copiable-link" href="#g_t_0040pxref-1"> &para;</a></span></h3>
+
+<a class="anchor" id="pxref"></a><a class="index-entry-id" id="index-pxref"></a>
+<a class="index-entry-id" id="index-Referencias-cruzadas-usando-_0040pxref"></a>
+<a class="index-entry-id" id="index-Referencias-usando-_0040pxref"></a>
+
+<p>O comando de referência entre parênteses, <code class="code">@pxref</code>, é aproximadamente
+o mesmo que <code class="code">@xref</code>, porém ele é melhor usado dentro de parênteses.  O
+comando difere do <code class="code">@xref</code> em que a referência é tipografada com um
+&lsquo;veja&rsquo; em letras minúsculas em vez de um &lsquo;Veja&rsquo; em letra maiúscula.  No
+Info, &lsquo;<samp class="samp">*observe</samp>&rsquo; é gerado.
+</p>
+<p>Com um argumento, uma referência cruzada entre parênteses se parece com
+isto:
+</p>
+<a class="index-entry-id" id="index-Inundacao"></a>
+<div class="example">
+<pre class="example-preformatted">... tempestades causam inundações (@pxref{Furacões}) ...
+</pre></div>
+
+<p>que produz:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">... tempestades causam inundações (*observe Furacões::) ...
+</pre></div></div>
+
+<p>no Info e
+</p>
+<blockquote class="quotation">
+<p>&hellip; tempestades causam inundações (veja-se Seção 6.7 [Furacões], página
+72) &hellip;
+</p></blockquote>
+
+<p>em um manual impresso.
+</p>
+<p>O efeito de &lsquo;<samp class="samp">@pxref{<var class="var">nome-nó</var>}</samp>&rsquo; é idêntico ao de
+&lsquo;<samp class="samp">@ref{<var class="var">nome-nó</var>}</samp>&rsquo; na saída gerada do Info. Portanto, pode ser
+preferível, quando não estiver entre parênteses, escrever &lsquo;<samp class="samp">veja-se
+@ref{<var class="var">nome-nó</var>}</samp>&rsquo; em vez de &lsquo;<samp class="samp">@pxref{<var class="var">nome-nó</var>}</samp>&rsquo; quando
+você quiser que a palavra &ldquo;veja-se&rdquo; ocorra na saída gerada, pois os
+leitores Info não conseguem confiavelmente inserir essa palavra com base no
+marcador de referência cruzada &lsquo;<samp class="samp">*observação</samp>&rsquo; (por exemplo, usando o
+variável <code class="code">Info-hide-note-references</code>; veja-se <a data-manual="info" href="https://www.gnu.org/software/emacs/manual/html_node/info/Ajuda_002dInvis_00edvel.html#Ajuda_002dInvis_00edvel">Texto invisível no Info do Emacs</a> em <cite class="cite">Info: Uma
+Introdução</cite>).
+</p>
+<p>Nas versões anteriores do Texinfo, não era permitido escrever pontuação
+depois de um <code class="code">@pxref</code>, de modo que poderia ser usado <em class="emph">somente</em>
+antes de um parêntese direito. Esse não mais é o caso.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040anchor.html"><code class="code">@anchor</code>: Definindo Alvos Arbitrários de Referências Cruzadas</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040ref.html"><code class="code">@ref</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Refer_00eancias-Cruzadas.html">Referências cruzadas</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>small (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Exemplos em uma fonte menor.">
+<meta name="keywords" content="Exemplos em uma fonte menor.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Cita_00e7_00f5es-e-Exemplos.html" rel="up" title="Citações e Exemplos">
+<link href="_0040cartouche.html" rel="prev" title="@cartouche">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="small">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040cartouche.html" accesskey="p" rel="prev"><code class="code">@cartouche</code>: Retângulos Arredondados</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Cita_00e7_00f5es-e-Exemplos.html" accesskey="u" rel="up">Citações e Exemplos</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="g_t_0040small_2026-Comandos-de-Bloco"><span>7.15 <code class="code">@small&hellip;</code> Comandos de Bloco<a class="copiable-link" href="#g_t_0040small_2026-Comandos-de-Bloco"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-smallexample"></a>
+<a class="index-entry-id" id="index-smallformat"></a>
+<a class="index-entry-id" id="index-smalllisp"></a>
+<a class="index-entry-id" id="index-smallquotation"></a>
+<a class="index-entry-id" id="index-smalldisplay"></a>
+<a class="index-entry-id" id="index-smallindentedblock"></a>
+<a class="index-entry-id" id="index-Small_002c-exemplos"></a>
+<a class="index-entry-id" id="index-Exemplos-em-fontes-menores"></a>
+<a class="index-entry-id" id="index-Citacoes-em-fontes-menores"></a>
+<a class="index-entry-id" id="index-Exemplos-da-Lisp-em-fontes-menores"></a>
+
+<p>Adicionalmente ao <code class="code">@example</code> regular e comandos similares, Texinfo tem
+comandos &ldquo;small&rdquo; estilo exemplo.  Esses são <code class="code">@smallquotation</code>,
+<code class="code">@smallindentedblock</code>, <code class="code">@smalldisplay</code>, <code class="code">@smallexample</code>,
+<code class="code">@smallformat</code> e <code class="code">@smalllisp</code>.
+</p>
+<p>Na maioria dos formatos de saída gerada, os comandos <code class="code">@small&hellip;</code>
+são equivalentes aos comandos complementares deles não &ldquo;small&rdquo;.
+</p>
+<p>Na saída gerada impressa, entretanto, os comandos <code class="code">@small&hellip;</code>
+tipografam texto em uma fonte menor que os comandos de exemplo não
+&ldquo;small&rdquo;.  Assim, por exemplo, exemplos de código podem conter linhas mais
+longas e ainda caberem em uma página sem a necessidade de serem reescritos.
+</p>
+<p>Marque o fim de um bloco <code class="code">@small&hellip;</code> com um correspondente
+<code class="code">@end small&hellip;</code>.  Por exemplo, emparelhe <code class="code">@smallexample</code> com
+<code class="code">@end smallexample</code>.
+</p>
+<p>Aqui está um exemplo da fonte usada pelo comando <code class="code">@smallexample</code> (na
+maioria dos formatos de saída, a saída gerada será a mesma como de costume):
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">... para ter certeza de que você tem a liberdade de
+distribuir cópias de software livre (e cobrar por
+esse serviço se você desejar), que você receba o código
+fonte ou consiga obtê-lo se quiser, que você pode
+mudar o software ou usar partes dele em novos
+programas livres; e que você sabe que você pode fazer essas coisas.
+</pre></div>
+
+<p>Os comandos <code class="code">@small&hellip;</code> usam o mesmo estilo de fonte que as
+contrapartes normais deles: <code class="code">@smallexample</code> e <code class="code">@smalllisp</code> usam
+uma fonte de largura fixa, e os demais usam a fonte regular.  Eles também
+tem o mesmo comportamento em outros aspectos&mdash;quando o preenchimento é
+feito e quando as margens são estreitadas. Entretanto, eles não pegam
+argumentos, mesmo quando os contrapartes deles pegarem.
+</p>
+<a class="index-entry-id" id="index-dispenvsize"></a>
+<p>Como regra geral, é melhor usar somente os comandos regulares (como
+<code class="code">@example</code> em vez de <code class="code">@smallexample</code>), a menos que você tenha um
+bom motivo para isso. Ao processar somente com <samp class="file">texinfo.tex</samp>, você pode
+obter um efeito semelhante com &lsquo;<samp class="samp">@set dispenvsize small</samp>&rsquo;, que usa uma
+fonte menor para <code class="code">@example</code> e outros ambientes. Na saída HTML, você
+pode usar CSS para mudar o tamanho da fonte dos ambientes, se necessário;
+veja-se <a class="pxref" href="CSS-do-HTML.html">CSS do HTML</a>.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040cartouche.html"><code class="code">@cartouche</code>: Retângulos Arredondados</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Cita_00e7_00f5es-e-Exemplos.html">Citações e Exemplos</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

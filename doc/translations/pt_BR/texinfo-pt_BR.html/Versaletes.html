@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Versaletes (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como usar a fonte de versaletes.">
+<meta name="keywords" content="Como usar a fonte de versaletes.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="_00canfase.html" rel="up" title="Ênfase">
+<link href="Fontes.html" rel="next" title="Fontes">
+<link href="_0040emph-_0040strong.html" rel="prev" title="@emph @strong">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+pre.display-preformatted {font-family: inherit}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Versaletes">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Fontes.html" accesskey="n" rel="next">Fontes para Impressão</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040emph-_0040strong.html" accesskey="p" rel="prev"><code class="code">@emph</code>{<var class="var">texto</var>} e <code class="code">@strong</code>{<var class="var">texto</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="_00canfase.html" accesskey="u" rel="up">Enfatizando Texto</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="g_t_0040sc_007btexto_007d_003a-A-Fonte-de-Versaletes"><span>6.2.2 <code class="code">@sc</code>{<var class="var">texto</var>}: A Fonte de Versaletes<a class="copiable-link" href="#g_t_0040sc_007btexto_007d_003a-A-Fonte-de-Versaletes"> &para;</a></span></h4>
+<a class="index-entry-id" id="index-Fonte-de-versaletes"></a>
+<a class="index-entry-id" id="index-sc"></a>
+
+<p>Use o comando &lsquo;<samp class="samp">@sc</samp>&rsquo; para configurar texto em <small class="sc">UMA FONTE DE
+VERSALETES</small> (onde possível).  Escreva o texto que você quer que esteja em
+versaletes entre chaves e em letras minúsculas, como isto:
+</p>
+<div class="example">
+<pre class="example-preformatted">Richard @sc{Stallman} a commenc&eacute; le projet GNU.
+</pre></div>
+
+<p>Isso produz:
+</p>
+<div class="display">
+<pre class="display-preformatted">Richard <span class="sc">STALLMAN</span> a commenc&eacute; le projet GNU.
+</pre></div>
+
+<p>Como mostrado aqui, nós recomendamos reservar <code class="code">@sc</code> para casos
+especiais onde você queira versalete tipográfica; nomes de família são um
+desses, especialmente em outros idiomas diferentes do Inglês, embora não
+existam regras rígidas acerca de tais coisas.
+</p>
+<a class="index-entry-id" id="index-etiqueta-_003csmall_003e"></a>
+<p>TeX tipografa quaisquer letras maiúsculas entre as chaves de um comando
+<code class="code">@sc</code> em letras maiúsculas de tamanho real; somente letras minúsculas
+são impressas na fonte de versaletes.  Na saída Info, o argumento para
+<code class="code">@sc</code> é impresso todo em maiúsculas.  Em HTML, o argumento é colocado
+em letras maiúsculas e a saída marcada com a etiqueta <code class="code">&lt;small&gt;</code> para
+reduzir o tamanho da fonte, pois o HTML não consegue facilmente representar
+versaletes verdadeiras.  No LaTeX, um comando configurando fontes de
+versaletes é gerado.
+</p>
+<p>No geral, nós recomendamos usar letras padrão maiúsculas e minúsculas sempre
+que possível.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Fontes.html">Fontes para Impressão</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040emph-_0040strong.html"><code class="code">@emph</code>{<var class="var">texto</var>} e <code class="code">@strong</code>{<var class="var">texto</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="_00canfase.html">Enfatizando Texto</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

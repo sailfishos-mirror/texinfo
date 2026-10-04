@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Referência Cruzada do Formato Info (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Referência Cruzada do Formato Info (GNU Texinfo 7.3)">
+<meta name="keywords" content="Referência Cruzada do Formato Info (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Especifica_00e7_00e3o-do-Formato-Info.html" rel="up" title="Especificação do Formato Info">
+<link href="Impress_00e3o-de-_00cdndice-do-Formato-Info.html" rel="prev" title="Impressão de Índice do Formato Info">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Refer_00eancia-Cruzada-do-Formato-Info">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Impress_00e3o-de-_00cdndice-do-Formato-Info.html" accesskey="p" rel="prev">Formato Info: Impressão de Índice</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Especifica_00e7_00e3o-do-Formato-Info.html" accesskey="u" rel="up">Especificação do Formato Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Formato-Info_003a-Refer_00eancia-Cruzada"><span>F.10 Formato Info: Referência Cruzada<a class="copiable-link" href="#Formato-Info_003a-Refer_00eancia-Cruzada"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Referencias-Cruzadas_002c-no-formato-Info"></a>
+
+<p>Uma referência cruzada geral no formato Info tem uma das duas formas
+seguintes:
+</p>
+<div class="example">
+<pre class="example-preformatted">    &lt;referência cruzada&gt; =
+  * (N|n)ote &lt;identificador&gt;::
+| * (N|n)ote &lt;rótulo&gt;:&lt;identificador&gt;(.|,)
+
+    &lt;identificador&gt; = (&lt;lparen&gt;&lt;arquivoinfo&gt;&lt;rparen&gt;)?&lt;especificação do nó&gt;?
+    &lt;rótulo&gt; = &lt;texto do rótulo&gt; | &lt;del&gt;&lt;texto do rótulo&gt;&lt;del&gt;
+</pre></div>
+
+<p>Nenhum espaço deveria ocorrer entre o caractere &lsquo;<samp class="samp">*</samp>&rsquo; e o seguinte
+&lsquo;<samp class="samp">N</samp>&rsquo; ou &lsquo;<samp class="samp">n</samp>&rsquo;. &lsquo;<samp class="samp">*Note</samp>&rsquo; deveria ser usado no início de uma frase,
+caso contrário, &lsquo;<samp class="samp">*note</samp>&rsquo; deveria ser usado. (Alguns leitores do Info,
+tais como o do Emacs, conseguem exibir &lsquo;<samp class="samp">*Note</samp>&rsquo; e &lsquo;<samp class="samp">*note</samp>&rsquo; como
+&lsquo;<samp class="samp">Veja-se</samp>&rsquo; e &lsquo;<samp class="samp">veja-se</samp>&rsquo; respectivamente). Em ambos os casos,
+<code class="t">&lt;texto do rótulo&gt;</code> é um texto descritivo.
+</p>
+<p>Em ambas as formas, o <code class="t">&lt;identificador&gt;</code> se refere a um nó ou âncora, da
+mesma maneira que uma referência na linha de informações do nó (veja-se <a class="pxref" href="N_00f3s-Regulares-do-Formato-Info.html">Formato Info: Nós Regulares</a>). O opcional entre parênteses
+&lsquo;<samp class="samp">&lt;arquivoinfo&gt;</samp>&rsquo; é o nome do manual sendo referenciado e
+<code class="t">&lt;especificação do nó&gt;</code> fornece o nó ou âncora dentro desse manual.
+</p>
+<p>A segunda forma tem um rótulo descritivo. Uma referência cruzada nessa forma
+geralmente deveria ser terminada com uma vírgula ou ponto final, para tornar
+viável encontrar o final do <code class="t">&lt;identificador&gt;</code>.
+</p>
+<p>Se <code class="t">&lt;rótulo&gt;</code> contiver dois pontos (<code class="t">:</code>), ele deverá ser envolvido por
+um par de caracteres <code class="t">&lt;del&gt;</code>. Da mesma forma, caracteres de aspeamento
+podem ser usados para o nome do nó se ele contiver caracteres problemáticos;
+então, uma vírgula ou ponto final não é necessária. Conforme afirmado
+anteriormente, esse mecanismo de aspeamento não é suportado em todos os
+programas de leitura do Info.
+</p>
+<p>O formato não prescreve como encontrar outros manuais para resolver tais
+referências.
+</p>
+<p>Aqui estão alguns exemplos:
+</p>
+<div class="example">
+<pre class="example-preformatted">*observar Licença GNU de Documentação Livre::
+*observar Tabela de Etiquetas: Tabela de Etiquetas do formato Info, para
+detalhes.
+*Observar Visão Geral: (make)Topo.
+*Observar ^?:^?: (bash)Builtins do Shell Bourne.
+*Observar alloca.h: (gnulib)^?alloca.h^?.
+</pre></div>
+
+<p>O primeiro mostra uma referência para um nó no manual atual usando a forma
+curta.
+</p>
+<p>O segundo também se refere a um nó no manual atual, chamado &lsquo;Tabela de
+Etiquetas do Formato Info&rsquo;; a &lsquo;Tabela de Etiquetas&rsquo; antes de &lsquo;<samp class="samp">:</samp>&rsquo; é
+somente um rótulo nessa referência específica, e o &lsquo;<samp class="samp">para detalhes.</samp>&rsquo; é o
+texto pertencente à frase, não parte da referência.
+</p>
+<p>O terceiro exemplo se refere ao nó &lsquo;Topo&rsquo; em outro manual, nomeadamente
+&lsquo;<samp class="samp">make</samp>&rsquo;, com &lsquo;Visão Geral&rsquo; sendo o rótulo para essa referência cruzada.
+</p>
+<p>O quarto exemplo mostra um caractere de dois pontos sendo aspeado em um
+rótulo e o quinto exemplo mostra um ponto final sendo aspeado em um nome de
+nó.
+</p>
+<p>Veja-se <a class="xref" href="Refer_00eancias-Cruzadas.html">Referências cruzadas</a>.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Impress_00e3o-de-_00cdndice-do-Formato-Info.html">Formato Info: Impressão de Índice</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Especifica_00e7_00e3o-do-Formato-Info.html">Especificação do Formato Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

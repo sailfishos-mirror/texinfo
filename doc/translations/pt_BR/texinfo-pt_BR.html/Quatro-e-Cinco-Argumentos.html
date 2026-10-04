@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Quatro e Cinco Argumentos (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="@xref com quatro e cinco argumentos.">
+<meta name="keywords" content="@xref com quatro e cinco argumentos.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Refer_00eancias-Cruzadas.html" rel="up" title="Referências Cruzadas">
+<link href="Referenciamento-para-um-Manual-como-um-Todo.html" rel="next" title="Referenciamento para um Manual como um Todo">
+<link href="Tr_00eas-Argumentos.html" rel="prev" title="Três Argumentos">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Quatro-e-Cinco-Argumentos">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Referenciamento-para-um-Manual-como-um-Todo.html" accesskey="n" rel="next">Referenciamento para um Manual como um Todo</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Tr_00eas-Argumentos.html" accesskey="p" rel="prev"><code class="code">@xref</code> com Três Argumentos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Refer_00eancias-Cruzadas.html" accesskey="u" rel="up">Referências cruzadas</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section subsection-level-set-section" id="g_t_0040xref-com-Quatro-e-Cinco-Argumentos"><span>5.6 <code class="code">@xref</code> com Quatro e Cinco Argumentos<a class="copiable-link" href="#g_t_0040xref-com-Quatro-e-Cinco-Argumentos"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Formas-de-quatro-e-cinco-argumentos-das-referencias-cruzadas"></a>
+
+<p>Em uma referência cruzada, um quarto argumento especifica o nome de outro
+manual, diferente do arquivo no qual a referência aparece, e um quinto
+argumento especifica o título dele como um manual impresso.
+</p>
+<p>O modelo completo é:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@xref{<var class="var">nome-nó</var>, <var class="var">rótulo-online</var>, <var class="var">rótulo-impresso</var>,
+<var class="var">nome-manual</var>, <var class="var">título-manual-impresso</var>}.
+</pre></div></div>
+
+<p>Por exemplo,
+</p>
+<div class="example">
+<pre class="example-preformatted">@xref{Efeitos Elétricos, Relâmpago, Trovão e Relâmpago,
+clima, Uma Introdução à Meteorologia}.
+</pre></div>
+
+<p>produz esta saída no Info:
+</p>
+<div class="example">
+<pre class="example-preformatted">*Observe Relâmpago: (clima)Efeitos Elétricos.
+</pre></div>
+
+<p>Como você pode ver, o nome do manual está entre parênteses e precede o nome
+do nó.  No HTML, o nome do manual e o nome do nó são usados para construir o
+URL de hiperlink (veja-se <a class="pxref" href="Xref-do-HTML.html">Referências Cruzadas do HTML</a>), enquanto o texto do link é baseado
+no rótulo.
+</p>
+<p>Em um manual impresso, a referência se parece com isto:
+</p>
+<blockquote class="quotation">
+<p>Veja-se seção &ldquo;Trovão e Relâmpago&rdquo; em <cite class="cite">Uma Introdução à
+Meteorologia</cite>.
+</p></blockquote>
+
+<p>O título do manual impresso é tipografado como <code class="code">@cite</code>; e a referência
+carece de um número de página, pois a página a qual uma referência se refere
+quando essa referência é para outro manual não pode ser conhecida.
+</p>
+<p>Próximo caso: frequentemente você deixará de fora o segundo argumento quando
+usar a versão longa de <code class="code">@xref</code>.  Nesse caso, o terceiro argumento, a
+descrição do tópico, será usado como o nome da referência cruzada em
+formatos online.  Por exemplo,
+</p>
+<div class="example">
+<pre class="example-preformatted">@xref{Efeitos Elétricos, , Trovão e Relâmpago,
+clima, Uma Introdução à Meteorologia}.
+</pre></div>
+
+<p>produz
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">*Observe Trovão e Relâmpago: (clima)Efeitos Elétricos.
+</pre></div></div>
+
+<p>no Info e
+</p>
+<blockquote class="quotation">
+<p>Veja-se seção &ldquo;Trovão e Relâmpago&rdquo; em <cite class="cite">Uma Introdução à
+Meteorologia</cite>.
+</p></blockquote>
+
+<p>em um manual impresso.
+</p>
+<p>Próximo caso: se o nome do nó e o título da seção forem os mesmos no outro
+manual, você também pode deixar de fora o título da seção.  Nesse caso, o
+nome de nó é usado em ambas as instâncias.  Por exemplo,
+</p>
+<div class="example">
+<pre class="example-preformatted">@xref{Efeitos Elétricos,,,
+clima, Uma Introdução à Meteorologia}.
+</pre></div>
+
+<p>produz
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">*Observe (clima)Efeitos Elétricos::.
+</pre></div></div>
+
+<p>no Info e
+</p>
+<blockquote class="quotation">
+<p>Veja-se seção &ldquo;Efeitos Elétricos&rdquo; em <cite class="cite">Uma Introdução à Meteorologia</cite>.
+</p></blockquote>
+
+<p>em um manual impresso.
+</p>
+<p>Em geral, não existe razão para ter um argumento de nome de manual sem um
+argumento de manual impresso, a menos que nenhum manual impresso seja
+gerado.  Você também pode querer se referir a outro arquivo de manual que
+esteja dentro de um manual impresso&mdash;quando vários arquivos do Texinfo
+forem incorporados ao mesmo manual impresso, mas puderem criar arquivos de
+saída separados em outros formatos de saída.  Nesse caso, você precisa
+especificar somente o quarto argumento, e não o quinto.  Se o argumento de
+título do manual impresso estiver ausente, o nome do manual será usado na
+saída impressa.
+</p>
+<p>Um argumento de título de manual impresso sem um argumento de manual online
+é de pouco uso, a menos que somente um manual impresso seja gerado a partir
+do fonte do Texinfo.  O resultado em formatos online depende do formato e
+pode ser, por exemplo, um nome vazio de manual ou uma referência para o
+manual impresso formatado de maneira semelhante para a saída impressa.
+</p>
+<p>Finalmente, também é permitido deixar de fora todos os argumentos,
+<em class="emph">exceto</em> o quarto e quinto, para referenciar outro manual como um
+todo.  Veja-se a próxima seção.
+</p>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Referenciamento-para-um-Manual-como-um-Todo.html">Referenciamento para um Manual como um Todo</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Tr_00eas-Argumentos.html"><code class="code">@xref</code> com Três Argumentos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Refer_00eancias-Cruzadas.html">Referências cruzadas</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

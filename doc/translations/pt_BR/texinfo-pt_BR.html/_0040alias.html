@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@alias (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Apelidos de comandos.">
+<meta name="keywords" content="Apelidos de comandos.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Definindo-Novos-Comandos-do-Texinfo.html" rel="up" title="Definindo Novos Comandos do Texinfo">
+<link href="Macros-de-Linha.html" rel="next" title="Macros de Linha">
+<link href="Detalhes-de-Macro.html" rel="prev" title="Detalhes de Macro">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="g_t_0040alias">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Macros-de-Linha.html" accesskey="n" rel="next">Macros de Linha</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Detalhes-de-Macro.html" accesskey="p" rel="prev">Detalhes e Ressalvas de Macro</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Definindo-Novos-Comandos-do-Texinfo.html" accesskey="u" rel="up">Definindo Novos Comandos do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="g_t_0040alias-novo_003dexistente"><span>17.4 &lsquo;<samp class="samp">@alias <var class="var">novo</var>=<var class="var">existente</var></samp>&rsquo;<a class="copiable-link" href="#g_t_0040alias-novo_003dexistente"> &para;</a></span></h3>
+
+<a class="anchor" id="alias"></a><a class="index-entry-id" id="index-Apelidos_002c-comando"></a>
+<a class="index-entry-id" id="index-Apelidos-de-comando"></a>
+<a class="index-entry-id" id="index-alias"></a>
+
+<p>O comando &lsquo;<samp class="samp">@alias</samp>&rsquo; define um novo comando para ser exatamente como um
+existente.  Isso é útil para definir nomes adicionais de marcação,
+preservando assim informações semânticas adicionais na entrada, mesmo que o
+resultado da saída possa ser o mesmo.
+</p>
+<p>Escreva o comando &lsquo;<samp class="samp">@alias</samp>&rsquo; em uma linha própria, seguido pelo novo
+nome do comando, um sinal de igual e o nome do comando existente.  O espaço
+em branco ao redor do sinal de igual é opcional e ignorado se presente.
+Assim:
+</p>
+<div class="example">
+<pre class="example-preformatted">@alias <var class="var">novo</var> = <var class="var">existente</var>
+</pre></div>
+
+<p>Por exemplo, se teu documento contiver citações para livros e para alguma
+outra mídia (filmes, por exemplo), você pode querer definir uma macro
+<code class="code">@moviecite{}</code> que faz a mesma coisa que um <code class="code">@cite{}</code> comum,
+mas transmite as informações semânticas extras também.  Você faria isso
+conforme segue:
+</p>
+<div class="example">
+<pre class="example-preformatted">@alias moviecite = cite
+</pre></div>
+
+<p>Macros nem sempre tem o mesmo efeito que apelidos, devido a caprichos da
+análise de argumentos.  Além disso, apelidos são muito mais simples de
+definir que macros.  Então o comando não é redundante.
+</p>
+<p>Infelizmente, não é possível apelidar ambientes do Texinfo; por exemplo,
+<code class="code">@alias lang=exemplo</code> é um erro.
+</p>
+<p>Apelidos precisam não serem recursivos, direta ou indiretamente.
+</p>
+<p>Não é aconselhável redefinir nenhum nome de comando do TeX primitivo, do
+TeX simples ou do Texinfo como um apelido.  Infelizmente, esse é um
+conjunto muito grande de nomes, e os possíveis erros resultantes oriundos do
+TeX são imprevisíveis.
+</p>
+<p>Identificadores de apelidos deveriam ser os mesmos que para nomes de macro,
+isto é, alfanuméricos e (exceto como o primeiro caractere) &lsquo;<samp class="samp">-</samp>&rsquo;.
+Entretanto, com o TeX, somente letras deveriam ser usadas.  Assim, nós
+recomendamos usar somente letras.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Macros-de-Linha.html">Macros de Linha</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Detalhes-de-Macro.html">Detalhes e Ressalvas de Macro</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Definindo-Novos-Comandos-do-Texinfo.html">Definindo Novos Comandos do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Detalhes do texindex (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Detalhes do texindex (GNU Texinfo 7.3)">
+<meta name="keywords" content="Detalhes do texindex (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Formatar-com-tex_002ftexindex.html" rel="up" title="Formatar com tex/texindex">
+<link href="Formatando-Documentos-Parciais.html" rel="prev" title="Formatando Documentos Parciais">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Detalhes-do-texindex">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Formatando-Documentos-Parciais.html" accesskey="p" rel="prev">Formatando Documentos Parciais</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Formatar-com-tex_002ftexindex.html" accesskey="u" rel="up">Formatar com <code class="command">tex</code>/<code class="command">texindex</code></a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Detalhes-do-texindex-1"><span>19.3.2 Detalhes do <code class="command">texindex</code><a class="copiable-link" href="#Detalhes-do-texindex-1"> &para;</a></span></h4>
+
+<a class="index-entry-id" id="index-Chaves_002c-em-entradas-de-indice"></a>
+<p>Na versão 6 do Texinfo, lançada em 2015, o programa <code class="command">texindex</code> foi
+completamente reimplementado.  A principal diferença funcional é a de que
+entradas de índice iniciando com uma chave esquerda ou chave direita
+(respectivamente &lsquo;<samp class="samp">{</samp>&rsquo; e &lsquo;<samp class="samp">}</samp>&rsquo;) conseguem funcionar corretamente.
+Por exemplo, estas simples entradas de índice são processadas corretamente,
+incluindo o &ldquo;index initial&rdquo; mostrado no índice:
+</p>
+<div class="example">
+<pre class="example-preformatted">@cindex @{
+@cindex @}
+...
+@printindex cp
+</pre></div>
+
+<a class="index-entry-id" id="index-Programacao-letrada_002c-com-Texinfo-e-awk"></a>
+<a class="index-entry-id" id="index-Texinfo_002c-e-programacao-letrada"></a>
+<a class="index-entry-id" id="index-Robbins_002c-Arnold"></a>
+<a class="index-entry-id" id="index-texiwebjr"></a>
+<a class="index-entry-id" id="index-ti_002etwjr"></a>
+<p>Embora não uma questão de funcionalidade, os(as) leitores(as) possivelmente
+estejam interessados(as) em saber que o novo <code class="command">texindex</code> é um
+programa letrado (<a class="url" href="https://en.wikipedia.org/wiki/Literate_programming">https://en.wikipedia.org/wiki/Literate_programming</a>)
+usando Texinfo para documentação e <code class="command">awk</code> (portável) para código.  Um
+arquivo fonte, <samp class="file">texindex/ti.twjr</samp> nesse caso, produz o programa
+executável, um documento imprimível e um documento online.
+</p>
+<p>O sistema é chamado TexiWeb Jr. e foi criado por Arnold Robbins, que
+também escreveu o novo <code class="command">texindex</code>.  Não coincidentemente, ele também
+é o mantenedor de longa data do <code class="command">gawk</code> (GNU Awk, veja-se <cite class="cite"><a data-manual="gawk" href="https://www.gnu.org/software/gawk/manual/html_node/index.html#Top">O Guia do(a) Usuário(a) GNU Awk</a></cite>).  O arquivo <samp class="file">texindex/Makefile.am</samp>
+mostra um exemplo de uso do sistema.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Formatando-Documentos-Parciais.html">Formatando Documentos Parciais</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Formatar-com-tex_002ftexindex.html">Formatar com <code class="command">tex</code>/<code class="command">texindex</code></a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

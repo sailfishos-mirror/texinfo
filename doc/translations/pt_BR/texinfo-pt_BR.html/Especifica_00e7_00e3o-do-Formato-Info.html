@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Especificação do Formato Info (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Detalhes técnicos do formato do arquivo Info.">
+<meta name="keywords" content="Detalhes técnicos do formato do arquivo Info.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="index.html" rel="up" title="Top">
+<link href="Licen_00e7a-GNU-de-Documenta_00e7_00e3o-Livre.html" rel="next" title="Licença GNU de Documentação Livre">
+<link href="Comandos-Globais-de-Documento.html" rel="prev" title="Comandos Globais de Documento">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="appendix-level-extent" id="Especifica_00e7_00e3o-do-Formato-Info">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Licen_00e7a-GNU-de-Documenta_00e7_00e3o-Livre.html" accesskey="n" rel="next">Licença GNU de Documentação Livre</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Comandos-Globais-de-Documento.html" accesskey="p" rel="prev">Comandos Globais de Documento</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="index.html" accesskey="u" rel="up">Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h2 class="appendix" id="Especifica_00e7_00e3o-do-Formato-Info-1"><span>Anexo F Especificação do Formato Info<a class="copiable-link" href="#Especifica_00e7_00e3o-do-Formato-Info-1"> &para;</a></span></h2>
+
+<a class="index-entry-id" id="index-Especificacao-de-formato-do-Info"></a>
+<a class="index-entry-id" id="index-Especificacao-do-formato-Info"></a>
+<a class="index-entry-id" id="index-Definicao-do-formato-do-Info"></a>
+
+<p>Aqui nós descrevemos os detalhes técnicos do formato do Info.
+</p>
+<p>Nesta descrição formal, os caracteres <code class="code">&lt;&gt;*()|=#</code> são usados para a
+linguagem da própria descrição. Outros caracteres são literais. Os
+constructos formais usados são típicos: <code class="code">&lt;...&gt;</code> indica um nome de
+metavariável, &lsquo;<samp class="samp">=</samp>&rsquo; significa definição, &lsquo;<samp class="samp">*</samp>&rsquo; repetição, &lsquo;<samp class="samp">?</samp>&rsquo;
+opcional, &lsquo;<samp class="samp">()</samp>&rsquo; agrupamento, &lsquo;<samp class="samp">|</samp>&rsquo; alternância e &lsquo;<samp class="samp">#</samp>&rsquo; comentário.
+</p>
+<p>Em geral, programas que leem arquivos do Info deveriam tentar não
+diferenciar maiúsculas de minúsculas em palavras-chave que ocorrerem no
+arquivo (por exemplo, &lsquo;<samp class="samp">Tabela de Etiquetas</samp>&rsquo; e &lsquo;<samp class="samp">Tabela de
+etiquetas</samp>&rsquo; deveriam ser equivalentes) para a finalidade de suportar
+programas de geração do Info que usem diferentes maiusculizações.
+</p>
+<p>Nós especificamos parênteses literais (aqueles que são parte do formato
+Info) com <code class="t">&lt;lparen&gt;</code> e <code class="t">&lt;rparen&gt;</code>, significando os caracteres únicos
+&lsquo;<samp class="samp">(</samp>&rsquo; e &lsquo;<samp class="samp">)</samp>&rsquo; respectivamente. Finalmente, a sequência de dois
+caracteres &lsquo;<samp class="samp">^<var class="var">x</var></samp>&rsquo; significa o caractere único &lsquo;<samp class="samp">CTRL-<var class="var">x</var></samp>&rsquo;,
+para alguma <var class="var">x</var>.
+</p>
+<p>Esta definição de formato foi escrita cerca de 25 anos depois que o formato
+Info foi criado. Assim, no caso de conflitos entre esta definição e a
+prática real, a prática vence. Ela também pressupõe algum conhecimento geral
+do Texinfo; ela é destinada a ser um guia para implementadores(as) em vez de
+um padrão técnico rígido. Nós possivelmente retro referenciemos outras
+partes deste manual para exemplos e definições, em vez de redundantemente
+explicitar cada detalhe.
+</p>
+
+
+<ul class="mini-toc">
+<li><a href="Manual-Inteiro-do-Formato-Info.html" accesskey="1">Formato Info: Um Manual Inteiro</a></li>
+<li><a href="Pre_00e2mbulo-do-Formato-Info.html" accesskey="2">Formato Info: Preâmbulo</a></li>
+<li><a href="Tabela-Indireta-do-Formato-Info.html" accesskey="3">Formato Info: Tabela Indireta</a></li>
+<li><a href="Tabela-de-Etiquetas-do-Formato-Info.html" accesskey="4">Formato Info: Tabela de Etiquetas</a></li>
+<li><a href="Vari_00e1veis-Locais-do-Formato-Info.html" accesskey="5">Formato Info: Variáveis Locais</a></li>
+<li><a href="N_00f3s-Regulares-do-Formato-Info.html" accesskey="6">Formato Info: Nós Regulares</a></li>
+<li><a href="Menu-do-Formato-Info.html" accesskey="7">Formato Info: Menu</a></li>
+<li><a href="Imagem-do-Formato-Info.html" accesskey="8">Formato Info: Imagem</a></li>
+<li><a href="Impress_00e3o-de-_00cdndice-do-Formato-Info.html" accesskey="9">Formato Info: Impressão de Índice</a></li>
+<li><a href="Refer_00eancia-Cruzada-do-Formato-Info.html">Formato Info: Referência Cruzada</a></li>
+</ul>
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Licen_00e7a-GNU-de-Documenta_00e7_00e3o-Livre.html">Licença GNU de Documentação Livre</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Comandos-Globais-de-Documento.html">Comandos Globais de Documento</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="index.html">Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

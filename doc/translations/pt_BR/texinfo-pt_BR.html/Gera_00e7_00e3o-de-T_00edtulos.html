@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Geração de Títulos (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Ligue o cabeçalho de página depois das páginas de título e">
+<meta name="keywords" content="Ligue o cabeçalho de página depois das páginas de título e">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="P_00e1gina-de-T_00edtulo-e-P_00e1gina-de-Copirraite.html" rel="up" title="Página de Título e Página de Copirraite">
+<link href="Vers_00e3o-P_00e1gina-de-T_00edtulo.html" rel="prev" title="Versão Página de Título">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Gera_00e7_00e3o-de-T_00edtulos">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Vers_00e3o-P_00e1gina-de-T_00edtulo.html" accesskey="p" rel="prev">Exibindo a Versão ou a Edição na Página de Título</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="P_00e1gina-de-T_00edtulo-e-P_00e1gina-de-Copirraite.html" accesskey="u" rel="up">Páginas de Título e de Direitos Autorais</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<p>de direitos autorais.
+</p><h4 class="subsection" id="Gera_00e7_00e3o-de-T_00edtulos-1"><span>2.8.4 Geração de Títulos<a class="copiable-link" href="#Gera_00e7_00e3o-de-T_00edtulos-1"> &para;</a></span></h4>
+
+<a class="anchor" id="end-titlepage"></a><a class="index-entry-id" id="index-Gerando-titulos-de-pagina"></a>
+
+<p>Texinfo tem dois formatos padrão de cabeçalho de página, um para documentos
+impressos em um lado de cada folha de papel (impressão de lado único), e o
+outro para documentos impressos em ambos os lados de cada folha (impressão
+de lado duplo).
+</p>
+<p>Em generalidade plena, você consegue controlar os cabeçalhos de diferentes
+maneiras:
+</p>
+<ul class="itemize mark-bullet">
+<li>A maneira convencional é a de escrever um comando <code class="code">@setchapternewpage</code>
+antes dos comandos de página de título.
+
+<p>A maioria dos documentos é formatada com os cabeçalhos padrão lado único ou
+lado duplo, (ocasionalmente) usando <code class="code">@setchapternewpage odd</code> para
+impressão em lado duplo e (quase sempre) sem comando
+<code class="code">@setchapternewpage</code> para impressão de lado único (veja-se
+<a class="ref" href="_0040setchapternewpage.html"><code class="code">@setchapternewpage</code>: Páginas em Branco Antes dos Capítulos</a>).
+</p>
+</li><li>Alternativamente, você pode usar o comando <code class="code">@headings</code> para evitar que
+os cabeçalhos de página sejam gerados ou para iniciá-los para, ou impressão
+de lado único, ou duplo. Para desligar os cabeçalhos, escreva
+<code class="code">@headings off</code>. Veja-se <a class="ref" href="_0040headings.html">O Comando <code class="code">@headings</code></a>.
+
+</li><li>Ou, você pode especificar o teu próprio formato de cabeçalho e de rodapé de
+página. Veja-se <a class="xref" href="Cabe_00e7alhos.html">Cabeçalhos de Página</a>.
+</li></ul>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Vers_00e3o-P_00e1gina-de-T_00edtulo.html">Exibindo a Versão ou a Edição na Página de Título</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="P_00e1gina-de-T_00edtulo-e-P_00e1gina-de-Copirraite.html">Páginas de Título e de Direitos Autorais</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

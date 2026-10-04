@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Finalizando um Arquivo (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="O que está no final de um arquivo do Texinfo?">
+<meta name="keywords" content="O que está no final de um arquivo do Texinfo?">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Escrevendo-um-Arquivo-do-Texinfo.html" rel="up" title="Escrevendo um Arquivo do Texinfo">
+<link href="O-Corpo-do-Documento.html" rel="prev" title="O Corpo do Documento">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Finalizando-um-Arquivo">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="O-Corpo-do-Documento.html" accesskey="p" rel="prev">O Corpo do Documento</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Escrevendo-um-Arquivo-do-Texinfo.html" accesskey="u" rel="up">Escrevendo um Arquivo do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Finalizando-um-Arquivo-do-Texinfo"><span>2.12 Finalizando um Arquivo do Texinfo<a class="copiable-link" href="#Finalizando-um-Arquivo-do-Texinfo"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Finalizando-um-arquivo-do-Texinfo"></a>
+<a class="index-entry-id" id="index-Arquivo-do-Texinfo_002c-terminando"></a>
+<a class="index-entry-id" id="index-Arquivo_002c-terminando"></a>
+
+<p>O final de um arquivo Texinfo deveria incluir comandos para criar índices
+(veja-se <a class="ref" href="Imprimindo-_00cdndices-e-Menus.html">Imprimindo Índices e Menus</a>), e o comando <code class="code">@bye</code> para
+marcar a última linha a ser processada. Por exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">@node Índice
+@unnumbered Índice
+
+@printindex cp
+
+@bye
+</pre></div>
+
+<a class="index-entry-id" id="index-bye"></a>
+<a class="anchor" id="Fim-de-Arquivo"></a><p>Um comando <code class="code">@bye</code> termina o processamento Texinfo. Ele deveria estar
+em uma linha própria. Qualquer coisa seguinte a <code class="code">@bye</code> é completamente
+ignorada.
+</p>
+
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@samp (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Indicando uma sequência literal de caracteres.">
+<meta name="keywords" content="Indicando uma sequência literal de caracteres.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Indicando.html" rel="up" title="Indicando">
+<link href="_0040verb.html" rel="next" title="@verb">
+<link href="_0040key.html" rel="prev" title="@key">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="g_t_0040samp">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040verb.html" accesskey="n" rel="next"><code class="code">@verb</code>{<var class="var">char</var><var class="var">text</var><var class="var">char</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040key.html" accesskey="p" rel="prev"><code class="code">@key</code>{<var class="var">nome-tecla</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Indicando.html" accesskey="u" rel="up">Indicando Definições, Comandos, etc.</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="g_t_0040samp_007btexto_007d"><span>6.1.5 <code class="code">@samp</code>{<var class="var">texto</var>}<a class="copiable-link" href="#g_t_0040samp_007btexto_007d"> &para;</a></span></h4>
+
+<a class="anchor" id="samp"></a><a class="index-entry-id" id="index-samp"></a>
+
+<p>Use o comando <code class="code">@samp</code> para indicar texto que seja um exemplo literal
+ou &lsquo;amostra&rsquo; de uma sequência de caracteres em um arquivo, cadeia de
+caracteres, padrão, etc.  Coloque o texto entre chaves.  O argumento aparece
+dentro de aspas simples; além disso, ele é impresso em uma fonte de largura
+fixa.
+</p>
+<div class="example">
+<pre class="example-preformatted">Para corresponder @samp{foo} no final da linha,
+use a expressão regular @samp{foo$}.
+</pre></div>
+
+<p>produz
+</p>
+<blockquote class="quotation">
+<p>Para corresponder &lsquo;<samp class="samp">foo</samp>&rsquo; no final da linha, use a expressão regular
+&lsquo;<samp class="samp">foo$</samp>&rsquo;.
+</p></blockquote>
+
+<p>Sempre que estiver se referindo a caracteres únicos, você deveria usar
+<code class="code">@samp</code>, a menos que <code class="code">@kbd</code> ou <code class="code">@key</code> sejam mais
+apropriados.  Além disso, você pode usar <code class="code">@samp</code> para declarações
+inteiras em C e para comandos inteiros do shell&mdash;nesse caso, <code class="code">@samp</code>
+frequentemente parece melhor que <code class="code">@code</code>.  Basicamente, <code class="code">@samp</code>
+é um pega tudo para o que não for coberto por <code class="code">@code</code>, <code class="code">@kbd</code>,
+<code class="code">@key</code>, <code class="code">@command</code>, etc.
+</p>
+<p>Somente inclua sinais de pontuação entre chaves se eles fizerem parte da
+sequência de caracteres que você estiver especificando.  Escreva sinais de
+pontuação fora das chaves se tais sinais de pontuação fizerem parte do texto
+em Inglês que envolva a sequência de caracteres.  Na frase seguinte, por
+exemplo, as vírgulas e pontos estão fora das chaves:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">Em Inglês, as vogais são @samp{a}, @samp{e},
+@samp{i}, @samp{o}, @samp{u}, e, ocasionalmente,
+@samp{y}.
+</pre></div></div>
+
+<p>Isso produz:
+</p>
+<blockquote class="quotation">
+<p>Em Inglês, as vogais são &lsquo;<samp class="samp">a</samp>&rsquo;, &lsquo;<samp class="samp">e</samp>&rsquo;, &lsquo;<samp class="samp">i</samp>&rsquo;, &lsquo;<samp class="samp">o</samp>&rsquo;, &lsquo;<samp class="samp">u</samp>&rsquo;,
+e, ocasionalmente, &lsquo;<samp class="samp">y</samp>&rsquo;.
+</p></blockquote>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040verb.html"><code class="code">@verb</code>{<var class="var">char</var><var class="var">text</var><var class="var">char</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040key.html"><code class="code">@key</code>{<var class="var">nome-tecla</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Indicando.html">Indicando Definições, Comandos, etc.</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

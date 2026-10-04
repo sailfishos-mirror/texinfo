@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@documentencoding (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Declarando a codificação de entrada.">
+<meta name="keywords" content="Declarando a codificação de entrada.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Internacionaliza_00e7_00e3o.html" rel="up" title="Internacionalização">
+<link href="_0040documentlanguage.html" rel="prev" title="@documentlanguage">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="g_t_0040documentencoding">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040documentlanguage.html" accesskey="p" rel="prev"><code class="code">@documentlanguage <var class="var">ll</var>[_<var class="var">cc</var>]</code>: Configurar o Idioma do Documento</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Internacionaliza_00e7_00e3o.html" accesskey="u" rel="up">Internacionalização</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="g_t_0040documentencoding-codifica_00e7_00e3o_003a-Configurar-Codifica_00e7_00e3o-de-Entrada"><span>15.2 <code class="code">@documentencoding <var class="var">codificação</var></code>: Configurar Codificação de Entrada<a class="copiable-link" href="#g_t_0040documentencoding-codifica_00e7_00e3o_003a-Configurar-Codifica_00e7_00e3o-de-Entrada"> &para;</a></span></h3>
+
+<a class="anchor" id="documentencoding"></a><a class="index-entry-id" id="index-documentencoding"></a>
+<a class="index-entry-id" id="index-Codificacao_002c-declarando"></a>
+<a class="index-entry-id" id="index-Codificacao-de-entrada_002c-declarando"></a>
+<a class="index-entry-id" id="index-Conjunto-de-caracteres_002c-declarando"></a>
+<a class="index-entry-id" id="index-Codificacao-de-entrada-do-documento"></a>
+
+<p>Por padrão, a codificação dos documentos de entrada e de saída é assumida
+ser UTF-8, a vasta codificação global de caracteres, expressa em baites de 8
+bits. UTF-8 é compatível com ASCII de 7 bits. É recomendado usar codificação
+UTF-8 para os manuais do Texinfo.
+</p>
+<p>O comando <code class="code">@documentencoding</code> declara a codificação de entrada do
+documento e também afeta a codificação da saída.  Escreva-o em uma linha
+dedicada, com uma especificação válida de codificação seguindo, perto do
+início do arquivo se tua codificação de documento não for a codificação
+padrão.
+</p>
+<div class="example">
+<pre class="example-preformatted">@documentencoding <var class="var">codificação</var>
+</pre></div>
+
+<p>UTF-8 deveria ser sempre a melhor escolha para a codificação.  O Texinfo
+ainda suporta codificações adicionais, principalmente para compatibilidade
+com manuais mais antigos<a class="footnote" id="DOCF8" href="#FOOT8"><sup>8</sup></a>:
+</p>
+<dl class="table">
+<dt><code class="code">US-ASCII</code></dt>
+<dd><p>Codificação de caracteres baseada no alfabeto inglês.
+</p>
+</dd>
+<dt><a id="index-Simbolo-do-euro-e-codificacoes"></a><span><code class="code">ISO-8859-1</code><a class="copiable-link" href="#index-Simbolo-do-euro-e-codificacoes"> &para;</a></span></dt>
+<dt><code class="code">ISO-8859-15</code></dt>
+<dt><code class="code">ISO-8859-2</code></dt>
+<dd><p>Essas especificam as codificações padrão pré UTF-8 para idiomas da Europa
+Ocidental (os dois primeiros) e da Europa Oriental (o terceiro),
+respectivamente.  A ISO 8859-15 substitui alguns caracteres pouco usados
+provenientes da 8859-1 (por exemplo, frações pré-compostas) por outros mais
+comumente necessários, como o símbolo do Euro (&euro;).
+</p>
+<p>Uma descrição completa das codificações está além do nosso escopo aqui; uma
+referência útil é <a class="uref" href="http://czyborra.com/charsets/iso8859.html">http://czyborra.com/charsets/iso8859.html</a>.
+</p>
+</dd>
+<dt><code class="code">koi8-r</code></dt>
+<dd><p>Essa foi a codificação comumente usada para o idioma russo antes da UTF-8.
+</p>
+</dd>
+<dt><code class="code">koi8-u</code></dt>
+<dd><p>Essa foi a codificação comumente usada para o idioma ucraniano antes da
+UTF-8.
+</p>
+</dd>
+</dl>
+
+<a class="index-entry-id" id="index-Secao-Variaveis-Locais_002c-para-codificacao"></a>
+<a class="index-entry-id" id="index-Saida-do-Info_002c-e-codificacao"></a>
+<p>Na saída do Info, uma seção assim chamada &lsquo;Local Variables&rsquo; (veja-se <a data-manual="emacs" href="https://www.gnu.org/software/emacs/manual/html_node/emacs/File-Variables.html#File-Variables">File
+Variables</a> em <cite class="cite">O Manual do GNU Emacs</cite>) é gerada incluindo a codificação
+da saída gerada.  Isso permite que leitores Info configurem a codificação
+apropriadamente.  Parece com algo assim:
+</p>
+<div class="example">
+<pre class="example-preformatted">Local Variables:
+coding: UTF-8
+End:
+</pre></div>
+
+<p>Por padrão, para saídas Info e de texto simples, <code class="command">texi2any</code> gera
+construções de acentos e caracteres especiais (como <code class="code">@'e</code>) como a
+sequência UTF-8 real ou caractere de 8 bits na codificação de saída, quando
+possível.  Se isso não for possível, ou se a opção
+<samp class="option">--disable-encoding</samp> for fornecida, uma transliteração ASCII será
+usada.
+</p>
+<a class="index-entry-id" id="index-Saida-HTML-codificacoes"></a>
+<a class="index-entry-id" id="index-http_002dequiv_002c-e-especificacao-de-conjunto-de-caracteres"></a>
+<a class="index-entry-id" id="index-Etiqueta-_003cmeta_003e-do-HTML_002c-e-especificacao-de-conjunto-de-caracteres"></a>
+<p>Na saída HTML, uma etiqueta &lsquo;<samp class="samp">&lt;meta&gt;</samp>&rsquo; é gerada, na seção &lsquo;<samp class="samp">&lt;head&gt;</samp>&rsquo;
+do HTML, que especifica a codificação da saída gerada.  Servidores web e
+navegadores cooperam para usar essas informações, de modo que a codificação
+correta seja usada para exibir a página, se suportada pelo sistema.  Isso se
+parece com isto:
+</p>
+<div class="example">
+<pre class="example-preformatted">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;
+     charset=utf-8&quot;&gt;
+</pre></div>
+
+<p>Na saída HTML e LaTeX, se <code class="code">OUTPUT_CHARACTERS</code> estiver configurada
+(veja-se <a class="pxref" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-para-M_00faltiplos-Formatos.html">Variáveis de Personalização para Múltiplos Formatos</a>), constructos
+de acentos e caracteres especiais, como <code class="code">@'e</code> ou <code class="code">``</code>, serão
+gerados como a sequência UTF-8 real ou caractere de 8 bits na codificação da
+saída gerada, onde possível. Caso contrário, entidades HTML serão usadas
+para esses caracteres no HTML, e macros LaTeX serão usadas em LaTeX.
+</p>
+<p>Na saída DocBook, se a codificação for diferente de UTF-8, um atributo
+<code class="code">encoding</code> será adicionado à declaração XML. Se
+<code class="code">OUTPUT_CHARACTERS</code> estiver configurada (veja-se <a class="pxref" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-para-M_00faltiplos-Formatos.html">Variáveis de Personalização para Múltiplos Formatos</a>), constructos de acentos, como
+<code class="code">@'e</code>, serão geradas como o caractere de 8 bits ou UTF-8 real na
+codificação da saída gerada, onde possível. Caso contrário, entidades XML
+serão usadas para esses constructos.
+</p>
+<a class="index-entry-id" id="index-Fontes-Computer-Modern"></a>
+<p>Na saída TeX, os caracteres que sejam suportados nas fontes Computer
+Modern padrão são produzidos adequadamente.  Por exemplo, isso significa
+usar acentos construídos em vez de glifos pré-compostos.  Usar um caractere
+ausente gera uma mensagem de aviso, assim como especificar uma codificação
+não implementada.
+</p>
+<p>Embora os sistemas modernos TeX suportem quase todos os conjuntos de
+comandos sequenciados em uso no mundo, esse suporte abrangente não está
+disponível no <samp class="file">texinfo.tex</samp>, e não é viável duplicar ou incorporar todo
+esse esforço.
+</p>
+<p>Na saída do LaTeX, o código que carrega o pacote &lsquo;<samp class="samp">inputenc</samp>&rsquo; é gerado
+baseado na codificação.  Isso, por si só, não garante que todos os
+caracteres provenientes do documento de entrada possam ser gerados
+posteriormente.  As fontes usadas no caso padrão deveriam abranger os glifos
+específicos do Texinfo, mas nem todos os possíveis caracteres codificados.
+Você possivelmente precise carregar fontes diferentes no preâmbulo e usar
+<code class="code">\DeclareUnicodeCharacter</code> com uma codificação UTF-8.  Por exemplo:
+</p><div class="example">
+<pre class="example-preformatted">@latex
+\DeclareUnicodeCharacter{017B}{\.Z}
+@end latex
+</pre></div>
+
+<p>Referências cruzadas entre arquivos Info em diferentes codificações de
+caracteres com caracteres não ASCII em nomes dos nós falham.  Nós
+recomendamos fortemente usar somente UTF-8 como a codificação para manuais
+com caracteres não ASCII nos destinos das referências cruzadas.
+</p>
+
+</div>
+<div class="footnotes-segment">
+<hr>
+<h4 class="footnotes-heading">Notas de Rodapé</h4>
+
+<h5 class="footnote-body-heading"><a id="FOOT8" href="#DOCF8">(8)</a></h5>
+<p><code class="command">texi2any</code> suporta mais
+codificações para manuais do Texinfo, potencialmente todas as codificações
+suportadas por Perl e iconv (veja-se <a data-manual="libc" href="https://www.gnu.org/software/libc/manual/html_node/Generic-Charset-Conversion.html#Generic-Charset-Conversion">Generic Charset Conversion</a> em <cite class="cite">A
+Biblioteca C GNU</cite>).  No entanto, o suporte em formatos de saída
+possivelmente seja insuficiente, especialmente para a saída LaTeX.</p>
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040documentlanguage.html"><code class="code">@documentlanguage <var class="var">ll</var>[_<var class="var">cc</var>]</code>: Configurar o Idioma do Documento</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Internacionaliza_00e7_00e3o.html">Internacionalização</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

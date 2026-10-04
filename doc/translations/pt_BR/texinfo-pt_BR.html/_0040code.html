@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@code (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Indicando código de programa.">
+<meta name="keywords" content="Indicando código de programa.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Indicando.html" rel="up" title="Indicando">
+<link href="_0040kbd.html" rel="next" title="@kbd">
+<link href="Real_00e7amento-_00datil.html" rel="prev" title="Realçamento Útil">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="g_t_0040code">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040kbd.html" accesskey="n" rel="next"><code class="code">@kbd</code>{<var class="var">caracteres-de-teclado</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Real_00e7amento-_00datil.html" accesskey="p" rel="prev">Comandos de Realçamento são Úteis</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Indicando.html" accesskey="u" rel="up">Indicando Definições, Comandos, etc.</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="g_t_0040code_007bc_00f3digo_002damostra_007d"><span>6.1.2 <code class="code">@code</code>{<var class="var">código-amostra</var>}<a class="copiable-link" href="#g_t_0040code_007bc_00f3digo_002damostra_007d"> &para;</a></span></h4>
+
+<a class="anchor" id="code"></a><a class="index-entry-id" id="index-code"></a>
+
+<a class="index-entry-id" id="index-Tokens-sintaticos_002c-indicando"></a>
+<p>Use o comando <code class="code">@code</code> para indicar texto que seja um pedaço de um
+programa e que consiste de tokens sintáticos inteiros.  Coloque o texto
+entre chaves.
+</p>
+<a class="index-entry-id" id="index-Expressoes-em-um-programa_002c-indicando"></a>
+<a class="index-entry-id" id="index-Palavras-chave_002c-indicando"></a>
+<a class="index-entry-id" id="index-Palavras-reservadas_002c-indicando"></a>
+<p>Assim, você deveria usar <code class="code">@code</code> para uma expressão em um programa,
+para o nome de uma variável ou função usada em um programa ou para uma
+palavra chave em uma linguagem de programação.
+</p>
+<p>Use <code class="code">@code</code> para nomes de comando em linguagens que remontam
+linguagens de programação, como Texinfo.  Por exemplo, <code class="code">@code</code> e
+<code class="code">@samp</code> são produzidos escrevendo-se &lsquo;<samp class="samp">@code{@@code}</samp>&rsquo; e
+&lsquo;<samp class="samp">@code{@@samp}</samp>&rsquo; no fonte Texinfo, respectivamente.
+</p>
+<a class="index-entry-id" id="index-Maiuscula_002c-nao-alterando-em-_0040code"></a>
+<p>É incorreto alterar a primeira letra de uma palavra dentro de um comando
+<code class="code">@code</code> quando ele aparecer no início de uma frase.  A maioria das
+linguagens de programação diferencia maiúsculas de minúsculas.  Em C, por
+exemplo, <code class="code">Printf</code> é diferente do identificador <code class="code">printf</code>, e
+possivelmente seja um erro de ortografia.  Mesmo em linguagens que não
+diferenciam maiúsculas de minúsculas, é confuso para um(a) leitor(a)
+humano(a) ver identificadores escritos de diferentes maneiras.  Escolha uma
+grafia e sempre a use.  Se não quiser iniciar uma frase com um nome de
+comando escrito todo em letras minúsculas, você deveria reorganizar a frase.
+</p>
+<p>O argumento <code class="code">@code</code> é tipografado em uma fonte de máquina de escrever
+(mono espaçada).  Por exemplo,
+</p>
+<div class="example">
+<pre class="example-preformatted">A função retorna @code{nulo}.
+</pre></div>
+
+<p>produz isto:
+</p>
+<blockquote class="quotation">
+<p>A função retorna <code class="code">nulo</code>.
+</p></blockquote>
+
+<p>Aqui estão alguns casos para os quais é preferível <em class="emph">não</em> se usar
+<code class="code">@code</code>:
+</p>
+<ul class="itemize mark-bullet">
+<li>Para nomes de comando de shell, como <code class="command">ls</code> (use <code class="code">@command</code>).
+
+</li><li>Para variáveis de ambiente, como <code class="env">TEXINPUTS</code> (use <code class="code">@env</code>).
+
+</li><li>Para opções de shell, como &lsquo;<samp class="samp">-c</samp>&rsquo;, quando tais opções sejam independentes
+(use <code class="code">@option</code>).
+
+</li><li>Um comando inteiro de shell frequentemente parece melhor se escrito
+usando-se <code class="code">@samp</code> em vez de <code class="code">@code</code>.  Nesse caso, a regra é
+escolher o formato mais agradável.
+
+</li><li>Para uma sequência de caracteres menor que um token sintático.  Por exemplo,
+se estiver escrevendo acerca de &lsquo;<samp class="samp">goto-ch</samp>&rsquo;, que apenas é parte do nome
+para a função <code class="code">goto-char</code> da Emacs Lisp, você deveria usar
+<code class="code">@samp</code>.
+
+</li><li>Em geral, quando escrever acerca dos caracteres usados em um token; por
+exemplo, não use <code class="code">@code</code> quando estiver explicando quais letras ou
+símbolos imprimíveis podem ser usados nos nomes das funções. (Use
+<code class="code">@samp</code>). Ainda, você não deveria usar <code class="code">@code</code> para marcar texto
+que seja considerado entrada para programas, a menos que a entrada seja
+escrita em uma linguagem que seja semelhante a uma linguagem de
+programação. Por exemplo, você não deveria usar <code class="code">@code</code> para os
+comandos de toques de teclas do GNU Emacs (use <code class="code">@kbd</code> em vez disso),
+embora você possa usar <code class="code">@code</code> para os nomes das funções da Emacs Lisp
+que os comandos de toques de teclas invocam.
+
+</li></ul>
+
+<p>Por padrão, TeX considerará quebrar linhas nos caracteres &lsquo;<samp class="samp">-</samp>&rsquo; e
+&lsquo;<samp class="samp">_</samp>&rsquo; dentro do <code class="code">@code</code> e comandos relacionados.  Isso pode ser
+controlado com <code class="code">@allowcodebreaks</code> (veja-se <a class="pxref" href="_0040allowcodebreaks.html"><code class="code">@allowcodebreaks</code>: Controle Quebras de Linha no <code class="code">@code</code></a>).
+Na saída gerada HTML, quebrar linhas depende inteiramente do comportamento
+do navegador.  Para Info, parece melhor nunca fazer tais quebras.
+</p>
+<p>Para Info e texto simples, as aspas normalmente são geradas em torno da
+saída gerada do comando <code class="code">@code</code> e comandos relacionados (por exemplo,
+<code class="code">@kbd</code>, <code class="code">@command</code>), exceto em contextos tipo máquina de
+escrever, como o ambiente <code class="code">@example</code> (veja-se <a class="pxref" href="_0040example.html"><code class="code">@example</code>: Texto de Exemplo</a>) e o
+<code class="code">@code</code> em si, etc.  Para controlar quais aspas são inseridas por
+<code class="command">texi2any</code> na saída gerada do &lsquo;<samp class="samp">@code</samp>&rsquo;, etc., vejam-se as
+variáveis de personalização <code class="code">OPEN_QUOTE_SYMBOL</code> e
+<code class="code">CLOSE_QUOTE_SYMBOL</code> (veja-se <a class="pxref" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-para-M_00faltiplos-Formatos.html">Variáveis de Personalização para Múltiplos Formatos</a>).
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040kbd.html"><code class="code">@kbd</code>{<var class="var">caracteres-de-teclado</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Real_00e7amento-_00datil.html">Comandos de Realçamento são Úteis</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Indicando.html">Indicando Definições, Comandos, etc.</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

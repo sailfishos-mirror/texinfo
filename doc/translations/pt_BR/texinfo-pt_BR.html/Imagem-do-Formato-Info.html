@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Imagem do Formato Info (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Imagem do Formato Info (GNU Texinfo 7.3)">
+<meta name="keywords" content="Imagem do Formato Info (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Especifica_00e7_00e3o-do-Formato-Info.html" rel="up" title="Especificação do Formato Info">
+<link href="Impress_00e3o-de-_00cdndice-do-Formato-Info.html" rel="next" title="Impressão de Índice do Formato Info">
+<link href="Menu-do-Formato-Info.html" rel="prev" title="Menu do Formato Info">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+pre.displaymath {font-style: italic; font-family: serif; display: flex; justify-content: center}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Imagem-do-Formato-Info">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Impress_00e3o-de-_00cdndice-do-Formato-Info.html" accesskey="n" rel="next">Formato Info: Impressão de Índice</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Menu-do-Formato-Info.html" accesskey="p" rel="prev">Formato Info: Menu</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Especifica_00e7_00e3o-do-Formato-Info.html" accesskey="u" rel="up">Especificação do Formato Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Formato-Info_003a-Imagem"><span>F.8 Formato Info: Imagem<a class="copiable-link" href="#Formato-Info_003a-Imagem"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Imagens-no-formato-Info"></a>
+
+<p>O comando <code class="code">@image</code> resulta na seguinte diretiva especial dentro do
+arquivo Info (veja-se <a class="pxref" href="Imagens.html">Inserindo Imagens</a>):
+</p>
+<div class="example">
+<pre class="example-preformatted">    &lt;image&gt; =
+^@^H[image src=&quot;&lt;arquivo da imagem&gt;&quot;
+            (dpi=&lt;dpi&gt;)?
+            (depth=&lt;profundidade&gt;)?
+            (text=&quot;&lt;conteúdo do arquivo de texto&gt;&quot;)?
+            (alt=&quot;&lt;texto alternativo&gt;&quot;)?
+^@^H]
+</pre></div>
+
+<p>As quebras de linha e recuos nessa descrição são editoriais; o espaço em
+branco entre as diferentes partes da diretiva nos arquivos Info é
+arbitrário.
+</p>
+<p>Nas strings <code class="t">&lt;arquivo de imagem&gt;</code>, <code class="t">&lt;conteúdo do arquivo de texto&gt;</code> e
+<code class="t">&lt;texto alternativo&gt;</code>, &lsquo;<samp class="samp">&quot;</samp>&rsquo; é aspeado como &lsquo;<samp class="samp">\&quot;</samp>&rsquo; e &lsquo;<samp class="samp">\</samp>&rsquo; é
+aspeado como &lsquo;<samp class="samp">\\</samp>&rsquo;. As especificações de texto e de alternativo são
+opcionais.
+</p>
+<p>O valor de <code class="t">alternativo</code> serve ao mesmo propósito que no HTML: uma
+descrição em prosa da imagem. Em exibições somente de texto ou sistemas de
+fala, por exemplo, o valor de <code class="t">alternativo</code> pode ser usado em vez de
+exibir o <code class="t">&lt;arquivo de imagem&gt;</code> (tipicamente gráfico).
+</p>
+<p>O <code class="t">&lt;conteúdo do arquivo de texto&gt;</code>, se presente, deveria ser considerado
+uma representação ASCII da imagem, para possível uso em uma exibição somente
+de texto.
+</p>
+<p>O formato não prescreve a escolha entre exibir o <code class="t">&lt;arquivo de imagem&gt;</code>, o
+<code class="t">&lt;texto alternativo&gt;</code> ou o <code class="t">&lt;conteúdo do arquivo de texto&gt;</code>.
+</p>
+<p>As opções <code class="t">dpi</code> e <code class="t">depth</code> são geradas somente para a variável
+experimental &lsquo;<samp class="samp">INFO_MATH_IMAGES</samp>&rsquo; do <code class="command">texi2any</code> (veja-se <a class="pxref" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-Info-e-de-Texto-Simples.html">Variáveis de Personalização do Info e de Texto Simples</a>).
+</p>
+<p><code class="t">dpi</code> fornece os pontos por polegada (<em class="dfn">DPI</em>) da imagem. Programas de
+visualização do Info poderiam usar isso para dimensionar a imagem, de modo
+que ela tenha um tamanho apropriado para o texto ao redor. Aqui está uma
+fórmula possível para a altura de uma imagem em pixeis:
+</p>
+<pre class="displaymath">h_{<span class="r">exibir</span>} = (h_{<span class="r">arquivo</span>} / dpi) * (72.27/10) * f
+</pre>
+<p>Aqui, <em class="math">h_{<span class="r">exibir</span>}</em> é a altura em pixeis na qual se exibir a imagem,
+<em class="math">h_{<span class="r">arquivo</span>}</em> é a altura em pixeis da imagem sem escala, <em class="math">dpi</em>
+é o DPI proveniente do arquivo Info e <em class="math">f</em> é o tamanho da fonte em
+pixeis da fonte usada atualmente.
+</p>
+<p>O 72,27 nessa fórmula é o número de pontos em uma polegada (conforme usado
+pelo TeX). O 10 é o tamanho de fonte padrão 10 <span class="dmn">point</span> do TeX, em
+outras palavras, o tamanho de 1 em. O quociente (72,27/10) fornece o número
+de ems por polegada e converte a altura da imagem em polegadas para a altura
+da imagem em ems.
+</p>
+<p><code class="t">depth</code> fornece a profundidade da imagem abaixo da linha de base, em
+pixeis da imagem (antes do dimensionamento). Programas de visualização
+deveriam usá-lo para deslocar a imagem para baixo para alinhá-la
+adequadamente com o texto ao redor.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Impress_00e3o-de-_00cdndice-do-Formato-Info.html">Formato Info: Impressão de Índice</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Menu-do-Formato-Info.html">Formato Info: Menu</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Especifica_00e7_00e3o-do-Formato-Info.html">Especificação do Formato Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Imprimindo Japonês e Chinês (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="XeTeX ou LuaTeX exigidos.">
+<meta name="keywords" content="XeTeX ou LuaTeX exigidos.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Impresso-com-TeX.html" rel="up" title="Impresso com TeX">
+<link href="hboxes-lotados.html" rel="prev" title="hboxes lotados">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Imprimindo-Japon_00eas-e-Chin_00eas">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="hboxes-lotados.html" accesskey="p" rel="prev">&ldquo;hboxes&rdquo; lotados</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Impresso-com-TeX.html" accesskey="u" rel="up">Formatando e Imprimindo com TeX</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Imprimindo-Japon_00eas-e-Chin_00eas-1"><span>19.6 Imprimindo Japonês e Chinês<a class="copiable-link" href="#Imprimindo-Japon_00eas-e-Chin_00eas-1"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Idioma-chines"></a>
+<a class="index-entry-id" id="index-Idioma-japones"></a>
+<p>Texinfo vem com arquivos de suporte para processamento de entrada nos
+idiomas japonês e chinês.
+</p>
+<a class="index-entry-id" id="index-Japones-com-XeTeX"></a>
+<a class="index-entry-id" id="index-Japones-com-LuaTeX"></a>
+<p>Para japonês, você usa o arquivo <samp class="file">texinfo-ja.tex</samp>. Teu arquivo de
+entrada principal deveria começar com uma linha &lsquo;<samp class="samp">\input texinfo-ja</samp>&rsquo;, em
+vez da padrão &lsquo;<samp class="samp">\input&nbsp;texinfo</samp>&rsquo;<!-- /@w -->. Use a codificação de caracteres
+UTF-8 como de costume. Você precisa processar os arquivos ou com XeTeX ou
+com LuaTeX.
+</p>
+<a class="index-entry-id" id="index-Chines-com-XeTeX"></a>
+<p>Para chinês, você usa o arquivo <samp class="file">texinfo-zh.tex</samp>. Teu arquivo de
+entrada principal deveria começar com uma linha &lsquo;<samp class="samp">\input texinfo-zh</samp>&rsquo;, em
+vez da padrão &lsquo;<samp class="samp">\input&nbsp;texinfo</samp>&rsquo;<!-- /@w -->. Use a codificação de caracteres
+UTF-8 como de costume. Você precisa processar os arquivos com XeTeX.
+</p>
+<p>Por exemplo, você executaria &lsquo;<samp class="samp">PDFTEX=xetex texi2pdf
+<var class="var">meu-arquivo-entrada.texi</var></samp>&rsquo; para usar XeTeX para produzir saída em
+PDF. Você possivelmente tenha que instalar o XeTeX (ou o LuaTeX), o
+pacote &lsquo;<samp class="samp">zhspacing</samp>&rsquo; e(ou) pacotes de fontes.
+</p>
+<p>Nem o japonês nem o chinês são suportados com o programa padrão TeX (ou o
+pdfTeX), pois ele não suporta as fontes e milhares de glifos necessários
+para esses idiomas.
+</p>
+<p>A distribuição do Texinfo vem com alguns arquivos de amostra que você pode
+usar para testar o suporte para esses idiomas: &lsquo;<samp class="samp">short-sample-ja.texi</samp>&rsquo;
+para japonês e &lsquo;<samp class="samp">short-sample-zh.texi</samp>&rsquo; para chinês.
+</p>
+<a class="index-entry-id" id="index-XeTeX"></a>
+<a class="index-entry-id" id="index-LuaTeX"></a>
+<p>Para mais informações acerca dessas extensões para TeX, veja-se
+<a class="uref" href="https://tug.org/xetex/">a página inicial do XeTeX</a> e
+<a class="uref" href="https://www.luatex.org/">o site do LuaTeX</a>.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="hboxes-lotados.html">&ldquo;hboxes&rdquo; lotados</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Impresso-com-TeX.html">Formatando e Imprimindo com TeX</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

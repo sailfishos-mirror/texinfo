@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Gerando HTML (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Detalhes acerca da saída HTML.">
+<meta name="keywords" content="Detalhes acerca da saída HTML.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="index.html" rel="up" title="Top">
+<link href="Detalhes-do-Comando-_0040.html" rel="next" title="Detalhes do Comando @">
+<link href="Criando-e-Instalando-Arquivos-Info.html" rel="prev" title="Criando e Instalando Arquivos Info">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="chapter-level-extent" id="Gerando-HTML">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Detalhes-do-Comando-_0040.html" accesskey="n" rel="next">Detalhes do Comando @</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Criando-e-Instalando-Arquivos-Info.html" accesskey="p" rel="prev">Criando e Instalando Arquivos Info</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="index.html" accesskey="u" rel="up">Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h2 class="chapter" id="Gerando-HTML-1"><span>22 Gerando HTML<a class="copiable-link" href="#Gerando-HTML-1"> &para;</a></span></h2>
+
+<a class="index-entry-id" id="index-Gerando-HTML"></a>
+<a class="index-entry-id" id="index-Gerando-HTML-1"></a>
+
+<p><code class="command">texi2any</code> gera saída Info por padrão, mas dada a opção
+<samp class="option">--html</samp>, ele gerará HTML, para navegadores da web e outros
+programas. Este capítulo fornece alguns detalhes acerca dessa saída HTML.
+</p>
+<p><code class="command">texi2any</code> tem muitas variáveis de personalização definidas pelo(a)
+usuário(a) com as quais você consegue influenciar a saída
+HTML. Veja-se <a class="xref" href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html">Personalização da Saída Gerada HTML</a>. Em particular, existe
+suporte para realçamento de sintaxe no <code class="code">@example</code> (veja-se <a class="pxref" href="Real_00e7amento-de-Sintaxe.html">Realçamento de Sintaxe de Exemplos de Códigos no HTML</a>). Você também pode escrever os assim chamados <em class="dfn">arquivos de
+inicialização</em>, ou <em class="dfn">arquivos init</em> para abreviar, para modificar quase
+todos os aspectos da saída gerada HTML. Os arquivos de inicialização contêm
+código e são carregados por <samp class="option">--init-file</samp> (veja-se <a class="pxref" href="Invocando-texi2any.html">Invocando <code class="command">texi2any</code> a partir de um Shell</a>).
+</p>
+<p>Alguns arquivos de inicialização são mantidos com o Texinfo e instalados no
+caso padrão. Por exemplo, <samp class="file">chm.pm</samp> produz os arquivos comprimidos
+intermediários no formato Help do HTML que podem ser posteriormente
+convertidos para o formato CHM.
+</p>
+<p>A documentação da adaptação da saída HTML do <code class="command">texi2any</code> usando
+arquivos de personalização está em um manual separado. Veja-se <cite class="cite"><a data-manual="texi2any_api" href="https://www.gnu.org/software/texinfo/manual/texi2any_api/html_node/index.html">Personalização da Saída do <code class="command">texi2any</code> do GNU Texinfo</a></cite>.
+</p>
+
+<ul class="mini-toc">
+<li><a href="Tradu_00e7_00e3o-do-HTML.html" accesskey="1">Tradução do HTML</a></li>
+<li><a href="Dividindo-HTML.html" accesskey="2">Dividindo HTML</a></li>
+<li><a href="CSS-do-HTML.html" accesskey="3">CSS do HTML</a></li>
+<li><a href="_0040documentdescription.html" accesskey="4"><code class="code">@documentdescription</code>: Texto do Sumário</a></li>
+<li><a href="Gerando-EPUB.html" accesskey="5">Gerando EPUB</a></li>
+<li><a href="Real_00e7amento-de-Sintaxe.html" accesskey="6">Realçamento de Sintaxe de Exemplos de Códigos no HTML</a></li>
+<li><a href="Xref-do-HTML.html" accesskey="7">Referências Cruzadas do HTML</a></li>
+<li><a href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html" accesskey="8">Personalização da Saída Gerada HTML</a></li>
+</ul>
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Detalhes-do-Comando-_0040.html">Detalhes do Comando @</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Criando-e-Instalando-Arquivos-Info.html">Criando e Instalando Arquivos Info</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="index.html">Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Mostrando a Estrutura (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como mostrar a estrutura de um arquivo.">
+<meta name="keywords" content="Como mostrar a estrutura de um arquivo.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Modo-Texinfo.html" rel="up" title="Modo Texinfo">
+<link href="Atualizando-N_00f3s-e-Menus.html" rel="next" title="Atualizando Nós e Menus">
+<link href="Inserindo.html" rel="prev" title="Inserindo">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+kbd.kbd {font-style: oblique}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Mostrando-a-Estrutura">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Atualizando-N_00f3s-e-Menus.html" accesskey="n" rel="next">Atualizando Nós e Menus</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Inserindo.html" accesskey="p" rel="prev">Inserindo Comandos Frequentemente Usados</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Modo-Texinfo.html" accesskey="u" rel="up">Usando Modo Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Mostrando-a-Estrutura-de-Seccionamento-de-um-Arquivo"><span>D.4 Mostrando a Estrutura de Seccionamento de um Arquivo<a class="copiable-link" href="#Mostrando-a-Estrutura-de-Seccionamento-de-um-Arquivo"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Mostrando-a-estrutura-de-seccionamento-de-um-arquivo"></a>
+<a class="index-entry-id" id="index-Estrutura-de-seccionamento-de-um-arquivo_002c-mostrando"></a>
+<a class="index-entry-id" id="index-Estrutura-de-um-arquivo_002c-mostrando"></a>
+<a class="index-entry-id" id="index-Esboco-da-estrutura-do-arquivo_002c-mostrando"></a>
+<a class="index-entry-id" id="index-Esboco-semelhante-ao-conteudo-da-estrutura-do-arquivo"></a>
+<a class="index-entry-id" id="index-Estrutura-de-seccionamento-de-arquivo_002c-mostrando"></a>
+<a class="index-entry-id" id="index-Estrutura-de-seccionamento-de-arquivo-do-Texinfo_002c-mostrando"></a>
+
+<p>Você consegue mostrar a estrutura de seccionamento de um arquivo do Texinfo
+usando o comando <kbd class="kbd">C-c C-s</kbd> (<code class="code">texinfo-show-structure</code>). Esse comando
+lista as linhas que começam com os comandos @ para <code class="code">@chapter</code>,
+<code class="code">@section</code> e similares. Ele constrói o que equivale a um
+sumário. Essas linhas são exibidas em outro buffer chamado o buffer
+&lsquo;<samp class="samp">*Occur*</samp>&rsquo;. Nesse buffer, você consegue posicionar o cursor sobre uma
+das linhas e usar o comando <kbd class="kbd">C-c C-c</kbd>
+(<code class="code">occur-mode-goto-occurrence</code>), para pular para o local correspondente
+no arquivo do Texinfo.
+</p>
+<dl class="table">
+<dt><a id="index-texinfo_002dshow_002dstructure"></a><span><kbd class="kbd">C-c C-s</kbd><a class="copiable-link" href="#index-texinfo_002dshow_002dstructure"> &para;</a></span></dt>
+<dt><kbd class="kbd">M-x texinfo-show-structure</kbd></dt>
+<dd><p>Mostrar o <code class="code">@chapter</code>, <code class="code">@section</code> e outras linhas de um arquivo
+do Texinfo.
+</p>
+</dd>
+<dt><a id="index-occur_002dmode_002dgoto_002doccurrence"></a><span><kbd class="kbd">C-c C-c</kbd><a class="copiable-link" href="#index-occur_002dmode_002dgoto_002doccurrence"> &para;</a></span></dt>
+<dt><kbd class="kbd">M-x occur-mode-goto-occurrence</kbd></dt>
+<dd><p>Ir para a linha no arquivo do Texinfo correspondente à linha sob o cursor no
+buffer <samp class="file">*Occur*</samp>.
+</p></dd>
+</dl>
+
+<p>Se você chamar <code class="code">texinfo-show-structure</code> com um argumento de prefixo
+digitando <kbd class="kbd">C-u&nbsp;C-c&nbsp;C-s</kbd><!-- /@w -->, ele listará não apenas essas linhas com os
+comandos @ para <code class="code">@chapter</code>, <code class="code">@section</code> e similares, mas também
+as linhas <code class="code">@node</code>. Você consegue usar <code class="code">texinfo-show-structure</code>
+com um argumento de prefixo para verificar se os ponteiros &lsquo;Próximo&rsquo;,
+&lsquo;Anterior&rsquo; e &lsquo;Acima&rsquo; de uma linha <code class="code">@node</code> estão corretos.
+</p>
+<p>Frequentemente, quando estiver trabalhando em um manual, você estará
+interessado(a) somente na estrutura do capítulo atual. Nesse caso, você
+consegue marcar a região do buffer em que está interessado(a) usando o
+comando <kbd class="kbd">C-x n n</kbd> (<code class="code">narrow-to-region</code>) e
+<code class="code">texinfo-show-structure</code> funcionará apenas sobre essa região. Para ver
+o buffer inteiro novamente, use <kbd class="kbd">Cx&nbsp;n&nbsp;w</kbd><!-- /@w -->
+(<code class="code">widen</code>). (Veja-se <a data-manual="emacs" href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Estreitando.html#Estreitando">Estreitando</a> em <cite class="cite">O Manual do GNU Emacs</cite>, para
+mais informações acerca dos comandos de estreitamento).
+</p>
+<a class="index-entry-id" id="index-page_002ddelimiter"></a>
+<a class="index-entry-id" id="index-Delimitador-de-pagina-no-modo-Texinfo"></a>
+<p>Além de fornecer o comando <code class="code">texinfo-show-structure</code>, o modo Texinfo
+configura o valor da variável delimitadora de página para corresponder aos
+comandos @ de nível de capítulo. Isso te habilita a usar os comandos
+<kbd class="kbd">C-x ]</kbd> (<code class="code">forward-page</code>) e <kbd class="kbd">C-x [</kbd> (<code class="code">backward-page</code>) para
+avançar e retroceder por capítulo, e a usar o comando <kbd class="kbd">C-x n p</kbd>
+(<code class="code">narrow-to-page</code>) para restringir a um capítulo. Veja-se <a data-manual="emacs" href="https://www.gnu.org/software/emacs/manual/html_node/emacs/P_00e1ginas.html#P_00e1ginas">Páginas</a> em <cite class="cite">O Manual do GNU Emacs</cite>, para mais informações acerca dos comandos de
+página.
+</p>
+
+<ul class="mini-toc">
+<li><a href="Usando-texinfo_002dshow_002dstructure.html" accesskey="1">Usando <code class="code">texinfo-show-structure</code></a></li>
+<li><a href="Usando-occur.html" accesskey="2">Usando <code class="code">occur</code></a></li>
+</ul>
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Atualizando-N_00f3s-e-Menus.html">Atualizando Nós e Menus</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Inserindo.html">Inserindo Comandos Frequentemente Usados</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Modo-Texinfo.html">Usando Modo Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

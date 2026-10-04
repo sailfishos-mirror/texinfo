@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Variáveis de Personalização da MathJax (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Variáveis de Personalização da MathJax (GNU Texinfo 7.3)">
+<meta name="keywords" content="Variáveis de Personalização da MathJax (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Personaliza_00e7_00e3o-do-HTML-para-Matem_00e1tica.html" rel="up" title="Personalização do HTML para Matemática">
+<link href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-latex2html.html" rel="next" title="Variáveis de Personalização do latex2html">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsubsection-level-extent" id="Vari_00e1veis-de-Personaliza_00e7_00e3o-da-MathJax">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-latex2html.html" accesskey="n" rel="next">Variáveis de Personalização do <code class="command">latex2html</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-do-HTML-para-Matem_00e1tica.html" accesskey="u" rel="up">Personalização do HTML para Matemática</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsubsection" id="Vari_00e1veis-de-Personaliza_00e7_00e3o-da-MathJax-1"><span>22.8.7.1 Variáveis de Personalização da MathJax<a class="copiable-link" href="#Vari_00e1veis-de-Personaliza_00e7_00e3o-da-MathJax-1"> &para;</a></span></h4>
+
+<p>Esta tabela lista as variáveis de personalização que podem ser usadas quando
+MathJax estiver sendo usado, o que será o caso quando <code class="code">HTML_MATH</code>
+estiver configurada como &lsquo;<samp class="samp">mathjax</samp>&rsquo;.
+</p>
+<dl class="vtable">
+<dt><a id="index-MATHJAX_005fCONFIGURATION"></a><span><code class="code">MATHJAX_CONFIGURATION</code><a class="copiable-link" href="#index-MATHJAX_005fCONFIGURATION"> &para;</a></span></dt>
+<dd><p>Dados a adicionar-se ao objeto de configuração global
+&lsquo;<samp class="samp">MathJax</samp>&rsquo;. Especifique como uma lista separada por vírgulas de pares de
+<code class="code"><var class="var">componente</var>: { <var class="var">nome</var>: <var class="var">valor</var>, &hellip; }</code>.
+</p>
+<p>Por exemplo, você poderia configurar <code class="code">MATHJAX_CONFIGURATION</code> para
+</p>
+<div class="example">
+<pre class="example-preformatted">opções: { enableMenu: falso },
+carregador: {
+    carregar: [\'[tex]/physics\'],
+    versionWarnings: falso
+},
+tex: {
+  pacotes: {\'[+]\': [\'physics\']}
+}
+</pre></div>
+
+<p>para desabilitar o menu do clique direito da MathJax e para carregar a
+extensão <code class="code">physics</code> da MathJax. (Veja-se
+<a class="uref" href="https://docs.mathjax.org/en/latest/options/index.html">Configurando
+MathJax</a> na documentação da MathJax).
+</p>
+<p>Se você substituir qualquer um dos padrões para essa configuração gerada
+pelo <code class="command">texi2any</code>, você deveria certificar-se de que tuas novas
+configurações alinhem-se com a saída HTML produzida pelo <code class="command">texi2any</code>.
+</p>
+</dd>
+<dt><a id="index-MATHJAX_005fSCRIPT"></a><span><code class="code">MATHJAX_SCRIPT</code><a class="copiable-link" href="#index-MATHJAX_005fSCRIPT"> &para;</a></span></dt>
+<dd><p>URL do arquivo do componente MathJax (por exemplo <samp class="file">tex-svg.js</samp>) que
+você estiver usando. <code class="command">texi2any</code> fornece um valor padrão para essa
+variável, mas você é incentivado(a) a hospedar você mesmo(a) esse arquivo em
+teu sítio da web, de forma que não dependa da hospedagem de terceiros(as).
+</p>
+</dd>
+<dt><a id="index-MATHJAX_005fSOURCE"></a><span><code class="code">MATHJAX_SOURCE</code><a class="copiable-link" href="#index-MATHJAX_005fSOURCE"> &para;</a></span></dt>
+<dd><p>Uma URL do código-fonte completo na forma dela preferida para modificação,
+ou instruções para obter tal código-fonte, para o arquivo do componente
+nomeado por <code class="code">MATHJAX_SCRIPT</code>. &lsquo;Forma preferida para modificação&rsquo;
+significa que essa não deveria estar em uma forma &lsquo;minificada&rsquo;. Usada na
+página de rótulos de licença (veja-se <a class="pxref" href="Interface-e-Licen_00e7as-JavaScript.html#R_00f3tulos-web-de-licen_00e7a-JavaScript">Rótulos web de licença JavaScript</a>).
+</p>
+<p>Novamente, <code class="command">texi2any</code> fornece um valor padrão para essa variável,
+mas você é incentivado(a) a hospedar você mesmo(a) o código-fonte para
+MathJax e as dependências dele. Isso é para a finalidade de tornar o
+código-fonte disponível confiavelmente e para reduzir tua dependência e a de
+teus usuários(as) dos sistemas de distribuição de terceiros(as).
+</p></dd>
+</dl>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-latex2html.html">Variáveis de Personalização do <code class="command">latex2html</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-do-HTML-para-Matem_00e1tica.html">Personalização do HTML para Matemática</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

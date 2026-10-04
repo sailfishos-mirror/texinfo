@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Página de Título e Página de Copirraite (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Criação das páginas de título e de direitos autorais.">
+<meta name="keywords" content="Criação das páginas de título e de direitos autorais.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Escrevendo-um-Arquivo-do-Texinfo.html" rel="up" title="Escrevendo um Arquivo do Texinfo">
+<link href="Conte_00fado.html" rel="next" title="Conteúdo">
+<link href="Permiss_00f5es-do-Documento.html" rel="prev" title="Permissões do Documento">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="P_00e1gina-de-T_00edtulo-e-P_00e1gina-de-Copirraite">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Conte_00fado.html" accesskey="n" rel="next">Gerando um Sumário</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Permiss_00f5es-do-Documento.html" accesskey="p" rel="prev">Permissões do Documento</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Escrevendo-um-Arquivo-do-Texinfo.html" accesskey="u" rel="up">Escrevendo um Arquivo do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="P_00e1ginas-de-T_00edtulo-e-de-Direitos-Autorais"><span>2.8 Páginas de Título e de Direitos Autorais<a class="copiable-link" href="#P_00e1ginas-de-T_00edtulo-e-de-Direitos-Autorais"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Pagina-de-direitos-autorais"></a>
+<a class="index-entry-id" id="index-Permissoes-impressas"></a>
+<a class="index-entry-id" id="index-Permissoes_002c-impressas"></a>
+<p>A primeira página de um livro impresso geralmente é a <em class="dfn">página de
+título</em>, a qual contém o nome do livro e o(a) autor(a). As informações de
+copirraite e de publicação geralmente são impressas na página seguinte; nós
+nos referimos a essa página como a <em class="dfn">página de copirraite</em>. Como essa
+está atrás (no verso) da página de título, essa página também é conhecida
+como o <em class="dfn">verso do título</em>.
+</p>
+<a class="index-entry-id" id="index-Metadados-de-documento"></a>
+<p>O Texinfo fornece comandos para você fornecer o título do documento,
+qualquer subtítulo, o nome do(a) autor(a) (ou nomes de vários(as)
+autores(as)) e informações de cópia e de publicação para o documento. Esses
+<em class="dfn">metadados</em> são usados para o conteúdo da página de título e da página
+de copirraite. Da mesma forma, essas informações aparecem na saída gerada,
+em alguma forma, para outros formatos de saída, mesmo se não exibidas como a
+página de título.
+</p>
+<p>O Texinfo fornece pelo menos três maneiras para fornecer esses metadados e
+para gerar as páginas de título e de copirraite, as quais estão descritas
+nas seguintes subseções.
+</p>
+<p>Em HTML, a melhor maneira de obter uma página de título semelhante a manuais
+impressos é a de configurar a variável de personalização
+<code class="code">NO_TOP_NODE_OUTPUT</code> (veja-se <a class="pxref" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-para-M_00faltiplos-Formatos.html#NO_005fTOP_005fNODE_005fOUTPUT"><code class="code">NO_TOP_NODE_OUTPUT</code></a>).
+</p>
+<a class="index-entry-id" id="index-shorttitlepage"></a>
+<a class="index-entry-id" id="index-Pagina-orfa-de-titulo"></a>
+<a class="index-entry-id" id="index-Pagina-de-titulo-orfa"></a>
+<p>Para documentos suficientemente simples, e para a página órfã de título na
+tradicional página preliminar de livro, o Texinfo também fornece um comando,
+<code class="code">@shorttitlepage</code>, que leva o restante da linha como o título. O
+argumento é tipografado em uma página própria e seguido por uma página em
+branco. No HTML, <code class="code">@shorttitlepage</code> consegue desempenhar o mesmo papel
+que <code class="code">@settitle</code>, se <code class="code">@settitle</code> não estiver
+configurado. Veja-se <a class="xref" href="_0040settitle.html"><code class="code">@settitle</code>: Configura o Título do Documento</a>.
+</p>
+
+<ul class="mini-toc">
+<li><a href="Metadados-de-Documento.html" accesskey="1">Metadados do Documento e o Comando <code class="code">@maketitle</code></a></li>
+<li><a href="_0040titlepage.html" accesskey="2"><code class="code">@titlepage</code></a></li>
+<li><a href="Vers_00e3o-P_00e1gina-de-T_00edtulo.html" accesskey="3">Exibindo a Versão ou a Edição na Página de Título</a></li>
+<li><a href="Gera_00e7_00e3o-de-T_00edtulos.html" accesskey="4">Geração de Títulos</a></li>
+</ul>
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Conte_00fado.html">Gerando um Sumário</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Permiss_00f5es-do-Documento.html">Permissões do Documento</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Escrevendo-um-Arquivo-do-Texinfo.html">Escrevendo um Arquivo do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Preâmbulo (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Início do arquivo do Texinfo até o primeiro conteúdo.">
+<meta name="keywords" content="Início do arquivo do Texinfo até o primeiro conteúdo.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Cabe_00e7alho-do-Arquivo-do-Texinfo.html" rel="up" title="Cabeçalho do Arquivo do Texinfo">
+<link href="In_00edcio-e-Fim-do-Cabe_00e7alho.html" rel="next" title="Início e Fim do Cabeçalho">
+<link href="_0040settitle.html" rel="prev" title="@settitle">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Pre_00e2mbulo">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="In_00edcio-e-Fim-do-Cabe_00e7alho.html" accesskey="n" rel="next">Início e Fim do Cabeçalho para Emacs</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040settitle.html" accesskey="p" rel="prev"><code class="code">@settitle</code>: Configura o Título do Documento</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Cabe_00e7alho-do-Arquivo-do-Texinfo.html" accesskey="u" rel="up">Cabeçalho do Arquivo do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Pre_00e2mbulo-1"><span>2.5.4 Preâmbulo<a class="copiable-link" href="#Pre_00e2mbulo-1"> &para;</a></span></h4>
+<a class="index-entry-id" id="index-Preambulo"></a>
+<a class="index-entry-id" id="index-Preambulo-do-Texinfo"></a>
+
+<p>O <em class="dfn">preâmbulo</em> começa no início do arquivo do Texinfo e continua até o
+primeiro material diretamente produzido. Ele tipicamente inclui o cabeçalho
+do arquivo (veja-se <a class="pxref" href="Cabe_00e7alho-do-Arquivo-do-Texinfo.html">Cabeçalho do Arquivo do Texinfo</a>), o bloco
+<code class="code">@copying</code> especificando as permissões do documento
+(veja-se <a class="pxref" href="_0040copying.html"><code class="code">@copying</code>: Declarar Permissões de Cópia</a>) e as especificações da página de título
+(veja-se <a class="pxref" href="P_00e1gina-de-T_00edtulo-e-P_00e1gina-de-Copirraite.html">Páginas de Título e de Direitos Autorais</a>).
+</p>
+<p>O preâmbulo pode conter comandos que afetam a formatação do documento como
+um todo, mas que não produzem saída, ou não produzem saída imediatamente,
+como <code class="code">@settitle</code> (veja-se <a class="pxref" href="_0040settitle.html"><code class="code">@settitle</code>: Configura o Título do Documento</a>),
+<code class="code">@documentlanguage</code>, (veja-se <a class="pxref" href="_0040documentlanguage.html"><code class="code">@documentlanguage <var class="var">ll</var>[_<var class="var">cc</var>]</code>: Configurar o Idioma do Documento</a>), comandos que
+definem os títulos, controlam o recuo ou a hifenização, ou o sumário
+(veja-se <a class="pxref" href="Conte_00fado.html">Gerando um Sumário</a>).
+</p>
+
+<p>Qualquer texto que inicia um parágrafo, comandos @ que são formatados como
+citações, tabelas, listas e assim por diante, e <code class="code">@node</code> (veja-se <a class="pxref" href="N_00f3s.html">Nós</a>)
+e comandos de estruturação de capítulos (veja-se <a class="pxref" href="Estruturamento-de-Cap_00edtulo.html">Estruturamento de Capítulo</a>)
+encerram o preâmbulo.
+</p>
+<p>O conceito de preâmbulo é significativo para a saída do LaTeX, pois a
+linha <code class="code">\begin{document}</code> é gerada no final do preâmbulo.
+</p>
+<p>Em texto simples, o preâmbulo é simplesmente gerado como de costume no
+início do documento; por exemplo, um <code class="code">@contents</code> no preâmbulo é gerado
+como o sumário (veja-se <a class="pxref" href="Conte_00fado.html">Gerando um Sumário</a>).  
+</p>
+<p>Também não existe muito tratamento especial do preâmbulo para saída HTML e
+Info. No entanto, algumas configurações atuais no finalzinho do preâmbulo
+podem ser usadas para o documento como um todo, independentemente do que se
+segue. Isso pode se aplicar a comandos que especificam o recuo ou o idioma
+(veja-se <a class="pxref" href="_0040documentlanguage.html"><code class="code">@documentlanguage <var class="var">ll</var>[_<var class="var">cc</var>]</code>: Configurar o Idioma do Documento</a>).
+</p>
+<p>Por exemplo, para o documento a seguir, os comentários de cópia de HTML e de
+Info são formatados com <code class="code">@documentlanguage</code> configurado como
+&lsquo;<samp class="samp">pt</samp>&rsquo;, pois é o último <code class="code">@documentlanguage</code> antes do final do
+preâmbulo.
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">\input texinfo
+@documentlanguage fr
+
+@copying
+A informação de cópia @error{} algum texto
+@end copying
+
+@documentlanguage pt
+
+Texto finalizando o preâmbulo
+
+@documentlanguage de
+
+@node Top
+
+</pre></div></div>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="In_00edcio-e-Fim-do-Cabe_00e7alho.html">Início e Fim do Cabeçalho para Emacs</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040settitle.html"><code class="code">@settitle</code>: Configura o Título do Documento</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Cabe_00e7alho-do-Arquivo-do-Texinfo.html">Cabeçalho do Arquivo do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

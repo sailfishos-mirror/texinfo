@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Personalização de Nomes de Arquivo e de Linques para HTML (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Personalização de Nomes de Arquivo e de Linques para HTML (GNU Texinfo 7.3)">
+<meta name="keywords" content="Personalização de Nomes de Arquivo e de Linques para HTML (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html" rel="up" title="Personalização da Saída Gerada HTML">
+<link href="Personaliza_00e7_00e3o-da-Navega_00e7_00e3o-e-de-Cabe_00e7alhos.html" rel="next" title="Personalização da Navegação e de Cabeçalhos">
+<link href="Personaliza_00e7_00e3o-da-Estrutura-da-Sa_00edda-Gerada-HTML.html" rel="prev" title="Personalização da Estrutura da Saída Gerada HTML">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+kbd.kbd {font-style: oblique}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Personaliza_00e7_00e3o-de-Nomes-de-Arquivo-e-de-Linques-para-HTML">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-da-Navega_00e7_00e3o-e-de-Cabe_00e7alhos.html" accesskey="n" rel="next">Personalização da Navegação e de Cabeçalhos</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-da-Estrutura-da-Sa_00edda-Gerada-HTML.html" accesskey="p" rel="prev">Personalização da Estrutura da Saída Gerada HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html" accesskey="u" rel="up">Personalização da Saída Gerada HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Personaliza_00e7_00e3o-de-Nomes-de-Arquivo-e-de-Linques-para-HTML-1"><span>22.8.2 Personalização de Nomes de Arquivo e de Linques para HTML<a class="copiable-link" href="#Personaliza_00e7_00e3o-de-Nomes-de-Arquivo-e-de-Linques-para-HTML-1"> &para;</a></span></h4>
+
+<p>Existem variáveis de personalização para controlar os nomes dos arquivos da
+saída gerada e para personalizar a saída de hiperlinques dentro dos arquivos
+da saída gerada.
+</p>
+
+<a class="index-entry-id" id="index-PREFIXO-para-HTML"></a>
+<a class="index-entry-id" id="index-SUBDIR-para-HTML"></a>
+<a class="index-entry-id" id="index-EXTENSAO-para-HTML"></a>
+<a class="index-entry-id" id="index-CASE_005fINSENSITIVE_005fFILENAMES"></a>
+<p>Você consegue especificar os nomes dos arquivos de saída com mais controle
+que meramente a opção de linha de comando <samp class="option">--output</samp>
+(veja-se <a class="pxref" href="Invocando-texi2any.html">Invocando <code class="command">texi2any</code> a partir de um Shell</a>). A variável de personalização
+<code class="code">PREFIX</code> substitui o nome base do arquivo fornecido por
+<code class="code">@setfilename</code>, ou o nome do arquivo, e deveria não conter quaisquer
+componentes de diretório. Para alterar diretórios intermediários, use a
+variável de personalização <code class="code">SUBDIR</code>. Finalmente, você também pode
+substituir a extensão com a variável de personalização
+<code class="code">EXTENSION</code>. Essa variável deveria ser <code class="code">undef</code> se nenhuma extensão
+for para ser adicionada. Se você configurar
+<code class="code">CASE_INSENSITIVE_FILENAMES</code>, os nomes dos arquivos serão construídos
+como se o sistema de arquivos fosse insensível a maiúsculas e
+minúsculas. Nesse caso, um nome de arquivo será usado para todos os
+arquivos, diferindo somente por maiúsculas e por minúsculas.
+</p>
+<a class="index-entry-id" id="index-TOP_005fFILE"></a>
+<p>Além disso, a variável de personalização <code class="code">TOP_FILE</code> substitui o nome do
+arquivo da saída gerada para o elemento superior. Isso, em geral, só é
+levado em conta quando a saída gerada for dividida.
+</p>
+<a class="index-entry-id" id="index-USE_005fACCESSKEY"></a>
+<p>Se <code class="code">USE_ACCESSKEY</code> estiver configurada, o atributo <code class="code">accesskey</code>
+será usado para fornecer atalhos de teclado em alguns hiperlinques de
+navegação. <kbd class="kbd">n</kbd> é usado para linques para o próximo nó ou seção, <kbd class="kbd">p</kbd>
+para linques para o nó ou seção anterior e <kbd class="kbd">u</kbd> para linques de direção
+ascendente. No caso padrão, o valor dessa variável de personalização é
+<code class="code">undef</code> e configurado automaticamente baseado na divisão do documento
+de saída, para evitar configurar <code class="code">accesskey</code> para vários valores na
+mesma página HTML (veja-se <a class="pxref" href="Dividindo-HTML.html">Dividindo HTML</a>).
+</p>
+
+
+<p>Existem variáveis de personalização que são específicas para tipos
+particulares de linques:
+</p>
+<dl class="table">
+<dt><a id="index-XREF_005fUSE_005fNODE_005fNAME_005fARG"></a><span><em class="emph">Linques de comandos de referência cruzada</em><a class="copiable-link" href="#index-XREF_005fUSE_005fNODE_005fNAME_005fARG"> &para;</a></span></dt>
+<dd><p>Se o segundo argumento de um comando de referência cruzada estiver
+configurado, ele será exibido como texto de hiperlinque (veja-se <a class="pxref" href="Dois-Argumentos.html"><code class="code">@xref</code> com Dois Argumentos</a>). Caso contrário, a variável de personalização
+<code class="code">XREF_USE_NODE_NAME_ARG</code> será usada para determinar o texto do
+hiperlinque. Se configurado como&nbsp;1, usar o (primeiro) argumento do nome
+do nó em comandos @ de referência cruzada para o texto exibido como o
+hiperlinque. Se configurado como&nbsp;0, usar o nome do nó se
+<code class="code">USE_NODES</code> estiver configurada; caso contrário, o nome da seção. Se
+configurado como &lsquo;<samp class="samp">undef</samp>&rsquo;, usar o primeiro argumento em ambientes
+pré-formatados, caso contrário, usar o nome do nó ou o nome da seção
+dependendo de <code class="code">USE_NODES</code>. O padrão é &lsquo;<samp class="samp">undef</samp>&rsquo;.
+</p>
+</dd>
+<dt><a id="index-XREF_005fUSE_005fFLOAT_005fLABEL"></a><span><em class="emph">Linques para flutuações</em><a class="copiable-link" href="#index-XREF_005fUSE_005fFLOAT_005fLABEL"> &para;</a></span></dt>
+<dd><p>Se você configurar <code class="code">XREF_USE_FLOAT_LABEL</code>(padrão é desligada), o rótulo
+flutuante será usado em vez do tipo seguido pelo número flutuante
+(veja-se <a class="pxref" href="_0040float.html"><code class="code">@float</code> [<var class="var">tipo</var>][,<var class="var">rótulo</var>]: Material Flutuante</a>).
+</p>
+</dd>
+<dt><a id="index-NODE_005fNAME_005fIN_005fINDEX"></a><span><em class="emph">Linques para nós ou para seções para entradas de índice</em><a class="copiable-link" href="#index-NODE_005fNAME_005fIN_005fINDEX"> &para;</a></span></dt>
+<dd><p>Na formatação de <code class="code">@printindex</code>, dois linques são gerados: um linque
+para a entrada do índice e um linque para o comando @ raiz que contém a
+entrada do índice. A variável de customização <code class="code">NODE_NAME_IN_INDEX</code>
+especifica se o nó ou seção deveria ser usado para o linque para o comando
+@ raiz. Se verdadeiro, usar nomes de nós nas entradas de índice; caso
+contrário, usar nomes de seção. Se indefinido, usar o valor de
+<code class="code">USE_NODES</code> para determinar qual comando @ raiz preferir. O padrão é
+indefinido.
+</p>
+</dd>
+<dt><a id="index-NODE_005fNAME_005fIN_005fMENU"></a><span><em class="emph">Linques de menu</em><a class="copiable-link" href="#index-NODE_005fNAME_005fIN_005fMENU"> &para;</a></span></dt>
+<dd><p>Os nomes dos nós são usados em linques de entradas de menu por
+padrão. Configurar <code class="code">NODE_NAME_IN_MENU</code> como falso para usar nomes de
+seção.
+</p>
+</dd>
+<dt><a id="index-SHORT_005fTOC_005fLINK_005fTO_005fTOC"></a><span><em class="emph">Linques de sumário</em><a class="copiable-link" href="#index-SHORT_005fTOC_005fLINK_005fTO_005fTOC"> &para;</a></span></dt>
+<dd><p>Se um Sumário principal e um Sumaríssimo estiverem presentes, as referências
+cruzadas no Sumaríssimo se lincarão às correspondentes entradas do Sumário
+no caso padrão. Configurar <code class="code">SHORT_TOC_LINK_TO_TOC</code> como 0 para lincar
+aos comandos de seccionamento.
+</p>
+<a class="index-entry-id" id="index-TOC_005fLINKS"></a>
+<p>Se você configurar <code class="code">TOC_LINKS</code>, linques de títulos para entradas do
+sumário serão criados; padrão falso.
+</p>
+</dd>
+<dt><a id="index-IGNORE_005fREF_005fTO_005fTOP_005fNODE_005fUP"></a><span><em class="emph">Linque de direção Acima do nó Topo</em><a class="copiable-link" href="#index-IGNORE_005fREF_005fTO_005fTOP_005fNODE_005fUP"> &para;</a></span></dt>
+<dd><p>Por padrão, nenhuma referência Acima é gerada para o nó Topo. Você pode
+configurar <code class="code">IGNORE_REF_TO_TOP_NODE_UP</code> para que quaisquer referências
+para o nó Acima de Topo (por padrão, &lsquo;<samp class="samp">(dir)</samp>&rsquo;) que aparecem em outras
+referências cruzadas também sejam
+ignoradas. <code class="code">IGNORE_REF_TO_TOP_NODE_UP</code> não está configurada no caso
+padrão. (Veja-se <a class="xref" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-para-M_00faltiplos-Formatos.html#TOP_005fNODE_005fUP">TOP_NODE_UP</a>).
+</p>
+<a class="index-entry-id" id="index-TOP_005fNODE_005fUP_005fURL"></a>
+<a class="index-entry-id" id="index-TOP_005fNODE_005fUP-para-HTML"></a>
+<p>Se o manual estiver referenciado em uma página web juntamente com outros
+manuais, possivelmente seja relevante lincar para essa página. Configure
+<code class="code">TOP_NODE_UP_URL</code> como o URL usado para nó Topo que Acima
+referenciar. Se <code class="code">TOP_NODE_UP_URL</code> for configurada, o valor de
+<code class="code">TOP_NODE_UP</code> será usado para o texto do hiperlinque, com &lsquo;<samp class="samp">(dir)</samp>&rsquo;
+como padrão. <code class="code">TOP_NODE_UP</code> pode ser usada no atributo, portanto deveria
+não conter nenhum elemento.
+</p>
+<p>Por exemplo, no projeto GNU <a class="url" href="https://www.gnu.org/manual/">https://www.gnu.org/manual/</a> coleta linques
+para a maioria dos manuais GNU; portanto, <code class="code">TOP_NODE_UP_URL</code> é melhor
+especificada como <code class="code">/manual/</code> se o manual for instalado em
+<code class="code">www.gnu.org</code>.
+</p>
+<p>Veja-se <a class="xref" href="Primeiro-N_00f3.html">O Primeiro Nó</a> para mais acerca dos ponteiros do nó Topo.
+</p>
+</dd>
+<dt><a id="index-IMAGE_005fLINK_005fPREFIX"></a><span><em class="emph">linques de imagens</em><a class="copiable-link" href="#index-IMAGE_005fLINK_005fPREFIX"> &para;</a></span></dt>
+<dd><p>Se <code class="code">IMAGE_LINK_PREFIX</code> estiver configurada, o valor associado será
+preposto aos linques do arquivo de imagem; padrão desconfigurada. Isso
+poderia ser útil se arquivos de imagens estiverem em um subdiretório
+específico.
+</p></dd>
+</dl>
+
+
+<a class="anchor" id="Personaliza_00e7_00e3o-da-Configura_00e7_00e3o-do-Xref-do-HTML"></a><p>As referências cruzadas entre manuais HTML são especificadas precisamente
+(veja-se <a class="pxref" href="Xref-do-HTML.html">Referências Cruzadas do HTML</a>). A personalização de locais de manuais é fornecida
+por meio dos arquivos <samp class="file">htmlxref.cnf</samp> e <samp class="file">htmlxref.d/*.cnf</samp>
+(veja-se <a class="pxref" href="Configura_00e7_00e3o-do-Xref-do-HTML.html">Configuração de Referência Cruzada do HTML</a>).
+</p>
+<a class="index-entry-id" id="index-CHECK_005fHTMLXREF"></a>
+<p>Diretórios e nomes de arquivo padrão são usados para referenciar
+cruzadamente manuais alvo não encontrados por meio da Configuração do Xref
+do HTML (veja-se <a class="pxref" href="B_00e1sicos-do-Linque-Xref-do-HTML.html">Básicos do Linque de Referência Cruzada do HTML</a>). Por padrão, um aviso é
+fornecido para cada manual externo que não esteja nos arquivos de
+configuração do Xref do HTML. Se não quiser avisos acerca de tais manuais,
+você deveria configurar <code class="code">CHECK_HTMLXREF</code> como &lsquo;<samp class="samp">0</samp>&rsquo;. Isso poderia
+ser relevante, por exemplo, se você souber que os manuais estão instalados
+localmente.
+</p>
+<a class="index-entry-id" id="index-HTMLXREF_005fMODE"></a>
+<a class="index-entry-id" id="index-HTMLXREF_005fFILE"></a>
+<a class="index-entry-id" id="index-EXTERNAL_005fCROSSREF_005fSPLIT"></a>
+<a class="index-entry-id" id="index-Referencias-cruzadas-do-HTML-personalizacao-de-configuracao"></a>
+<p>Você consegue usar variáveis de personalização para especificar a
+Configuração do Xref do HTML mais precisamente. Por padrão, o nome do
+arquivo usado para configuração do Xref do HTML e o diretório
+<samp class="file">htmlxref.d</samp> são pesquisados em diretórios, arquivos em
+<samp class="file">htmlxref.d</samp> com a extensão <samp class="file">.cnf</samp> e todos os arquivos usados para
+configuração do Xref do HTML encontrados serão usados. Você pode configurar
+a variável de personalização <code class="code">HTMLXREF_MODE</code> para modificar como as
+referências cruzadas para outras informações de manuais são determinadas. Se
+<code class="code">HTMLXREF_MODE</code> estiver configurada como &lsquo;<samp class="samp">file</samp>&rsquo;, o nome do arquivo
+será usado diretamente como a fonte da informação. Se <code class="code">HTMLXREF_MODE</code>
+estiver configurada como &lsquo;<samp class="samp">none</samp>&rsquo;, nenhuma informação será usada. O caso
+padrão é obtido com <code class="code">HTMLXREF_MODE</code> não definida ou configurada com
+qualquer outro valor. A variável de personalização <code class="code">HTMLXREF_FILE</code>
+configura o arquivo usado para configuração do Xref do HTML com um valor
+diferente do padrão, <samp class="file">htmlxref.cnf</samp>.  Se <code class="code">HTMLXREF_FILE</code> contiver
+diretórios, eles serão carregados se encontrados, mas não serão pesquisados
+nos diretórios. Por padrão, o manual distante é considerado estar dividido
+ou monolítico baseado na divisão do manual sendo produzido. Você pode
+configurá-lo explicitamente, configurando <code class="code">EXTERNAL_CROSSREF_SPLIT</code>.
+</p>
+<a class="index-entry-id" id="index-Personalizacao-de-referencias-cruzadas_002c-no-HTML"></a>
+<p>Existem também variáveis de personalização que modificam vários outros
+aspectos das referências cruzadas:
+</p>
+<ul class="itemize mark-bullet">
+<li><a class="index-entry-id" id="index-TOP_005fNODE_005fFILE_005fTARGET"></a>
+Você consegue configurar o nome do arquivo usado para o nó Topo em referências cruzadas por
+configurando o valor da variável de personalização
+<code class="code">TOP_NODE_FILE_TARGET</code>; padrão é <samp class="file">index.html</samp>.
+
+</li><li><a class="index-entry-id" id="index-EXTERNAL_005fDIR"></a>
+Você especifica um diretório base para externos
+manuais com <code class="code">EXTERNAL_DIR</code>; no caso padrão, não existe nenhum.
+
+</li><li><a class="index-entry-id" id="index-EXTERNAL_005fCROSSREF_005fEXTENSION"></a>
+Similarmente, você configura a extensão do arquivo para referenciar cruzadamente a outros
+manuais com <code class="code">EXTERNAL_CROSSREF_EXTENSION</code>. 
+
+</li></ul>
+
+<p>Entretanto, em geral, o uso dessas tornará referências entre manuais
+&ldquo;inválidas&rdquo; no sentido de que a URL gerada não lincará para o manual
+externo, a menos que esse manual fosse ele próprio produzido usando a
+personalização correspondente. Portanto, em geral, é melhor usar apenas a
+Configuração do Xref do HTML.
+</p>
+<a class="index-entry-id" id="index-BASEFILENAME_005fLENGTH"></a>
+<p>Você consegue mudar o comprimento máximo de um nome de arquivo base para
+referências cruzadas internas configurando <code class="code">BASEFILENAME_LENGTH</code>; por
+padrão, os nomes dos arquivos base são truncados para 245 caracteres.
+</p>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-da-Navega_00e7_00e3o-e-de-Cabe_00e7alhos.html">Personalização da Navegação e de Cabeçalhos</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-da-Estrutura-da-Sa_00edda-Gerada-HTML.html">Personalização da Estrutura da Saída Gerada HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html">Personalização da Saída Gerada HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Funções Tipadas (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Comandos para funções em linguagens tipadas.">
+<meta name="keywords" content="Comandos para funções em linguagens tipadas.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Comandos-de-Defini_00e7_00e3o-em-Detalhe.html" rel="up" title="Comandos de Definição em Detalhe">
+<link href="Comandos-de-Vari_00e1veis.html" rel="next" title="Comandos de Variáveis">
+<link href="Comandos-de-Fun_00e7_00f5es.html" rel="prev" title="Comandos de Funções">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+dt.def-line {font-size: 1rem}
+span:hover a.copiable-link {visibility: visible}
+strong.def-name {font-family: monospace; font-weight: bold}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Fun_00e7_00f5es-Tipadas">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Comandos-de-Vari_00e1veis.html" accesskey="n" rel="next">Variáveis e Entidades Similares</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Comandos-de-Fun_00e7_00f5es.html" accesskey="p" rel="prev">Funções e Entidades Similares</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Comandos-de-Defini_00e7_00e3o-em-Detalhe.html" accesskey="u" rel="up">Os Comandos de Definição</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Fun_00e7_00f5es-em-Linguagens-Tipadas"><span>14.6.2 Funções em Linguagens Tipadas<a class="copiable-link" href="#Fun_00e7_00f5es-em-Linguagens-Tipadas"> &para;</a></span></h4>
+
+<a class="index-entry-id" id="index-Funcoes-tipadas"></a>
+<a class="index-entry-id" id="index-Funcoes_002c-em-linguagens-tipadas"></a>
+
+<p>O comando <code class="code">@deftypefn</code> e as variantes dele são comandos genéricos para
+descrever funções.  Eles são particularmente adequados para linguagens nas
+quais você precisa declarar tipos de variáveis e funções, como C e C++.
+</p>
+<dl class="table">
+<dt><a id="index-deftypefn"></a><span><code class="code">@deftypefn <var class="var">categoria</var> <var class="var">tipo-dados</var> <var class="var">nome</var> <var class="var">argumentos</var>&hellip;</code><a class="copiable-link" href="#index-deftypefn"> &para;</a></span></dt>
+<dd><p>O comando <code class="code">@deftypefn</code> é o comando geral de definição para funções e
+entidades similares que podem receber argumentos e que poderiam ser
+tipadas.  O comando <code class="code">@deftypefn</code> é escrito no início de uma linha e é
+seguido na mesma linha pela categoria da entidade sendo descrita,
+informações acerca do valor retornado, o nome dessa entidade específica e os
+argumentos dela, se existirem.
+</p>
+<p>Por exemplo,
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@deftypefn {Função de Biblioteca} int foobar @
+  (int @var{foo}, float @var{bar})
+...
+@end deftypefn
+</pre></div></div>
+
+<p>produz:
+</p>
+<blockquote class="quotation">
+<dl class="first-deftypefn def-block">
+<dt class="deftypefn def-line" id="index-foobar-1"><span class="category-def">Função de Biblioteca: </span><span><code class="def-type">int</code> <strong class="def-name">foobar</strong> <code class="def-code-arguments">(int <var class="var">foo</var>, float <var class="var">bar</var>)</code><a class="copiable-link" href="#index-foobar-1"> &para;</a></span></dt>
+<dd><p>&hellip;
+</p></dd></dl>
+</blockquote>
+
+<p>Isso significa que <code class="code">foobar</code> é uma &ldquo;função de biblioteca&rdquo; que retorna
+um <code class="code">int</code>, e os argumentos dela são <var class="var">foo</var> (um <code class="code">int</code>) e
+<var class="var">bar</var> (um <code class="code">float</code>).  &lsquo;<samp class="samp">Função de Biblioteca</samp>&rsquo; tem de ser
+circundado por chaves para torná-lo um argumento unitário.
+</p>
+<p>Ao usar o comando <code class="code">@deftypefn</code> e variações, você deveria marcar os
+nomes dos parâmetros com <code class="code">@var</code> para distingui-los dos nomes de tipos
+de dados, de palavras-chave e de outras partes da sintaxe literal da
+linguagem de programação.
+</p>
+<p>Se você estiver descrevendo um procedimento em uma linguagem que tenha
+pacotes, como Ada, você pode considerar usar <code class="code">@deftypefn</code> da seguinte
+maneira:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@deftypefn pilhas privado push @
+       (@var{s}:in out stack; @
+       @var{n}:in integer)
+...
+@end deftypefn
+</pre></div></div>
+
+<p>(Nesses exemplos os argumentos de <code class="code">@deftypefn</code> são mostrados usando-se
+continuações (veja-se <a class="pxref" href="Linhas-de-Continua_00e7_00e3o-de-Comando-de-Defini_00e7_00e3o.html">Linhas de Continuação de Comando de Definição</a>), mas
+poderiam estar em uma linha).
+</p>
+<p>Nesse caso, o procedimento é classificado como pertencente ao pacote
+<code class="code">pilhas</code> em vez de classificado como um &lsquo;procedimento&rsquo; e o tipo de
+dados dele está descrito como <code class="code">privado</code>.  (O nome do procedimento é
+<code class="code">push</code>, e os argumentos dele são <var class="var">s</var> e <var class="var">n</var>).  Saída gerada:
+</p>
+<dl class="first-deftypefn def-block">
+<dt class="deftypefn def-line" id="index-push"><span class="category-def">pilhas: </span><span><code class="def-type">privado</code> <strong class="def-name">push</strong> <code class="def-code-arguments">(<var class="var">s</var>:in out stack; &nbsp;<var class="var">n</var>:in integer)  &hellip;</code><a class="copiable-link" href="#index-push"> &para;</a></span></dt>
+</dl>
+
+<p><code class="code">@deftypefn</code> e variantes poderiam ser usados quando for conveniente
+interpretar a lista de argumentos como código literal de computador,
+marcando os nomes dos argumentos com <code class="code">@var</code>.  Não é necessário para
+quaisquer nomes de tipo aparecer, e você pode fornecer um tipo de retorno
+vazio como &lsquo;<samp class="samp">{}</samp>&rsquo;.
+</p>
+
+<p>As informações acerca dos valores de retorno podem ser usadas para nomear as
+variáveis de retorno.  Por exemplo, na Perl, os escalares retornados podem
+receber os nomes <var class="var">$result</var> e <var class="var">$status</var> da seguinte maneira:
+</p>
+<div class="example">
+<pre class="example-preformatted">@deftypefn {Sub} {(@var{$resultado}, @var{$situação}) =} @
+                     process (@var{$entrada})
+... Configurar @var{$situação} para 0 no caso de falha ...
+@end deftypefn
+</pre></div>
+
+<p>para obter saída como
+</p>
+<dl class="first-deftypefn def-block">
+<dt class="deftypefn def-line" id="index-process"><span class="category-def">Sub: </span><span><code class="def-type">(<var class="var">$result</var>, <var class="var">$status</var>) =</code> <strong class="def-name">process</strong> <code class="def-code-arguments">(<var class="var">$input</var>)</code><a class="copiable-link" href="#index-process"> &para;</a></span></dt>
+<dd><p>&hellip; Set <var class="var">$status</var> to 0 in case of failure &hellip;
+</p></dd></dl>
+
+<p><code class="code">@deftypefn</code> cria uma entrada no índice de funções para <var class="var">nome</var>.
+</p>
+</dd>
+<dt><a id="index-deftypefun"></a><span><code class="code">@deftypefun <var class="var">tipo-dados</var> <var class="var">nome</var> <var class="var">argumentos</var>&hellip;</code><a class="copiable-link" href="#index-deftypefun"> &para;</a></span></dt>
+<dd><p>O comando <code class="code">@deftypefun</code> é o comando especializado de definição para
+funções.  O comando é equivalente a &lsquo;<samp class="samp">@deftypefn Função &hellip;</samp>&rsquo;.
+</p>
+<p><code class="code">@deftypefun</code> cria uma entrada no índice de funções para <var class="var">nome</var>.
+</p>
+</dd>
+</dl>
+
+<a class="index-entry-id" id="index-Tipo-de-retorno_002c-linha-propria-para"></a>
+<a class="index-entry-id" id="index-deftypefnnewline"></a>
+<p>Normalmente, o tipo de retorno é impresso na mesma linha que o nome da
+função e os argumentos, como mostrado acima.  No código-fonte, o estilo GNU
+para funções tipadas é o de colocar o tipo de retorno em uma linha
+dedicada.  Portanto, Texinfo fornece uma opção para fazer isso:
+<code class="code">@deftypefnnewline on</code>.
+</p>
+<p>Isso afeta somente funções genéricas&mdash;não funções não tipadas com
+argumentos simples, como <code class="code">@deffn</code>, variáveis não tipadas, e outras
+coisas.  Especificamente, afeta os comandos nesta seção e os comandos
+análogos para linguagens orientadas a objetos, ou seja, <code class="code">@deftypeop</code> e
+<code class="code">@deftypemethod</code> (veja-se <a class="pxref" href="M_00e9todos-Orientados-a-Objetos.html">Métodos Orientados a Objetos</a>).
+</p>
+<p>Especificar-se <code class="code">@deftypefnnewline off</code> reverte para o padrão.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Comandos-de-Vari_00e1veis.html">Variáveis e Entidades Similares</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Comandos-de-Fun_00e7_00f5es.html">Funções e Entidades Similares</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Comandos-de-Defini_00e7_00e3o-em-Detalhe.html">Os Comandos de Definição</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

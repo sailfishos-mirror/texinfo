@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Página de manual do pod2texi (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Invocação do pod2texi em um formato de página de">
+<meta name="keywords" content="Invocação do pod2texi em um formato de página de">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Invocando-pod2texi.html" rel="up" title="Invocando pod2texi">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="P_00e1gina-de-manual-do-pod2texi">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Invocando-pod2texi.html" accesskey="u" rel="up">Invocando <code class="command">pod2texi</code>: Converter Pod para Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<p>manual.
+</p><h4 class="subsection" id="pod2texi-1"><span>20.6.1 pod2texi<a class="copiable-link" href="#pod2texi-1"> &para;</a></span></h4>
+<a class="anchor" id="pod2texi"></a>
+<h4 class="subsubheading" id="NOME-do-pod2texi-1"><span>NOME do pod2texi<a class="copiable-link" href="#NOME-do-pod2texi-1"> &para;</a></span></h4>
+<a class="anchor" id="NOME-do-pod2texi"></a>
+<p>pod2texi - converter Pod para Texinfo
+</p>
+<h4 class="subsubheading" id="SINOPSE-do-pod2texi-1"><span>SINOPSE do pod2texi<a class="copiable-link" href="#SINOPSE-do-pod2texi-1"> &para;</a></span></h4>
+<a class="anchor" id="SINOPSE-do-pod2texi"></a>
+<pre class="verbatim">  pod2texi [OPÇÃO]... POD...
+</pre>
+<h4 class="subsubheading" id="DESCRI_00c7_00c3O-do-pod2texi-1"><span>DESCRIÇÃO do pod2texi<a class="copiable-link" href="#DESCRI_00c7_00c3O-do-pod2texi-1"> &para;</a></span></h4>
+<a class="anchor" id="DESCRI_00c7_00c3O-do-pod2texi"></a>
+<p>Traduzir arquivo(s) Pod para Texinfo. Existem dois modos básicos de
+operação. Primeiro, por padrão, cada Pod é traduzido para um manual Texinfo
+independente.
+</p>
+<p>Segundo, se <code class="code">--base-level</code> for configurado como superior a 0, cada Pod
+será traduzido para um arquivo adequado para <code class="code">@include</code>, e mais um
+arquivo com um menu principal e todo o <code class="code">@include</code> será gerado.
+</p>
+<h4 class="subsubheading" id="OP_00c7_00d5ES-do-pod2texi-1"><span>OPÇÕES do pod2texi<a class="copiable-link" href="#OP_00c7_00d5ES-do-pod2texi-1"> &para;</a></span></h4>
+<a class="anchor" id="OP_00c7_00d5ES-do-pod2texi"></a>
+<dl class="table">
+<dt><strong class="strong">--appendix-sections</strong></dt>
+<dd><a class="anchor" id="pod2texi-_002d_002dappendix_002dsections"></a>
+<p>Usar comandos de seccionamento de apêndice (<code class="code">@appendix</code>, ...) em vez
+dos comandos @ padrão do Texinfo de seccionamento numerados
+(<code class="code">@chapter</code>, <code class="code">@section</code>, ...).
+</p>
+</dd>
+<dt><strong class="strong">--base-level</strong>=<em class="emph">NUM|NOME</em></dt>
+<dd><a class="anchor" id="pod2texi-_002d_002dbase_002dlevel_003dNUM_007cNOME"></a>
+<p>Configura o nível dos comandos <code class="code">head1</code>. Pode ser um inteiro ou um
+comando do Texinfo de seccionamento (sem o <code class="code">@</code>): 1 corresponde ao
+nível <code class="code">@chapter</code>/<code class="code">@unnumbered</code>, 2 ao nível <code class="code">@section</code> e
+assim por diante. O padrão é 0, significando que os comandos <code class="code">head1</code>
+ainda são produzidos como capítulos, mas a saída gerada é organizada como um
+manual independente.
+</p>
+<p>Se o nível não for 0, o arquivo Pod será renderizado como um fragmento de um
+manual Texinfo adequado para <code class="code">@include</code>. Nesse caso, cada arquivo Pod
+terá um comando de seccionamento adicional cobrindo o arquivo inteiro, um
+nível acima do valor <code class="code">--base-level</code>. Portanto, para transformar cada
+arquivo Pod em um capítulo de um manual grande, você deveria usar
+<code class="code">section</code> como o nível base.
+</p>
+<p>Para um exemplo de como transformar o Texinfo a partir da própria
+documentação do Perl, veja-se <code class="code">contrib/perldoc-all</code> na distribuição do
+fonte do Texinfo.
+</p>
+</dd>
+<dt><strong class="strong">--debug</strong>=<em class="emph">NUM</em></dt>
+<dd><a class="anchor" id="pod2texi-_002d_002ddebug_003dNUM"></a>
+<p>Configurar nível de depuração como <em class="emph">NUM</em>.
+</p>
+</dd>
+<dt><strong class="strong">--generate-setfilename</strong></dt>
+<dd><a class="anchor" id="pod2texi-_002d_002dgenerate_002dsetfilename"></a>
+<p>Gerar uma linha <code class="code">@setfilename</code> para manuais independentes. Pode ser
+negado com <code class="code">--no-generate-setfilename</code>. Ignorado se <code class="code">--base-level</code>
+não for 0.
+</p>
+</dd>
+<dt><strong class="strong">--headings-as-sections</strong></dt>
+<dd><a class="anchor" id="pod2texi-_002d_002dheadings_002das_002dsections"></a>
+<p>Usar comandos de cabeçalhos (<code class="code">@heading</code>, ...) em vez dos comandos @
+padrão do Texinfo de seccionamento numerados (<code class="code">@chapter</code>,
+<code class="code">@section</code>, ...). O comando de seccionamento que cobre o arquivo
+inteiro gerado para cada arquivo Pod se
+<strong class="strong">--base-level</strong> não for 0 é um comando numerado.
+</p>
+</dd>
+<dt><strong class="strong">--help</strong></dt>
+<dd><a class="anchor" id="pod2texi-_002d_002dhelp"></a>
+<p>Exibir ajuda e sair.
+</p>
+</dd>
+<dt><strong class="strong">--menus</strong></dt>
+<dd><a class="anchor" id="pod2texi-_002d_002dmenus"></a>
+<p>Gerar menus do nó. Se existir um manual principal, o menu do nó Superior
+dele será sempre gerado, pois um menu mestre será gerado. Outros menus de
+nós não são gerados no caso padrão.
+</p>
+</dd>
+<dt><strong class="strong">--outdir</strong>=<em class="emph">NOME</em></dt>
+<dd><a class="anchor" id="pod2texi-_002d_002doutdir_003dNOME"></a>
+<p>Se existir um manual principal com arquivos de inclusão (cada um
+correspondendo a um arquivo Pod de entrada), então os arquivos Texinfo
+gerados serão colocados no diretório <em class="emph">NOME</em>. O padrão é baseado em
+<code class="code">--subdir</code>.
+</p>
+</dd>
+<dt><strong class="strong">--output</strong>=<em class="emph">NOME</em></dt>
+<dd><a class="anchor" id="pod2texi-_002d_002doutput_003dNOME"></a>
+<p>Nome para o primeiro manual ou para o manual principal, se existir um manual
+principal. O padrão é o de escrever na saída padrão.
+</p>
+</dd>
+<dt><strong class="strong">--no-section-nodes</strong></dt>
+<dd><a class="anchor" id="pod2texi-_002d_002dno_002dsection_002dnodes"></a>
+<p>Usar âncoras para seções em vez de nós.
+</p>
+</dd>
+<dt><strong class="strong">--no-fill-section-gaps</strong></dt>
+<dd><a class="anchor" id="pod2texi-_002d_002dno_002dfill_002dsection_002dgaps"></a>
+<p>Não preencher lacunas de seccionamento com arquivos <code class="code">@unnumbered</code>
+vazios. Normalmente, é bom manter intacta a hierarquia de seccionamento.
+</p>
+</dd>
+<dt><strong class="strong">--preamble</strong>=<em class="emph">STR</em></dt>
+<dd><a class="anchor" id="pod2texi-_002d_002dpreamble_003dSTR"></a>
+<p>Inserir <em class="emph">STR</em> como padrão superior antes do menu e de inclusões. Se
+<em class="emph">STR</em> for configurado como <code class="code">-</code>, ler o padrão superior a partir da
+entrada padrão. O padrão superior é um início mínimo para um documento do
+Texinfo.
+</p>
+</dd>
+<dt><strong class="strong">--setfilename</strong>=<em class="emph">STR</em></dt>
+<dd><a class="anchor" id="pod2texi-_002d_002dsetfilename_003dSTR"></a>
+<p>Usar <em class="emph">STR</em> no padrão superior antes do menu e de inclusões para
+<code class="code">@setfilename</code> para o manual principal, se <code class="code">--base-level</code> não
+estiver configurado como 0. Ignorado se <code class="code">--base-level</code> for 0. Nenhum
+<code class="code">@setfilename</code> será gerado no caso padrão para o manual principal.
+</p>
+</dd>
+<dt><strong class="strong">--subdir</strong>=<em class="emph">NOME</em></dt>
+<dd><a class="anchor" id="pod2texi-_002d_002dsubdir_003dNOME"></a>
+<p>Se existir um manual principal com arquivos de inclusão (cada um
+correspondendo a um arquivo Pod de entrada), então esses arquivos de
+inclusão serão incluídos a partir de <em class="emph">NAME</em>.
+</p>
+<p>Se <code class="code">--outdir</code> for configurado, <em class="emph">NOME</em> deveria, em geral, ser
+configurado para o diretório relativo entre o manual principal e o argumento
+<code class="code">--outdir</code>.
+</p>
+</dd>
+<dt><strong class="strong">--unnumbered-sections</strong></dt>
+<dd><a class="anchor" id="pod2texi-_002d_002dunnumbered_002dsections"></a>
+<p>Usar comandos de seccionamento não numerados (<code class="code">@unnumbered</code>, ...) em
+vez dos comandos @ de seccionamento numerados padrão do Texinfo
+(<code class="code">@chapter</code>, <code class="code">@section</code>, ...).
+</p>
+</dd>
+<dt><strong class="strong">--top</strong>=<em class="emph">TOP</em></dt>
+<dd><a class="anchor" id="pod2texi-_002d_002dtop_003dTOP"></a>
+<p>Nome do elemento <code class="code">@top</code> para o manual principal. Pode conter código
+Texinfo.
+</p>
+</dd>
+<dt><strong class="strong">--version</strong></dt>
+<dd><a class="anchor" id="pod2texi-_002d_002dversion"></a>
+<p>Exibir informações da versão e sair.
+</p>
+</dd>
+</dl>
+
+<h4 class="subsubheading" id="VEJA_002dSE-TAMB_00c9M-do-pod2texi-1"><span>VEJA-SE TAMBÉM do pod2texi<a class="copiable-link" href="#VEJA_002dSE-TAMB_00c9M-do-pod2texi-1"> &para;</a></span></h4>
+<a class="anchor" id="VEJA_002dSE-TAMB_00c9M-do-pod2texi"></a>
+<p><a class="url" href="https://www.gnu.org/software/texinfo/manual/Pod/Simple/Texinfo.html">Pod::Simple::Texinfo</a>. <a class="url" href="https://metacpan.org/pod/perlpod">perlpod</a>. O
+manual do Texinfo. Página inicial do Texinfo:
+<a class="url" href="https://www.gnu.org/software/texinfo/">https://www.gnu.org/software/texinfo/</a>
+</p>
+<h4 class="subsubheading" id="COPIRRAITE-E-LICEN_00c7A-do-pod2texi-1"><span>COPIRRAITE E LICENÇA do pod2texi<a class="copiable-link" href="#COPIRRAITE-E-LICEN_00c7A-do-pod2texi-1"> &para;</a></span></h4>
+<a class="anchor" id="COPIRRAITE-E-LICEN_00c7A-do-pod2texi"></a>
+<p>Copirraite 2012-2024 Free Software Foundation, Inc.
+</p>
+<p>Este programa é software livre; você pode redistribuí-lo e(ou) modificá-lo
+sob os termos da Licença Pública Geral GNU conforme publicada pela Free
+Software Foundation; ou a versão 3 da Licença ou, (a teu critério), qualquer
+versão posterior.
+</p>
+<p>NÃO EXISTE GARANTIA, na medida permitida pela legislação.
+</p>
+<h4 class="subsubheading" id="AUTOR-do-pod2texi-1"><span>AUTOR do pod2texi<a class="copiable-link" href="#AUTOR-do-pod2texi-1"> &para;</a></span></h4>
+<a class="anchor" id="AUTOR-do-pod2texi"></a>
+<p>Patrice Dumas &lt;bug-texinfo@gnu.org&gt;.
+</p>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Invocando-pod2texi.html">Invocando <code class="command">pod2texi</code>: Converter Pod para Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

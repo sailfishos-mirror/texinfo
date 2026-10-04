@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Formatação em Lote (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como formatar para Info no modo em lote do Emacs.">
+<meta name="keywords" content="Como formatar para Info no modo em lote do Emacs.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Modo-Texinfo.html" rel="up" title="Modo Texinfo">
+<link href="Capturando-Erros.html" rel="prev" title="Capturando Erros">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Formata_00e7_00e3o-em-Lote">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Capturando-Erros.html" accesskey="p" rel="prev">Capturando Erros</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Modo-Texinfo.html" accesskey="u" rel="up">Usando Modo Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Formata_00e7_00e3o-em-Lote-1"><span>D.11 Formatação em Lote<a class="copiable-link" href="#Formata_00e7_00e3o-em-Lote-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Formatacao-em-lote-para-Info"></a>
+<a class="index-entry-id" id="index-Formatacao-em-lote-do-Info"></a>
+
+<p>Você pode formatar arquivos do Texinfo para Info usando
+<code class="code">batch-texinfo-format</code> e modo de lote do Emacs. Você pode executar o
+Emacs em modo de lote a partir de qualquer shell, incluindo um shell dentro
+do Emacs. (Veja-se <a data-manual="emacs" href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Op_00e7_00f5es-Iniciais.html#Op_00e7_00f5es-Iniciais">Opções Iniciais</a> em <cite class="cite">O Manual do GNU Emacs</cite>).
+</p>
+<p>Aqui está um comando de shell para formatar todos os arquivos que terminem
+em <samp class="file">.texinfo</samp> no diretório atual:
+</p>
+<div class="example">
+<pre class="example-preformatted">emacs -batch -funcall batch-texinfo-format *.texinfo
+</pre></div>
+
+<p>O Emacs processa todos os arquivos listados na linha de comando, mesmo se um
+erro ocorrer enquanto tenta formatar alguns deles.
+</p>
+<p>Execute <code class="code">batch-texinfo-format</code> somente com Emacs em modo de lote
+conforme mostrado; ele não é interativo. Ele mata o modo de lote do Emacs
+após a conclusão.
+</p>
+<p><code class="code">batch-texinfo-format</code> é conveniente se você carecer do
+<code class="command">texi2any</code> e quiser formatar vários arquivos do Texinfo de uma
+vez. Ao usar o modo de Lote, você cria um novo processo do Emacs. Isso
+libera teu Emacs atual, de modo que você consiga continuar trabalhando
+nele. (Quando executar <code class="code">texinfo-format-region</code>, ou
+<code class="code">texinfo-format-buffer</code>, você não consegue usar esse Emacs para mais
+nada até que o comando termine).
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Capturando-Erros.html">Capturando Erros</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Modo-Texinfo.html">Usando Modo Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

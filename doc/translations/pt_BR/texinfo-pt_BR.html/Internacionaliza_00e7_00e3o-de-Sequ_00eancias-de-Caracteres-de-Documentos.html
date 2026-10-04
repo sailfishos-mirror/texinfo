@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Internacionalização de Sequências de Caracteres de Documentos (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Traduzindo texto inserido pelo programa.">
+<meta name="keywords" content="Traduzindo texto inserido pelo programa.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Tradutor-Gen_00e9rico-texi2any.html" rel="up" title="Tradutor Genérico texi2any">
+<link href="Invocando-pod2texi.html" rel="next" title="Invocando pod2texi">
+<link href="Vari_00e1veis-de-Personaliza_00e7_00e3o.html" rel="prev" title="Variáveis de Personalização">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Internacionaliza_00e7_00e3o-de-Sequ_00eancias-de-Caracteres-de-Documentos">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Invocando-pod2texi.html" accesskey="n" rel="next">Invocando <code class="command">pod2texi</code>: Converter Pod para Texinfo</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o.html" accesskey="p" rel="prev">Variáveis de Personalização</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Tradutor-Gen_00e9rico-texi2any.html" accesskey="u" rel="up"><code class="command">texi2any</code>: O Tradutor para Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Internacionaliza_00e7_00e3o-de-Sequ_00eancias-de-Caracteres-de-Documentos-1"><span>20.5 Internacionalização de Sequências de Caracteres de Documentos<a class="copiable-link" href="#Internacionaliza_00e7_00e3o-de-Sequ_00eancias-de-Caracteres-de-Documentos-1"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-I18n_002c-de-strings-do-documento"></a>
+<a class="index-entry-id" id="index-Internacionalizacao-de-strings-do-documento"></a>
+<a class="index-entry-id" id="index-Strings-do-documento_002c-internacionalizacao-de"></a>
+<a class="index-entry-id" id="index-Strings-do-documento-de-saida_002c-internacionalizacao-de"></a>
+<a class="index-entry-id" id="index-Traduzindo-strings-nos-documentos-de-saida"></a>
+
+<a class="index-entry-id" id="index-documentlanguage-variavel-de-personalizacao"></a>
+<p><code class="command">texi2any</code> escreve sequências fixas de caracteres no documento de
+saída em vários locais: referências cruzadas, rodapés de páginas, a página
+de ajuda, texto alternativo para imagens e assim por diante. A sequência de
+caracteres escolhida depende do valor de <code class="code">documentlanguage</code> ao tempo da
+sequência de caracteres sendo gerada (veja-se <a class="pxref" href="_0040documentlanguage.html"><code class="code">@documentlanguage <var class="var">ll</var>[_<var class="var">cc</var>]</code>: Configurar o Idioma do Documento</a>,
+para a interface de comando do Texinfo).
+</p>
+<a class="index-entry-id" id="index-texinfo_005fdocument-Dominio-do-Gettext"></a>
+<a class="index-entry-id" id="index-Strings-do-formato-Perl-para-traducao"></a>
+<p>A estrutura Gettext com o domínio &lsquo;<samp class="samp">texinfo_document</samp>&rsquo; é usada para essas
+sequências de caracteres (veja-se <a data-manual="gettext" href="https://www.gnu.org/software/gettext/manual/html_node/Topo.html#Topo">Topo</a> em <cite class="cite">Gettext</cite>). Sequências de
+caracteres traduzidas são escritas como Texinfo e podem incluir comandos
+@. Em sequências de caracteres traduzidas, as partes variáveis da sequência
+de caracteres são denotadas por &lsquo;<samp class="samp">{arg_name}</samp>&rsquo;, mas não por <code class="code">%s</code> e
+similares. (Essa convenção é comum para o <code class="code">gettext</code> em Perl e é
+totalmente suportada no GNU Gettext; veja-se <a data-manual="gettext" href="https://www.gnu.org/software/gettext/manual/html_node/perl_002dformat.html#perl_002dformat">Sequências de
+Caracteres de Formato da Perl</a> em <cite class="cite">GNU Gettext</cite>). Por exemplo, a
+seguir, &lsquo;<samp class="samp">{section}</samp>&rsquo; será substituído pelo nome da seção:
+</p>
+<div class="example">
+<pre class="example-preformatted">veja-se {section}
+</pre></div>
+
+
+<p>A expansão de uma sequência de caracteres de tradução é feita assim:
+</p>
+<ol class="enumerate">
+<li> Primeiro, a sequência de caracteres é traduzida. A localidade
+é <var class="var">idiomadocumento</var><code class="code">.</code><var class="var">codificaçãodocumento</var>.
+
+<p>Se a <var class="var">idiomadocumento</var> tiver a forma &lsquo;<samp class="samp">ll_CC</samp>&rsquo;, isso será tentado
+primeiro e depois apenas &lsquo;<samp class="samp">ll</samp>&rsquo;.
+</p>
+</li><li> A seguir, na maioria dos casos, a sequência de caracteres será expandida como Texinfo e convertida.
+Os argumentos são substituídos; por exemplo, &lsquo;<samp class="samp">{arg_name}</samp>&rsquo; é
+substituído pelo argumento real correspondente.
+
+<p>Também é possível que a sequência de caracteres e o argumento já estejam
+convertidos. Nesse caso, os argumentos simplesmente são
+substituídos. Similarmente, &lsquo;<samp class="samp">{arg_name}</samp>&rsquo; é substituído pelo argumento
+real correspondente.
+</p>
+</li></ol>
+
+<p>No exemplo a seguir, &lsquo;<samp class="samp">{date}</samp>&rsquo;, &lsquo;<samp class="samp">{program_homepage}</samp>&rsquo; e
+&lsquo;<samp class="samp">{program}</samp>&rsquo; são os argumentos da sequência de caracteres. Como são
+usados no <code class="code">@uref</code>, a ordem deles não é previsível. &lsquo;<samp class="samp">{date}</samp>&rsquo;,
+&lsquo;<samp class="samp">{program_homepage}</samp>&rsquo; e &lsquo;<samp class="samp">{program}</samp>&rsquo; são substituídos depois da
+expansão:
+</p>
+<div class="example">
+<pre class="example-preformatted">Gerado em @emph{{date}} usando
+@uref{{program_homepage}, @emph{{program}}}.
+</pre></div>
+
+<p>Essa abordagem é reconhecidamente um pouco complicada. A utilidade dela é a
+de que ela suporta especificar a formatação da sequência de caracteres
+traduzida independentemente do formato da saída gerada.
+</p>
+<p>Por exemplo, a sequência de caracteres de tradução do &lsquo;<samp class="samp">@pxref</samp>&rsquo; pode
+ser como isto:
+</p>
+<div class="example">
+<pre class="example-preformatted">veja-se seção {node_file_href} `{section}' em @cite{{book}}
+</pre></div>
+
+<p>que permite especificar-se uma sequência de caracteres independentemente do
+formato da saída gerada, embora com formatação avançada ela consiga ser
+traduzida adequadamente em vários idiomas.
+</p>
+<a class="index-entry-id" id="index-libintl_002dperl-Implementacao-Gettext"></a>
+<p>Se Perl for usada para tradução de sequências de caracteres no
+<code class="command">texi2any</code>, o pacote <code class="code">libintl-perl</code> é usado como a
+implementação <code class="code">gettext</code>; mais especificamente, a implementação Perl
+pura é usada, de modo que o Texinfo consiga suportar um comportamento
+consistente em todas as plataformas e instalações, o que, de outra forma,
+não seria possível. <code class="code">libintl-perl</code> está incluído na distribuição do
+Texinfo e é sempre instalado, para garantir que ele esteja disponível se
+necessário. Também é possível usar-se o <code class="code">libintl-perl</code> do sistema (a
+escolha pode ser feita em tempo de construção).
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Invocando-pod2texi.html">Invocando <code class="command">pod2texi</code>: Converter Pod para Texinfo</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o.html">Variáveis de Personalização</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Tradutor-Gen_00e9rico-texi2any.html"><code class="command">texi2any</code>: O Tradutor para Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

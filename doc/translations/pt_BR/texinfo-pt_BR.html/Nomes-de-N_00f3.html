@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Nomes de Nó (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como escolher nomes de nós.">
+<meta name="keywords" content="Como escolher nomes de nós.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="N_00f3s.html" rel="up" title="Nós">
+<link href="Exig_00eancias-da-Linha-do-N_00f3.html" rel="next" title="Exigências da Linha do Nó">
+<link href="Escrevendo-um-N_00f3.html" rel="prev" title="Escrevendo um Nó">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Nomes-de-N_00f3">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Exig_00eancias-da-Linha-do-N_00f3.html" accesskey="n" rel="next">Exigências da Linha de <code class="code">@node</code></a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Escrevendo-um-N_00f3.html" accesskey="p" rel="prev">Escrevendo uma Linha de <code class="code">@node</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="N_00f3s.html" accesskey="u" rel="up">Nós</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Escolhendo-Nomes-de-N_00f3s"><span>3.2 Escolhendo Nomes de Nós<a class="copiable-link" href="#Escolhendo-Nomes-de-N_00f3s"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Nomes-de-nos_002c-escolhendo"></a>
+<p>O nome de um nó identifica o nó. Para todos os detalhes dos nomes de nós,
+veja-se <a class="pxref" href="Exig_00eancias-da-Linha-do-N_00f3.html">Exigências da Linha de <code class="code">@node</code></a>).
+</p>
+<a class="anchor" id="Dicas-de-Linha-de-N_00f3"></a><p>Aqui estão algumas sugestões para nomes de nós:
+</p>
+<ul class="itemize mark-bullet">
+<li>Tente escolher nomes de nó que sejam informativos, porém curtos.
+
+<p>No arquivo do Info, o nome do arquivo, o nome do nó e os nomes de ponteiros
+são todos inseridos em uma linha, que podem ser encontrados na borda direita
+da janela. (Isso não causa um problema com o Info, mas é feio).
+</p>
+</li><li>Tente escolher nomes de nó que diferem entre si próximos ao início de seus
+nomes. Dessa forma, é fácil usar a completação automática de nomes no Info.
+
+</li><li>Convencionalmente, os nomes dos nó são capitalizados da mesma maneira que os
+títulos de seção e de capítulo. Neste manual, palavras iniciais e
+significativas são capitalizadas; outros não são. Em outros manuais, apenas
+palavras iniciais e substantivos adequados são capitalizados. De qualquer
+maneira está bem; nós recomendamos apenas ser consistente.
+
+</li><li>Os nomes dos nós não deveriam conter macros definidas por
+usuário(a). Veja-se <a class="xref" href="Detalhes-de-Macro.html">Detalhes e Ressalvas de Macro</a> para outras restrições no uso de
+macros.
+
+</li><li>Na saída gerada HTML, quaisquer caracteres no nome do nó que não sejam
+letras, números ou espaços ASCII simples serão mudados no nome do
+arquivo. (Veja-se <a class="xref" href="Expans_00e3o-de-Nome-de-N_00f3-do-Xref-do-HTML.html">Expansão de Nome de Nó de Referência Cruzada do HTML</a>). Isso pode tornar
+os URLs para as páginas no teu manual menos amigáveis; por exemplo, neste
+manual, o nó &lsquo;<samp class="samp">@dots</samp>&rsquo; é gerado como <samp class="file">__0040dots.html</samp>.
+</li></ul>
+
+<p>Como os nomes dos nó são usados em referências cruzadas, não é desejável
+mudá-los casualmente uma vez publicados. Quando você deletar ou renomear um
+nó, geralmente é uma boa ideia definir um <code class="code">@anchor</code> com o nome
+antigo. Dessa forma, as referências a partir de outros manuais, a partir de
+arquivamentos de correio e assim por diante não serão
+invalidados. Veja-se <a class="xref" href="_0040anchor.html"><code class="code">@anchor</code>: Definindo Alvos Arbitrários de Referências Cruzadas</a>.
+</p>
+<p>Os ponteiros a partir de um dado nó te habilitam a atingir outros nós e
+consistem simplesmente dos nomes desses nós.
+</p>
+<p>Normalmente, um ponteiro do nó &lsquo;Acima&rsquo; contém o nome do nó cujo menu
+menciona esse nó. O ponteiro do nó &lsquo;Próximo&rsquo; contém o nome do nó que segue o
+nó atual nesse menu e o ponteiro &lsquo;Anterior&rsquo; dele contém o nome do nó que o
+precede nesse menu. Quando um nó &lsquo;Anterior&rsquo; do nó é o mesmo que o nó dele
+&lsquo;Acima&rsquo;, ambos os ponteiros nomeiam o mesmo nó.
+</p>
+<p>Geralmente, o primeiro nó de um arquivo do Texinfo é o nó &lsquo;Top&rsquo;, e ponteiro
+dele &lsquo;Acima&rsquo; aponta para o arquivo <samp class="file">dir</samp>, que contém o menu principal
+para todos do Info.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Exig_00eancias-da-Linha-do-N_00f3.html">Exigências da Linha de <code class="code">@node</code></a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Escrevendo-um-N_00f3.html">Escrevendo uma Linha de <code class="code">@node</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="N_00f3s.html">Nós</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

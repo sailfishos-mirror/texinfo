@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@example (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Escrevendo um exemplo em uma fonte de largura fixa.">
+<meta name="keywords" content="Escrevendo um exemplo em uma fonte de largura fixa.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Cita_00e7_00f5es-e-Exemplos.html" rel="up" title="Citações e Exemplos">
+<link href="_0040verbatim.html" rel="next" title="@verbatim">
+<link href="_0040indentedblock.html" rel="prev" title="@indentedblock">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="g_t_0040example">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040verbatim.html" accesskey="n" rel="next"><code class="code">@verbatim</code>: Texto Literal</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040indentedblock.html" accesskey="p" rel="prev"><code class="code">@indentedblock</code>: Blocos recuados de texto</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Cita_00e7_00f5es-e-Exemplos.html" accesskey="u" rel="up">Citações e Exemplos</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="g_t_0040example_003a-Texto-de-Exemplo"><span>7.4 <code class="code">@example</code>: Texto de Exemplo<a class="copiable-link" href="#g_t_0040example_003a-Texto-de-Exemplo"> &para;</a></span></h3>
+
+<a class="anchor" id="example"></a><a class="index-entry-id" id="index-example"></a>
+<a class="index-entry-id" id="index-Exemplos_002c-formatando_002dos"></a>
+<a class="index-entry-id" id="index-Formatando-exemplos"></a>
+
+<p>O ambiente <code class="code">@example</code> é usado para indicar entrada ou saída de
+computador que não seja parte do texto em execução.  Se você quiser embutir
+fragmentos de código em frases, use o comando <code class="code">@code</code> ou os parentes
+dele (veja-se <a class="pxref" href="_0040code.html"><code class="code">@code</code>{<var class="var">código-amostra</var>}</a>).
+</p>
+<p>Escreva um comando <code class="code">@example</code> sozinho no início de uma linha.  Marque
+o final do bloco com <code class="code">@end example</code>.  Por exemplo,
+</p>
+<div class="example">
+<pre class="example-preformatted">@example
+cp foo @var{dest1}; \
+ cp foo @var{dest2}
+@end example
+</pre></div>
+
+<p>produz
+</p>
+<div class="example">
+<pre class="example-preformatted">cp foo <var class="var">dest1</var>; \
+ cp foo <var class="var">dest2</var>
+</pre></div>
+
+<p>A saída gerada usa uma fonte de largura fixa e é recuada.  Cada linha no
+arquivo de entrada é uma linha na saída gerada; isto é, o texto fonte não é
+preenchido.  Espaços extras e linhas em branco são significativos.  Comandos
+do Texinfo <em class="emph">são</em> expandidos; se você quiser que a saída gerada seja a
+entrada literal, use o ambiente <code class="code">@verbatim</code> em vez disso
+(veja-se <a class="pxref" href="_0040verbatim.html"><code class="code">@verbatim</code>: Texto Literal</a>).
+</p>
+<p>Exemplos frequentemente estão, falando logicamente, &ldquo;no meio&rdquo; de um
+parágrafo, e o texto que continua após não deveria ser recuado, como no
+exemplo acima.  O comando <code class="code">@noindent</code> evita que um pedaço de texto
+seja recuado como se fosse um parágrafo novo (veja-se <a class="pxref" href="_0040noindent.html"><code class="code">@noindent</code>: Omitindo Recuo</a>.
+</p>
+<p>Se você desejar usar a fonte romana normal para um comentário de código,
+você pode usar o comando <code class="code">@r</code> (veja-se <a class="pxref" href="Fontes.html">Fontes para Impressão</a>).
+</p>
+<p>Você pode opcionalmente fornecer argumentos para o comando <code class="code">@example</code>,
+separados por vírgulas, se existir mais que um.  Na saída gerada HTML,
+quaisquer argumentos desse tipo são gerados como nomes de classe, prefixados
+pela sequência de caracteres &lsquo;<samp class="samp">user-</samp>&rsquo;.  Isso pode ser útil para
+adicionar realce de sintaxe para manuais para amostras de código.
+</p>
+<p>Nós recomendamos que, ao fornecer vários argumentos para <code class="code">@example</code>,
+você use o primeiro argumento para especificar a linguagem do código (por
+exemplo &lsquo;<samp class="samp">C</samp>&rsquo;, &lsquo;<samp class="samp">lisp</samp>&rsquo;, &lsquo;<samp class="samp">Cplusplus</samp>&rsquo;).  Você pode encontrar
+usos para outros argumentos, como fornecer uma dica de formatação ou marcar
+amostras de código para extração e processamento posterior, mas por enquanto
+nada definitivo é recomendado.  Talvez isso mude em lançamentos futuros do
+Texinfo.
+</p>
+<blockquote class="quotation">
+<p><b class="b">Cuidado:</b> Não use tabulações nas linhas de um exemplo! (Ou em qualquer outro lugar no
+Texinfo, exceto em ambientes literais). TeX trata tabulações como espaços
+simples, e não é isso que elas parecem.
+</p></blockquote>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040verbatim.html"><code class="code">@verbatim</code>: Texto Literal</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040indentedblock.html"><code class="code">@indentedblock</code>: Blocos recuados de texto</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Cita_00e7_00f5es-e-Exemplos.html">Citações e Exemplos</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

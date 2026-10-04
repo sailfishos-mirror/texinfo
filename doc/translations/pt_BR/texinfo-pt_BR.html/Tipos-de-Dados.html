@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Tipos de Dados (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="O comando de definição para tipos de dados.">
+<meta name="keywords" content="O comando de definição para tipos de dados.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Comandos-de-Defini_00e7_00e3o-em-Detalhe.html" rel="up" title="Comandos de Definição em Detalhe">
+<link href="Objetos-Abstratos.html" rel="next" title="Objetos Abstratos">
+<link href="Vari_00e1veis-Tipadas.html" rel="prev" title="Variáveis Tipadas">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Tipos-de-Dados">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Objetos-Abstratos.html" accesskey="n" rel="next">Programação Orientada a Objetos</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Vari_00e1veis-Tipadas.html" accesskey="p" rel="prev">Variáveis em Linguagens Tipadas</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Comandos-de-Defini_00e7_00e3o-em-Detalhe.html" accesskey="u" rel="up">Os Comandos de Definição</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Tipos-de-Dados-1"><span>14.6.5 Tipos de Dados<a class="copiable-link" href="#Tipos-de-Dados-1"> &para;</a></span></h4>
+
+<p>Aqui está o comando para tipos de dados:
+</p>
+<dl class="table">
+<dt><a id="index-deftp"></a><span><code class="code">@deftp <var class="var">categoria</var> <var class="var">nome</var> <var class="var">atributos</var>&hellip;</code><a class="copiable-link" href="#index-deftp"> &para;</a></span></dt>
+<dd><p>O comando <code class="code">@deftp</code> é o comando genérico de definição para tipos de
+dados.  O comando é escrito no início de uma linha e é seguido na mesma
+linha pela categoria, pelo nome do tipo (que é uma palavra como <code class="code">int</code>
+ou <code class="code">float</code>) e, em seguida, pelos nomes de atributos de objetos desse
+tipo.  Portanto, você poderia usar esse comando para descrever <code class="code">int</code> ou
+<code class="code">float</code>, em cujo caso você poderia usar <code class="code">tipo de dados</code> como a
+categoria.  (Um tipo de dados é uma categoria de certos objetos para fins de
+decidir quais operações podem ser realizadas sobre neles).
+</p>
+<p>Na Lisp, por exemplo, <em class="dfn">pair</em> nomeia um tipo particular de dado, e um
+objeto desse tipo tem dois slots chamados <small class="sc">CAR</small> e <small class="sc">CDR</small>.  Aqui está
+como você escreveria a primeira linha de uma definição de <code class="code">pair</code>.
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@deftp {Tipo de dados} pair car cdr
+...
+@end deftp
+</pre></div></div>
+
+<p><code class="code">@deftp</code> cria uma entrada no índice de tipos de dados.
+</p></dd>
+</dl>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Objetos-Abstratos.html">Programação Orientada a Objetos</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Vari_00e1veis-Tipadas.html">Variáveis em Linguagens Tipadas</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Comandos-de-Defini_00e7_00e3o-em-Detalhe.html">Os Comandos de Definição</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

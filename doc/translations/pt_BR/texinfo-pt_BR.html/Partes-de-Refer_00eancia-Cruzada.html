@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Partes de Referência Cruzada (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Uma referência cruzada tem várias partes.">
+<meta name="keywords" content="Uma referência cruzada tem várias partes.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Refer_00eancias-Cruzadas.html" rel="up" title="Referências Cruzadas">
+<link href="Um-Argumento.html" rel="next" title="Um Argumento">
+<link href="Comandos-de-Refer_00eancia-Cruzada.html" rel="prev" title="Comandos de Referência Cruzada">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Partes-de-Refer_00eancia-Cruzada">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Um-Argumento.html" accesskey="n" rel="next"><code class="code">@xref</code> com Um Argumento</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Comandos-de-Refer_00eancia-Cruzada.html" accesskey="p" rel="prev">Diferentes Comandos de Referência Cruzada</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Refer_00eancias-Cruzadas.html" accesskey="u" rel="up">Referências cruzadas</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Partes-de-Uma-Refer_00eancia-Cruzada"><span>5.2 Partes de Uma Referência Cruzada<a class="copiable-link" href="#Partes-de-Uma-Refer_00eancia-Cruzada"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Partes-da-referencia-cruzada"></a>
+<a class="index-entry-id" id="index-Partes-de-uma-referencia-cruzada"></a>
+<a class="anchor" id="Sintaxe-de-Refer_00eancia"></a>
+<p>Um comando de referência cruzada exige somente um argumento, que é o nome do
+nó para o qual ele se refere.  Um comando de referência cruzada pode conter
+até quatro argumentos adicionais.  O modelo para uma referência cruzada
+completa de cinco argumentos se parece com isto:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@xref{<var class="var">nome-nó</var>, <var class="var">rótulo-online</var>, <var class="var">rótulo-impresso</var>,
+<var class="var">nome-manual</var>, <var class="var">título-manual-impresso</var>}
+</pre></div></div>
+
+<p>Os cinco possíveis argumentos para uma referência cruzada são:
+</p>
+<ol class="enumerate">
+<li> O nome do nó ou da âncora.  Isso é o local para onde a referência cruzada
+leva você.  Em um documento impresso, o local do nó fornece a referência de
+página somente para referências dentro do mesmo documento.  Use
+<code class="code">@node</code> para definir o nó (veja-se <a class="pxref" href="Escrevendo-um-N_00f3.html">Escrevendo uma Linha de <code class="code">@node</code></a>), <code class="code">@anchor</code>
+(veja-se <a class="pxref" href="_0040anchor.html"><code class="code">@anchor</code>: Definindo Alvos Arbitrários de Referências Cruzadas</a>), ou <code class="code">@float</code> (veja-se <a class="pxref" href="_0040float.html"><code class="code">@float</code> [<var class="var">tipo</var>][,<var class="var">rótulo</var>]: Material Flutuante</a>) com um
+rótulo.  Esse argumento é exigido (exceto para referência para manuais
+inteiros).
+
+<p>Escreva um nome de nó em uma referência cruzada exatamente da mesma maneira
+que na linha <code class="code">@node</code>, incluindo a mesma capitalização; caso contrário,
+os processadores possivelmente não encontrem a referência.
+</p>
+</li><li> Um rótulo para saída online.  Geralmente ele é omitido; então a descrição do
+tópico (terceiro argumento) será usada se for especificada; Se isso também
+foi omitido, o nome do nó será usado.
+
+</li><li> Um rótulo para saída impressa.  Frequentemente, esse é o título ou tópico da
+seção.  Isso é usado como o nome da referência no manual impresso.  Se
+omitido, o nome do nó será usado.
+
+</li><li> O nome do manual para o qual a referência se refere, se estiver fora do
+manual atual, em um arquivo Texinfo diferente.
+
+</li><li> O título do manual impresso para o qual a referência se refere, a partir de
+um arquivo Texinfo diferente.
+</li></ol>
+
+<p>O espaço em branco antes e depois das vírgulas separando esses argumentos é
+ignorado.  Para incluir uma vírgula em um dos argumentos, use
+<code class="code">@comma{}</code> (veja-se <a class="pxref" href="Inserindo-uma-V_00edrgula.html">Inserindo &lsquo;,&rsquo; com <code class="code">@comma{}</code></a>).
+</p>
+<p>Referências cruzadas com um, dois, três, quatro e cinco argumentos estão
+descritas separadamente em seções seguintes.
+</p>
+<a class="index-entry-id" id="index-Virgula-depois-de-referencia-cruzada"></a>
+<p>Quando do processamento com TeX, uma vírgula automaticamente é inserida
+depois do número da página para referências cruzadas para dentro do mesmo
+manual, a menos que a chave de fechamento do argumento não seja seguida por
+espaços em branco (como uma vírgula ou um ponto).  Isso te dá a escolha de
+quando ter uma vírgula lá em outros formatos de saída.  Por exemplo,
+</p>
+<div class="example">
+<pre class="example-preformatted">@xref{Outra Seção} para mais informações
+</pre></div>
+
+<p>com TeX produz &lsquo;Veja-se&nbsp;Outra&nbsp;Seção,&nbsp;página&nbsp;<var class="var">ppp</var>,&nbsp;para&nbsp;mais&nbsp;informações&rsquo;<!-- /@w -->, e na saída Info produz &lsquo;<samp class="samp">*Observe&nbsp;Outra&nbsp;Seção::&nbsp;para&nbsp;mais&nbsp;informações</samp>&rsquo;<!-- /@w -->.
+</p>
+
+<p>Se uma vírgula indesejada for adicionada, siga o argumento com um comando
+como &lsquo;<samp class="samp">@:</samp>&rsquo;.  Por exemplo, &lsquo;<samp class="samp">@xref{Furacões}@:&nbsp;---&nbsp;para&nbsp;os&nbsp;detalhes</samp>&rsquo;<!-- /@w --> produz
+</p>
+<blockquote class="quotation">
+<p>Veja-se Furacões, página <var class="var">ppp</var> &mdash; para os detalhes
+</p></blockquote>
+
+<p>em vez de &lsquo;Veja-se&nbsp;Furacões,&nbsp;página&nbsp;<var class="var">ppp</var>,&nbsp;&mdash;&nbsp;para&nbsp;os&nbsp;detalhes&rsquo;<!-- /@w -->.
+</p>
+<p><code class="command">texi2any</code> alerta e protege nomes quando o texto de uma referência
+cruzada (e nomes de nó e itens de menu) contiver uma construção problemática
+que poderia interferir com a análise dele no Info.  Veja-se <a class="xref" href="Exig_00eancias-da-Linha-do-N_00f3.html#Restri_00e7_00f5es-de-Nomes-de-N_00f3-do-Info">Restrições de Nomes de Nó do Info</a>.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Um-Argumento.html"><code class="code">@xref</code> com Um Argumento</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Comandos-de-Refer_00eancia-Cruzada.html">Diferentes Comandos de Referência Cruzada</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Refer_00eancias-Cruzadas.html">Referências cruzadas</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

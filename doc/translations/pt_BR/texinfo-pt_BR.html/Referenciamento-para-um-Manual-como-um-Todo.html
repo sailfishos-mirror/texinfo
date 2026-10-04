@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Referenciamento para um Manual como um Todo (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Referência para um manual inteiro.">
+<meta name="keywords" content="Referência para um manual inteiro.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Refer_00eancias-Cruzadas.html" rel="up" title="Referências Cruzadas">
+<link href="_0040xref.html" rel="next" title="@xref">
+<link href="Quatro-e-Cinco-Argumentos.html" rel="prev" title="Quatro e Cinco Argumentos">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Referenciamento-para-um-Manual-como-um-Todo">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040xref.html" accesskey="n" rel="next"><code class="code">@xref</code></a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Quatro-e-Cinco-Argumentos.html" accesskey="p" rel="prev"><code class="code">@xref</code> com Quatro e Cinco Argumentos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Refer_00eancias-Cruzadas.html" accesskey="u" rel="up">Referências cruzadas</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Referenciamento-para-um-Manual-como-um-Todo-1"><span>5.7 Referenciamento para um Manual como um Todo<a class="copiable-link" href="#Referenciamento-para-um-Manual-como-um-Todo-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Manual_002c-referenciamento-para-como-um-todo"></a>
+<a class="index-entry-id" id="index-Referenciamento-para-um-manual-inteiro"></a>
+<a class="anchor" id="Nomea_00e7_00e3o-do-N_00f3-Top"></a>
+<p>Normalmente, você sempre precisa nomear um nó em uma referência cruzada.
+Entretanto, não é incomum querer se referir a outro manual como um todo, em
+vez de uma seção em particular dentro dele.  Nesse caso, dar-se algum nome
+de seção é uma distração desnecessária.
+</p>
+<p>Assim, com referências cruzadas para outros manuais (veja-se <a class="pxref" href="Quatro-e-Cinco-Argumentos.html"><code class="code">@xref</code> com Quatro e Cinco Argumentos</a>), se o primeiro argumento for ou &lsquo;<samp class="samp">Top</samp>&rsquo; (primeira letra
+maiúscula exatamente dessa maneira) ou inteiramente omitido, e o terceiro
+argumento for omitido, a saída impressa não incluirá nome de nó ou de
+seção. (A saída Info incluirá &lsquo;<samp class="samp">Top</samp>&rsquo; se foi fornecido). Por exemplo,
+</p>
+<div class="example">
+<pre class="example-preformatted">@xref{Top,,, make, O Manual do GNU Make}.
+</pre></div>
+
+<p>produz
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">*Observe (make)Top::.
+</pre></div></div>
+
+<p>e
+</p>
+<blockquote class="quotation">
+<p>Veja-se <cite class="cite">O Manual do GNU Make</cite>.
+</p></blockquote>
+
+<p>Leitores Info irão para o nó Top do manual se o nó &lsquo;Top&rsquo; estiver
+explicitamente especificado ou não.
+</p>
+<p>Também é possível (e é prática histórica) referenciar um manual inteiro
+especificando-se o nó &lsquo;Top&rsquo; e uma entrada apropriada para o terceiro
+argumento para o comando <code class="code">@xref</code>.  Usando esse dialeto, para fazer uma
+referência cruzada para <cite class="cite">O Manual do GNU Make</cite>, você poderia escrever:
+</p>
+<div class="example">
+<pre class="example-preformatted">@xref{Top,, Visão Geral, make, O Manual do GNU Make}.
+</pre></div>
+
+<p>que produz:
+</p>
+<div class="example">
+<pre class="example-preformatted">*Observe Visão Geral: (make)Top.
+</pre></div>
+
+<p>no Info e
+</p>
+<blockquote class="quotation">
+<p>Veja-se seção &ldquo;Visão Geral&rdquo; in <cite class="cite">O Manual do GNU Make</cite>.
+</p></blockquote>
+
+<p>em um manual impresso.
+</p>
+<p>Nesse exemplo, &lsquo;<samp class="samp">Top</samp>&rsquo; é o nome do primeiro nó e &lsquo;<samp class="samp">Visão Geral</samp>&rsquo; é o
+nome da primeira seção do manual.  Não existe convenção amplamente usada
+para nomear a primeira seção em um manual impresso; isso é apenas o que o
+manual do Make usa.  Essa arbitrariedade do primeiro nome é a razão
+principal pela qual é preferível omitir-se o terceiro argumento em
+referências cruzadas de manual inteiro.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040xref.html"><code class="code">@xref</code></a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Quatro-e-Cinco-Argumentos.html"><code class="code">@xref</code> com Quatro e Cinco Argumentos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Refer_00eancias-Cruzadas.html">Referências cruzadas</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

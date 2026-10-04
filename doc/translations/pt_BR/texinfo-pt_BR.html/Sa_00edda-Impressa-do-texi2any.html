@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Saída Impressa do texi2any (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Chamando texi2dvi.">
+<meta name="keywords" content="Chamando texi2dvi.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Tradutor-Gen_00e9rico-texi2any.html" rel="up" title="Tradutor Genérico texi2any">
+<link href="Vari_00e1veis-de-Personaliza_00e7_00e3o.html" rel="next" title="Variáveis de Personalização">
+<link href="Vari_00e1veis-de-Ambiente-do-texi2any.html" rel="prev" title="Variáveis de Ambiente do texi2any">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Sa_00edda-Impressa-do-texi2any">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o.html" accesskey="n" rel="next">Variáveis de Personalização</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Vari_00e1veis-de-Ambiente-do-texi2any.html" accesskey="p" rel="prev">Variáveis de Ambiente Reconhecidas pelo <code class="command">texi2any</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Tradutor-Gen_00e9rico-texi2any.html" accesskey="u" rel="up"><code class="command">texi2any</code>: O Tradutor para Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Sa_00edda-Impressa-do-texi2any-1"><span>20.3 Saída Impressa do <code class="command">texi2any</code><a class="copiable-link" href="#Sa_00edda-Impressa-do-texi2any-1"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Saida-impressa_002c-por-meio-do-texi2any"></a>
+<a class="index-entry-id" id="index-Saida_002c-impressa-por-meio-do-texi2any"></a>
+
+<p>Para justificar o nome Texinfo-to-<em class="emph">any</em>, <code class="command">texi2any</code> tem suporte
+básico para a criação de saída impressa nos vários formatos: TeX DVI, PDF
+e PostScript. Isso é feito por meio do método simples de execução do
+programa <code class="command">texi2dvi</code> quando esses formatos de saída forem
+solicitados, depois de verificar a validade da entrada para dar para os(as)
+usuários(as) o benefício da verificação de erros do <code class="command">texi2any</code>. Se
+você não quiser essa verificação de erros, talvez porque teu manual execute
+truques avançados do TeX junto com <samp class="file">texinfo.tex</samp>, basta invocar
+<code class="command">texi2dvi</code> diretamente.
+</p>
+<p>As opções de formato de saída para isso são <samp class="option">--dvi</samp>,
+<samp class="option">--dvipdf</samp>, <samp class="option">--pdf</samp> e <samp class="option">--ps</samp>. Veja-se <a class="xref" href="Formatar-com-texi2dvi-ou-texi2pdf.html#Formatar-com-texi2dvi">Formatar com <code class="command">texi2dvi</code></a>, para mais detalhes acerca dessas opções e operação
+geral do <code class="command">texi2dvi</code>. Além disso, as opções <samp class="option">--verbose</samp>,
+<samp class="option">--silent</samp> e <samp class="option">--quiet</samp> são passadas se especificadas; as
+opções <samp class="option">-I</samp> e <samp class="option">-o</samp> são igualmente passadas com os argumentos
+delas, e <samp class="option">--debug</samp> sem o argumento dela.
+</p>
+<p>A única opção restante que está relacionada com a invocação do
+<code class="command">texi2dvi</code> é <samp class="option">--Xopt</samp>. Aqui, somente o argumento é passado e
+múltiplas opções <samp class="option">--Xopt</samp> se acumulam. Isso fornece uma maneira para
+construir uma linha arbitrária de comando para <code class="command">texi2dvi</code>. Por
+exemplo, executando
+</p>
+<div class="example">
+<pre class="example-preformatted">texi2any --Xopt -t --Xopt @afourpaper --pdf foo.texi
+</pre></div>
+
+<p>é equivalente a executar
+</p>
+<div class="example">
+<pre class="example-preformatted">texi2dvi -t @afourpaper --pdf foo.texi
+</pre></div>
+
+<p>exceto para verificação de validade.
+</p>
+<p>Embora se possa desejar que outras opções para <code class="command">texi2any</code> tenham
+efeito, elas não tem. Por exemplo, executar &lsquo;<samp class="samp">texi2any
+--no-number-sections --dvi foo.texi</samp>&rsquo; ainda resulta em um arquivo DVI com
+seções numeradas. (Talvez isso pudesse ser melhorado no futuro, se
+solicitações forem recebidas).
+</p>
+<p>O nome real do comando que é invocado é especificado pela variável de
+personalização <code class="code">TEXI2DVI</code> (veja-se <a class="pxref" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-para-M_00faltiplos-Formatos.html">Variáveis de Personalização para Múltiplos Formatos</a>). Como você pode imaginar, o padrão é &lsquo;<samp class="samp">texi2dvi</samp>&rsquo;.
+</p>
+<p>O próprio <code class="command">texi2any</code> não gera nenhuma saída normal quando invoca
+<code class="command">texi2dvi</code>, somente mensagens de diagnóstico.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o.html">Variáveis de Personalização</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Vari_00e1veis-de-Ambiente-do-texi2any.html">Variáveis de Ambiente Reconhecidas pelo <code class="command">texi2any</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Tradutor-Gen_00e9rico-texi2any.html"><code class="command">texi2any</code>: O Tradutor para Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

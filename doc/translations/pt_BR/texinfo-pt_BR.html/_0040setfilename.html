@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@setfilename (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Forneça o nome do arquivo da saída gerada.">
+<meta name="keywords" content="Forneça o nome do arquivo da saída gerada.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Cabe_00e7alho-do-Arquivo-do-Texinfo.html" rel="up" title="Cabeçalho do Arquivo do Texinfo">
+<link href="_0040settitle.html" rel="next" title="@settitle">
+<link href="Primeira-Linha.html" rel="prev" title="Primeira Linha">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="g_t_0040setfilename">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040settitle.html" accesskey="n" rel="next"><code class="code">@settitle</code>: Configura o Título do Documento</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Primeira-Linha.html" accesskey="p" rel="prev">A Primeira Linha de um Arquivo do Texinfo</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Cabe_00e7alho-do-Arquivo-do-Texinfo.html" accesskey="u" rel="up">Cabeçalho do Arquivo do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="g_t_0040setfilename_003a-Configure-o-Nome-do-Arquivo-da-Sa_00edda-Gerada"><span>2.5.2 <code class="code">@setfilename</code>: Configure o Nome do Arquivo da Saída Gerada<a class="copiable-link" href="#g_t_0040setfilename_003a-Configure-o-Nome-do-Arquivo-da-Sa_00edda-Gerada"> &para;</a></span></h4>
+
+<a class="anchor" id="setfilename"></a><a class="anchor" id="Configurando-o-Nome-do-Arquivo-da-Sa_00edda-Gerada"></a><a class="index-entry-id" id="index-setfilename"></a>
+<a class="index-entry-id" id="index-Nome-do-arquivo-da-saida-gerada"></a>
+
+<p>A linha <code class="code">@setfilename</code> especifica o nome do arquivo de saída a ser
+gerado por <code class="command">texi2any</code>. Esse comando é ignorado para formatação
+TeX. Quando presente, deveria ser o primeiro comando do Texinfo (isto é,
+depois de &lsquo;<samp class="samp">\input texinfo</samp>&rsquo;). Escreva o comando <code class="code">@setfilename</code> no
+início de uma linha e siga-o na mesma linha pelo nome do arquivo do Info.
+</p>
+<div class="example">
+<pre class="example-preformatted">@setfilename <var class="var">nome-arquivo-info</var>
+</pre></div>
+
+<p>O nome precisa ser diferente do nome do arquivo do Texinfo. Existem duas
+convenções para escolher o nome: você pode ou remover a extensão (como
+&lsquo;<samp class="samp">.texi</samp>&rsquo;) inteiramente do nome do arquivo de entrada ou (recomendado)
+substituí-la pela extensão &lsquo;<samp class="samp">.info</samp>&rsquo;. Não é aconselhável basear o nome de
+<code class="code">@setfilename</code> em um nome totalmente diferente do nome do arquivo de
+entrada.
+</p>
+<a class="index-entry-id" id="index-Ignorado-antes-de-_0040setfilename"></a>
+<a class="index-entry-id" id="index-linha-_005cinput-do-fonte-ignorada"></a>
+<p>Quando uma linha <code class="code">@setfilename</code> está presente, os processadores do
+Texinfo ignoram tudo escrito antes da linha <code class="code">@setfilename</code>. É por isso
+que a primeiríssima linha do arquivo (a linha <code class="code">\input</code>) não aparece na
+saída gerada.
+</p>
+<p>Se não existir nenhuma linha <code class="code">@setfilename</code>, <code class="command">texi2any</code> usará
+o nome do arquivo de entrada para determinar o nome da saída
+(veja-se <a class="pxref" href="M_00ednimo.html">O Que um Arquivo do Texinfo Precisa Ter</a>). A linha <code class="code">\input</code> ainda será ignorada nesse
+processamento, assim como as linhas em branco iniciais.
+</p>
+<p>Ao produzir outro formato de saída, <code class="command">texi2any</code> substituirá qualquer
+extensão final pela extensão específica do formato de saída (&lsquo;<samp class="samp">html</samp>&rsquo; ao
+gerar HTML, por exemplo) ou adicionará um ponto seguido pela extensão
+(&lsquo;<samp class="samp">.html</samp>&rsquo; para HTML) se o nome fornecido não tiver extensão.
+</p>
+<p>Comandos @ não são permitidos em <code class="code">@setfilename</code>, exceto para
+<code class="code">@@</code>, <code class="code">@{</code>, <code class="code">@}</code> e comandos @ associados, como
+<code class="code">@atchar{}</code>.
+</p>
+<p><code class="code">@setfilename</code> costumava ser exigido pelos processadores do Texinfo e
+por alguns outros programas. Isso não mais deveria ser o caso;
+<code class="code">@setfilename</code> pode ser omitido. Se a entrada do Texinfo for
+processada a partir da entrada padrão, sem um nome de arquivo de entrada
+para deduzir o nome base do arquivo, <code class="code">@setfilename</code> ainda poderia ser
+relevante. No entanto, essa não é a única maneira: a opção <samp class="option">--output</samp>
+especifica o nome do arquivo de saída na linha de comando do
+<code class="command">texi2any</code> (veja-se <a class="pxref" href="Invocando-texi2any.html">Invocando <code class="command">texi2any</code> a partir de um Shell</a>).
+</p>
+<a class="index-entry-id" id="index-Comprimento-dos-nomes-dos-arquivos"></a>
+<a class="index-entry-id" id="index-Colisao-de-nome-de-arquivo"></a>
+<a class="index-entry-id" id="index-Nome-do-arquivo-do-Info_002c-escolhendo"></a>
+<p>Embora uma extensão &lsquo;<samp class="samp">.info</samp>&rsquo; explícita seja preferível, alguns sistemas
+operacionais não conseguem lidar com nomes longos de arquivo. Você pode ter
+um problema mesmo quando o nome do arquivo que especificar for curto o
+suficiente. Isso ocorre porque os formatadores do Info dividem um arquivo
+longo do Info em subarquivos curtos indiretos e os nomeiam pospondo
+&lsquo;<samp class="samp">-1</samp>&rsquo;, &lsquo;<samp class="samp">-2</samp>&rsquo;, &hellip;, &lsquo;<samp class="samp">-10</samp>&rsquo;, &lsquo;<samp class="samp">-11</samp>&rsquo; e assim por diante ao
+nome original do arquivo. (Veja-se <a class="xref" href="Arquivos-de-Etiqueta-e-Divididos.html">Arquivos de Etiqueta e Arquivos Divididos</a>). O nome
+do subarquivo <samp class="file">texinfo.info-10</samp>, por exemplo, é muito longo para
+sistemas antigos com um limite de 14 caracteres sobre nomes de arquivo;
+portanto, o nome do arquivo do Info para esse documento poderia ser
+<samp class="file">texinfo</samp> em vez de <samp class="file">texinfo.info</samp> em tal
+sistema. <code class="code">@setfilename</code> é uma maneira de especificar um nome
+alternativo.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040settitle.html"><code class="code">@settitle</code>: Configura o Título do Documento</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Primeira-Linha.html">A Primeira Linha de um Arquivo do Texinfo</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Cabe_00e7alho-do-Arquivo-do-Texinfo.html">Cabeçalho do Arquivo do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

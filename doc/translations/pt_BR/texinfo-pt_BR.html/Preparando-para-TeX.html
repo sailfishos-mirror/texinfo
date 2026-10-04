@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Preparando para TeX (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="O que fazer antes de você usar TeX.">
+<meta name="keywords" content="O que fazer antes de você usar TeX.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Impresso-com-TeX.html" rel="up" title="Impresso com TeX">
+<link href="hboxes-lotados.html" rel="next" title="hboxes lotados">
+<link href="Formatar-com-tex_002ftexindex.html" rel="prev" title="Formatar com tex/texindex">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+pre.display-preformatted {font-family: inherit}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Preparando-para-TeX">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="hboxes-lotados.html" accesskey="n" rel="next">&ldquo;hboxes&rdquo; lotados</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Formatar-com-tex_002ftexindex.html" accesskey="p" rel="prev">Formatar com <code class="command">tex</code>/<code class="command">texindex</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Impresso-com-TeX.html" accesskey="u" rel="up">Formatando e Imprimindo com TeX</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Preparando-para-TeX-1"><span>19.4 Preparando para TeX<a class="copiable-link" href="#Preparando-para-TeX-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Preparando-para-TeX"></a>
+<a class="index-entry-id" id="index-Inicializacao-da-entrada-do-TeX"></a>
+<a class="index-entry-id" id="index-arquivo-de-inicializacao-_002eprofile"></a>
+<a class="index-entry-id" id="index-arquivo-de-inicializacao-_002ecshrc"></a>
+<a class="index-entry-id" id="index-Arquivo-de-inicializacao-para-entrada-do-TeX"></a>
+
+<p>TeX precisa encontrar o arquivo <samp class="file">texinfo.tex</samp> que o comando
+&lsquo;<samp class="samp">\input texinfo</samp>&rsquo; na primeira linha lê.  O arquivo <samp class="file">texinfo.tex</samp>
+informa ao TeX como lidar com comandos @; Está incluído em todas as
+distribuições padrão do GNU.  A versão mais recente lançada para uso geral
+está disponível a partir dos servidores GNU usuais e espelhos:
+</p>
+<div class="display">
+<pre class="display-preformatted"><a class="uref" href="https://ftp.gnu.org/gnu/texinfo/texinfo.tex">https://ftp.gnu.org/gnu/texinfo/texinfo.tex</a>
+<a class="uref" href="https://ftpmirror.gnu.org/texinfo/texinfo.tex">https://ftpmirror.gnu.org/texinfo/texinfo.tex</a>
+</pre></div>
+
+<p>A versão mais recente de desenvolvimento está disponível a partir do
+repositório de fonte do Texinfo:
+</p>
+<div class="display">
+<pre class="display-preformatted"><a class="uref" href="https://git.savannah.gnu.org/cgit/texinfo.git/plain/doc/texinfo.tex">https://git.savannah.gnu.org/cgit/texinfo.git/plain/doc/texinfo.tex</a>
+</pre></div>
+
+<a class="index-entry-id" id="index-texinfo_002etex_002c-instalando"></a>
+<p><samp class="file">texinfo.tex</samp> essencialmente é um arquivo independente; portanto, se
+você precisar ou quiser tentar uma versão mais recente do que a que veio com
+o teu sistema, quase sempre basta baixá-la e colocá-la em algum lugar onde o
+TeX a encontre. Você consegue substituir qualquer <samp class="file">texinfo.tex</samp>
+existente por uma versão mais recente (certamente salvando a original em
+caso de desastre).
+</p>
+<a class="index-entry-id" id="index-epsf_002etex_002c-instalando"></a>
+<p>Além disso, você deveria instalar o <samp class="file">epsf.tex</samp>, se ele já não estiver
+instalado, originário em outra distribuição. Mais detalhes estão no final da
+descrição do comando <code class="code">@image</code> (veja-se <a class="pxref" href="Imagens.html">Inserindo Imagens</a>).
+</p>
+<a class="index-entry-id" id="index-Fontes-European-Computer-Modern-instalando"></a>
+<a class="index-entry-id" id="index-Fontes-EC_002c-instalando"></a>
+<a class="index-entry-id" id="index-Fontes-CM_002dSuper-instalando"></a>
+<p>Para usar aspas diferentes daquelas usadas em inglês, você precisará ter as
+fontes European Computer Modern (por exemplo, <samp class="file">ecrm1000</samp>) e (para saída
+em PDF) as fontes CM-Super (veja-se <a class="pxref" href="Inserindo-Aspas.html">Inserindo Aspas</a>).
+</p>
+<a class="index-entry-id" id="index-feymr10-instalando"></a>
+<a class="index-entry-id" id="index-Fonte-do-Euro_002c-instalando"></a>
+<p>Para usar o comando <code class="code">@euro</code>, você precisará das fontes &lsquo;<samp class="samp">feym*</samp>&rsquo;
+(por exemplo, <samp class="file">feymr10</samp>). Veja-se <a class="xref" href="_0040euro.html"><code class="code">@euro</code> (&euro;): Símbolo da Moeda Euro</a>.
+</p>
+<p>Todos os arquivos acima deveriam estar instalados por padrão em uma
+instalação razoável do TeX.
+</p>
+<a class="index-entry-id" id="index-texinfo_002ecnf-instalacao"></a>
+<a class="index-entry-id" id="index-Personalizacao-do-TeX-para-Texinfo"></a>
+<a class="index-entry-id" id="index-Arquivo-de-configuracao-do-Texinfo-abrangente-ao-sitio"></a>
+<p>Opcionalmente, você pode criar um arquivo <samp class="file">texinfo.cnf</samp> para
+configuração do sítio. Ao processar um arquivo do Texinfo, TeX procura
+esse arquivo no caminho dele de pesquisa, que inclui o diretório atual e os
+diretórios padrão de instalação. Você pode usar esse arquivo para convenções
+locais. Por exemplo, se <samp class="file">texinfo.cnf</samp> contiver a linha
+&lsquo;<samp class="samp">@afourpaper</samp>&rsquo; (veja-se <a class="pxref" href="Papel-A4.html">Imprimir em Papel A4</a>), então todos os documentos do Texinfo
+serão processados com esse tamanho de página em vigor. Se você não tiver
+nada para colocar no <samp class="file">texinfo.cnf</samp>, não precisará criá -lo.
+</p>
+<a class="index-entry-id" id="index-Variavel-de-ambiente-TEXINPUTS"></a>
+<a class="index-entry-id" id="index-TEXINPUTS"></a>
+<p>Você pode configurar a variável de ambiente <code class="code">TEXINPUTS</code> para permitir
+que o TeX encontre <samp class="file">texinfo.cnf</samp>. (Isso também funciona para
+<samp class="file">texinfo.tex</samp> e qualquer outro arquivo que o TeX possa ler). Por
+exemplo, se você estiver usando um shell compatível com shell Bourne
+(<code class="code">sh</code>, <code class="code">bash</code>, <code class="code">ksh</code>, &hellip;), teu arquivo <samp class="file">.profile</samp>
+poderia conter as linhas:
+</p>
+<div class="example">
+<pre class="example-preformatted">TEXINPUTS=.:/home/eu/minhabiblioteca:
+export TEXINPUTS
+</pre></div>
+
+<p>Essas configurações fariam com que o TeX primeiro procurasse por um
+arquivo <samp class="file">\input</samp> no diretório atual, indicado pelo &lsquo;<samp class="samp">.</samp>&rsquo;, então um
+diretório <samp class="file">minhabiblioteca</samp> de um(a) usuário(a) hipotético(a) &lsquo;<samp class="samp">eu</samp>&rsquo;
+e finalmente nos diretórios do sistema. (Um &lsquo;<samp class="samp">:</samp>&rsquo; à esquerda, à direita
+ou duplo indica a pesquisa nos diretórios do sistema nesse ponto).
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="hboxes-lotados.html">&ldquo;hboxes&rdquo; lotados</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Formatar-com-tex_002ftexindex.html">Formatar com <code class="command">tex</code>/<code class="command">texindex</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Impresso-com-TeX.html">Formatando e Imprimindo com TeX</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

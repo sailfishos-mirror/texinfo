@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@w (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Impedindo quebras de linha indesejadas no texto.">
+<meta name="keywords" content="Impedindo quebras de linha indesejadas no texto.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Quebras.html" rel="up" title="Quebras">
+<link href="_0040tie.html" rel="next" title="@tie">
+<link href="_0040allowcodebreaks.html" rel="prev" title="@allowcodebreaks">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+pre.display-preformatted {font-family: inherit}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="g_t_0040w">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040tie.html" accesskey="n" rel="next"><code class="code">@tie{}</code>: Inserindo um Espaço Inquebrável</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040allowcodebreaks.html" accesskey="p" rel="prev"><code class="code">@allowcodebreaks</code>: Controle Quebras de Linha no <code class="code">@code</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Quebras.html" accesskey="u" rel="up">Forçando e Impedindo Quebras</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="g_t_0040w_007btexto_007d_003a-Impedir-Quebras-de-Linha"><span>13.5 <code class="code">@w</code>{<var class="var">texto</var>}: Impedir Quebras de Linha<a class="copiable-link" href="#g_t_0040w_007btexto_007d_003a-Impedir-Quebras-de-Linha"> &para;</a></span></h3>
+
+<a class="anchor" id="w"></a><a class="index-entry-id" id="index-w"></a>
+<a class="index-entry-id" id="index-Quebras-de-linha_002c-impedindo"></a>
+
+<p><code class="code">@w{<var class="var">texto</var>}</code> gera <var class="var">texto</var>, ao mesmo tempo que proíbe
+quebras de linha dentro do <var class="var">texto</var>.
+</p>
+<a class="index-entry-id" id="index-Espaco-nao-quebravel_002c-fixado"></a>
+<a class="index-entry-id" id="index-Espaco-inquebravel_002c-fixado"></a>
+<p>Assim, você pode usar <code class="code">@w</code> para produzir um espaço não quebrável,
+fixado na largura de um espaço normal interpalavras:
+</p>
+<div class="example">
+<pre class="example-preformatted">@w{ } @w{ } @w{ } recuo.
+</pre></div>
+
+<p>produz:
+</p>
+<div class="display">
+<pre class="display-preformatted"> <!-- /@w -->  <!-- /@w -->  <!-- /@w --> recuo.
+</pre></div>
+
+<p>O espaço oriundo de <code class="code">@w{&nbsp;<!-- /@w -->}</code>, além de ser não quebrável, também
+não esticará nem encolherá.  Às vezes isso é o que você quer, por exemplo,
+se estiver fazendo recuo manual.  No entanto, normalmente você quer um
+espaço normal interpalavra que estique e encolha (na saída impressa); para
+isso, veja-se o comando <code class="code">@tie</code> na próxima seção.
+</p>
+<a class="index-entry-id" id="index-Hifenizacao_002c-impedindo"></a>
+<p>Na saída impressa, você também pode usar o comando <code class="code">@w</code> para impedir
+que um nome longo ou uma frase seja automaticamente hifenizada, por exemplo
+se acontecer perto do fim de uma linha.
+</p>
+<a class="index-entry-id" id="index-Expansao-de-palavras_002dchave_002c-impedindo"></a>
+<a class="index-entry-id" id="index-Palavras_002dchave-de-controle-de-versao_002c-impedindo-expansao-de"></a>
+<a class="index-entry-id" id="index-Expansao-de-_0024Id_002c-impedindo"></a>
+<p>Você também pode usar <code class="code">@w</code> para evitar expansão indesejada de
+palavra-chave em sistemas de controle de fonte.  Por exemplo, para escrever
+literalmente <code class="t">$<!-- /@w -->Id$</code> em teu documento, use <code class="code">@w{$}Id$</code>.
+Entretanto, esse truque não é eficaz para arquivos de saída em alguns
+formatos de saída.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040tie.html"><code class="code">@tie{}</code>: Inserindo um Espaço Inquebrável</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040allowcodebreaks.html"><code class="code">@allowcodebreaks</code>: Controle Quebras de Linha no <code class="code">@code</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Quebras.html">Forçando e Impedindo Quebras</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

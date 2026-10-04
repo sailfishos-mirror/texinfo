@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@verbatim (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Escrevendo um exemplo literal.">
+<meta name="keywords" content="Escrevendo um exemplo literal.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Cita_00e7_00f5es-e-Exemplos.html" rel="up" title="Citações e Exemplos">
+<link href="_0040lisp.html" rel="next" title="@lisp">
+<link href="_0040example.html" rel="prev" title="@example">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="g_t_0040verbatim">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040lisp.html" accesskey="n" rel="next"><code class="code">@lisp</code>: Marcando um Exemplo da Lisp</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040example.html" accesskey="p" rel="prev"><code class="code">@example</code>: Texto de Exemplo</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Cita_00e7_00f5es-e-Exemplos.html" accesskey="u" rel="up">Citações e Exemplos</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="g_t_0040verbatim_003a-Texto-Literal"><span>7.5 <code class="code">@verbatim</code>: Texto Literal<a class="copiable-link" href="#g_t_0040verbatim_003a-Texto-Literal"> &para;</a></span></h3>
+
+<a class="anchor" id="verbatim"></a><a class="index-entry-id" id="index-verbatim"></a>
+<a class="index-entry-id" id="index-Ambiente-verbatim"></a>
+
+<p>Use o ambiente <code class="code">@verbatim</code> para imprimir texto que pode conter
+caracteres especiais ou comandos que não deveriam ser interpretados, como
+saída ou entrada de computador (<code class="code">@example</code> interpreta o texto dele
+como comandos regulares do Texinfo).  Isso é útil especialmente para incluir
+arquivos gerados automaticamente em um manual do Texinfo.
+</p>
+<p>Em geral, a saída gerada será exatamente a mesma que a entrada.  Nenhuma
+substituição de caracteres é feita; por exemplo, todos os espaços e linhas
+em branco são significantes, incluindo tabulações.  O texto é tipografado em
+uma fonte de largura fixa, e não recuado ou preenchido.
+</p>
+<p>Escreva um comando <code class="code">@verbatim</code> sozinho no início de uma linha.  Essa
+linha desaparecerá da saída gerada.  Marque o final do bloco literal com um
+comando <code class="code">@end verbatim</code>, também escrito sozinho no início de uma
+linha.  O <code class="code">@end verbatim</code> também desaparecerá da saída gerada.
+</p>
+<p>Por exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">@verbatim
+{
+<var class="var">&lt;tab&gt;</var>@command com caracteres estranhos: @'e
+expanda<var class="var">&lt;tab&gt;</var>me
+}
+@end verbatim
+</pre></div>
+
+<p>(onde <var class="var">&lt;tab&gt;</var> significa um caractere literal de tabulação).  Isso
+produz:
+</p>
+<pre class="verbatim">{
+	@command com caracteres estranhos: @'e
+expanda	me
+}
+</pre>
+<p>Como as linhas contendo <code class="code">@verbatim</code> e <code class="code">@end verbatim</code> não
+produzem saída, tipicamente você deveria colocar uma linha em branco antes
+do <code class="code">@verbatim</code> e outra linha em branco depois do <code class="code">@end
+verbatim</code>.  Linhas em branco entre o <code class="code">@verbatim</code> iniciante e o
+<code class="code">@end verbatim</code> finalizante aparecerão na saída gerada.
+</p>
+<a class="index-entry-id" id="index-Verbatim_002c-pequeno"></a>
+<a class="index-entry-id" id="index-Literal_002c-pequeno"></a>
+<p>Você consegue obter um literal &ldquo;pequeno&rdquo; colocando o <code class="code">@verbatim</code> em
+um ambiente <code class="code">@smallformat</code>, conforme mostrado aqui:
+</p>
+<div class="example">
+<pre class="example-preformatted">@smallformat
+@verbatim
+... ainda literal, porém em uma fonte menor ...
+@end verbatim
+@end smallformat
+</pre></div>
+
+<p>Finalmente, uma palavra de alerta: não é confiável usar <code class="code">@verbatim</code>
+dentro de outras construções do Texinfo.
+</p>
+<p>Veja-se também <a class="ref" href="_0040verbatiminclude.html"><var class="var">arquivo</var> <code class="code">@verbatiminclude</code>: Incluir um Literal de Arquivo</a>.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040lisp.html"><code class="code">@lisp</code>: Marcando um Exemplo da Lisp</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040example.html"><code class="code">@example</code>: Texto de Exemplo</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Cita_00e7_00f5es-e-Exemplos.html">Citações e Exemplos</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

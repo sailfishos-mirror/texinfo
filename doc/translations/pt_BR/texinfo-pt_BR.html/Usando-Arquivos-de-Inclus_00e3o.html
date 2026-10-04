@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Usando Arquivos de Inclusão (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como usar o comando @include.">
+<meta name="keywords" content="Como usar o comando @include.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Arquivos-de-Inclus_00e3o.html" rel="up" title="Arquivos de Inclusão">
+<link href="Arquivo-de-Inclus_00e3o-de-Amostra.html" rel="next" title="Arquivo de Inclusão de Amostra">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Usando-Arquivos-de-Inclus_00e3o">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Arquivo-de-Inclus_00e3o-de-Amostra.html" accesskey="n" rel="next">Arquivo de Amostra com <code class="code">@include</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Arquivos-de-Inclus_00e3o.html" accesskey="u" rel="up">Arquivos de Inclusão</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Como-Usar-Arquivos-de-Inclus_00e3o"><span>18.1 Como Usar Arquivos de Inclusão<a class="copiable-link" href="#Como-Usar-Arquivos-de-Inclus_00e3o"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-include"></a>
+
+<p>Para incluir outro arquivo em um arquivo do Texinfo, escreva o comando
+<code class="code">@include</code> no começo de uma linha e siga-o na mesma linha pelo nome de
+um arquivo a ser incluído.  Por exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">@include buffers.texi
+</pre></div>
+
+<p>As referências a <code class="code">@value{<var class="var">var</var>}</code> são expandidas na linha
+<code class="code">@include</code>.  Além disso, os únicos comandos @ permitidos são
+<code class="code">@@</code>, <code class="code">@{</code>, <code class="code">@}</code> e comandos @ associados, como
+<code class="code">@atchar{}</code>.
+</p>
+<p>Um arquivo incluído deveria ser simplesmente um segmento de texto que você
+espera que seja incluído como está no arquivo geral do Texinfo ou no
+<em class="dfn">exterior</em>; ele não deveria conter as partes padrão de início e fim de
+um arquivo do Texinfo.  Em particular, você não deveria iniciar um arquivo
+incluído com uma linha dizendo &lsquo;<samp class="samp">\input texinfo</samp>&rsquo;; se fizer isso, esse
+texto será inserido no arquivo de saída literalmente.  Da mesma forma, você
+não deveria terminar um arquivo incluído com um comando <code class="code">@bye</code>; nada
+depois de <code class="code">@bye</code> é formatado.
+</p>
+<p>No passado distante, você era obrigado(a) a escrever uma linha
+<code class="code">@setfilename</code> no início de um arquivo incluído, mas não mais.  Agora,
+não importa se você escrever tal linha.  Se uma linha <code class="code">@setfilename</code>
+existir em um arquivo incluído, ela será ignorada.
+</p>
+<p>O modo Texinfo do GNU Emacs fornece <code class="code">texinfo-multiple-files-update</code>
+para atualizar ponteiros de nós e menu mestre com vários arquivos de
+inclusão.  Veja-se <a class="xref" href="Atualizar-M_00faltiplos-Arquivos.html">Atualizar Arquivo Externo e Incluir Arquivos</a>.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Arquivo-de-Inclus_00e3o-de-Amostra.html">Arquivo de Amostra com <code class="code">@include</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Arquivos-de-Inclus_00e3o.html">Arquivos de Inclusão</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

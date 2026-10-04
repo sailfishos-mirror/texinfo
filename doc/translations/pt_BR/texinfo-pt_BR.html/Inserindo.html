@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Inserindo (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como inserir comandos @ frequentemente usados.">
+<meta name="keywords" content="Como inserir comandos @ frequentemente usados.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Modo-Texinfo.html" rel="up" title="Modo Texinfo">
+<link href="Mostrando-a-Estrutura.html" rel="next" title="Mostrando a Estrutura">
+<link href="Edi_00e7_00e3o-do-Emacs.html" rel="prev" title="Edição do Emacs">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+kbd.kbd {font-style: oblique}
+kbd.key {font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Inserindo">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Mostrando-a-Estrutura.html" accesskey="n" rel="next">Mostrando a Estrutura de Seccionamento de um Arquivo</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Edi_00e7_00e3o-do-Emacs.html" accesskey="p" rel="prev">Os Comandos Usuais de Edição do GNU Emacs</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Modo-Texinfo.html" accesskey="u" rel="up">Usando Modo Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Inserindo-Comandos-Frequentemente-Usados"><span>D.3 Inserindo Comandos Frequentemente Usados<a class="copiable-link" href="#Inserindo-Comandos-Frequentemente-Usados"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Inserindo-comandos-frequentemente-usados"></a>
+<a class="index-entry-id" id="index-Comandos-frequentemente-usados_002c-inserindo"></a>
+<a class="index-entry-id" id="index-Comandos_002c-inserindo_002dos"></a>
+
+<p>O modo Texinfo fornece comandos para inserir vários comandos @
+frequentemente usados no buffer. Você consegue usar esses comandos para
+salvar as teclas digitadas.
+</p>
+<p>Os comandos de inserção são invocados digitando-se <kbd class="kbd">C-c</kbd> duas vezes e
+depois a primeira letra do comando @:
+</p>
+<dl class="table">
+<dt><a id="index-texinfo_002dinsert_002d_0040code"></a><span><kbd class="kbd">C-c C-c c</kbd><a class="copiable-link" href="#index-texinfo_002dinsert_002d_0040code"> &para;</a></span></dt>
+<dt><kbd class="kbd">M-x texinfo-insert-@code</kbd></dt>
+<dd><p>Inserir <code class="code">@code{}</code> e colocar o cursor entre as chaves.
+</p>
+</dd>
+<dt><a id="index-texinfo_002dinsert_002d_0040dfn"></a><span><kbd class="kbd">C-c C-c d</kbd><a class="copiable-link" href="#index-texinfo_002dinsert_002d_0040dfn"> &para;</a></span></dt>
+<dt><kbd class="kbd">M-x texinfo-insert-@dfn</kbd></dt>
+<dd><p>Inserir <code class="code">@dfn{}</code> e colocar o cursor entre as chaves.
+</p>
+</dd>
+<dt><a id="index-texinfo_002dinsert_002d_0040end"></a><span><kbd class="kbd">C-c C-c e</kbd><a class="copiable-link" href="#index-texinfo_002dinsert_002d_0040end"> &para;</a></span></dt>
+<dt><kbd class="kbd">M-x texinfo-insert-@end</kbd></dt>
+<dd><p>Inserir <code class="code">@end</code> e tentar inserir a palavra correta a seguir, como
+&lsquo;<samp class="samp">exemplo</samp>&rsquo; ou &lsquo;<samp class="samp">tabela</samp>&rsquo;. (Esse comando não trata listas aninhadas
+corretamente, mas insere a palavra apropriada na lista imediatamente
+anterior).
+</p>
+</dd>
+<dt><a id="index-texinfo_002dinsert_002d_0040item"></a><span><kbd class="kbd">C-c C-c i</kbd><a class="copiable-link" href="#index-texinfo_002dinsert_002d_0040item"> &para;</a></span></dt>
+<dt><kbd class="kbd">M-x texinfo-insert-@item</kbd></dt>
+<dd><p>Inserir <code class="code">@item</code> e colocar o cursor no início da próxima linha.
+</p>
+</dd>
+<dt><a id="index-texinfo_002dinsert_002d_0040kbd"></a><span><kbd class="kbd">C-c C-c k</kbd><a class="copiable-link" href="#index-texinfo_002dinsert_002d_0040kbd"> &para;</a></span></dt>
+<dt><kbd class="kbd">M-x texinfo-insert-@kbd</kbd></dt>
+<dd><p>Inserir <code class="code">@kbd{}</code> e colocar o cursor entre as chaves.
+</p>
+</dd>
+<dt><a id="index-texinfo_002dinsert_002d_0040node"></a><span><kbd class="kbd">C-c C-c n</kbd><a class="copiable-link" href="#index-texinfo_002dinsert_002d_0040node"> &para;</a></span></dt>
+<dt><kbd class="kbd">M-x texinfo-insert-@node</kbd></dt>
+<dd><p>Inserir <code class="code">@node</code> e uma linha de comentário listando a sequência para os
+nós &lsquo;Próximo&rsquo;, &lsquo;Anterior&rsquo; e &lsquo;Acima&rsquo;. Deixar um ponto depois do
+<code class="code">@node</code>.
+</p>
+</dd>
+<dt><a id="index-texinfo_002dinsert_002d_0040noindent"></a><span><kbd class="kbd">C-c C-c o</kbd><a class="copiable-link" href="#index-texinfo_002dinsert_002d_0040noindent"> &para;</a></span></dt>
+<dt><kbd class="kbd">M-x texinfo-insert-@noindent</kbd></dt>
+<dd><p>Inserir <code class="code">@noindent</code> e colocar o cursor no início da próxima linha.
+</p>
+</dd>
+<dt><a id="index-texinfo_002dinsert_002ddwim_002d_0040ref"></a><span><kbd class="kbd">C-c C-c r</kbd><a class="copiable-link" href="#index-texinfo_002dinsert_002ddwim_002d_0040ref"> &para;</a></span></dt>
+<dt><kbd class="kbd">M-x texinfo-insert-dwim-@ref</kbd></dt>
+<dd><p>Essa função e ligação foram adicionadas no Emacs 27.1. Insere um de
+<code class="code">@pxref{}</code>, <code class="code">@xref{}</code> ou <code class="code">@ref{}</code> baseado no texto
+ao redor do ponto; chamá-la perto de um parêntese aberto anterior não
+fechado resulta em <code class="code">@pxref{}</code>, no início de uma frase ou em
+<code class="code">(point-min)</code> produz <code class="code">@xref{}</code>, qualquer outro local (inclusive
+dentro de uma palavra), resultará em <code class="code">@ref{}</code>. Um argumento numérico
+diz quantas palavras as chaves deveriam envolver. Coloca o cursor entre as
+chaves.
+</p>
+</dd>
+<dt><a id="index-texinfo_002dinsert_002d_0040samp"></a><span><kbd class="kbd">C-c C-c s</kbd><a class="copiable-link" href="#index-texinfo_002dinsert_002d_0040samp"> &para;</a></span></dt>
+<dt><kbd class="kbd">M-x texinfo-insert-@samp</kbd></dt>
+<dd><p>Inserir <code class="code">@samp{}</code> e colocar o cursor entre as chaves.
+</p>
+</dd>
+<dt><a id="index-texinfo_002dinsert_002d_0040table"></a><span><kbd class="kbd">C-c C-c t</kbd><a class="copiable-link" href="#index-texinfo_002dinsert_002d_0040table"> &para;</a></span></dt>
+<dt><kbd class="kbd">M-x texinfo-insert-@table</kbd></dt>
+<dd><p>Inserir <code class="code">@table</code> seguido por um <kbd class="key">SPC</kbd> e deixar o cursor depois de
+<kbd class="key">SPC</kbd>.
+</p>
+</dd>
+<dt><a id="index-texinfo_002dinsert_002d_0040var"></a><span><kbd class="kbd">C-c C-c v</kbd><a class="copiable-link" href="#index-texinfo_002dinsert_002d_0040var"> &para;</a></span></dt>
+<dt><kbd class="kbd">M-x texinfo-insert-@var</kbd></dt>
+<dd><p>Inserir <code class="code">@var{}</code> e colocar o cursor entre as chaves.
+</p>
+</dd>
+<dt><a id="index-texinfo_002dinsert_002d_0040example"></a><span><kbd class="kbd">C-c C-c x</kbd><a class="copiable-link" href="#index-texinfo_002dinsert_002d_0040example"> &para;</a></span></dt>
+<dt><kbd class="kbd">M-x texinfo-insert-@example</kbd></dt>
+<dd><p>Inserir <code class="code">@example</code> e colocar o cursor no início da próxima linha.
+</p>
+</dd>
+<dt><a id="index-texinfo_002dinsert_002dbraces"></a><span><kbd class="kbd">C-c C-c {</kbd><a class="copiable-link" href="#index-texinfo_002dinsert_002dbraces"> &para;</a></span></dt>
+<dt><kbd class="kbd">M-x texinfo-insert-braces</kbd></dt>
+<dd><p>Inserir <code class="code">{}</code> e colocar o cursor entre as chaves.
+</p>
+</dd>
+<dt><a id="index-up_002dlist"></a><span><kbd class="kbd">C-c }</kbd><a class="copiable-link" href="#index-up_002dlist"> &para;</a></span></dt>
+<dt><kbd class="kbd">C-c  ]</kbd></dt>
+<dt><kbd class="kbd">M-x up-list</kbd></dt>
+<dd><p>Mover-se de entre um par de chaves em direção a depois da chave de
+fechamento. Digitar-se <kbd class="kbd">C-c ]</kbd> é mais fácil que digitar <kbd class="kbd">C-c }</kbd>,
+que é, no entanto, mais mnemônico; daí as duas combinações de teclas. (Além
+disso, você consegue sair de entre chaves digitando <kbd class="kbd">C-f</kbd>).
+</p></dd>
+</dl>
+
+<p>Para colocar um comando como <code class="code">@code{&hellip;}</code><!-- /@w --> em torno de uma
+palavra <em class="emph">existente</em>, posicionar o cursor em frente da palavra e digitar
+<kbd class="kbd">C-u 1 C-c C-c c</kbd>. Isso facilita a edição de texto simples existente. O
+valor do argumento prefixo informa ao Emacs quantas palavras após o ponto
+incluir entre chaves&mdash;&lsquo;<samp class="samp">1</samp>&rsquo; para uma palavra, &lsquo;<samp class="samp">2</samp>&rsquo; para duas
+palavras e assim por diante. Usar um argumento negativo para incluir a
+palavra, ou palavras, anterior. Se você não especificar um argumento de
+prefixo, o Emacs insere a sequência de caracteres do comando @ e posiciona
+o cursor entre as chaves. Esse recurso funciona somente para aqueles
+comandos @ que operam sobre uma palavra ou palavras dentro de uma linha,
+tais como <code class="code">@kbd</code> e <code class="code">@var</code>.
+</p>
+<p>Este conjunto de comandos de inserção foi criado depois de se analisar a
+frequência com que diferentes comandos @ são usados no <cite class="cite">Manual do GNU
+Emacs</cite> e no <cite class="cite">Manual do GDB</cite>. Se desejar adicionar teus próprios
+comandos de inserção, você pode vincular uma macro de teclado a uma tecla,
+usar abreviações ou estender o código em <samp class="file">texinfo.el</samp>.
+</p>
+<a class="index-entry-id" id="index-texinfo_002dstart_002dmenu_002ddescription"></a>
+<a class="index-entry-id" id="index-Descricao-de-menu_002c-iniciar"></a>
+<a class="index-entry-id" id="index-Descricao-para-menu_002c-iniciar"></a>
+<p><kbd class="kbd">C-c C-c C-d</kbd> (<code class="code">texinfo-start-menu-description</code>) é um comando de
+inserção que funciona diferentemente dos outros comandos de inserção. Ele
+insere uma seção de um nó ou título de capítulo no espaço para a descrição
+em uma linha de entrada de menu. (Uma entrada de menu tem três partes: o
+nome da entrada, o nome do nó e a descrição. Somente o nome do nó é exigido,
+mas uma descrição ajuda a explicar do que se trata o nó. Veja-se <a class="xref" href="Partes-do-Menu.html">As Partes de um Menu</a>).
+</p>
+<p>Para usar <code class="code">texinfo-start-menu-description</code>, posicionar o ponto em uma
+linha de entrada de menu e digitar <kbd class="kbd">C-c C-c C-d</kbd>. O comando procura e
+copia o título que acompanha o nome do nó e insere o título como uma
+descrição; ele posiciona o ponto no início do texto inserido, de modo que
+você consiga editá-lo. A função não insere o título se a linha de entrada do
+menu já contiver uma descrição.
+</p>
+<p>Esse comando é apenas uma ajuda para se escrever descrições; ele não faz
+todo o trabalho. Você precisa editar o texto inserido, pois um título tende
+a usar as mesmas palavras que um nome de nó, mas uma descrição útil usa
+palavras diferentes.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Mostrando-a-Estrutura.html">Mostrando a Estrutura de Seccionamento de um Arquivo</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Edi_00e7_00e3o-do-Emacs.html">Os Comandos Usuais de Edição do GNU Emacs</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Modo-Texinfo.html">Usando Modo Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

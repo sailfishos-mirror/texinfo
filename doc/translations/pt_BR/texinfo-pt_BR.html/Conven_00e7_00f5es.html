@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Convenções (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Regras gerais para escrever um arquivo do Texinfo.">
+<meta name="keywords" content="Regras gerais para escrever um arquivo do Texinfo.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Escrevendo-um-Arquivo-do-Texinfo.html" rel="up" title="Escrevendo um Arquivo do Texinfo">
+<link href="Coment_00e1rios.html" rel="next" title="Comentários">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+kbd.kbd {font-style: oblique}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Conven_00e7_00f5es">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Coment_00e1rios.html" accesskey="n" rel="next">Comentários</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Escrevendo-um-Arquivo-do-Texinfo.html" accesskey="u" rel="up">Escrevendo um Arquivo do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Conven_00e7_00f5es-Sint_00e1ticas-Gerais"><span>2.1 Convenções Sintáticas Gerais<a class="copiable-link" href="#Conven_00e7_00f5es-Sint_00e1ticas-Gerais"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Convencoes-sintaticas-gerais"></a>
+<a class="index-entry-id" id="index-Sintaticas_002c-convencoes"></a>
+<a class="index-entry-id" id="index-Convencoes_002c-sintaticas"></a>
+<a class="index-entry-id" id="index-Caracteres_002c-entrada-basica"></a>
+<a class="anchor" id="Comandos-de-Formata_00e7_00e3o"></a>
+<p>Esta seção descreve as convenções gerais usadas em todos os documentos do
+Texinfo.
+</p>
+<ul class="itemize mark-bullet">
+<li><a class="index-entry-id" id="index-Arquivos-fonte_002c-caracteres-usados"></a>
+Todos os caracteres ASCII imprimíveis, exceto &lsquo;<samp class="samp">@</samp>&rsquo;, &lsquo;<samp class="samp">{</samp>&rsquo; e
+&lsquo;<samp class="samp">}</samp>&rsquo;, podem aparecer em um arquivo do Texinfo e representam eles
+mesmos. &lsquo;<samp class="samp">@</samp>&rsquo; é o caractere de encapsulamento que introduz comandos,
+enquanto &lsquo;<samp class="samp">{</samp>&rsquo; e &lsquo;<samp class="samp">}</samp>&rsquo; são usados para envolver argumentos a certos
+comandos.   Para colocar um desses caracteres especiais no documento,
+coloque um caractere &lsquo;<samp class="samp">@</samp>&rsquo; em frente a ele, como isto: &lsquo;<samp class="samp">@@</samp>&rsquo;,
+&lsquo;<samp class="samp">@{</samp>&rsquo;, e &lsquo;<samp class="samp">@}</samp>&rsquo;.
+
+</li><li><a class="index-entry-id" id="index-Comandos-_0040"></a>
+<a class="index-entry-id" id="index-Formatando_002c-comandos"></a>
+Em um arquivo do Texinfo, os comandos que você escreve para descrever o
+conteúdo do manual são precedidos por um caractere &lsquo;<samp class="samp">@</samp>&rsquo;; eles são
+chamados de <em class="dfn">comandos @</em>. (O &lsquo;<samp class="samp">@</samp>&rsquo; no Texinfo tem o mesmo
+significado que o &lsquo;<samp class="samp">\</samp>&rsquo; tem no TeX simples).
+
+<a class="index-entry-id" id="index-Chaves_002c-quando-usar"></a>
+<p>Dependendo do que eles fazem ou de quais argumentos recebam, você precisa
+escrever comandos @ em linhas próprias, ou como parte de frases. Como regra
+geral, um comando exige chaves se ele se misturar com outro texto; mas não
+precisa de chaves se estiver em uma linha própria. Para mais detalhes da
+sintaxe de comandos do Texinfo, veja-se <a class="ref" href="Sintaxe-de-Comando.html">Sintaxe de Comando @</a>.
+</p>
+
+</li><li>Espaço em branco seguindo um nome de comando @ é opcional e (normalmente)
+ignorado se presente.  As exceções são contextos quando o espaço em branco é
+significativo, por exemplo, um ambiente de <code class="code">@example</code>.
+
+
+</li><li>Texinfo suporta as aspas normais usadas em Inglês e em outros idiomas;
+veja-se <a class="ref" href="Inserindo-Aspas.html">Inserindo Aspas</a>.
+
+</li><li><a class="index-entry-id" id="index-Varios-tracos-no-fonte"></a>
+<a class="index-entry-id" id="index-Tracos-no-fonte"></a>
+<a class="index-entry-id" id="index-Hifens-no-fonte_002c-dois-ou-tres-em-uma-linha"></a>
+<a class="index-entry-id" id="index-Travessao_002c-produzindo"></a>
+<a class="index-entry-id" id="index-Traco-de-ligacao_002c-produzindo"></a>
+Use três hifens em uma linha, &lsquo;<samp class="samp">---</samp>&rsquo;, para produzir um traço
+longo&mdash;como esse (chamado um <em class="dfn">travessão</em>), usado para pontuação em
+frases.  Use dois hifens, &lsquo;<samp class="samp">--</samp>&rsquo;, para produzir um traço médio (chamado
+um <em class="dfn">traço de ligação</em>), usado primariamente para intervalos numéricos,
+como em &ldquo;Junho 25&ndash;26&rdquo;.  Use um hífen simples, &lsquo;<samp class="samp">-</samp>&rsquo;, para produzir um
+hífen padrão usado em palavras compostas.  Para exibir na tela, Info reduz
+três hifens para dois e dois hifens para um (não transitivamente!).
+Certamente, qualquer número de hifens no fonte permanece como estiverem em
+contextos literais, tais como <code class="code">@code</code> e <code class="code">@example</code>.
+
+</li><li><em class="emph">Espaço em branco</em>. Arquivos do Texinfo são arquivos de texto simples
+compostos de linhas terminadas pelo usual caractere de nova linha (avanço de
+linha). Processadores do Texinfo leem a entrada uma linha por
+vez. Parágrafos são terminados por uma linha vazia ou uma linha contendo
+somente espaços. Uma sequência de vários espaços no texto geralmente é
+tratada da mesma forma que um espaço (exceto em modos literais).
+
+<a class="index-entry-id" id="index-Caractere-de-avanco-de-formulario"></a>
+<a class="index-entry-id" id="index-CTRL_002dl"></a>
+
+<p>Caracteres de avanço de formulário (<kbd class="kbd">CTRL-l</kbd>) encerram qualquer
+parágrafo aberto. Outros avanços de formulários, bem como outros espaços em
+branco ASCII (tabulação, retorno de carro) são tratados da mesma forma que
+caracteres de espaço (embora os resultados possam diferir dependendo do
+formato de saída). Portanto, não existe muito sentido em usá-los em
+documentos. Espaços não ASCII, como Unicode &ldquo;em space&rdquo;, não são
+reconhecidos como espaços em branco e serão tratados como caracteres
+regulares, não espaços em branco.
+</p>
+<p>No entanto, em modos literais, por exemplo, em amostras de código,
+caracteres de tabulação podem produzir a formatação correta na saída gerada.
+</p>
+
+</li></ul>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Coment_00e1rios.html">Comentários</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Escrevendo-um-Arquivo-do-Texinfo.html">Escrevendo um Arquivo do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

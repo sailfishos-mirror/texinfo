@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@verb (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Indicando uma sequência de caracteres literais.">
+<meta name="keywords" content="Indicando uma sequência de caracteres literais.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Indicando.html" rel="up" title="Indicando">
+<link href="_0040var.html" rel="next" title="@var">
+<link href="_0040samp.html" rel="prev" title="@samp">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="g_t_0040verb">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040var.html" accesskey="n" rel="next"><code class="code">@var</code>{<var class="var">variável-metassintática</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040samp.html" accesskey="p" rel="prev"><code class="code">@samp</code>{<var class="var">texto</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Indicando.html" accesskey="u" rel="up">Indicando Definições, Comandos, etc.</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="g_t_0040verb_007bchartextchar_007d"><span>6.1.6 <code class="code">@verb</code>{<var class="var">char</var><var class="var">text</var><var class="var">char</var>}<a class="copiable-link" href="#g_t_0040verb_007bchartextchar_007d"> &para;</a></span></h4>
+
+<a class="anchor" id="verb"></a><a class="index-entry-id" id="index-verb"></a>
+<a class="index-entry-id" id="index-Texto-literal-interno-a-linha"></a>
+
+<a class="index-entry-id" id="index-Caractere-delimitador_002c-para-literalidade"></a>
+<p>Use o comando <code class="code">@verb</code> para imprimir uma sequência de caracteres
+literais.
+</p>
+<p>Semelhante ao comando <code class="code">\verb</code> do LaTeX, o texto literal pode ser
+aspeado usando-se qualquer caractere delimitador único.  Coloque o texto
+literal, incluindo os delimitadores, entre chaves.  O texto é impresso em
+uma fonte de largura fixa:
+</p>
+<div class="example">
+<pre class="example-preformatted">Quantos @verb{|@|} de escape alguém precisa para imprimir esta
+sequência @verb{.@a @b.@c.} ou esta @verb{+@'e?`{}!`\+}?
+</pre></div>
+
+<p>produz
+</p>
+<div class="example">
+<pre class="example-preformatted">Quantos <code class="verb">@</code> de escape alguém precisa para imprimir esta
+sequência <code class="verb">@a @b.@c</code> ou esta <code class="verb">@'e?`{}!`\</code>?
+</pre></div>
+
+<p>Isso está em contraste com <code class="code">@samp</code> (veja-se a seção anterior),
+<code class="code">@code</code> e comandos semelhantes; naqueles casos, o argumento é texto
+normal do Texinfo, onde os três caracteres <code class="code">@{}</code> são especiais, como
+de costume.  Com <code class="code">@verb</code>, nada é especial, exceto o caractere
+delimitador que você escolher.
+</p>
+<p>O próprio caractere delimitador pode aparecer dentro do texto literal,
+conforme mostrado acima.  Como outro exemplo, &lsquo;<samp class="samp">@verb{...}</samp>&rsquo; imprime
+um ponto (largura fixa).
+</p>
+<p>Não é confiável usar-se <code class="code">@verb</code> dentro de outras construções do
+Texinfo.  Em particular, não funciona usar-se <code class="code">@verb</code> em nada
+relacionado a referências cruzadas, como títulos de seção ou legendas de
+figuras.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040var.html"><code class="code">@var</code>{<var class="var">variável-metassintática</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040samp.html"><code class="code">@samp</code>{<var class="var">texto</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Indicando.html">Indicando Definições, Comandos, etc.</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

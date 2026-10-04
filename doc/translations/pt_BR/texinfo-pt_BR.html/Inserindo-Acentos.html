@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Inserindo Acentos (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Inserindo acentos e caracteres especiais.">
+<meta name="keywords" content="Inserindo acentos e caracteres especiais.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Inser_00e7_00f5es.html" rel="up" title="Inserções">
+<link href="Inserindo-Aspas.html" rel="next" title="Inserindo Aspas">
+<link href="Inserindo-Espa_00e7o.html" rel="prev" title="Inserindo Espaço">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Inserindo-Acentos">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Inserindo-Aspas.html" accesskey="n" rel="next">Inserindo Aspas</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Inserindo-Espa_00e7o.html" accesskey="p" rel="prev">Inserindo Espaço</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Inser_00e7_00f5es.html" accesskey="u" rel="up">Inserções Especiais</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Inserindo-Acentos-1"><span>11.4 Inserindo Acentos<a class="copiable-link" href="#Inserindo-Acentos-1"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Inserindo-acentos"></a>
+<a class="index-entry-id" id="index-Acentos_002c-inserindo"></a>
+<a class="index-entry-id" id="index-Acentos-flutuantes_002c-inserindo"></a>
+
+<p>Aqui está uma tabela com os comandos que Texinfo fornece para inserir
+acentos flutuantes.  Eles todos precisam de um argumento, o caractere a
+acentuar, que pode ou ser fornecido entre chaves como de costume
+(<code class="code">@'{e}</code>), ou, como um caso especial, as chaves podem ser omitidas,
+em cujo caso o argumento é o próximo caractere (<code class="code">@'e</code>).  Isso é para
+tornar o fonte o mais conveniente possível para digitar-se e ler-se, já que
+caracteres acentuados são muito comuns em alguns idiomas.
+</p>
+<p>Se o comando for alfabético, como <code class="code">@dotaccent</code>, então precisa existir
+um espaço entre o nome do comando e o argumento se chaves não forem usadas.
+Se o comando for não alfabético, como <code class="code">@'</code>, então precisa <em class="emph">não</em>
+existir um espaço; o argumento é o exato próximo caractere.
+</p>
+<p>Exceção: o argumento para <code class="code">@tieaccent</code> precisa estar circundado de
+chaves (já que são dois caracteres em vez de um).
+</p>
+<p>Na saída Info e de texto simples, as construções de acento são geradas como
+caracteres acentuados verdadeiros se a codificação do documento suportar os
+caracteres exigidos, a menos que a opção <samp class="option">--disable-encoding</samp> seja
+fornecida para o <code class="command">texi2any</code> (veja-se <a class="pxref" href="_0040documentencoding.html"><code class="code">@documentencoding <var class="var">codificação</var></code>: Configurar Codificação de Entrada</a>).
+Transliterações ASCII são usadas se os caracteres codificados não forem
+gerados.
+</p>
+<a class="index-entry-id" id="index-_0022-_0028acento-trema_0029"></a>
+<a class="index-entry-id" id="index-Acento-trema"></a>
+<a class="index-entry-id" id="index-_0027-_0028acento-agudo_0029"></a>
+<a class="index-entry-id" id="index-Acento-agudo"></a>
+<a class="index-entry-id" id="index-_003d-_0028acento-macron_0029"></a>
+<a class="index-entry-id" id="index-Acento-macron"></a>
+<a class="index-entry-id" id="index-_005e-_0028acento-circunflexo_0029"></a>
+<a class="index-entry-id" id="index-Acento-circunflexo"></a>
+<a class="index-entry-id" id="index-_0060-_0028acento-grave_0029"></a>
+<a class="index-entry-id" id="index-Acento-grave"></a>
+<a class="index-entry-id" id="index-_007e-_0028acento-til_0029"></a>
+<a class="index-entry-id" id="index-Acento-til"></a>
+<a class="index-entry-id" id="index-_002c-_0028acento-cedilha_0029"></a>
+<a class="index-entry-id" id="index-Acento-cedilha"></a>
+<a class="index-entry-id" id="index-dotaccent"></a>
+<a class="index-entry-id" id="index-Acento-ponto"></a>
+<a class="index-entry-id" id="index-H-_0028acento-trema-hungaro_0029"></a>
+<a class="index-entry-id" id="index-Acento-trema-hungaro"></a>
+<a class="index-entry-id" id="index-ogonek"></a>
+<a class="index-entry-id" id="index-Diacritico-Ogonek"></a>
+<a class="index-entry-id" id="index-ringaccent"></a>
+<a class="index-entry-id" id="index-Acento-de-anel"></a>
+<a class="index-entry-id" id="index-tieaccent"></a>
+<a class="index-entry-id" id="index-Acento-de-ligacao-posterior"></a>
+<a class="index-entry-id" id="index-u-_0028acento-breve_0029"></a>
+<a class="index-entry-id" id="index-Acento-breve"></a>
+<a class="index-entry-id" id="index-ubaraccent"></a>
+<a class="index-entry-id" id="index-Acento-sub-barra"></a>
+<a class="index-entry-id" id="index-udotaccent"></a>
+<a class="index-entry-id" id="index-Acento-sublinhado"></a>
+<a class="index-entry-id" id="index-v-_0028caron_0029"></a>
+<a class="index-entry-id" id="index-Acento-Hacek"></a>
+<a class="index-entry-id" id="index-Acento-Check"></a>
+<a class="index-entry-id" id="index-Caron"></a>
+<a class="index-entry-id" id="index-_0022"></a>
+<a class="index-entry-id" id="index-_0027-1"></a>
+<a class="index-entry-id" id="index-_003d"></a>
+<a class="index-entry-id" id="index-_005e"></a>
+<a class="index-entry-id" id="index-_0060-1"></a>
+<a class="index-entry-id" id="index-_007e"></a>
+<a class="index-entry-id" id="index-_002c"></a>
+<a class="index-entry-id" id="index-H"></a>
+<a class="index-entry-id" id="index-u"></a>
+<a class="index-entry-id" id="index-v"></a>
+<table class="multitable">
+<thead><tr><th>Comando</th><th>Saída gerada</th><th>O quê</th></tr></thead>
+<tbody><tr><td><code class="t">@&quot;o</code></td><td>&ouml;</td><td>acento trema</td></tr>
+<tr><td><code class="t">@'o</code></td><td>&oacute;</td><td>acento agudo</td></tr>
+<tr><td><code class="t">@,{c}</code></td><td>&ccedil;</td><td>acento cedilha</td></tr>
+<tr><td><code class="t">@=o</code></td><td>&#333;</td><td>acento macron/sobre barra</td></tr>
+<tr><td><code class="t">@^o</code></td><td>&ocirc;</td><td>acento circunflexo</td></tr>
+<tr><td><code class="t">@`o</code></td><td>&ograve;</td><td>acento grave</td></tr>
+<tr><td><code class="t">@~o</code></td><td>&otilde;</td><td>acento til</td></tr>
+<tr><td><code class="t">@dotaccent{o}</code></td><td>&#559;</td><td>acento sobre ponto</td></tr>
+<tr><td><code class="t">@H{o}</code></td><td>&#337;</td><td>trema longo húngaro</td></tr>
+<tr><td><code class="t">@ogonek{a}</code></td><td>&#261;</td><td>ogonek</td></tr>
+<tr><td><code class="t">@ringaccent{o}</code></td><td>o&#778;</td><td>acento de anel</td></tr>
+<tr><td><code class="t">@tieaccent{oo}</code></td><td>o&#865;o</td><td>acento de ligação posterior</td></tr>
+<tr><td><code class="t">@u{o}</code></td><td>&#335;</td><td>acento breve</td></tr>
+<tr><td><code class="t">@ubaraccent{o}</code></td><td>o&#818;</td><td>acento sub barra</td></tr>
+<tr><td><code class="t">@udotaccent{o}</code></td><td>&#7885;</td><td>acento sub ponto</td></tr>
+<tr><td><code class="t">@v{o}</code></td><td>&#466;</td><td>acento caron/hacek/check</td></tr>
+</tbody>
+</table>
+
+<p>Esta tabela lista os comandos do Texinfo para inserir outros caracteres
+comumente usados em idiomas diferentes do inglês.
+</p>
+<a class="index-entry-id" id="index-questiondown"></a>
+<a class="index-entry-id" id="index-_003f"></a>
+<a class="index-entry-id" id="index-exclamdown"></a>
+<a class="index-entry-id" id="index-_0021"></a>
+<a class="index-entry-id" id="index-aa"></a>
+<a class="index-entry-id" id="index-a"></a>
+<a class="index-entry-id" id="index-AA"></a>
+<a class="index-entry-id" id="index-A"></a>
+<a class="index-entry-id" id="index-ae-1"></a>
+<a class="index-entry-id" id="index-ae"></a>
+<a class="index-entry-id" id="index-AE-1"></a>
+<a class="index-entry-id" id="index-AE"></a>
+<a class="index-entry-id" id="index-Islandes"></a>
+<a class="index-entry-id" id="index-Eth"></a>
+<a class="index-entry-id" id="index-dh"></a>
+<a class="index-entry-id" id="index-d"></a>
+<a class="index-entry-id" id="index-DH"></a>
+<a class="index-entry-id" id="index-D"></a>
+<a class="index-entry-id" id="index-dotless"></a>
+<a class="index-entry-id" id="index-i-_0028i-sem-ponto_0029"></a>
+<a class="index-entry-id" id="index-j-_0028j-sem-ponto_0029"></a>
+<a class="index-entry-id" id="index-i_002c-j-sem-ponto"></a>
+<a class="index-entry-id" id="index-l-1"></a>
+<a class="index-entry-id" id="index-l"></a>
+<a class="index-entry-id" id="index-L-1"></a>
+<a class="index-entry-id" id="index-L"></a>
+<a class="index-entry-id" id="index-o-2"></a>
+<a class="index-entry-id" id="index-o"></a>
+<a class="index-entry-id" id="index-O-1"></a>
+<a class="index-entry-id" id="index-O"></a>
+<a class="index-entry-id" id="index-oe-1"></a>
+<a class="index-entry-id" id="index-oe"></a>
+<a class="index-entry-id" id="index-OE-1"></a>
+<a class="index-entry-id" id="index-OE"></a>
+<a class="index-entry-id" id="index-Ordinais-de-romance"></a>
+<a class="index-entry-id" id="index-Ordinais_002c-Romance"></a>
+<a class="index-entry-id" id="index-Ordinal-feminino"></a>
+<a class="index-entry-id" id="index-ordf"></a>
+<a class="index-entry-id" id="index-a-1"></a>
+<a class="index-entry-id" id="index-Ordinal-masculino"></a>
+<a class="index-entry-id" id="index-ordm"></a>
+<a class="index-entry-id" id="index-o-1"></a>
+<a class="index-entry-id" id="index-ss-1"></a>
+<a class="index-entry-id" id="index-ss"></a>
+<a class="index-entry-id" id="index-Es_002dzet"></a>
+<a class="index-entry-id" id="index-Sharp-S"></a>
+<a class="index-entry-id" id="index-S-alemao"></a>
+<a class="index-entry-id" id="index-Thorn"></a>
+<a class="index-entry-id" id="index-th-1"></a>
+<a class="index-entry-id" id="index-th"></a>
+<a class="index-entry-id" id="index-TH-1"></a>
+<a class="index-entry-id" id="index-TH"></a>
+<table class="multitable">
+<tbody><tr><td><code class="t">@exclamdown{}</code></td><td>&iexcl;</td><td>! de cabeça para baixo</td></tr>
+<tr><td><code class="t">@questiondown{}</code></td><td>&iquest;</td><td>? de cabeça para baixo</td></tr>
+<tr><td><code class="t">@aa{} @AA{}</code></td><td>&aring; &Aring;</td><td>a,A com círculo</td></tr>
+<tr><td><code class="t">@ae{} @AE{}</code></td><td>&aelig; &AElig;</td><td>ligaduras de ae,AE</td></tr>
+<tr><td><code class="t">@dh{} @DH{}</code></td><td>&eth; &ETH;</td><td>eth islandês</td></tr>
+<tr><td><code class="t">@dotless{i}</code></td><td>&inodot;</td><td>i sem ponto</td></tr>
+<tr><td><code class="t">@dotless{j}</code></td><td>&#567;</td><td>j sem ponto</td></tr>
+<tr><td><code class="t">@l{} @L{}</code></td><td>&#322; &#321;</td><td>L,l suprimido</td></tr>
+<tr><td><code class="t">@o{} @O{}</code></td><td>&oslash; &Oslash;</td><td>O,o com barra</td></tr>
+<tr><td><code class="t">@oe{} @OE{}</code></td><td>&oelig; &OElig;</td><td>ligaduras de oe,OE</td></tr>
+<tr><td><code class="t">@ordf{} @ordm{}</code></td><td>&ordf; &ordm;</td><td>Ordinais espanhóis</td></tr>
+<tr><td><code class="t">@ss{}</code></td><td>&szlig;</td><td>es-zet ou sharp S</td></tr>
+<tr><td><code class="t">@th{} @TH{}</code></td><td>&thorn; &THORN;</td><td>thorn islandês</td></tr>
+</tbody>
+</table>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Inserindo-Aspas.html">Inserindo Aspas</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Inserindo-Espa_00e7o.html">Inserindo Espaço</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Inser_00e7_00f5es.html">Inserções Especiais</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

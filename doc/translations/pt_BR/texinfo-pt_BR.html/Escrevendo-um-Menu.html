@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Escrevendo um Menu (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="O que é um menu?">
+<meta name="keywords" content="O que é um menu?">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Menus.html" rel="up" title="Menus">
+<link href="Exemplo-de-Menu.html" rel="next" title="Exemplo de Menu">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+kbd.kbd {font-style: oblique}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Escrevendo-um-Menu">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Exemplo-de-Menu.html" accesskey="n" rel="next">Um Exemplo de Menu</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Menus.html" accesskey="u" rel="up">Menus</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Escrevendo-um-Menu-1"><span>3.9.1 Escrevendo um Menu<a class="copiable-link" href="#Escrevendo-um-Menu-1"> &para;</a></span></h4>
+<a class="index-entry-id" id="index-Escrevendo-um-menu"></a>
+<a class="index-entry-id" id="index-Menu_002c-Escrevendo"></a>
+
+<p>Um menu consiste de um comando <code class="code">@menu</code> em uma linha própria, seguido
+por linhas de entrada de menu ou de linhas de comentários de menu, e então
+seguido por um comando <code class="code">@end menu</code> em uma linha própria.
+</p>
+<p>Um menu se parece com isto:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@menu
+Unidades Maiores de Texto
+
+* Arquivos::                    Tudo acerca de manuseio de arquivos.
+* Múltiplos: Buffers.           Múltiplos buffers; editando
+                                 vários arquivos de uma vez.
+@end menu
+</pre></div></div>
+
+<a class="index-entry-id" id="index-Espacos_002c-em-menus"></a>
+<p>Em um menu, cada linha que inicie com um &lsquo;<samp class="samp">*&nbsp;</samp>&rsquo;<!-- /@w --> é uma <em class="dfn">entrada de
+menu</em>. (Observe o espaço depois do asterisco). No exemplo acima, as duas
+linhas iniciando com &lsquo;<samp class="samp">*&nbsp;</samp>&rsquo;<!-- /@w --> são entradas de menu.
+</p>
+<a class="index-entry-id" id="index-Comentario-de-menu"></a>
+<p>Uma linha que não se inicie com um &lsquo;<samp class="samp">*&nbsp;</samp>&rsquo;<!-- /@w --> também pode aparecer em um
+menu. Tal linha não é uma entrada de menu, mas sim uma linha do
+<em class="dfn">comentário de menu</em>. No exemplo acima, a linha &lsquo;<samp class="samp">Unidades Maiores
+de Texto</samp>&rsquo; é uma linha de comentário de menu. Linhas de comentário de menu e
+linhas vazias são mantidas na saída gerada.
+</p>
+<a class="index-entry-id" id="index-Documentos-hierarquicos_002c-e-menus"></a>
+<p>Tecnicamente, menus podem te transportar para qualquer nó, independentemente
+da estrutura do documento; mesmo para nós em um arquivo Info
+diferente. Entretanto, o recurso de criação implícita de ponteiros do
+<code class="command">texi2any</code> (veja-se <a class="pxref" href="Escrevendo-um-N_00f3.html">Escrevendo uma Linha de <code class="code">@node</code></a>) e os comandos de atualização
+do modo Texinfo do GNU Emacs funcionam somente para criar menus de nós
+subordinados em um documento hierarquicamente estruturado. Em um documento
+hierarquicamente estruturado, é muito melhor usar referências cruzadas para
+referenciar nós arbitrários.
+</p>
+<p>No Info, um(a) usuário(a) seleciona um nó com o comando <kbd class="kbd">m</kbd>
+(<code class="code">Info-menu</code>). O nome de entrada de menu é o que o(a) usuário(a) digita
+depois do comando <kbd class="kbd">m</kbd>.
+<a class="index-entry-id" id="index-accesskey-em-saida-gerada-HTML-de-menus"></a>
+Na saída HTML, o atributo <code class="code">accesskey</code> é usado com os valores
+&lsquo;<samp class="samp">1</samp>&rsquo;&hellip;&lsquo;<samp class="samp">9</samp>&rsquo; para as primeiras nove entradas. Isso permite que as
+pessoas usando navegadores web sigam as primeiras entradas de menu usando
+(tipicamente) <kbd class="kbd">M-<var class="var">dígito</var></kbd>, por exemplo, <kbd class="kbd">M-1</kbd> para a primeira
+entrada.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Exemplo-de-Menu.html">Um Exemplo de Menu</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Menus.html">Menus</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

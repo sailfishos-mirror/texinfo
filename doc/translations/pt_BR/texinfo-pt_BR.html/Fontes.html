@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Fontes (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Vários comandos de fonte para saída impressa.">
+<meta name="keywords" content="Vários comandos de fonte para saída impressa.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="_00canfase.html" rel="up" title="Ênfase">
+<link href="Versaletes.html" rel="prev" title="Versaletes">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-minus {list-style-type: "\2212"}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Fontes">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Versaletes.html" accesskey="p" rel="prev"><code class="code">@sc</code>{<var class="var">texto</var>}: A Fonte de Versaletes</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="_00canfase.html" accesskey="u" rel="up">Enfatizando Texto</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Fontes-para-Impress_00e3o"><span>6.2.3 Fontes para Impressão<a class="copiable-link" href="#Fontes-para-Impress_00e3o"> &para;</a></span></h4>
+<a class="index-entry-id" id="index-Fontes-para-impressao"></a>
+
+<a class="index-entry-id" id="index-fonttextsize"></a>
+<a class="index-entry-id" id="index-Tamanho-de-fonte_002c-reduzindo"></a>
+<a class="index-entry-id" id="index-Reduzindo-tamanho-de-fonte"></a>
+<a class="index-entry-id" id="index-Fontes-menores"></a>
+<p>Texinfo fornece um comando para mudar o tamanho da fonte principal do corpo
+na saída impressa para um documento: <code class="code">@fonttextsize</code>.  Ele não tem
+efeito em outra saída.  Ele recebe um argumento no restante da linha, o qual
+precisa ser ou &lsquo;<samp class="samp">10</samp>&rsquo; ou &lsquo;<samp class="samp">11</samp>&rsquo;.  Por exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">@fonttextsize 10
+</pre></div>
+
+<a class="index-entry-id" id="index-Custo-de-impressao_002c-reduzindo"></a>
+<p>O efeito é o de reduzir a fonte do corpo para um tamanho de 10<span class="dmn">pt</span> (o
+padrão é 11<span class="dmn">pt</span>).  Fontes para outros elementos, tais como seções e
+capítulos, são reduzidas de acordo.  Isso somente deveria ser usado em
+conjunto com <code class="code">@smallbook</code> (veja-se <a class="pxref" href="_0040smallbook.html"><code class="code">@smallbook</code>: Imprimindo Livros &ldquo;Pequenos&rdquo;</a>) ou similar,
+pois fontes de 10<span class="dmn">pt</span> em papel padrão (8.5x11 ou A4) são muito
+pequenas.  Uma razão para se usar esse comando é para economizar páginas, e,
+assim, custo de impressão, para livros físicos.
+</p>
+<p>Texinfo atualmente não tem comandos para alternar a família da fonte a se
+usar, ou comandos de mudança de tamanho mais gerais.
+</p>
+<p>Texinfo também fornece vários comandos de fonte que especificam mudanças de
+fonte no manual impresso e (onde possível) na saída HTML e DocBook.  Eles
+não tem efeito no Info.  Todos os comandos se aplicam a um argumento
+seguinte cercados por chaves.
+</p>
+<dl class="table">
+<dt><a class="index-entry-id" id="index-b"></a>
+<a class="index-entry-id" id="index-Fonte-negrito"></a>
+<a id="index-b-_0028fonte-negrito_0029"></a><span><code class="code">@b</code><a class="copiable-link" href="#index-b-_0028fonte-negrito_0029"> &para;</a></span></dt>
+<dd><p>seleciona face <b class="b">negrito</b>;
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-i"></a>
+<a class="index-entry-id" id="index-Fonte-italica"></a>
+<a id="index-i-_0028fonte-italica_0029"></a><span><code class="code">@i</code><a class="copiable-link" href="#index-i-_0028fonte-italica_0029"> &para;</a></span></dt>
+<dd><p>seleciona uma fonte <i class="i">itálica</i>;
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-r"></a>
+<a class="index-entry-id" id="index-Fonte-romana"></a>
+<a class="index-entry-id" id="index-Fonte-padrao"></a>
+<a id="index-r-_0028fonte-romana_0029"></a><span><code class="code">@r</code><a class="copiable-link" href="#index-r-_0028fonte-romana_0029"> &para;</a></span></dt>
+<dd><p>seleciona uma fonte <span class="r">romana</span>, que é a fonte usual na qual o texto é
+impresso.  Ela pode ou não ser serifada.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-Fonte-sans-serifa"></a>
+<a id="index-sansserif"></a><span><code class="code">@sansserif</code><a class="copiable-link" href="#index-sansserif"> &para;</a></span></dt>
+<dd><p>seleciona uma fonte <span class="sansserif">sans serifa</span>;
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-Fonte-inclinada"></a>
+<a class="index-entry-id" id="index-Fonte-obliqua"></a>
+<a id="index-slanted"></a><span><code class="code">@slanted</code><a class="copiable-link" href="#index-slanted"> &para;</a></span></dt>
+<dd><p>seleciona uma fonte <i class="slanted">inclinada</i>;
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-t"></a>
+<a class="index-entry-id" id="index-Fonte-mono-espacada"></a>
+<a class="index-entry-id" id="index-Fonte-de-tamanho-fixo"></a>
+<a class="index-entry-id" id="index-Fonte-de-maquina-de-escrever"></a>
+<a id="index-t-_0028fonte-de-maquina-de-escrever_0029"></a><span><code class="code">@t</code><a class="copiable-link" href="#index-t-_0028fonte-de-maquina-de-escrever_0029"> &para;</a></span></dt>
+<dd><p>seleciona a fonte de <code class="t">tamanho fixo</code>, estilo máquina de escrever usada por
+<code class="code">@code</code>;
+</p>
+</dd>
+</dl>
+
+
+<p>O comando <code class="code">@r</code> pode ser útil em ambientes tipo exemplo, para escrever
+comentários na fonte romana padrão em vez da fonte de largura fixa.  Isso
+aparenta melhor na saída impressa.
+</p>
+<p>Por exemplo,
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@lisp
+(+ 2 2)    ; @r{Adiciona dois mais dois.}
+@end lisp
+</pre></div></div>
+
+<p>produz
+</p>
+<div class="example lisp">
+<pre class="lisp-preformatted">(+ 2 2)    ; <span class="r">Adiciona dois mais dois.</span>
+</pre></div>
+
+<p>O comando <code class="code">@t</code> ocasionalmente pode ser útil para se produzir saída em
+uma fonte de máquina de escrever onde isso for suportado, mas nenhuma
+distinção com aspas é necessária no Info ou em texto simples. (Compare-se
+<code class="code">@t{foo}</code> produzindo <code class="t">foo</code> com <code class="code">@code{foo}</code> produzindo
+<code class="code">foo</code>). Aqui estão alguns possíveis motivos para se usar <code class="code">@t</code> em
+vez de <code class="code">@code</code>:
+</p>
+<ul class="itemize mark-minus">
+<li>O argumento é um caractere único
+</li><li>Já existem aspas de algum tipo cercando o argumento
+</li><li>É evidente a partir do contexto ou do próprio argumento que o argumento
+          poderia ser código de computador (por exemplo: nome de um grupo de notícias
+da Usenet)
+</li></ul>
+
+<p>Em geral, os outros comandos de fonte provavelmente não são úteis; eles
+existem principalmente para possibilitar documentar a funcionalidade de
+efeitos específicos de fontes, como no TeX e pacotes relacionados.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Versaletes.html"><code class="code">@sc</code>{<var class="var">texto</var>}: A Fonte de Versaletes</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="_00canfase.html">Enfatizando Texto</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@emph @strong (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como enfatizar texto no Texinfo.">
+<meta name="keywords" content="Como enfatizar texto no Texinfo.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="_00canfase.html" rel="up" title="Ênfase">
+<link href="Versaletes.html" rel="next" title="Versaletes">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="g_t_0040emph-_0040strong">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Versaletes.html" accesskey="n" rel="next"><code class="code">@sc</code>{<var class="var">texto</var>}: A Fonte de Versaletes</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="_00canfase.html" accesskey="u" rel="up">Enfatizando Texto</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="g_t_0040emph_007btexto_007d-e-_0040strong_007btexto_007d"><span>6.2.1 <code class="code">@emph</code>{<var class="var">texto</var>} e <code class="code">@strong</code>{<var class="var">texto</var>}<a class="copiable-link" href="#g_t_0040emph_007btexto_007d-e-_0040strong_007btexto_007d"> &para;</a></span></h4>
+
+<a class="anchor" id="emph-_0026-strong"></a><a class="index-entry-id" id="index-emph"></a>
+<a class="index-entry-id" id="index-strong"></a>
+<a class="index-entry-id" id="index-Enfatizacao-de-texto_002c-fonte-para"></a>
+
+<p>Os comandos <code class="code">@emph</code> e <code class="code">@strong</code> são para ênfase; <code class="code">@strong</code>
+é mais forte.  Na saída impressa, <code class="code">@emph</code> produz <em class="emph">itálico</em> e
+<code class="code">@strong</code> produz <strong class="strong">negrito</strong>.  Na saída Info, <code class="code">@emph</code>
+envolve o texto com sublinhados (&lsquo;<samp class="samp">_</samp>&rsquo;), e <code class="code">@strong</code> coloca
+asteriscos em volta do texto.
+</p>
+<p>Por exemplo,
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@strong{Cuidado:} @samp{rm * .[^.]*}
+remove @emph{todos} os arquivos no diretório.
+</pre></div></div>
+
+<p>produz o seguinte:
+</p>
+<blockquote class="quotation">
+<p><strong class="strong">Cuidado</strong>: &lsquo;<samp class="samp">rm * .[^.]*</samp>&rsquo; remove <em class="emph">todos</em> os arquivos no
+diretório.
+</p></blockquote>
+
+<p>O comando <code class="code">@strong</code> raramente é usado, exceto para marcar o que é, na
+verdade, um elemento tipográfico, como a palavra &lsquo;Cuidado&rsquo; no exemplo
+precedente.
+</p>
+<blockquote class="quotation">
+<p><b class="b">Cuidado:</b> Não use <code class="code">@strong</code> com a palavra &lsquo;<samp class="samp">Observação</samp>&rsquo; seguida por um
+espaço; Info confundirá a combinação para uma referência cruzada.  Use uma
+frase, como <strong class="strong">Por favor note</strong> ou <strong class="strong">Cuidado</strong> em vez disso, ou o
+argumento opcional para <code class="code">@quotation</code>&mdash;&lsquo;<samp class="samp">Observação</samp>&rsquo; é permitido
+lá.
+</p></blockquote>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Versaletes.html"><code class="code">@sc</code>{<var class="var">texto</var>}: A Fonte de Versaletes</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="_00canfase.html">Enfatizando Texto</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

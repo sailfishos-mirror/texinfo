@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Realçamento de Sintaxe (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Use o realce de sintaxe em trechos de código.">
+<meta name="keywords" content="Use o realce de sintaxe em trechos de código.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Gerando-HTML.html" rel="up" title="Gerando HTML">
+<link href="Xref-do-HTML.html" rel="next" title="Xref do HTML">
+<link href="Gerando-EPUB.html" rel="prev" title="Gerando EPUB">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Real_00e7amento-de-Sintaxe">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Xref-do-HTML.html" accesskey="n" rel="next">Referências Cruzadas do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Gerando-EPUB.html" accesskey="p" rel="prev">Gerando EPUB</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Gerando-HTML.html" accesskey="u" rel="up">Gerando HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Real_00e7amento-de-Sintaxe-de-Exemplos-de-C_00f3digos-no-HTML"><span>22.6 Realçamento de Sintaxe de Exemplos de Códigos no HTML<a class="copiable-link" href="#Real_00e7amento-de-Sintaxe-de-Exemplos-de-C_00f3digos-no-HTML"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-source_002dhighlight"></a>
+
+
+<a class="index-entry-id" id="index-HIGHLIGHT_005fSYNTAX"></a>
+<a class="index-entry-id" id="index-HIGHLIGHT_005fSYNTAX_005fDEFAULT_005fLANGUAGE"></a>
+<p>Você pode usar a variável <code class="code">HIGHLIGHT_SYNTAX</code> para realce de sintaxe do
+código-fonte em blocos <code class="code">@example</code> para a saída HTML, com a ajuda de
+software externo. Você pode configurar <code class="code">HIGHLIGHT_SYNTAX</code> para um dos
+vários valores especiais:
+</p>
+<dl class="table">
+<dt><code class="code">realçe</code></dt>
+<dd><p>Usar <code class="command">highlight</code> proveniente de
+<a class="url" href="http://www.andre-simon.de/doku/highlight/en/highlight.php">http://www.andre-simon.de/doku/highlight/en/highlight.php</a>.
+</p></dd>
+<dt><code class="code">pygments</code></dt>
+<dd><p>Usar <code class="command">pygmentize</code> proveniente de <a class="url" href="https://pygments.org/">https://pygments.org/</a>.
+</p></dd>
+<dt><code class="code">source-highlight</code></dt>
+<dd><p>Usar <code class="command">source-highlight</code> (veja-se <cite class="cite"><a data-manual="source-highlight" href="https://www.gnu.org/software/src-highlite/source-highlight.html#Top">GNU
+Source-highlight</a></cite>).
+</p></dd>
+</dl>
+
+<p>O primeiro argumento em uma linha <code class="code">@example</code>
+(veja-se <a class="pxref" href="_0040example.html"><code class="code">@example</code>: Texto de Exemplo</a>) fornece o nome da linguagem usada para realce de
+sintaxe. Blocos <code class="code">@example</code> sem tal argumento só serão realçados se
+<code class="code">HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE</code> estiver configurada, variável essa
+que fornece a linguagem a usar para realçamento de tais blocos.
+</p>
+<p>Se você usar um valor para <code class="code">HIGHLIGHT_SYNTAX</code> que não esteja listado
+acima, ele será um modelo para uma linha de comando que é executada para
+realçar código. Isso lhe dá mais controle sobre as opções exatas de linha de
+comando usadas para o programa de realce e permite usar outros programas
+além dos listados acima. Nesse modelo, o nome da linguagem realçada é
+substituído por ocorrências de &lsquo;<samp class="samp">%l</samp>&rsquo; e &lsquo;<samp class="samp">%</samp>&rsquo; é substituído por
+&lsquo;<samp class="samp">%%</samp>&rsquo;. <code class="command">texi2any</code> passa o conteúdo de cada bloco
+<code class="code">@example</code> (convertido para texto simples) na entrada padrão, e o HTML
+realçado é lido a partir da saída padrão.
+</p>
+<p>Por exemplo, se você configurar <code class="code">HIGHLIGHT_SYNTAX</code> como &lsquo;<samp class="samp">colorcode
+-l=%l</samp>&rsquo; e existir um bloco &lsquo;<samp class="samp">@example C++</samp>&rsquo; no documento, a linha de
+comando <code class="command">colorcode -l=C++</code> será executada com o bloco
+&lsquo;<samp class="samp">@example</samp>&rsquo; passado para a entrada padrão do comando executado e o
+resultado será lido a partir da saída padrão do comando executado.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Xref-do-HTML.html">Referências Cruzadas do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Gerando-EPUB.html">Gerando EPUB</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Gerando-HTML.html">Gerando HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

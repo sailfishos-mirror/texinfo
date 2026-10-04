@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Contextos de Comando (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Contextos de Comando (GNU Texinfo 7.3)">
+<meta name="keywords" content="Contextos de Comando (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Detalhes-do-Comando-_0040.html" rel="up" title="Detalhes do Comando @">
+<link href="Comandos-_0040-Obsoletos.html" rel="next" title="Comandos @ Obsoletos">
+<link href="Lista-de-Comandos.html" rel="prev" title="Lista de Comandos">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Contextos-de-Comando">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Comandos-_0040-Obsoletos.html" accesskey="n" rel="next">Comandos @ Obsoletos</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Lista-de-Comandos.html" accesskey="p" rel="prev">Lista de Comandos @</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Detalhes-do-Comando-_0040.html" accesskey="u" rel="up">Detalhes do Comando @</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Contextos-do-Comando-_0040"><span>A.3 Contextos do Comando @<a class="copiable-link" href="#Contextos-do-Comando-_0040"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Contextos_002c-de-comandos-_0040"></a>
+
+<p>Aqui nós descrevemos aproximadamente quais comandos @ podem ser usados em
+quais contextos. Não é exaustivo nem pretende ser uma referência
+completa. As discrepâncias entre as informações aqui e as implementações dos
+processadores Texinfo provavelmente serão resolvidas em favor das
+implementações.
+</p>
+<p>Por <em class="dfn">texto geral</em> abaixo, nós queremos dizer qualquer coisa, exceto
+seccionamento e outros comandos de documento de nível externo, como
+<code class="code">@section</code>, <code class="code">@node</code> e <code class="code">@setfilename</code>.
+</p>
+<p>Comandos condicionais <code class="code">@c</code>, <code class="code">@comment</code> e <code class="code">@if ... @end
+if</code> podem aparecer em qualquer lugar (exceto que os condicionais ainda
+precisam estar sozinhos nas linhas). <code class="code">@caption</code> e
+<code class="code">@shortcaption</code> podem aparecer somente em <code class="code">@float</code>, porém podem
+conter texto geral. Conteúdo do <code class="code">@footnote</code> da mesma forma.
+</p>
+<p>Comandos @ com colchetes marcando texto (como <code class="code">@strong</code>, <code class="code">@sc</code>,
+<code class="code">@asis</code>) podem conter comandos do formatador bruto, como
+<code class="code">@html</code>, mas nenhum outro comando de bloco (outros comandos terminados
+por <code class="code">@end</code>) e não podem ser divididos em parágrafos, mas podem conter
+texto geral.
+</p>
+<p>Além da restrição de comando de bloco, em <code class="code">@center</code>, <code class="code">@exdent</code> e
+<code class="code">@item</code> em linhas do <code class="code">@table</code>, comandos @ que só fazem sentido
+em um parágrafo não são aceitos, como <code class="code">@indent</code>.
+</p>
+<p>Além do acima, comandos de seccionamento não podem conter <code class="code">@anchor</code>,
+<code class="code">@footnote</code> ou <code class="code">@verb</code>.
+</p>
+<p>Além do acima, os comandos restantes (<code class="code">@node</code>, <code class="code">@anchor</code>,
+<code class="code">@printindex</code>, <code class="code">@ref</code>, <code class="code">@math</code>, <code class="code">@cindex</code>,
+<code class="code">@url</code>, <code class="code">@image</code> e assim por diante) não podem conter comandos
+de referência cruzada (<code class="code">@ref</code>, <code class="code">@xref</code>, <code class="code">@pxref</code> e
+<code class="code">@inforef</code>).
+</p>
+<p>Para informações precisas e completas, nós sugerimos uma olhada na suíte de
+teste nos fontes, que exaustivamente testa combinações.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Comandos-_0040-Obsoletos.html">Comandos @ Obsoletos</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Lista-de-Comandos.html">Lista de Comandos @</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Detalhes-do-Comando-_0040.html">Detalhes do Comando @</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

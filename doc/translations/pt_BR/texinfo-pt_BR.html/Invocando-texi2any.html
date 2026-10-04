@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Invocando texi2any (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Executando o tradutor a partir de um shell.">
+<meta name="keywords" content="Executando o tradutor a partir de um shell.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Tradutor-Gen_00e9rico-texi2any.html" rel="up" title="Tradutor Genérico texi2any">
+<link href="Vari_00e1veis-de-Ambiente-do-texi2any.html" rel="next" title="Variáveis de Ambiente do texi2any">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Invocando-texi2any">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Vari_00e1veis-de-Ambiente-do-texi2any.html" accesskey="n" rel="next">Variáveis de Ambiente Reconhecidas pelo <code class="command">texi2any</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Tradutor-Gen_00e9rico-texi2any.html" accesskey="u" rel="up"><code class="command">texi2any</code>: O Tradutor para Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Invocando-texi2any-a-partir-de-um-Shell"><span>20.1 Invocando <code class="command">texi2any</code> a partir de um Shell<a class="copiable-link" href="#Invocando-texi2any-a-partir-de-um-Shell"> &para;</a></span></h3>
+
+<a class="anchor" id="Invocando-makeinfo"></a><a class="index-entry-id" id="index-makeinfo"></a>
+<a class="index-entry-id" id="index-texi2any"></a>
+
+<p>Para processar um arquivo do Texinfo, invoque <code class="command">texi2any</code> seguido
+pelo nome do arquivo do Texinfo. Selecione também o formato que você quer
+produzir com a opção de linha de comando apropriada (o padrão é
+Info). Assim, para criar o arquivo Info para Bison, digite o seguinte para o
+shell:
+</p>
+<div class="example">
+<pre class="example-preformatted">texi2any --info bison.texi
+</pre></div>
+
+<p>Você consegue especificar mais que um nome de arquivo de entrada; cada um é
+processado em sequência. Se um nome de arquivo de entrada for &lsquo;<samp class="samp">-</samp>&rsquo;, a
+entrada padrão será lida.
+</p>
+<a class="anchor" id="Op_00e7_00f5es-do-makeinfo"></a><a class="index-entry-id" id="index-opcoes-do-makeinfo"></a>
+<a class="index-entry-id" id="index-Opcoes-para-makeinfo"></a>
+<a class="anchor" id="Op_00e7_00f5es-do-texi2any"></a><a class="index-entry-id" id="index-opcoes-do-texi2any"></a>
+<a class="index-entry-id" id="index-Opcoes-para-o-texi2any"></a>
+
+<p>O programa <code class="command">texi2any</code> aceita muitas opções. Talvez as mais básicos
+sejam aquelas que mudam o formato da saída gerada. Por padrão,
+<code class="command">texi2any</code> produz Info.
+</p>
+<p>Cada opção de linha de comando ou é um nome longo precedido por &lsquo;<samp class="samp">--</samp>&rsquo; ou
+é uma única letra precedida por &lsquo;<samp class="samp">-</samp>&rsquo;. Você pode usar abreviações para os
+nomes longos de opções, desde que elas sejam únicas.
+</p>
+<p>Por exemplo, você poderia usar o seguinte comando de shell para criar um
+arquivo Info para <samp class="file">bison.texi</samp> no qual as linhas fossem preenchidas em
+somente 68 colunas:
+</p>
+<div class="example">
+<pre class="example-preformatted">texi2any --fill-column=68 bison.texi
+</pre></div>
+
+<p>Você pode escrever duas ou mais opções em sequência, assim:
+</p>
+<div class="example">
+<pre class="example-preformatted">texi2any --no-split --fill-column=70 ...
+</pre></div>
+
+<p>(Isso manteria o arquivo Info unido como um arquivo possivelmente muito
+longo e também configuraria a coluna de preenchimento como 70).
+</p>
+<p>As opções são (aproximadamente em ordem alfabética):
+</p>
+<dl class="table">
+<dt><a id="index-_002d_002dcommands_002din_002dnode_002dnames"></a><span><code class="code">--commands-in-node-names</code><a class="copiable-link" href="#index-_002d_002dcommands_002din_002dnode_002dnames"> &para;</a></span></dt>
+<dd><p>Essa opção agora não faz nada, mas permanece para compatibilidade. (Ela
+costumava garantir que os comandos @ nos nomes dos nós fossem expandidos
+por todo o documento, especialmente <code class="code">@value</code>. Isso agora é feito por
+padrão).
+</p>
+</dd>
+<dt><a id="index-_002d_002dconf_002ddir_003ddir"></a><span><code class="code">--conf-dir=<var class="var">dir</var></code><a class="copiable-link" href="#index-_002d_002dconf_002ddir_003ddir"> &para;</a></span></dt>
+<dd><p>Posponha <var class="var">dir</var> à lista de pesquisa de diretórios para encontrar arquivos
+de personalização que podem ser carregados com <samp class="option">--init-file</samp> (veja-se
+abaixo). O valor de <var class="var">dir</var> pode ser um único diretório ou uma lista de
+vários diretórios separados pelo caractere usual de separador de caminho
+(&lsquo;<samp class="samp">:</samp>&rsquo; em sistemas do tipo Unix, &lsquo;<samp class="samp">;</samp>&rsquo; no Windows). 
+</p>
+</dd>
+<dt><a id="index-_002d_002dcss_002dinclude"></a><span><code class="code">--css-include=<var class="var">arquivo</var></code><a class="copiable-link" href="#index-_002d_002dcss_002dinclude"> &para;</a></span></dt>
+<dd><p>Ao produzir HTML, inclui literalmente o conteúdo de <var class="var">arquivo</var>, que
+deveria conter especificações de folhas de estilos em cascata, no bloco
+&lsquo;<samp class="samp">&lt;style&gt;</samp>&rsquo; da saída gerada HTML. Se <var class="var">arquivo</var> for &lsquo;<samp class="samp">-</samp>&rsquo;, lê a
+entrada padrão. Veja-se <a class="xref" href="CSS-do-HTML.html">CSS do HTML</a>.
+</p>
+</dd>
+<dt><a id="index-_002d_002dcss_002dref"></a><span><code class="code">--css-ref=<var class="var">url</var></code><a class="copiable-link" href="#index-_002d_002dcss_002dref"> &para;</a></span></dt>
+<dd><p>Ao produzir HTML, adiciona uma etiqueta &lsquo;<samp class="samp">&lt;link&gt;</samp>&rsquo; à saída que referencia
+uma folha de estilo em cascata em <var class="var">url</var>. Isso permite usar folhas de
+estilo independentes.
+</p>
+</dd>
+<dt><a id="index-_002dD-var"></a><span><code class="code">-D <var class="var">var</var></code><a class="copiable-link" href="#index-_002dD-var"> &para;</a></span></dt>
+<dt><code class="code">-D '<var class="var">var</var> <var class="var">valor</var>'</code></dt>
+<dd><p>Faz com que a variável <var class="var">var</var> do Texinfo seja definida. Isso é
+equivalente a <code class="code">@set <var class="var">var</var></code> no arquivo do Texinfo
+(veja-se <a class="pxref" href="_0040set-_0040clear-_0040value.html">Sinalizadores: <code class="code">@set</code>, <code class="code">@clear</code>, condicionais e <code class="code">@value</code></a>).
+</p>
+<p>O argumento para a opção é sempre uma palavra para o shell; se ela contiver
+espaços em branco internos, a primeira palavra será considerada como o nome
+da variável e o restante como o valor. Por exemplo, <code class="code">-D 'minhavar
+algumvalor'</code> é equivalente a <code class="code">@set minhavar algumvalor</code>.
+</p>
+</dd>
+<dt><a id="index-_002d_002ddocbook"></a><span><code class="code">--docbook</code><a class="copiable-link" href="#index-_002d_002ddocbook"> &para;</a></span></dt>
+<dd><p>Gera saída DocBook (em vez de Info).
+</p>
+</dd>
+<dt><a id="index-_002d_002ddocument_002dlanguage"></a><span><code class="code">--document-language=<var class="var">idioma</var></code><a class="copiable-link" href="#index-_002d_002ddocument_002dlanguage"> &para;</a></span></dt>
+<dd><p>Use <var class="var">idioma</var> para traduzir palavras-chave Texinfo que acabam no
+documento de saída. O padrão é a localidade especificada pelo comando
+<code class="code">@documentlanguage</code>, se houver, caso contrário, inglês
+(veja-se <a class="pxref" href="_0040documentlanguage.html"><code class="code">@documentlanguage <var class="var">ll</var>[_<var class="var">cc</var>]</code>: Configurar o Idioma do Documento</a>).
+</p>
+</dd>
+<dt><a id="index-_002d_002ddvi"></a><span><code class="code">--dvi</code><a class="copiable-link" href="#index-_002d_002ddvi"> &para;</a></span></dt>
+<dd><p>Gere um arquivo DVI do TeX usando <code class="command">texi2dvi</code>, em vez de Info
+(veja-se <a class="pxref" href="Sa_00edda-Impressa-do-texi2any.html">Saída Impressa do <code class="command">texi2any</code></a>).
+</p>
+</dd>
+<dt><a id="index-_002d_002ddvipdf"></a><span><code class="code">--dvipdf</code><a class="copiable-link" href="#index-_002d_002ddvipdf"> &para;</a></span></dt>
+<dd><p>Gere um arquivo PDF usando <code class="command">texi2dvi --dvipdf</code>, em vez de Info
+(veja-se <a class="pxref" href="Sa_00edda-Impressa-do-texi2any.html">Saída Impressa do <code class="command">texi2any</code></a>).
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-_002d_002ddisable_002dencoding"></a>
+<a id="index-_002d_002denable_002dencoding"></a><span><code class="code">--enable-encoding</code><a class="copiable-link" href="#index-_002d_002denable_002dencoding"> &para;</a></span></dt>
+<dt><code class="code">--disable-encoding</code></dt>
+<dd><p>Por padrão, ou com <samp class="option">--enable-encoding</samp>, produza caracteres acentuados
+e especiais em saída Info e de texto simples com base na codificação do
+documento. Com <samp class="option">--disable-encoding</samp>, transliterações ASCII de 7 bits
+são geradas. Também obedecido em outros formatos de saída para ordenação de
+chaves de índice e para alguma saída de texto simples.
+</p>
+</dd>
+<dt><a id="index-_002d_002depub3"></a><span><code class="code">--epub3</code><a class="copiable-link" href="#index-_002d_002depub3"> &para;</a></span></dt>
+<dd><p>Gerar saída EPUB 3
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-_002de-limite"></a>
+<a id="index-_002d_002derror_002dlimit_003dlimite"></a><span><code class="code">--error-limit=<var class="var">limite</var></code><a class="copiable-link" href="#index-_002d_002derror_002dlimit_003dlimite"> &para;</a></span></dt>
+<dt><code class="code">-e <var class="var">limite</var></code></dt>
+<dd><p>Informar <var class="var">limite</var> de erros antes de abortar (supondo que continuar seria
+inútil); padrão 100.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-_002df-largura"></a>
+<a id="index-_002d_002dfill_002dcolumn_003dlargura"></a><span><code class="code">--fill-column=<var class="var">largura</var></code><a class="copiable-link" href="#index-_002d_002dfill_002dcolumn_003dlargura"> &para;</a></span></dt>
+<dt><code class="code">-f <var class="var">largura</var></code></dt>
+<dd><p>Especificar o número máximo de colunas em uma linha; isso é a borda direita
+de uma linha. Os parágrafos que sejam preenchidos serão preenchidos com essa
+largura. (Preencher é o processo de quebrar e de conectar linhas para que as
+linhas sejam do mesmo comprimento, ou menores, que o número especificado
+como a coluna de preenchimento. As linhas são quebradas entre as
+palavras). O valor padrão é 72.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-_002ds-estilo"></a>
+<a class="index-entry-id" id="index-estilo-de-nota-de-rodape-1"></a>
+<a id="index-_002d_002dfootnote_002dstyle_003destilo"></a><span><code class="code">--footnote-style=<var class="var">estilo</var></code><a class="copiable-link" href="#index-_002d_002dfootnote_002dstyle_003destilo"> &para;</a></span></dt>
+<dt><code class="code">-s <var class="var">estilo</var></code></dt>
+<dd><p>Configurar o estilo da nota de rodapé como <var class="var">estilo</var>: &lsquo;<samp class="samp">end</samp>&rsquo; para o
+estilo do nó final (o padrão) ou &lsquo;<samp class="samp">separate</samp>&rsquo; para o estilo do nó
+separado. O valor configurado por essa opção substitui o valor configurado
+em um arquivo do Texinfo por um comando <code class="code">@footnotestyle</code>
+(veja-se <a class="pxref" href="Estilos-de-Notas-de-Rodap_00e9.html">Estilos de Notas de Rodapé</a>).
+</p>
+<p>No Info, quando o estilo da nota de rodapé for &lsquo;<samp class="samp">separate</samp>&rsquo;,
+<code class="command">texi2any</code> cria um novo nó contendo as notas de rodapé encontradas
+no nó atual. Quando o estilo da nota de rodapé for &lsquo;<samp class="samp">end</samp>&rsquo;,
+<code class="command">texi2any</code> coloca as referências da nota de rodapé no final do nó
+atual.
+</p>
+<p>No HTML, quando o estilo da nota de rodapé for &lsquo;<samp class="samp">end</samp>&rsquo;, ou se a saída
+gerada não for dividida, as notas de rodapé são colocadas no final da saída
+gerada. Se configurada como &lsquo;<samp class="samp">separate</samp>&rsquo; e a saída gerada for dividida,
+elas serão colocadas em um arquivo separado.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-_002dF"></a>
+<a id="index-_002d_002dforce"></a><span><code class="code">--force</code><a class="copiable-link" href="#index-_002d_002dforce"> &para;</a></span></dt>
+<dt><code class="code">-F</code></dt>
+<dd><p>Normalmente, se o arquivo de entrada contiver erros, os arquivos de saída
+não serão criados. Com essa opção, eles são preservados.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-_002dh"></a>
+<a id="index-_002d_002dhelp_002c-para-texi2any"></a><span><code class="code">--help</code><a class="copiable-link" href="#index-_002d_002dhelp_002c-para-texi2any"> &para;</a></span></dt>
+<dt><code class="code">-h</code></dt>
+<dd><p>Imprimir uma mensagem com as opções disponíveis e uso básico, então sair com
+sucesso.
+</p>
+</dd>
+<dt><a id="index-_002d_002dhtml"></a><span><code class="code">--html</code><a class="copiable-link" href="#index-_002d_002dhtml"> &para;</a></span></dt>
+<dd><p>Gerar saída HTML (em vez de Info). Por padrão, a saída gerada HTML é
+dividida em um arquivo de saída por nó e a saída gerada dividida é escrita
+em um subdiretório baseado no nome do arquivo de entrada. Veja-se <a class="xref" href="Gerando-HTML.html">Gerando HTML</a>.
+</p>
+</dd>
+<dt><a id="index-_002dI-diretorio"></a><span><code class="code">-I <var class="var">diretório</var></code><a class="copiable-link" href="#index-_002dI-diretorio"> &para;</a></span></dt>
+<dd><p>Posponha <var class="var">diretório</var> à lista de pesquisa de diretório para encontrar
+arquivos que sejam incluídos usando o comando <code class="code">@include</code>. Por padrão,
+<code class="command">texi2any</code> pesquisa o diretório atual e o diretório principal do
+caminho do arquivo de entrada, se existir um (e não for o diretório
+atual). O valor de <var class="var">diretório</var> pode ser um diretório ou uma lista de
+vários diretórios separados pelo caractere separador de caminho usual
+(&lsquo;<samp class="samp">:</samp>&rsquo; em sistemas do tipo Unix, &lsquo;<samp class="samp">;</samp>&rsquo; no Windows).
+</p>
+</dd>
+<dt><a id="index-_002d_002difxml"></a><span><code class="code">--ifdocbook</code><a class="copiable-link" href="#index-_002d_002difxml"> &para;</a></span></dt>
+<dd><a class="index-entry-id" id="index-_002d_002difdocbook"></a>
+</dd>
+<dt><code class="code">--ifhtml</code></dt>
+<dd><a class="index-entry-id" id="index-_002d_002difhtml"></a>
+</dd>
+<dt><code class="code">--ifinfo</code></dt>
+<dd><a class="index-entry-id" id="index-_002d_002difinfo"></a>
+</dd>
+<dt><code class="code">--iflatex</code></dt>
+<dd><a class="index-entry-id" id="index-_002d_002diflatex"></a>
+</dd>
+<dt><code class="code">--ifplaintext</code></dt>
+<dd><a class="index-entry-id" id="index-_002d_002difplaintext"></a>
+</dd>
+<dt><code class="code">--iftex</code></dt>
+<dd><a class="index-entry-id" id="index-_002d_002diftex"></a>
+</dd>
+<dt><code class="code">--ifxml</code></dt>
+<dd><p>Para o formato fornecido, processar os comandos &lsquo;<samp class="samp">@if<var class="var">formato</var></samp>&rsquo; e
+&lsquo;<samp class="samp">@<var class="var">formato</var></samp>&rsquo; e não processar &lsquo;<samp class="samp">@ifnot<var class="var">formato</var></samp>&rsquo;,
+independentemente do formato sendo gerado. Por exemplo, se <samp class="option">--iftex</samp>
+for fornecido, então os blocos &lsquo;<samp class="samp">@iftex</samp>&rsquo; e &lsquo;<samp class="samp">@tex</samp>&rsquo; serão lidos e
+os blocos &lsquo;<samp class="samp">@ifnottex</samp>&rsquo; serão ignorados.
+</p>
+</dd>
+<dt><a id="index-_002d_002dno_002difxml"></a><span><code class="code">--no-ifdocbook</code><a class="copiable-link" href="#index-_002d_002dno_002difxml"> &para;</a></span></dt>
+<dd><a class="index-entry-id" id="index-_002d_002dno_002difdocbook"></a>
+</dd>
+<dt><code class="code">--no-ifhtml</code></dt>
+<dd><a class="index-entry-id" id="index-_002d_002dno_002difhtml"></a>
+</dd>
+<dt><code class="code">--no-ifinfo</code></dt>
+<dd><a class="index-entry-id" id="index-_002d_002dno_002difinfo"></a>
+</dd>
+<dt><code class="code">--no-iflatex</code></dt>
+<dd><a class="index-entry-id" id="index-_002d_002dno_002diflatex"></a>
+</dd>
+<dt><code class="code">--no-ifplaintext</code></dt>
+<dd><a class="index-entry-id" id="index-_002d_002dno_002difplaintext"></a>
+</dd>
+<dt><code class="code">--no-iftex</code></dt>
+<dd><a class="index-entry-id" id="index-_002d_002dno_002diftex"></a>
+</dd>
+<dt><code class="code">--no-ifxml</code></dt>
+<dd><p>Para o formato fornecido, não processar os comandos &lsquo;<samp class="samp">@if<var class="var">formato</var></samp>&rsquo;
+e &lsquo;<samp class="samp">@<var class="var">formato</var></samp>&rsquo; e processar &lsquo;<samp class="samp">@ifnot<var class="var">formato</var></samp>&rsquo;,
+independentemente do formato sendo gerado. Por exemplo, se
+<samp class="option">--no-ifhtml</samp> for fornecido, então blocos &lsquo;<samp class="samp">@ifhtml</samp>&rsquo; e
+&lsquo;<samp class="samp">@html</samp>&rsquo; não serão lidos, e blocos &lsquo;<samp class="samp">@ifnothtml</samp>&rsquo; serão.
+</p>
+
+</dd>
+<dt><a id="index-_002d_002dinfo"></a><span><code class="code">--info</code><a class="copiable-link" href="#index-_002d_002dinfo"> &para;</a></span></dt>
+<dd><p>Gerar saída Info. Por padrão, se o arquivo da saída gerada contiver mais que
+cerca de 300.000 bytes, ele será dividido em subarquivos mais curtos de
+aproximadamente esse tamanho. O nome do arquivo da saída gerada e de
+quaisquer subarquivos é determinado pelo nome do arquivo de entrada ou por
+<code class="code">@setfilename</code>, se presente (veja-se <a class="pxref" href="_0040setfilename.html#Configurando-o-Nome-do-Arquivo-da-Sa_00edda-Gerada">Configurando o Nome do Arquivo da Saída Gerada</a>). Veja-se <a class="xref" href="Arquivos-de-Etiqueta-e-Divididos.html">Arquivos de Etiqueta e Arquivos Divididos</a>.
+</p>
+</dd>
+<dt><a id="index-_002d_002dinit_002dfile_003darquivo"></a><span><code class="code">--init-file=<var class="var">arquivo</var></code><a class="copiable-link" href="#index-_002d_002dinit_002dfile_003darquivo"> &para;</a></span></dt>
+<dd><p>Carregar <var class="var">arquivo</var> como código para modificar o comportamento e a saída
+do manual gerado. É comum usar as extensões <code class="code">.pm</code> ou <code class="code">.init</code> para
+esses arquivos de personalização, mas isso não é obrigatório; o nome de
+<var class="var">arquivo</var> pode ser qualquer coisa. A opção <samp class="option">--conf-dir</samp> (veja-se
+acima) pode ser usada para adicionar à lista de diretórios nos quais esses
+arquivos de personalização são pesquisados.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-Linques-internos_002c-do-HTML"></a>
+<a id="index-_002d_002dinternal_002dlinks_003darquivo"></a><span><code class="code">--internal-links=<var class="var">arquivo</var></code><a class="copiable-link" href="#index-_002d_002dinternal_002dlinks_003darquivo"> &para;</a></span></dt>
+<dd><p>No modo HTML, produzir um arquivo separado por tabulações contendo três
+colunas: o linque interno para um item, o tipo do item e o nome do item ou o
+termo correspondente ao item que foi indexado ou inserido.
+</p>
+<p>Os itens gerados são:
+</p><dl class="table">
+<dt>unidades de saída gerada</dt>
+<dd><p>As unidades de saída são a unidade principal dos documentos de saída. As
+unidades de saída contêm o conteúdo associado a um nó ou a um comando de
+seccionamento. O nome do item é o nó associado ou um nome de comando de
+seccionamento.
+</p></dd>
+<dt>Comandos de seccionamento</dt>
+<dd><p>O nome do comando sem <code class="code">@</code>, ajustado para elevar/rebaixar seções é
+posposto ao nome do item.
+</p></dd>
+<dt>nós, âncoras e flutuadores</dt>
+<dd><p>O tipo do elemento é o nome do comando sem <code class="code">@</code>.
+</p></dd>
+<dt>intradas de índice</dt>
+<dd><p>O tipo do elemento é o nome do índice.
+</p></dd>
+</dl>
+
+<p>Os itens estão na ordem de classificação natural para o elemento
+fornecido. Esse despejo pode ser útil para pós-processadores.
+</p>
+</dd>
+<dt><a id="index-_002d_002dlatex"></a><span><code class="code">--latex</code><a class="copiable-link" href="#index-_002d_002dlatex"> &para;</a></span></dt>
+<dd><p>Gerar saída LaTeX
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-_002dE-arquivo"></a>
+<a id="index-_002d_002dmacro_002dexpand_003darquivo"></a><span><code class="code">--macro-expand=<var class="var">arquivo</var></code><a class="copiable-link" href="#index-_002d_002dmacro_002dexpand_003darquivo"> &para;</a></span></dt>
+<dt><code class="code">-E <var class="var">arquivo</var></code></dt>
+<dd><p>Gerar o fonte do Texinfo, com todas as macros do Texinfo expandidas, para
+<var class="var">arquivo</var>. Normalmente, o resultado da expansão de macro é usado
+internamente por <code class="command">texi2any</code> e então descartado.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-Separadores-de-nos_002c-omitindo-com-_002d_002dno_002dheaders"></a>
+<a class="index-entry-id" id="index-Gerando-arquivos-de-texto-simples-com-_002d_002dno_002dheaders"></a>
+<a class="index-entry-id" id="index-Menus_002c-omitindo-com-_002d_002dno_002dheaders"></a>
+<a id="index-_002d_002dno_002dheaders"></a><span><code class="code">--no-headers</code><a class="copiable-link" href="#index-_002d_002dno_002dheaders"> &para;</a></span></dt>
+<dd><p>Não incluir menus ou linhas separadoras de nós na saída gerada.
+</p>
+<p>Ao gerar Info, isso é o mesmo que usar <samp class="option">--plaintext</samp>, resultando em
+um arquivo de texto simples. Além disso, a saída gerada é a saída padrão, a
+menos que substituída por <samp class="option">-o</samp>. (Esse comportamento é para retro
+compatibilidade).
+</p>
+<a class="index-entry-id" id="index-Linques-de-navegacao_002c-omitindo"></a>
+<p>Ao gerar HTML e a saída gerada for dividida, gerar também linques de
+navegação somente no início de cada arquivo. Se a saída gerada não for
+dividida, não incluir linques de navegação no topo de cada nó em
+absoluto. Veja-se <a class="xref" href="Gerando-HTML.html">Gerando HTML</a>.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-_002d_002dno_002dnode_002dfiles"></a>
+<a id="index-_002d_002dnode_002dfiles"></a><span><code class="code">--node-files</code><a class="copiable-link" href="#index-_002d_002dnode_002dfiles"> &para;</a></span></dt>
+<dt><code class="code">--no-node-files</code></dt>
+<dd><a class="anchor" id="g_t_002d_002dnode_002dfiles"></a><p>Com <samp class="option">--node-files</samp>, ao gerar HTML, criar arquivos de redirecionamento
+para âncoras e quaisquer nós ainda não gerados com o nome do arquivo
+correspondente ao nome do nó (veja-se <a class="pxref" href="Expans_00e3o-de-Nome-de-N_00f3-do-Xref-do-HTML.html">Expansão de Nome de Nó de Referência Cruzada do HTML</a>). Isso torna possível o êxito de referências entre manuais em nível de
+seção e de capítulo (veja-se <a class="pxref" href="Configura_00e7_00e3o-do-Xref-do-HTML.html">Configuração de Referência Cruzada do HTML</a>).
+</p>
+<p>Se a saída gerada for dividida, isso estará habilitado por padrão. Se a
+saída gerada não for dividida, <samp class="option">--node-files</samp> habilita a criação dos
+arquivos de redirecionamento, além do arquivo de saída principal
+monolítico. <samp class="option">--no-node-files</samp> suprime a criação de arquivos de
+redirecionamento em qualquer caso. Essa opção não tem efeito com nenhum
+formato de saída diferente do HTML. Veja-se <a class="xref" href="Gerando-HTML.html">Gerando HTML</a>.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-_002d_002dno_002dpointer_002dvalidate"></a>
+<a class="index-entry-id" id="index-Validacao-de-ponteiro"></a>
+<a id="index-_002d_002dno_002dvalidate"></a><span><code class="code">--no-validate</code><a class="copiable-link" href="#index-_002d_002dno_002dvalidate"> &para;</a></span></dt>
+<dt><code class="code">--no-pointer-validate</code></dt>
+<dd><a class="anchor" id="Valida_00e7_00e3o-de-Ponteiro"></a><p>Suprimir a fase de validação de ponteiro do <code class="command">texi2any</code>&mdash;uma coisa
+perigosa de se fazer. Isso também pode ser feito com o comando
+<code class="code">@novalidate</code> (veja-se <a class="pxref" href="Formatando-Documentos-Parciais.html">Formatando Documentos Parciais</a>).
+</p>
+<p>Se você não suprimir a validação de ponteiro, <code class="command">texi2any</code> verificará
+a validade das referências cruzadas e entradas de menu no arquivo Texinfo,
+bem como dos ponteiros de nó, se eles(as) forem fornecidos(as)
+explicitamente.
+</p>
+
+</dd>
+<dt><a id="index-_002d_002dno_002dwarn"></a><span><code class="code">--no-warn</code><a class="copiable-link" href="#index-_002d_002dno_002dwarn"> &para;</a></span></dt>
+<dd><p>Suprimir mensagens de aviso (porém não mensagens de erro).
+</p>
+</dd>
+<dt><a id="index-_002d_002dno_002dnumber_002dfootnotes"></a><span><code class="code">--number-footnotes</code><a class="copiable-link" href="#index-_002d_002dno_002dnumber_002dfootnotes"> &para;</a></span></dt>
+<dt><code class="code">--no-number-footnotes</code></dt>
+<dd><p>Com <samp class="option">--no-number-footnotes</samp>, suprimir a numeração automática de notas
+de rodapé. Por padrão, notas de rodapé são numeradas sequencialmente dentro
+de um nó, ou seja, o número da nota de rodapé atual é reconfigurado para 1
+no início de cada nó.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-_002d_002dno_002dnumber_002dsections"></a>
+<a id="index-_002d_002dnumber_002dsections"></a><span><code class="code">--number-sections</code><a class="copiable-link" href="#index-_002d_002dnumber_002dsections"> &para;</a></span></dt>
+<dt><code class="code">--no-number-sections</code></dt>
+<dd><p>Com <samp class="option">--number-sections</samp> (o padrão), produzir números de capítulo,
+seção e apêndice como em manuais impressos. Isso funciona somente com
+manuais estruturados hierarquicamente. Você deveria especificar
+<code class="code">--no-number-sections</code> se teu manual não for normalmente estruturado.
+</p>
+
+</dd>
+<dt><a class="index-entry-id" id="index-_002do-arquivo"></a>
+<a id="index-_002d_002doutput_003dfile"></a><span><code class="code">--output=<var class="var">file</var></code><a class="copiable-link" href="#index-_002d_002doutput_003dfile"> &para;</a></span></dt>
+<dt><code class="code">-o <var class="var">arquivo</var></code></dt>
+<dd><p>Especificar que a saída gerada deveria ser direcionada para
+<var class="var">arquivo</var>. Isso substitui qualquer nome de arquivo especificado em um
+comando <code class="code">@setfilename</code> encontrado no fonte do Texinfo. Se nem
+<code class="code">@setfilename</code> nem essa opção forem especificados, o nome do arquivo
+de entrada será usado para determinar o nome da saída
+gerada. Veja-se <a class="xref" href="_0040setfilename.html#Configurando-o-Nome-do-Arquivo-da-Sa_00edda-Gerada">Configurando o Nome do Arquivo da Saída Gerada</a>.
+</p>
+<p>Se <var class="var">arquivo</var> for &lsquo;<samp class="samp">-</samp>&rsquo;, a saída gerada vai para a saída padrão e
+&lsquo;<samp class="samp">--no-split</samp>&rsquo; estará implícita.
+</p>
+<p>Se <var class="var">arquivo</var> for um diretório ou terminar com uma &lsquo;<samp class="samp">/</samp>&rsquo;, as regras
+usuais serão usadas para determinar o nome do arquivo de saída (ou seja,
+usar <code class="code">@setfilename</code> ou o nome do arquivo de entrada), mas os arquivos
+serão escritos no diretório <var class="var">arquivo</var>. Por exemplo, &lsquo;<samp class="samp">texi2any -o
+bar/ foo.texi</samp>&rsquo;, com ou sem <samp class="option">--no-split</samp>, escreverá
+<samp class="file">bar/foo.info</samp>, e possivelmente outros arquivos, sob <samp class="file">bar/</samp>.
+</p>
+<p>Ao gerar HTML e a saída gerada for dividida, <var class="var">arquivo</var> será usado como o
+nome para o diretório no qual todos os arquivos serão escritos. Por exemplo,
+&lsquo;<samp class="samp">texi2any -o bar --html foo.texi</samp>&rsquo; escreverá <samp class="file">bar/index.html</samp>,
+entre outros arquivos.
+</p>
+<p>Ao gerar EPUB, um diretório contêiner para os arquivos e diretórios
+necessários para o formato EPUB será criado, bem como o arquivo de saída
+gerada EPUB. Se <var class="var">arquivo</var> corresponder a um diretório, o diretório
+contêiner será colocado dentro de <var class="var">arquivo</var>. O arquivo de saída gerada
+EPUB nunca é colocado nesse diretório. Se <var class="var">arquivo</var> corresponder a um
+arquivo, ele será usado para o nome do arquivo de saída gerada EPUB.
+</p>
+</dd>
+<dt><a id="index-_002d_002doutputindent"></a><span><code class="code">--output-indent=<var class="var">valor</var></code><a class="copiable-link" href="#index-_002d_002doutputindent"> &para;</a></span></dt>
+<dd><p>Essa opção agora não faz nada, mas permanece para compatibilidade. (É usada
+para alterar o recuo na saída gerada XML/DocBook).
+</p>
+</dd>
+<dt><a id="index-_002dP-caminho"></a><span><code class="code">-P <var class="var">caminho</var></code><a class="copiable-link" href="#index-_002dP-caminho"> &para;</a></span></dt>
+<dd><p>Posponha <var class="var">caminho</var> à lista de pesquisa de diretórios para
+<code class="code">@include</code>. Veja-se &lsquo;<samp class="samp">-I</samp>&rsquo; acima.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-_002dp-recuo"></a>
+<a id="index-_002d_002dparagraph_002dindent_003drecuo"></a><span><code class="code">--paragraph-indent=<var class="var">recuo</var></code><a class="copiable-link" href="#index-_002d_002dparagraph_002dindent_003drecuo"> &para;</a></span></dt>
+<dt><code class="code">-p <var class="var">recuo</var></code></dt>
+<dd><p>Configurar o estilo de recuo do parágrafo para <var class="var">recuo</var>. O valor
+configurado por essa opção substitui o valor configurado em um arquivo do
+Texinfo por um comando <code class="code">@paragraphindent</code>
+(veja-se <a class="pxref" href="_0040paragraphindent.html"><code class="code">@paragraphindent</code>: Controlando Recuo do Parágrafo</a>). O valor de <var class="var">recuo</var> é interpretado
+conforme segue:
+</p>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">asis</samp>&rsquo;</dt>
+<dd><p>Preservar qualquer recuo existente (ou falta dele) no início dos parágrafos.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">0</samp>&rsquo; ou &lsquo;<samp class="samp">none</samp>&rsquo;</dt>
+<dd><p>Deletar qualquer recuo existente.
+</p>
+</dd>
+<dt><var class="var">num</var></dt>
+<dd><p>Recuar cada parágrafo com <var class="var">num</var> espaços.
+</p></dd>
+</dl>
+
+<p>O padrão é o de recuar dois espaços, exceto para parágrafos após o título de
+uma seção, os quais não são recuados.
+</p>
+</dd>
+<dt><a id="index-_002d_002dpdf"></a><span><code class="code">--pdf</code><a class="copiable-link" href="#index-_002d_002dpdf"> &para;</a></span></dt>
+<dd><p>Gerar um arquivo PDF usando <code class="command">texi2dvi --pdf</code>, em vez de Info
+(veja-se <a class="pxref" href="Sa_00edda-Impressa-do-texi2any.html">Saída Impressa do <code class="command">texi2any</code></a>).
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-Saida-de-texto-simples-com-_002d_002dplaintext"></a>
+<a class="index-entry-id" id="index-Saida-de-texto-ASCII-com-_002d_002dplaintext"></a>
+<a class="index-entry-id" id="index-Gerando-arquivos-de-texto-simples-com-_002d_002dplaintext"></a>
+<a class="index-entry-id" id="index-Separadores-de-nos_002c-omitindo-com-_002d_002dplaintext"></a>
+<a class="index-entry-id" id="index-Menus_002c-omitindo-com-_002d_002dplaintext"></a>
+<a class="index-entry-id" id="index-Arquivo-INSTALL_002c-gerando"></a>
+<a id="index-_002d_002dplaintext"></a><span><code class="code">--plaintext</code><a class="copiable-link" href="#index-_002d_002dplaintext"> &para;</a></span></dt>
+<dd><p>Produzir um arquivo de texto simples (em vez de Info): não incluir menus ou
+linhas separadoras de nós na saída gerada. Isso resulta em um arquivo de
+texto simples que você consegue (por exemplo) enviar por correio eletrônico
+sem complicações ou incluir em uma distribuição (por exemplo, um arquivo
+<samp class="file">INSTALL</samp>).
+</p>
+<p>Com essa opção, a saída gerada vai para a saída padrão por padrão, em vez de
+para um arquivo com um nome baseado no nome do arquivo de entrada ou
+<code class="code">@setfilename</code>; isso pode ser substituído por <samp class="option">-o</samp>.
+</p>
+</dd>
+<dt><a id="index-_002d_002dps"></a><span><code class="code">--ps</code><a class="copiable-link" href="#index-_002d_002dps"> &para;</a></span></dt>
+<dd><p>Gerar um arquivo PostScript usando <code class="command">texi2dvi --ps</code>, em vez de Info
+(veja-se <a class="pxref" href="Sa_00edda-Impressa-do-texi2any.html">Saída Impressa do <code class="command">texi2any</code></a>).
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-_002dc-variavel_003dvalor"></a>
+<a id="index-_002d_002dset_002dcustomization_002dvariable-variavel_003dvalor"></a><span><code class="code">--set-customization-variable <var class="var">variável</var>=<var class="var">valor</var></code><a class="copiable-link" href="#index-_002d_002dset_002dcustomization_002dvariable-variavel_003dvalor"> &para;</a></span></dt>
+<dt><code class="code">-c <var class="var">variável</var>=<var class="var">valor</var></code></dt>
+<dd><p>Configurar a variável de personalização <var class="var">variável</var> como <var class="var">valor</var>. O
+<code class="code">=</code> é opcional, mas tanto <var class="var">variável</var> quanto <var class="var">valor</var> precisam
+estar aspeados para o shell conforme necessário para que o resultado seja
+uma palavra. Muitos aspectos do comportamento e saída do <code class="command">texi2any</code>
+podem ser controlados por variáveis de personalização, além do que pode ser
+configurados no documento pelos comandos @ e com outras chaves de linha de
+comando. Veja-se <a class="xref" href="Vari_00e1veis-de-Personaliza_00e7_00e3o.html">Variáveis de Personalização</a>.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-_002d_002dno_002dsplit"></a>
+<a class="index-entry-id" id="index-Divisao-dos-arquivos-de-saida"></a>
+<a class="index-entry-id" id="index-Divisao-de-arquivo-de-saida"></a>
+<a id="index-_002d_002dsplit_003dcomo"></a><span><code class="code">--split=<var class="var">como</var></code><a class="copiable-link" href="#index-_002d_002dsplit_003dcomo"> &para;</a></span></dt>
+<dt><code class="code">--no-split</code></dt>
+<dd><a class="anchor" id="Dividindo-Sa_00edda-Gerada"></a><p>Ao gerar Info, por padrão, grandes arquivos de saída são divididos em
+subarquivos menores, de aproximadamente 300k bytes. Ao gerar HTML, por
+padrão, cada arquivo de saída contém um nó (veja-se <a class="pxref" href="Gerando-HTML.html">Gerando HTML</a>). <samp class="option">--no-split</samp> suprime essa divisão da saída.
+</p>
+<p>Alternativamente, <samp class="option">--split=<var class="var">como</var></samp> pode ser usada para
+especificar em qual nível a saída HTML deveria ser dividida. Os valores
+possíveis para <var class="var">como</var> são:
+</p>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">chapter</samp>&rsquo;</dt>
+<dd><p>A saída gerada é dividida em <code class="code">@chapter</code> e outros comandos @ de
+seccionamento nesse nível (<code class="code">@appendix</code>, entre outros).
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">section</samp>&rsquo;</dt>
+<dd><p>A saída gerada é dividida em <code class="code">@section</code> e semelhante.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">nó</samp>&rsquo;</dt>
+<dd><p>A saída gerada é dividida em cada nó. Esse é o padrão.
+</p></dd>
+</dl>
+
+<p>A saída gerada de texto simples pode ser dividida semelhante ao HTML. Isso
+possivelmente seja útil para extrair seções a partir de um documento do
+Texinfo e disponibilizá-las como arquivos separados.
+</p>
+</dd>
+<dt><a id="index-_002d_002dsplit_002dsize_003dnumero"></a><span><code class="code">--split-size=<var class="var">número</var></code><a class="copiable-link" href="#index-_002d_002dsplit_002dsize_003dnumero"> &para;</a></span></dt>
+<dd><p>Manter arquivos Info com no máximo <var class="var">número</var> caracteres, se possível; o
+padrão é 300.000. (No entanto, um nó nunca será dividido entre arquivos
+Info).
+</p>
+</dd>
+<dt><a id="index-_002d_002dtrace_002dincludes"></a><span><code class="code">--trace-includes</code><a class="copiable-link" href="#index-_002d_002dtrace_002dincludes"> &para;</a></span></dt>
+<dd><p>Imprimir o nome de cada arquivo incluído na saída padrão, incluindo
+quaisquer arquivos incluídos indiretamente. Um arquivo de inclusão será
+impresso somente se for realmente encontrado. Quando essa opção é fornecida,
+<code class="command">texi2any</code> não gera em nenhum formato de saída. (O objetivo dessa
+opção é o de facilitar coletar os fontes de um manual do Texinfo).
+</p>
+</dd>
+<dt><a id="index-_002d_002dtransliterate_002dfile_002dnames"></a><span><code class="code">--transliterate-file-names</code><a class="copiable-link" href="#index-_002d_002dtransliterate_002dfile_002dnames"> &para;</a></span></dt>
+<dd><p>Habilitar transliteração de caracteres não ASCII em nomes de comandos de nó
+e de seccionamento para fins de criação de identificadores de nomes de
+arquivos e de comandos de seccionamento. Os nomes de arquivos e
+identificadores obtidos dessa maneira são dependentes da plataforma e do
+processador. Veja-se <a class="xref" href="Expans_00e3o-de-Caracteres-de-8-bits-do-Xref-do-HTML.html">Expansão do Caractere de 8 Bits da Referência Cruzada do HTML</a>.
+</p>
+<p>Arquivos de redirecionamento para âncoras e nós não são afetados, portanto,
+se <samp class="option">--node-files</samp> estiver habilitada, arquivos com nomes não
+transliterados também serão criados. É recomendado criar nomes de arquivos
+não transliterados para nós, de modo que as referências cruzadas para o
+manual gerado sejam
+bem-sucedidas. Veja-se <a class="xref" href="#g_t_002d_002dnode_002dfiles"><samp class="option">--node-files</samp></a>. Veja-se <a class="xref" href="Configura_00e7_00e3o-do-Xref-do-HTML.html">Configuração de Referência Cruzada do HTML</a>.
+</p>
+</dd>
+<dt><code class="code">-U <var class="var">variável</var></code></dt>
+<dd><p>Faz com que <var class="var">variável</var> seja indefinida. Isso é equivalente a
+<code class="code">@clear <var class="var">variável</var></code> no arquivo do Texinfo (veja-se <a class="pxref" href="_0040set-_0040clear-_0040value.html">Sinalizadores: <code class="code">@set</code>, <code class="code">@clear</code>, condicionais e <code class="code">@value</code></a>).
+</p>
+</dd>
+<dt><a id="index-_002d_002dverbose"></a><span><code class="code">--verbose</code><a class="copiable-link" href="#index-_002d_002dverbose"> &para;</a></span></dt>
+<dd><p>Faz com que <code class="command">texi2any</code> exiba mensagens dizendo o que está
+fazendo. Normalmente, <code class="command">texi2any</code> só gera mensagens se existirem
+erros ou avisos.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-_002dV"></a>
+<a id="index-_002d_002dversion_002c-para-texi2any"></a><span><code class="code">--version</code><a class="copiable-link" href="#index-_002d_002dversion_002c-para-texi2any"> &para;</a></span></dt>
+<dt><code class="code">-V</code></dt>
+<dd><p>Imprimir o número da versão, então sair com sucesso.
+</p>
+</dd>
+<dt><a id="index-_002d_002dXopt-sequencia"></a><span><code class="code">--Xopt <var class="var">sequência</var></code><a class="copiable-link" href="#index-_002d_002dXopt-sequencia"> &para;</a></span></dt>
+<dd><p>Passar <var class="var">sequência</var> (uma palavra de shell) para <code class="command">texi2dvi</code>; pode
+ser repetido (veja-se <a class="pxref" href="Sa_00edda-Impressa-do-texi2any.html">Saída Impressa do <code class="command">texi2any</code></a>).
+</p>
+</dd>
+<dt><a id="index-_002d_002dxml"></a><span><code class="code">--xml</code><a class="copiable-link" href="#index-_002d_002dxml"> &para;</a></span></dt>
+<dd><p>Gerar saída XML do Texinfo (em vez do Info).
+</p>
+</dd>
+</dl>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Vari_00e1veis-de-Ambiente-do-texi2any.html">Variáveis de Ambiente Reconhecidas pelo <code class="command">texi2any</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Tradutor-Gen_00e9rico-texi2any.html"><code class="command">texi2any</code>: O Tradutor para Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

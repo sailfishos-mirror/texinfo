@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Não Finalizando uma Frase (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Algumas vezes um .&nbsp;não finaliza uma frase.">
+<meta name="keywords" content="Algumas vezes um .&nbsp;não finaliza uma frase.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Inserindo-Espa_00e7o.html" rel="up" title="Inserindo Espaço">
+<link href="Finalizando-uma-Frase.html" rel="next" title="Finalizando uma Frase">
+<link href="Espa_00e7os-M_00faltiplos.html" rel="prev" title="Espaços Múltiplos">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="N_00e3o-Finalizando-uma-Frase">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Finalizando-uma-Frase.html" accesskey="n" rel="next">Finalizando uma Frase</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Espa_00e7os-M_00faltiplos.html" accesskey="p" rel="prev">Espaços Múltiplos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Inserindo-Espa_00e7o.html" accesskey="u" rel="up">Inserindo Espaço</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="N_00e3o-Finalizando-uma-Frase-1"><span>11.3.2 Não Finalizando uma Frase<a class="copiable-link" href="#N_00e3o-Finalizando-uma-Frase-1"> &para;</a></span></h4>
+
+<a class="index-entry-id" id="index-Nao-finalizando-uma-frase"></a>
+<a class="index-entry-id" id="index-Pontuacao-nao-terminando-frase"></a>
+<a class="index-entry-id" id="index-Pontos_002c-inserindo"></a>
+<a class="index-entry-id" id="index-Espacamento_002c-no-meio-de-frases"></a>
+<p>Quando um ponto, ponto de exclamação ou ponto de interrogação estiverem no
+final de uma frase, um pouco mais de espaço é inserido depois deles em um
+manual tipografado.
+</p>
+<a class="index-entry-id" id="index-_003a-_0028suprimir-espaco-de-fim-de-frase_0029"></a>
+<a class="index-entry-id" id="index-_003a"></a>
+<p>Geralmente, Texinfo consegue determinar automaticamente quando um ponto
+termina uma frase.  No entanto, comandos especiais são necessários em
+algumas circunstâncias.  Use o comando <code class="code">@:</code> depois de um ponto, ponto
+de interrogação, ponto de exclamação ou dois pontos que deveriam não ser
+seguidos por espaço extra.  Isso é necessário nas seguintes situações:
+</p>
+<ol class="enumerate">
+<li> Depois de um ponto que finalize uma abreviação em minúscula que não esteja
+no final de uma frase.
+
+</li><li> Quando um comentário entre parênteses no meio de uma frase (como
+este!) terminar com um ponto, ponto de exclamação ou ponto de
+interrogação, <code class="code">@:</code> deveria ser usado depois do parêntese à
+direita. Similarmente para colchetes à direita e aspas à direita (ambas,
+simples e duplas).
+</li></ol>
+
+<p>Por exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">&lsquo;<samp class="samp">foo vs.@: bar (ou?)@: baz</samp>&rsquo;,
+</pre></div>
+
+<p>A primeira linha abaixo mostra a saída gerada e, para comparação, a segunda
+linha mostra o espaçamento quando os comandos &lsquo;<samp class="samp">@:</samp>&rsquo; não forem usados.
+</p>
+<blockquote class="quotation">
+<p>foo vs. bar (ou?) baz<br> foo vs. bar (ou?) baz
+</p></blockquote>
+
+
+<p>Possivelmente te ajude lembrar o que <code class="code">@:</code> faz imaginando que ele
+representa um caractere minúsculo invisível que impede que uma palavra
+termine com um ponto final.
+</p>
+<p>Alguns comandos do Texinfo forçam espaçamento normal entre palavras, de
+forma que você não tenha que inserir <code class="code">@:</code> onde, do contrário, faria.
+Esses são os comandos de realçamento tipo código, <code class="code">@var</code>,
+<code class="code">@abbr</code> e <code class="code">@acronym</code> (veja-se <a class="pxref" href="Real_00e7amento-_00datil.html">Comandos de Realçamento são Úteis</a>).  Por exemplo,
+em &lsquo;<samp class="samp">@code{foo. bar}</samp>&rsquo; o ponto não é considerado ser o fim de uma
+frase, e nenhum espaço extra é inserido.
+</p>
+<p><code class="code">@:</code> não tem efeito na saída HTML ou DocBook.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Finalizando-uma-Frase.html">Finalizando uma Frase</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Espa_00e7os-M_00faltiplos.html">Espaços Múltiplos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Inserindo-Espa_00e7o.html">Inserindo Espaço</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

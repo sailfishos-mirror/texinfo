@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Estilos de Notas de Rodapé (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Controlando como notas de rodapé aparecem.">
+<meta name="keywords" content="Controlando como notas de rodapé aparecem.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Notas-de-Rodap_00e9.html" rel="up" title="Notas de Rodapé">
+<link href="Comandos-de-Notas-de-Rodap_00e9.html" rel="prev" title="Comandos de Notas de Rodapé">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Estilos-de-Notas-de-Rodap_00e9">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Comandos-de-Notas-de-Rodap_00e9.html" accesskey="p" rel="prev">Comandos de Notas de Rodapé</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Notas-de-Rodap_00e9.html" accesskey="u" rel="up">Notas de Rodapé</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Estilos-de-Notas-de-Rodap_00e9-1"><span>9.3.2 Estilos de Notas de Rodapé<a class="copiable-link" href="#Estilos-de-Notas-de-Rodap_00e9-1"> &para;</a></span></h4>
+
+<p>Formatos online tem dois estilos de nota de rodapé, que determinam onde o
+texto da nota de rodapé está localizado, o estilo de notas de rodapé
+&lsquo;<samp class="samp">end</samp>&rsquo; e o &lsquo;<samp class="samp">separate</samp>&rsquo;.
+</p>
+<dl class="table">
+<dt><a class="index-entry-id" id="index-Estilo-de-nota-de-rodape-end"></a>
+<a id="index-Estilo-de-nota-de-rodape-de-no-end"></a><span>&lsquo;<samp class="samp">end</samp>&rsquo;<a class="copiable-link" href="#index-Estilo-de-nota-de-rodape-de-no-end"> &para;</a></span></dt>
+<dd><p>Para Info, no estilo de nó &lsquo;<samp class="samp">end</samp>&rsquo;, todas as notas de rodapé para um nó
+estão situadas no final desse nó.  As notas de rodapé são separadas do resto
+do nó por uma linha de traços com a palavra &lsquo;<samp class="samp">Notas de rodapé</samp>&rsquo; dentro
+dela.  Cada nota de rodapé começa com uma marca de referência
+&lsquo;<samp class="samp">(<var class="var">n</var>)</samp>&rsquo;.
+</p>
+<p>Aqui está um exemplo da saída Info para uma nota de rodapé no estilo de fim
+de nó:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">--------- Notas de rodapé ---------
+
+(1)  Aqui está uma nota de rodapé de amostra.
+</pre></div></div>
+
+<p>Em HTML, quando o estilo da nota de rodapé for &lsquo;<samp class="samp">end</samp>&rsquo;, ou se a saída não
+for dividida, as notas de rodapé são colocadas no final de cada arquivo de
+saída.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-Estilo-de-nota-de-rodape-separate-1"></a>
+<a id="index-Estilo-de-nota-de-rodape-separate"></a><span>&lsquo;<samp class="samp">separate</samp>&rsquo;<a class="copiable-link" href="#index-Estilo-de-nota-de-rodape-separate"> &para;</a></span></dt>
+<dd><p>Para Info, no estilo de nó &lsquo;<samp class="samp">separate</samp>&rsquo;, todas as notas de rodapé para um
+nó são colocadas em um nó próprio construído automaticamente.  Nesse estilo,
+uma &ldquo;referência de nota de rodapé&rdquo; segue cada marca de referência
+&lsquo;<samp class="samp">(<var class="var">n</var>)</samp>&rsquo; no corpo do nó.  A referência da nota de rodapé é, na
+verdade, uma referência cruzada que você usa para atingir o nó da nota de
+rodapé.
+</p>
+<p>O nome do nó com as notas de rodapé é construído pospondo-se
+&lsquo;<samp class="samp">-Footnotes</samp>&rsquo;<!-- /@w --> ao nome do nó que contém as notas de rodapé.
+(Consequentemente, o nó das notas de rodapé para o nó <samp class="file">Footnotes</samp> é
+<samp class="file">Footnotes-Footnotes</samp><!-- /@w -->)!  O nó das notas de rodapé tem um ponteiro
+de nó &lsquo;Acima&rsquo; que leva de volta para o nó ancestral dele.
+</p>
+<p>Aqui está como a primeira nota de rodapé neste manual aparenta depois de ser
+formatada para o Info no estilo de nó separar:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">Arquivo: texinfo.info  Nó: Visão Geral-Notas de rodapé, Acima: Visão Geral
+
+(1) A primeira sílaba de &quot;Texinfo&quot; é pronunciada como
+&quot;speck&quot;, não &quot;hex&quot;. ...
+</pre></div></div>
+
+<p>Em HTML, quando o estilo da nota de rodapé for &lsquo;<samp class="samp">separate</samp>&rsquo; e a saída for
+dividida, as notas de rodapé são colocadas em um arquivo separado.
+</p></dd>
+</dl>
+
+<p>A menos que teu documento tenha notas de rodapé longas e importantes (como
+em, por diga-se, <cite class="cite">Decline and Fall &hellip;</cite> de Gibbon), nós
+recomendamos o estilo &lsquo;<samp class="samp">end</samp>&rsquo;, pois ele é mais simples para leitores(as)
+seguirem.
+</p>
+<a class="index-entry-id" id="index-estilo-de-nota-de-rodape"></a>
+<p>Use o comando <code class="code">@footnotestyle</code> para especificar o estilo de nota de
+rodapé.  Escreva esse comando no início de uma linha seguido por um
+argumento, seja &lsquo;<samp class="samp">end</samp>&rsquo; para o estilo de nó fim ou &lsquo;<samp class="samp">separate</samp>&rsquo; para o
+estilo do nó separar.
+</p>
+<p>Por exemplo,
+</p>
+<div class="example">
+<pre class="example-preformatted">@footnotestyle end
+</pre></div>
+<p>ou
+</p><div class="example">
+<pre class="example-preformatted">@footnotestyle separate
+</pre></div>
+
+<p>Escreva um comando <code class="code">@footnotestyle</code> no preâmbulo do arquivo Texinfo.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Comandos-de-Notas-de-Rodap_00e9.html">Comandos de Notas de Rodapé</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Notas-de-Rodap_00e9.html">Notas de Rodapé</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

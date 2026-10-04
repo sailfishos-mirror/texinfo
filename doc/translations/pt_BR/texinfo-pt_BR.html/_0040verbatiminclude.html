@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@verbatiminclude (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Incluindo um literal de arquivo.">
+<meta name="keywords" content="Incluindo um literal de arquivo.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Arquivos-de-Inclus_00e3o.html" rel="up" title="Arquivos de Inclusão">
+<link href="Arquivo-de-Inclus_00e3o-de-Amostra.html" rel="prev" title="Arquivo de Inclusão de Amostra">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="g_t_0040verbatiminclude">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Arquivo-de-Inclus_00e3o-de-Amostra.html" accesskey="p" rel="prev">Arquivo de Amostra com <code class="code">@include</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Arquivos-de-Inclus_00e3o.html" accesskey="u" rel="up">Arquivos de Inclusão</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="arquivo-_0040verbatiminclude_003a-Incluir-um-Literal-de-Arquivo"><span>18.3 <var class="var">arquivo</var> <code class="code">@verbatiminclude</code>: Incluir um Literal de Arquivo<a class="copiable-link" href="#arquivo-_0040verbatiminclude_003a-Incluir-um-Literal-de-Arquivo"> &para;</a></span></h3>
+
+<a class="anchor" id="verbatiminclude"></a><a class="index-entry-id" id="index-verbatiminclude"></a>
+<a class="index-entry-id" id="index-Literal_002c-arquivo-de-inclusao"></a>
+<a class="index-entry-id" id="index-Incluindo-um-literal-de-arquivo"></a>
+
+<p>Você pode incluir o conteúdo exato de um arquivo no documento com o comando
+<code class="code">@verbatiminclude</code>:
+</p>
+<div class="example">
+<pre class="example-preformatted">@verbatiminclude <var class="var">nomearquivo</var>
+</pre></div>
+
+<p>O conteúdo de <var class="var">nomearquivo</var> é impresso em um ambiente literal
+(veja-se <a class="pxref" href="_0040verbatim.html"><code class="code">@verbatim</code>: Texto Literal</a>).  Geralmente, o arquivo é impresso exatamente
+como está, com todos os caracteres especiais e espaços em branco retidos.
+Nenhum recuo é adicionado; se você quiser recuo, circunde o
+<code class="code">@verbatiminclude</code> com <code class="code">@example</code> (veja-se <a class="pxref" href="_0040example.html"><code class="code">@example</code>: Texto de Exemplo</a>).
+</p>
+<p>referências <code class="code">@value{<var class="var">variável</var>}</code> são expandidas na linha
+<code class="code">@verbatiminclude</code>.  Isso torna possível incluir arquivos em outros
+diretórios dentro de uma distribuição, por exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">@verbatiminclude @value{top_srcdir}/NEWS
+</pre></div>
+
+<p>(Você ainda tem de ter <code class="code">top_srcdir</code> definido no primeiro lugar).
+</p>
+<p>Fora isso, os únicos comandos @ permitidos são <code class="code">@@</code>, <code class="code">@{</code>,
+<code class="code">@}</code> e comandos @ associados, como <code class="code">@atchar{}</code>.
+</p>
+<p>Para um método relativo a impressão do conteúdo do arquivo em um tamanho
+menor de fonte, veja-se o final da seção acerca do <code class="code">@verbatim</code>.
+</p>
+
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Arquivo-de-Inclus_00e3o-de-Amostra.html">Arquivo de Amostra com <code class="code">@include</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Arquivos-de-Inclus_00e3o.html">Arquivos de Inclusão</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

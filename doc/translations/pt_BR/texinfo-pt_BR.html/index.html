@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Top (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Top (GNU Texinfo 7.3)">
+<meta name="keywords" content="Top (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="#Top" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="#SEC_Contents" rel="contents" title="Sumário">
+<link href="Condi_00e7_00f5es-de-C_00f3pia.html" rel="next" title="Condições de Cópia">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+ul.toc-numbered-mark {list-style: none}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="top-level-extent" id="Top">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Condi_00e7_00f5es-de-C_00f3pia.html" accesskey="n" rel="next">Condições de Cópia do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h1 class="top" id="Texinfo"><span>Texinfo<a class="copiable-link" href="#Texinfo"> &para;</a></span></h1>
+
+<p>Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+</p>
+
+
+<div class="region-shortcontents" id="SEC_Shortcontents">
+<h2 class="shortcontents-heading">Sumaríssimo</h2>
+
+<div class="shortcontents">
+<ul class="toc-numbered-mark">
+<li><a id="stoc-Condi_00e7_00f5es-de-C_00f3pia-do-Texinfo" href="#toc-Condi_00e7_00f5es-de-C_00f3pia-do-Texinfo">Condições de Cópia do Texinfo</a></li>
+<li><a id="stoc-Vis_00e3o-Geral-do-Texinfo" href="#toc-Vis_00e3o-Geral-do-Texinfo">1 Visão Geral do Texinfo</a></li>
+<li><a id="stoc-Escrevendo-um-Arquivo-do-Texinfo" href="#toc-Escrevendo-um-Arquivo-do-Texinfo">2 Escrevendo um Arquivo do Texinfo</a></li>
+<li><a id="stoc-N_00f3s" href="#toc-N_00f3s">3 Nós</a></li>
+<li><a id="stoc-Estruturamento-de-Cap_00edtulo" href="#toc-Estruturamento-de-Cap_00edtulo">4 Estruturamento de Capítulo</a></li>
+<li><a id="stoc-Refer_00eancias-cruzadas" href="#toc-Refer_00eancias-cruzadas">5 Referências cruzadas</a></li>
+<li><a id="stoc-Marca_00e7_00e3o-de-Texto_002c-Palavras-e-Frases" href="#toc-Marca_00e7_00e3o-de-Texto_002c-Palavras-e-Frases">6 Marcação de Texto, Palavras e Frases</a></li>
+<li><a id="stoc-Cita_00e7_00f5es-e-Exemplos" href="#toc-Cita_00e7_00f5es-e-Exemplos">7 Citações e Exemplos</a></li>
+<li><a id="stoc-Listas-e-Tabelas" href="#toc-Listas-e-Tabelas">8 Listas e Tabelas</a></li>
+<li><a id="stoc-Exibi_00e7_00f5es-Especiais" href="#toc-Exibi_00e7_00f5es-Especiais">9 Exibições Especiais</a></li>
+<li><a id="stoc-_00cdndices" href="#toc-_00cdndices">10 Índices</a></li>
+<li><a id="stoc-Inser_00e7_00f5es-Especiais" href="#toc-Inser_00e7_00f5es-Especiais">11 Inserções Especiais</a></li>
+<li><a id="stoc-Formatando-Express_00f5es-Matem_00e1ticas" href="#toc-Formatando-Express_00f5es-Matem_00e1ticas">12 Formatando Expressões Matemáticas</a></li>
+<li><a id="stoc-For_00e7ando-e-Impedindo-Quebras" href="#toc-For_00e7ando-e-Impedindo-Quebras">13 Forçando e Impedindo Quebras</a></li>
+<li><a id="stoc-Comandos-de-Defini_00e7_00e3o" href="#toc-Comandos-de-Defini_00e7_00e3o">14 Comandos de Definição</a></li>
+<li><a id="stoc-Internacionaliza_00e7_00e3o" href="#toc-Internacionaliza_00e7_00e3o">15 Internacionalização</a></li>
+<li><a id="stoc-Texto-Condicionalmente-Vis_00edvel" href="#toc-Texto-Condicionalmente-Vis_00edvel">16 Texto Condicionalmente Visível</a></li>
+<li><a id="stoc-Definindo-Novos-Comandos-do-Texinfo" href="#toc-Definindo-Novos-Comandos-do-Texinfo">17 Definindo Novos Comandos do Texinfo</a></li>
+<li><a id="stoc-Arquivos-de-Inclus_00e3o" href="#toc-Arquivos-de-Inclus_00e3o">18 Arquivos de Inclusão</a></li>
+<li><a id="stoc-Formatando-e-Imprimindo-com-TeX" href="#toc-Formatando-e-Imprimindo-com-TeX">19 Formatando e Imprimindo com TeX</a></li>
+<li><a id="stoc-texi2any_003a-O-Tradutor-para-Texinfo" href="#toc-texi2any_003a-O-Tradutor-para-Texinfo">20 <code class="command">texi2any</code>: O Tradutor para Texinfo</a></li>
+<li><a id="stoc-Criando-e-Instalando-Arquivos-Info" href="#toc-Criando-e-Instalando-Arquivos-Info">21 Criando e Instalando Arquivos Info</a></li>
+<li><a id="stoc-Gerando-HTML" href="#toc-Gerando-HTML">22 Gerando HTML</a></li>
+<li><a id="stoc-Detalhes-do-Comando-_0040" href="#toc-Detalhes-do-Comando-_0040">Anexo A Detalhes do Comando @</a></li>
+<li><a id="stoc-Dicas-e-Sugest_00f5es" href="#toc-Dicas-e-Sugest_00f5es">Anexo B Dicas e Sugestões</a></li>
+<li><a id="stoc-Arquivos-de-Amostra-do-Texinfo" href="#toc-Arquivos-de-Amostra-do-Texinfo">Anexo C Arquivos de Amostra do Texinfo</a></li>
+<li><a id="stoc-Usando-Modo-Texinfo" href="#toc-Usando-Modo-Texinfo">Anexo D Usando Modo Texinfo</a></li>
+<li><a id="stoc-Comandos-Globais-de-Documento" href="#toc-Comandos-Globais-de-Documento">Anexo E Comandos Globais de Documento</a></li>
+<li><a id="stoc-Especifica_00e7_00e3o-do-Formato-Info" href="#toc-Especifica_00e7_00e3o-do-Formato-Info">Anexo F Especificação do Formato Info</a></li>
+<li><a id="stoc-Licen_00e7a-GNU-de-Documenta_00e7_00e3o-Livre" href="#toc-Licen_00e7a-GNU-de-Documenta_00e7_00e3o-Livre">Anexo G Licença GNU de Documentação Livre</a></li>
+<li><a id="stoc-_00cdndice-de-Comandos" href="#toc-_00cdndice-de-Comandos" rel="index">Índice de Comandos</a></li>
+<li><a id="stoc-_00cdndice-de-Vari_00e1veis" href="#toc-_00cdndice-de-Vari_00e1veis" rel="index">Índice de Variáveis</a></li>
+<li><a id="stoc-_00cdndice-Geral" href="#toc-_00cdndice-Geral" rel="index">Índice Geral</a></li>
+</ul>
+</div>
+</div>
+<div class="region-contents" id="SEC_Contents">
+<h2 class="contents-heading">Sumário</h2>
+
+<div class="contents">
+
+<ul class="toc-numbered-mark">
+  <li><a id="toc-Condi_00e7_00f5es-de-C_00f3pia-do-Texinfo" href="Condi_00e7_00f5es-de-C_00f3pia.html">Condições de Cópia do Texinfo</a></li>
+  <li><a id="toc-Vis_00e3o-Geral-do-Texinfo" href="Vis_00e3o-Geral.html">1 Visão Geral do Texinfo</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Informando-Defeitos" href="Informando-Defeitos.html">1.1 Informando Defeitos</a></li>
+    <li><a id="toc-Formatos-de-Sa_00edda" href="Formatos-de-Sa_00edda.html">1.2 Formatos de Saída</a></li>
+    <li><a id="toc-Arquivos-do-Info" href="Arquivos-do-Info.html">1.3 Arquivos do Info</a></li>
+    <li><a id="toc-Livros-Impressos" href="Livros-Impressos.html">1.4 Livros Impressos</a></li>
+    <li><a id="toc-Hist_00f3rico" href="Hist_00f3rico.html">1.5 Histórico</a></li>
+    <li><a id="toc-Adicionando-Formatos-de-Sa_00edda" href="Adicionando-Formatos-de-Sa_00edda.html">1.6 Adicionando Formatos de Saída</a></li>
+  </ul></li>
+  <li><a id="toc-Escrevendo-um-Arquivo-do-Texinfo" href="Escrevendo-um-Arquivo-do-Texinfo.html">2 Escrevendo um Arquivo do Texinfo</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Conven_00e7_00f5es-Sint_00e1ticas-Gerais" href="Conven_00e7_00f5es.html">2.1 Convenções Sintáticas Gerais</a></li>
+    <li><a id="toc-Coment_00e1rios" href="Coment_00e1rios.html">2.2 Comentários</a></li>
+    <li><a id="toc-O-Que-um-Arquivo-do-Texinfo-Precisa-Ter" href="M_00ednimo.html">2.3 O Que um Arquivo do Texinfo Precisa Ter</a></li>
+    <li><a id="toc-Amostra-Curta" href="Arquivo-Curto-do-Texinfo-de-Amostra.html">2.4 Amostra Curta</a></li>
+    <li><a id="toc-Cabe_00e7alho-do-Arquivo-do-Texinfo" href="Cabe_00e7alho-do-Arquivo-do-Texinfo.html">2.5 Cabeçalho do Arquivo do Texinfo</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-A-Primeira-Linha-de-um-Arquivo-do-Texinfo" href="Primeira-Linha.html">2.5.1 A Primeira Linha de um Arquivo do Texinfo</a></li>
+      <li><a id="toc-_0040setfilename_003a-Configure-o-Nome-do-Arquivo-da-Sa_00edda-Gerada" href="_0040setfilename.html">2.5.2 <code class="code">@setfilename</code>: Configure o Nome do Arquivo da Saída Gerada</a></li>
+      <li><a id="toc-_0040settitle_003a-Configura-o-T_00edtulo-do-Documento" href="_0040settitle.html">2.5.3 <code class="code">@settitle</code>: Configura o Título do Documento</a></li>
+      <li><a id="toc-Pre_00e2mbulo" href="Pre_00e2mbulo.html">2.5.4 Preâmbulo</a></li>
+      <li><a id="toc-In_00edcio-e-Fim-do-Cabe_00e7alho-para-Emacs" href="In_00edcio-e-Fim-do-Cabe_00e7alho.html">2.5.5 Início e Fim do Cabeçalho para Emacs</a></li>
+    </ul></li>
+    <li><a id="toc-Categoria-de-Diret_00f3rio" href="Categoria-de-Diret_00f3rio.html">2.6 Categoria de Diretório</a></li>
+    <li><a id="toc-Permiss_00f5es-do-Documento" href="Permiss_00f5es-do-Documento.html">2.7 Permissões do Documento</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-_0040copying_003a-Declarar-Permiss_00f5es-de-C_00f3pia" href="_0040copying.html">2.7.1 <code class="code">@copying</code>: Declarar Permissões de Cópia</a></li>
+      <li><a id="toc-_0040insertcopying_003a-Incluir-Texto-de-Permiss_00f5es" href="_0040insertcopying.html">2.7.2 <code class="code">@insertcopying</code>: Incluir Texto de Permissões</a></li>
+    </ul></li>
+    <li><a id="toc-P_00e1ginas-de-T_00edtulo-e-de-Direitos-Autorais" href="P_00e1gina-de-T_00edtulo-e-P_00e1gina-de-Copirraite.html">2.8 Páginas de Título e de Direitos Autorais</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Metadados-do-Documento-e-o-Comando-_0040maketitle" href="Metadados-de-Documento.html">2.8.1 Metadados do Documento e o Comando <code class="code">@maketitle</code></a></li>
+      <li><a id="toc-_0040titlepage" href="_0040titlepage.html">2.8.2 <code class="code">@titlepage</code></a>
+      <ul class="toc-numbered-mark">
+        <li><a id="toc-_0040title_002c-_0040subtitle-e-_0040author" href="_0040title-_0040subtitle-_0040author.html">2.8.2.1 <code class="code">@title</code>, <code class="code">@subtitle</code> e <code class="code">@author</code></a></li>
+        <li><a id="toc-_0040titlefont_002c-_0040center-e-_0040sp" href="_0040titlefont-_0040center-_0040sp.html">2.8.2.2 <code class="code">@titlefont</code>, <code class="code">@center</code> e <code class="code">@sp</code></a></li>
+      </ul></li>
+      <li><a id="toc-Exibindo-a-Vers_00e3o-ou-a-Edi_00e7_00e3o-na-P_00e1gina-de-T_00edtulo" href="Vers_00e3o-P_00e1gina-de-T_00edtulo.html">2.8.3 Exibindo a Versão ou a Edição na Página de Título</a></li>
+      <li><a id="toc-Gera_00e7_00e3o-de-T_00edtulos" href="Gera_00e7_00e3o-de-T_00edtulos.html">2.8.4 Geração de Títulos</a></li>
+    </ul></li>
+    <li><a id="toc-Gerando-um-Sum_00e1rio" href="Conte_00fado.html">2.9 Gerando um Sumário</a></li>
+    <li><a id="toc-O-N_00f3-_0060Top_0027" href="O-N_00f3-Top.html">2.10 O Nó &lsquo;Top&rsquo;</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Partes-de-um-Menu-Mestre" href="Partes-do-Menu-Mestre.html">2.10.1 Partes de um Menu Mestre</a></li>
+    </ul></li>
+    <li><a id="toc-O-Corpo-do-Documento" href="O-Corpo-do-Documento.html">2.11 O Corpo do Documento</a></li>
+    <li><a id="toc-Finalizando-um-Arquivo-do-Texinfo" href="Finalizando-um-Arquivo.html">2.12 Finalizando um Arquivo do Texinfo</a></li>
+  </ul></li>
+  <li><a id="toc-N_00f3s" href="N_00f3s.html">3 Nós</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Escrevendo-uma-Linha-de-_0040node" href="Escrevendo-um-N_00f3.html">3.1 Escrevendo uma Linha de <code class="code">@node</code></a></li>
+    <li><a id="toc-Escolhendo-Nomes-de-N_00f3s" href="Nomes-de-N_00f3.html">3.2 Escolhendo Nomes de Nós</a></li>
+    <li><a id="toc-Exig_00eancias-da-Linha-de-_0040node" href="Exig_00eancias-da-Linha-do-N_00f3.html">3.3 Exigências da Linha de <code class="code">@node</code></a></li>
+    <li><a id="toc-O-Primeiro-N_00f3" href="Primeiro-N_00f3.html">3.4 O Primeiro Nó</a></li>
+    <li><a id="toc-O-Comando-de-Seccionamento-_0040top" href="Comando-_0040top.html">3.5 O Comando de Seccionamento <code class="code">@top</code></a></li>
+    <li><a id="toc-Estrutura-do-Documento-Texinfo" href="Estrutura-do-Documento-Texinfo.html">3.6 Estrutura do Documento Texinfo</a></li>
+    <li><a id="toc-Ilustra_00e7_00e3o-de-N_00f3-e-Menu" href="Ilustra_00e7_00e3o-de-Menu-de-N_00f3.html">3.7 Ilustração de Nó e Menu</a></li>
+    <li><a id="toc-Descri_00e7_00f5es-de-N_00f3" href="Descri_00e7_00f5es-de-N_00f3.html">3.8 Descrições de Nó</a></li>
+    <li><a id="toc-Menus" href="Menus.html">3.9 Menus</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Escrevendo-um-Menu" href="Escrevendo-um-Menu.html">3.9.1 Escrevendo um Menu</a></li>
+      <li><a id="toc-Um-Exemplo-de-Menu" href="Exemplo-de-Menu.html">3.9.2 Um Exemplo de Menu</a></li>
+      <li><a id="toc-Local-de-Menu" href="Local-de-Menu.html">3.9.3 Local de Menu</a></li>
+      <li><a id="toc-As-Partes-de-um-Menu" href="Partes-do-Menu.html">3.9.4 As Partes de um Menu</a></li>
+      <li><a id="toc-Entrada-de-Menu-Menos-Desordenada" href="Entrada-de-Menu-Menos-Desordenada.html">3.9.5 Entrada de Menu Menos Desordenada</a></li>
+      <li><a id="toc-Referenciando-Outros-Arquivos-do-Info" href="Outros-Arquivos-do-Info.html">3.9.6 Referenciando Outros Arquivos do Info</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Estruturamento-de-Cap_00edtulo" href="Estruturamento-de-Cap_00edtulo.html">4 Estruturamento de Capítulo</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Estrutura-de-_00c1rvore-das-Se_00e7_00f5es" href="Estruturamento-de-_00c1rvore.html">4.1 Estrutura de Árvore das Seções</a></li>
+    <li><a id="toc-Tipos-de-Comandos-Estruturantes" href="Tipos-de-Comandos-Estruturantes.html">4.2 Tipos de Comandos Estruturantes</a></li>
+    <li><a id="toc-_0040chapter_003a-Estruturamento-de-Cap_00edtulo" href="_0040chapter.html">4.3 <code class="code">@chapter</code>: Estruturamento de Capítulo</a></li>
+    <li><a id="toc-_0040unnumbered_002c-_0040appendix_003a-Cap_00edtulos-com-Outra-Rotulagem" href="_0040unnumbered-_0040appendix.html">4.4 <code class="code">@unnumbered</code>, <code class="code">@appendix</code>: Capítulos com Outra Rotulagem</a></li>
+    <li><a id="toc-_0040majorheading_002c-_0040chapheading_003a-Cabe_00e7alhos-de-N_00edvel-de-Cap_00edtulo" href="_0040majorheading-_0040chapheading.html">4.5 <code class="code">@majorheading</code>, <code class="code">@chapheading</code>: Cabeçalhos de Nível de Capítulo</a></li>
+    <li><a id="toc-_0040section_003a-Se_00e7_00f5es-Abaixo-de-Cap_00edtulos" href="_0040section.html">4.6 <code class="code">@section</code>: Seções Abaixo de Capítulos</a></li>
+    <li><a id="toc-_0040unnumberedsec_002c-_0040appendixsec_002c-_0040heading" href="_0040unnumberedsec-_0040appendixsec-_0040heading.html">4.7 <code class="code">@unnumberedsec</code>, <code class="code">@appendixsec</code>, <code class="code">@heading</code></a></li>
+    <li><a id="toc-_0040subsection_003a-Subse_00e7_00f5es-Abaixo-de-Se_00e7_00f5es" href="_0040subsection.html">4.8 <code class="code">@subsection</code>: Subseções Abaixo de Seções</a></li>
+    <li><a id="toc-Os-Comandos-do-Tipo-_0040subsection" href="_0040unnumberedsubsec-_0040appendixsubsec-_0040subheading.html">4.9 Os Comandos do Tipo <code class="code">@subsection</code></a></li>
+    <li><a id="toc-_0040subsubsection-e-Outros-Comandos-Subsub" href="_0040subsubsection.html">4.10 <code class="code">@subsubsection</code> e Outros Comandos Subsub</a></li>
+    <li><a id="toc-_0040part_003a-Grupos-de-Cap_00edtulos" href="_0040part.html">4.11 <code class="code">@part</code>: Grupos de Capítulos</a></li>
+    <li><a id="toc-Elevar_002frebaixar-Se_00e7_00f5es_003a-_0040raisesections-e-_0040lowersections" href="Elevar_002frebaixar-se_00e7_00f5es.html">4.12 Elevar/rebaixar Seções: <code class="code">@raisesections</code> e <code class="code">@lowersections</code></a></li>
+    <li><a id="toc-N_00f3s-Desestruturados" href="N_00f3s-Desestruturados.html">4.13 Nós Desestruturados</a></li>
+  </ul></li>
+  <li><a id="toc-Refer_00eancias-cruzadas" href="Refer_00eancias-Cruzadas.html">5 Referências cruzadas</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Diferentes-Comandos-de-Refer_00eancia-Cruzada" href="Comandos-de-Refer_00eancia-Cruzada.html">5.1 Diferentes Comandos de Referência Cruzada</a></li>
+    <li><a id="toc-Partes-de-Uma-Refer_00eancia-Cruzada" href="Partes-de-Refer_00eancia-Cruzada.html">5.2 Partes de Uma Referência Cruzada</a></li>
+    <li><a id="toc-_0040xref-com-Um-Argumento" href="Um-Argumento.html">5.3 <code class="code">@xref</code> com Um Argumento</a></li>
+    <li><a id="toc-_0040xref-com-Dois-Argumentos" href="Dois-Argumentos.html">5.4 <code class="code">@xref</code> com Dois Argumentos</a></li>
+    <li><a id="toc-_0040xref-com-Tr_00eas-Argumentos" href="Tr_00eas-Argumentos.html">5.5 <code class="code">@xref</code> com Três Argumentos</a></li>
+    <li><a id="toc-_0040xref-com-Quatro-e-Cinco-Argumentos" href="Quatro-e-Cinco-Argumentos.html">5.6 <code class="code">@xref</code> com Quatro e Cinco Argumentos</a></li>
+    <li><a id="toc-Referenciamento-para-um-Manual-como-um-Todo" href="Referenciamento-para-um-Manual-como-um-Todo.html">5.7 Referenciamento para um Manual como um Todo</a></li>
+    <li><a id="toc-_0040xref" href="_0040xref.html">5.8 <code class="code">@xref</code></a></li>
+    <li><a id="toc-_0040ref" href="_0040ref.html">5.9 <code class="code">@ref</code></a></li>
+    <li><a id="toc-_0040pxref" href="_0040pxref.html">5.10 <code class="code">@pxref</code></a></li>
+    <li><a id="toc-_0040anchor_003a-Definindo-Alvos-Arbitr_00e1rios-de-Refer_00eancias-Cruzadas" href="_0040anchor.html">5.11 <code class="code">@anchor</code>: Definindo Alvos Arbitrários de Referências Cruzadas</a></li>
+    <li><a id="toc-_0040link_003a-Simples_002c-hiperlink-desadornado" href="_0040link.html">5.12 <code class="code">@link</code>: Simples, hiperlink desadornado</a></li>
+    <li><a id="toc-_0040inforef_003a-Refer_00eancias-cruzadas-para-material-unicamente-Info" href="_0040inforef.html">5.13 <code class="code">@inforef</code>: Referências cruzadas para material unicamente Info</a></li>
+    <li><a id="toc-_0040url_002c-_0040uref_007burl_005b_002c-texto_005d_005b_002c-substitui_00e7_00e3o_005d_007d" href="_0040url.html">5.14 <code class="code">@url</code>, <code class="code">@uref{<var class="var">url</var>[, <var class="var">texto</var>][, <var class="var">substituição</var>]}</code></a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Exemplos-_0040url" href="Exemplos-_0040url.html">5.14.1 Exemplos <code class="code">@url</code></a></li>
+      <li><a id="toc-Quebra-de-Linha-de-URL" href="Quebra-de-Linha-de-URL.html">5.14.2 Quebra de Linha de URL</a></li>
+      <li><a id="toc-_0040url-Formato-de-Sa_00edda-PDF" href="_0040url-Formato-de-Sa_00edda-PDF.html">5.14.3 <code class="code">@url</code> Formato de Saída PDF</a></li>
+    </ul></li>
+    <li><a id="toc-_0040cite_007brefer_00eancia_007d" href="_0040cite.html">5.15 <code class="code">@cite</code>{<var class="var">referência</var>}</a></li>
+    <li><a id="toc-Cores-do-PDF" href="Cores-do-PDF.html">5.16 Cores do PDF</a></li>
+  </ul></li>
+  <li><a id="toc-Marca_00e7_00e3o-de-Texto_002c-Palavras-e-Frases" href="Marcando-Texto.html">6 Marcação de Texto, Palavras e Frases</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Indicando-Defini_00e7_00f5es_002c-Comandos_002c-etc_002e" href="Indicando.html">6.1 Indicando Definições, Comandos, etc.</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Comandos-de-Real_00e7amento-s_00e3o-_00dateis" href="Real_00e7amento-_00datil.html">6.1.1 Comandos de Realçamento são Úteis</a></li>
+      <li><a id="toc-_0040code_007bc_00f3digo_002damostra_007d" href="_0040code.html">6.1.2 <code class="code">@code</code>{<var class="var">código-amostra</var>}</a></li>
+      <li><a id="toc-_0040kbd_007bcaracteres_002dde_002dteclado_007d" href="_0040kbd.html">6.1.3 <code class="code">@kbd</code>{<var class="var">caracteres-de-teclado</var>}</a></li>
+      <li><a id="toc-_0040key_007bnome_002dtecla_007d" href="_0040key.html">6.1.4 <code class="code">@key</code>{<var class="var">nome-tecla</var>}</a></li>
+      <li><a id="toc-_0040samp_007btexto_007d" href="_0040samp.html">6.1.5 <code class="code">@samp</code>{<var class="var">texto</var>}</a></li>
+      <li><a id="toc-_0040verb_007bchartextchar_007d" href="_0040verb.html">6.1.6 <code class="code">@verb</code>{<var class="var">char</var><var class="var">text</var><var class="var">char</var>}</a></li>
+      <li><a id="toc-_0040var_007bvari_00e1vel_002dmetassint_00e1tica_007d" href="_0040var.html">6.1.7 <code class="code">@var</code>{<var class="var">variável-metassintática</var>}</a></li>
+      <li><a id="toc-_0040env_007bvari_00e1vel_002dambiente_007d" href="_0040env.html">6.1.8 <code class="code">@env</code>{<var class="var">variável-ambiente</var>}</a></li>
+      <li><a id="toc-_0040file_007bnome_002darquivo_007d" href="_0040file.html">6.1.9 <code class="code">@file</code>{<var class="var">nome-arquivo</var>}</a></li>
+      <li><a id="toc-_0040command_007bnome_002dcomando_007d" href="_0040command.html">6.1.10 <code class="code">@command</code>{<var class="var">nome-comando</var>}</a></li>
+      <li><a id="toc-_0040option_007bnome_002dop_00e7_00e3o_007d" href="_0040option.html">6.1.11 <code class="code">@option</code>{<var class="var">nome-opção</var>}</a></li>
+      <li><a id="toc-_0040dfn_007btermo_007d" href="_0040dfn.html">6.1.12 <code class="code">@dfn</code>{<var class="var">termo</var>}</a></li>
+      <li><a id="toc-_0040abbr_007babrevia_00e7_00e3o_005b_002c-significado_005d_007d" href="_0040abbr.html">6.1.13 <code class="code">@abbr</code>{<var class="var">abreviação</var>[, <var class="var">significado</var>]}</a></li>
+      <li><a id="toc-_0040acronym_007bsigla_005b_002c-significado_005d_007d" href="_0040acronym.html">6.1.14 <code class="code">@acronym</code>{<var class="var">sigla</var>[, <var class="var">significado</var>]}</a></li>
+      <li><a id="toc-_0040indicateurl_007blocalizador_002duniforme_002dde_002drecurso_007d" href="_0040indicateurl.html">6.1.15 <code class="code">@indicateurl</code>{<var class="var">localizador-uniforme-de-recurso</var>}</a></li>
+      <li><a id="toc-_0040email_007bendere_00e7o_002dcorreio_002deletr_00f4nico_005b_002c-texto_002dexibido_005d_007d" href="_0040email.html">6.1.16 <code class="code">@email</code>{<var class="var">endereço-correio-eletrônico</var>[, <var class="var">texto-exibido</var>]}</a></li>
+    </ul></li>
+    <li><a id="toc-Enfatizando-Texto" href="_00canfase.html">6.2 Enfatizando Texto</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-_0040emph_007btexto_007d-e-_0040strong_007btexto_007d" href="_0040emph-_0040strong.html">6.2.1 <code class="code">@emph</code>{<var class="var">texto</var>} e <code class="code">@strong</code>{<var class="var">texto</var>}</a></li>
+      <li><a id="toc-_0040sc_007btexto_007d_003a-A-Fonte-de-Versaletes" href="Versaletes.html">6.2.2 <code class="code">@sc</code>{<var class="var">texto</var>}: A Fonte de Versaletes</a></li>
+      <li><a id="toc-Fontes-para-Impress_00e3o" href="Fontes.html">6.2.3 Fontes para Impressão</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Cita_00e7_00f5es-e-Exemplos" href="Cita_00e7_00f5es-e-Exemplos.html">7 Citações e Exemplos</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Comandos-de-Cercamento-de-Blocos" href="Comandos-de-Cercamento-de-Blocos.html">7.1 Comandos de Cercamento de Blocos</a></li>
+    <li><a id="toc-_0040quotation_003a-Cita_00e7_00f5es-de-Bloco" href="_0040quotation.html">7.2 <code class="code">@quotation</code>: Citações de Bloco</a></li>
+    <li><a id="toc-_0040indentedblock_003a-Blocos-recuados-de-texto" href="_0040indentedblock.html">7.3 <code class="code">@indentedblock</code>: Blocos recuados de texto</a></li>
+    <li><a id="toc-_0040example_003a-Texto-de-Exemplo" href="_0040example.html">7.4 <code class="code">@example</code>: Texto de Exemplo</a></li>
+    <li><a id="toc-_0040verbatim_003a-Texto-Literal" href="_0040verbatim.html">7.5 <code class="code">@verbatim</code>: Texto Literal</a></li>
+    <li><a id="toc-_0040lisp_003a-Marcando-um-Exemplo-da-Lisp" href="_0040lisp.html">7.6 <code class="code">@lisp</code>: Marcando um Exemplo da Lisp</a></li>
+    <li><a id="toc-_0040display_003a-Exemplos-Usando-a-Fonte-de-Texto" href="_0040display.html">7.7 <code class="code">@display</code>: Exemplos Usando a Fonte de Texto</a></li>
+    <li><a id="toc-_0040format_003a-Exemplos-Usando-a-Largura-Total-da-Linha" href="_0040format.html">7.8 <code class="code">@format</code>: Exemplos Usando a Largura Total da Linha</a></li>
+    <li><a id="toc-_0040exdent_003a-Desfazendo-o-Recuo-de-Uma-Linha" href="_0040exdent.html">7.9 <code class="code">@exdent</code>: Desfazendo o Recuo de Uma Linha</a></li>
+    <li><a id="toc-_0040flushleft-e-_0040flushright" href="_0040flushleft-_0040flushright.html">7.10 <code class="code">@flushleft</code> e <code class="code">@flushright</code></a></li>
+    <li><a id="toc-_0040raggedright_003a-Texto-Irregular-_00e0-Direita" href="_0040raggedright.html">7.11 <code class="code">@raggedright</code>: Texto Irregular à Direita</a></li>
+    <li><a id="toc-_0040noindent_003a-Omitindo-Recuo" href="_0040noindent.html">7.12 <code class="code">@noindent</code>: Omitindo Recuo</a></li>
+    <li><a id="toc-_0040indent_003a-For_00e7ando-Recuo" href="_0040indent.html">7.13 <code class="code">@indent</code>: Forçando Recuo</a></li>
+    <li><a id="toc-_0040cartouche_003a-Ret_00e2ngulos-Arredondados" href="_0040cartouche.html">7.14 <code class="code">@cartouche</code>: Retângulos Arredondados</a></li>
+    <li><a id="toc-_0040small_2026-Comandos-de-Bloco" href="small.html">7.15 <code class="code">@small&hellip;</code> Comandos de Bloco</a></li>
+  </ul></li>
+  <li><a id="toc-Listas-e-Tabelas" href="Listas-e-Tabelas.html">8 Listas e Tabelas</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Listas-Introducentes" href="Listas-Introducentes.html">8.1 Listas Introducentes</a></li>
+    <li><a id="toc-_0040itemize_003a-Construindo-Uma-Lista-de-Itens" href="_0040itemize.html">8.2 <code class="code">@itemize</code>: Construindo Uma Lista de Itens</a></li>
+    <li><a id="toc-_0040enumerate_003a-Fazendo-Uma-Lista-Numerada-ou-Com-Letras" href="_0040enumerate.html">8.3 <code class="code">@enumerate</code>: Fazendo Uma Lista Numerada ou Com Letras</a></li>
+    <li><a id="toc-Fazendo-Uma-Tabela-de-Duas-Colunas" href="Tabelas-de-Duas-Colunas.html">8.4 Fazendo Uma Tabela de Duas Colunas</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Usando-o-Comando-_0040table" href="_0040table.html">8.4.1 Usando o Comando <code class="code">@table</code></a></li>
+      <li><a id="toc-_0040ftable-e-_0040vtable" href="_0040ftable-_0040vtable.html">8.4.2 <code class="code">@ftable</code> e <code class="code">@vtable</code></a></li>
+      <li><a id="toc-_0040itemx_003a-Segundo-e-Itens-Subsequentes" href="_0040itemx.html">8.4.3 <code class="code">@itemx</code>: Segundo e Itens Subsequentes</a></li>
+    </ul></li>
+    <li><a id="toc-_0040multitable_003a-Tabelas-Multi-Colunas" href="Tabelas-Multi-Colunas.html">8.5 <code class="code">@multitable</code>: Tabelas Multi Colunas</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Larguras-de-Colunas-de-Multi-Tabelas" href="Larguras-de-Colunas-de-Multi-Tabelas.html">8.5.1 Larguras de Colunas de Multi Tabelas</a></li>
+      <li><a id="toc-Linhas-de-Multi-Tabelas" href="Linhas-de-Multi-Tabelas.html">8.5.2 Linhas de Multi Tabelas</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Exibi_00e7_00f5es-Especiais" href="Exibi_00e7_00f5es-Especiais.html">9 Exibições Especiais</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Flutuadores" href="Flutuadores.html">9.1 Flutuadores</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-_0040float-_005btipo_005d_005b_002cr_00f3tulo_005d_003a-Material-Flutuante" href="_0040float.html">9.1.1 <code class="code">@float</code> [<var class="var">tipo</var>][,<var class="var">rótulo</var>]: Material Flutuante</a></li>
+      <li><a id="toc-_0040caption-e-_0040shortcaption" href="_0040caption-_0040shortcaption.html">9.1.2 <code class="code">@caption</code> e <code class="code">@shortcaption</code></a></li>
+      <li><a id="toc-_0040listoffloats_003a-Sum_00e1rios-para-Flutuadores" href="_0040listoffloats.html">9.1.3 <code class="code">@listoffloats</code>: Sumários para Flutuadores</a></li>
+    </ul></li>
+    <li><a id="toc-Inserindo-Imagens" href="Imagens.html">9.2 Inserindo Imagens</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Sintaxe-da-Imagem" href="Sintaxe-da-Imagem.html">9.2.1 Sintaxe da Imagem</a></li>
+      <li><a id="toc-Escalonamento-da-Imagem" href="Escalonamento-da-Imagem.html">9.2.2 Escalonamento da Imagem</a></li>
+    </ul></li>
+    <li><a id="toc-Notas-de-Rodap_00e9" href="Notas-de-Rodap_00e9.html">9.3 Notas de Rodapé</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Comandos-de-Notas-de-Rodap_00e9" href="Comandos-de-Notas-de-Rodap_00e9.html">9.3.1 Comandos de Notas de Rodapé</a></li>
+      <li><a id="toc-Estilos-de-Notas-de-Rodap_00e9" href="Estilos-de-Notas-de-Rodap_00e9.html">9.3.2 Estilos de Notas de Rodapé</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-_00cdndices" href="_00cdndices.html">10 Índices</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-_00cdndices-Predefinidos" href="_00cdndices-Predefinidos.html">10.1 Índices Predefinidos</a></li>
+    <li><a id="toc-Definindo-as-Entradas-de-um-_00cdndice" href="Comandos-de-Indexa_00e7_00e3o.html">10.2 Definindo as Entradas de um Índice</a></li>
+    <li><a id="toc-Comandos-Avan_00e7ados-de-Indexa_00e7_00e3o" href="Indexa_00e7_00e3o-Avan_00e7ada.html">10.3 Comandos Avançados de Indexação</a></li>
+    <li><a id="toc-Criando-Entradas-de-_00cdndice" href="Entradas-de-_00cdndice.html">10.4 Criando Entradas de Índice</a></li>
+    <li><a id="toc-Imprimindo-_00cdndices-e-Menus" href="Imprimindo-_00cdndices-e-Menus.html">10.5 Imprimindo Índices e Menus</a></li>
+    <li><a id="toc-Combinando-_00cdndices" href="Combinando-_00cdndices.html">10.6 Combinando Índices</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-_0040syncodeindex_003a-Combinando-_00cdndices-Usando-_0040code" href="_0040syncodeindex.html">10.6.1 <code class="code">@syncodeindex</code>: Combinando Índices Usando <code class="code">@code</code></a></li>
+      <li><a id="toc-_0040synindex_003a-Combinando-_00cdndices" href="_0040synindex.html">10.6.2 <code class="code">@synindex</code>: Combinando Índices</a></li>
+    </ul></li>
+    <li><a id="toc-Definindo-Novos-_00cdndices" href="Novos-_00cdndices.html">10.7 Definindo Novos Índices</a></li>
+  </ul></li>
+  <li><a id="toc-Inser_00e7_00f5es-Especiais" href="Inser_00e7_00f5es.html">11 Inserções Especiais</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Caracteres-Especiais_003a-Inserindo-_0040-_007b_007d-_002c-_005c-_0023-_0026" href="Caracteres-Especiais.html">11.1 Caracteres Especiais: Inserindo @ {} , \ # &amp;</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Inserindo-_0060_0040_0027-com-_0040_0040-e-_0040atchar_007b_007d" href="Inserindo-um-S_00edmbolo-Arroba.html">11.1.1 Inserindo &lsquo;@&rsquo; com <code class="code">@@</code> e <code class="code">@atchar{}</code></a></li>
+      <li><a id="toc-Inserindo-_0060_007b-_0060_007d_0027-com-_0040_007b-_0040_007d-e-_0040l-rbracechar_007b_007d" href="Inserindo-Chaves.html">11.1.2 Inserindo &lsquo;{ &lsquo;}&rsquo; com <code class="code">@{ @}</code> e <code class="code">@l rbracechar{}</code></a></li>
+      <li><a id="toc-Inserindo-_0060_002c_0027-com-_0040comma_007b_007d" href="Inserindo-uma-V_00edrgula.html">11.1.3 Inserindo &lsquo;,&rsquo; com <code class="code">@comma{}</code></a></li>
+      <li><a id="toc-Inserindo-_0060_005c_0027-com-_0040backslashchar_007b_007d" href="Inserindo-uma-Barra-Invertida.html">11.1.4 Inserindo &lsquo;\&rsquo; com <code class="code">@backslashchar{}</code></a></li>
+      <li><a id="toc-Inserindo-_0060_0023_0027-com-_0040hashchar_007b_007d" href="Inserindo-um-S_00edmbolo-Cerquilha.html">11.1.5 Inserindo &lsquo;#&rsquo; com <code class="code">@hashchar{}</code></a></li>
+      <li><a id="toc-Inserindo-_0060_0026_0027-com-_0040_0026-e-_0040ampchar_007b_007d" href="Inserindo-um-E-Comercial.html">11.1.6 Inserindo &lsquo;&amp;&rsquo; com <code class="code">@&amp;</code> e <code class="code">@ampchar{}</code></a></li>
+    </ul></li>
+    <li><a id="toc-Inserindo-Caracteres-de-Aspas" href="Inserindo-Caracteres-de-Aspas.html">11.2 Inserindo Caracteres de Aspas</a></li>
+    <li><a id="toc-Inserindo-Espa_00e7o" href="Inserindo-Espa_00e7o.html">11.3 Inserindo Espaço</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Espa_00e7os-M_00faltiplos" href="Espa_00e7os-M_00faltiplos.html">11.3.1 Espaços Múltiplos</a></li>
+      <li><a id="toc-N_00e3o-Finalizando-uma-Frase" href="N_00e3o-Finalizando-uma-Frase.html">11.3.2 Não Finalizando uma Frase</a></li>
+      <li><a id="toc-Finalizando-uma-Frase" href="Finalizando-uma-Frase.html">11.3.3 Finalizando uma Frase</a></li>
+      <li><a id="toc-_0040frenchspacing-val_003a-Espa_00e7amento-de-Controle-de-Frase" href="_0040frenchspacing.html">11.3.4 <code class="code">@frenchspacing</code> <var class="var">val</var>: Espaçamento de Controle de Frase</a></li>
+      <li><a id="toc-_0040dmn_007bdimens_00e3o_007d_003a-Formatar-uma-Dimens_00e3o" href="_0040dmn.html">11.3.5 <code class="code">@dmn</code>{<var class="var">dimensão</var>}: Formatar uma Dimensão</a></li>
+    </ul></li>
+    <li><a id="toc-Inserindo-Acentos" href="Inserindo-Acentos.html">11.4 Inserindo Acentos</a></li>
+    <li><a id="toc-Inserindo-Aspas" href="Inserindo-Aspas.html">11.5 Inserindo Aspas</a></li>
+    <li><a id="toc-_0040sub-e-_0040sup_003a-Inserindo-Subscritos-e-Sobrescritos" href="Inserindo-Subscritos-e-Sobrescritos.html">11.6 <code class="code">@sub</code> e <code class="code">@sup</code>: Inserindo Subscritos e Sobrescritos</a></li>
+    <li><a id="toc-Glifos-para-Texto" href="Glifos-para-Texto.html">11.7 Glifos para Texto</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-_0040TeX_007b_007d-_0028TeX_0029-e-_0040LaTeX_007b_007d-_0028LaTeX_0029" href="_0040LaTeX-do-_0040TeX.html">11.7.1 <code class="code">@TeX</code>{} (TeX) e <code class="code">@LaTeX</code>{} (LaTeX)</a></li>
+      <li><a id="toc-_0040copyright_007b_007d-_0028_00a9_0029" href="_0040copyright.html">11.7.2 <code class="code">@copyright{}</code> (&copy;)</a></li>
+      <li><a id="toc-_0040registeredsymbol_007b_007d-_0028_00ae_0029" href="_0040registeredsymbol.html">11.7.3 <code class="code">@registeredsymbol{}</code> (&reg;)</a></li>
+      <li><a id="toc-_0040dots-_0028_2026_0029-e-_0040enddots-_0028_002e_002e_002e_0029" href="_0040dots.html">11.7.4 <code class="code">@dots</code> (&hellip;) e <code class="code">@enddots</code> (<small class="enddots">...</small>)</a></li>
+      <li><a id="toc-_0040bullet-_0028_2022_0029" href="_0040bullet.html">11.7.5 <code class="code">@bullet</code> (&bull;)</a></li>
+      <li><a id="toc-_0040euro-_0028_20ac_0029_003a-S_00edmbolo-da-Moeda-Euro" href="_0040euro.html">11.7.6 <code class="code">@euro</code> (&euro;): Símbolo da Moeda Euro</a></li>
+      <li><a id="toc-_0040pounds-_0028_00a3_0029_003a-Libras-Esterlinas" href="_0040pounds.html">11.7.7 <code class="code">@pounds</code> (&pound;): Libras Esterlinas</a></li>
+      <li><a id="toc-_0040textdegree-_0028_00b0_0029_003a-S_00edmbolo-de-Graus" href="_0040textdegree.html">11.7.8 <code class="code">@textdegree</code> (&deg;): Símbolo de Graus</a></li>
+      <li><a id="toc-_0040minus-_0028_2212_0029_003a-Inserindo-um-Sinal-de-Menos" href="_0040minus.html">11.7.9 <code class="code">@minus</code> (&minus;): Inserindo um Sinal de Menos</a></li>
+      <li><a id="toc-_0040geq-_0028_2265_0029-e-_0040leq-_0028_2264_0029_003a-Inserindo-Rela_00e7_00f5es" href="_0040geq-_0040leq.html">11.7.10 <code class="code">@geq</code> (&ge;) e <code class="code">@leq</code> (&le;): Inserindo Relações</a></li>
+    </ul></li>
+    <li><a id="toc-Glifos-para-Programa_00e7_00e3o" href="Glifos-para-Programa_00e7_00e3o.html">11.8 Glifos para Programação</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Sum_00e1rio-de-Glifos" href="Sum_00e1rio-de-Glifos.html">11.8.1 Sumário de Glifos</a></li>
+      <li><a id="toc-_0040result_007b_007d-_0028_21d2_0029_003a-Resultado-de-uma-Express_00e3o" href="_0040result.html">11.8.2 <code class="code">@result{}</code> (&rArr;): Resultado de uma Expressão</a></li>
+      <li><a id="toc-_0040expansion_007b_007d-_0028_21a6_0029_003a-Indicando-uma-Expans_00e3o" href="_0040expansion.html">11.8.3 <code class="code">@expansion{}</code> (&rarr;): Indicando uma Expansão</a></li>
+      <li><a id="toc-_0040print_007b_007d-_0028_22a3_0029_003a-Indicando-Sa_00edda-Gerada" href="_0040print.html">11.8.4 <code class="code">@print{}</code> (&#8867;): Indicando Saída Gerada</a></li>
+      <li><a id="toc-_0040error_007b_007d-_0028error_002d_002d_003e_0029_003a-Indicando-uma-Mensagem-de-Erro" href="_0040error.html">11.8.5 <code class="code">@error{}</code> (error&rarr;): Indicando uma Mensagem de Erro</a></li>
+      <li><a id="toc-_0040equiv_007b_007d-_0028_2261_0029_003a-Indicando-Equival_00eancia" href="_0040equiv.html">11.8.6 <code class="code">@equiv{}</code> (&equiv;): Indicando Equivalência</a></li>
+      <li><a id="toc-_0040point_007b_007d-_0028_22c6_0029_003a-Indicando-Ponto-em-um-Buffer" href="_0040point.html">11.8.7 <code class="code">@point{}</code> (&lowast;): Indicando Ponto em um Buffer</a></li>
+      <li><a id="toc-Sequ_00eancias-de-Cliques" href="Sequ_00eancias-de-Cliques.html">11.8.8 Sequências de Cliques</a></li>
+    </ul></li>
+    <li><a id="toc-Inserindo-Unicode_003a-_0040U" href="Inserindo-Unicode.html">11.9 Inserindo Unicode: <code class="code">@U</code></a></li>
+  </ul></li>
+  <li><a id="toc-Formatando-Express_00f5es-Matem_00e1ticas" href="Inserindo-F_00f3rmulas-Matem_00e1ticas.html">12 Formatando Expressões Matemáticas</a></li>
+  <li><a id="toc-For_00e7ando-e-Impedindo-Quebras" href="Quebras.html">13 Forçando e Impedindo Quebras</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Comandos-de-Quebra" href="Comandos-de-Quebra.html">13.1 Comandos de Quebra</a></li>
+    <li><a id="toc-_0040_002a-e-_0040_002f_003a-Gerar-e-Permitir-Quebras-de-Linha" href="Quebras-de-Linha.html">13.2 <code class="code">@*</code> e <code class="code">@/</code>: Gerar e Permitir Quebras de Linha</a></li>
+    <li><a id="toc-_0040_002d-e-_0040hyphenation_003a-Hifeniza_00e7_00e3o-em-Sa_00edda-Impressa" href="_0040_002d-_0040hyphenation.html">13.3 <code class="code">@-</code> e <code class="code">@hyphenation</code>: Hifenização em Saída Impressa</a></li>
+    <li><a id="toc-_0040allowcodebreaks_003a-Controle-Quebras-de-Linha-no-_0040code" href="_0040allowcodebreaks.html">13.4 <code class="code">@allowcodebreaks</code>: Controle Quebras de Linha no <code class="code">@code</code></a></li>
+    <li><a id="toc-_0040w_007btexto_007d_003a-Impedir-Quebras-de-Linha" href="_0040w.html">13.5 <code class="code">@w</code>{<var class="var">texto</var>}: Impedir Quebras de Linha</a></li>
+    <li><a id="toc-_0040tie_007b_007d_003a-Inserindo-um-Espa_00e7o-Inquebr_00e1vel" href="_0040tie.html">13.6 <code class="code">@tie{}</code>: Inserindo um Espaço Inquebrável</a></li>
+    <li><a id="toc-_0040sp-n_003a-Inserir-Linhas-em-Branco" href="_0040sp.html">13.7 <code class="code">@sp <var class="var">n</var></code>: Inserir Linhas em Branco</a></li>
+    <li><a id="toc-_0040page_003a-Comece-uma-Nova-P_00e1gina" href="_0040page.html">13.8 <code class="code">@page</code>: Comece uma Nova Página</a></li>
+    <li><a id="toc-_0040group_003a-Impedir-Quebras-de-P_00e1gina" href="_0040group.html">13.9 <code class="code">@group</code>: Impedir Quebras de Página</a></li>
+    <li><a id="toc-_0040need-mils_003a-Impedir-Quebras-de-P_00e1gina" href="_0040need.html">13.10 <code class="code">@need <var class="var">mils</var></code>: Impedir Quebras de Página</a></li>
+  </ul></li>
+  <li><a id="toc-Comandos-de-Defini_00e7_00e3o" href="Comandos-de-Defini_00e7_00e3o.html">14 Comandos de Definição</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-O-Modelo-Para-Uma-Defini_00e7_00e3o" href="Modelo-de-Comando-de-Defini_00e7_00e3o.html">14.1 O Modelo Para Uma Definição</a></li>
+    <li><a id="toc-Linhas-de-Continua_00e7_00e3o-de-Comando-de-Defini_00e7_00e3o" href="Linhas-de-Continua_00e7_00e3o-de-Comando-de-Defini_00e7_00e3o.html">14.2 Linhas de Continuação de Comando de Definição</a></li>
+    <li><a id="toc-Argumentos-Opcionais-e-Repetidos" href="Argumentos-Opcionais.html">14.3 Argumentos Opcionais e Repetidos</a></li>
+    <li><a id="toc-Omitindo-o-Espa_00e7o-Depois-de-um-Nome-de-Defini_00e7_00e3o" href="Sem-Espa_00e7o-Depois-do-Nome-da-Defini_00e7_00e3o.html">14.4 Omitindo o Espaço Depois de um Nome de Definição</a></li>
+    <li><a id="toc-_0040deffnx_002c-et-al_002e_003a-Duas-ou-Mais-_0060Primeiras_0027-Linhas" href="_0040deffnx.html">14.5 <code class="code">@deffnx</code>, et al.: Duas ou Mais &lsquo;Primeiras&rsquo; Linhas</a></li>
+    <li><a id="toc-Os-Comandos-de-Defini_00e7_00e3o" href="Comandos-de-Defini_00e7_00e3o-em-Detalhe.html">14.6 Os Comandos de Definição</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Fun_00e7_00f5es-e-Entidades-Similares" href="Comandos-de-Fun_00e7_00f5es.html">14.6.1 Funções e Entidades Similares</a></li>
+      <li><a id="toc-Fun_00e7_00f5es-em-Linguagens-Tipadas" href="Fun_00e7_00f5es-Tipadas.html">14.6.2 Funções em Linguagens Tipadas</a></li>
+      <li><a id="toc-Vari_00e1veis-e-Entidades-Similares" href="Comandos-de-Vari_00e1veis.html">14.6.3 Variáveis e Entidades Similares</a></li>
+      <li><a id="toc-Vari_00e1veis-em-Linguagens-Tipadas" href="Vari_00e1veis-Tipadas.html">14.6.4 Variáveis em Linguagens Tipadas</a></li>
+      <li><a id="toc-Tipos-de-Dados" href="Tipos-de-Dados.html">14.6.5 Tipos de Dados</a></li>
+      <li><a id="toc-Programa_00e7_00e3o-Orientada-a-Objetos" href="Objetos-Abstratos.html">14.6.6 Programação Orientada a Objetos</a>
+      <ul class="toc-numbered-mark">
+        <li><a id="toc-Vari_00e1veis-Orientadas-a-Objetos" href="Vari_00e1veis-Orientadas-a-Objetos.html">14.6.6.1 Variáveis Orientadas a Objetos</a></li>
+        <li><a id="toc-M_00e9todos-Orientados-a-Objetos" href="M_00e9todos-Orientados-a-Objetos.html">14.6.6.2 Métodos Orientados a Objetos</a></li>
+      </ul></li>
+    </ul></li>
+    <li><a id="toc-Comandos-Gen_00e9ricos-de-Defini_00e7_00e3o" href="Comandos-Gen_00e9ricos-de-Defini_00e7_00e3o.html">14.7 Comandos Genéricos de Definição</a></li>
+    <li><a id="toc-Conven_00e7_00f5es-para-Escrita-de-Defini_00e7_00f5es" href="Conven_00e7_00f5es-de-Comandos-de-Defini_00e7_00e3o.html">14.8 Convenções para Escrita de Definições</a></li>
+    <li><a id="toc-Uma-Defini_00e7_00e3o-de-Amostra-de-Fun_00e7_00e3o" href="Defini_00e7_00e3o-de-Amostra-de-Fun_00e7_00e3o.html">14.9 Uma Definição de Amostra de Função</a></li>
+  </ul></li>
+  <li><a id="toc-Internacionaliza_00e7_00e3o" href="Internacionaliza_00e7_00e3o.html">15 Internacionalização</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-_0040documentlanguage-ll_005b_005fcc_005d_003a-Configurar-o-Idioma-do-Documento" href="_0040documentlanguage.html">15.1 <code class="code">@documentlanguage <var class="var">ll</var>[_<var class="var">cc</var>]</code>: Configurar o Idioma do Documento</a></li>
+    <li><a id="toc-_0040documentencoding-codifica_00e7_00e3o_003a-Configurar-Codifica_00e7_00e3o-de-Entrada" href="_0040documentencoding.html">15.2 <code class="code">@documentencoding <var class="var">codificação</var></code>: Configurar Codificação de Entrada</a></li>
+  </ul></li>
+  <li><a id="toc-Texto-Condicionalmente-Vis_00edvel" href="Condicionais.html">16 Texto Condicionalmente Visível</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Comandos-Condicionais" href="Comandos-Condicionais.html">16.1 Comandos Condicionais</a></li>
+    <li><a id="toc-Comandos-Condicionais-N_00e3o" href="Comandos-Condicionais-N_00e3o.html">16.2 Comandos Condicionais Não</a></li>
+    <li><a id="toc-Comandos-Brutos-do-Formatador" href="Comandos-Brutos-do-Formatador.html">16.3 Comandos Brutos do Formatador</a></li>
+    <li><a id="toc-Condicionais-Inline_003a-_0040inline_002c-_0040inlineifelse_002c-_0040inlineraw" href="Condicionais-Inline.html">16.4 Condicionais Inline: <code class="code">@inline</code>, <code class="code">@inlineifelse</code>, <code class="code">@inlineraw</code></a></li>
+    <li><a id="toc-Sinalizadores_003a-_0040set_002c-_0040clear_002c-condicionais-e-_0040value" href="_0040set-_0040clear-_0040value.html">16.5 Sinalizadores: <code class="code">@set</code>, <code class="code">@clear</code>, condicionais e <code class="code">@value</code></a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-_0040set-e-_0040value" href="_0040set-_0040value.html">16.5.1 <code class="code">@set</code> e <code class="code">@value</code></a></li>
+      <li><a id="toc-_0040ifset-e-_0040ifclear" href="_0040ifset-_0040ifclear.html">16.5.2 <code class="code">@ifset</code> e <code class="code">@ifclear</code></a></li>
+      <li><a id="toc-_0040inlineifset-e-_0040inlineifclear" href="_0040inlineifset-_0040inlineifclear.html">16.5.3 <code class="code">@inlineifset</code> e <code class="code">@inlineifclear</code></a></li>
+      <li><a id="toc-Exemplo-de-_0040value" href="Exemplo-de-_0040value.html">16.5.4 Exemplo de <code class="code">@value</code></a></li>
+    </ul></li>
+    <li><a id="toc-Testagem-para-Comandos-do-Texinfo_003a-_0040ifcommanddefined_002c-_0040ifcommandnotdefined" href="Testagem-para-Comandos-do-Texinfo.html">16.6 Testagem para Comandos do Texinfo: <code class="code">@ifcommanddefined</code>, <code class="code">@ifcommandnotdefined</code></a></li>
+    <li><a id="toc-Aninhamento-de-Condicional" href="Aninhamento-de-Condicional.html">16.7 Aninhamento de Condicional</a></li>
+  </ul></li>
+  <li><a id="toc-Definindo-Novos-Comandos-do-Texinfo" href="Definindo-Novos-Comandos-do-Texinfo.html">17 Definindo Novos Comandos do Texinfo</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Definindo-Macros" href="Definindo-Macros.html">17.1 Definindo Macros</a></li>
+    <li><a id="toc-Invocando-Macros" href="Invocando-Macros.html">17.2 Invocando Macros</a></li>
+    <li><a id="toc-Detalhes-e-Ressalvas-de-Macro" href="Detalhes-de-Macro.html">17.3 Detalhes e Ressalvas de Macro</a></li>
+    <li><a id="toc-_0040alias-novo_003dexistente" href="_0040alias.html">17.4 &lsquo;<samp class="samp">@alias <var class="var">novo</var>=<var class="var">existente</var></samp>&rsquo;</a></li>
+    <li><a id="toc-Macros-de-Linha" href="Macros-de-Linha.html">17.5 Macros de Linha</a></li>
+    <li><a id="toc-_0040definfoenclose_003a-Real_00e7amento-Personalizado" href="_0040definfoenclose.html">17.6 <code class="code">@definfoenclose</code>: Realçamento Personalizado</a></li>
+    <li><a id="toc-Processadores-Externos-de-Macro_003a-Diretivas-de-Linha" href="Processadores-Externos-de-Macro.html">17.7 Processadores Externos de Macro: Diretivas de Linha</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Diretiva-_0023line" href="Diretiva-_0023line.html">17.7.1 Diretiva &lsquo;<samp class="samp">#line</samp>&rsquo;</a></li>
+      <li><a id="toc-_0023line-e-TeX" href="_0023line-e-TeX.html">17.7.2 &lsquo;<samp class="samp">#line</samp>&rsquo; e TeX</a></li>
+      <li><a id="toc-Detalhes-da-Sintaxe-da-_0023line" href="Detalhes-da-Sintaxe-da-_0023line.html">17.7.3 Detalhes da Sintaxe da &lsquo;<samp class="samp">#line</samp>&rsquo;</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Arquivos-de-Inclus_00e3o" href="Arquivos-de-Inclus_00e3o.html">18 Arquivos de Inclusão</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Como-Usar-Arquivos-de-Inclus_00e3o" href="Usando-Arquivos-de-Inclus_00e3o.html">18.1 Como Usar Arquivos de Inclusão</a></li>
+    <li><a id="toc-Arquivo-de-Amostra-com-_0040include" href="Arquivo-de-Inclus_00e3o-de-Amostra.html">18.2 Arquivo de Amostra com <code class="code">@include</code></a></li>
+    <li><a id="toc-arquivo-_0040verbatiminclude_003a-Incluir-um-Literal-de-Arquivo" href="_0040verbatiminclude.html">18.3 <var class="var">arquivo</var> <code class="code">@verbatiminclude</code>: Incluir um Literal de Arquivo</a></li>
+  </ul></li>
+  <li><a id="toc-Formatando-e-Imprimindo-com-TeX" href="Impresso-com-TeX.html">19 Formatando e Imprimindo com TeX</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Use-TeX" href="Use-TeX.html">19.1 Use TeX</a></li>
+    <li><a id="toc-Formatar-com-texi2dvi-ou-texi2pdf" href="Formatar-com-texi2dvi-ou-texi2pdf.html">19.2 Formatar com <code class="command">texi2dvi</code> ou <code class="command">texi2pdf</code></a></li>
+    <li><a id="toc-Formatar-com-tex_002ftexindex" href="Formatar-com-tex_002ftexindex.html">19.3 Formatar com <code class="command">tex</code>/<code class="command">texindex</code></a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Formatando-Documentos-Parciais" href="Formatando-Documentos-Parciais.html">19.3.1 Formatando Documentos Parciais</a></li>
+      <li><a id="toc-Detalhes-do-texindex" href="Detalhes-do-texindex.html">19.3.2 Detalhes do <code class="command">texindex</code></a></li>
+    </ul></li>
+    <li><a id="toc-Preparando-para-TeX" href="Preparando-para-TeX.html">19.4 Preparando para TeX</a></li>
+    <li><a id="toc-_0060_0060hboxes_0027_0027-lotados" href="hboxes-lotados.html">19.5 &ldquo;hboxes&rdquo; lotados</a></li>
+    <li><a id="toc-Imprimindo-Japon_00eas-e-Chin_00eas" href="Imprimindo-Japon_00eas-e-Chin_00eas.html">19.6 Imprimindo Japonês e Chinês</a></li>
+  </ul></li>
+  <li><a id="toc-texi2any_003a-O-Tradutor-para-Texinfo" href="Tradutor-Gen_00e9rico-texi2any.html">20 <code class="command">texi2any</code>: O Tradutor para Texinfo</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Invocando-texi2any-a-partir-de-um-Shell" href="Invocando-texi2any.html">20.1 Invocando <code class="command">texi2any</code> a partir de um Shell</a></li>
+    <li><a id="toc-Vari_00e1veis-de-Ambiente-Reconhecidas-pelo-texi2any" href="Vari_00e1veis-de-Ambiente-do-texi2any.html">20.2 Variáveis de Ambiente Reconhecidas pelo <code class="command">texi2any</code></a></li>
+    <li><a id="toc-Sa_00edda-Impressa-do-texi2any" href="Sa_00edda-Impressa-do-texi2any.html">20.3 Saída Impressa do <code class="command">texi2any</code></a></li>
+    <li><a id="toc-Vari_00e1veis-de-Personaliza_00e7_00e3o" href="Vari_00e1veis-de-Personaliza_00e7_00e3o.html">20.4 Variáveis de Personalização</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Vari_00e1veis-de-Personaliza_00e7_00e3o-para-Comandos-_0040" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-para-Comandos-_0040.html">20.4.1 Variáveis de Personalização para Comandos @</a></li>
+      <li><a id="toc-Vari_00e1veis-e-Op_00e7_00f5es-de-Personaliza_00e7_00e3o" href="Vari_00e1veis-e-Op_00e7_00f5es-de-Personaliza_00e7_00e3o.html">20.4.2 Variáveis e Opções de Personalização</a></li>
+      <li><a id="toc-Sele_00e7_00e3o-do-Formato-de-Sa_00edda" href="Sele_00e7_00e3o-do-Formato-de-Sa_00edda.html">20.4.3 Seleção do Formato de Saída</a></li>
+      <li><a id="toc-Vari_00e1veis-Globais-de-Personaliza_00e7_00e3o" href="Vari_00e1veis-Globais-de-Personaliza_00e7_00e3o.html">20.4.4 Variáveis Globais de Personalização</a></li>
+      <li><a id="toc-Vari_00e1veis-de-Personaliza_00e7_00e3o-do-Info-e-de-Texto-Simples" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-Info-e-de-Texto-Simples.html">20.4.5 Variáveis de Personalização do Info e de Texto Simples</a></li>
+      <li><a id="toc-Vari_00e1veis-de-Personaliza_00e7_00e3o-do-LaTeX" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-LaTeX.html">20.4.6 Variáveis de Personalização do LaTeX</a></li>
+      <li><a id="toc-Outras-Vari_00e1veis-de-Personaliza_00e7_00e3o-de-Formatos" href="Outras-Vari_00e1veis-de-Personaliza_00e7_00e3o-de-Formatos.html">20.4.7 Outras Variáveis de Personalização de Formatos</a></li>
+      <li><a id="toc-Vari_00e1veis-de-Personaliza_00e7_00e3o-para-M_00faltiplos-Formatos" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-para-M_00faltiplos-Formatos.html">20.4.8 Variáveis de Personalização para Múltiplos Formatos</a></li>
+    </ul></li>
+    <li><a id="toc-Internacionaliza_00e7_00e3o-de-Sequ_00eancias-de-Caracteres-de-Documentos" href="Internacionaliza_00e7_00e3o-de-Sequ_00eancias-de-Caracteres-de-Documentos.html">20.5 Internacionalização de Sequências de Caracteres de Documentos</a></li>
+    <li><a id="toc-Invocando-pod2texi_003a-Converter-Pod-para-Texinfo" href="Invocando-pod2texi.html">20.6 Invocando <code class="command">pod2texi</code>: Converter Pod para Texinfo</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-pod2texi" href="P_00e1gina-de-manual-do-pod2texi.html">20.6.1 pod2texi</a></li>
+    </ul></li>
+    <li><a id="toc-texi2html_003a-Ancestral-do-texi2any" href="texi2html.html">20.7 <code class="command">texi2html</code>: Ancestral do <code class="command">texi2any</code></a></li>
+  </ul></li>
+  <li><a id="toc-Criando-e-Instalando-Arquivos-Info" href="Criando-e-Instalando-Arquivos-Info.html">21 Criando e Instalando Arquivos Info</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Instalando-um-Arquivo-do-Info" href="Instalando-um-Arquivo-do-Info.html">21.1 Instalando um Arquivo do Info</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-O-Arquivo-de-Diret_00f3rio-dir" href="Arquivo-de-Diret_00f3rio.html">21.1.1 O Arquivo de Diretório <samp class="file">dir</samp></a></li>
+      <li><a id="toc-Listando-um-Novo-Arquivo-Info" href="Novo-Arquivo-Info.html">21.1.2 Listando um Novo Arquivo Info</a></li>
+      <li><a id="toc-Arquivos-Info-em-Outros-Diret_00f3rios" href="Outros-Diret_00f3rios-Info.html">21.1.3 Arquivos Info em Outros Diretórios</a></li>
+      <li><a id="toc-Instalando-Arquivos-de-Diret_00f3rio-Info" href="Instalando-Entradas-de-Diret_00f3rio.html">21.1.4 Instalando Arquivos de Diretório Info</a></li>
+      <li><a id="toc-Invocando-install_002dinfo" href="Invocando-install_002dinfo.html">21.1.5 Invocando <code class="command">install-info</code></a></li>
+    </ul></li>
+    <li><a id="toc-Arquivos-de-Etiqueta-e-Arquivos-Divididos" href="Arquivos-de-Etiqueta-e-Divididos.html">21.2 Arquivos de Etiqueta e Arquivos Divididos</a></li>
+    <li><a id="toc-Perguntas-Frequentes-do-Formato-Info" href="Perguntas-Frequentes-do-Formato-Info.html">21.3 Perguntas Frequentes do Formato Info</a></li>
+  </ul></li>
+  <li><a id="toc-Gerando-HTML" href="Gerando-HTML.html">22 Gerando HTML</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Tradu_00e7_00e3o-do-HTML" href="Tradu_00e7_00e3o-do-HTML.html">22.1 Tradução do HTML</a></li>
+    <li><a id="toc-Dividindo-HTML" href="Dividindo-HTML.html">22.2 Dividindo HTML</a></li>
+    <li><a id="toc-CSS-do-HTML" href="CSS-do-HTML.html">22.3 CSS do HTML</a></li>
+    <li><a id="toc-_0040documentdescription_003a-Texto-do-Sum_00e1rio" href="_0040documentdescription.html">22.4 <code class="code">@documentdescription</code>: Texto do Sumário</a></li>
+    <li><a id="toc-Gerando-EPUB" href="Gerando-EPUB.html">22.5 Gerando EPUB</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Diret_00f3rio-do-Cont_00eainer-e-Arquivos-da-Sa_00edda-Gerada" href="Arquivo-e-Diret_00f3rio-da-Sa_00edda-Gerada-EPUB.html">22.5.1 Diretório do Contêiner e Arquivos da Saída Gerada</a></li>
+      <li><a id="toc-Refer_00eancias-Cruzadas-do-EPUB" href="Refer_00eancias-Cruzadas-do-EPUB.html">22.5.2 Referências Cruzadas do EPUB</a></li>
+      <li><a id="toc-Obtendo-estrita-conforma_00e7_00e3o-do-EPUB" href="Conforma_00e7_00e3o-do-EPUB.html">22.5.3 Obtendo estrita conformação do EPUB</a></li>
+      <li><a id="toc-HTML-Gerado-para-EPUB" href="HTML-do-EPUB.html">22.5.4 HTML Gerado para EPUB</a></li>
+    </ul></li>
+    <li><a id="toc-Real_00e7amento-de-Sintaxe-de-Exemplos-de-C_00f3digos-no-HTML" href="Real_00e7amento-de-Sintaxe.html">22.6 Realçamento de Sintaxe de Exemplos de Códigos no HTML</a></li>
+    <li><a id="toc-Refer_00eancias-Cruzadas-do-HTML" href="Xref-do-HTML.html">22.7 Referências Cruzadas do HTML</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-B_00e1sicos-do-Linque-de-Refer_00eancia-Cruzada-do-HTML" href="B_00e1sicos-do-Linque-Xref-do-HTML.html">22.7.1 Básicos do Linque de Referência Cruzada do HTML</a></li>
+      <li><a id="toc-Expans_00e3o-de-Nome-de-N_00f3-de-Refer_00eancia-Cruzada-do-HTML" href="Expans_00e3o-de-Nome-de-N_00f3-do-Xref-do-HTML.html">22.7.2 Expansão de Nome de Nó de Referência Cruzada do HTML</a></li>
+      <li><a id="toc-Expans_00e3o-do-Comando-de-Refer_00eancia-Cruzada-do-HTML" href="Expans_00e3o-de-Comando-do-Xref-do-HTML.html">22.7.3 Expansão do Comando de Referência Cruzada do HTML</a></li>
+      <li><a id="toc-Expans_00e3o-do-Caractere-de-8-Bits-da-Refer_00eancia-Cruzada-do-HTML" href="Expans_00e3o-de-Caracteres-de-8-bits-do-Xref-do-HTML.html">22.7.4 Expansão do Caractere de 8 Bits da Referência Cruzada do HTML</a></li>
+      <li><a id="toc-Configura_00e7_00e3o-de-Refer_00eancia-Cruzada-do-HTML" href="Configura_00e7_00e3o-do-Xref-do-HTML.html">22.7.5 Configuração de Referência Cruzada do HTML</a></li>
+    </ul></li>
+    <li><a id="toc-Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML" href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html">22.8 Personalização da Saída Gerada HTML</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Personaliza_00e7_00e3o-da-Estrutura-da-Sa_00edda-Gerada-HTML" href="Personaliza_00e7_00e3o-da-Estrutura-da-Sa_00edda-Gerada-HTML.html">22.8.1 Personalização da Estrutura da Saída Gerada HTML</a></li>
+      <li><a id="toc-Personaliza_00e7_00e3o-de-Nomes-de-Arquivo-e-de-Linques-para-HTML" href="Personaliza_00e7_00e3o-de-Nomes-de-Arquivo-e-de-Linques-para-HTML.html">22.8.2 Personalização de Nomes de Arquivo e de Linques para HTML</a></li>
+      <li><a id="toc-Personaliza_00e7_00e3o-da-Navega_00e7_00e3o-e-de-Cabe_00e7alhos" href="Personaliza_00e7_00e3o-da-Navega_00e7_00e3o-e-de-Cabe_00e7alhos.html">22.8.3 Personalização da Navegação e de Cabeçalhos</a></li>
+      <li><a id="toc-Personaliza_00e7_00e3o-de-Recursos-do-HTML" href="Personaliza_00e7_00e3o-de-Recursos-do-HTML.html">22.8.4 Personalização de Recursos do HTML</a></li>
+      <li><a id="toc-Personaliza_00e7_00e3o-de-C_00f3digo-HTML-Inserido" href="Personaliza_00e7_00e3o-de-C_00f3digo-HTML-Inserido.html">22.8.5 Personalização de Código HTML Inserido</a></li>
+      <li><a id="toc-Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-Espec_00edfica-do-HTML" href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-Espec_00edfica-do-HTML.html">22.8.6 Personalização da Saída Gerada Específica do HTML</a></li>
+      <li><a id="toc-Personaliza_00e7_00e3o-do-HTML-para-Matem_00e1tica" href="Personaliza_00e7_00e3o-do-HTML-para-Matem_00e1tica.html">22.8.7 Personalização do HTML para Matemática</a>
+      <ul class="toc-numbered-mark">
+        <li><a id="toc-Vari_00e1veis-de-Personaliza_00e7_00e3o-da-MathJax" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-da-MathJax.html">22.8.7.1 Variáveis de Personalização da MathJax</a></li>
+        <li><a id="toc-Vari_00e1veis-de-Personaliza_00e7_00e3o-do-latex2html" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-latex2html.html">22.8.7.2 Variáveis de Personalização do <code class="command">latex2html</code></a></li>
+        <li><a id="toc-Vari_00e1veis-de-Personaliza_00e7_00e3o-do-tex4ht" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-tex4ht.html">22.8.7.3 Variáveis de Personalização do <code class="command">tex4ht</code></a></li>
+      </ul></li>
+      <li><a id="toc-Interface-e-Licen_00e7as-JavaScript" href="Interface-e-Licen_00e7as-JavaScript.html">22.8.8 Interface e Licenças JavaScript</a></li>
+      <li><a id="toc-Lista-de-Vari_00e1veis-de-Personaliza_00e7_00e3o-do-HTML" href="Lista-de-Vari_00e1veis-de-Personaliza_00e7_00e3o-do-HTML.html">22.8.9 Lista de Variáveis de Personalização do HTML</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Detalhes-do-Comando-_0040" href="Detalhes-do-Comando-_0040.html">Anexo A Detalhes do Comando @</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Sintaxe-de-Comando-_0040" href="Sintaxe-de-Comando.html">A.1 Sintaxe de Comando @</a></li>
+    <li><a id="toc-Lista-de-Comandos-_0040" href="Lista-de-Comandos.html">A.2 Lista de Comandos @</a></li>
+    <li><a id="toc-Contextos-do-Comando-_0040" href="Contextos-de-Comando.html">A.3 Contextos do Comando @</a></li>
+    <li><a id="toc-Comandos-_0040-Obsoletos" href="Comandos-_0040-Obsoletos.html">A.4 Comandos @ Obsoletos</a></li>
+  </ul></li>
+  <li><a id="toc-Dicas-e-Sugest_00f5es" href="Dicas.html">Anexo B Dicas e Sugestões</a></li>
+  <li><a id="toc-Arquivos-de-Amostra-do-Texinfo" href="Arquivos-de-Amostra-do-Texinfo.html">Anexo C Arquivos de Amostra do Texinfo</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Textos-GNU-de-Amostra" href="Textos-GNU-de-Amostra.html">C.1 Textos GNU de Amostra</a></li>
+    <li><a id="toc-Licen_00e7a-de-C_00f3pia-Literal" href="Licen_00e7a-de-C_00f3pia-Literal.html">C.2 Licença de Cópia Literal</a></li>
+    <li><a id="toc-Licen_00e7a-de-C_00f3pia-Toda-Permissiva" href="Licen_00e7a-de-C_00f3pia-Toda-Permissiva.html">C.3 Licença de Cópia Toda Permissiva</a></li>
+  </ul></li>
+  <li><a id="toc-Usando-Modo-Texinfo" href="Modo-Texinfo.html">Anexo D Usando Modo Texinfo</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Vis_00e3o-Geral-do-Modo-Texinfo" href="Vis_00e3o-Geral-do-Modo-Texinfo.html">D.1 Visão Geral do Modo Texinfo</a></li>
+    <li><a id="toc-Os-Comandos-Usuais-de-Edi_00e7_00e3o-do-GNU-Emacs" href="Edi_00e7_00e3o-do-Emacs.html">D.2 Os Comandos Usuais de Edição do GNU Emacs</a></li>
+    <li><a id="toc-Inserindo-Comandos-Frequentemente-Usados" href="Inserindo.html">D.3 Inserindo Comandos Frequentemente Usados</a></li>
+    <li><a id="toc-Mostrando-a-Estrutura-de-Seccionamento-de-um-Arquivo" href="Mostrando-a-Estrutura.html">D.4 Mostrando a Estrutura de Seccionamento de um Arquivo</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Usando-texinfo_002dshow_002dstructure" href="Usando-texinfo_002dshow_002dstructure.html">D.4.1 Usando <code class="code">texinfo-show-structure</code></a></li>
+      <li><a id="toc-Usando-occur" href="Usando-occur.html">D.4.2 Usando <code class="code">occur</code></a></li>
+    </ul></li>
+    <li><a id="toc-Atualizando-N_00f3s-e-Menus" href="Atualizando-N_00f3s-e-Menus.html">D.5 Atualizando Nós e Menus</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Os-Comandos-de-Atualiza_00e7_00e3o" href="Comandos-de-Atualiza_00e7_00e3o.html">D.5.1 Os Comandos de Atualização</a></li>
+      <li><a id="toc-Exig_00eancias-de-Atualiza_00e7_00e3o" href="Exig_00eancias-de-Atualiza_00e7_00e3o.html">D.5.2 Exigências de Atualização</a></li>
+      <li><a id="toc-Atualizar-Arquivo-Externo-e-Incluir-Arquivos" href="Atualizar-M_00faltiplos-Arquivos.html">D.5.3 Atualizar Arquivo Externo e Incluir Arquivos</a></li>
+      <li><a id="toc-Exig_00eancias-de-Arquivos-de-Inclus_00e3o" href="Exig_00eancias-de-Arquivos-de-Inclus_00e3o.html">D.5.4 Exigências de Arquivos de Inclusão</a></li>
+      <li><a id="toc-Outros-Comandos-de-Atualiza_00e7_00e3o" href="Outros-Comandos-de-Atualiza_00e7_00e3o.html">D.5.5 Outros Comandos de Atualização</a></li>
+    </ul></li>
+    <li><a id="toc-Formata_00e7_00e3o-para-Info" href="Formata_00e7_00e3o-do-Info.html">D.6 Formatação para Info</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Executando-texi2any_002fmakeinfo-no-Emacs" href="texi2any-no-Emacs.html">D.6.1 Executando <code class="command">texi2any</code>/<code class="command">makeinfo</code> no Emacs</a></li>
+      <li><a id="toc-Os-comandos-texinfo_002dformat_2026" href="Comandos-texinfo_002dformat.html">D.6.2 Os comandos <code class="code">texinfo-format&hellip;</code></a></li>
+    </ul></li>
+    <li><a id="toc-Formatando-e-Imprimindo-com-o-Emacs" href="Imprimindo-com-o-Emacs.html">D.7 Formatando e Imprimindo com o Emacs</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Formata_00e7_00e3o-e-Impress_00e3o-no-Modo-Texinfo" href="Impress_00e3o-no-Modo-Texinfo.html">D.7.1 Formatação e Impressão no Modo Texinfo</a></li>
+      <li><a id="toc-Usando-a-Lista-de-Vari_00e1veis-Locais" href="Comando-de-Compila_00e7_00e3o.html">D.7.2 Usando a Lista de Variáveis Locais</a></li>
+    </ul></li>
+    <li><a id="toc-Sum_00e1rio-do-Modo-Texinfo" href="Sum_00e1rio-do-Modo-Texinfo.html">D.8 Sumário do Modo Texinfo</a></li>
+    <li><a id="toc-Formata_00e7_00e3o-Direta-de-arquivos-do-Info" href="Formatando-arquivos-do-Info.html">D.9 Formatação Direta de arquivos do Info</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Etiquetando-um-Arquivo" href="Etiquetando.html">D.9.1 Etiquetando um Arquivo</a></li>
+      <li><a id="toc-Dividindo-um-Arquivo-Manualmente" href="Dividindo.html">D.9.2 Dividindo um Arquivo Manualmente</a></li>
+    </ul></li>
+    <li><a id="toc-Capturando-Erros" href="Capturando-Erros.html">D.10 Capturando Erros</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-texi2any-Preferido" href="texi2any-Preferido.html">D.10.1 <code class="command">texi2any</code> Preferido</a></li>
+      <li><a id="toc-Capturando-Erros-com-formata_00e7_00e3o-do-Info" href="Depura_00e7_00e3o-com-Info.html">D.10.2 Capturando Erros com formatação do Info</a></li>
+      <li><a id="toc-Depura_00e7_00e3o-com-TeX" href="Depura_00e7_00e3o-com-TeX.html">D.10.3 Depuração com TeX</a></li>
+      <li><a id="toc-Encontrando-N_00f3s-Mal-Referenciados" href="Executando-Info_002dvalidate.html">D.10.4 Encontrando Nós Mal Referenciados</a>
+      <ul class="toc-numbered-mark">
+        <li><a id="toc-Usando-Info_002dvalidate" href="Usando-Info_002dvalidate.html">D.10.4.1 Usando <code class="code">Info-validate</code></a></li>
+        <li><a id="toc-Criando-um-Arquivo-Desdividido-e-Adicionando-uma-Tabela-de-Etiquetas" href="Desdividir-e-Etiquetar.html">D.10.4.2 Criando um Arquivo Desdividido e Adicionando uma Tabela de Etiquetas</a></li>
+      </ul></li>
+    </ul></li>
+    <li><a id="toc-Formata_00e7_00e3o-em-Lote" href="Formata_00e7_00e3o-em-Lote.html">D.11 Formatação em Lote</a></li>
+  </ul></li>
+  <li><a id="toc-Comandos-Globais-de-Documento" href="Comandos-Globais-de-Documento.html">Anexo E Comandos Globais de Documento</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-_0040setchapternewpage_003a-P_00e1ginas-em-Branco-Antes-dos-Cap_00edtulos" href="_0040setchapternewpage.html">E.1 <code class="code">@setchapternewpage</code>: Páginas em Branco Antes dos Capítulos</a></li>
+    <li><a id="toc-Cabe_00e7alhos-de-P_00e1gina" href="Cabe_00e7alhos.html">E.2 Cabeçalhos de Página</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-O-Comando-_0040headings" href="_0040headings.html">E.2.1 O Comando <code class="code">@headings</code></a></li>
+      <li><a id="toc-Formatos-Padr_00e3o-de-Cabe_00e7alho" href="Formato-do-Cabe_00e7alho.html">E.2.2 Formatos Padrão de Cabeçalho</a></li>
+      <li><a id="toc-Como-Fazer-Teus-Pr_00f3prios-Cabe_00e7alhos" href="Cabe_00e7alhos-Personalizados.html">E.2.3 Como Fazer Teus Próprios Cabeçalhos</a></li>
+    </ul></li>
+    <li><a id="toc-_0040paragraphindent_003a-Controlando-Recuo-do-Par_00e1grafo" href="_0040paragraphindent.html">E.3 <code class="code">@paragraphindent</code>: Controlando Recuo do Parágrafo</a></li>
+    <li><a id="toc-_0040firstparagraphindent_003a-Recuo-Depois-de-Cabe_00e7alhos" href="_0040firstparagraphindent.html">E.4 <code class="code">@firstparagraphindent</code>: Recuo Depois de Cabeçalhos</a></li>
+    <li><a id="toc-_0040exampleindent_003a-Recuo-do-Ambiente" href="_0040exampleindent.html">E.5 <code class="code">@exampleindent</code>: Recuo do Ambiente</a></li>
+    <li><a id="toc-_0040smallbook_003a-Imprimindo-Livros-_0060_0060Pequenos_0027_0027" href="_0040smallbook.html">E.6 <code class="code">@smallbook</code>: Imprimindo Livros &ldquo;Pequenos&rdquo;</a></li>
+    <li><a id="toc-Imprimir-em-Papel-A4" href="Papel-A4.html">E.7 Imprimir em Papel A4</a></li>
+    <li><a id="toc-_0040pagesizes-_005blargura_005d_005b_002c-altura_005d_003a-Tamanhos-Personalizados-de-P_00e1gina" href="_0040pagesizes.html">E.8 <code class="code">@pagesizes</code> [<var class="var">largura</var>][, <var class="var">altura</var>]: Tamanhos Personalizados de Página</a></li>
+    <li><a id="toc-Microtipografia" href="Microtipografia.html">E.9 Microtipografia</a></li>
+    <li><a id="toc-Amplia_00e7_00e3o" href="Amplia_00e7_00e3o.html">E.10 Ampliação</a></li>
+  </ul></li>
+  <li><a id="toc-Especifica_00e7_00e3o-do-Formato-Info" href="Especifica_00e7_00e3o-do-Formato-Info.html">Anexo F Especificação do Formato Info</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Formato-Info_003a-Um-Manual-Inteiro" href="Manual-Inteiro-do-Formato-Info.html">F.1 Formato Info: Um Manual Inteiro</a></li>
+    <li><a id="toc-Formato-Info_003a-Pre_00e2mbulo" href="Pre_00e2mbulo-do-Formato-Info.html">F.2 Formato Info: Preâmbulo</a></li>
+    <li><a id="toc-Formato-Info_003a-Tabela-Indireta" href="Tabela-Indireta-do-Formato-Info.html">F.3 Formato Info: Tabela Indireta</a></li>
+    <li><a id="toc-Formato-Info_003a-Tabela-de-Etiquetas" href="Tabela-de-Etiquetas-do-Formato-Info.html">F.4 Formato Info: Tabela de Etiquetas</a></li>
+    <li><a id="toc-Formato-Info_003a-Vari_00e1veis-Locais" href="Vari_00e1veis-Locais-do-Formato-Info.html">F.5 Formato Info: Variáveis Locais</a></li>
+    <li><a id="toc-Formato-Info_003a-N_00f3s-Regulares" href="N_00f3s-Regulares-do-Formato-Info.html">F.6 Formato Info: Nós Regulares</a></li>
+    <li><a id="toc-Formato-Info_003a-Menu" href="Menu-do-Formato-Info.html">F.7 Formato Info: Menu</a></li>
+    <li><a id="toc-Formato-Info_003a-Imagem" href="Imagem-do-Formato-Info.html">F.8 Formato Info: Imagem</a></li>
+    <li><a id="toc-Formato-Info_003a-Impress_00e3o-de-_00cdndice" href="Impress_00e3o-de-_00cdndice-do-Formato-Info.html">F.9 Formato Info: Impressão de Índice</a></li>
+    <li><a id="toc-Formato-Info_003a-Refer_00eancia-Cruzada" href="Refer_00eancia-Cruzada-do-Formato-Info.html">F.10 Formato Info: Referência Cruzada</a></li>
+  </ul></li>
+  <li><a id="toc-Licen_00e7a-GNU-de-Documenta_00e7_00e3o-Livre" href="Licen_00e7a-GNU-de-Documenta_00e7_00e3o-Livre.html">Anexo G Licença GNU de Documentação Livre</a></li>
+  <li><a id="toc-_00cdndice-de-Comandos" href="_00cdndice-de-Comandos.html" rel="index">Índice de Comandos</a></li>
+  <li><a id="toc-_00cdndice-de-Vari_00e1veis" href="_00cdndice-de-Vari_00e1veis.html" rel="index">Índice de Variáveis</a></li>
+  <li><a id="toc-_00cdndice-Geral" href="_00cdndice-Geral.html" rel="index">Índice Geral</a></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Condi_00e7_00f5es-de-C_00f3pia.html" accesskey="n" rel="next">Condições de Cópia do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

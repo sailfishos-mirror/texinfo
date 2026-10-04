@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@frenchspacing (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Especificando espaçamento de fim de frase.">
+<meta name="keywords" content="Especificando espaçamento de fim de frase.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Inserindo-Espa_00e7o.html" rel="up" title="Inserindo Espaço">
+<link href="_0040dmn.html" rel="next" title="@dmn">
+<link href="Finalizando-uma-Frase.html" rel="prev" title="Finalizando uma Frase">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="g_t_0040frenchspacing">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040dmn.html" accesskey="n" rel="next"><code class="code">@dmn</code>{<var class="var">dimensão</var>}: Formatar uma Dimensão</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Finalizando-uma-Frase.html" accesskey="p" rel="prev">Finalizando uma Frase</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Inserindo-Espa_00e7o.html" accesskey="u" rel="up">Inserindo Espaço</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="g_t_0040frenchspacing-val_003a-Espa_00e7amento-de-Controle-de-Frase"><span>11.3.4 <code class="code">@frenchspacing</code> <var class="var">val</var>: Espaçamento de Controle de Frase<a class="copiable-link" href="#g_t_0040frenchspacing-val_003a-Espa_00e7amento-de-Controle-de-Frase"> &para;</a></span></h4>
+
+<a class="anchor" id="frenchspacing"></a><a class="index-entry-id" id="index-frenchspacing"></a>
+<a class="index-entry-id" id="index-Espacamento-frances"></a>
+<a class="index-entry-id" id="index-Frases_002c-espacamento-depois"></a>
+<a class="index-entry-id" id="index-Espaco_002c-depois-de-frases"></a>
+
+<p>Na tipografia americana, é tradicional e correto colocar espaço extra ao
+final de uma frase.  Esse é o padrão no Texinfo (implementado no Info e na
+saída gerada impressa; não em outros formatos de saída).  Na tipografia
+francesa (e outras), esse espaço extra é errado; todos os espaços são
+uniformes.
+</p>
+<p>Portanto, Texinfo fornece o comando <code class="code">@frenchspacing</code> para controlar o
+espaçamento depois da pontuação.  Ele lê o resto da linha como argumento,
+que precisa ser a única palavra &lsquo;<samp class="samp">on</samp>&rsquo; ou &lsquo;<samp class="samp">off</samp>&rsquo; (sempre essas
+palavras, independentemente do idioma do documento).  Aqui está um exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">@frenchspacing on
+Isso é texto. Duas frases. Três frases. Espaçamento francês.
+
+@frenchspacing off
+Isso é texto. Duas frases. Três frases. Espaçamento não francês.
+</pre></div>
+
+<p>produz:
+</p>
+<p>Isso é texto. Duas frases. Três frases. Espaçamento francês.
+</p>
+<p>Isso é texto. Duas frases. Três frases. Espaçamento não francês.
+</p>
+<p><code class="code">@frenchspacing</code> também afeta a saída gerada depois de <code class="code">@.</code>,
+<code class="code">@!</code> e <code class="code">@?</code> (veja-se <a class="pxref" href="Finalizando-uma-Frase.html">Finalizando uma Frase</a>).
+</p>
+<p><code class="code">@frenchspacing</code> não tem efeito na saída gerada de HTML ou DocBook.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040dmn.html"><code class="code">@dmn</code>{<var class="var">dimensão</var>}: Formatar uma Dimensão</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Finalizando-uma-Frase.html">Finalizando uma Frase</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Inserindo-Espa_00e7o.html">Inserindo Espaço</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

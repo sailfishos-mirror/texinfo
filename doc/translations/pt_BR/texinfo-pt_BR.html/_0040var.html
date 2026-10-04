@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@var (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Indicando variáveis metassintáticas.">
+<meta name="keywords" content="Indicando variáveis metassintáticas.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Indicando.html" rel="up" title="Indicando">
+<link href="_0040env.html" rel="next" title="@env">
+<link href="_0040verb.html" rel="prev" title="@verb">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="g_t_0040var">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040env.html" accesskey="n" rel="next"><code class="code">@env</code>{<var class="var">variável-ambiente</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040verb.html" accesskey="p" rel="prev"><code class="code">@verb</code>{<var class="var">char</var><var class="var">text</var><var class="var">char</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Indicando.html" accesskey="u" rel="up">Indicando Definições, Comandos, etc.</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="g_t_0040var_007bvari_00e1vel_002dmetassint_00e1tica_007d"><span>6.1.7 <code class="code">@var</code>{<var class="var">variável-metassintática</var>}<a class="copiable-link" href="#g_t_0040var_007bvari_00e1vel_002dmetassint_00e1tica_007d"> &para;</a></span></h4>
+
+<a class="anchor" id="var"></a><a class="index-entry-id" id="index-var"></a>
+
+<p>Use o comando <code class="code">@var</code> para indicar variáveis metassintáticas.  Uma
+<em class="dfn">variável metassintática</em> é algo que representa outro pedaço de texto.
+Por exemplo, você deveria usar uma variável metassintática na documentação
+de uma função para descrever os argumentos que sejam passados para aquela
+função.
+</p>
+<p>Não use <code class="code">@var</code> para os nomes de variáveis normais em programas de
+computador.  Esses são nomes específicos, de forma que <code class="code">@code</code> é
+correto para eles.  Por exemplo, a variável <code class="code">texinfo-tex-command</code> da
+Emacs Lisp não é uma variável metassintática; ela é formatada adequadamente
+usando-se <code class="code">@code</code>.
+</p>
+<p>Tampouco use <code class="code">@var</code> para variáveis de ambiente; <code class="code">@env</code> é correto
+para elas (veja-se a próxima seção).
+</p>
+<p>O efeito de <code class="code">@var</code> no arquivo Info é o de mudar a escrita do argumento
+para letras todas maiúsculas. No manual impresso, o argumento é gerado em
+tipo inclinado. <a class="footnote" id="DOCF4" href="#FOOT4"><sup>4</sup></a>
+</p>
+<p>Por exemplo,
+</p>
+<div class="example">
+<pre class="example-preformatted">Para deletar o arquivo @var{nomearquivo},
+digite @samp{rm @var{nomearquivo}}.
+</pre></div>
+
+<p>produz
+</p>
+<blockquote class="quotation">
+<p>Para deletar o arquivo <var class="var">nomearquivo</var>, digite &lsquo;<samp class="samp">rm
+<var class="var">nomearquivo</var></samp>&rsquo;.
+</p></blockquote>
+
+<p>(Observe que <code class="code">@var</code> pode aparecer dentro de <code class="code">@code</code>,
+<code class="code">@samp</code>, <code class="code">@file</code>, etc).
+</p>
+<p>Escreva uma variável metassintática toda em letras minúsculas e sem espaços,
+e use hifens para torná-la mais legível.  Assim, o fonte do Texinfo para a
+ilustração de como iniciar um manual Texinfo se parece com isto:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">\input texinfo
+@@settitle @var{nome-do-manual}
+</pre></div></div>
+
+<p>Isso produz:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">\input texinfo
+@settitle <var class="var">nome-do-manual</var>
+</pre></div></div>
+
+<p>Em alguns estilos de documentação, as variáveis metassintáticas são
+mostradas com colchetes angulares, por exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">..., digite rm &lt;nomearquivo&gt;
+</pre></div>
+
+<p>Entretanto, esse não é o estilo que Texinfo usa.
+</p>
+
+
+</div>
+<div class="footnotes-segment">
+<hr>
+<h4 class="footnotes-heading">Notas de Rodapé</h4>
+
+<h5 class="footnote-body-heading"><a id="FOOT4" href="#DOCF4">(4)</a></h5>
+<p>Na saída gerada do TeX, <code class="code">@var</code> usa uma
+fonte inclinada de máquina de escrever em contextos de código como
+<code class="code">@code</code> ou <code class="code">@example</code>. Para usar uma fonte romana, inclinada e
+de largura variável, em todos os contextos, especifique &lsquo;<samp class="samp">@clear
+txicodevaristt</samp>&rsquo; (veja-se <a class="pxref" href="_0040set-_0040value.html"><code class="code">@set</code> e <code class="code">@value</code></a>). Observe que esse sinalizador
+não faz nada na saída gerada do LaTeX.</p>
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040env.html"><code class="code">@env</code>{<var class="var">variável-ambiente</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040verb.html"><code class="code">@verb</code>{<var class="var">char</var><var class="var">text</var><var class="var">char</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Indicando.html">Indicando Definições, Comandos, etc.</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

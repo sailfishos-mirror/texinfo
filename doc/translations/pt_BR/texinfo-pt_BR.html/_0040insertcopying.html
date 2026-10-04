@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@insertcopying (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Onde inserir as permissões.">
+<meta name="keywords" content="Onde inserir as permissões.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Permiss_00f5es-do-Documento.html" rel="up" title="Permissões do Documento">
+<link href="_0040copying.html" rel="prev" title="@copying">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+kbd.kbd {font-style: oblique}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="g_t_0040insertcopying">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040copying.html" accesskey="p" rel="prev"><code class="code">@copying</code>: Declarar Permissões de Cópia</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Permiss_00f5es-do-Documento.html" accesskey="u" rel="up">Permissões do Documento</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="g_t_0040insertcopying_003a-Incluir-Texto-de-Permiss_00f5es"><span>2.7.2 <code class="code">@insertcopying</code>: Incluir Texto de Permissões<a class="copiable-link" href="#g_t_0040insertcopying_003a-Incluir-Texto-de-Permiss_00f5es"> &para;</a></span></h4>
+
+<a class="anchor" id="insertcopying"></a><a class="index-entry-id" id="index-insertcopying"></a>
+<a class="index-entry-id" id="index-Texto-de-reproducao_002c-incluindo"></a>
+<a class="index-entry-id" id="index-Texto-das-permissoes_002c-incluindo"></a>
+<a class="index-entry-id" id="index-Incluindo-texto-das-permissoes"></a>
+
+<p>O comando <code class="code">@insertcopying</code> simplesmente é escrito em uma linha
+própria, como esta:
+</p>
+<div class="example">
+<pre class="example-preformatted">@insertcopying
+</pre></div>
+
+<p>Isso insere o texto previamente definido por <code class="code">@copying</code>.  Para atender
+às exigências jurídicas, ele precisa ser usado na página de direitos
+autorais no manual impresso (veja-se <a class="ref" href="_0040titlepage.html#Direitos-Autorais">Direitos Autorais</a>).
+</p>
+<p>O próprio comando <code class="code">@copying</code> faz com que o texto das permissões
+apareça em um arquivo Info <em class="emph">antes</em> do primeiro nó.  O texto também é
+copiado no início de cada arquivo dividido de saída Info, como é
+juridicamente necessário. Esse local implica que um humano lendo o manual
+usando Info <em class="emph">não</em> vê esse texto (exceto quando usar o comando avançado
+<kbd class="kbd">g *</kbd> do Info). Isso não importa para propósitos jurídicos, pois o texto
+está presente. Mas, para obter um texto visível na saída gerada,
+<code class="code">@insertcopying</code> deveria ser usado.
+</p>
+<p>Similarmente, o texto <code class="code">@copying</code> é automaticamente incluído no início
+de cada arquivo de saída HTML, como um comentário HTML.  De novo, esse texto
+não é visível sem <code class="code">@insertcopying</code> (a menos que o(a) leitor(a)
+visualize o fonte HTML).
+</p>
+<p>O texto de permissões definido por <code class="code">@copying</code> também aparece
+automaticamente no início dos arquivos de saída DocBook usando-se marcação
+apropriada. <code class="code">@insertcopying</code> pode ser usado para gerar o texto de
+permissão dentro do texto normal.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040copying.html"><code class="code">@copying</code>: Declarar Permissões de Cópia</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Permiss_00f5es-do-Documento.html">Permissões do Documento</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

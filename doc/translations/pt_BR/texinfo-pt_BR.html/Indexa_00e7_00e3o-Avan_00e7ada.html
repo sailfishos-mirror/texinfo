@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Indexação Avançada (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Comandos avançados de indexação.">
+<meta name="keywords" content="Comandos avançados de indexação.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="_00cdndices.html" rel="up" title="Índices">
+<link href="Entradas-de-_00cdndice.html" rel="next" title="Entradas de Índice">
+<link href="Comandos-de-Indexa_00e7_00e3o.html" rel="prev" title="Comandos de Indexação">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Indexa_00e7_00e3o-Avan_00e7ada">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Entradas-de-_00cdndice.html" accesskey="n" rel="next">Criando Entradas de Índice</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Comandos-de-Indexa_00e7_00e3o.html" accesskey="p" rel="prev">Definindo as Entradas de um Índice</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="_00cdndices.html" accesskey="u" rel="up">Índices</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Comandos-Avan_00e7ados-de-Indexa_00e7_00e3o"><span>10.3 Comandos Avançados de Indexação<a class="copiable-link" href="#Comandos-Avan_00e7ados-de-Indexa_00e7_00e3o"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Indexacao_002c-avancada"></a>
+<a class="index-entry-id" id="index-Indexacao-avancada"></a>
+
+<p>O Texinfo fornece vários outros comandos para indexação.
+</p>
+<a class="index-entry-id" id="index-subentry"></a>
+<p>Primeiro, você pode criar entradas de índice <em class="dfn">multi nível</em>, permitindo
+agrupar muitos subtópicos relacionados sob o mesmo tópico de nível
+superior.  Você faz isso separando as partes de cada entrada com o comando
+<code class="code">@subentry</code>.  Esses comandos podem se parecer com isto:
+</p>
+<div class="example">
+<pre class="example-preformatted">@cindex Superhumanos(as) @subentry vilões(ãs)
+@cindex Superhumanos(as) @subentry heróis(ínas)
+</pre></div>
+
+<p>Você pode ter até três níveis em uma entrada:
+</p>
+<div class="example">
+<pre class="example-preformatted">@cindex cafeteiras @subentry elétricas @subentry rosa
+@cindex cafeteiras @subentry elétricas @subentry azul
+</pre></div>
+
+<p>Você pode usar o comando <code class="code">@sortas</code> mencionado anteriormente com
+qualquer uma ou todas as três partes de uma entrada para fazer com que elas
+ordenem diferentemente do que fariam por padrão.
+</p>
+<a class="index-entry-id" id="index-seeentry"></a>
+<p>Segundo, você pode fornecer uma entrada de índice que aponte para outra,
+usando o comando <code class="code">@seeentry</code> (&ldquo;veja-se entrada&rdquo;).  Por exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">@cindex Índices @seeentry{Expoentes}
+</pre></div>
+
+<p>Essa entrada deveria ser única no teu documento; a ideia é a de redirecionar
+o(a) leitor(a) para a outra entrada, onde eles(as) encontrarão todas as
+informações que procuram.
+</p>
+<a class="index-entry-id" id="index-seealso"></a>
+<p>Finalmente, você pode fornecer uma entrada &ldquo;veja-se também&rdquo; usando o
+comando <code class="code">@seealso</code>.  Essas entradas acompanham as entradas regulares e
+são agrupadas com elas no índice impresso final.  Por exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">@cindex Café
+@cindex Café @subentry Com leite e açúcar
+@cindex Café @subentry Com donuts
+@cindex Café @subentry Descafeinado
+@cindex Café @seealso{Chá}
+</pre></div>
+
+<p>Ao usar todos esses três comandos avançados, <em class="emph">não</em> coloque uma vírgula
+entre as diferentes partes do texto do índice.  O programa
+<code class="command">texindex</code>, que ordena as entradas do índice e gera os comandos de
+formatação de indexação, se encarrega de colocar as vírgulas nos lugares
+corretos para você.
+</p>
+<p>Não interrompa um índice ou uma entrada <code class="code">@subentry</code> com
+<code class="code">@sortas</code> ou comandos avançados com chaves; coloque os comandos com
+chaves no início ou no final da entrada.
+</p>
+<p>Esses recursos são mais úteis com documentos impressos e ao se traduzir
+Texinfo para DocBook.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Entradas-de-_00cdndice.html">Criando Entradas de Índice</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Comandos-de-Indexa_00e7_00e3o.html">Definindo as Entradas de um Índice</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="_00cdndices.html">Índices</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

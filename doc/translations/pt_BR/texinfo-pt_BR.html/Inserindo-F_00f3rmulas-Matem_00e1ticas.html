@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Inserindo Fórmulas Matemáticas (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Formatando expressões matemáticas.">
+<meta name="keywords" content="Formatando expressões matemáticas.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="index.html" rel="up" title="Top">
+<link href="Quebras.html" rel="next" title="Quebras">
+<link href="Inser_00e7_00f5es.html" rel="prev" title="Inserções">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+pre.displaymath {font-style: italic; font-family: serif; display: flex; justify-content: center}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="chapter-level-extent" id="Inserindo-F_00f3rmulas-Matem_00e1ticas">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Quebras.html" accesskey="n" rel="next">Forçando e Impedindo Quebras</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Inser_00e7_00f5es.html" accesskey="p" rel="prev">Inserções Especiais</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="index.html" accesskey="u" rel="up">Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h2 class="chapter" id="Formatando-Express_00f5es-Matem_00e1ticas"><span>12 Formatando Expressões Matemáticas<a class="copiable-link" href="#Formatando-Express_00f5es-Matem_00e1ticas"> &para;</a></span></h2>
+
+<a class="anchor" id="math"></a><a class="index-entry-id" id="index-math"></a>
+<a class="index-entry-id" id="index-Expressoes-matematicas_002c-inserindo"></a>
+<a class="index-entry-id" id="index-Formulas_002c-matematicas"></a>
+<p>Você consegue escrever uma expressão matemática, equação ou fórmula usando o
+comando <code class="code">@math</code>.  Escreva a notação matemática do TeX entre chaves,
+assim:
+</p>
+<div class="example">
+<pre class="example-preformatted">@math{\partial_\alpha \partial^\alpha A^\beta = \mu_0 J^\beta}
+</pre></div>
+
+<p><code class="code">@math</code> é formatado em linha quando usado dentro de um parágrafo, como
+<em class="math">\partial_\alpha \partial^\alpha A^\beta = \mu_0 J^\beta</em> nesse
+exemplo.
+</p>
+<p>Por padrão, o comando <code class="code">@math</code> não tem nenhum efeito especial na saída
+Info, meramente gerando o conteúdo literalmente. Você pode usar a variável
+experimental <code class="code">INFO_MATH_IMAGES</code> para produzir imagens; veja-se
+<a class="ref" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-Info-e-de-Texto-Simples.html">Variáveis de Personalização do Info e de Texto Simples</a>.
+</p>
+<p>Para saída impressa, <code class="code">@math</code> comuta para o &ldquo;modo matemático&rdquo; do
+TeX.  Nesse contexto, &lsquo;<samp class="samp">\</samp>&rsquo; precisa ser usada em vez de &lsquo;<samp class="samp">@</samp>&rsquo; para
+sequências de controle matemático simples do TeX para símbolos, funções e
+assim por diante.
+</p>
+<a class="index-entry-id" id="index-Saida-gerada-matematica-para-HTML"></a>
+<a class="index-entry-id" id="index-A-saida-HTML-matematica"></a>
+<p>Por padrão, a saída HTML é apenas enfatizada. <code class="command">texi2any</code> fornece
+três opções para exibir expressões matemáticas formatadas corretamente para
+HTML. Você consegue selecioná-las com a variável <code class="code">HTML_MATH</code>
+(veja-se <a class="pxref" href="Personaliza_00e7_00e3o-do-HTML-para-Matem_00e1tica.html">Personalização do HTML para Matemática</a>). Com <code class="code">HTML_MATH</code>
+configurada para &lsquo;<samp class="samp">l2h</samp>&rsquo;, <code class="command">texi2any</code> tenta usar o programa
+<code class="command">latex2html</code> para produzir arquivos de imagem para material
+matemático. Com a configuração &lsquo;<samp class="samp">t4h</samp>&rsquo;, <code class="command">texi2any</code> tenta usar o
+programa <code class="command">tex4ht</code>. Com a configuração &lsquo;<samp class="samp">mathjax</samp>&rsquo;,
+<code class="command">texi2any</code> insere referências nos arquivos da saída gerada para
+conjuntos de comandos sequenciados MathJax para formatar o material. A opção
+MathJax exige que JavaScript esteja habilitado no navegador para
+funcionar. Veja-se também <a class="ref" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-da-MathJax.html">Variáveis de Personalização da MathJax</a>,
+<a class="ref" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-latex2html.html">Variáveis de Personalização do <code class="command">latex2html</code></a> e <a class="ref" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-tex4ht.html">Variáveis de Personalização do <code class="command">tex4ht</code></a>.
+</p>
+<a class="index-entry-id" id="index-Equacoes-exibidas"></a>
+<a class="index-entry-id" id="index-Equacoes_002c-exibidas"></a>
+<a class="index-entry-id" id="index-displaymath"></a>
+<p>Para equações exibidas, você pode o comando <code class="code">@displaymath</code>.  Exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">@displaymath
+f(x) = {1\over\sigma\sqrt{2\pi}}
+e^{-{1\over2}\left({x-\mu\over\sigma}\right)^2}
+@end displaymath
+</pre></div>
+
+<p>o que produz:
+</p>
+<pre class="displaymath">f(x) = {1\over\sigma\sqrt{2\pi}}
+e^{-{1\over2}\left({x-\mu\over\sigma}\right)^2}
+</pre>
+<p>Em geral, o conteúdo de <code class="code">@math</code> ou de <code class="code">@displaymath</code> deveria ser
+somente TeX simples, sem comandos Texinfo intercalados. Se usar quaisquer
+comandos do Texinfo, então você deveria marcá-los com &lsquo;<samp class="samp">@</samp>&rsquo;, como de
+costume, em vez de &lsquo;<samp class="samp">\</samp>&rsquo; (por exemplo, &lsquo;<samp class="samp">@var</samp>&rsquo; em vez de
+&lsquo;<samp class="samp">\var</samp>&rsquo;), mas nós não garantimos quais comandos do Texinfo funcionarão.
+</p>
+<p>Embora <code class="code">@sub</code> e <code class="code">@sup</code> possam funcionar dentro do modo
+matemático em alguns contextos, é melhor usar os caracteres &lsquo;<samp class="samp">_</samp>&rsquo; e
+&lsquo;<samp class="samp">^</samp>&rsquo; do TeX para denotar subscritos e sobrescritos dentro de
+expressões matemáticas.
+</p>
+<p>O código específico do LaTeX só funcionará quando o formato de saída for
+LaTeX e com as opções da <code class="code">HTML_MATH</code> (embora <code class="command">tex4ht</code>
+precise que <code class="code">T4H_MATH_CONVERSION</code> seja configurada para &lsquo;<samp class="samp">latex</samp>&rsquo;;
+veja-se <a class="pxref" href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-tex4ht.html">Variáveis de Personalização do <code class="command">tex4ht</code></a>).
+</p>
+
+<a class="index-entry-id" id="index-_005cmathopsup"></a>
+<p>Devido ao conflito com o comando <code class="code">@sup</code> do Texinfo, você pode acessar
+o comando <code class="code">\sup</code> do TeX simples como <code class="code">\mathopsup</code>, na
+improvável ocorrência de querer fazer isso (mas somente ao processar com
+TeX, não ao gerar LaTeX nem com qualquer das opções da
+<code class="code">HTML_MATH</code>).
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Quebras.html">Forçando e Impedindo Quebras</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Inser_00e7_00f5es.html">Inserções Especiais</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="index.html">Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

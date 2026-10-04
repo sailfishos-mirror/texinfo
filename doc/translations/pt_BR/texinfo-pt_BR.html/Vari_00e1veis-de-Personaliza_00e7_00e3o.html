@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Variáveis de Personalização (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Configurando texi2any.">
+<meta name="keywords" content="Configurando texi2any.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Tradutor-Gen_00e9rico-texi2any.html" rel="up" title="Tradutor Genérico texi2any">
+<link href="Internacionaliza_00e7_00e3o-de-Sequ_00eancias-de-Caracteres-de-Documentos.html" rel="next" title="Internacionalização de Sequências de Caracteres de Documentos">
+<link href="Sa_00edda-Impressa-do-texi2any.html" rel="prev" title="Saída Impressa do texi2any">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Vari_00e1veis-de-Personaliza_00e7_00e3o">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Internacionaliza_00e7_00e3o-de-Sequ_00eancias-de-Caracteres-de-Documentos.html" accesskey="n" rel="next">Internacionalização de Sequências de Caracteres de Documentos</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Sa_00edda-Impressa-do-texi2any.html" accesskey="p" rel="prev">Saída Impressa do <code class="command">texi2any</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Tradutor-Gen_00e9rico-texi2any.html" accesskey="u" rel="up"><code class="command">texi2any</code>: O Tradutor para Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Vari_00e1veis-de-Personaliza_00e7_00e3o-1"><span>20.4 Variáveis de Personalização<a class="copiable-link" href="#Vari_00e1veis-de-Personaliza_00e7_00e3o-1"> &para;</a></span></h3>
+
+<blockquote class="quotation">
+<p><b class="b">Aviso:</b> Esses nomes e significados de variáveis de personalização podem mudar em
+qualquer lançamento do Texinfo. Nós sempre tentamos evitar mudanças
+incompatíveis, mas não podemos absolutamente prometer, pois as necessidades
+mudam com o tempo.
+</p></blockquote>
+
+<p>Muitos aspectos do comportamento e da saída do <code class="command">texi2any</code> podem ser
+modificados modificando-se as assim chamadas <em class="dfn">variáveis de
+personalização</em>. Eles se enquadram em algumas categorias gerais:
+</p>
+<ul class="itemize mark-bullet">
+<li>Aqueles associados com comandos @; por exemplo, <code class="code">@documentlanguage</code>.
+
+</li><li>Aqueles associados com opções de linha de comando; por exemplo, a variável
+de personalização <code class="code">SPLIT</code> está associada com a opção de linha de
+comando <samp class="option">--split</samp>. <code class="code">TEXINFO_OUTPUT_FORMAT</code> é configurada baseada
+nas opções de linha de comando do formato da saída e permite especificar o
+formato da saída gerada.
+
+</li><li>Aqueles que afetam o comportamento global do <code class="command">texi2any</code>, em
+particular a análise de código Texinfo.
+
+</li><li>Aqueles associados a formatos de saída específicos. (Variáveis relevantes
+somente para saída gerada HTML estão documentadas em <a class="ref" href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html">Personalização da Saída Gerada HTML</a>).
+
+</li><li>Aqueles relevantes para vários formatos de saída.
+</li></ul>
+
+<p>Você pode configurar variáveis de personalização na linha de comando usando
+<code class="code">--set-customization-variable '<var class="var">variável</var> <var class="var">valor</var>'</code> (aspeando o
+par variável/valor para o shell) ou <code class="code">--set-customization-variable
+<var class="var">variável</var>=<var class="var">valor</var></code> (usando <code class="code">=</code>). Um <var class="var">valor</var> especial é
+&lsquo;<samp class="samp">undef</samp>&rsquo;, o qual configura a variável para esse valor especial
+&ldquo;indefinido&rdquo; da Perl.
+</p>
+<p>As seções abaixo fornecem os detalhes de cada um deles.
+</p>
+
+
+<ul class="mini-toc">
+<li><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o-para-Comandos-_0040.html" accesskey="1">Variáveis de Personalização para Comandos @</a></li>
+<li><a href="Vari_00e1veis-e-Op_00e7_00f5es-de-Personaliza_00e7_00e3o.html" accesskey="2">Variáveis e Opções de Personalização</a></li>
+<li><a href="Sele_00e7_00e3o-do-Formato-de-Sa_00edda.html" accesskey="3">Seleção do Formato de Saída</a></li>
+<li><a href="Vari_00e1veis-Globais-de-Personaliza_00e7_00e3o.html" accesskey="4">Variáveis Globais de Personalização</a></li>
+<li><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-Info-e-de-Texto-Simples.html" accesskey="5">Variáveis de Personalização do Info e de Texto Simples</a></li>
+<li><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o-do-LaTeX.html" accesskey="6">Variáveis de Personalização do LaTeX</a></li>
+<li><a href="Outras-Vari_00e1veis-de-Personaliza_00e7_00e3o-de-Formatos.html" accesskey="7">Outras Variáveis de Personalização de Formatos</a></li>
+<li><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o-para-M_00faltiplos-Formatos.html" accesskey="8">Variáveis de Personalização para Múltiplos Formatos</a></li>
+</ul>
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Internacionaliza_00e7_00e3o-de-Sequ_00eancias-de-Caracteres-de-Documentos.html">Internacionalização de Sequências de Caracteres de Documentos</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Sa_00edda-Impressa-do-texi2any.html">Saída Impressa do <code class="command">texi2any</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Tradutor-Gen_00e9rico-texi2any.html"><code class="command">texi2any</code>: O Tradutor para Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

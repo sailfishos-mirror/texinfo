@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@enumerate (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como construir uma lista numerada.">
+<meta name="keywords" content="Como construir uma lista numerada.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Listas-e-Tabelas.html" rel="up" title="Listas e Tabelas">
+<link href="Tabelas-de-Duas-Colunas.html" rel="next" title="Tabelas de Duas Colunas">
+<link href="_0040itemize.html" rel="prev" title="@itemize">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+kbd.kbd {font-style: oblique}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="g_t_0040enumerate">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Tabelas-de-Duas-Colunas.html" accesskey="n" rel="next">Fazendo Uma Tabela de Duas Colunas</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040itemize.html" accesskey="p" rel="prev"><code class="code">@itemize</code>: Construindo Uma Lista de Itens</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Listas-e-Tabelas.html" accesskey="u" rel="up">Listas e Tabelas</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="g_t_0040enumerate_003a-Fazendo-Uma-Lista-Numerada-ou-Com-Letras"><span>8.3 <code class="code">@enumerate</code>: Fazendo Uma Lista Numerada ou Com Letras<a class="copiable-link" href="#g_t_0040enumerate_003a-Fazendo-Uma-Lista-Numerada-ou-Com-Letras"> &para;</a></span></h3>
+
+<a class="anchor" id="enumerate"></a><a class="index-entry-id" id="index-enumerate"></a>
+<a class="index-entry-id" id="index-Enumeracao"></a>
+
+<p><code class="code">@enumerate</code> é como <code class="code">@itemize</code> (veja-se <a class="pxref" href="_0040itemize.html"><code class="code">@itemize</code>: Construindo Uma Lista de Itens</a>),
+exceto que os rótulos nos itens são inteiros ou letras sucessivos em vez de
+bolas.
+</p>
+<p>Escreva o comando <code class="code">@enumerate</code> no início de uma linha.  O comando não
+exige um argumento, mas aceita ou um número ou uma letra como uma opção.
+Sem um argumento, <code class="code">@enumerate</code> inicia a lista com o número &lsquo;<samp class="samp">1</samp>&rsquo;.
+Com um argumento numérico, como &lsquo;<samp class="samp">3</samp>&rsquo;, o comando inicia a lista com
+aquele número.  Com uma letra maiúscula ou minúscula, como &lsquo;<samp class="samp">a</samp>&rsquo; ou
+&lsquo;<samp class="samp">A</samp>&rsquo;, o comando inicia a lista com aquela letra.
+</p>
+<p>Escreva o texto da lista numerada da mesma maneira que uma lista de itens:
+escreva a linha iniciando com <code class="code">@item</code> no início de cada item na
+enumeração.  Está correto ter texto seguindo o <code class="code">@item</code>, e o texto para
+um item pode continuar por vários parágrafos.
+</p>
+<p>Você deveria colocar uma linha em branco entre as entradas na lista.  Isso
+geralmente torna mais fácil ler o arquivo Info.
+</p>
+<p>Aqui está um exemplo do <code class="code">@enumerate</code> sem um argumento:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@enumerate
+@item
+Causas subjacentes.
+
+@item
+Causas imediatas.
+@end enumerate
+</pre></div></div>
+
+<p>Isso produz:
+</p>
+<ol class="enumerate">
+<li> Causas subjacentes.
+
+</li><li> Causas imediatas.
+</li></ol>
+<br>
+<p>Aqui está um exemplo com um argumento de <kbd class="kbd">3</kbd>:
+</p><br>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@enumerate 3
+@item
+Causas predisponentes.
+
+@item
+Causas precipitantes.
+
+@item
+Causas perpetuantes.
+@end enumerate
+</pre></div></div>
+
+<p>Isso produz:
+</p>
+<ol class="enumerate" start="3">
+<li> Causas predisponentes.
+
+</li><li> Causas precipitantes.
+
+</li><li> Causas perpetuantes.
+</li></ol>
+<br>
+<p>Aqui está um sumário:
+</p><br>
+<ol class="enumerate" type="a" start="1">
+<li> <code class="code">@enumerate</code>
+
+<p>Sem um argumento, produz uma lista numerada, com o primeiro item
+numerado&nbsp;1.
+</p>
+</li><li> <code class="code">@enumerate <var class="var">inteiro-dessinalado</var></code>
+
+<p>Com um argumento numérico (dessinalado), inicia uma lista numerada com
+aquele número.  Você pode usar isso para continuar uma lista que você
+interrompeu com outro texto.
+</p>
+</li><li> <code class="code">@enumerate <var class="var">letra-maiúscula</var></code>
+
+<p>Com uma letra maiúscula como argumento, inicia uma lista na qual cada item é
+marcado por uma letra, iniciando com aquela letra maiúscula.
+</p>
+</li><li> <code class="code">@enumerate <var class="var">letra-minúscula</var></code>
+
+<p>Com uma letra minúscula como argumento, inicia uma lista na qual cada item é
+marcado por uma letra, iniciando com aquela letra minúscula.
+</p></li></ol>
+
+<p>Você também pode aninhar listas enumeradas, como em uma estrutura de
+tópicos.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Tabelas-de-Duas-Colunas.html">Fazendo Uma Tabela de Duas Colunas</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040itemize.html"><code class="code">@itemize</code>: Construindo Uma Lista de Itens</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Listas-e-Tabelas.html">Listas e Tabelas</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

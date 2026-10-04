@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Invocando install-info (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Opções do install-info.">
+<meta name="keywords" content="Opções do install-info.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Instalando-um-Arquivo-do-Info.html" rel="up" title="Instalando um Arquivo do Info">
+<link href="Instalando-Entradas-de-Diret_00f3rio.html" rel="prev" title="Instalando Entradas de Diretório">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Invocando-install_002dinfo">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Instalando-Entradas-de-Diret_00f3rio.html" accesskey="p" rel="prev">Instalando Arquivos de Diretório Info</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Instalando-um-Arquivo-do-Info.html" accesskey="u" rel="up">Instalando um Arquivo do Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Invocando-install_002dinfo-1"><span>21.1.5 Invocando <code class="command">install-info</code><a class="copiable-link" href="#Invocando-install_002dinfo-1"> &para;</a></span></h4>
+
+<a class="index-entry-id" id="index-install_002dinfo"></a>
+
+<p><code class="code">install-info</code> insere entradas de menu originárias de um arquivo Info
+no arquivo <samp class="file">dir</samp> de nível superior no sistema Info (vejam-se as seções
+anteriores para uma explicação de como o arquivo <samp class="file">dir</samp>
+funciona). <code class="code">install-info</code> também remove entradas de menu do arquivo
+<samp class="file">dir</samp>. Geralmente é executado como parte da instalação do software ou
+ao construir um arquivo <samp class="file">dir</samp> para todos os manuais em um
+sistema. Sinopse:
+</p>
+<div class="example">
+<pre class="example-preformatted">install-info [<var class="var">opção</var>...] [<var class="var">arquivo-info</var> [<var class="var">arquivo-dir</var>]]
+</pre></div>
+
+<p>Se <var class="var">arquivo-info</var> ou <var class="var">arquivo-dir</var> não forem especificados, as
+opções (descritas abaixo) que os definem precisarão ser. Não existem padrões
+de tempo de compilação e a entrada padrão nunca é usada. <code class="code">install-info</code>
+consegue ler somente um arquivo Info e escrever somente um arquivo
+<samp class="file">dir</samp> por invocação.
+</p>
+<a class="index-entry-id" id="index-dir_002c-criado-por-install_002dinfo"></a>
+<p>Se <var class="var">arquivo-dir</var> (independentemente de como especificado) não existir,
+<code class="code">install-info</code> o criará, se possível (sem entradas).
+</p>
+<a class="index-entry-id" id="index-Arquivos-dir-comprimidos_002c-lendo"></a>
+<a class="index-entry-id" id="index-Arquivos-dir-comprimidos-por-XZ_002c-lendo"></a>
+<a class="index-entry-id" id="index-Arquivos-dir-bzipados_002c-lendo"></a>
+<a class="index-entry-id" id="index-Arquivos-dir-comprimidos-por-lzip_002c-lendo"></a>
+<a class="index-entry-id" id="index-Arquivos-dir-comprimidos-por-LZMA_002c-lendo"></a>
+<a class="index-entry-id" id="index-Arquivos-dir_002c-comprimidos"></a>
+<p>Se algum arquivo de entrada for comprimido com <code class="code">gzip</code> (veja-se <cite class="cite"><a data-manual="gzip" href="https://www.gnu.org/software/gzip/manual/html_node/index.html#Top">Gzip</a></cite>), <code class="code">install-info</code> o descomprimirá automaticamente para
+leitura. E se <var class="var">arquivo-dir</var> estiver comprimido, <code class="code">install-info</code>
+também o deixará comprimido automaticamente depois de escrever quaisquer
+mudanças. Se o próprio <var class="var">arquivo-dir</var> não existir, <code class="code">install-info</code>
+tenta abrir <samp class="file"><var class="var">arquivo-dir</var>.gz</samp>, <samp class="file"><var class="var">arquivo-dir</var>.xz</samp>,
+<samp class="file"><var class="var">arquivo-dir</var>.bz2</samp>, <samp class="file"><var class="var">arquivo-dir</var>.lz</samp> e
+<samp class="file"><var class="var">arquivo-dir</var>.lzma</samp>, nessa ordem.
+</p>
+<p>Opções:
+</p>
+<dl class="table">
+<dt><a id="index-_002d_002dadd_002donce_002c-para-install_002dinfo"></a><span><code class="code">--add-once</code><a class="copiable-link" href="#index-_002d_002dadd_002donce_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Especifica que a entrada ou entradas serão colocadas somente em uma seção.
+</p>
+</dd>
+<dt><a id="index-_002d_002dalign_003dcoluna_002c-para-install_002dinfo"></a><span><code class="code">--align=<var class="var">coluna</var></code><a class="copiable-link" href="#index-_002d_002dalign_003dcoluna_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Especifica a coluna na qual a segunda linha e as subsequentes da descrição
+da entrada de menu serão formatadas para começar. O padrão para essa opção é
+&lsquo;<samp class="samp">35</samp>&rsquo;. É usada em conjunto com a opção &lsquo;<samp class="samp">--max-width</samp>&rsquo;. <var class="var">coluna</var>
+começa a contar em 1.
+</p>
+</dd>
+<dt><a id="index-_002d_002dappend_002dnew_002dsections_002c-para-install_002dinfo"></a><span><code class="code">--append-new-sections</code><a class="copiable-link" href="#index-_002d_002dappend_002dnew_002dsections_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Em vez de colocar as novas seções em ordem alfabética, coloque-as no final
+do arquivo DIR.
+</p>
+</dd>
+<dt><a id="index-_002d_002dcalign_003dcoluna_002c-para-install_002dinfo"></a><span><code class="code">--calign=<var class="var">coluna</var></code><a class="copiable-link" href="#index-_002d_002dcalign_003dcoluna_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Especifica a coluna na qual a primeira linha da descrição da entrada do menu
+será formatada para começar. O padrão para essa opção é &lsquo;<samp class="samp">33</samp>&rsquo;. É usada
+em conjunto com a opção &lsquo;<samp class="samp">--max-width</samp>&rsquo;. Quando o nome da entrada do menu
+exceder essa coluna, a descrição da entrada começará na linha
+seguinte. <var class="var">coluna</var> começa a contar em 1.
+</p>
+</dd>
+<dt><a id="index-_002d_002ddebug_002c-para-install_002dinfo"></a><span><code class="code">--debug</code><a class="copiable-link" href="#index-_002d_002ddebug_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Informa o que está sendo feito.
+</p>
+</dd>
+<dt><a id="index-_002d_002ddelete_002c-para-install_002dinfo"></a><span><code class="code">--delete</code><a class="copiable-link" href="#index-_002d_002ddelete_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Deletar as entradas em <var class="var">arquivo-info</var> originárias de
+<var class="var">arquivo-dir</var>. O nome do arquivo na entrada em <var class="var">arquivo-dir</var> precisa
+ser <var class="var">arquivo-info</var> (exceto por um &lsquo;<samp class="samp">.info</samp>&rsquo; opcional em qualquer um
+deles). Não insira quaisquer novas entradas. Quaisquer seções vazias que
+resultem da remoção também serão removidas.
+</p>
+</dd>
+<dt><a id="index-_002d_002ddescription_003dtexto_002c-para-install_002dinfo"></a><span><code class="code">--description=<var class="var">texto</var></code><a class="copiable-link" href="#index-_002d_002ddescription_003dtexto_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Especificar a parte explicativa da entrada do menu. Se você não especificar
+uma descrição (ou por meio de &lsquo;<samp class="samp">--entry</samp>&rsquo;, &lsquo;<samp class="samp">--item</samp>&rsquo; ou dessa opção),
+a descrição será obtida a partir do próprio arquivo Info.
+</p>
+</dd>
+<dt><a id="index-_002d_002ddir_002dfile_003dnome_002c-para-install_002dinfo"></a><span><code class="code">--dir-file=<var class="var">nome</var></code><a class="copiable-link" href="#index-_002d_002ddir_002dfile_003dnome_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Especificar o nome do arquivo do arquivo do diretório Info. Isso é
+equivalente a se usar o argumento <var class="var">arquivo-dir</var>.
+</p>
+</dd>
+<dt><a id="index-_002d_002ddry_002drun_002c-para-install_002dinfo"></a><span><code class="code">--dry-run</code><a class="copiable-link" href="#index-_002d_002ddry_002drun_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Mesmo que &lsquo;<samp class="samp">--test</samp>&rsquo;.
+</p>
+</dd>
+<dt><a id="index-_002d_002dentry_003dtexto_002c-para-install_002dinfo"></a><span><code class="code">--entry=<var class="var">texto</var></code><a class="copiable-link" href="#index-_002d_002dentry_003dtexto_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Inserir <var class="var">texto</var> como uma entrada do diretório Info; <var class="var">texto</var> deveria
+ter a forma de uma linha de item do menu do Info mais zero ou mais linhas
+extras começando com espaço em branco. Se você especificar mais que uma
+entrada, todas elas serão adicionadas. Se você não especificar quaisquer
+entradas, elas serão determinadas a partir das informações no próprio
+arquivo Info.
+</p>
+</dd>
+<dt><a id="index-_002d_002dhelp_002c-para-texindex"></a><span><code class="code">--help</code><a class="copiable-link" href="#index-_002d_002dhelp_002c-para-texindex"> &para;</a></span></dt>
+<dd><p>Exibir uma mensagem de uso com o uso básico e todas as opções disponíveis e
+sair com sucesso.
+</p>
+</dd>
+<dt><a id="index-_002d_002dinfo_002dfile_003darquivo_002c-para-install_002dinfo"></a><span><code class="code">--info-file=<var class="var">arquivo</var></code><a class="copiable-link" href="#index-_002d_002dinfo_002dfile_003darquivo_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Especificar o arquivo Info para instalar no diretório. Isso é equivalente a
+se usar o argumento <var class="var">arquivo-info</var>.
+</p>
+</dd>
+<dt><a id="index-_002d_002dinfo_002ddir_003ddiretorio_002c-para-install_002dinfo"></a><span><code class="code">--info-dir=<var class="var">dir</var></code><a class="copiable-link" href="#index-_002d_002dinfo_002ddir_003ddiretorio_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Especificar o diretório onde reside o arquivo de diretório
+<samp class="file">dir</samp>. Equivalente a &lsquo;<samp class="samp">--dir-file=<var class="var">diretório</var>/dir</samp>&rsquo;.
+</p>
+</dd>
+<dt><a id="index-_002d_002dinfodir_003ddiretorio_002c-para-install_002dinfo"></a><span><code class="code">--infodir=<var class="var">diretório</var></code><a class="copiable-link" href="#index-_002d_002dinfodir_003ddiretorio_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Mesmo que &lsquo;<samp class="samp">--info-dir</samp>&rsquo;.
+</p>
+</dd>
+<dt><a id="index-_002d_002ditem_003dtexto_002c-para-install_002dinfo"></a><span><code class="code">--item=<var class="var">texto</var></code><a class="copiable-link" href="#index-_002d_002ditem_003dtexto_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Mesmo que &lsquo;<samp class="samp">--entry=<var class="var">texto</var></samp>&rsquo;. Uma entrada de diretório é na verdade
+um item de menu.
+</p>
+</dd>
+<dt><a id="index-_002d_002dkeep_002dold_002c-para-install_002dinfo"></a><span><code class="code">--keep-old</code><a class="copiable-link" href="#index-_002d_002dkeep_002dold_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Não substituir entradas preexistentes de menu. Quando &lsquo;<samp class="samp">--remove</samp>&rsquo; for
+especificada, essa opção significa que seções vazias não serão removidas.
+</p>
+</dd>
+<dt><a id="index-_002d_002dmax_002dwidth_003dcoluna_002c-para-install_002dinfo"></a><span><code class="code">--max-width=<var class="var">coluna</var></code><a class="copiable-link" href="#index-_002d_002dmax_002dwidth_003dcoluna_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Especifica a coluna na qual a descrição da entrada do menu será
+quebrada. <var class="var">coluna</var> começa a contar em 1.
+</p>
+</dd>
+<dt><a id="index-_002d_002dmaxwidth_003dcoluna_002c-para-install_002dinfo"></a><span><code class="code">--maxwidth=<var class="var">coluna</var></code><a class="copiable-link" href="#index-_002d_002dmaxwidth_003dcoluna_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Mesmo que &lsquo;<samp class="samp">--max-width</samp>&rsquo;.
+</p>
+</dd>
+<dt><a id="index-_002d_002dmenuentry_003dtexto_002c-para-install_002dinfo"></a><span><code class="code">--menuentry=<var class="var">texto</var></code><a class="copiable-link" href="#index-_002d_002dmenuentry_003dtexto_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Mesmo que &lsquo;<samp class="samp">--name</samp>&rsquo;.
+</p>
+</dd>
+<dt><a id="index-_002d_002dname_003dtexto_002c-para-install_002dinfo"></a><span><code class="code">--name=<var class="var">texto</var></code><a class="copiable-link" href="#index-_002d_002dname_003dtexto_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Especificar a parte do nome da entrada do menu. Se o <var class="var">texto</var> não começar
+com um asterisco &lsquo;<samp class="samp">*</samp>&rsquo;, será presumido ser o texto depois do &lsquo;<samp class="samp">*</samp>&rsquo; e
+antes dos parênteses que especifica o arquivo Info. Caso contrário,
+<var class="var">texto</var> será tomado literalmente e será tomado como definindo o texto
+até e incluindo o primeiro ponto (um espaço será posposto se necessário). Se
+você não especificar o nome (seja por meio de &lsquo;<samp class="samp">--entry</samp>&rsquo;, de
+&lsquo;<samp class="samp">--item</samp>&rsquo; ou dessa opção), ele será obtido a partir do próprio arquivo
+Info. Se o Info não contiver o nome, o nome base do arquivo Info será usado.
+</p>
+</dd>
+<dt><a id="index-_002d_002dno_002dindent_002c-para-install_002dinfo"></a><span><code class="code">--no-indent</code><a class="copiable-link" href="#index-_002d_002dno_002dindent_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Suprimir formatação de novas entradas no arquivo <samp class="file">dir</samp>.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-_002d_002dsilent_002c-para-install_002dinfo"></a>
+<a id="index-_002d_002dquiet_002c-para-install_002dinfo"></a><span><code class="code">--quiet</code><a class="copiable-link" href="#index-_002d_002dquiet_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dt><code class="code">--silent</code></dt>
+<dd><p>Suprimir avisos, entre outras, para operação silente.
+</p>
+</dd>
+<dt><a id="index-_002d_002dremove_002c-para-install_002dinfo"></a><span><code class="code">--remove</code><a class="copiable-link" href="#index-_002d_002dremove_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Mesmo que &lsquo;<samp class="samp">--delete</samp>&rsquo;.
+</p>
+</dd>
+<dt><a id="index-_002d_002dremove_002dexactly_002c-para-install_002dinfo"></a><span><code class="code">--remove-exactly</code><a class="copiable-link" href="#index-_002d_002dremove_002dexactly_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Também como &lsquo;<samp class="samp">--delete</samp>&rsquo;, mas somente entradas se o nome do arquivo Info
+corresponder exatamente; sufixos <code class="code">.info</code> e(ou) <code class="code">.gz</code> <em class="emph">não</em>
+são ignorados.
+</p>
+</dd>
+<dt><a id="index-_002d_002dsection_003dsecao_002c-para-install_002dinfo"></a><span><code class="code">--section=<var class="var">seção</var></code><a class="copiable-link" href="#index-_002d_002dsection_003dsecao_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Colocar as entradas desse arquivo na seção <var class="var">seção</var> do diretório. Se você
+especificar mais que uma seção, todas as entradas serão adicionadas em cada
+uma das seções. Se você não especificar nenhuma seção, elas serão
+determinadas a partir das informações no próprio arquivo Info. Se o arquivo
+Info não especificar uma seção, as entradas do menu serão colocadas na seção
+Diversos.
+</p>
+</dd>
+<dt><a id="index-_002d_002dsection-expressaoregular-secao_002c-para-install_002dinfo"></a><span><code class="code">--section <var class="var">expressãoregular</var> <var class="var">seção</var></code><a class="copiable-link" href="#index-_002d_002dsection-expressaoregular-secao_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Mesmo que &lsquo;<samp class="samp">--regex=<var class="var">expressãoregular</var> --section=<var class="var">seção</var>
+--add-once</samp>&rsquo;.
+</p>
+<p><code class="code">install-info</code> tenta detectar quando essa sintaxe alternativa for
+usada, mas nem sempre adivinha corretamente. Aqui está a heurística que
+<code class="code">install-info</code> usa:
+</p><ol class="enumerate">
+<li> Se o segundo argumento para <code class="code">--section</code> começar com um hífen, a sintaxe
+original será presumida.
+
+</li><li> Se o segundo argumento para <code class="code">--section</code> for um arquivo que possa ser
+aberto, a sintaxe original será presumida.
+
+</li><li> Caso contrário, a sintaxe alternativa será usada.
+</li></ol>
+
+<p>Quando a heurística falhar porque teu título de seção começa com um hífen ou
+acontecer de ser um arquivo que possa ser aberto, a sintaxe deveria ser
+mudada para &lsquo;<samp class="samp">--regex=<var class="var">expressãoregular</var> --section=<var class="var">seção</var>
+--add-once</samp>&rsquo;.
+</p>
+</dd>
+<dt><a id="index-_002d_002dregex_003dexpressaoregular_002c-para-install_002dinfo"></a><span><code class="code">--regex=<var class="var">expressãoregular</var></code><a class="copiable-link" href="#index-_002d_002dregex_003dexpressaoregular_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Colocar entradas desse arquivo em alguma seção que corresponda a
+<var class="var">expressãoregular</var>. Se mais que uma seção corresponder, todas as
+entradas serão adicionadas em cada uma das seções. Especifique
+<var class="var">expressãoregular</var> usando sintaxe básica de expressão regular, mais ou
+menos como usada com <code class="command">grep</code>, por exemplo.
+</p>
+</dd>
+<dt><a id="index-_002d_002dtest_002c-para-install_002dinfo"></a><span><code class="code">--test</code><a class="copiable-link" href="#index-_002d_002dtest_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Suprimir atualização do arquivo de diretório.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-Numero-de-versao_002c-para-install_002dinfo"></a>
+<a id="index-_002d_002dversion_002c-para-install_002dinfo"></a><span><code class="code">--version</code><a class="copiable-link" href="#index-_002d_002dversion_002c-para-install_002dinfo"> &para;</a></span></dt>
+<dd><p>Exibir informações de versão e sair exitosamente.
+</p>
+</dd>
+</dl>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Instalando-Entradas-de-Diret_00f3rio.html">Instalando Arquivos de Diretório Info</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Instalando-um-Arquivo-do-Info.html">Instalando um Arquivo do Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

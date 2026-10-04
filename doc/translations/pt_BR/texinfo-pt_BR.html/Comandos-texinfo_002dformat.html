@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Comandos texinfo-format (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Dois comandos de formatação do Info escritos em Lisp do Emacs são uma
+alternativa ao texi2any.
+">
+<meta name="keywords" content="Dois comandos de formatação do Info escritos em Lisp do Emacs são uma
+alternativa ao texi2any.
+">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Formata_00e7_00e3o-do-Info.html" rel="up" title="Formatação do Info">
+<link href="texi2any-no-Emacs.html" rel="prev" title="texi2any no Emacs">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+kbd.kbd {font-style: oblique}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Comandos-texinfo_002dformat">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="texi2any-no-Emacs.html" accesskey="p" rel="prev">Executando <code class="command">texi2any</code>/<code class="command">makeinfo</code> no Emacs</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Formata_00e7_00e3o-do-Info.html" accesskey="u" rel="up">Formatação para Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Os-comandos-texinfo_002dformat_2026"><span>D.6.2 Os comandos <code class="code">texinfo-format&hellip;</code><a class="copiable-link" href="#Os-comandos-texinfo_002dformat_2026"> &para;</a></span></h4>
+
+
+<p>No GNU Emacs, no modo Texinfo, você consegue formatar parte, ou todo, de um
+arquivo do Texinfo com o comando <code class="code">texinfo-format-region</code>. Isso formata
+a região atual e exibe o texto formatado em um buffer temporário chamado
+&lsquo;<samp class="samp">*Info Region*</samp>&rsquo;.
+</p>
+<p>Similarmente, você consegue formatar um buffer com o comando
+<code class="code">texinfo-format-buffer</code>. Esse comando cria um novo buffer e gera o
+arquivo do Info nele. Digitar <kbd class="kbd">C-x C-s</kbd> salvará o arquivo do Info sob o
+nome especificado pela linha <code class="code">@setfilename</code>, que precisa estar próxima
+ao início do arquivo do Texinfo.
+</p>
+<dl class="table">
+<dt><a id="index-texinfo_002dformat_002dregion"></a><span><kbd class="kbd">C-c C-e C-r</kbd><a class="copiable-link" href="#index-texinfo_002dformat_002dregion"> &para;</a></span></dt>
+<dt><kbd class="kbd"><code class="code">texinfo-format-region</code></kbd></dt>
+<dd><p>Formatar a região atual para Info.
+</p>
+</dd>
+<dt><a id="index-texinfo_002dformat_002dbuffer"></a><span><kbd class="kbd">C-c C-e C-b</kbd><a class="copiable-link" href="#index-texinfo_002dformat_002dbuffer"> &para;</a></span></dt>
+<dt><kbd class="kbd"><code class="code">texinfo-format-buffer</code></kbd></dt>
+<dd><p>Formatar o buffer atual para Info.
+</p></dd>
+</dl>
+
+<p>Os comandos <code class="code">texinfo-format-region</code> e <code class="code">texinfo-format-buffer</code>
+fornecem alguma verificação de erros, e outras funções podem fornecer ajuda
+adicional para encontrar erros de formatação. Esses procedimentos estão
+descritos em um apêndice; veja-se <a class="ref" href="Capturando-Erros.html">Capturando Erros</a>. No entanto, o
+programa <code class="command">texi2any</code> fornece melhor verificação de erros
+(veja-se <a class="pxref" href="texi2any-no-Emacs.html">Executando <code class="command">texi2any</code>/<code class="command">makeinfo</code> no Emacs</a>).
+</p>
+<p>Uma peculiaridade dos comandos <code class="code">texinfo-format-buffer</code> e
+<code class="code">texinfo-format-region</code> é que eles não recuam (nem preenchem)
+parágrafos que contenham comandos <code class="code">@w</code> ou <code class="code">@*</code>.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="texi2any-no-Emacs.html">Executando <code class="command">texi2any</code>/<code class="command">makeinfo</code> no Emacs</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Formata_00e7_00e3o-do-Info.html">Formatação para Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

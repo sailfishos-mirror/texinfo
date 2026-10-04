@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Comandos de Definição (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Descrevendo funções e similares uniformemente.">
+<meta name="keywords" content="Descrevendo funções e similares uniformemente.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="index.html" rel="up" title="Top">
+<link href="Internacionaliza_00e7_00e3o.html" rel="next" title="Internacionalização">
+<link href="Quebras.html" rel="prev" title="Quebras">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="chapter-level-extent" id="Comandos-de-Defini_00e7_00e3o">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Internacionaliza_00e7_00e3o.html" accesskey="n" rel="next">Internacionalização</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Quebras.html" accesskey="p" rel="prev">Forçando e Impedindo Quebras</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="index.html" accesskey="u" rel="up">Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h2 class="chapter" id="Comandos-de-Defini_00e7_00e3o-1"><span>14 Comandos de Definição<a class="copiable-link" href="#Comandos-de-Defini_00e7_00e3o-1"> &para;</a></span></h2>
+<a class="index-entry-id" id="index-Comandos-de-definicao"></a>
+
+<p>O comando <code class="code">@deffn</code> e os outros <em class="dfn">comandos de definição</em> te
+habilitam a descrever funções, variáveis, macros, comandos, opções de
+usuário(a), formulários especiais e outras entidades em um formato uniforme.
+</p>
+<p>Na saída, o nome da entidade é mostrado com quaisquer argumentos, juntamente
+com a categoria da entidade &mdash;&lsquo;Função&rsquo;, &lsquo;Variável&rsquo; ou qualquer outra.
+Abaixo, o corpo da definição é recuado.  O nome da entidade também é
+inserido no índice apropriado.
+</p>
+<p>Todos os comandos de definição seguem um formato semelhante.  Este capítulo
+começa descrevendo <code class="code">@deffn</code> antes de detalhar todos os outros comandos
+de definição.
+</p>
+
+<ul class="mini-toc">
+<li><a href="Modelo-de-Comando-de-Defini_00e7_00e3o.html" accesskey="1">O Modelo Para Uma Definição</a></li>
+<li><a href="Linhas-de-Continua_00e7_00e3o-de-Comando-de-Defini_00e7_00e3o.html" accesskey="2">Linhas de Continuação de Comando de Definição</a></li>
+<li><a href="Argumentos-Opcionais.html" accesskey="3">Argumentos Opcionais e Repetidos</a></li>
+<li><a href="Sem-Espa_00e7o-Depois-do-Nome-da-Defini_00e7_00e3o.html" accesskey="4">Omitindo o Espaço Depois de um Nome de Definição</a></li>
+<li><a href="_0040deffnx.html" accesskey="5"><code class="code">@deffnx</code>, et al.: Duas ou Mais &lsquo;Primeiras&rsquo; Linhas</a></li>
+<li><a href="Comandos-de-Defini_00e7_00e3o-em-Detalhe.html" accesskey="6">Os Comandos de Definição</a></li>
+<li><a href="Comandos-Gen_00e9ricos-de-Defini_00e7_00e3o.html" accesskey="7">Comandos Genéricos de Definição</a></li>
+<li><a href="Conven_00e7_00f5es-de-Comandos-de-Defini_00e7_00e3o.html" accesskey="8">Convenções para Escrita de Definições</a></li>
+<li><a href="Defini_00e7_00e3o-de-Amostra-de-Fun_00e7_00e3o.html" accesskey="9">Uma Definição de Amostra de Função</a></li>
+</ul>
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Internacionaliza_00e7_00e3o.html">Internacionalização</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Quebras.html">Forçando e Impedindo Quebras</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="index.html">Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

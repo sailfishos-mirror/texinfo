@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@syncodeindex (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como mesclar dois índices, usando a fonte do @code">
+<meta name="keywords" content="Como mesclar dois índices, usando a fonte do @code">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Combinando-_00cdndices.html" rel="up" title="Combinando Índices">
+<link href="_0040synindex.html" rel="next" title="@synindex">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="g_t_0040syncodeindex">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040synindex.html" accesskey="n" rel="next"><code class="code">@synindex</code>: Combinando Índices</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Combinando-_00cdndices.html" accesskey="u" rel="up">Combinando Índices</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<p>para o índice mesclado.
+</p><h4 class="subsection" id="g_t_0040syncodeindex_003a-Combinando-_00cdndices-Usando-_0040code"><span>10.6.1 <code class="code">@syncodeindex</code>: Combinando Índices Usando <code class="code">@code</code><a class="copiable-link" href="#g_t_0040syncodeindex_003a-Combinando-_00cdndices-Usando-_0040code"> &para;</a></span></h4>
+
+<a class="anchor" id="syncodeindex"></a><a class="index-entry-id" id="index-syncodeindex"></a>
+
+<p>Quando quiser combinar funções e conceitos em um índice, você deveria
+indexar as funções com <code class="code">@findex</code> e indexar os conceitos com
+<code class="code">@cindex</code> e usar o comando <code class="code">@syncodeindex</code> para redirecionar as
+entradas do índice de função para o índice de conceito.
+</p>
+<p>O comando <code class="code">@syncodeindex</code> recebe dois argumentos; eles são o nome do
+índice para redirecionar e o nome do índice para o qual redirecioná-lo.  O
+modelo se parece com isto:
+</p>
+<div class="example">
+<pre class="example-preformatted">@syncodeindex <var class="var">de</var> <var class="var">para</var>
+</pre></div>
+
+<a class="index-entry-id" id="index-Nomes-predefinidos-para-indices"></a>
+<a class="index-entry-id" id="index-Nomes-de-duas-letras-para-indices"></a>
+<a class="index-entry-id" id="index-Indices_002c-nomes-de-duas-letras"></a>
+<a class="index-entry-id" id="index-Nomes-para-indices"></a>
+<p>Para esse propósito, para os índices são fornecidos nomes de duas letras:
+</p>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">cp</samp>&rsquo;</dt>
+<dd><p>Índice de conceito
+</p></dd>
+<dt>&lsquo;<samp class="samp">fn</samp>&rsquo;</dt>
+<dd><p>Índice de função
+</p></dd>
+<dt>&lsquo;<samp class="samp">ky</samp>&rsquo;</dt>
+<dd><p>Índice de tecla
+</p></dd>
+<dt>&lsquo;<samp class="samp">pg</samp>&rsquo;</dt>
+<dd><p>Índice de programa
+</p></dd>
+<dt>&lsquo;<samp class="samp">tp</samp>&rsquo;</dt>
+<dd><p>Índice de tipo de dados
+</p></dd>
+<dt>&lsquo;<samp class="samp">vr</samp>&rsquo;</dt>
+<dd><p>Índice de variável
+</p></dd>
+</dl>
+
+<p>Escreva um comando <code class="code">@syncodeindex</code> antes ou logo depois da linha de
+fim do cabeçalho no início de um arquivo Texinfo.  Por exemplo, para mesclar
+um índice de função com um índice de conceito, escreva o seguinte:
+</p>
+<div class="example">
+<pre class="example-preformatted">@syncodeindex fn cp
+</pre></div>
+
+<p>Isso fará com que todas as entradas designadas para o índice de função sejam
+mescladas com o índice de conceito.
+</p>
+<p>Para mesclar ambos, um índice de variável e um índice de função, em um
+índice de conceito, escreva o seguinte:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@syncodeindex vr cp
+@syncodeindex fn cp
+</pre></div></div>
+
+<a class="index-entry-id" id="index-Fontes-para-indices"></a>
+<p>O comando <code class="code">@syncodeindex</code> coloca todas as entradas oriundas do índice
+&lsquo;de&rsquo; (o índice redirecionado) na fonte do <code class="code">@code</code>, substituindo
+qualquer fonte padrão que seja usada pelo índice para o qual as entradas
+sejam agora direcionadas.  Dessa forma, se você direcionar nomes de funções
+oriundas de um índice de função para um índice de conceito, todos os nomes
+de funções serão impressos na fonte do <code class="code">@code</code> como você esperaria.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040synindex.html"><code class="code">@synindex</code>: Combinando Índices</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Combinando-_00cdndices.html">Combinando Índices</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

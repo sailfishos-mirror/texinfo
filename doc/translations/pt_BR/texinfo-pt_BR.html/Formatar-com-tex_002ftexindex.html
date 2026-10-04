@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Formatar com tex/texindex (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Formatando com comandos explícitos de shell.">
+<meta name="keywords" content="Formatando com comandos explícitos de shell.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Impresso-com-TeX.html" rel="up" title="Impresso com TeX">
+<link href="Preparando-para-TeX.html" rel="next" title="Preparando para TeX">
+<link href="Formatar-com-texi2dvi-ou-texi2pdf.html" rel="prev" title="Formatar com texi2dvi ou texi2pdf">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Formatar-com-tex_002ftexindex">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Preparando-para-TeX.html" accesskey="n" rel="next">Preparando para TeX</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Formatar-com-texi2dvi-ou-texi2pdf.html" accesskey="p" rel="prev">Formatar com <code class="command">texi2dvi</code> ou <code class="command">texi2pdf</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Impresso-com-TeX.html" accesskey="u" rel="up">Formatando e Imprimindo com TeX</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Formatar-com-tex_002ftexindex-1"><span>19.3 Formatar com <code class="command">tex</code>/<code class="command">texindex</code><a class="copiable-link" href="#Formatar-com-tex_002ftexindex-1"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Formatacao-de-shell-com-tex-e-texindex"></a>
+<a class="index-entry-id" id="index-Formatando-com-tex-e-texindex"></a>
+<a class="index-entry-id" id="index-Arquivo-DVI"></a>
+
+<p>Você pode fazer a formatação básica de um arquivo do Texinfo com o comando
+de shell <code class="command">tex</code> seguido pelo nome do arquivo do Texinfo.  Por
+exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">tex foo.texi
+</pre></div>
+
+<p>TeX produzirá um <em class="dfn">arquivo DVI</em> bem como muitos arquivos auxiliares
+contendo informações para índices, referências cruzadas, entre outras. O
+arquivo DVI (para arquivo <em class="dfn">DeVice Independent</em>) pode ser impresso em
+praticamente qualquer dispositivo, talvez depois de uma conversão adicional
+(veja-se a seção anterior).
+</p>
+<a class="index-entry-id" id="index-texindex"></a>
+<p>O comando de formatação <code class="command">tex</code> em si não ordena os índices; ele
+escreve um arquivo de saída dos dados desordenados de índices.  Para gerar
+um índice impresso depois de executar o comando <code class="command">tex</code>, você primeiro
+precisa de um índice ordenado para trabalhar.  O comando <code class="command">texindex</code>
+ordena índices. (<code class="command">texi2dvi</code>, descrito na seção anterior, executa
+<code class="command">tex</code> e <code class="command">texindex</code> conforme necessário).
+</p>
+<a class="anchor" id="Nomes-dos-arquivos-de-_00edndice"></a><a class="index-entry-id" id="index-Nomes-dos-arquivos-de-indice"></a>
+<a class="index-entry-id" id="index-Nomes-de-arquivos-de-indice"></a>
+<p><code class="command">tex</code> gera arquivos desordenados de índices sob nomes seguindo uma
+convenção padrão: o nome do teu principal arquivo de entrada com alguma
+extensão &lsquo;<samp class="samp">.texi</samp>&rsquo; ou similar substituída pelo nome de duas letras do
+índice.  Por exemplo, os arquivos brutos de saída de índices para o arquivo
+de entrada <samp class="file">foo.texi</samp> seriam, por padrão, <samp class="file">foo.cp</samp>, <samp class="file">foo.vr</samp>,
+<samp class="file">foo.fn</samp>, <samp class="file">foo.tp</samp>, <samp class="file">foo.pg</samp> e <samp class="file">foo.ky</samp>.  Esses são
+exatamente os argumentos a se fornecer para <code class="command">texindex</code>.
+</p>
+<a class="index-entry-id" id="index-Curingas"></a>
+<a class="index-entry-id" id="index-Englobamento"></a>
+<p>Em vez de especificar-se explicitamente todos os nomes de arquivos
+desordenados de índices, é comum se usar &lsquo;<samp class="samp">??</samp>&rsquo; como curingas de shell e
+fornecer o comando nesta forma:
+</p>
+<div class="example">
+<pre class="example-preformatted">texindex foo.??
+</pre></div>
+
+<p>Esse comando executará <code class="command">texindex</code> sobre todos os arquivos
+desordenados de índices, incluindo quaisquer índices de duas letras que você
+mesmo(a) tiver definido usando <code class="code">@defindex</code> ou <code class="code">@defcodeindex</code>.
+Você pode seguramente executar &lsquo;<samp class="samp">texindex foo.??</samp>&rsquo;, mesmo se existirem
+arquivos com extensões de duas letras que não sejam arquivos de índice, como
+&lsquo;<samp class="samp">foo.el</samp>&rsquo;.  O comando <code class="command">texindex</code> informa, mas, inobstante,
+ignora esses arquivos.
+</p>
+<p>Para cada arquivo especificado, <code class="command">texindex</code> gera um arquivo ordenado
+de índice cujo nome é feito anexando &lsquo;<samp class="samp">s</samp>&rsquo; ao nome de arquivo de entrada;
+por exemplo, <samp class="file">foo.cps</samp> é feito a partir de <samp class="file">foo.cp</samp>.  O comando
+<code class="code">@printindex</code> procura por um arquivo com esse nome (veja-se <a class="pxref" href="Imprimindo-_00cdndices-e-Menus.html">Imprimindo Índices e Menus</a>).  TeX não lê o arquivo bruto de saída de índice e
+<code class="command">texindex</code> não o altera.
+</p>
+<p>Depois que tiver ordenado os índices, você precisa reexecutar <code class="command">tex</code>
+sobre o arquivo do Texinfo.  Isso regenera o arquivo de saída, dessa vez com
+entradas de índices atualizadas.
+</p>
+<p>Por fim, você possivelmente precise executar <code class="command">tex</code> mais uma vez para
+corrigir os números de página nas referências cruzadas.
+</p>
+<p>Para resumir, este é um processo de cinco etapas.  (Alternativamente, é um
+processo de uma etapa: execute <code class="command">texi2dvi</code>; veja-se a seção
+anterior).
+</p>
+<ol class="enumerate">
+<li> Execute <code class="command">tex</code> sobre teu arquivo do Texinfo.  Isso gera um arquivo
+DVI (com referências cruzadas indefinidas e sem índices) e os arquivos
+brutos de índices (com extensões de duas letras).
+
+</li><li> Execute <code class="command">texindex</code> sobre os arquivos brutos de índices.  Isso cria
+os correspondentes arquivos ordenados de índices (com extensões de três
+letras).
+
+</li><li> Execute <code class="command">tex</code> novamente sobre teu arquivo do Texinfo.  Isso regenera
+o arquivo DVI, dessa vez com índices e referências cruzadas definidas, mas
+com números de página para as referências cruzadas oriundos da execução
+anterior, geralmente incorretos.
+
+</li><li> Ordene os índices novamente, com <code class="command">texindex</code>.
+
+</li><li> Execute <code class="command">tex</code> uma última vez.  Desta vez, os números de página
+corretos serão escritos para as referências cruzadas.
+</li></ol>
+
+<a class="index-entry-id" id="index-pdftex"></a>
+<p>Para gerar PDF, você pode executar o programa <code class="command">pdftex</code> em vez do
+<code class="command">tex</code> simples.  Ou seja, execute <code class="command">pdftex foo.texi</code> em vez de
+&lsquo;<samp class="samp">tex foo.texi</samp>&rsquo; nos exemplos acima.
+</p>
+
+<ul class="mini-toc">
+<li><a href="Formatando-Documentos-Parciais.html" accesskey="1">Formatando Documentos Parciais</a></li>
+<li><a href="Detalhes-do-texindex.html" accesskey="2">Detalhes do <code class="command">texindex</code></a></li>
+</ul>
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Preparando-para-TeX.html">Preparando para TeX</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Formatar-com-texi2dvi-ou-texi2pdf.html">Formatar com <code class="command">texi2dvi</code> ou <code class="command">texi2pdf</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Impresso-com-TeX.html">Formatando e Imprimindo com TeX</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

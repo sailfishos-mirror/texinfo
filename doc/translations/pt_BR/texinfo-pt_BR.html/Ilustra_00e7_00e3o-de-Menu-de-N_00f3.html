@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Ilustração de Menu de Nó (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Um diagrama, e menus e nós de amostra.">
+<meta name="keywords" content="Um diagrama, e menus e nós de amostra.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="N_00f3s.html" rel="up" title="Nós">
+<link href="Descri_00e7_00f5es-de-N_00f3.html" rel="next" title="Descrições de Nó">
+<link href="Estrutura-do-Documento-Texinfo.html" rel="prev" title="Estrutura do Documento Texinfo">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Ilustra_00e7_00e3o-de-Menu-de-N_00f3">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Descri_00e7_00f5es-de-N_00f3.html" accesskey="n" rel="next">Descrições de Nó</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Estrutura-do-Documento-Texinfo.html" accesskey="p" rel="prev">Estrutura do Documento Texinfo</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="N_00f3s.html" accesskey="u" rel="up">Nós</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Ilustra_00e7_00e3o-de-N_00f3-e-Menu"><span>3.7 Ilustração de Nó e Menu<a class="copiable-link" href="#Ilustra_00e7_00e3o-de-N_00f3-e-Menu"> &para;</a></span></h3>
+
+<p>Aqui está um diagrama que ilustra um arquivo texinfo com três capítulos,
+cada um dos quais contém duas seções.
+</p>
+<p>A &ldquo;raiz&rdquo; está no topo do diagrama e as &ldquo;folhas&rdquo; estão na parte
+inferior. É assim que esse diagrama é desenhado convencionalmente; ele
+ilustra uma árvore de cabeça para baixo. Por esse motivo, o nó raiz é
+chamado de nó &lsquo;Top&rsquo; e os ponteiros do nó &lsquo;Acima&rsquo; levam você mais perto da
+raiz.
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">                         Top
+                          |
+        -------------------------------------
+       |                  |                  |
+    Capítulo 1         Capítulo 2         Capítulo 3
+       |                  |                  |
+    --------           --------           --------
+   |        |         |        |         |        |
+ Seção    Seção     Seção    Seção     Seção    Seção
+  1.1      1.2       2.1      2.2       3.1      3.2
+</pre></div></div>
+
+<p>Usando-se ponteiros explícitos (não recomendados, mas mostrados para fins do
+exemplo), o comando totalmente escrito para iniciar o Capítulo&nbsp;2 seria
+o este:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@node     Capítulo 2,  Capítulo 3, Capítulo 1, Top
+@comment  nome-nó,     próximo,    anterior,   acima
+</pre></div></div>
+
+<p>Essa linha <code class="code">@node</code> diz que o nome desse nó é &ldquo;Capítulo&nbsp;2&rdquo;, o
+nome do nó &lsquo;Próximo&rsquo; é &ldquo;Capítulo 3&rdquo;, o nome do nó &lsquo;Anterior&rsquo; é
+&ldquo;Capítulo&nbsp;1&rdquo; e o nome do nó &lsquo;Acima&rsquo; é &ldquo;Top&rdquo;. Você pode (e deveria)
+omitir escrever esses nomes de nós se teu documento estiver hierarquicamente
+organizado, mas os relacionamentos do ponteiro ainda obtém.
+</p>
+<p>Para ir para as seções 2.1 e 2.2 usando Info, você precisa de um menu dentro
+do Capítulo 2. (Veja-se <a class="xref" href="Menus.html">Menus</a>). Você escreveria o menu pouco antes do início
+da Seção 2.1, como este:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">   @menu
+   * Sect. 2.1::    Descrição desta seção.
+   * Sect. 2.2::    Descrição.
+   @end menu
+</pre></div></div>
+
+<p>Os ponteiros automáticos para o nó para Sect. 2.1 correspondem a:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@node     Sect. 2.1, Sect. 2.2, ,         Capítulo 2
+@comment  nome-nó,   próximo,   anterior, acima
+</pre></div></div>
+
+<p>Observe que nenhum ponteiro &lsquo;Anterior&rsquo; é gerado, pois não existe outro nó no
+mesmo nível hierárquico antes de Sect. 2.1.
+</p>
+<p>Usando ponteiros explícitos, o nó para Sect. 2.1 poderia ser escrito
+assim:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@node     Sect. 2.1, Sect. 2.2, Capítulo 2, Capítulo 2
+@comment  nome-nó,   próximo,   anterior,   acima
+</pre></div></div>
+
+<p>Com ponteiros automáticos, os ponteiros &lsquo;Próximo&rsquo; e &lsquo;Anterior&rsquo; de um nó
+levam a outros nós no mesmo nível&mdash;de capítulo para capítulo ou de seção
+para seção. Como mostrado, ao usar-se ponteiros explícitos, os ponteiros
+também podem liderar em outro lugar, aqui, por exemplo, o ponteiro
+&lsquo;Anterior&rsquo; aponta para cima. Um ponteiro &lsquo;Acima&rsquo; geralmente leva a um nó no
+nível acima (mais próximo do nó &lsquo;Top&rsquo;; e um &lsquo;Menu&rsquo; leva a nós em um nível
+abaixo (mais próximo das &lsquo;folhas&rsquo;). (Uma referência cruzada pode apontar
+para um nó em qualquer nível; veja-se <a class="ref" href="Refer_00eancias-Cruzadas.html">Referências cruzadas</a>).
+</p>
+<p>Tecnicamente, os ponteiros explícitos de nós podem te levar a qualquer nó,
+independentemente da estrutura do documento; mesmo para nós em um arquivo
+Info diferente. No entanto, seria muito confuso para leitores ter ponteiros
+&lsquo;Próximo&rsquo;, &lsquo;Anterior&rsquo; e &lsquo;Acima&rsquo; levando a nós que não correspondem, mesmo
+vagamente, ao nó próximo, anterior e acima.
+</p>
+<p>Um comando <code class="code">@node</code> e um comando de estruturamento de capítulo são
+usados convencionalmente juntos, nessa ordem, geralmente seguidos por
+comandos de indexação. (Como mostrado no exemplo acima, você pode seguir a
+linha <code class="code">@node</code> com uma linha de comentários, por exemplo, para mostrar
+qual ponteiro é qual se ponteiros explícitos forem usados). Os processadores
+Texinfo usam esse construto para determinar as relações entre nós e comandos
+de seccionamento.
+</p>
+<p>Aqui está o começo do capítulo neste manual chamado &ldquo;Finalizando um Arquivo
+Texinfo&rdquo;. Isso mostra uma linha <code class="code">@node</code> seguida por uma linha
+<code class="code">@chapter</code> e, em seguida, por linhas de indexação.
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@node Finalizando um Arquivo
+@chapter Finalizando um Arquivo Texinfo
+@cindex Finalizando um arquivo Texinfo
+@cindex Finalização de arquivo Texinfo
+@cindex Finalização de arquivo
+</pre></div></div>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Descri_00e7_00f5es-de-N_00f3.html">Descrições de Nó</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Estrutura-do-Documento-Texinfo.html">Estrutura do Documento Texinfo</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="N_00f3s.html">Nós</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

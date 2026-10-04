@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@setchapternewpage (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Iniciar capítulos nas páginas da direita.">
+<meta name="keywords" content="Iniciar capítulos nas páginas da direita.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Comandos-Globais-de-Documento.html" rel="up" title="Comandos Globais de Documento">
+<link href="Cabe_00e7alhos.html" rel="next" title="Cabeçalhos">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="g_t_0040setchapternewpage">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Cabe_00e7alhos.html" accesskey="n" rel="next">Cabeçalhos de Página</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Comandos-Globais-de-Documento.html" accesskey="u" rel="up">Comandos Globais de Documento</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="g_t_0040setchapternewpage_003a-P_00e1ginas-em-Branco-Antes-dos-Cap_00edtulos"><span>E.1 <code class="code">@setchapternewpage</code>: Páginas em Branco Antes dos Capítulos<a class="copiable-link" href="#g_t_0040setchapternewpage_003a-P_00e1ginas-em-Branco-Antes-dos-Cap_00edtulos"> &para;</a></span></h3>
+
+<a class="anchor" id="setchapternewpage"></a><a class="index-entry-id" id="index-setchapternewpage"></a>
+<a class="index-entry-id" id="index-Iniciando-capitulos"></a>
+<a class="index-entry-id" id="index-Paginas_002c-comecando-impares"></a>
+
+<p>Em um livro oficialmente encadernado, o texto geralmente é impresso em ambos
+os lados do papel, os capítulos começam nas páginas da direita e as páginas
+da direita têm números ímpares. Mas em informes curtos, frequentemente o
+texto é impresso somente em um lado do papel. Também em informes curtos, os
+capítulos às vezes não começam em novas páginas, mas são impressos na mesma
+página do final do capítulo anterior, depois de uma pequena quantidade de
+espaço em branco vertical.
+</p>
+<p>Você consegue usar o comando <code class="code">@setchapternewpage</code> com vários
+argumentos para especificar como os capítulos deveriam ser iniciados na
+saída impressa e se os cabeçalhos deveriam ser formatados para impressão em
+um ou ambos os lados do papel (impressão em um lado ou frente e verso).
+</p>
+<p>Escreva o comando <code class="code">@setchapternewpage</code> no início de uma linha seguido
+pelo argumento dele. Por exemplo, você escreveria o seguinte para fazer com
+que cada capítulo começasse em uma nova página ímpar:
+</p>
+<div class="example">
+<pre class="example-preformatted">@setchapternewpage odd
+</pre></div>
+
+<p>Você consegue especificar uma das três alternativas com o comando
+<code class="code">@setchapternewpage</code>:
+</p>
+<dl class="table">
+<dt><code class="code">@setchapternewpage off</code></dt>
+<dd><p>Tipografar um novo capítulo na mesma página do último capítulo, depois de
+pular alguns espaços em branco verticais. Além disso, formatar os cabeçalhos
+das páginas para impressão em um lado.
+</p>
+</dd>
+<dt><code class="code">@setchapternewpage on</code></dt>
+<dd><p>Iniciar novos capítulos em novas páginas e formatar cabeçalhos de páginas
+para impressão em um lado. Essa é a forma mais frequentemente usada para
+informes curtos ou para impressão pessoal. Esse é o padrão.
+</p>
+</dd>
+<dt><code class="code">@setchapternewpage odd</code></dt>
+<dd><p>Iniciar novos capítulos em novas páginas ímpares (páginas destras) e
+tipografadas para impressão frente e verso. Essa é a forma mais
+frequentemente usada para livros e manuais.
+</p></dd>
+</dl>
+
+<p>Texinfo não tem um comando <code class="code">@setchapternewpage even</code>, porque não
+existe tradição de impressão de iniciar capítulos ou livros em uma página
+par.
+</p>
+<p>Se não gostar dos cabeçalhos padrão que <code class="code">@setchapternewpage</code>
+configurar, você consegue controlá-los explicitamente com o comando
+<code class="code">@headings</code>. Veja-se <a class="xref" href="_0040headings.html">O Comando <code class="code">@headings</code></a>.
+</p>
+<p>No início de um manual ou livro, as páginas não são numeradas–&ndash;por exemplo,
+as páginas de título e de copirraite de um livro não são numeradas. Por
+convenção, páginas de sumário e iniciais são numeradas com algarismos
+romanos e não em sequência com o resto do documento.
+</p>
+<p>O <code class="code">@setchapternewpage</code> não tem efeito em formatos de saída que não
+tenham páginas, como Info e HTML.
+</p>
+<p>Nós recomendamos não incluir nenhum comando <code class="code">@setchapternewpage</code> no
+fonte do teu documento, pois tal paginação desejada não é intrínseca ao
+documento. Para uma execução específica de cópia impressa, se você não
+quiser a saída padrão (sem páginas em branco, mesmos cabeçalhos em todas as
+páginas), use a opção <samp class="option">--texinfo</samp> para <code class="command">texi2dvi</code> para
+especificar a saída que você quer.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Cabe_00e7alhos.html">Cabeçalhos de Página</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Comandos-Globais-de-Documento.html">Comandos Globais de Documento</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

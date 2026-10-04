@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Cores do PDF (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Colorindo URLs e outros links na saída PDF.">
+<meta name="keywords" content="Colorindo URLs e outros links na saída PDF.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Refer_00eancias-Cruzadas.html" rel="up" title="Referências Cruzadas">
+<link href="_0040cite.html" rel="prev" title="@cite">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Cores-do-PDF">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040cite.html" accesskey="p" rel="prev"><code class="code">@cite</code>{<var class="var">referência</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Refer_00eancias-Cruzadas.html" accesskey="u" rel="up">Referências cruzadas</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Cores-do-PDF-1"><span>5.16 Cores do PDF<a class="copiable-link" href="#Cores-do-PDF-1"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Links-coloridos_002c-em-saida-PDF"></a>
+<a class="index-entry-id" id="index-Links_002c-colorindo-em-saida-PDF"></a>
+<a class="index-entry-id" id="index-URLs_002c-colorindo-em-saida-PDF"></a>
+
+<p>Por padrão, links de URLs e de referências cruzadas são impressos em preto
+na saída gerada PDF.  Muito ocasionalmente, entretanto, você pode querer
+realçar tais links &ldquo;vivos&rdquo; com uma cor diferente, como é feito comumente
+em páginas da web.  Texinfo fornece uma opção específica de PDF para se
+especificar essas cores, a qual precisa ser usada dentro de <code class="code">@tex</code>:
+</p>
+<a class="index-entry-id" id="index-_005clinkcolor"></a>
+<a class="index-entry-id" id="index-_005curlcolor"></a>
+<div class="example">
+<pre class="example-preformatted">@tex
+\global\def\linkcolor{1 0 0}  % vermelha
+\global\def\urlcolor{0 1 0}   % verde
+@end tex
+</pre></div>
+
+<p><code class="code">\urlcolor</code> muda a cor da saída gerada <code class="code">@url</code> (tanto a URL real,
+quanto qualquer rótulo textual), ao passo que <code class="code">\linkcolor</code> muda a cor
+para referências cruzadas para nós, etc.  Elas são independentes.
+</p>
+<a class="index-entry-id" id="index-especificacao-de-cor-RGB_002e"></a>
+<p>Os três valores fornecidos precisam ser números entre 0 e 1, especificando a
+quantidade de vermelho, verde e azul, respectivamente.
+</p>
+<p>Essas definições somente tem um efeito quando a saída gerada PDF for
+produzida com o programa pdfTeX, não com outros meios de se obter de
+Texinfo para PDF (por exemplo, TeX para DVI para PDF).
+Consequentemente, está certo se especificar essa opção incondicionalmente
+dentro de <code class="code">@tex</code>, conforme mostrado acima.  Ela é ignorada quando DVI
+está sendo produzido.
+</p>
+<p>Nós não recomendamos colorir apenas por diversão; a menos que você tenha um
+motivo específico para usar cores, melhor ignorá-las.
+</p>
+
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040cite.html"><code class="code">@cite</code>{<var class="var">referência</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Refer_00eancias-Cruzadas.html">Referências cruzadas</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

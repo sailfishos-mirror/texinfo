@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@documentdescription (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Sumário do documento para a saída HTML.">
+<meta name="keywords" content="Sumário do documento para a saída HTML.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Gerando-HTML.html" rel="up" title="Gerando HTML">
+<link href="Gerando-EPUB.html" rel="next" title="Gerando EPUB">
+<link href="CSS-do-HTML.html" rel="prev" title="CSS do HTML">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="g_t_0040documentdescription">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Gerando-EPUB.html" accesskey="n" rel="next">Gerando EPUB</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="CSS-do-HTML.html" accesskey="p" rel="prev">CSS do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Gerando-HTML.html" accesskey="u" rel="up">Gerando HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="g_t_0040documentdescription_003a-Texto-do-Sum_00e1rio"><span>22.4 <code class="code">@documentdescription</code>: Texto do Sumário<a class="copiable-link" href="#g_t_0040documentdescription_003a-Texto-do-Sum_00e1rio"> &para;</a></span></h3>
+<a class="anchor" id="documentdescription"></a>
+<a class="index-entry-id" id="index-Descricao-de-documento"></a>
+<a class="index-entry-id" id="index-Descricao-do-documento"></a>
+<a class="index-entry-id" id="index-Sumario-do-documento"></a>
+<a class="index-entry-id" id="index-Resumo-do-documento"></a>
+<a class="index-entry-id" id="index-Etiqueta-_003cmeta_003e-do-HTML_002c-e-descricao-de-documento"></a>
+<a class="index-entry-id" id="index-documentdescription"></a>
+
+<p>Ao produzir saída HTML para um documento, um elemento &lsquo;<samp class="samp">&lt;meta&gt;</samp>&rsquo; é
+escrito no &lsquo;<samp class="samp">&lt;head&gt;</samp>&rsquo; para dar alguma ideia do conteúdo do documento. Por
+padrão, essa <em class="dfn">descrição</em> será o título do documento, tomado a partir do
+comando <code class="code">@settitle</code> (veja-se <a class="pxref" href="_0040settitle.html"><code class="code">@settitle</code>: Configura o Título do Documento</a>). Para mudar isso, use
+o ambiente <code class="code">@documentdescription</code>, como em:
+</p>
+<div class="example">
+<pre class="example-preformatted">@documentdescription
+texto descritivo.
+@end documentdescription
+</pre></div>
+
+<p>Isso produzirá a seguinte saída no &lsquo;<samp class="samp">&lt;head&gt;</samp>&rsquo; do HTML:
+</p>
+<div class="example">
+<pre class="example-preformatted">&lt;meta name=description content=&quot;texto descritivo.&quot;&gt;
+</pre></div>
+
+
+</div>
+
+
+
+</body>
+</html>

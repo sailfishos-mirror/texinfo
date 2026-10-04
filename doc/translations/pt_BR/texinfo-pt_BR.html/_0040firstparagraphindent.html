@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@firstparagraphindent (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Suprimindo o recuo do primeiro parágrafo.">
+<meta name="keywords" content="Suprimindo o recuo do primeiro parágrafo.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Comandos-Globais-de-Documento.html" rel="up" title="Comandos Globais de Documento">
+<link href="_0040exampleindent.html" rel="next" title="@exampleindent">
+<link href="_0040paragraphindent.html" rel="prev" title="@paragraphindent">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="g_t_0040firstparagraphindent">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040exampleindent.html" accesskey="n" rel="next"><code class="code">@exampleindent</code>: Recuo do Ambiente</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040paragraphindent.html" accesskey="p" rel="prev"><code class="code">@paragraphindent</code>: Controlando Recuo do Parágrafo</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Comandos-Globais-de-Documento.html" accesskey="u" rel="up">Comandos Globais de Documento</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="g_t_0040firstparagraphindent_003a-Recuo-Depois-de-Cabe_00e7alhos"><span>E.4 <code class="code">@firstparagraphindent</code>: Recuo Depois de Cabeçalhos<a class="copiable-link" href="#g_t_0040firstparagraphindent_003a-Recuo-Depois-de-Cabe_00e7alhos"> &para;</a></span></h3>
+
+<a class="anchor" id="firstparagraphindent"></a><a class="index-entry-id" id="index-firstparagraphindent"></a>
+<a class="index-entry-id" id="index-Primeiro-paragrafo_002c-suprimindo-o-recuo-de"></a>
+<a class="index-entry-id" id="index-Suprimindo-o-recuo-do-primeiro-paragrafo"></a>
+<a class="index-entry-id" id="index-Evitando-o-recuo-do-primeiro-paragrafo"></a>
+<a class="index-entry-id" id="index-Recuo_002c-supressao-do-primeiro-paragrafo"></a>
+<a class="index-entry-id" id="index-Cabecalhos_002c-recuo-depois"></a>
+
+<p>Como você pode ver neste manual, o primeiro parágrafo de qualquer seção não
+é recuado por padrão. Tipograficamente, o recuo é um separador de parágrafo,
+o que significa que é desnecessário quando uma nova seção começa. Esse recuo
+é controlado com o comando <code class="code">@firstparagraphindent</code>:
+</p>
+<div class="example">
+<pre class="example-preformatted">@firstparagraphindent <var class="var">palavra</var>
+</pre></div>
+
+<p>O primeiro parágrafo depois de um cabeçalho é recuado de acordo com o valor
+de <var class="var">palavra</var>:
+</p>
+<dl class="table">
+<dt><code class="code">none</code></dt>
+<dd><p>Impede que o primeiro parágrafo seja recuado (padrão). Essa opção é ignorada
+pelo <code class="command">makeinfo</code> se <code class="code">@paragraphindent asis</code> estiver em vigor.
+</p>
+</dd>
+<dt><code class="code">insert</code></dt>
+<dd><p>Inclui recuo normal do parágrafo. Isso respeita o recuo do parágrafo
+configurado por um comando <code class="code">@paragraphindent</code>
+(veja-se <a class="pxref" href="_0040paragraphindent.html"><code class="code">@paragraphindent</code>: Controlando Recuo do Parágrafo</a>).
+</p></dd>
+</dl>
+
+<p><code class="code">@firstparagraphindent</code> é ignorado para saída HTML e DocBook.
+</p>
+<p>É melhor escrever o comando <code class="code">@firstparagraphindent</code> antes da linha de
+final do cabeçalho no início de um arquivo do Texinfo, de modo que os
+comandos de formatação de região recuem parágrafos conforme
+especificado. Veja-se <a class="xref" href="In_00edcio-e-Fim-do-Cabe_00e7alho.html#In_00edcio-do-Cabe_00e7alho">Início do Cabeçalho</a>.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040exampleindent.html"><code class="code">@exampleindent</code>: Recuo do Ambiente</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040paragraphindent.html"><code class="code">@paragraphindent</code>: Controlando Recuo do Parágrafo</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Comandos-Globais-de-Documento.html">Comandos Globais de Documento</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

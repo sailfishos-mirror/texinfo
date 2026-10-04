@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Edição do Emacs (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Adições do modo Texinfo para recursos de edição de uso geral do GNU Emacs.
+">
+<meta name="keywords" content="Adições do modo Texinfo para recursos de edição de uso geral do GNU Emacs.
+">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Modo-Texinfo.html" rel="up" title="Modo Texinfo">
+<link href="Inserindo.html" rel="next" title="Inserindo">
+<link href="Vis_00e3o-Geral-do-Modo-Texinfo.html" rel="prev" title="Visão Geral do Modo Texinfo">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+kbd.kbd {font-style: oblique}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Edi_00e7_00e3o-do-Emacs">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Inserindo.html" accesskey="n" rel="next">Inserindo Comandos Frequentemente Usados</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Vis_00e3o-Geral-do-Modo-Texinfo.html" accesskey="p" rel="prev">Visão Geral do Modo Texinfo</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Modo-Texinfo.html" accesskey="u" rel="up">Usando Modo Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Os-Comandos-Usuais-de-Edi_00e7_00e3o-do-GNU-Emacs"><span>D.2 Os Comandos Usuais de Edição do GNU Emacs<a class="copiable-link" href="#Os-Comandos-Usuais-de-Edi_00e7_00e3o-do-GNU-Emacs"> &para;</a></span></h3>
+
+<p>Na maioria dos casos, os comandos usuais do modo Texto funcionam da mesma
+forma no modo Texinfo e no modo Texto. O modo Texinfo adiciona novos
+comandos e ferramentas de edição aos recursos de edição de uso geral do GNU
+Emacs. A principal diferença diz respeito ao preenchimento. No modo Texinfo,
+a variável de separação de parágrafo e a tabela de sintaxe são redefinidas,
+de modo que os comandos do Texinfo que deveriam estar em linhas próprias não
+sejam incluídos inadvertidamente nos parágrafos. Assim, o comando <kbd class="kbd">M-q</kbd>
+(<code class="code">fill-paragraph</code>) preencherá um parágrafo, mas não misturará um
+comando de indexação em uma linha adjacente a ele no parágrafo.
+</p>
+<p>Além disso, o modo Texinfo configura a variável <code class="code">page-delimiter</code> com o
+valor de <code class="code">texinfo-chapter-level-regexp</code>; por padrão, essa é uma
+expressão regular que corresponde aos comandos para capítulos e os
+equivalentes deles, como apêndices. Com esse valor para o delimitador de
+página, você pode pular de título de capítulo para título de capítulo com os
+comandos <kbd class="kbd">C-x ]</kbd> (<code class="code">forward-page</code>) e <kbd class="kbd">C-x [</kbd>
+(<code class="code">backward-page</code>) e restringir a um capítulo com o comando <kbd class="kbd">C-x n
+p</kbd> (<code class="code">narrow-to-page</code>). (Veja-se <a data-manual="emacs" href="https://www.gnu.org/software/emacs/manual/html_node/emacs/P_00e1ginas.html#P_00e1ginas">Páginas</a> em <cite class="cite">O Manual do GNU
+Emacs</cite>, para detalhes acerca dos comandos de página).
+</p>
+<p>GNU Emacs entra automaticamente no modo Texinfo quando você visitar um
+arquivo com uma extensão <samp class="file">.texinfo</samp>, <samp class="file">.texi</samp> ou <samp class="file">.txi</samp>. Além
+disso, o Emacs comuta para o modo Texinfo quando você visitar um arquivo que
+tenha &lsquo;<samp class="samp">-*-texinfo-*-</samp>&rsquo; na primeira linha dele. Se alguma vez você
+estiver em outro modo e desejar comutar para o modo Texinfo, digite
+<code class="code">M-x texinfo-mode</code>.
+</p>
+<p>Como todos os outros recursos do Emacs, você pode personalizar ou aprimorar
+o modo Texinfo conforme desejar. Em particular, os atalhos de teclado são
+muito fáceis de mudar. As combinações de teclas descritas aqui são as pré
+configuradas ou padrão.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Inserindo.html">Inserindo Comandos Frequentemente Usados</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Vis_00e3o-Geral-do-Modo-Texinfo.html">Visão Geral do Modo Texinfo</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Modo-Texinfo.html">Usando Modo Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

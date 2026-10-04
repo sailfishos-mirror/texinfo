@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Configuração do Xref do HTML (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="htmlxref.cnf e htmlxref.d/*.cnf.">
+<meta name="keywords" content="htmlxref.cnf e htmlxref.d/*.cnf.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Xref-do-HTML.html" rel="up" title="Xref do HTML">
+<link href="Expans_00e3o-de-Caracteres-de-8-bits-do-Xref-do-HTML.html" rel="prev" title="Expansão de Caracteres de 8 bits do Xref do HTML">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Configura_00e7_00e3o-do-Xref-do-HTML">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Expans_00e3o-de-Caracteres-de-8-bits-do-Xref-do-HTML.html" accesskey="p" rel="prev">Expansão do Caractere de 8 Bits da Referência Cruzada do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Xref-do-HTML.html" accesskey="u" rel="up">Referências Cruzadas do HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Configura_00e7_00e3o-de-Refer_00eancia-Cruzada-do-HTML"><span>22.7.5 Configuração de Referência Cruzada do HTML<a class="copiable-link" href="#Configura_00e7_00e3o-de-Refer_00eancia-Cruzada-do-HTML"> &para;</a></span></h4>
+
+<a class="anchor" id="Descorrespond_00eancia-do-Xref-do-HTML"></a>
+<a class="index-entry-id" id="index-htmlxref_002ecnf"></a>
+<a class="index-entry-id" id="index-htmlxref_002ed_002f_002a_002ecnf"></a>
+<a class="index-entry-id" id="index-Referencias-cruzadas-do-HTML-configuracao"></a>
+<a class="index-entry-id" id="index-Configuracao-de-referencia-cruzada_002c-para-HTML"></a>
+<a class="index-entry-id" id="index-Configuracao_002c-para-referencias-do-HTML-entre-manuais"></a>
+
+<p>Para outros manuais publicados na World Wide Web estarem aptos para terem
+referências cruzadas corretas para teu manual, as partes <var class="var">dispositivo</var> e
+<var class="var">diretório</var> da referência cruzada precisam ser conhecidas pelos
+conversores de Texinfo quando eles produzirem HTML para esses outros
+manuais. Similarmente, para teu manual em formato HTML ter referências
+cruzadas corretas para outros manuais, <code class="command">texi2any</code> precisa saber como
+construir as URLs para outros manuais.
+</p>
+<p><code class="command">texi2any</code> lê um arquivo chamado <samp class="file">htmlxref.cnf</samp> e todos os
+arquivos que terminam com a extensão <samp class="file">.cnf</samp> no diretório
+<samp class="file">htmlxref.d</samp> para coletar informações para referências cruzadas para
+outros manuais na saída HTML. <samp class="file">htmlxref.cnf</samp> e <samp class="file">htmlxref.d</samp> são
+procurados nos seguintes diretórios, com base na
+<a class="url" href="https://specifications.freedesktop.org/basedir-spec/latest/">Especificação de Diretório Base XDG</a> com padrões baseados em diretórios de
+instalação:
+</p>
+<dl class="table">
+<dt><samp class="file">./</samp></dt>
+<dd><p>(o diretório atual)
+</p>
+</dd>
+<dt><samp class="file">diretório principal do caminho do arquivo de entrada</samp></dt>
+<dd><p>Se existir um diretório principal e não for o diretório atual. Por exemplo,
+se o arquivo de entrada for <samp class="file">algum/diretorio/meumanual.texi</samp>,
+<samp class="file">htmlxref.cnf</samp> será procurado em <samp class="file">algum/diretorio</samp> e os arquivos
+correspondentes a <samp class="file">algum/diretorio/htmlxref.d/*.cnf</samp> também serão
+lidos.
+</p>
+</dd>
+<dt><samp class="file">./.texinfo/</samp></dt>
+<dd><p>(sob o diretório atual)
+</p>
+</dd>
+<dt><samp class="file"><code class="env">XDG_CONFIG_HOME</code>/texinfo</samp></dt>
+<dd><p>(com <code class="env">XDG_CONFIG_HOME</code> uma varíavel de ambiente)
+</p>
+</dd>
+<dt><samp class="file">~/.config/texinfo/</samp></dt>
+<dd><p>(onde <code class="code">~</code> é o atual diretório HOME do(a) usuário(a), somente se
+<code class="env">XDG_CONFIG_HOME</code> não estiver configurada)
+</p>
+</dd>
+<dt><samp class="file"><var class="var">sysconfdir</var>/xdg/texinfo/</samp></dt>
+<dd><p>(onde <var class="var">sysconfdir</var> é o diretório de configuração do sistema especificado
+ao tempo da compilação, por exemplo, <samp class="file">/usr/local/etc</samp>)
+</p>
+</dd>
+<dt><samp class="file"><code class="env">XDG_CONFIG_DIRS</code>/texinfo</samp></dt>
+<dd><p>(para cada diretório na variável de ambiente <code class="env">XDG_CONFIG_DIRS</code>
+delimitada por <code class="code">:</code>)
+</p>
+
+</dd>
+<dt><samp class="file"><var class="var">datadir</var>/texinfo/</samp></dt>
+<dd><p>(especificado ao tempo de compilação, por exemplo, <samp class="file">/usr/local/share</samp>)
+</p>
+
+
+</dd>
+</dl>
+
+<p>Todos os arquivos encontrados são usados, com as entradas anteriores
+substituindo as posteriores. A distribuição do Texinfo inclui arquivos que
+são instalados em <samp class="file"><var class="var">datadir</var>/texinfo/htmlxref.d</samp>, em um dos últimos
+dos diretórios acima:
+</p>
+<dl class="table">
+<dt><samp class="file">Texinfo_GNU.cnf</samp></dt>
+<dd><p>Manuseia muitos manuais GNU.
+</p></dd>
+<dt><samp class="file">Texinfo_nonGNU.cnf</samp></dt>
+<dd><p>Manuais livres de projetos não GNU.
+</p></dd>
+</dl>
+
+<p>Você pode usar um <samp class="file">htmlxref.cnf</samp> local para completar ou para corrigir
+os arquivos padrão provenientes da distribuição do Texinfo. Isso poderia ser
+útil para corrigir dados desatualizados ou, até mesmo, para gerar
+referências cruzadas para arquivos locais para alguns manuais. Outros
+pacotes de software que gerenciam listas de manuais seguindo a especificação
+de referências cruzadas do HTML poderiam instalar arquivos <samp class="file">.cnf</samp> em
+<samp class="file"><var class="var">datadir</var>/texinfo/htmlxref.d</samp>.
+</p>
+<p>A variável de personalização <code class="code">HTMLXREF_MODE</code> pode ser configurada para
+modificar como os arquivos são encontrados. Por exemplo, se configurada como
+&lsquo;<samp class="samp">none</samp>&rsquo;, nenhuma informação externa será usada. <code class="code">HTMLXREF_FILE</code>
+configura o nome do arquivo para algo diferente de
+<samp class="file">htmlxref.cnf</samp>. Veja-se <a class="xref" href="Lista-de-Vari_00e1veis-de-Personaliza_00e7_00e3o-do-HTML.html#Vari_00e1veis-de-Personaliza_00e7_00e3o-do-HTML">Variáveis de Personalização do HTML</a>.
+</p>
+<p>O arquivo é orientado por linha. Linhas que consistem somente de espaços em
+branco são ignoradas. Comentários são indicados com um &lsquo;<samp class="samp">#</samp>&rsquo; no início de
+uma linha, opcionalmente precedido por espaço em branco. Como &lsquo;<samp class="samp">#</samp>&rsquo; pode
+ocorrer em URLs (como quase qualquer caractere), ele não inicia, de outro
+modo, um comentário.
+</p>
+<p>Cada linha não vazia que não seja de comentário precisa ser ou uma
+<em class="dfn">atribuição de variável</em> ou uma <em class="dfn">informação de manual</em>.
+</p>
+<p>Uma linha de atribuição de variável se parece com isto:
+</p>
+<div class="example">
+<pre class="example-preformatted"><var class="var">nomevariável</var> = <var class="var">valorvariável</var>
+</pre></div>
+
+<p>Espaço em branco ao redor de &lsquo;<samp class="samp">=</samp>&rsquo; é opcional e ignorado. A
+<var class="var">nomevariável</var> deveria consistir de letras; diferenciação de maiúsculas
+e minúsculas é significativa. A <var class="var">valorvariável</var> é uma sequência
+arbitrária de caracteres, continuando até o final da linha. As variáveis são
+então referenciadas com &lsquo;<samp class="samp">${<var class="var">nomevariável</var>}</samp>&rsquo;; referências de
+variáveis podem ocorrer na <var class="var">valorvariável</var>.
+</p>
+<p>Uma linha de informação de manual se parece com isto:
+</p>
+<div class="example">
+<pre class="example-preformatted"><var class="var">manual</var> <var class="var">palavrachave</var> <var class="var">prefixourl</var>
+</pre></div>
+
+<p>com <var class="var">manual</var> o identificador curto para um manual, <var class="var">palavrachave</var>
+sendo um dos: <code class="code">mono</code>, <code class="code">node</code>, <code class="code">section</code>, <code class="code">chapter</code> e
+<var class="var">prefixourl</var> descritos abaixo. Referências de variáveis podem ocorrer
+somente na <var class="var">prefixourl</var>. Por exemplo (usado no arquivo canônico):
+</p>
+<div class="example">
+<pre class="example-preformatted">G = https://www.gnu.org
+GS = ${G}/software
+hello mono    ${GS}/hello/manual/hello.html
+hello chapter ${GS}/hello/manual/html_chapter/
+hello section ${GS}/hello/manual/html_section/
+hello node    ${GS}/hello/manual/html_node/
+</pre></div>
+
+<a class="index-entry-id" id="index-Manuais-monoliticos_002c-para-referencias-cruzadas-do-HTML"></a>
+<p>Se a palavra-chave for <code class="code">mono</code>, <var class="var">prefixourl</var> fornecerá o
+dispositivo, o diretório e o nome do arquivo para <var class="var">manual</var> como um
+arquivo monolítico.
+</p>
+<a class="index-entry-id" id="index-Manuais-divididos_002c-para-referencias-cruzadas-do-HTML"></a>
+<p>Se a palavra-chave for <code class="code">node</code>, <code class="code">section</code> ou <code class="code">chapter</code>,
+<var class="var">prefixourl</var> fornecerá o dispositivo e o diretório para <var class="var">manual</var>
+divididos em nós, seções ou capítulos, respectivamente.
+</p>
+<p>Se <var class="var">prefixourl</var> for omitido, os elementos das referências cruzadas
+corresponderão a linques de referência cruzada entre uma coleção de manuais
+localizados lado a lado em um dispositivo (veja-se <a class="pxref" href="B_00e1sicos-do-Linque-Xref-do-HTML.html">Básicos do Linque de Referência Cruzada do HTML</a>). Isso poderia ser útil se você gerasse e publicasse uma coleção de
+manuais e preferisse lincar para os manuais gerados em vez de para as
+versões encontradas nas configurações de referências cruzadas enviadas com o
+Texinfo.
+</p>
+<p>Quando <code class="command">texi2any</code> estiver gerando um linque para outro manual do
+Texinfo, ele preferirá usar uma linha para o manual com a mesma opção de
+divisão que a da saída atual. Ou seja, ao gerar saída monolítica
+(<samp class="option">--no-split</samp>), uma URL <code class="code">mono</code> será preferida; ao gerar saída
+que seja dividida por nó, uma URL <code class="code">node</code> será preferida, entre outras.
+</p>
+<p>Se nenhuma linha de informação com a opção de divisão preferida estiver
+presente para um determinado manual, então outras linhas para esse manual
+poderão ser usadas, se presentes. Aqui está a ordem de pesquisa completa
+para cada opção de divisão:
+</p>
+<div class="example">
+<pre class="example-preformatted">node    &rArr; nó,       seção,    capítulo, mono
+section &rArr; seção,    capítulo, nó,       mono
+chapter &rArr; capítulo, seção,    nó,       mono
+mono    &rArr; mono,     capítulo, seção,    nó
+</pre></div>
+
+<a class="index-entry-id" id="index-_002d_002dnode_002dfiles_002c-e-referencias-cruzadas-do-HTML"></a>
+<p>Essas referências entre manuais em nível de seção e de capítulo podem ser
+bem-sucedidas somente quando o manual alvo foi criado usando-se
+<samp class="option">--node-files</samp>; esse é o padrão para saída dividida.
+</p>
+<p>Atualmente, os arquivos <samp class="file">Texinfo_GNU.cnf</samp> e <samp class="file">Texinfo_nonGNU.cnf</samp>
+distribuídos com o GNU Texinfo servem como o principal recurso para
+localizar manuais HTML do Texinfo na World Wide Web. Como eles são
+instalados em um local usado pelo <code class="command">texi2any</code>, as informações acerca
+dos manuais HTML encontradas nesses arquivos serão usadas para referências
+cruzadas por padrão.
+</p>
+<p>Se você tiver acréscimos ou correções para os arquivos distribuídos com o
+Texinfo, por favor envie uma mensagem eletrônica para
+<a class="email" href="mailto:bug-texinfo@gnu.org">bug-texinfo@gnu.org</a> como de costume. Se você publicar um manual
+HTML do Texinfo na World Wide Web, ter um local atualizado listado em
+<samp class="file">Texinfo_GNU.cnf</samp> ou em <samp class="file">Texinfo_nonGNU.cnf</samp> deveria garantir que
+todos os manuais HTML gerados pelo <code class="command">texi2any</code> usem esse local para
+referências cruzadas automaticamente. Você pode obter as versões mais
+recentes a partir de
+<a class="url" href="https://ftpmirror.gnu.org/texinfo/htmlxref.d/Texinfo_GNU.cnf">https://ftpmirror.gnu.org/texinfo/htmlxref.d/Texinfo_GNU.cnf</a> e
+<a class="url" href="https://ftpmirror.gnu.org/texinfo/htmlxref.d/Texinfo_nonGNU.cnf">https://ftpmirror.gnu.org/texinfo/htmlxref.d/Texinfo_nonGNU.cnf</a>.
+Se você quiser manter um arquivo separado distribuído com Texinfo, por favor
+envie uma mensagem eletrônica para <a class="email" href="mailto:bug-texinfo@gnu.org">bug-texinfo@gnu.org</a> também.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Expans_00e3o-de-Caracteres-de-8-bits-do-Xref-do-HTML.html">Expansão do Caractere de 8 Bits da Referência Cruzada do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Xref-do-HTML.html">Referências Cruzadas do HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

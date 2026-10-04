@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@pagesizes (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como imprimir com tamanhos personalizados de página.">
+<meta name="keywords" content="Como imprimir com tamanhos personalizados de página.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Comandos-Globais-de-Documento.html" rel="up" title="Comandos Globais de Documento">
+<link href="Microtipografia.html" rel="next" title="Microtipografia">
+<link href="Papel-A4.html" rel="prev" title="Papel A4">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="g_t_0040pagesizes">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Microtipografia.html" accesskey="n" rel="next">Microtipografia</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Papel-A4.html" accesskey="p" rel="prev">Imprimir em Papel A4</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Comandos-Globais-de-Documento.html" accesskey="u" rel="up">Comandos Globais de Documento</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="g_t_0040pagesizes-_005blargura_005d_005b_002c-altura_005d_003a-Tamanhos-Personalizados-de-P_00e1gina"><span>E.8 <code class="code">@pagesizes</code> [<var class="var">largura</var>][, <var class="var">altura</var>]: Tamanhos Personalizados de Página<a class="copiable-link" href="#g_t_0040pagesizes-_005blargura_005d_005b_002c-altura_005d_003a-Tamanhos-Personalizados-de-P_00e1gina"> &para;</a></span></h3>
+<a class="anchor" id="pagesizes"></a>
+<a class="index-entry-id" id="index-pagesizes"></a>
+<a class="index-entry-id" id="index-Tamanhos-personalizados-de-pagina"></a>
+<a class="index-entry-id" id="index-Tamanhos-de-pagina_002c-personalizados"></a>
+<a class="index-entry-id" id="index-Largura-e-altura-do-texto"></a>
+<a class="index-entry-id" id="index-Largura-da-area-de-texto"></a>
+<a class="index-entry-id" id="index-Altura-da-area-de-texto"></a>
+<a class="index-entry-id" id="index-Profundidade-da-area-de-texto"></a>
+
+<p>Você pode especificar explicitamente a altura e (opcionalmente) a largura da
+área principal de texto na página com o comando <code class="code">@pagesizes</code>. Escreva
+isso em uma linha própria perto do início do arquivo do Texinfo, antes da
+página de título. A altura vem primeiro, depois a largura, se desejado,
+separada por vírgula. Exemplos:
+</p>
+<div class="example">
+<pre class="example-preformatted">@pagesizes 200mm,150mm  </pre></div>
+<p>e
+</p><div class="example">
+<pre class="example-preformatted">@pagesizes 11.5in       </pre></div>
+
+<a class="index-entry-id" id="index-Papel-B5_002c-impressao-em"></a>
+<a class="index-entry-id" id="index-Papel-oficio_002c-impressao-em"></a>
+<p>Isso seria razoável para impressão em papel tamanho B5. Para enfatizar, esse
+comando especifica o tamanho da <em class="emph">área de texto</em>, não o tamanho do papel
+(que é 250<span class="dmn">mm</span> por 177<span class="dmn">mm</span> para B5, 14<span class="dmn">in</span> por 8,5<span class="dmn">in</span> para
+ofício).
+</p>
+<a class="index-entry-id" id="index-Margens-na-pagina_002c-nao-controlaveis"></a>
+<p>Para fazer mudanças mais elaboradas, como mudar quaisquer das margens da
+página, você precisa definir um novo comando no <samp class="file">texinfo.tex</samp> ou no
+<samp class="file">texinfo.cnf</samp>.
+</p>
+<p>Veja-se <a class="xref" href="Formatar-com-texi2dvi-ou-texi2pdf.html">Formatar com <code class="command">texi2dvi</code> ou <code class="command">texi2pdf</code></a>, e
+<a class="ref" href="Preparando-para-TeX.html">Preparando para TeX</a>, para outras maneiras de especificar
+<code class="code">@pagesizes</code> que não exigem mudança do arquivo fonte.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Microtipografia.html">Microtipografia</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Papel-A4.html">Imprimir em Papel A4</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Comandos-Globais-de-Documento.html">Comandos Globais de Documento</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

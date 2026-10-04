@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Dicas (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Dicas acerca de como escrever um documento Texinfo.">
+<meta name="keywords" content="Dicas acerca de como escrever um documento Texinfo.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="index.html" rel="up" title="Top">
+<link href="Arquivos-de-Amostra-do-Texinfo.html" rel="next" title="Arquivos de Amostra do Texinfo">
+<link href="Detalhes-do-Comando-_0040.html" rel="prev" title="Detalhes do Comando @">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="appendix-level-extent" id="Dicas">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Arquivos-de-Amostra-do-Texinfo.html" accesskey="n" rel="next">Arquivos de Amostra do Texinfo</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Detalhes-do-Comando-_0040.html" accesskey="p" rel="prev">Detalhes do Comando @</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="index.html" accesskey="u" rel="up">Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h2 class="appendix" id="Dicas-e-Sugest_00f5es"><span>Anexo B Dicas e Sugestões<a class="copiable-link" href="#Dicas-e-Sugest_00f5es"> &para;</a></span></h2>
+
+<p>Escritores(as) de manuais GNU deveriam consultar <a data-manual="standards" href="https://www.gnu.org/prep/standards/html_node/Manuais-GNU.html#Manuais-GNU">Manuais GNU</a> em <cite class="cite">Padrões GNU de Codificação</cite>. Aqui estão algumas outras dicas para
+escrever documentação do Texinfo:
+</p>
+<a class="index-entry-id" id="index-Dicas"></a>
+<a class="index-entry-id" id="index-Dicas-de-uso"></a>
+<a class="index-entry-id" id="index-Dicas-1"></a>
+<ul class="itemize mark-bullet">
+<li>Escrever no presente, não no passado ou no futuro.
+
+</li><li>Escrever ativamente! Por exemplo, escrever &ldquo;Nós recomendamos que &hellip;&rdquo;
+em vez de &ldquo;É recomendado que &hellip;&rdquo;.
+
+</li><li>Projetar teu manual de modo que possa ser lido sequencialmente, na medida do
+possível. As pessoas se cansam de ficar indo e voltando para encontrar
+informações que deveriam ser apresentadas a elas conforme necessário.
+
+</li><li>Usar 70 ou 72 como tua coluna de preenchimento. Linhas mais longas são
+difíceis para ler.
+
+</li><li>Incluir um aviso de copirraite e permissões de cópia.
+
+</li></ul>
+
+
+<h4 class="subsubheading" id="g_t_00cdndice_002c-_00cdndice_002c-_00cdndice_0021"><span>Índice, Índice, Índice!<a class="copiable-link" href="#g_t_00cdndice_002c-_00cdndice_002c-_00cdndice_0021"> &para;</a></span></h4>
+
+<ul class="itemize mark-bullet">
+<li>Escrever muitas entradas de índice, de maneiras diferentes. Você consegue
+escrever entradas de índice a medida que escreve o corpo do texto, ou
+escrevê-los depois.
+
+</li><li>Escrever entradas de índice somente onde um tópico for discutido
+significativamente. Por exemplo, não é útil indexar &ldquo;informações de
+depuração&rdquo; em um capítulo acerca de informe de defeitos. Alguém que queira
+saber acerca de informações de depuração certamente não as encontrará nesse
+capítulo.
+
+</li><li>Escrever os comandos de indexação que se refiram a uma seção inteira
+imediatamente depois do comando de seção. Escrever os comandos de indexação
+que se refiram a um parágrafo antes desse parágrafo; dessa maneira, uma
+entrada de índice aponta para a primeira página de um parágrafo que esteja
+dividido entre páginas.
+
+<p>No exemplo a seguir, uma linha em branco vem após a entrada do índice para
+&ldquo;Pulando&rdquo;:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@section O Cachorro e a Raposa
+@cindex Saltando, em geral
+@cindex Pulando
+
+@cindex Cachorro, preguiçoso, saltou sobre
+@cindex Cachorro preguiçoso saltou sobre
+@cindex Raposa, salta sobre cachorro
+@cindex Raposa rápida salta sobre cachorro
+A rápida raposa marrom salta sobre o cachorro preguiçoso.
+</pre></div></div>
+
+<p>(Observe que o exemplo mostra entradas para o mesmo conceito que são
+escritas de maneiras diferentes&mdash;&lsquo;<samp class="samp">cachorro preguiçoso</samp>&rsquo; e
+&lsquo;<samp class="samp">cachorro, preguiçoso</samp>&rsquo;&mdash;portanto, leitores(as) conseguem pesquisar o
+conceito de maneiras diferentes).
+</p>
+</li><li>Consistentemente maiusculize a primeira palavra de cada entrada do índice de
+conceitos ou consistentemente use letras minúsculas. Entradas concisas
+frequentemente exigem letras minúsculas; entradas mais longas para
+capitalização. Qualquer que seja a convenção de caso que você usar, por
+favor, use uma ou outra consistentemente! Misturar os dois estilos parece
+ruim.
+
+</li><li>Sempre capitalize ou use letras maiúsculas para as palavras em um índice
+para o qual isso seja adequado, como nomes de países ou siglas. Sempre use
+maiúsculas e minúsculas apropriadas para nomes que diferenciam maiúsculas de
+minúsculas, como aqueles em C ou Lisp.
+
+</li></ul>
+
+
+<h4 class="subsubheading" id="Frases-Completas"><span>Frases Completas<a class="copiable-link" href="#Frases-Completas"> &para;</a></span></h4>
+
+<p>Frases completas são mais fáceis de ler que &hellip;
+</p>
+<ul class="itemize mark-bullet">
+<li>Escreva entradas em uma lista detalhada como frases completas; ou, pelo
+menos, como frases completas. Expressões incompletas &hellip; estranhas
+&hellip; como esta.
+
+</li><li>Escrever a frase ou frase introdutória para uma lista ou tabela com vários
+itens como uma expressão completa. Não escreva &ldquo;Você consegue
+configurar:&rdquo;; em vez disso, escrever &ldquo;Você consegue configurar essas
+variáveis:&rdquo;. A expressão anterior parece cortada.
+</li></ul>
+
+
+<h4 class="subsubheading" id="Apresentando-Novos-Termos"><span>Apresentando Novos Termos<a class="copiable-link" href="#Apresentando-Novos-Termos"> &para;</a></span></h4>
+
+<ul class="itemize mark-bullet">
+<li>Introduzir novos termos para que um(a) leitor(a) que não os conheça consiga
+compreendê-los a partir do contexto; ou escrever uma definição para o termo.
+
+<p>Por exemplo, a seguir, os termos &ldquo;check in&rdquo;, &ldquo;register&rdquo; e &ldquo;delta&rdquo;
+estão todos aparecendo pela primeira vez; a frase de exemplo deveria ser
+reescrita de modo que eles sejam compreensíveis.
+</p>
+<blockquote class="quotation">
+<p>A função principal te auxilia no submeter/registrar de um arquivo em teu
+sistema de controle de versão e no registro de sucessivos conjuntos de
+mudanças nele como deltas.
+</p></blockquote>
+
+</li><li>Usar o comando <code class="code">@dfn</code> em torno de uma palavra sendo apresentada, para
+indicar que o(a) leitor(a) deveria não esperar já saber o significado e
+deveria esperar aprender o significado a partir dessa passagem.
+</li></ul>
+
+
+<h4 class="subsubheading" id="Exemplos-Ruins"><span>Exemplos Ruins<a class="copiable-link" href="#Exemplos-Ruins"> &para;</a></span></h4>
+
+<p>Aqui estão alguns exemplos de escrita ruim para se evitar:
+</p>
+<blockquote class="quotation">
+<p>Ao terminar de editar o arquivo, você precisa realizar um
+<code class="t">@dfn</code>{registro}.
+</p></blockquote>
+
+<p>Neste exemplo, digamos, &ldquo; &hellip; você precisa <code class="t">@dfn</code>{registrar} a
+nova versão.&rdquo; Isso flui melhor.
+</p>
+<blockquote class="quotation">
+<p>SCCS, RCS e outros sistemas de controle de versão realizam funções
+semelhantes de maneiras amplamente semelhantes (é essa semelhança que torna
+possível um modo de controle unificado como esse).
+</p></blockquote>
+
+<p>Neste exemplo, digamos, &ldquo;&hellip; torna possível uma interface unificada,
+tal como o modo VC.&rdquo;
+</p>
+
+<h4 class="subsubheading" id="Pontos-Finais-Fora-das-Aspas"><span>Pontos Finais Fora das Aspas<a class="copiable-link" href="#Pontos-Finais-Fora-das-Aspas"> &para;</a></span></h4>
+
+<p>Colocar pontos finais e outros sinais de pontuação <em class="emph">fora</em> das citações,
+a menos que a pontuação seja parte da citação. Essa prática vai contra
+algumas convenções editoriais nos Estados Unidos da América do Norte, mas
+habilita o(a) leitor(a) a distinguir entre o conteúdo da citação e a
+passagem inteira.
+</p>
+<p>Por exemplo, você deveria escrever a seguinte frase com o ponto final fora
+das aspas finais:
+</p>
+<div class="example">
+<pre class="example-preformatted">Evidentemente, &lsquo;<samp class="samp">au</samp>&rsquo; é uma abreviação para ``autor(a)''.
+</pre></div>
+
+<p>já que &lsquo;<samp class="samp">au</samp>&rsquo; <em class="emph">não</em> serve como uma abreviação para &lsquo;<samp class="samp">autor(a).</samp>&rsquo;
+(com um ponto final depois da palavra).
+</p>
+
+<h4 class="subsubheading" id="Linhas-em-Branco"><span>Linhas em Branco<a class="copiable-link" href="#Linhas-em-Branco"> &para;</a></span></h4>
+
+<ul class="itemize mark-bullet">
+<li>Inserir uma linha em branco entre um comando de seccionamento e a primeira
+frase ou parágrafo seguinte, ou entre os comandos de indexação associados ao
+comando de seccionamento e a primeira frase ou parágrafo seguinte, conforme
+mostrado na dica acerca de indexação. Isso torna o fonte mais fácil de ler.
+
+</li><li>Sempre inserir uma linha em branco antes de um comando <code class="code">@table</code> e
+depois de um comando <code class="code">@end table</code>; mas nunca inserir uma linha em
+branco após um comando <code class="code">@table</code>.
+
+<p>Por exemplo,
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">Tipos de raposa:
+
+@table @samp
+@item Rápida
+Pular sobre cachorros preguiçosos.
+</pre></div><pre class="example-preformatted">
+
+</pre><div class="group"><pre class="example-preformatted">@item Marrom
+Também pula sobre cachorros preguiçosos.
+@end table
+
+</pre></div><div class="group"><pre class="example-preformatted">@noindent
+Por outro lado, ...
+</pre></div></div>
+
+<p>Inserir linhas em branco antes e depois de <code class="code">@itemize</code> &hellip;
+<code class="code">@end itemize</code> e de <code class="code">@enumerate</code> &hellip; <code class="code">@end enumerate</code>
+da mesma maneira.
+</p></li></ul>
+
+
+<h4 class="subsubheading" id="Espa_00e7os"><span>Espaços<a class="copiable-link" href="#Espa_00e7os"> &para;</a></span></h4>
+
+<p>Não usar espaços para formatar um arquivo do Texinfo, exceto dentro de
+<code class="code">@example</code> &hellip; <code class="code">@end example</code> e outros ambientes e comandos
+literais.
+</p>
+<p>Por exemplo, TeX preenche o seguinte:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">   @kbd{C-x v}
+   @kbd{M-x vc-next-action}
+      Realizar a próxima operação lógica
+      sobre o arquivo controlado por versão
+      correspondente ao buffer atual.
+</pre></div></div>
+
+<p>de modo que se parece com isto:
+</p>
+<blockquote class="quotation">
+<p>&lsquo;C-x v&rsquo; &lsquo;M-x vc-next-action&rsquo; Realizar a próxima operação lógica sobre o
+arquivo controlado por versão correspondente ao buffer atual.
+</p></blockquote>
+
+<p>Nesse caso, o texto deveria ser formatado com <code class="code">@table</code>, <code class="code">@item</code>
+e <code class="code">@itemx</code>, para criar uma tabela.
+</p>
+
+<h4 class="subsubheading" id="g_t_0040code_002c-_0040samp_002c-_0040var-e-_002d_002d_002d"><span>@code, @samp, @var e &lsquo;<samp class="samp">---</samp>&rsquo;<a class="copiable-link" href="#g_t_0040code_002c-_0040samp_002c-_0040var-e-_002d_002d_002d"> &para;</a></span></h4>
+
+<ul class="itemize mark-bullet">
+<li>Usar <code class="code">@code</code> em torno de símbolos da Lisp, incluindo nomes de
+comando. Por exemplo,
+
+<div class="example">
+<pre class="example-preformatted">A função principal é @code{vc-next-action}, ...
+</pre></div>
+
+</li><li>Evitar colocar letras como &lsquo;<samp class="samp">s</samp>&rsquo; imediatamente depois de um comando
+&lsquo;<samp class="samp">@code</samp>&rsquo;. Essas letras aparentam ruins.
+
+</li><li>Usar <code class="code">@var</code> em torno de metavariáveis. Não escrever colchetes
+angulares ao redor delas.
+
+</li><li>Usar três hifens em uma linha, &lsquo;<samp class="samp">---</samp>&rsquo;, para indicar um travessão
+longo. O formatador do Info reduz três hifens para dois; um travessão longo
+é tipografado em outros formatos de saída.
+</li></ul>
+
+
+<h4 class="subsubheading" id="N_00f3s-de-Invoca_00e7_00e3o-de-Programa"><span>Nós de Invocação de Programa<a class="copiable-link" href="#N_00f3s-de-Invoca_00e7_00e3o-de-Programa"> &para;</a></span></h4>
+
+<p>Você pode invocar programas como Emacs, GCC e <code class="code">gawk</code> a partir de um
+shell. A documentação para cada programa deveria conter uma seção que
+descreva isso. Infelizmente, se os nomes e títulos dos nós para essas seções
+forem todos diferentes, será difícil para usuários(as) encontrá-los.
+</p>
+<p>Portanto, existe uma convenção para nominar tais seções com uma frase
+começando com a palavra &lsquo;Invocando&rsquo;, como em &lsquo;Invocando Emacs&rsquo;; dessa
+maneira, usuários(as) conseguem encontrar a seção facilmente.
+</p>
+
+<h4 class="subsubheading" id="Fun_00e7_00f5es-C"><span>Funções C<a class="copiable-link" href="#Fun_00e7_00f5es-C"> &para;</a></span></h4>
+
+<p>Quando você usar <code class="code">@example</code> para descrever as convenções de chamada de
+uma função da C, usar a sintaxe ANSI C, assim:
+</p>
+<div class="example">
+<pre class="example-preformatted">void dld_init (char *@var{caminho});
+</pre></div>
+
+<p>E na discussão subsequente, referenciar os valores dos argumentos escrevendo
+os mesmos nomes dos argumentos, novamente realçados com <code class="code">@var</code>.
+</p>
+<p>Além disso, é melhor evitar escrever <code class="code">#include</code> acima da declaração
+apenas para indicar que a função está declarada em um arquivo de
+cabeçalho. A prática pode dar a impressão errada de que <code class="code">#include</code>
+pertence próximo à declaração da função. Ou indique explicitamente qual
+arquivo de cabeçalho contém a declaração ou, melhor ainda, nomeie o arquivo
+de cabeçalho usado para um grupo de funções no início da seção que descreva
+as funções.
+</p>
+<a class="anchor" id="texi_002delements_002dby_002dsize"></a><h4 class="subsubheading" id="Comprimento-do-N_00f3"><span>Comprimento do Nó<a class="copiable-link" href="#Comprimento-do-N_00f3"> &para;</a></span></h4>
+
+<p>Manter nós (seções) para um comprimento razoável, qualquer que seja o
+razoável no contexto determinado. Não hesitar em dividir nós longos em
+subnós e ter uma extensa estrutura de árvore; é para isso que eles
+existem. Muitas vezes, leitores(as) provavelmente tentarão encontrar um
+ponto específico no manual, usando pesquisa, indexação ou simplesmente
+adivinhação, em vez de ler tudo do começo ao fim.
+</p>
+<p>Você consegue usar o utilitário <code class="command">texi-elements-by-size</code> para ver uma
+lista de todos os nós (ou seções) no documento, ordenados por tamanho (ou
+linhas ou palavras), para encontrar candidatos para divisão. Ele está no
+subdiretório <samp class="file">util/</samp> dos fontes do Texinfo.
+</p>
+
+<h4 class="subsubheading" id="Capitaliza_00e7_00e3o"><span>Capitalização<a class="copiable-link" href="#Capitaliza_00e7_00e3o"> &para;</a></span></h4>
+
+<ul class="itemize mark-bullet">
+<li>Coloque &ldquo;Texinfo&rdquo; em maiúscula; é um nome. Não escrever o &lsquo;<samp class="samp">x</samp>&rsquo; ou o
+&lsquo;<samp class="samp">i</samp>&rsquo; em maiúsculas.
+
+</li><li>Coloque &ldquo;Info&rdquo; em maiúscula; é um nome.
+
+</li><li>Escrever TeX usando o comando <code class="code">@TeX{}</code>. Observe as letras
+maiúsculas &lsquo;<samp class="samp">T</samp>&rsquo; e &lsquo;<samp class="samp">X</samp>&rsquo;. Esse comando faz com que os formatadores
+tipografem o nome de acordo com os desejos de Donald Knuth, que escreveu o
+TeX. (Da mesma forma <code class="code">@LaTeX{}</code> para LaTeX).
+</li></ul>
+
+
+<h4 class="subsubheading" id="E-Finalmente-_2026"><span>E Finalmente &hellip;<a class="copiable-link" href="#E-Finalmente-_2026"> &para;</a></span></h4>
+
+<ul class="itemize mark-bullet">
+<li>Escrever observações para você mesmo(a) no finalzinho de um arquivo Texinfo
+depois do <code class="code">@bye</code>. Nenhum dos processadores processa texto após o
+<code class="code">@bye</code>; é como se o texto estivesse dentro de <code class="code">@ignore</code> &hellip;
+<code class="code">@end ignore</code>.
+</li></ul>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Arquivos-de-Amostra-do-Texinfo.html">Arquivos de Amostra do Texinfo</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Detalhes-do-Comando-_0040.html">Detalhes do Comando @</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="index.html">Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

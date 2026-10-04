@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Formatos de Saída (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Visão geral dos formatos suportados de saída.">
+<meta name="keywords" content="Visão geral dos formatos suportados de saída.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Vis_00e3o-Geral.html" rel="up" title="Visão Geral">
+<link href="Arquivos-do-Info.html" rel="next" title="Arquivos do Info">
+<link href="Informando-Defeitos.html" rel="prev" title="Informando Defeitos">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Formatos-de-Sa_00edda">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Arquivos-do-Info.html" accesskey="n" rel="next">Arquivos do Info</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Informando-Defeitos.html" accesskey="p" rel="prev">Informando Defeitos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Vis_00e3o-Geral.html" accesskey="u" rel="up">Visão Geral do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Formatos-de-Sa_00edda-1"><span>1.2 Formatos de Saída<a class="copiable-link" href="#Formatos-de-Sa_00edda-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Formatos-de-saida"></a>
+<a class="index-entry-id" id="index-Estrutura-de-retaguarda_002c-formatos-de-saida"></a>
+
+<p>Aqui está uma visão geral dos formatos de saída atualmente suportados por
+Texinfo.
+</p>
+<dl class="table">
+<dt><a id="index-Saida-do-Info_002c-visao-geral"></a><span>Info<a class="copiable-link" href="#index-Saida-do-Info_002c-visao-geral"> &para;</a></span></dt>
+<dd><p>(Gerado via <code class="command">texi2any</code>). O formato Info é em sua maior parte
+transliteração de texto plano do fonte Texinfo. Ele adiciona uns poucos
+caracteres de controle para fornecer informação de navegação para
+referências cruzadas, índices, e assim por diante. O subsistema Emacs Info
+(veja-se <cite class="cite"><a data-manual="info" href="https://www.gnu.org/software/emacs/manual/html_node/info/index.html#Top">Info</a></cite>), e o programa autônomo <code class="command">info</code>
+(veja-se <cite class="cite"><a data-manual="info-stnd" href="https://www.gnu.org/software/texinfo/manual/info-stnd/html_node/index.html#Top">GNU Info</a></cite>), entre outros, conseguem ler esses
+arquivos. Veja-se <a class="xref" href="Arquivos-do-Info.html">Arquivos do Info</a> e <a class="ref" href="Criando-e-Instalando-Arquivos-Info.html">Criando e Instalando Arquivos Info</a>.
+</p>
+</dd>
+<dt><a id="index-Saida-gerada-de-texto-simples_002c-visao-geral"></a><span>Texto simples<a class="copiable-link" href="#index-Saida-gerada-de-texto-simples_002c-visao-geral"> &para;</a></span></dt>
+<dd><p>(Gerado via <code class="command">texi2any --plaintext</code>). Essa é quase a mesma que a
+saída Info com os caracteres de controle de navegação omitidos.
+</p>
+</dd>
+<dt><a id="index-Saida-gerada-de-HTML-visao-geral"></a><span>HTML<a class="copiable-link" href="#index-Saida-gerada-de-HTML-visao-geral"> &para;</a></span></dt>
+<dd><p>(Gerado via <code class="command">texi2any --html</code>). HTML, que significa Hyper Text
+Markup Language, é a linguagem para escrever documentos na World Wide
+Web. Os navegadores da Web conseguem renderizar essa linguagem
+online. Existem muitas versões de HTML, tanto diferentes usos mais comuns
+quanto variações específicas de navegador. <code class="command">texi2any</code> usa um
+subconjunto da linguagem que consegue ser interpretado por qualquer
+navegador comum, intencionalmente não usando muitas etiquetas mais novas ou
+menos amplamente suportadas. Embora a saída nativa seja, portanto, bastante
+simples, ela pode ser personalizada em vários níveis, se
+desejado. Veja-se <a class="xref" href="Gerando-HTML.html">Gerando HTML</a>.
+</p>
+</dd>
+<dt><a id="index-Saida-EPUB-3_002c-visao-geral"></a><span>EPUB 3<a class="copiable-link" href="#index-Saida-EPUB-3_002c-visao-geral"> &para;</a></span></dt>
+<dd><p>(Gerada via <code class="command">texi2any --epub3</code>). EPUB é um formato projetado para
+leitura de livros eletrônicos em dispositivos portáteis. É um derivado do
+HTML. O formato foi desenvolvido pelo International Digital Publishing
+Forum (IDPF), que agora faz parte do World Wide Web Consortium (W3C). A
+mais recente grande revisão, EPUB 3, data de 2011.
+</p>
+
+</dd>
+<dt><a class="index-entry-id" id="index-dvips-_0028programa_0029"></a>
+<a class="index-entry-id" id="index-xdvi"></a>
+<a id="index-Saida-DVI_002c-visao-geral"></a><span>DVI<a class="copiable-link" href="#index-Saida-DVI_002c-visao-geral"> &para;</a></span></dt>
+<dd><p>(Gerada via <code class="command">texi2dvi</code>). O formato binário DeVIce Independent é
+liberado pelo programa tipográfico TeX (<a class="uref" href="http://tug.org">http://tug.org</a>). Essa é
+então lida por um &lsquo;controlador&rsquo; DVI, o qual conhece os atuais comandos
+específicos de dispositivo que podem ser visualizados ou impressos,
+notadamente Dvips para tradução para PostScript (veja-se <cite class="cite"><a data-manual="dvips" href="https://tug.org/texinfohtml/dvips.html#Top">Dvips</a></cite>) e Xdvi para visualização em uma tela do X
+(<a class="uref" href="http://sourceforge.net/projects/xdvi/">http://sourceforge.net/projects/xdvi/</a>). Veja-se <a class="ref" href="Impresso-com-TeX.html">Formatando e Imprimindo com TeX</a>. (Esteja ciente de que a linguagem do Texinfo é muito diferente das
+linguagens usuais do TeX: TeX simples, LaTeX, ConTeXt, entre
+outras).
+</p>
+</dd>
+<dt><a id="index-Saida-gerada-PostScript_002c-visao-geral"></a><span>PostScript<a class="copiable-link" href="#index-Saida-gerada-PostScript_002c-visao-geral"> &para;</a></span></dt>
+<dd><p>(Gerada via <code class="command">texi2dvi --ps</code>). PostScript é uma linguagem de
+descrição de página que se tornou amplamente usada por volta de 1985 e ainda
+é usada hoje em dia. <a class="uref" href="https://en.wikipedia.org/wiki/PostScript">https://en.wikipedia.org/wiki/PostScript</a> dá uma
+descrição básica e mais preferências.   Por padrão, Texinfo usa o programa
+<code class="command">dvips</code> para converter a saída DVI do TeX para PostScript.
+Veja-se <cite class="cite"><a data-manual="dvips" href="https://tug.org/texinfohtml/dvips.html#Top">Dvips</a></cite>.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-Beebe_002c-Nelson"></a>
+<a id="index-Saida-gerada-PDF_002c-visao-geral"></a><span>PDF<a class="copiable-link" href="#index-Saida-gerada-PDF_002c-visao-geral"> &para;</a></span></dt>
+<dd><p>(Gerada via <code class="command">texi2dvi --pdf</code> ou <code class="command">texi2pdf</code>).  Esse formato
+foi desenvolvido pela Adobe Systems para intercâmbio de documento portável,
+baseado na linguagem PostScript prévia deles.   Ele consegue representar a
+exata aparência de um documento, incluindo fontes e gráficos, e suportar
+escalonamento arbitrário.   Ele é entendido como sendo independente de
+plataforma e facilmente visualizável, entre outros objetivos de projeto;
+<a class="uref" href="https://en.wikipedia.org/wiki/Portable_Document_Format">https://en.wikipedia.org/wiki/Portable_Document_Format</a> e
+<a class="uref" href="http://tug.org/TUGboat/tb22-3/tb72beebe-pdf.pdf">http://tug.org/TUGboat/tb22-3/tb72beebe-pdf.pdf</a> tem algum
+conhecimento.   Por padrão, Texinfo usa o programa <code class="command">pdftex</code>, uma
+extensão de TeX, para gerar PDF; veja-se
+<a class="uref" href="http://tug.org/applications/pdftex">http://tug.org/applications/pdftex</a>. Veja-se <a class="ref" href="Formatar-com-texi2dvi-ou-texi2pdf.html#Sa_00edda-PDF">Saída PDF</a>.
+</p>
+</dd>
+<dt><a id="index-Saida-LaTeX_002c-visao-geral"></a><span>LaTeX<a class="copiable-link" href="#index-Saida-LaTeX_002c-visao-geral"> &para;</a></span></dt>
+<dd><p>(Gerada via <code class="command">texi2any --latex</code>). Esse é um sistema de tipografia
+construído sobre o TeX. Foi lançado originalmente por Leslie Lamport em
+1984. O LaTeX adiciona mais definições para aquelas do TeX e tem uma
+ampla gama de pacotes construídos sobre ele. O LaTeX é onipresente na
+literatura acadêmica. A versão atual do LaTeX está sob desenvolvimento
+ativo; mais informações estão disponíveis online em
+<a class="uref" href="https://www.latex-project.org/">https://www.latex-project.org/</a>.
+</p>
+<p>A saída do LaTeX pode ser processada posteriormente em DVI, PostScript ou
+PDF. Em teoria, a saída do LaTeX deveria permitir muito mais
+personalização da saída do que seria possível com a implementação TeX
+simples do Texinfo.
+</p>
+
+</dd>
+<dt><a class="index-entry-id" id="index-Saida-XML-DocBook_002c-visao-geral"></a>
+<a id="index-Saida-DocBook_002c-visao-geral"></a><span>DocBook<a class="copiable-link" href="#index-Saida-DocBook_002c-visao-geral"> &para;</a></span></dt>
+<dd><p>(Gerada via <code class="command">texi2any --docbook</code>). Esse é um formato baseado em XML,
+primariamente para documentação técnica.   Ele, por conseguinte, assume
+alguma semelhança, em linhas gerais, com Texinfo.   Veja-se
+<a class="uref" href="http://www.docbook.org">http://www.docbook.org</a>. Vários conversores de DocBook <em class="emph">para</em>
+Texinfo também foram desenvolvidos; vejam-se as páginas web do Texinfo.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-Saida-Texinfo-XML_002c-visao-geral"></a>
+<a class="index-entry-id" id="index-DTD_002c-para-Texinfo-XML"></a>
+<a class="index-entry-id" id="index-texinfo_002edtd"></a>
+<a class="index-entry-id" id="index-txixml2texi"></a>
+<a id="index-Saida-XML-Texinfo_002c-visao-geral"></a><span>XML<a class="copiable-link" href="#index-Saida-XML-Texinfo_002c-visao-geral"> &para;</a></span></dt>
+<dd><p>(Gerada via <code class="command">texi2any --xml</code>). A saída XML do <code class="command">texi2any</code>,
+diferente de todos os outros formatos de saída, é uma transliteração do
+fonte do Texinfo, em vez de uma saída finalizada. Os arquivos XML do Texinfo
+não podem ser visualizados em navegadores da web ou outros programas.
+</p>
+<p>XML é uma especificação genérica de sintaxe usável para qualquer tipo de
+conteúdo. (Uma referência está em <a class="uref" href="http://www.w3.org/XML">http://www.w3.org/XML</a>). O propósito
+da saída XML do Texinfo é o de permitir processamento posterior por
+ferramentas XML. A sintaxe de saída é definida em um DTD de XML, que está
+contido em um arquivo <samp class="file">texinfo.dtd</samp> incluído na distribuição do fonte
+do Texinfo.
+</p>
+<p>A distribuição do fonte do Texinfo inclui um script utilitário
+<samp class="file">txixml2texi</samp> para fazer uma transformação reversa para recriar o
+conteúdo Texinfo original (exceto para macros e condicionais do Texinfo).
+</p>
+</dd>
+</dl>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Arquivos-do-Info.html">Arquivos do Info</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Informando-Defeitos.html">Informando Defeitos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Vis_00e3o-Geral.html">Visão Geral do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

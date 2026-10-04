@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Personalização de Recursos do HTML (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Personalização de Recursos do HTML (GNU Texinfo 7.3)">
+<meta name="keywords" content="Personalização de Recursos do HTML (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html" rel="up" title="Personalização da Saída Gerada HTML">
+<link href="Personaliza_00e7_00e3o-de-C_00f3digo-HTML-Inserido.html" rel="next" title="Personalização de Código HTML Inserido">
+<link href="Personaliza_00e7_00e3o-da-Navega_00e7_00e3o-e-de-Cabe_00e7alhos.html" rel="prev" title="Personalização da Navegação e de Cabeçalhos">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Personaliza_00e7_00e3o-de-Recursos-do-HTML">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-de-C_00f3digo-HTML-Inserido.html" accesskey="n" rel="next">Personalização de Código HTML Inserido</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-da-Navega_00e7_00e3o-e-de-Cabe_00e7alhos.html" accesskey="p" rel="prev">Personalização da Navegação e de Cabeçalhos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html" accesskey="u" rel="up">Personalização da Saída Gerada HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Personaliza_00e7_00e3o-de-Recursos-do-HTML-1"><span>22.8.4 Personalização de Recursos do HTML<a class="copiable-link" href="#Personaliza_00e7_00e3o-de-Recursos-do-HTML-1"> &para;</a></span></h4>
+
+<a class="index-entry-id" id="index-USE_005fXML_005fSYNTAX"></a>
+<a class="index-entry-id" id="index-Personalizacao-do-DOCTYPE"></a>
+<a class="index-entry-id" id="index-DOCTYPE-para-HTML"></a>
+<p>Por padrão, o HTML é gerado, mas você consegue configurar
+<code class="code">USE_XML_SYNTAX</code> para a finalidade de gerar código compatível com
+XML. A principal diferença é que &lsquo;<samp class="samp">/&gt;</samp>&rsquo; em vez de &lsquo;<samp class="samp">&gt;</samp>&rsquo; encerra
+etiquetas como <code class="code">&lt;img&gt;</code> ou <code class="code">&lt;link&gt;</code> que não têm uma etiqueta de
+fechamento (essas etiquetas criam os assim chamados <em class="dfn">elementos void</em>).
+</p>
+<p>Para configurar o <em class="dfn">DOCTYPE</em>, configure a variável de personalização
+<code class="code">DOCTYPE</code>. O padrão é o DOCTYPE simples sem DTD usado para HTML5.
+</p>
+<p>Você consegue configurar um arquivo compatível com XML começando:
+</p><div class="example">
+<pre class="example-preformatted"><code class="command">texi2any</code> --html meu_manual.texi -c USE_XML_SYNTAX \
+   -c DOCTYPE='&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE html&gt;'
+</pre></div>
+
+<p>Você também poderia configurar o DOCTYPE como HTML 4.01 Transitório:
+</p><div class="example">
+<pre class="example-preformatted"><code class="command">texi2any</code> --html meu_manual.texi -c DOCTYPE=\
+'&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
+  &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;'
+</pre></div>
+
+<a class="index-entry-id" id="index-USE_005fISO"></a>
+<a class="index-entry-id" id="index-USE_005fNUMERIC_005fENTITY-para-HTML"></a>
+<a class="index-entry-id" id="index-OUTPUT_005fCHARACTERS-para-HTML"></a>
+<p>Por padrão, entidades são usadas para caracteres duplicados de aspas simples
+(veja-se <a class="pxref" href="Inserindo-Aspas.html">Inserindo Aspas</a>) e &lsquo;<samp class="samp">---</samp>&rsquo; e &lsquo;<samp class="samp">--</samp>&rsquo;
+(veja-se <a class="pxref" href="Conven_00e7_00f5es.html">Convenções Sintáticas Gerais</a>). Configure <code class="code">USE_ISO</code> como &lsquo;<samp class="samp">0</samp>&rsquo; no caso
+improvável de você querer uma saída mais simples. Por padrão, entidades
+textuais são usadas quando possível. Configure <code class="code">USE_NUMERIC_ENTITY</code>
+para usar somente entidades numéricas. Configure <code class="code">OUTPUT_CHARACTERS</code>
+para gerar caracteres acentuados baseados na codificação da saída gerada em
+vez de nas entidades.
+</p>
+<a class="index-entry-id" id="index-NO_005fCUSTOM_005fHTML_005fATTRIBUTE"></a>
+<p>Por padrão, um atributo personalizado, conforme permitido pelo padrão, é
+usado para fornecer o nome do manual alvo em referências cruzadas. Se não
+for desejável, por exemplo, gerar XHTML estrito, você pode configurar
+<code class="code">NO_CUSTOM_HTML_ATTRIBUTE</code> para evitar atributos personalizados sendo
+gerados.
+</p>
+<a class="index-entry-id" id="index-COPIABLE_005fLINKS"></a>
+<p>Linques copiáveis são gerados para alvos de linque para os comandos de
+definição (veja-se <a class="pxref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a>), comandos de tabela
+(veja-se <a class="pxref" href="Tabelas-de-Duas-Colunas.html">Fazendo Uma Tabela de Duas Colunas</a>) onde uma entrada de índice estiver
+definida e cabeçalhos. Um linque aparece como um sinal &lsquo;&#x00B6;&rsquo; que
+aparece quando você passa o ponteiro do mouse sobre o texto do
+título. Desconfigure <code class="code">COPIABLE_LINKS</code> para evitar que linques copiáveis
+sejam gerados.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-de-C_00f3digo-HTML-Inserido.html">Personalização de Código HTML Inserido</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-da-Navega_00e7_00e3o-e-de-Cabe_00e7alhos.html">Personalização da Navegação e de Cabeçalhos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html">Personalização da Saída Gerada HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

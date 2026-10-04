@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Dividindo HTML (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como saída HTML é dividida.">
+<meta name="keywords" content="Como saída HTML é dividida.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Gerando-HTML.html" rel="up" title="Gerando HTML">
+<link href="CSS-do-HTML.html" rel="next" title="CSS do HTML">
+<link href="Tradu_00e7_00e3o-do-HTML.html" rel="prev" title="Tradução do HTML">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Dividindo-HTML">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="CSS-do-HTML.html" accesskey="n" rel="next">CSS do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Tradu_00e7_00e3o-do-HTML.html" accesskey="p" rel="prev">Tradução do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Gerando-HTML.html" accesskey="u" rel="up">Gerando HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Dividindo-HTML-1"><span>22.2 Dividindo HTML<a class="copiable-link" href="#Dividindo-HTML-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Dividir-saida-HTML"></a>
+<a class="index-entry-id" id="index-Saida-HTML-dividir"></a>
+
+<p>Ao dividir a saída gerada em nós (que é o padrão), <code class="command">texi2any</code>
+escreve a saída gerada HTML em (basicamente) um arquivo de saída por
+<code class="code">@node</code> do fonte do Texinfo.
+</p>
+<p>Cada nome de arquivo da saída gerada é o nome do nó com espaços substituídos
+por &lsquo;<samp class="samp">-</samp>&rsquo; e caracteres especiais mudados para &lsquo;<samp class="samp">_</samp>&rsquo; seguidos pelo
+ponto de código deles em hexadecimal (veja-se <a class="pxref" href="Xref-do-HTML.html">Referências Cruzadas do HTML</a>). Isso é para
+torná-lo portável e fácil de usar como um nome de arquivo. No caso incomum
+de dois nós terem o mesmo nome depois desse tratamento, eles serão escritos
+consecutivamente no mesmo arquivo, com âncoras HTML, de modo que cada um
+possa ser referido independentemente.
+</p>
+<p>Se <code class="command">texi2any</code> for executado em um sistema que não distinga
+maiúsculas e minúsculas em nomes de arquivos, nós que sejam iguais, exceto
+pelas maiúsculas e minúsculas (por exemplo, &lsquo;<samp class="samp">index</samp>&rsquo; e &lsquo;<samp class="samp">Index</samp>&rsquo;),
+também serão inseridos no mesmo arquivo de saída com âncoras. Você também
+consegue fingir que está em um sistema de arquivos que não diferencia
+maiúsculas de minúsculas, configurando a variável de personalização
+<code class="code">CASE_INSENSITIVE_FILENAMES</code>.
+</p>
+<p>Também é possível dividir nos capítulos ou nas seções com <samp class="option">--split</samp>
+(veja-se <a class="pxref" href="Invocando-texi2any.html#Dividindo-Sa_00edda-Gerada">Dividindo Saída Gerada</a>). Nesse caso, os nomes dos arquivos serão
+construídos depois do nome do nó associado com o comando de seccionamento
+relevante. Além disso, a menos que <samp class="option">--no-node-files</samp> seja
+especificada, um arquivo de redireção será gerado para cada nó, para a
+finalidade de suportar mais confiavelmente as referências cruzadas para esse
+manual (veja-se <a class="pxref" href="Xref-do-HTML.html">Referências Cruzadas do HTML</a>).
+</p>
+<p>Ao dividir, os arquivos da saída gerada HTML serão escritos em um
+subdiretório. O nome do subdiretório é derivado do nome base (ou seja,
+qualquer extensão será removida), com <code class="code">_html</code> posposto. Por exemplo, a
+saída HTML para <samp class="file">gcc.texi</samp> seria escrita em um subdiretório nominado de
+&lsquo;<samp class="samp">gcc_html/</samp>&rsquo;. O nome do subdiretório é baseado no <code class="code">@setfilename</code>
+ou no nome do arquivo de entrada (veja-se <a class="pxref" href="_0040setfilename.html#Configurando-o-Nome-do-Arquivo-da-Sa_00edda-Gerada">Configurando o Nome do Arquivo da Saída Gerada</a>).
+</p>
+<p>Em qualquer caso, o arquivo da saída gerada do nível superior dentro do
+diretório é sempre nominado &lsquo;<samp class="samp">index.html</samp>&rsquo;.
+</p>
+<p>A saída monolítica (<code class="code">--no-split</code>) será nominada de acordo com
+<code class="code">@setfilename</code>, se presente, (com qualquer extensão &lsquo;<samp class="samp">.info</samp>&rsquo;
+substituída por &lsquo;<samp class="samp">.html</samp>&rsquo;); <code class="code">--output</code> (o argumento será usado
+literalmente); ou baseada no nome do arquivo de entrada como um último
+recurso (veja-se <a class="pxref" href="_0040setfilename.html#Configurando-o-Nome-do-Arquivo-da-Sa_00edda-Gerada">Configurando o Nome do Arquivo da Saída Gerada</a>).
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="CSS-do-HTML.html">CSS do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Tradu_00e7_00e3o-do-HTML.html">Tradução do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Gerando-HTML.html">Gerando HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

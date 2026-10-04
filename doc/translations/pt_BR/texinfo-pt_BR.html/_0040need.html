@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@need (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Outra maneira de impedir quebras de página indesejadas.">
+<meta name="keywords" content="Outra maneira de impedir quebras de página indesejadas.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Quebras.html" rel="up" title="Quebras">
+<link href="_0040group.html" rel="prev" title="@group">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="g_t_0040need">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040group.html" accesskey="p" rel="prev"><code class="code">@group</code>: Impedir Quebras de Página</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Quebras.html" accesskey="u" rel="up">Forçando e Impedindo Quebras</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="g_t_0040need-mils_003a-Impedir-Quebras-de-P_00e1gina"><span>13.10 <code class="code">@need <var class="var">mils</var></code>: Impedir Quebras de Página<a class="copiable-link" href="#g_t_0040need-mils_003a-Impedir-Quebras-de-P_00e1gina"> &para;</a></span></h3>
+
+<a class="anchor" id="need"></a><a class="index-entry-id" id="index-need"></a>
+<a class="index-entry-id" id="index-Precisa-de-espaco-no-final-da-pagina"></a>
+<a class="index-entry-id" id="index-Mils_002c-argumento-para-_0040need"></a>
+
+<p>Uma linha contendo somente <code class="code">@need <var class="var">n</var></code> inicia uma nova página em
+um manual impresso se menos que <var class="var">n</var> mils (milésimos de polegada)
+permanecerem na página atual.  Não use chaves ao redor do argumento
+<var class="var">n</var>.  O comando <code class="code">@need</code> não tem efeito em outros formatos de
+saída, pois eles não são paginados.
+</p>
+<p>Este parágrafo é precedido por um comando <code class="code">@need</code> que inicia uma nova
+página na saída impressa se restarem menos que 800 mils (oito décimos de
+polegada) na página.  Parece algo assim:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@need 800
+Este parágrafo é precedido por ...
+</pre></div></div>
+
+<a class="index-entry-id" id="index-Orfas_002c-linhas_002c-impedindo"></a>
+<p>O comando <code class="code">@need</code> é útil para evitar órfãs: linhas únicas na parte
+inferior das páginas impressas.
+</p>
+
+</div>
+
+
+
+</body>
+</html>

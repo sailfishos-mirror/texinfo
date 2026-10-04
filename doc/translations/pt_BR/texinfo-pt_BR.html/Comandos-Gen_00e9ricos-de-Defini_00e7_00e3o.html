@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Comandos Genéricos de Definição (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Sem entradas automáticas de índice.">
+<meta name="keywords" content="Sem entradas automáticas de índice.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Comandos-de-Defini_00e7_00e3o.html" rel="up" title="Comandos de Definição">
+<link href="Conven_00e7_00f5es-de-Comandos-de-Defini_00e7_00e3o.html" rel="next" title="Convenções de Comandos de Definição">
+<link href="Comandos-de-Defini_00e7_00e3o-em-Detalhe.html" rel="prev" title="Comandos de Definição em Detalhe">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+dt.def-line {font-size: 1rem}
+span:hover a.copiable-link {visibility: visible}
+strong.def-name {font-family: monospace; font-weight: bold}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Comandos-Gen_00e9ricos-de-Defini_00e7_00e3o">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Conven_00e7_00f5es-de-Comandos-de-Defini_00e7_00e3o.html" accesskey="n" rel="next">Convenções para Escrita de Definições</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Comandos-de-Defini_00e7_00e3o-em-Detalhe.html" accesskey="p" rel="prev">Os Comandos de Definição</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Comandos-de-Defini_00e7_00e3o.html" accesskey="u" rel="up">Comandos de Definição</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Comandos-Gen_00e9ricos-de-Defini_00e7_00e3o-1"><span>14.7 Comandos Genéricos de Definição<a class="copiable-link" href="#Comandos-Gen_00e9ricos-de-Defini_00e7_00e3o-1"> &para;</a></span></h3>
+
+<p>O Texinfo fornece comandos para definições que não produzem entradas
+automáticas de índice.
+</p>
+<a class="index-entry-id" id="index-defblock"></a>
+<a class="index-entry-id" id="index-defline"></a>
+<a class="index-entry-id" id="index-deftypeline"></a>
+<p>Você cria um ambiente genérico de definição com &lsquo;<samp class="samp">@defblock</samp>&rsquo;
+emparelhado com &lsquo;<samp class="samp">@end defblock</samp>&rsquo;.  Nesse ambiente, use uma linha
+<code class="code">@defline</code> ou <code class="code">@deftypeline</code> para cada símbolo que você
+documentar.  Por exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">@defblock
+@defline Macro mac (arg1, arg2)
+Descrição de mac.
+@deftypeline Builtin int foo (int @var{bar})
+Descrição de foo.
+@end defblock
+</pre></div>
+
+<p>Isso produz a saída:
+</p>
+<dl class="defblock def-block">
+<dt class="defline def-line"><span class="category-def">Macro: </span><strong class="def-name">mac</strong> <var class="def-var-arguments">(arg1, arg2)</var></dt>
+<dd><p>Descrição de macro.
+</p></dd><dt class="deftypeline def-line"><span class="category-def">Builtin: </span><code class="def-type">int</code> <strong class="def-name">foo</strong> <code class="def-code-arguments">(int <var class="var">bar</var>)</code></dt>
+<dd><p>Descrição de foo.
+</p></dd></dl>
+
+<p>A sintaxe de <code class="code">@defline</code> é semelhante àquela de <code class="code">@deffn</code>.  O
+primeiro argumento fornece uma categoria para a definição.  Siga isso com o
+nome do símbolo, seguido por quaisquer parâmetros.  Você deveria envolver
+com chaves quaisquer argumentos contendo espaços.
+</p>
+<p>Você usa <code class="code">@deftypeline</code> de maneira semelhante a <code class="code">@deftypefn</code>,
+seguindo a categoria com um tipo de dado e marcando quaisquer parâmetros com
+<code class="code">@var</code>. (Veja-se <a class="xref" href="Fun_00e7_00f5es-Tipadas.html">Funções em Linguagens Tipadas</a>).
+</p>
+<p>Para compartilhar a mesma descrição para vários símbolos, você pode juntar
+várias linhas <code class="code">@defline</code>.  Por exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">@defblock
+@defline Função set-var (valor)
+@defline {Variável Configurável} var
+Descrição de set-var e var.
+@end defblock
+</pre></div>
+
+<p>Isso produz a saída:
+</p>
+<dl class="defblock def-block">
+<dt class="defline def-line"><span class="category-def">Function: </span><strong class="def-name">set-var</strong> <var class="def-var-arguments">(value)</var></dt>
+<dt class="defline def-line"><span class="category-def">Settable Variable: </span><strong class="def-name">var</strong></dt>
+<dd><p>Descrição de set-var e de var.
+</p></dd></dl>
+
+<p>Possivelmente seja útil definir macros de linha (veja-se <a class="pxref" href="Macros-de-Linha.html">Macros de Linha</a>) em
+combinação com esses comandos.
+</p>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Conven_00e7_00f5es-de-Comandos-de-Defini_00e7_00e3o.html">Convenções para Escrita de Definições</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Comandos-de-Defini_00e7_00e3o-em-Detalhe.html">Os Comandos de Definição</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

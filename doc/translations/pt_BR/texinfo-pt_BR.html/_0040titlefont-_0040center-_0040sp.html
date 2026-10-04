@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@titlefont @center @sp (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Os comandos @titlefont, @center e @sp.
+">
+<meta name="keywords" content="Os comandos @titlefont, @center e @sp.
+">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="_0040titlepage.html" rel="up" title="@titlepage">
+<link href="_0040title-_0040subtitle-_0040author.html" rel="prev" title="@title @subtitle @author">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsubsection-level-extent" id="g_t_0040titlefont-_0040center-_0040sp">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040title-_0040subtitle-_0040author.html" accesskey="p" rel="prev"><code class="code">@title</code>, <code class="code">@subtitle</code> e <code class="code">@author</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="_0040titlepage.html" accesskey="u" rel="up"><code class="code">@titlepage</code></a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsubsection" id="g_t_0040titlefont_002c-_0040center-e-_0040sp"><span>2.8.2.2 <code class="code">@titlefont</code>, <code class="code">@center</code> e <code class="code">@sp</code><a class="copiable-link" href="#g_t_0040titlefont_002c-_0040center-e-_0040sp"> &para;</a></span></h4>
+
+<a class="anchor" id="titlefont-center-sp"></a><a class="index-entry-id" id="index-titlefont"></a>
+<a class="index-entry-id" id="index-center"></a>
+<a class="index-entry-id" id="index-sp-_0028espacamento-entre-linhas-da-pagina-de-titulo_0029"></a>
+
+<p>O Texinfo também fornece um segundo método para criar uma página de título,
+usando comandos de tipografia que não são usados no texto principal. Esse
+método usa os comandos <code class="code">@titlefont</code>, <code class="code">@sp</code> e <code class="code">@center</code>
+para gerar uma página de título na qual as palavras na página ficam
+centralizadas.
+</p>
+<p>Use o comando <code class="code">@titlefont</code> para selecionar uma fonte grande adequada
+para o título em si. Você pode usar <code class="code">@titlefont</code> mais que uma vez se
+tiver um título especialmente longo.
+</p>
+<p>Para saída HTML, cada comando <code class="code">@titlefont</code> produz um cabeçalho
+<code class="code">&lt;h1&gt;</code>, porém o <code class="code">&lt;title&gt;</code> do documento HTML não é afetado. Para
+isso, você poderia colocar colocar um comando <code class="code">@settitle</code> antes do
+comando <code class="code">@titlefont</code> (veja-se <a class="ref" href="_0040settitle.html"><code class="code">@settitle</code>: Configura o Título do Documento</a>).
+</p>
+<p>Por exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">@titlefont{Texinfo}
+</pre></div>
+
+<p>Use o comando <code class="code">@center</code> no início de uma linha para centralizar o
+restante do texto naquela linha. Assim,
+</p>
+<div class="example">
+<pre class="example-preformatted">@center @titlefont{Texinfo}
+</pre></div>
+
+<p>centraliza o título, o qual neste exemplo é &ldquo;Texinfo&rdquo; impresso na fonte de
+título.
+</p>
+<p>Use o comando <code class="code">@sp</code> para inserir espaço vertical. Por exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">@sp 2
+</pre></div>
+
+<p>Isso insere duas linhas em branco na página impressa. (Veja-se
+<a class="ref" href="_0040sp.html"><code class="code">@sp <var class="var">n</var></code>: Inserir Linhas em Branco</a>, para mais informações acerca do comando <code class="code">@sp</code>).
+</p>
+<p>Um modelo para esse método se parece com isto:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@titlepage
+@sp 10
+@center @titlefont{<var class="var">nome-do-manual-quando-impresso</var>}
+@sp 2
+@center <var class="var">subtítulo-se-algum</var>
+@sp 2
+@center <var class="var">autor</var>
+...
+@end titlepage
+</pre></div></div>
+
+<p>O espaçamento do exemplo se encaixa em um manual de 8,5 por 11 polegadas.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040title-_0040subtitle-_0040author.html"><code class="code">@title</code>, <code class="code">@subtitle</code> e <code class="code">@author</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="_0040titlepage.html"><code class="code">@titlepage</code></a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

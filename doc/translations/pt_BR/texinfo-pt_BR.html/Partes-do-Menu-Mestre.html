@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Partes do Menu Mestre (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Partes do Menu Mestre (GNU Texinfo 7.3)">
+<meta name="keywords" content="Partes do Menu Mestre (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="O-N_00f3-Top.html" rel="up" title="O Nó Top">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Partes-do-Menu-Mestre">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="O-N_00f3-Top.html" accesskey="u" rel="up">O Nó &lsquo;Top&rsquo;</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Partes-de-um-Menu-Mestre"><span>2.10.1 Partes de um Menu Mestre<a class="copiable-link" href="#Partes-de-um-Menu-Mestre"> &para;</a></span></h4>
+<a class="index-entry-id" id="index-Menu-mestre"></a>
+<a class="index-entry-id" id="index-Menu_002c-mestre"></a>
+<a class="index-entry-id" id="index-Partes-de-um-menu-mestre"></a>
+
+<p>Um <em class="dfn">menu mestre</em> é o menu principal. É costumeiro incluir um menu
+detalhado listando todos os nós no documento nesse menu. Como qualquer outro
+menu, um menu mestre é envolvido em <code class="code">@menu</code> e <code class="code">@end menu</code> e não
+aparece na saída impressa nem na saída DocBook.
+</p>
+<p>O menu mestre contém entradas para os principais nós no arquivo do Texinfo:
+os nós para os capítulos, seções do tipo capítulo e os apêndices, seguidos
+por nós para os índices.
+</p>
+<a class="index-entry-id" id="index-detailmenu"></a>
+<a class="index-entry-id" id="index-Menu-detalhado"></a>
+
+<p>Você pode escolher seguir essas entradas com um <em class="dfn">menu detalhado</em>. Isso
+lista outros nós de nível inferior, frequentemente ordenados pelo
+capítulo. Esses itens podem ser uma conveniência para um inquérito que pode
+ir diretamente para um nó específico ao se procurar por informações
+específicas, em vez de se passar por um menu intermediário. Se você usar um
+menu detalhado no teu menu mestre, marque-o com o ambiente
+<code class="code">@detailmenu &hellip; @end detailmenu</code>.
+</p>
+<p>Cada seção no menu pode ser introduzida por uma linha descritiva. Contanto
+que a linha não se inicie com um asterisco, ela não será tratada como uma
+entrada de menu. (Veja-se <a class="ref" href="Escrevendo-um-Menu.html">Escrevendo um Menu</a>, para mais informações).
+</p>
+<p>Por exemplo, o menu mestre para este manual se parece com o seguinte (porém
+tem muito mais entradas):
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@menu
+* Condições de Cópia:: Teus direitos.
+* Visão Geral::        Texinfo em resumo.
+...
+</pre></div><div class="group"><pre class="example-preformatted">* Índice de Variáveis::
+* Índice Geral::
+</pre></div><pre class="example-preformatted">
+
+</pre><div class="group"><pre class="example-preformatted">@detailmenu
+--- A Listagem Detalhada do Nó ---
+
+Visão geral do Texinfo
+
+* Informando Defeitos:: ...
+...
+</pre></div><pre class="example-preformatted">
+
+</pre><div class="group"><pre class="example-preformatted">Iniciando um Arquivo do Texinfo
+
+* Início de Amostra:: ...
+...
+@end detailmenu
+@end menu
+</pre></div></div>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="O-N_00f3-Top.html">O Nó &lsquo;Top&rsquo;</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

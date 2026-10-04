@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Perguntas Frequentes do Formato Info (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Perguntas Frequentes do Formato Info (GNU Texinfo 7.3)">
+<meta name="keywords" content="Perguntas Frequentes do Formato Info (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Criando-e-Instalando-Arquivos-Info.html" rel="up" title="Criando e Instalando Arquivos Info">
+<link href="Arquivos-de-Etiqueta-e-Divididos.html" rel="prev" title="Arquivos de Etiqueta e Divididos">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Perguntas-Frequentes-do-Formato-Info">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Arquivos-de-Etiqueta-e-Divididos.html" accesskey="p" rel="prev">Arquivos de Etiqueta e Arquivos Divididos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Criando-e-Instalando-Arquivos-Info.html" accesskey="u" rel="up">Criando e Instalando Arquivos Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Perguntas-Frequentes-do-Formato-Info-1"><span>21.3 Perguntas Frequentes do Formato Info<a class="copiable-link" href="#Perguntas-Frequentes-do-Formato-Info-1"> &para;</a></span></h3>
+
+<p>Aqui estão algumas perguntas que tem sido feitas frequentemente nas listas
+de discussão e em outros lugares.
+</p>
+<dl class="table">
+<dt>Por que quando executo &lsquo;<samp class="samp">info <var class="var">foo</var></samp>&rsquo; eu obtenho a mesma saída que &lsquo;<samp class="samp">man <var class="var">foo</var></samp>&rsquo;?</dt>
+<dd>
+<p>Verifique se os manuais do Info estão instalados. Nem todas as distribuições
+GNU/Linux instalam todos os manuais do Info por padrão. Isso é lamentável,
+pois frequentemente o manual do Info fornece mais informações que a página
+de manual fornecida.
+</p>
+</dd>
+<dt>Por que não usar HTML em vez do Info?</dt>
+<dd>
+<p>Manuais raramente são escritos no próprio formato Info, mas são gerados a
+partir do fonte Texinfo pelo programa <code class="command">texi2any</code>. <code class="command">texi2any</code>
+consegue gerar HTML e também Info a partir do fonte Texinfo. Você também
+consegue acessar e baixar manuais em HTML a partir do sítio web do GNU
+(<a class="uref" href="https://www.gnu.org/manual/manual.html">https://www.gnu.org/manual/manual.html</a>). Além disso, algumas
+distribuições GNU/Linux fornecem pacotes para a instalação de manuais HTML.
+</p>
+<p>Info ainda tem algumas vantagens sobre HTML para documentação instalada
+localmente. Os navegadores do Info suportam pesquisa de índice e suportam
+linques entre manuais instalados localmente em vários locais. É importante
+ter-se documentação instalada localmente em tua máquina em vez de depender
+da Internet; isso torna o acesso à documentação mais confiável e garante que
+ela corresponda às versões instaladas dos pacotes. Espera-se que o suporte
+para navegar na documentação do Texinfo instalada localmente em alguma forma
+de HTML possa ser melhorado no futuro.
+</p>
+
+</dd>
+<dt>Por que fornecer o programa de linha de comando <code class="command">info</code> quando o leitor Info do Emacs é melhor?</dt>
+<dd>
+<p>O leitor Info do Emacs consegue exibir imagens e suporta completamente usar
+um mouse. Não existem muitas diferenças entre os leitores Info além
+disso. <code class="command">info</code> de linha de comando pode ser configurado para mudar as
+combinações padrão de teclas, bem como mudar a cor de referências cruzadas e
+de resultados de pesquisa, e para habilitar suporte à rolagem do mouse. Você
+não deveria precisar ter experiência com o editor Emacs para usar
+<code class="command">info</code>. (Alguns(mas) recomendam outro programa chamado
+<code class="command">pinfo</code>, mas esse carece de recursos importantes como pesquisa de
+índice).
+</p>
+<p>Alguns(mas) preferem poder percorrer o manual inteiro de uma vez (como
+acontece com páginas de manual), em vez de ficarem limitados(as) a um &lsquo;nó&rsquo;
+de conteúdo por vez. É claro que não existe consideração pelo gosto, mas um
+bloco de texto não estruturado torna-se mais estranho à medida que um manual
+se torna mais longo e mais complicado. (No entanto, se realmente quiser,
+você consegue visualizar um manual Info de uma só vez no paginador
+<code class="command">less</code> com &lsquo;<samp class="samp">info <var class="var">foo</var> | less</samp>&rsquo;).
+</p>
+</dd>
+<dt>Por que eu tenho &lsquo;veja-se&rsquo; aparecendo em frente de todos os meus linques?</dt>
+<dd>
+<p>Por padrão, o modo Info do Emacs ou muda o marcador &lsquo;<samp class="samp">*note</samp>&rsquo; para
+referências cruzadas para &lsquo;veja-se&rsquo; ou o oculta
+completamente. <code class="command">info</code> de linha de comando faz o mesmo se
+<code class="code">hide-note-references</code> estiver configurado. Infelizmente, não existe
+maneira de fazer isso confiavelmente, já que ambos os comandos
+<code class="code">@pxref</code> e <code class="code">@ref</code> no Texinfo geram esse marcador na saída Info,
+e o texto &lsquo;veja-se&rsquo; é apropriado somente para <code class="code">@pxref</code>.
+</p>
+</dd>
+<dt>Sim, mas como eu obtenho um linque simples, sem marcações extras?</dt>
+<dd>
+<p>Você não pode. Info é um formato de texto simples que é exibido
+principalmente como está nos visualizadores e sem o texto &lsquo;<samp class="samp">*note</samp>&rsquo; não
+existiria nada para marcar o texto como um linque.
+</p>
+<p>Para formatos de saída como HTML, você pode usar o comando <code class="code">@link</code>
+para produzir um linque simples. Veja-se <a class="xref" href="_0040link.html"><code class="code">@link</code>: Simples, hiperlink desadornado</a>. No entanto, isso não
+produz uma referência cruzada funcional na saída Info ou em uma cópia
+impressa do manual.
+</p>
+
+</dd>
+<dt>Por que linhas contendo linques parecem misteriosamente curtas?</dt>
+<dd>
+<p>Isso se deve ao Emacs (ou <code class="command">info</code> com <code class="code">hide-note-references</code>
+configurado como &lsquo;<samp class="samp">On</samp>&rsquo;) ocultando sequências de caracteres &lsquo;<samp class="samp">*note</samp>&rsquo;,
+conforme mencionado acima.
+</p>
+</dd>
+<dt>Pode o formato Info ser estendido para suportar fontes, cores ou texto refluível?</dt>
+<dd>
+<p>Qualquer extensão seria incompatível com programas de visualização do Info
+existentes. Marcações extras adicionadas aos arquivos Info seriam exibidas
+para o(a) usuário(a), tornando os arquivos feios e ilegíveis.
+</p>
+<p>Quando arquivos Texinfo são processados em arquivos Info, as informações
+acerca de quais comandos do Texinfo foram usados para marcar o texto são
+perdidas. Além disso, não é possível detectar com segurança se o texto
+consegue ser refluído (por exemplo um parágrafo de prosa) ou se as quebras
+de linha deveriam ser mantidas (por exemplo uma amostra de código ou um
+poema).
+</p>
+<p>O propósito central do Info é o de exibir documentação em terminais de
+texto. Se você quiser mais, é recomendável usar a saída HTML proveniente do
+<code class="command">texi2any</code>.
+</p>
+</dd>
+</dl>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Arquivos-de-Etiqueta-e-Divididos.html">Arquivos de Etiqueta e Arquivos Divididos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Criando-e-Instalando-Arquivos-Info.html">Criando e Instalando Arquivos Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

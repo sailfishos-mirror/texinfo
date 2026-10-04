@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Tradutor Genérico texi2any (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="texi2any, um conversor para todas as finalidades.">
+<meta name="keywords" content="texi2any, um conversor para todas as finalidades.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="index.html" rel="up" title="Top">
+<link href="Criando-e-Instalando-Arquivos-Info.html" rel="next" title="Criando e Instalando Arquivos Info">
+<link href="Impresso-com-TeX.html" rel="prev" title="Impresso com TeX">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.display {margin-left: 3.2em}
+pre.display-preformatted {font-family: inherit}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="chapter-level-extent" id="Tradutor-Gen_00e9rico-texi2any">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Criando-e-Instalando-Arquivos-Info.html" accesskey="n" rel="next">Criando e Instalando Arquivos Info</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Impresso-com-TeX.html" accesskey="p" rel="prev">Formatando e Imprimindo com TeX</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="index.html" accesskey="u" rel="up">Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h2 class="chapter" id="texi2any_003a-O-Tradutor-para-Texinfo"><span>20 <code class="command">texi2any</code>: O Tradutor para Texinfo<a class="copiable-link" href="#texi2any_003a-O-Tradutor-para-Texinfo"> &para;</a></span></h2>
+
+<p><code class="command">texi2any</code> é o tradutor genérico para o Texinfo que consegue
+produzir formatos de saída diferentes e é altamente personalizável. Ele
+suporta estes formatos:
+</p>
+<div class="display">
+<pre class="display-preformatted">Info (por padrão, ou com <samp class="option">--info</samp>),
+HTML (com <samp class="option">--html</samp>),
+EPUB 3 (com <samp class="option">--epub3</samp>),
+texto simples(com <samp class="option">--plaintext</samp>),
+LaTeX (com <samp class="option">--latex</samp>),
+DocBook (com <samp class="option">--docbook</samp>),
+Texinfo XML (com <samp class="option">--xml</samp>).
+</pre></div>
+
+<p><code class="command">makeinfo</code> é um apelido para <code class="command">texi2any</code>. Por padrão,
+<code class="command">texi2any</code> e <code class="command">makeinfo</code> geram saída Info; de fato, não
+existem diferenças de comportamento baseadas no nome.
+</p>
+<p>Além desses formatos padrão, as opções de linha de comando para
+<code class="command">texi2any</code> podem mudar muitos aspectos da saída gerada. Além disso,
+os arquivos de inicialização fornecem ainda mais controle sobre a saída
+final&mdash;quase tudo o que não esteja especificado no arquivo de entrada do
+Texinfo. Os arquivos de inicialização são escritos em Perl, e qualquer coisa
+que possa ser especificada na linha de comando também pode ser especificada
+em um arquivo de inicialização.
+</p>
+<p>Duas implementações funcionalmente equivalentes do <code class="command">texi2any</code> podem
+ser construídas no GNU Texinfo, uma em Perl e outra em código nativo
+compilado (em C). A implementação de código nativo ainda é experimental. O
+programa Perl pode usar módulos de extensão Perl em código nativo compilado,
+enquanto o programa de código nativo embute um interpretador Perl para as
+partes que exigem Perl.
+</p>
+<p>No caso padrão, a implementação Perl é instalada. Você consegue selecionar a
+implementação experimental C ao tempo da construção, passando a opção
+<samp class="option">--enable-using-c-texi2any</samp> para <code class="command">configure</code>.
+</p>
+
+<ul class="mini-toc">
+<li><a href="Invocando-texi2any.html" accesskey="1">Invocando <code class="command">texi2any</code> a partir de um Shell</a></li>
+<li><a href="Vari_00e1veis-de-Ambiente-do-texi2any.html" accesskey="2">Variáveis de Ambiente Reconhecidas pelo <code class="command">texi2any</code></a></li>
+<li><a href="Sa_00edda-Impressa-do-texi2any.html" accesskey="3">Saída Impressa do <code class="command">texi2any</code></a></li>
+<li><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o.html" accesskey="4">Variáveis de Personalização</a></li>
+<li><a href="Internacionaliza_00e7_00e3o-de-Sequ_00eancias-de-Caracteres-de-Documentos.html" accesskey="5">Internacionalização de Sequências de Caracteres de Documentos</a></li>
+<li><a href="Invocando-pod2texi.html" accesskey="6">Invocando <code class="command">pod2texi</code>: Converter Pod para Texinfo</a></li>
+<li><a href="texi2html.html" accesskey="7"><code class="command">texi2html</code>: Ancestral do <code class="command">texi2any</code></a></li>
+</ul>
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Criando-e-Instalando-Arquivos-Info.html">Criando e Instalando Arquivos Info</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Impresso-com-TeX.html">Formatando e Imprimindo com TeX</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="index.html">Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

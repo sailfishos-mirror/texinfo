@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Tabela de Etiquetas do Formato Info (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Tabela de Etiquetas do Formato Info (GNU Texinfo 7.3)">
+<meta name="keywords" content="Tabela de Etiquetas do Formato Info (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Especifica_00e7_00e3o-do-Formato-Info.html" rel="up" title="Especificação do Formato Info">
+<link href="Vari_00e1veis-Locais-do-Formato-Info.html" rel="next" title="Variáveis Locais do Formato Info">
+<link href="Tabela-Indireta-do-Formato-Info.html" rel="prev" title="Tabela Indireta do Formato Info">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Tabela-de-Etiquetas-do-Formato-Info">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Vari_00e1veis-Locais-do-Formato-Info.html" accesskey="n" rel="next">Formato Info: Variáveis Locais</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Tabela-Indireta-do-Formato-Info.html" accesskey="p" rel="prev">Formato Info: Tabela Indireta</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Especifica_00e7_00e3o-do-Formato-Info.html" accesskey="u" rel="up">Especificação do Formato Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Formato-Info_003a-Tabela-de-Etiquetas"><span>F.4 Formato Info: Tabela de Etiquetas<a class="copiable-link" href="#Formato-Info_003a-Tabela-de-Etiquetas"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Tabela-de-Etiquetas_002c-no-formato-Info"></a>
+
+<div class="example">
+<pre class="example-preformatted">    &lt;tabela de etiquetas&gt; =
+&lt;separador&gt;
+Tabela de Etiquetas:
+(&lt;lparen&gt;Indireto&lt;rparen&gt;)?
+(Nó|Ref): &lt;nodeid&gt;^?&lt;bytepos&gt;
+&lt;separador&gt;
+Fim da Tabela de Etiquetas
+</pre></div>
+
+<p>A linha &lsquo;<samp class="samp">(Indireto)</samp>&rsquo; aparece somente no caso de saída dividida.
+</p>
+<p>A tabela de etiquetas especifica a posição inicial do baite de cada nó e
+âncora no arquivo. No caso de saída dividida, ela será escrita somente no
+arquivo de saída principal.
+</p>
+<p>Cada linha define um identificador ou como uma âncora ou como um nó,
+conforme especificado. Por exemplo, &lsquo;<samp class="samp">Nó: Topo^?1647</samp>&rsquo; diz que o nó
+chamado &lsquo;<samp class="samp">Topo</samp>&rsquo; começa no baite 1.647 enquanto &lsquo;<samp class="samp">Ref:
+VisãoGeral-NotaRodapé-1^?30045</samp>&rsquo; diz que a âncora chamada
+&lsquo;<samp class="samp">VisãoGeral-NotaRodapé-1</samp>&rsquo; começa no baite 30.045. É um erro definir o
+mesmo identificador nos dois sentidos.  
+</p>
+<p>No caso de saída não dividida, as posições dos baites referem-se
+simplesmente ao local no arquivo da saída gerada. No caso de saída dividida,
+as posições dos baites referem-se a um arquivo imaginário criado pela
+concatenação de todos os arquivos divididos (mas não o arquivo de nível
+superior). Veja-se a seção anterior.
+</p>
+<p>Aqui está um exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">^_
+Tabela de Etiquetas:
+Nó: Topo^?89
+Nó: Ch1^?292
+^_
+Final da Tabela de Etiquetas
+</pre></div>
+
+<p>Isso especifica um manual com dois nós, &lsquo;Topo&rsquo; e &lsquo;Ch1&rsquo;, nas posições de
+baite 89 e 292 respectivamente. Como a linha &lsquo;<samp class="samp">(Indireto)</samp>&rsquo; não está
+presente, o manual não é dividido.
+</p>
+<p>Seções de preâmbulo ou outras seções de arquivos que não sejam nós não têm
+uma entrada na tabela de etiquetas.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Vari_00e1veis-Locais-do-Formato-Info.html">Formato Info: Variáveis Locais</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Tabela-Indireta-do-Formato-Info.html">Formato Info: Tabela Indireta</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Especifica_00e7_00e3o-do-Formato-Info.html">Especificação do Formato Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Sem Espaço Depois do Nome da Definição (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como omitir espaço depois do nome.">
+<meta name="keywords" content="Como omitir espaço depois do nome.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Comandos-de-Defini_00e7_00e3o.html" rel="up" title="Comandos de Definição">
+<link href="_0040deffnx.html" rel="next" title="@deffnx">
+<link href="Argumentos-Opcionais.html" rel="prev" title="Argumentos Opcionais">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+dt.def-line {font-size: 1rem}
+span:hover a.copiable-link {visibility: visible}
+strong.def-name {font-family: monospace; font-weight: bold}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Sem-Espa_00e7o-Depois-do-Nome-da-Defini_00e7_00e3o">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040deffnx.html" accesskey="n" rel="next"><code class="code">@deffnx</code>, et al.: Duas ou Mais &lsquo;Primeiras&rsquo; Linhas</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Argumentos-Opcionais.html" accesskey="p" rel="prev">Argumentos Opcionais e Repetidos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Comandos-de-Defini_00e7_00e3o.html" accesskey="u" rel="up">Comandos de Definição</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Omitindo-o-Espa_00e7o-Depois-de-um-Nome-de-Defini_00e7_00e3o"><span>14.4 Omitindo o Espaço Depois de um Nome de Definição<a class="copiable-link" href="#Omitindo-o-Espa_00e7o-Depois-de-um-Nome-de-Defini_00e7_00e3o"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-txidefnamenospace"></a>
+<p>Por uma questão de estilo ou conforme demandado pela sintaxe de uma
+linguagem de programação, você possivelmente deseje omitir algum espaço
+depois de um nome em uma definição, ocorrente antes de um colchete de
+abertura.  Para fazer isso, configure o sinalizador &lsquo;<samp class="samp">txidefnamenospace</samp>&rsquo;
+(veja-se <a class="pxref" href="_0040set-_0040value.html"><code class="code">@set</code> e <code class="code">@value</code></a>).  Por exemplo, esta entrada
+</p>
+<div class="example">
+<pre class="example-preformatted">@set txidefnamenospace
+@deffn Índice_m4 interno (string, substring)
+@dots{}
+@end deffn
+</pre></div>
+
+<p>produz o seguinte:
+</p>
+<dl class="first-deffn def-block">
+<dt class="deffn def-line" id="index-interno"><span class="category-def">Índice_m4: </span><span><strong class="def-name">interno</strong><var class="def-var-arguments">(string, substring)</var><a class="copiable-link" href="#index-interno"> &para;</a></span></dt>
+<dd><p>&hellip;
+</p></dd></dl>
+
+
+</div>
+
+
+
+</body>
+</html>

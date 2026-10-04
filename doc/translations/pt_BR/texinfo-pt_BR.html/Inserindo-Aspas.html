@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Inserindo Aspas (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Inserindo aspas.">
+<meta name="keywords" content="Inserindo aspas.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Inser_00e7_00f5es.html" rel="up" title="Inserções">
+<link href="Inserindo-Subscritos-e-Sobrescritos.html" rel="next" title="Inserindo Subscritos e Sobrescritos">
+<link href="Inserindo-Acentos.html" rel="prev" title="Inserindo Acentos">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Inserindo-Aspas">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Inserindo-Subscritos-e-Sobrescritos.html" accesskey="n" rel="next"><code class="code">@sub</code> e <code class="code">@sup</code>: Inserindo Subscritos e Sobrescritos</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Inserindo-Acentos.html" accesskey="p" rel="prev">Inserindo Acentos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Inser_00e7_00f5es.html" accesskey="u" rel="up">Inserções Especiais</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Inserindo-Aspas-1"><span>11.5 Inserindo Aspas<a class="copiable-link" href="#Inserindo-Aspas-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Inserindo-aspas"></a>
+<a class="index-entry-id" id="index-Aspas_002c-inserindo"></a>
+
+<a class="index-entry-id" id="index-Caracteres-de-citacao-_0028_0060_0027_0029_002c-no-fonte"></a>
+<p>Use caracteres de aspas simples duplicadas para iniciar e terminar citações:
+<code class="t">`<!-- /@w -->`&hellip;'<!-- /@w -->'</code><!-- /@w -->.  Duas aspas simples são convertidas para aspas
+duplicadas à esquerda e à direita, &ldquo;assim&rdquo;.
+</p>
+<p>Ocasionalmente, você pode precisar produzir duas aspas simples consecutivas;
+por exemplo, ao documentar uma linguagem de computador como Maxima, onde
+<code class="t">'<!-- /@w -->'</code> é um comando válido.  Você pode fazer isso com a entrada
+<code class="t">'@w{}'</code>; o comando vazio <code class="code">@w</code> interrompe a combinação nos
+caracteres de aspas duplas.
+</p>
+<a class="index-entry-id" id="index-Caracteres-Unicode-de-citacao"></a>
+<a class="index-entry-id" id="index-Acento-grave-versus-aspa-a-esquerda"></a>
+<p>O caractere de aspa à esquerda (<code class="t">`</code>, código ASCII 96) usado no Texinfo é
+um acento grave nos padrões do conjunto de caracteres ANSI e ISO.  Nós o
+usamos como um caractere de aspas porque assim é como TeX está
+configurado, por padrão.
+</p>
+<p>Texinfo suporta várias outras marcas de citação usadas em idiomas diferentes
+do inglês.  Abaixo está uma tabela com os comandos que Texinfo fornece para
+inserir marcas de citação.
+</p>
+<a class="index-entry-id" id="index-Aspas-simples"></a>
+<a class="index-entry-id" id="index-Aspas-duplas"></a>
+<a class="index-entry-id" id="index-Aspas-a-esquerda"></a>
+<a class="index-entry-id" id="index-Aspas-a-direita"></a>
+<a class="index-entry-id" id="index-quotedblleft"></a>
+<a class="index-entry-id" id="index-_0060_0060"></a>
+<a class="index-entry-id" id="index-quoteleft"></a>
+<a class="index-entry-id" id="index-_0060"></a>
+<a class="index-entry-id" id="index-_0022-_0028caractere-de-aspa-indirecionado-duplo_0029"></a>
+<a class="index-entry-id" id="index-quotedblright"></a>
+<a class="index-entry-id" id="index-_0027_0027"></a>
+<a class="index-entry-id" id="index-quoteright"></a>
+<a class="index-entry-id" id="index-_0027"></a>
+<a class="index-entry-id" id="index-Aspa-baixo-9-dupla"></a>
+<a class="index-entry-id" id="index-Aspa-baixo-9-simples"></a>
+<a class="index-entry-id" id="index-quotedblbase"></a>
+<a class="index-entry-id" id="index-_002c_002c-_0028aspa-baixo-9-dupla_0029"></a>
+<a class="index-entry-id" id="index-quotesinglbase"></a>
+<a class="index-entry-id" id="index-_002c-_0028aspa-baixo-9-simples_0029"></a>
+<a class="index-entry-id" id="index-Aspas-angulares"></a>
+<a class="index-entry-id" id="index-Guillemets"></a>
+<a class="index-entry-id" id="index-Guillemots"></a>
+<a class="index-entry-id" id="index-Aspas-francesas"></a>
+<a class="index-entry-id" id="index-Aspas_002c-francesas"></a>
+<a class="index-entry-id" id="index-Aspas-alemas"></a>
+<a class="index-entry-id" id="index-Aspas_002c-alemas"></a>
+<a class="index-entry-id" id="index-Guillemets-duplas"></a>
+<a class="index-entry-id" id="index-Guillemets-simples"></a>
+<a class="index-entry-id" id="index-Aspas-angulares-duplas"></a>
+<a class="index-entry-id" id="index-Aspas-angulares-simples"></a>
+<a class="index-entry-id" id="index-Aspas-angulares-apontando-a-esquerda"></a>
+<a class="index-entry-id" id="index-Aspas-angulares-apontando-a-direita"></a>
+<a class="index-entry-id" id="index-Aspa-angular-dupla-apontando-a-esquerda"></a>
+<a class="index-entry-id" id="index-Aspa-angular-dupla-apontando-a-direita"></a>
+<a class="index-entry-id" id="index-Aspa-angular-simples-apontando-a-esquerda"></a>
+<a class="index-entry-id" id="index-Aspa-angular-simples-apontando-a-direita"></a>
+<a class="index-entry-id" id="index-guillemetleft"></a>
+<a class="index-entry-id" id="index-guillemotleft"></a>
+<a class="index-entry-id" id="index-_003c_003c"></a>
+<a class="index-entry-id" id="index-guillemetright"></a>
+<a class="index-entry-id" id="index-guillemotright"></a>
+<a class="index-entry-id" id="index-_003e_003e"></a>
+<a class="index-entry-id" id="index-guilsinglleft"></a>
+<a class="index-entry-id" id="index-_003c"></a>
+<a class="index-entry-id" id="index-guilsinglright"></a>
+<a class="index-entry-id" id="index-_003e"></a>
+<table class="multitable">
+<thead><tr><th>Comando</th><th>Glifo</th><th>Nome Unicode (ponto)</th></tr></thead>
+<tbody><tr><td><code class="verb">@quotedblleft{}&nbsp;``</code></td><td>&ldquo;</td><td>Aspa dupla à esquerda (U+201C)</td></tr>
+<tr><td><code class="verb">@quotedblright{}&nbsp;''</code></td><td>&rdquo;</td><td>Aspa dupla à direita (U+201D)</td></tr>
+<tr><td><code class="verb">@quoteleft{}&nbsp;`</code></td><td>&lsquo;</td><td>Aspa simples à esquerda (U+2018)</td></tr>
+<tr><td><code class="verb">@quoteright{}&nbsp;'</code></td><td>&rsquo;</td><td>Aspa simples à direita (U+2019)</td></tr>
+<tr><td><code class="t">@quotedblbase{}</code></td><td>&bdquo;</td><td>Aspa dupla baixo 9 (U+201E)</td></tr>
+<tr><td><code class="t">@quotesinglbase{}</code></td><td>&sbquo;</td><td>Aspa simples baixo 9 (U+201A)</td></tr>
+<tr><td><code class="t">@guillemetleft{}</code></td><td>&laquo;</td><td>Aspa dupla angular apontando para a esquerda (U+00AB)</td></tr>
+<tr><td><code class="t">@guillemetright{}</code></td><td>&raquo;</td><td>Aspa dupla angular apontando para a direita (U+00BB)</td></tr>
+<tr><td><code class="t">@guilsinglleft{}</code></td><td>&lsaquo;</td><td>Aspa simples angular apontando para a esquerda (U+2039)</td></tr>
+<tr><td><code class="t">@guilsinglright{}</code></td><td>&rsaquo;</td><td>Aspa simples angular apontando para a direita (U+203A)</td></tr>
+</tbody>
+</table>
+
+<a class="index-entry-id" id="index-Auk_002c-especies-de-passaro"></a>
+<p>Para as aspas duplas angulares, nomes de glifos da Adobe e do LaTeX
+também são suportados: <code class="code">@guillemotleft</code> e <code class="code">@guillemotright</code>.
+Esses nomes estão incorretos; um &ldquo;guillemot&rdquo; é uma espécie de pássaro (um
+tipo de auk).
+</p>
+<a class="index-entry-id" id="index-Fontes-European-Computer-Modern"></a>
+<a class="index-entry-id" id="index-Fontes-EC"></a>
+<p>As fontes padrão do TeX suportam as aspas usuais usadas em inglês
+(aquelas produzidas com aspas simples de ASCII unitárias e duplicadas).
+Para as outras aspas, TeX usa fontes European Computer Modern (EC)
+(<samp class="file">ecrm1000</samp> e outras variantes).  Essas fontes estão disponíveis
+livremente, é claro; você consegue baixá-las a partir de
+<a class="url" href="http://ctan.org/pkg/ec">http://ctan.org/pkg/ec</a>, entre outros lugares.
+</p>
+<a class="index-entry-id" id="index-Fontes-CM_002dSuper"></a>
+<p>As fontes livres EC são fontes bitmap criadas com Metafont.  Especialmente
+para visualização online, as versões Type&nbsp;1 (vetor) das fontes são
+preferíveis; elas estão disponíveis no pacote de fontes CM-Super
+(<a class="url" href="http://ctan.org/pkg/cm-super">http://ctan.org/pkg/cm-super</a>).
+</p>
+<p>Ambas as distribuições incluem instruções de instalação.
+</p>
+<p>As tradições para uso de aspas variam muito entre os idiomas
+(<a class="url" href="https://en.wikipedia.org/wiki/Quotation_mark">https://en.wikipedia.org/wiki/Quotation_mark</a>).  Texinfo não fornece
+comandos ou configurações para tipografar aspas de acordo com as numerosas
+tradições.  Portanto, você tem que escolher os comandos apropriados para o
+idioma do teu manual.  Às vezes, apelidos (veja-se <a class="pxref" href="_0040alias.html">&lsquo;<samp class="samp">@alias <var class="var">novo</var>=<var class="var">existente</var></samp>&rsquo;</a>) conseguem
+simplificar o uso e tornar o código-fonte mais legível.  Por exemplo, em
+alemão, <code class="code">@quotedblbase</code> é usado para a aspa dupla à esquerda, e a aspa
+dupla à direita é o glifo produzido por <code class="code">@quotedblleft</code>, o que é
+contraintuitivo.  Assim, nesse caso, os seguintes apelidos seriam
+convenientes:
+</p>
+<div class="example">
+<pre class="example-preformatted">@alias lgqq = quotedblbase
+@alias rgqq = quotedblleft
+</pre></div>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Inserindo-Subscritos-e-Sobrescritos.html"><code class="code">@sub</code> e <code class="code">@sup</code>: Inserindo Subscritos e Sobrescritos</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Inserindo-Acentos.html">Inserindo Acentos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Inser_00e7_00f5es.html">Inserções Especiais</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

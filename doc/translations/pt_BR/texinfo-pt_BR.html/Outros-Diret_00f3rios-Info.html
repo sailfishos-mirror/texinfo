@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Outros Diretórios Info (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como especificar arquivos Info que estejam localizados em">
+<meta name="keywords" content="Como especificar arquivos Info que estejam localizados em">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Instalando-um-Arquivo-do-Info.html" rel="up" title="Instalando um Arquivo do Info">
+<link href="Instalando-Entradas-de-Diret_00f3rio.html" rel="next" title="Instalando Entradas de Diretório">
+<link href="Novo-Arquivo-Info.html" rel="prev" title="Novo Arquivo Info">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+kbd.kbd {font-style: oblique}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Outros-Diret_00f3rios-Info">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Instalando-Entradas-de-Diret_00f3rio.html" accesskey="n" rel="next">Instalando Arquivos de Diretório Info</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Novo-Arquivo-Info.html" accesskey="p" rel="prev">Listando um Novo Arquivo Info</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Instalando-um-Arquivo-do-Info.html" accesskey="u" rel="up">Instalando um Arquivo do Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<p>outros diretórios.
+</p><h4 class="subsection" id="Arquivos-Info-em-Outros-Diret_00f3rios"><span>21.1.3 Arquivos Info em Outros Diretórios<a class="copiable-link" href="#Arquivos-Info-em-Outros-Diret_00f3rios"> &para;</a></span></h4>
+<a class="index-entry-id" id="index-Instalando-Info-em-outro-diretorio"></a>
+<a class="index-entry-id" id="index-Info-instalado-em-outro-diretorio"></a>
+<a class="index-entry-id" id="index-Outro-diretorio-Info"></a>
+<a class="index-entry-id" id="index-Arquivos-dir-e-diretorios-Info"></a>
+
+<p>Se um arquivo Info não estiver no diretório <samp class="file">info</samp>, existem três
+maneiras de especificar o local dele:
+</p>
+<ol class="enumerate">
+<li> Escreva o nome do arquivo no arquivo <samp class="file">dir</samp> como a segunda parte do
+menu.
+
+</li><li> Especifique o nome do diretório Info na variável de ambiente <code class="code">INFOPATH</code>
+em teu arquivo de inicialização <samp class="file">.profile</samp> ou <samp class="file">.cshrc</samp>. (Somente
+você e outras pessoas que configurarem essa variável de ambiente estará
+apto(a) para encontrar arquivos Info cujo local esteja especificado dessa
+maneira).
+
+</li><li> Se você estiver usando Emacs, liste o nome do arquivo em um segundo arquivo
+<samp class="file">dir</samp>, no diretório dele; e, em seguida, adicione o nome desse
+diretório à variável <code class="code">Info-directory-list</code> em teu arquivo de
+inicialização pessoal ou no do sítio.
+
+<p>Essa variável informa ao Emacs onde procurar por arquivos <samp class="file">dir</samp> (os
+arquivos precisam ser nomeados <samp class="file">dir</samp>). O Emacs mescla os arquivos
+nomeados de <samp class="file">dir</samp> a partir de cada um dos diretórios listados. (No
+Emacs versão 18, você consegue configurar a variável <code class="code">Info-directory</code>
+como o nome de somente um diretório).
+</p></li></ol>
+
+<p>Por exemplo, para acessar um arquivo de teste no diretório
+<samp class="file">/home/bob/info</samp>, você poderia adicionar uma entrada como esta ao menu
+no arquivo <samp class="file">dir</samp> padrão:
+</p>
+<div class="example">
+<pre class="example-preformatted">* Teste: (/home/bob/info/info-teste). Arquivo próprio de teste do Bob.
+</pre></div>
+
+<p>Nesse caso, o nome absoluto de arquivo do arquivo <samp class="file">info-teste</samp> é
+escrito como a segunda parte da entrada do menu.
+</p>
+<a class="index-entry-id" id="index-INFOPATH"></a>
+<a class="index-entry-id" id="index-Variavel-de-ambiente-INFOPATH"></a>
+<p>Se não quiser editar o arquivo <samp class="file">dir</samp> do sistema, você pode informar ao
+Info onde procurar configurando a variável de ambiente <code class="code">INFOPATH</code> em
+teu arquivo de iniciação do shell. Isso funciona tanto com o Emacs quanto
+com leitores Info independentes.
+</p>
+<p>O Emacs usa a variável de ambiente <code class="code">INFOPATH</code> para inicializar o valor
+da variável <code class="code">Info-directory-list</code> do próprio Emacs. O leitor Info
+independente mescla todos os arquivos chamados <samp class="file">dir</samp> em qualquer
+diretório listado na variável <code class="env">INFOPATH</code> em um menu apresentado a você
+no nó chamado &lsquo;<samp class="samp">(dir)Top</samp>&rsquo;.
+</p>
+<a class="index-entry-id" id="index-Dois-pontos_002c-ultimo-na-INFOPATH"></a>
+<p>Independentemente de como você configurar <code class="env">INFOPATH</code>, se o último
+caractere dela for dois pontos (em sistemas MS-DOS/MS-Windows, use um ponto
+e vírgula), ele será substituído pelo caminho padrão (compilado
+internamente). Isso oferece a você uma maneira de aumentar o caminho padrão
+com novos diretórios sem precisar listar todos os locais padrão. Por exemplo
+(usando a sintaxe do <code class="code">sh</code>):
+</p>
+<div class="example">
+<pre class="example-preformatted">INFOPATH=/home/bob/info:
+export INFOPATH
+</pre></div>
+
+<p>pesquisará primeiro <samp class="file">/home/bob/info</samp> e depois os diretórios padrão. Os
+dois pontos iniciais ou duplos não são tratados especialmente.
+</p>
+<a class="index-entry-id" id="index-Arquivo-dir_002c-criando-teu-proprio"></a>
+<p>Quando você cria teu próprio arquivo <samp class="file">dir</samp> para usar com
+<code class="code">Info-directory-list</code> ou com <code class="env">INFOPATH</code>, é mais fácil começar
+copiando um arquivo <samp class="file">dir</samp> existente e substituir todo o texto depois de
+&lsquo;<samp class="samp">* Menu:</samp>&rsquo; pelas tuas entradas desejadas. Dessa maneira, a pontuação e
+os caracteres especiais <kbd class="kbd">CTRL-_</kbd> que o Info precisa estarão presentes.
+</p>
+<p>Como uma alternativa final, que funciona somente com o Info do Emacs, você
+consegue mudar a variável <code class="code">Info-directory-list</code>. Por exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">(add-hook 'Info-mode-hook '(lambda ()
+	     (add-to-list 'Info-directory-list
+			  (expand-file-name &quot;~/info&quot;))))
+</pre></div>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Instalando-Entradas-de-Diret_00f3rio.html">Instalando Arquivos de Diretório Info</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Novo-Arquivo-Info.html">Listando um Novo Arquivo Info</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Instalando-um-Arquivo-do-Info.html">Instalando um Arquivo do Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Detalhes da Sintaxe da #line (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Detalhes da Sintaxe da #line (GNU Texinfo 7.3)">
+<meta name="keywords" content="Detalhes da Sintaxe da #line (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Processadores-Externos-de-Macro.html" rel="up" title="Processadores Externos de Macro">
+<link href="_0023line-e-TeX.html" rel="prev" title="#line e TeX">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Detalhes-da-Sintaxe-da-_0023line">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0023line-e-TeX.html" accesskey="p" rel="prev">&lsquo;<samp class="samp">#line</samp>&rsquo; e TeX</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Processadores-Externos-de-Macro.html" accesskey="u" rel="up">Processadores Externos de Macro: Diretivas de Linha</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Detalhes-da-Sintaxe-da-_0023line-1"><span>17.7.3 Detalhes da Sintaxe da &lsquo;<samp class="samp">#line</samp>&rsquo;<a class="copiable-link" href="#Detalhes-da-Sintaxe-da-_0023line-1"> &para;</a></span></h4>
+
+<a class="index-entry-id" id="index-Diretiva-_0023line-detalhes-da-sintaxe"></a>
+<a class="index-entry-id" id="index-Detalhes-da-sintaxe_002c-_0023line"></a>
+<a class="index-entry-id" id="index-Expressao-regular_002c-para-_0023line"></a>
+
+<p>Detalhes de sintaxe para a diretiva &lsquo;<samp class="samp">#line</samp>&rsquo;: o caractere &lsquo;<samp class="samp">#</samp>&rsquo; pode
+ser precedido ou seguido por espaço em branco, a palavra &lsquo;<samp class="samp">line</samp>&rsquo; é
+opcional, e o nome do arquivo pode ser seguido por uma lista de inteiros
+separados por espaços em branco (esses são os assim chamados
+&ldquo;sinalizadores&rdquo; gerados  pelo CPP em alguns casos).  Para aqueles(as) que
+gostam de saber os detalhes sangrentos, a expressão regular (Perl) real que
+é correspondida é esta:
+</p>
+<div class="example">
+<pre class="example-preformatted">/^\s*#\s*(line)? (\d+)(( &quot;([^&quot;]+)&quot;)(\s+\d+)*)?\s*$/
+</pre></div>
+
+<p>Até onde nós podemos dizer, os sinalizadores de inteiros finais somente
+ocorrem em conjunto com um nome de arquivo, de forma que isso é refletido na
+expressão regular.
+</p>
+<p>Como exemplo, a seguir está uma diretiva &lsquo;<samp class="samp">#line</samp>&rsquo; sintaticamente válida,
+ou seja, a linha 1 de <samp class="file">/usr/include/stdio.h</samp>:
+</p>
+<div class="example">
+<pre class="example-preformatted"># 1 &quot;/usr/include/stdio.h&quot; 2 3 4
+</pre></div>
+
+<p>Infelizmente, o nome de arquivo aspeado (&lsquo;<samp class="samp">&quot;...&quot;</samp>&rsquo;) tem que ser opcional,
+porque o M4 (especialmente) frequentemente pode gerar diretivas &lsquo;<samp class="samp">#line</samp>&rsquo;
+dentro de um arquivo.  Como o &lsquo;<samp class="samp">line</samp>&rsquo; também é opcional, o resultado é
+que as linhas podem corresponder ao que você não esperaria, por exemplo,
+</p>
+<div class="example">
+<pre class="example-preformatted"># 1
+</pre></div>
+
+<p>As soluções possíveis estão descritas acima (veja-se <a class="pxref" href="Diretiva-_0023line.html">Diretiva &lsquo;<samp class="samp">#line</samp>&rsquo;</a>).
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0023line-e-TeX.html">&lsquo;<samp class="samp">#line</samp>&rsquo; e TeX</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Processadores-Externos-de-Macro.html">Processadores Externos de Macro: Diretivas de Linha</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

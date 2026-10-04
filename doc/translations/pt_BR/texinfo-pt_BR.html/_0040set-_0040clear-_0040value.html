@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@set @clear @value (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Testes e substituições de variáveis.">
+<meta name="keywords" content="Testes e substituições de variáveis.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Condicionais.html" rel="up" title="Condicionais">
+<link href="Testagem-para-Comandos-do-Texinfo.html" rel="next" title="Testagem para Comandos do Texinfo">
+<link href="Condicionais-Inline.html" rel="prev" title="Condicionais Inline">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="g_t_0040set-_0040clear-_0040value">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Testagem-para-Comandos-do-Texinfo.html" accesskey="n" rel="next">Testagem para Comandos do Texinfo: <code class="code">@ifcommanddefined</code>, <code class="code">@ifcommandnotdefined</code></a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Condicionais-Inline.html" accesskey="p" rel="prev">Condicionais Inline: <code class="code">@inline</code>, <code class="code">@inlineifelse</code>, <code class="code">@inlineraw</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Condicionais.html" accesskey="u" rel="up">Texto Condicionalmente Visível</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Sinalizadores_003a-_0040set_002c-_0040clear_002c-condicionais-e-_0040value"><span>16.5 Sinalizadores: <code class="code">@set</code>, <code class="code">@clear</code>, condicionais e <code class="code">@value</code><a class="copiable-link" href="#Sinalizadores_003a-_0040set_002c-_0040clear_002c-condicionais-e-_0040value"> &para;</a></span></h3>
+
+<a class="anchor" id="set-clear-value"></a><p>Você pode direcionar os comandos de formatação do Texinfo para formatar ou
+para ignorar partes de um arquivo do Texinfo com os comandos <code class="code">@set</code>,
+<code class="code">@clear</code>, <code class="code">@ifset</code> e <code class="code">@ifclear</code>.  Aqui está um resumo:
+</p>
+<dl class="table">
+<dt><code class="code">@set <var class="var">sinalizador</var> [<var class="var">valor</var>]</code></dt>
+<dd><p>Configura a variável <var class="var">sinalizador</var> para o <var class="var">valor</var> opcional, se
+especificado.
+</p>
+</dd>
+<dt><code class="code">@clear <var class="var">sinalizador</var></code></dt>
+<dd><p>Desdefine a variável <var class="var">sinalizador</var>, se ou não ela foi definida
+anteriormente.
+</p>
+</dd>
+<dt><code class="code">@ifset <var class="var">sinalizador</var></code></dt>
+<dd><p>Se <var class="var">sinalizador</var> estiver configurado, o texto até o próximo comando
+<code class="code">@end ifset</code> será formatado.  Se <var class="var">sinalizador</var> estiver limpo, o
+texto até o comando <code class="code">@end ifset</code> seguinte será ignorado.
+</p>
+</dd>
+<dt><code class="code">@inlineifset{<var class="var">sinalizador</var>, <var class="var">texto</var>}</code></dt>
+<dd><p>Versão delimitada por chaves de <code class="code">@ifset</code>.
+</p>
+</dd>
+<dt><code class="code">@ifclear <var class="var">sinalizador</var></code></dt>
+<dd><p>Se <var class="var">sinalizador</var> estiver configurado, o texto até o próximo comando
+<code class="code">@end ifclear</code> será ignorado.  Se <var class="var">sinalizador</var> estiver limpo, o
+texto até o comando <code class="code">@end ifclear</code> seguinte será formatado.
+</p>
+</dd>
+<dt><code class="code">@inlineifclear{<var class="var">sinalizador</var>, <var class="var">texto</var>}</code></dt>
+<dd><p>Versão delimitada por chaves de <code class="code">@ifclear</code>.
+</p>
+</dd>
+</dl>
+
+
+<ul class="mini-toc">
+<li><a href="_0040set-_0040value.html" accesskey="1"><code class="code">@set</code> e <code class="code">@value</code></a></li>
+<li><a href="_0040ifset-_0040ifclear.html" accesskey="2"><code class="code">@ifset</code> e <code class="code">@ifclear</code></a></li>
+<li><a href="_0040inlineifset-_0040inlineifclear.html" accesskey="3"><code class="code">@inlineifset</code> e <code class="code">@inlineifclear</code></a></li>
+<li><a href="Exemplo-de-_0040value.html" accesskey="4">Exemplo de <code class="code">@value</code></a></li>
+</ul>
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Testagem-para-Comandos-do-Texinfo.html">Testagem para Comandos do Texinfo: <code class="code">@ifcommanddefined</code>, <code class="code">@ifcommandnotdefined</code></a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Condicionais-Inline.html">Condicionais Inline: <code class="code">@inline</code>, <code class="code">@inlineifelse</code>, <code class="code">@inlineraw</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Condicionais.html">Texto Condicionalmente Visível</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

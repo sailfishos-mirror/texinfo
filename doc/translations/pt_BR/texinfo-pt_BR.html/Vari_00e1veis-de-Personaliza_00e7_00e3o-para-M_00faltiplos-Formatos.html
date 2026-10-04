@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Variáveis de Personalização para Múltiplos Formatos (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Variáveis de Personalização para Múltiplos Formatos (GNU Texinfo 7.3)">
+<meta name="keywords" content="Variáveis de Personalização para Múltiplos Formatos (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Vari_00e1veis-de-Personaliza_00e7_00e3o.html" rel="up" title="Variáveis de Personalização">
+<link href="Outras-Vari_00e1veis-de-Personaliza_00e7_00e3o-de-Formatos.html" rel="prev" title="Outras Variáveis de Personalização de Formatos">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Vari_00e1veis-de-Personaliza_00e7_00e3o-para-M_00faltiplos-Formatos">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Outras-Vari_00e1veis-de-Personaliza_00e7_00e3o-de-Formatos.html" accesskey="p" rel="prev">Outras Variáveis de Personalização de Formatos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o.html" accesskey="u" rel="up">Variáveis de Personalização</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Vari_00e1veis-de-Personaliza_00e7_00e3o-para-M_00faltiplos-Formatos-1"><span>20.4.8 Variáveis de Personalização para Múltiplos Formatos<a class="copiable-link" href="#Vari_00e1veis-de-Personaliza_00e7_00e3o-para-M_00faltiplos-Formatos-1"> &para;</a></span></h4>
+
+<a class="anchor" id="Outras-Vari_00e1veis-de-Personaliza_00e7_00e3o"></a>
+<p>Esta tabela fornece a personalização que se aplica para múltiplos formatos.
+</p>
+<dl class="vtable">
+<dt><a id="index-CLOSE_005fQUOTE_005fSYMBOL"></a><span><code class="code">CLOSE_QUOTE_SYMBOL</code><a class="copiable-link" href="#index-CLOSE_005fQUOTE_005fSYMBOL"> &para;</a></span></dt>
+<dd><p>Quando uma aspa de fechamento for necessária, por exemplo, para saída gerada
+do <code class="code">@samp</code>, usar esse caractere; padrão <code class="code">&amp;#8217;</code> no
+DocBook. Indefinida no caso padrão em HTML e configurada como <code class="code">&amp;rsquo;</code>
+se <code class="code">USE_NUMERIC_ENTITY</code> não estiver configurada, como <code class="code">&amp;#8217;</code> se
+configurada e como um caractere de aspa se <code class="code">OUTPUT_CHARACTERS</code> estiver
+configurada e a codificação da saída gerada incluir esse caractere.
+</p>
+<p>O padrão para Info é configurada da mesma forma que para
+<code class="code">OPEN_QUOTE_SYMBOL</code>, exceto que o código Unicode é uma aspa de
+fechamento (veja-se abaixo).
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-SystemLiteral"></a>
+<a id="index-DOCTYPE"></a><span><code class="code">DOCTYPE</code><a class="copiable-link" href="#index-DOCTYPE"> &para;</a></span></dt>
+<dd><p>Para DocBook, HTML, XML. Especifica o <code class="code">SystemLiteral</code>, o identificador
+de sistema da entidade. Esse é um URI que pode ser usado para recuperar a
+entidade e identifica o DTD canônico para o documento. O valor padrão é
+diferente para HTML, DocBook e XML.
+</p>
+</dd>
+<dt><a id="index-EXTENSION"></a><span><code class="code">EXTENSION</code><a class="copiable-link" href="#index-EXTENSION"> &para;</a></span></dt>
+<dd><p>A extensão adicionada ao nome do arquivo da saída gerada. O padrão é
+diferente para cada formato da saída gerada.
+</p>
+</dd>
+<dt><a id="index-NO_005fTOP_005fNODE_005fOUTPUT"></a><span><code class="code">NO_TOP_NODE_OUTPUT</code><a class="copiable-link" href="#index-NO_005fTOP_005fNODE_005fOUTPUT"> &para;</a></span></dt>
+<dd><a class="anchor" id="NO_005fTOP_005fNODE_005fOUTPUT"></a><p>Se configurada, não produzir o conteúdo do nó Top. O nó Top ainda será
+analisado, mas o conteúdo será descartado. Não configurada no caso padrão
+para HTML. Configurada no caso padrão para EPUB. Se <code class="code">SHOW_TITLE</code> for
+&lsquo;<samp class="samp">undef</samp>&rsquo;, configurar-se <code class="code">NO_TOP_NODE_OUTPUT</code> também configurará
+<code class="code">SHOW_TITLE</code> para HTML.
+</p>
+<p>Configurar-se <code class="code">NO_TOP_NODE_OUTPUT</code>, que remove o nó Top e adiciona uma
+página de título, corresponde mais à formatação de um livro. Configurar-se
+<code class="code">NO_TOP_NODE_OUTPUT</code> como false, com <code class="code">SHOW_TITLE</code> permanecendo
+&lsquo;<samp class="samp">undef</samp>&rsquo;, e false, corresponde mais a uma configuração de documento para
+navegação, com um acesso direto para as informações no nó Top.
+</p>
+<p>Para DocBook, <code class="code">NO_TOP_NODE_OUTPUT</code> é configurada como
+verdadeira. Configurar-se <code class="code">NO_TOP_NODE_OUTPUT</code> como falsa faz com que o
+conteúdo do nó Topo seja gerado. Não é recomendado gerar o nó Topo no
+DocBook, pois os textos de título e de cópia são sempre gerados. Essa opção
+é mantida para DocBook para compatibilidade, pois antes de 2022 o nó Topo
+era gerado no DocBook. Ela poderá ser removida no futuro.
+</p>
+</dd>
+<dt><a id="index-OPEN_005fQUOTE_005fSYMBOL"></a><span><code class="code">OPEN_QUOTE_SYMBOL</code><a class="copiable-link" href="#index-OPEN_005fQUOTE_005fSYMBOL"> &para;</a></span></dt>
+<dd><p>Quando uma aspa de abertura for necessária, por exemplo, para saída gerada
+do &lsquo;<samp class="samp">@samp</samp>&rsquo;, usar o caractere especificado; padrão <code class="code">&amp;#8216;</code> para
+DocBook. Indefinida no caso padrão no HTML e configurada como <code class="code">&amp;lsquo;</code>
+se <code class="code">USE_NUMERIC_ENTITY</code> não estiver configurada; como <code class="code">&amp;#8216;</code> se
+configurada; e como um caractere de aspas se <code class="code">OUTPUT_CHARACTERS</code>
+estiver configurada e a codificação da saída gerada incluir esse caractere.
+</p>
+<p>Para Info, o padrão depende da codificação habilitada de documento. Se
+<samp class="option">--disable-encoding</samp> estiver configurada ou a codificação do
+documento não for UTF-8, &lsquo;<samp class="samp">'</samp>&rsquo; será usado. Esse caractere geralmente
+aparece como uma aspa simples indirecionada em sistemas modernos. Caso
+contrário, a saída gerada Info usará uma aspa esquerda Unicode.
+</p>
+</dd>
+<dt><a id="index-OUTPUT_005fCHARACTERS"></a><span><code class="code">OUTPUT_CHARACTERS</code><a class="copiable-link" href="#index-OUTPUT_005fCHARACTERS"> &para;</a></span></dt>
+<dd><p>Se não configurada, o padrão gerará caracteres acentuados e especiais em
+HTML, XML e DocBook usando entidades XML e em LaTeX usando macros. Se
+configurada, gerar caracteres acentuados na saída gerada de HTML, XML,
+DocBook e LaTeX e caracteres especiais na saída HTML e LaTeX baseada
+na codificação do documento. Veja-se <a class="xref" href="_0040documentencoding.html"><code class="code">@documentencoding <var class="var">codificação</var></code>: Configurar Codificação de Entrada</a> e
+<a class="ref" href="Inserindo-Acentos.html">Inserindo Acentos</a>.
+</p>
+<a class="anchor" id="TOP_005fNODE_005fUP"></a></dd>
+<dt><a id="index-TOP_005fNODE_005fUP"></a><span><code class="code">TOP_NODE_UP</code><a class="copiable-link" href="#index-TOP_005fNODE_005fUP"> &para;</a></span></dt>
+<dd><p>Nó Acima para o nó Topo; padrão &lsquo;<samp class="samp">(dir)</samp>&rsquo;. É presumido que esse nome de
+nó já esteja formatado para o formato da saída gerada. No HTML pode ser
+usado em atributo, de modo que não deveria conter nenhum elemento. Usado
+para saída HTML somente se <code class="code">TOP_NODE_UP_URL</code> estiver configurada para
+substituir o URL; veja-se <code class="code">TOP_NODE_UP_URL</code> em <a class="ref" href="Lista-de-Vari_00e1veis-de-Personaliza_00e7_00e3o-do-HTML.html">Lista de Variáveis de Personalização do HTML</a>. Veja-se <a class="xref" href="Personaliza_00e7_00e3o-de-Nomes-de-Arquivo-e-de-Linques-para-HTML.html">Personalização de Nomes de Arquivo e de Linques para HTML</a>.
+</p>
+</dd>
+<dt><a id="index-USE_005fNODES"></a><span><code class="code">USE_NODES</code><a class="copiable-link" href="#index-USE_005fNODES"> &para;</a></span></dt>
+<dd><p>A unidade principal dos documentos de saída é <em class="dfn">unidade de
+saída</em>. Normalmente, um nó está associado a um comando de seccionamento
+seguinte, enquanto um comando de seccionamento está associado a um nó
+anterior; ambos juntos constituem a unidade de saída.
+</p>
+<p>Para Texto Simples e HTML. Usar preferencialmente nós para decidir onde
+unidades da saída gerada serão separadas se <code class="code">USE_NODES</code> estiver
+configurada. Se configurada como falso, usar preferencialmente o
+seccionamento para decidir onde unidades da saída gerada serão separadas. O
+padrão é verdadeiro.
+</p>
+</dd>
+<dt><a id="index-USE_005fNUMERIC_005fENTITY"></a><span><code class="code">USE_NUMERIC_ENTITY</code><a class="copiable-link" href="#index-USE_005fNUMERIC_005fENTITY"> &para;</a></span></dt>
+<dd><p>Para HTML, XML e DocBook. Se configurada, usar entidades numéricas em vez
+de entidades nomeadas. Por padrão, configurada como verdadeiro para saída
+gerada DocBook.
+</p>
+</dd>
+</dl>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Outras-Vari_00e1veis-de-Personaliza_00e7_00e3o-de-Formatos.html">Outras Variáveis de Personalização de Formatos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Vari_00e1veis-de-Personaliza_00e7_00e3o.html">Variáveis de Personalização</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

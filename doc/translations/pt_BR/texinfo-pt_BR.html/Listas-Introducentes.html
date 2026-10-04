@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Listas Introducentes (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Texinfo formata listas para você.">
+<meta name="keywords" content="Texinfo formata listas para você.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Listas-e-Tabelas.html" rel="up" title="Listas e Tabelas">
+<link href="_0040itemize.html" rel="next" title="@itemize">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Listas-Introducentes">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040itemize.html" accesskey="n" rel="next"><code class="code">@itemize</code>: Construindo Uma Lista de Itens</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Listas-e-Tabelas.html" accesskey="u" rel="up">Listas e Tabelas</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Listas-Introducentes-1"><span>8.1 Listas Introducentes<a class="copiable-link" href="#Listas-Introducentes-1"> &para;</a></span></h3>
+
+<p>Texinfo automaticamente recua o texto em listas ou tabelas, e numera uma
+lista numerada.  Esse último recurso é útil se você modificar a lista, pois
+não precisa renumerá-la você mesmo(a).
+</p>
+<p>Listas numeradas e tabelas iniciam com o comando @ apropriado no início de
+uma linha, e finalizam com o correspondente comando <code class="code">@end</code> em uma
+linha própria.  Os comandos de tabela e de lista de itens também exigem que
+você escreva informações de formatação na mesma linha do comando @ de
+inicialização.
+</p>
+<p>Inicie uma lista numerada, por exemplo, com um comando <code class="code">@enumerate</code> e
+finalize a lista com um comando <code class="code">@end enumerate</code>.  Inicie uma lista de
+itens com um comando <code class="code">@itemize</code>, seguido na mesma linha por um comando
+de formatação como <code class="code">@bullet</code>, e finalize a lista com um comando
+<code class="code">@end itemize</code>.
+</p>
+<p>Preceda cada elemento de uma lista com um comando <code class="code">@item</code> ou
+<code class="code">@itemx</code>.
+</p>
+<br>
+<p>Aqui está uma lista de itens dos diferentes tipos de tabela e listas:
+</p>
+<ul class="itemize mark-bullet">
+<li>Listas de itens com e sem marcações.
+
+</li><li>Listas numeradas, usando números ou letras.
+
+</li><li>Tabelas de duas colunas com realçamento.
+</li></ul>
+
+<br>
+<p>Aqui está uma lista numerada com os mesmos itens:
+</p>
+<ol class="enumerate">
+<li> Listas de itens com e sem marcações.
+
+</li><li> Listas numeradas, usando números ou letras.
+
+</li><li> Tabelas de duas colunas com realçamento.
+</li></ol>
+
+<br>
+<p>E aqui está uma tabela de duas colunas com os mesmos itens e os comandos
+@<!-- /@w --> dela:
+</p>
+<dl class="table">
+<dt><code class="code">@itemize</code></dt>
+<dd><p>Listas de itens com e sem marcações.
+</p>
+</dd>
+<dt><code class="code">@enumerate</code></dt>
+<dd><p>Listas numeradas, usando números ou letras.
+</p>
+</dd>
+<dt><code class="code">@table</code></dt>
+<dt><code class="code">@ftable</code></dt>
+<dt><code class="code">@vtable</code></dt>
+<dd><p>Tabelas de duas colunas, opcionalmente com indexação.
+</p></dd>
+</dl>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040itemize.html"><code class="code">@itemize</code>: Construindo Uma Lista de Itens</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Listas-e-Tabelas.html">Listas e Tabelas</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

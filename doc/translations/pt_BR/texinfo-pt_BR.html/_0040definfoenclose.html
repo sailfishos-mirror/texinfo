@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@definfoenclose (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Realçamento personalizado.">
+<meta name="keywords" content="Realçamento personalizado.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Definindo-Novos-Comandos-do-Texinfo.html" rel="up" title="Definindo Novos Comandos do Texinfo">
+<link href="Processadores-Externos-de-Macro.html" rel="next" title="Processadores Externos de Macro">
+<link href="Macros-de-Linha.html" rel="prev" title="Macros de Linha">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="g_t_0040definfoenclose">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Processadores-Externos-de-Macro.html" accesskey="n" rel="next">Processadores Externos de Macro: Diretivas de Linha</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Macros-de-Linha.html" accesskey="p" rel="prev">Macros de Linha</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Definindo-Novos-Comandos-do-Texinfo.html" accesskey="u" rel="up">Definindo Novos Comandos do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="g_t_0040definfoenclose_003a-Real_00e7amento-Personalizado"><span>17.6 <code class="code">@definfoenclose</code>: Realçamento Personalizado<a class="copiable-link" href="#g_t_0040definfoenclose_003a-Real_00e7amento-Personalizado"> &para;</a></span></h3>
+
+<a class="anchor" id="definfoenclose"></a><a class="index-entry-id" id="index-Realcamento_002c-personalizado"></a>
+<a class="index-entry-id" id="index-definfoenclose"></a>
+
+<p>Um comando <code class="code">@definfoenclose</code> pode ser usado para definir um comando de
+realçamento para formatos de saída em linha.  Um comando definido usando
+<code class="code">@definfoenclose</code> marca o texto circundando-o em sequências de
+caracteres que precedem e seguem o texto.
+</p>
+<p>Na prática, existe pouco uso para esse comando e nós não recomendamos o uso
+dele.  O suporte para <code class="code">@definfoenclose</code> possivelmente seja removido em
+lançamentos futuros do Texinfo.
+</p>
+<p>Escreva um comando <code class="code">@definfoenclose</code> no início de uma linha seguido
+por três argumentos separados por vírgula.  O primeiro argumento para
+<code class="code">@definfoenclose</code> é o nome do comando @ (sem o <code class="code">@</code>); o segundo
+argumento é a sequência de caracteres delimitadora inicial; e o terceiro
+argumento é a sequência de caracteres delimitadora final.  Os dois últimos
+argumentos circundam o texto realçado na saída.
+</p>
+<p>Uma sequência de caracteres delimitadora pode conter espaços.  Nem o
+delimitador inicial nem o final são exigidos.  Se você não quiser um
+delimitador inicial, mas quiser um delimitador final, você precisa seguir o
+nome do comando com duas vírgulas em uma linha; do contrário, a sequência de
+caracteres delimitadora final que você pretendia será naturalmente
+(mal)interpretada como a sequência de caracteres delimitadora inicial.
+</p>
+<p>Um comando de circundação definido dessa maneira recebe um argumento entre
+chaves, pois é destinado para novos comandos de marcação (veja-se <a class="pxref" href="Marcando-Texto.html">Marcação de Texto, Palavras e Frases</a>).
+</p>
+<a class="index-entry-id" id="index-phoo"></a>
+<p>Por exemplo, você pode escrever:
+</p>
+<div class="example">
+<pre class="example-preformatted">@definfoenclose phoo,//,\\
+</pre></div>
+
+<p>perto do início de um arquivo do Texinfo para definir <code class="code">@phoo</code> como um
+comando do Info e do HTML que insira &lsquo;//&rsquo; antes e &lsquo;\\&rsquo; depois do argumento
+para <code class="code">@phoo</code>. Você pode então escrever <code class="code">@phoo{bar}</code> onde
+quiser &lsquo;//bar\\&rsquo; realçado no Info e no HTML.
+</p>
+<p>Para formatação do TeX, você poderia escrever
+</p>
+<div class="example">
+<pre class="example-preformatted">@iftex
+@alias phoo = i
+@end iftex
+</pre></div>
+
+<p>para definir <code class="code">@phoo</code> como um comando que faz com que o TeX
+tipografe o argumento para <code class="code">@phoo</code> em itálico.
+</p>
+<p>Cada definição se aplica ao próprio formatador dela: uma para TeX, o
+outra para formatos em linha.  As definições do TeX precisam estar em
+&lsquo;<samp class="samp">@iftex</samp>&rsquo;.  O comando <code class="code">@definfoenclose</code> não precisa estar em
+&lsquo;<samp class="samp">@ifinfo</samp>&rsquo;, a menos que você queira usar definições diferentes para
+diferentes formatos de saída em linha.  Comandos definidos do
+<code class="code">@definfoenclose</code> não tem efeito na saída DocBook e LaTeX; os
+argumentos deles são gerados como são.  Um <code class="code">@alias</code> também poderia ser
+usado para esses formatos.
+</p>
+<p>Definições de &lsquo;<samp class="samp">@definfoenclose</samp>&rsquo; precisam não serem recursivas, direta
+ou indiretamente.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Processadores-Externos-de-Macro.html">Processadores Externos de Macro: Diretivas de Linha</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Macros-de-Linha.html">Macros de Linha</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Definindo-Novos-Comandos-do-Texinfo.html">Definindo Novos Comandos do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

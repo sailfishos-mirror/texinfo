@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Convenções de Comandos de Definição (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Convenções para escrita de definições.">
+<meta name="keywords" content="Convenções para escrita de definições.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Comandos-de-Defini_00e7_00e3o.html" rel="up" title="Comandos de Definição">
+<link href="Defini_00e7_00e3o-de-Amostra-de-Fun_00e7_00e3o.html" rel="next" title="Definição de Amostra de Função">
+<link href="Comandos-Gen_00e9ricos-de-Defini_00e7_00e3o.html" rel="prev" title="Comandos Genéricos de Definição">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Conven_00e7_00f5es-de-Comandos-de-Defini_00e7_00e3o">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Defini_00e7_00e3o-de-Amostra-de-Fun_00e7_00e3o.html" accesskey="n" rel="next">Uma Definição de Amostra de Função</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Comandos-Gen_00e9ricos-de-Defini_00e7_00e3o.html" accesskey="p" rel="prev">Comandos Genéricos de Definição</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Comandos-de-Defini_00e7_00e3o.html" accesskey="u" rel="up">Comandos de Definição</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Conven_00e7_00f5es-para-Escrita-de-Defini_00e7_00f5es"><span>14.8 Convenções para Escrita de Definições<a class="copiable-link" href="#Conven_00e7_00f5es-para-Escrita-de-Defini_00e7_00f5es"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Convencoes-de-definicao"></a>
+<a class="index-entry-id" id="index-Convencoes-para-escrita-de-definicoes"></a>
+
+<p>Um manual não precisa e não deveria conter mais que uma definição para um
+determinado nome.  Um apêndice contendo um resumo deveria usar
+<code class="code">@table</code> em vez dos comandos de definição.
+</p>
+<p>Quando você escrever uma definição usando <code class="code">@deffn</code>, <code class="code">@defun</code> ou
+um dos outros comandos de definição, por favor, tome cuidado para usar
+argumentos que indiquem o significado, como com o argumento <var class="var">count</var> para
+a função <code class="code">forward-word</code>.  Além disso, se o nome de um argumento
+contiver o nome de um tipo, como <var class="var">integer</var>, tome cuidado para que o
+argumento seja realmente desse tipo.
+</p>
+<p><em class="emph">Fontes</em>. Como Texinfo é uma linguagem semântica, você quase nunca
+precisará especificar estilos de fonte com comandos explícitos de fonte em
+definições (veja-se <a class="pxref" href="Fontes.html">Fontes para Impressão</a>).  No entanto, você possivelmente precise
+contornar problemas com formatos de saída e (ou) construções específicos.
+Aqui estão algumas possibilidades:
+</p>
+<ul class="itemize mark-bullet">
+<li>Marcando explicitamente uma palavra-chave da Lisp, como
+&lsquo;<samp class="samp">&amp;<var class="var">keyword</var></samp>&rsquo;, com <code class="code">@r{&amp;keyword}</code>, produzindo <span class="r">&amp;keyword</span>.
+
+<p>Observe que tais palavras-chave em argumentos de definição são (atualmente)
+renderizadas em romano no TeX, mas essa formatação não é feita em nenhum
+outro formato de saída.
+</p>
+</li><li>&lsquo;<samp class="samp">@r{@slanted{argumento}}</samp>&rsquo;, produzindo <span class="r"><i class="slanted">argumento</i></span>,
+semelhante a <code class="code">@var</code>, mas evitando maiusculizar o argumento dele na
+saída do Info.
+
+<p>Neste e no ponto anterior, <code class="code">@r</code> reconfigura a fonte daquela sendo
+usada no contexto da linha de definição (inclinada ou de máquina de
+escrever) para um estilo romano vertical.
+</p>
+</li><li>Você poderia usar <code class="code">@t</code> (ou até mesmo &lsquo;<samp class="samp">@r{@t{&hellip;</samp>&rsquo;, usando
+<code class="code">@r</code> para reconfigurar estilos de fonte) para marcar sintaxe literal
+em uma linha de definição onde, de outra maneira, o texto seria gerado no
+estilo romano inclinado.  <code class="code">@code</code> seria inapropriado aqui, pois ele
+adiciona aspas na saída do Info.
+</li></ul>
+
+<p>Algum grau de tentativa e erro possivelmente seja necessário para obter o
+resultado que você quer.  Como sempre, como comandos aninhados de fonte se
+combinam depende do formato de saída, de forma que deveria ser evitada onde
+possível.
+</p>
+<p>Esperançosamente, tais usos sejam mantidos ao mínimo.  Uma possibilidade é a
+de envolucrá-los em <code class="code">@macro</code> (veja-se <a class="pxref" href="Definindo-Novos-Comandos-do-Texinfo.html">Definindo Novos Comandos do Texinfo</a>), permitindo que esses usos sejam facilmente mudados no futuro.
+</p>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Defini_00e7_00e3o-de-Amostra-de-Fun_00e7_00e3o.html">Uma Definição de Amostra de Função</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Comandos-Gen_00e9ricos-de-Defini_00e7_00e3o.html">Comandos Genéricos de Definição</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

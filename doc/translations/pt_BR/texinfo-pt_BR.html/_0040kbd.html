@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@kbd (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Exibindo entrada de teclado.">
+<meta name="keywords" content="Exibindo entrada de teclado.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Indicando.html" rel="up" title="Indicando">
+<link href="_0040key.html" rel="next" title="@key">
+<link href="_0040code.html" rel="prev" title="@code">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+kbd.kbd {font-style: oblique}
+kbd.key {font-style: normal}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="g_t_0040kbd">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040key.html" accesskey="n" rel="next"><code class="code">@key</code>{<var class="var">nome-tecla</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040code.html" accesskey="p" rel="prev"><code class="code">@code</code>{<var class="var">código-amostra</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Indicando.html" accesskey="u" rel="up">Indicando Definições, Comandos, etc.</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="g_t_0040kbd_007bcaracteres_002dde_002dteclado_007d"><span>6.1.3 <code class="code">@kbd</code>{<var class="var">caracteres-de-teclado</var>}<a class="copiable-link" href="#g_t_0040kbd_007bcaracteres_002dde_002dteclado_007d"> &para;</a></span></h4>
+
+<a class="anchor" id="kbd"></a><a class="index-entry-id" id="index-kbd"></a>
+<a class="index-entry-id" id="index-Entrada-de-teclado"></a>
+
+<p>Use o comando <code class="code">@kbd</code> para caracteres de entrada a serem digitados por
+usuários(as).  Por exemplo, para referenciar os caracteres <kbd class="kbd">M-a</kbd>,
+escreva:
+</p>
+<div class="example">
+<pre class="example-preformatted">@kbd{M-a}
+</pre></div>
+
+<p>e para referenciar os caracteres <kbd class="kbd">M-x shell</kbd>, escreva:
+</p>
+<div class="example">
+<pre class="example-preformatted">@kbd{M-x shell}
+</pre></div>
+
+<a class="index-entry-id" id="index-Entrada-de-usuario_0028a_0029"></a>
+<a class="index-entry-id" id="index-Fonte-inclinada-de-maquina-de-escrever_002c-para-_0040kbd"></a>
+<p>Por padrão, o comando <code class="code">@kbd</code> produz uma fonte diferente (máquina de
+escrever inclinada em vez da de máquina de escrever normal, onde o formato
+da saída gerada permitir), de forma que os(as) usuários(as) consigam
+distinguir os caracteres que deveriam supostamente digitar a partir daqueles
+que o computador gera.
+</p>
+<a class="index-entry-id" id="index-kbdinputstyle"></a>
+<p>Dado que o uso de <code class="code">@kbd</code> varia de manual para manual, você pode
+controlar a fonte comutando com o comando <code class="code">@kbdinputstyle</code>.  Esse
+comando não tem efeito sobre a saída Info.  Escreva esse comando no início
+de uma linha com uma palavra como um argumento, uma das seguintes:
+</p>
+<a class="index-entry-id" id="index-distinct_002c-valor-para-_0040kbdinputstyle"></a>
+<a class="index-entry-id" id="index-example_002c-valor-para-_0040kbdinputstyle"></a>
+<a class="index-entry-id" id="index-code_002c-valor-para-_0040kbdinputstyle"></a>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">code</samp>&rsquo;</dt>
+<dd><p>Sempre use a mesma fonte para <code class="code">@kbd</code> como <code class="code">@code</code>.
+</p></dd>
+<dt>&lsquo;<samp class="samp">example</samp>&rsquo;</dt>
+<dd><p>Use a fonte de distinção para <code class="code">@kbd</code> somente em <code class="code">@example</code> e
+ambientes similares.
+</p></dd>
+<dt>&lsquo;<samp class="samp">distinct</samp>&rsquo;</dt>
+<dd><p>(o padrão) Sempre use a fonte de distinção para <code class="code">@kbd</code>.
+</p></dd>
+</dl>
+
+<p>Você consegue embutir outro comando @ dentro das chaves de um comando
+<code class="code">@kbd</code>.  Aqui, por exemplo, está a maneira para descrever um comando
+que seria descrito mais detalhadamente como &ldquo;pressione a tecla &lsquo;<samp class="samp">r</samp>&rsquo; e
+então pressione a tecla <kbd class="key">RETURN</kbd>&rdquo;:
+</p>
+<div class="example">
+<pre class="example-preformatted">@kbd{r @key{RET}}
+</pre></div>
+
+<p>Isso produz: <kbd class="kbd">r <kbd class="key">RET</kbd></kbd>.  (O presente manual usa o padrão para
+<code class="code">@kbdinputstyle</code>).
+</p>
+<p>Você também usa o comando <code class="code">@kbd</code> se estiver soletrando as letras que
+digitar; por exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">Para dar o comando @code{logout},
+digite os caracteres @kbd{l o g o u t @key{RET}}.
+</pre></div>
+
+<p>Isso produz:
+</p>
+<blockquote class="quotation">
+<p>Para dar o comando <code class="code">logout</code>, digite os caracteres <kbd class="kbd">l o g o u t
+<kbd class="key">RET</kbd></kbd>.
+</p></blockquote>
+
+<p>(Além disso, esse exemplo mostra que você pode adicionar espaços para maior
+clareza. Se você explicitamente quiser mencionar um caractere espaço como um
+dos caracteres da entrada, escreva <kbd class="kbd">@key{SPC}</kbd> para ele).
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040key.html"><code class="code">@key</code>{<var class="var">nome-tecla</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040code.html"><code class="code">@code</code>{<var class="var">código-amostra</var>}</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Indicando.html">Indicando Definições, Comandos, etc.</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Desdividir e Etiquetar (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como criar um arquivo desdividido e adicionar uma tabela de etiquetas para
+validação.
+">
+<meta name="keywords" content="Como criar um arquivo desdividido e adicionar uma tabela de etiquetas para
+validação.
+">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Executando-Info_002dvalidate.html" rel="up" title="Executando Info-validate">
+<link href="Usando-Info_002dvalidate.html" rel="prev" title="Usando Info-validate">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+kbd.kbd {font-style: oblique}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsubsection-level-extent" id="Desdividir-e-Etiquetar">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Usando-Info_002dvalidate.html" accesskey="p" rel="prev">Usando <code class="code">Info-validate</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Executando-Info_002dvalidate.html" accesskey="u" rel="up">Encontrando Nós Mal Referenciados</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsubsection" id="Criando-um-Arquivo-Desdividido-e-Adicionando-uma-Tabela-de-Etiquetas"><span>D.10.4.2 Criando um Arquivo Desdividido e Adicionando uma Tabela de Etiquetas<a class="copiable-link" href="#Criando-um-Arquivo-Desdividido-e-Adicionando-uma-Tabela-de-Etiquetas"> &para;</a></span></h4>
+<a class="anchor" id="Desdividido"></a>
+<a class="index-entry-id" id="index-Criando-um-arquivo-desdividido"></a>
+<a class="index-entry-id" id="index-Criacao-de-arquivo-desdividido"></a>
+
+<p>Você consegue executar <code class="code">Info-validate</code> somente sobre um arquivo do Info
+que tenha uma tabela de etiquetas. O comando não funcionará sobre os
+subarquivos indiretos que forem gerados quando um arquivo mestre for
+dividido. Se tiver um arquivo grande (mais que 300.000 bytes ou mais), você
+necessita executar o comando <code class="code">texinfo-format-buffer</code>, ou o
+<code class="code">makeinfo-buffer</code>, de tal maneira que ele não crie subarquivos
+indiretos. Você também precisará criar uma tabela de etiquetas para o
+arquivo do Info. Depois que tiver feito isso, você pode executar
+<code class="code">Info-validate</code> e procurar nós mal referenciados.
+</p>
+<p>A primeira etapa é a de criar um arquivo do Info não dividido. Para evitar
+que <code class="code">texinfo-format-buffer</code> divida um arquivo do Texinfo em arquivos do
+Info menores, forneça um prefixo para o comando <kbd class="kbd">M-x
+texinfo-format-buffer</kbd>:
+</p>
+<div class="example">
+<pre class="example-preformatted">C-u M-x texinfo-format-buffer
+</pre></div>
+
+<p>ou então
+</p>
+<div class="example">
+<pre class="example-preformatted">C-u C-c C-e C-b
+</pre></div>
+
+<p>Quando você fizer isso, <code class="code">texinfo-format-buffer</code> não dividirá o arquivo
+e não criará uma tabela de etiquetas para ele.
+</p>
+<p>Depois de criar um arquivo do Info não dividido, você precisa criar uma
+tabela de etiquetas para ele (veja-se <a class="pxref" href="Etiquetando.html">Etiquetando um Arquivo</a>). Visite o arquivo do Info
+não dividido criado pelo <code class="code">texinfo-format-buffer</code> e digite:
+</p>
+<div class="example">
+<pre class="example-preformatted">M-x Info-tagify
+</pre></div>
+
+<p>A terceira etapa é a de validar o arquivo do Info:
+</p>
+<div class="example">
+<pre class="example-preformatted">M-x Info-validate
+</pre></div>
+
+<p>(Observe o &lsquo;<samp class="samp">I</samp>&rsquo; maiúsculo no <code class="code">Info-validate</code>). Resumidamente, as
+etapas são:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">C-u M-x texinfo-format-buffer
+M-x Info-tagify
+M-x Info-validate
+</pre></div></div>
+
+<p>Depois que tiver validado a estrutura do nó, você pode reexecutar
+<code class="code">texinfo-format-buffer</code> da maneira normal, de modo que ele construa uma
+tabela de etiquetas e divida o arquivo automaticamente, ou você pode criar a
+tabela de etiquetas e dividir o arquivo manualmente (veja-se <a class="pxref" href="Dividindo.html">Dividindo um Arquivo Manualmente</a>).
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Usando-Info_002dvalidate.html">Usando <code class="code">Info-validate</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Executando-Info_002dvalidate.html">Encontrando Nós Mal Referenciados</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

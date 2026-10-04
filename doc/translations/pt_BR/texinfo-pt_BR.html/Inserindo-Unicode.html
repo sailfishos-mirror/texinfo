@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Inserindo Unicode (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Inserindo um caractere Unicode por ponto de código.">
+<meta name="keywords" content="Inserindo um caractere Unicode por ponto de código.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Inser_00e7_00f5es.html" rel="up" title="Inserções">
+<link href="Glifos-para-Programa_00e7_00e3o.html" rel="prev" title="Glifos para Programação">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Inserindo-Unicode">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Glifos-para-Programa_00e7_00e3o.html" accesskey="p" rel="prev">Glifos para Programação</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Inser_00e7_00f5es.html" accesskey="u" rel="up">Inserções Especiais</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Inserindo-Unicode_003a-_0040U"><span>11.9 Inserindo Unicode: <code class="code">@U</code><a class="copiable-link" href="#Inserindo-Unicode_003a-_0040U"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Caractere-Unicode_002c-inserindo"></a>
+<a class="index-entry-id" id="index-Ponto-de-codigo-do-caractere-Unicode_002c-inserindo-por"></a>
+<a class="index-entry-id" id="index-U"></a>
+
+<p>O comando <code class="code">@U{<var class="var">hexadecimal</var>}</code> insere uma representação do
+caractere Unicode U+<var class="var">hexadecimal</var>.  Por exemplo, <code class="code">@U{0132}</code>
+insere a ligadura holandesa &lsquo;IJ&rsquo; (&lsquo;&#x0132;&rsquo;).
+</p>
+<p>O valor <var class="var">hexadecimal</var> deveria ter pelo menos quatro dígitos
+hexadecimais; zeros à esquerda <em class="emph">não</em> são adicionados.  Em geral,
+<var class="var">hexadecimal</var> precisa especificar um caractere Unicode normal válido;
+por exemplo, U+10FFFF (o último ponto de código) é inválido por definição e,
+portanto, não pode ser inserido dessa forma.
+</p>
+<a class="index-entry-id" id="index-ASCII_002c-portabilidade-de-documentos-fonte_002c-usando"></a>
+<p><code class="code">@U</code> é útil para inserir glifos ocasionais para os quais Texinfo não
+tenha comando dedicado, ao mesmo tempo em que permite que o fonte do Texinfo
+permaneça puramente ASCII de 7 bits para máxima portabilidade.
+</p>
+<a class="index-entry-id" id="index-Unicode-e-TeX"></a>
+<p>Esse comando tem muitas limitações&mdash;as mesmas limitações de inserir
+caracteres Unicode em UTF-8 ou outra forma binária.  Primeiro e mais
+importante, TeX não sabe nada acerca da maioria do Unicode.  Suportar
+glifos adicionais específicos mediante solicitação é possível, mas não é
+viável para <samp class="file">texinfo.tex</samp> suportar conjuntos adicionais e inteiros de
+comandos sequenciados (japonês, urdu, &hellip;).  O comando <code class="code">@U</code> não
+faz nada para mudar isso.  Se o caractere especificado não for suportado no
+TeX, um erro será fornecido.  A saída do LaTeX tem mais possibilidades
+em relação ao UTF-8, mas poderia exigir código extra para carregar fontes e
+para declarar como os caracteres UTF-8 são gerados.
+(Veja-se <a class="xref" href="_0040documentencoding.html"><code class="code">@documentencoding <var class="var">codificação</var></code>: Configurar Codificação de Entrada</a>).
+</p>
+<a class="index-entry-id" id="index-Referencia-de-entidade-em-HTML-et-al_002e"></a>
+<a class="index-entry-id" id="index-_0026_0023xhexadecimal_003b_002c-saida-oriunda-de-_0040U"></a>
+<p>Em HTML e DocBook, a saída proveniente de <code class="code">@U</code> é sempre uma referência
+de entidade do formato &lsquo;<samp class="samp">&amp;#x<var class="var">hexadecimal</var>;</samp>&rsquo;, como em &lsquo;<samp class="samp">&amp;#x0132;</samp>&rsquo;
+para o exemplo acima.  Isso deveria funcionar mesmo quando um documento HTML
+usar alguma outra codificação (digamos, Latin&nbsp;1) e o caractere
+fornecido não for suportado nessa codificação.
+</p>
+<p>No Info e em texto simples, se a codificação da saída não for UTF-8, a saída
+será a sequência ASCII &lsquo;<samp class="samp">U+<var class="var">hexadecimal</var></samp>&rsquo;, como nos seis caracteres
+ASCII &lsquo;<samp class="samp">U+0132</samp>&rsquo; para o exemplo acima.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Glifos-para-Programa_00e7_00e3o.html">Glifos para Programação</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Inser_00e7_00f5es.html">Inserções Especiais</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@copying (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Declare as permissões de cópia do documento.">
+<meta name="keywords" content="Declare as permissões de cópia do documento.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Permiss_00f5es-do-Documento.html" rel="up" title="Permissões do Documento">
+<link href="_0040insertcopying.html" rel="next" title="@insertcopying">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="g_t_0040copying">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040insertcopying.html" accesskey="n" rel="next"><code class="code">@insertcopying</code>: Incluir Texto de Permissões</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Permiss_00f5es-do-Documento.html" accesskey="u" rel="up">Permissões do Documento</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="g_t_0040copying_003a-Declarar-Permiss_00f5es-de-C_00f3pia"><span>2.7.1 <code class="code">@copying</code>: Declarar Permissões de Cópia<a class="copiable-link" href="#g_t_0040copying_003a-Declarar-Permiss_00f5es-de-C_00f3pia"> &para;</a></span></h4>
+
+<a class="anchor" id="copying"></a><a class="index-entry-id" id="index-copying"></a>
+
+<p>O comando <code class="code">@copying</code> deveria ser fornecido bem no início do documento;
+o local recomendado é logo depois do material do cabeçalho (veja-se <a class="pxref" href="Cabe_00e7alho-do-Arquivo-do-Texinfo.html">Cabeçalho do Arquivo do Texinfo</a>). Ele consiste convencionalmente em uma ou duas
+frases acerca do que é o programa, identificação da documentação em si, a
+linha jurídica de direitos autorais e as permissões de cópia. Aqui está um
+exemplo esquelético:
+</p>
+<div class="example">
+<pre class="example-preformatted">@copying
+Este manual é para <var class="var">programa</var> (versão <var class="var">versão</var>, atualizado <var class="var">data</var>), que ...
+Copyright @copyright{} <var class="var">anos</var> <var class="var">titular-copyright</var>.
+
+@quotation
+Permissão é concedida para ...
+@end quotation
+@end copying
+</pre></div>
+
+<p>O <code class="code">@quotation</code> não tem significado jurídico; ele está lá para melhorar
+a legibilidade em alguns contextos.
+</p>
+<p>O texto de <code class="code">@copying</code> aparece como um comentário no início dos
+arquivos da saída gerada do Info e de HTML. Essas informações também são
+geradas no início dos arquivos da saída gerada do DocBook usando-se marcação
+apropriada. Elas <em class="emph">não</em> são geradas implicitamente em texto simples ou
+em saída impressa; cabe inteiramente a você usar <code class="code">@insertcopying</code> para
+emitir as informações de cópia. Veja-se a próxima seção para detalhes.
+</p>
+<p>O comando <code class="code">@copyright{}</code> gera um &lsquo;<samp class="samp">c</samp>&rsquo; dentro de um círculo
+quando o formato da saída gerada suportar esse glifo (impressa e HTML sempre
+suportam, por exemplo). Quando o glifo não for suportado na saída gerada,
+ele gera a sequência de três caracteres &lsquo;<samp class="samp">(C)</samp>&rsquo;.
+</p>
+<p>O aviso de direitos autorais em si tem o seguinte formato juridicamente
+prescrito:
+</p>
+<div class="example">
+<pre class="example-preformatted">Copyright &copy; <var class="var">anos</var> <var class="var">titular-copyright</var>.
+</pre></div>
+
+<a class="index-entry-id" id="index-Palavra-Copyright_002c-sempre-em-ingles"></a>
+<p>A palavra &lsquo;Copyright&rsquo; precisa sempre estar escrita em inglês, mesmo que o
+documento esteja escrito em outro idioma. Isso é devido ao direito
+internacional.
+</p>
+<a class="index-entry-id" id="index-Anos_002c-na-linha-de-direitos-autorais"></a>
+<p>A lista de anos deveria incluir todos os anos nos quais uma versão foi
+concluída (mesmo se ela foi lançada em um ano subsequente). É mais simples
+que cada ano esteja escrito individualmente e por completo, separado por
+vírgulas.
+</p>
+<a class="index-entry-id" id="index-Titular-dos-direitos-autorais-para-obras-da-FSF"></a>
+<a class="index-entry-id" id="index-Obras-da-FSF_002c-Titular-dos-direitos-autorais-das"></a>
+<a class="index-entry-id" id="index-Proprietario_0028a_0029-dos-direitos-autorais-das-obras-da-FSF"></a>
+<p>O(A) proprietário(a) (ou proprietários(as)) dos direitos autorais é quem
+titularizar os direitos autorais sobre a obra. No caso de obras atribuídas à
+FSF, o(a) proprietário(a) é &lsquo;Free Software Foundation, Inc.&rsquo;.
+</p>
+<p>A &lsquo;linha&rsquo; de direitos autorais pode, na verdade, ser dividida em várias
+linhas, tanto no documento fonte quanto na saída gerada. Isso geralmente
+acontece para documentos com um longo histórico, tendo muitos anos de
+publicação. Se você usar várias linhas, não recue nenhuma delas (ou qualquer
+outra coisa no bloco <code class="code">@copying</code>) no arquivo fonte.
+</p>
+<p>Veja-se <a data-manual="maintain" href="https://www.gnu.org/prep/maintain/html_node/Copyright-Notices.html#Copyright-Notices">Copyright Notices</a> em <cite class="cite">Informações do(a) Mantenedor(a) GNU</cite>,
+para informações adicionais. Veja-se <a class="xref" href="Textos-GNU-de-Amostra.html">Textos GNU de Amostra</a>, para o texto
+completo a ser usado nos manuais GNU. Veja-se <a class="xref" href="Licen_00e7a-GNU-de-Documenta_00e7_00e3o-Livre.html">Licença GNU de Documentação Livre</a>, para a licença em si sob a qual o GNU e outros manuais livres são
+distribuídos.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040insertcopying.html"><code class="code">@insertcopying</code>: Incluir Texto de Permissões</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Permiss_00f5es-do-Documento.html">Permissões do Documento</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

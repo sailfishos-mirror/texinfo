@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Estrutura do Documento Texinfo (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Estrutura dupla dos documentos.">
+<meta name="keywords" content="Estrutura dupla dos documentos.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="N_00f3s.html" rel="up" title="Nós">
+<link href="Ilustra_00e7_00e3o-de-Menu-de-N_00f3.html" rel="next" title="Ilustração de Menu de Nó">
+<link href="Comando-_0040top.html" rel="prev" title="Comando @top">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+kbd.kbd {font-style: oblique}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Estrutura-do-Documento-Texinfo">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Ilustra_00e7_00e3o-de-Menu-de-N_00f3.html" accesskey="n" rel="next">Ilustração de Nó e Menu</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Comando-_0040top.html" accesskey="p" rel="prev">O Comando de Seccionamento <code class="code">@top</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="N_00f3s.html" accesskey="u" rel="up">Nós</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Estrutura-do-Documento-Texinfo-1"><span>3.6 Estrutura do Documento Texinfo<a class="copiable-link" href="#Estrutura-do-Documento-Texinfo-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Estrutura-do-documento-Texinfo"></a>
+<a class="index-entry-id" id="index-Estrutura-de-documento_002c-do-Texinfo"></a>
+<a class="index-entry-id" id="index-Estrutura_002c-dos-documentos-do-Texinfo"></a>
+<a class="index-entry-id" id="index-Estrutura-dupla_002c-dos-documentos-do-Texinfo"></a>
+
+<a class="anchor" id="Dois-Caminhos"></a>
+<p>Os nós podem conter <em class="dfn">menus</em>, os quais contém os nomes de <em class="dfn">nós
+descendentes</em> dentro do nó ancestral; por exemplo, um nó correspondente a um
+capítulo teria um menu de seções nesse capítulo. Os menus permitem que o(a)
+usuário(a) se movimente para os nós descendentes na saída Info.
+</p>
+<p>Adicionalmente, os nós contém <em class="dfn">ponteiros de nó</em> que nomeiam outros
+nós. Os ponteiros &lsquo;Próximo&rsquo; e &lsquo;Anterior&rsquo; vinculam nós no mesmo nível de
+seccionamento em uma cadeia. Conforme você pode imaginar, o ponteiro
+&lsquo;Próximo&rsquo; vincula ao próximo nó, e o ponteiro &lsquo;Anterior&rsquo; vincula ao nó
+anterior. Em geral, &lsquo;Próximo&rsquo; e &lsquo;Anterior&rsquo; referenciam nós no <em class="emph">mesmo
+nível hierárquico</em> no manual, não necessariamente ao próximo nó dentro do
+arquivo Texinfo. No arquivo Texinfo, o nó subsequente possivelmente esteja
+em um nível inferior&mdash;um nó ao nível de seção frequentemente precisa seguir
+um nó ao nível de capítulo, por exemplo. Assim, por exemplo, todos os nós
+que estejam ao nível de seções dentro de um capítulo são vinculados juntos,
+e a ordem nessa cadeia é a mesma que a ordem dos descendentes no menu do
+capítulo ancestral. Cada nó descendente grava o nome de nó do ancestral como
+ponteiro dele &lsquo;Acima&rsquo;.
+</p>
+<p>Como o nó &lsquo;Top&rsquo; é o único nó nesse nível, &lsquo;Próximo&rsquo; se refere ao primeiro nó
+a seguir, que quase sempre é um nó de capítulo ou ao nível de capítulo. Essa
+é uma exceção à regra de &lsquo;Próximo&rsquo; estar no mesmo nível hierárquico.
+</p>
+<a class="index-entry-id" id="index-accesskey-na-saida-HTML-de-nos"></a>
+<p>A saída Info e HTML para cada nó inclui vínculos para os nós &lsquo;Próximo&rsquo;,
+&lsquo;Anterior&rsquo;, e &lsquo;Acima&rsquo;. O HTML também usa o atributo <code class="code">accesskey</code> com os
+valores &lsquo;<samp class="samp">n</samp>&rsquo;, &lsquo;<samp class="samp">p</samp>&rsquo;, e &lsquo;<samp class="samp">u</samp>&rsquo;, respectivamente. Isso permite que
+pessoas que usam navegadores web seguirem a navegação usando (tipicamente)
+<kbd class="kbd">M-<var class="var">letra</var></kbd>, por exemplo, <kbd class="kbd">M-n</kbd> para o nó &lsquo;Próximo&rsquo;, a partir de
+qualquer lugar dentro do nó. Os ponteiros e menus de nó fornecem estrutura
+para arquivos Info, exatamente como capítulos, seções, subseções e
+semelhantes fornecem estrutura para livros impressos. As duas estruturas
+teoricamente são distintas; na prática, entretanto, a estrutura de árvore
+dos livros impressos é também essencialmente sempre usada para o nó e
+estrutura de menu, pois isso conduz a um documento que é fácil de seguir.
+</p>
+<p>Normalmente, a estrutura de seccionamento e a estrutura de nó são
+completamente paralelas, com um nó para cada capítulo, seção etc., e com os
+nós seguindo o mesmo arranjo hierárquico que o seccionamento. Assim, se um
+nó estiver no nível lógico de um capítulo, os nós descendentes dele estarão
+no nível das seções; similarmente, os nós descendentes das seções estarão no
+nível das subseções.
+</p>
+<p>É tecnicamente possível criar documentos do Texinfo com somente uma
+estrutura ou a outra, ou para as duas estruturas não serem paralelas ou para
+que a estrutura de seccionamento ou a de nó seja diferente da estrutura
+convencional. Até onde sabemos, no entanto, todos os manuais do Texinfo
+atualmente em uso geral seguem a estrutura paralela convencional.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Ilustra_00e7_00e3o-de-Menu-de-N_00f3.html">Ilustração de Nó e Menu</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Comando-_0040top.html">O Comando de Seccionamento <code class="code">@top</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="N_00f3s.html">Nós</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

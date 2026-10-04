@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Comandos Condicionais Não (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Texto para algum formato diferente de um fornecido.">
+<meta name="keywords" content="Texto para algum formato diferente de um fornecido.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Condicionais.html" rel="up" title="Condicionais">
+<link href="Comandos-Brutos-do-Formatador.html" rel="next" title="Comandos Brutos do Formatador">
+<link href="Comandos-Condicionais.html" rel="prev" title="Comandos Condicionais">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Comandos-Condicionais-N_00e3o">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Comandos-Brutos-do-Formatador.html" accesskey="n" rel="next">Comandos Brutos do Formatador</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Comandos-Condicionais.html" accesskey="p" rel="prev">Comandos Condicionais</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Condicionais.html" accesskey="u" rel="up">Texto Condicionalmente Visível</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Comandos-Condicionais-N_00e3o-1"><span>16.2 Comandos Condicionais Não<a class="copiable-link" href="#Comandos-Condicionais-N_00e3o-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-ifnotdocbook"></a>
+<a class="index-entry-id" id="index-ifnothtml"></a>
+<a class="index-entry-id" id="index-ifnotinfo"></a>
+<a class="index-entry-id" id="index-ifnotlatex"></a>
+<a class="index-entry-id" id="index-ifnotplaintext"></a>
+<a class="index-entry-id" id="index-ifnottex"></a>
+<a class="index-entry-id" id="index-ifnotxml"></a>
+
+<p>Você pode especificar o texto a ser incluído em algum formato de saída
+<em class="emph">diferente</em> de um fornecido, com os ambientes <code class="code">@ifnot&hellip;</code>:
+</p>
+<div class="example">
+<pre class="example-preformatted">@ifnotdocbook ... @end ifnotdocbook
+@ifnothtml ... @end ifnothtml
+@ifnotinfo ... @end ifnotinfo
+@ifnotlatex ... @end ifnotlatex
+@ifnotplaintext ... @end ifnotplaintext
+@ifnottex ... @end ifnottex
+@ifnotxml ... @end ifnotxml
+</pre></div>
+
+<p>O comando <code class="code">@ifnot&hellip;</code> e o comando <code class="code">@end</code> precisam aparecer
+em linhas dedicadas no teu arquivo fonte real.
+</p>
+<p>Se o arquivo de saída estiver sendo feito no formato fornecido, a região
+será <em class="emph">ignorada</em>.  Caso contrário, ela será incluída.
+</p>
+<p>Existe uma exceção (para compatibilidade histórica): texto
+<code class="code">@ifnotinfo</code> será omitido para ambas saídas, Info e de texto simples,
+não apenas Info.  Para especificar texto que apareça somente em Info e não
+em texto simples, use <code class="code">@ifnotplaintext</code>, assim:
+</p>
+<div class="example">
+<pre class="example-preformatted">@ifinfo
+@ifnotplaintext
+Isto estará no Info, mas não em texto simples.
+@end ifnotplaintext
+@end ifinfo
+</pre></div>
+
+<p>As regiões delimitadas por esses comandos são fontes Texinfo comuns, como em
+<code class="code">@iftex</code>, e não fontes de formatador bruto, como em <code class="code">@tex</code>
+(veja-se <a class="pxref" href="Comandos-Brutos-do-Formatador.html">Comandos Brutos do Formatador</a>).
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Comandos-Brutos-do-Formatador.html">Comandos Brutos do Formatador</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Comandos-Condicionais.html">Comandos Condicionais</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Condicionais.html">Texto Condicionalmente Visível</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

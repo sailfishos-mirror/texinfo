@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Arquivos de Etiqueta e Divididos (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Arquivos de Etiqueta e Divididos (GNU Texinfo 7.3)">
+<meta name="keywords" content="Arquivos de Etiqueta e Divididos (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Criando-e-Instalando-Arquivos-Info.html" rel="up" title="Criando e Instalando Arquivos Info">
+<link href="Perguntas-Frequentes-do-Formato-Info.html" rel="next" title="Perguntas Frequentes do Formato Info">
+<link href="Instalando-um-Arquivo-do-Info.html" rel="prev" title="Instalando um Arquivo do Info">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+kbd.kbd {font-style: oblique}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Arquivos-de-Etiqueta-e-Divididos">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Perguntas-Frequentes-do-Formato-Info.html" accesskey="n" rel="next">Perguntas Frequentes do Formato Info</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Instalando-um-Arquivo-do-Info.html" accesskey="p" rel="prev">Instalando um Arquivo do Info</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Criando-e-Instalando-Arquivos-Info.html" accesskey="u" rel="up">Criando e Instalando Arquivos Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Arquivos-de-Etiqueta-e-Arquivos-Divididos"><span>21.2 Arquivos de Etiqueta e Arquivos Divididos<a class="copiable-link" href="#Arquivos-de-Etiqueta-e-Arquivos-Divididos"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Tabela-de-etiquetas"></a>
+<a class="index-entry-id" id="index-Arquivo-Info-nao-dividido"></a>
+<a class="index-entry-id" id="index-Arquivo-Info-dividido"></a>
+<p>Arquivos Info sempre contêm uma <em class="dfn">tabela de etiquetas</em>, para poder saltar
+rapidamente para nós. Arquivos Info podem ser <em class="dfn">não divididos</em> (também
+chamados <em class="dfn">indivisíveis</em>) ou <em class="dfn">divididos</em>.
+</p>
+<a class="index-entry-id" id="index-Subarquivos-indiretos"></a>
+<p>Se o arquivo Info contiver menos que 300.000 caracteres, o arquivo deveria
+ser não dividido. Nesse caso, a tabela de etiquetas deveria aparecer no
+final do arquivo Info. Se o arquivo Texinfo contiver mais que 300.000
+caracteres, os processadores Texinfo dividirão o grande arquivo Info em
+subarquivos <em class="dfn">indiretos</em> menores de cerca de 300.000 caracteres cada. Com
+<code class="command">texi2any</code>, a divisão pode ser evitada por <samp class="option">--no-split</samp>, e o
+tamanho padrão de 300.000 caracteres pode ser modificado com
+<samp class="option">--split-size</samp> (veja-se <a class="pxref" href="Invocando-texi2any.html">Invocando <code class="command">texi2any</code> a partir de um Shell</a>).
+</p>
+<p>Quando um arquivo for dividido, o próprio Info faz uso uma versão abreviada
+do arquivo original que contém apenas a tabela de etiquetas e referências
+para os arquivos que foram divididos. Os arquivos divididos são chamados de
+arquivos <em class="dfn">indiretos</em>.
+</p>
+<p>Os arquivos divididos têm nomes que são criados pospondo &lsquo;<samp class="samp">-1</samp>&rsquo;<!-- /@w -->,
+&lsquo;<samp class="samp">-2</samp>&rsquo;<!-- /@w -->, &lsquo;<samp class="samp">-3</samp>&rsquo;<!-- /@w --> e assim por diante ao nome do arquivo de saída,
+especificado pelo comando <code class="code">@setfilename</code> ou pelo nome do arquivo de
+entrada. A versão abreviada do arquivo original continua tendo o nome
+especificado por <code class="code">@setfilename</code> ou o nome do arquivo de entrada.
+</p>
+<p>Em um estágio da redação deste documento, por exemplo, o arquivo Info foi
+salvo como o arquivo <samp class="file">test-texinfo</samp> e esse arquivo se parecia com isto:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">Arquivo Info: test-texinfo,    -*-Text-*-
+produzido pelo texinfo-format-buffer
+a partir do arquivo: new-texinfo-manual.texinfo
+
+^_
+Indireto:
+test-texinfo-1: 102
+test-texinfo-2: 50422
+</pre></div><div class="group"><pre class="example-preformatted">test-texinfo-3: 101300
+^_^L
+Tabela de etiquetas:
+(Indireto)
+Nó: visão geral^?104
+Nó: arquivo info^?1271
+</pre></div><div class="group"><pre class="example-preformatted">Nó: manual impresso^?4853
+Nó: convenções^?6855
+...
+</pre></div></div>
+
+<p>(Mas <samp class="file">test-texinfo</samp> tinha muito mais nós que os mostrados aqui). Cada
+um dos arquivos indiretos, divididos, <samp class="file">test-texinfo-1</samp>,
+<samp class="file">test-texinfo-2</samp> e <samp class="file">test-texinfo-3</samp>, está listado nesse arquivo
+depois da linha que diz &lsquo;<samp class="samp">Indireto:</samp>&rsquo;. A tabela de etiquetas está listada
+depois da linha que diz &lsquo;<samp class="samp">Tabela de etiquetas:</samp>&rsquo;.
+</p>
+<p>Na lista de arquivos indiretos, o número seguinte ao nome do arquivo
+registra o número cumulativo de baites nos arquivos indiretos precedentes,
+sem contar a própria lista de arquivos, a tabela de etiquetas ou qualquer
+texto de permissão no primeiro arquivo. Na tabela de etiquetas, o número
+seguinte ao nome do nó registra o local do início do nó, em baites a partir
+do início da saída gerada (indivisível).
+</p>
+<p>Se você estiver usando <code class="code">texinfo-format-buffer</code> para criar arquivos
+Info, você pode querer executar o comando <code class="code">Info-validate</code>. (O comando
+<code class="command">texi2any</code> faz um trabalho tão bom por si só que você não precisa de
+<code class="code">Info-validate</code>). No entanto, você não consegue executar o comando de
+verificação de nó <kbd class="kbd">M-x Info-validate</kbd> sobre arquivos indiretos. Para
+informações acerca de como evitar que arquivos sejam divididos com
+<code class="code">texinfo-format-buffer</code> e como validar a estrutura dos nós, veja-se
+<a class="ref" href="Usando-Info_002dvalidate.html">Usando <code class="code">Info-validate</code></a>.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Perguntas-Frequentes-do-Formato-Info.html">Perguntas Frequentes do Formato Info</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Instalando-um-Arquivo-do-Info.html">Instalando um Arquivo do Info</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Criando-e-Instalando-Arquivos-Info.html">Criando e Instalando Arquivos Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

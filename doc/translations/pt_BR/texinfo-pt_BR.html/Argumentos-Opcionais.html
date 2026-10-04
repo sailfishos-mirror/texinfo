@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Argumentos Opcionais (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Manuseando argumentos opcionais e repetidos.">
+<meta name="keywords" content="Manuseando argumentos opcionais e repetidos.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Comandos-de-Defini_00e7_00e3o.html" rel="up" title="Comandos de Definição">
+<link href="Sem-Espa_00e7o-Depois-do-Nome-da-Defini_00e7_00e3o.html" rel="next" title="Sem Espaço Depois do Nome da Definição">
+<link href="Linhas-de-Continua_00e7_00e3o-de-Comando-de-Defini_00e7_00e3o.html" rel="prev" title="Linhas de Continuação de Comando de Definição">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+dt.def-line {font-size: 1rem}
+span:hover a.copiable-link {visibility: visible}
+strong.def-name {font-family: monospace; font-weight: bold}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Argumentos-Opcionais">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Sem-Espa_00e7o-Depois-do-Nome-da-Defini_00e7_00e3o.html" accesskey="n" rel="next">Omitindo o Espaço Depois de um Nome de Definição</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Linhas-de-Continua_00e7_00e3o-de-Comando-de-Defini_00e7_00e3o.html" accesskey="p" rel="prev">Linhas de Continuação de Comando de Definição</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Comandos-de-Defini_00e7_00e3o.html" accesskey="u" rel="up">Comandos de Definição</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Argumentos-Opcionais-e-Repetidos"><span>14.3 Argumentos Opcionais e Repetidos<a class="copiable-link" href="#Argumentos-Opcionais-e-Repetidos"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Argumentos-opcionais-e-repetidos"></a>
+<a class="index-entry-id" id="index-Argumentos-repetidos-e-opcionais"></a>
+<a class="index-entry-id" id="index-Argumentos_002c-repetidos-e-opcionais"></a>
+<a class="index-entry-id" id="index-Sintaxe_002c-argumentos-opcionais-e-repetidos"></a>
+<a class="index-entry-id" id="index-Caracteres-metassintaticos-para-argumentos"></a>
+
+<p>Algumas entidades recebem argumentos opcionais ou repetidos.  Uma convenção
+para indicá-los usa colchetes e reticências: um argumento circundado por
+colchetes é opcional, e um argumento seguido por reticências é opcional e
+pode ser repetido mais que uma vez.
+</p>
+<p>Assim, [<var class="var">argumento-opcional</var>] significa que <var class="var">argumento-opcional</var> é
+opcional e <var class="var">argumentos-repetidos</var><code class="code">&hellip;</code> representa zero ou mais
+argumentos.  Parênteses são usados quando vários argumentos são agrupados em
+níveis adicionais da estrutura de lista na Lisp.
+</p>
+<p>Aqui está a linha de definição de um exemplo de uma forma especial
+(complicada) imaginária:
+</p>
+<blockquote class="quotation">
+<dl class="first-deffn first-defspec-alias-first-deffn def-block">
+<dt class="deffn defspec-alias-deffn def-line" id="index-foobar"><span class="category-def">Forma Especial: </span><span><strong class="def-name">foobar</strong> <var class="def-var-arguments">(var [de para [inc]]) corpo&hellip;</var><a class="copiable-link" href="#index-foobar"> &para;</a></span></dt>
+</dl>
+</blockquote>
+
+<p>Nesse exemplo, os argumentos <var class="var">de</var> e <var class="var">para</var> são opcionais, mas ambos
+precisam estar presentes ou ambos ausentes.  Se estiverem presentes,
+<var class="var">inc</var> opcionalmente pode ser especificado também.  Esses argumentos são
+agrupados com o argumento <var class="var">var</var> em uma lista, para distingui-los de
+<var class="var">corpo</var>, que inclui todos os elementos restantes da forma.
+</p>
+<p>Em um arquivo fonte do Texinfo, essa linha <code class="code">@defspec</code> é escrita assim:
+</p>
+<div class="example">
+<pre class="example-preformatted">@defspec foobar (var [de para [inc]]) corpo@dots{}
+</pre></div>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Sem-Espa_00e7o-Depois-do-Nome-da-Defini_00e7_00e3o.html">Omitindo o Espaço Depois de um Nome de Definição</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Linhas-de-Continua_00e7_00e3o-de-Comando-de-Defini_00e7_00e3o.html">Linhas de Continuação de Comando de Definição</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

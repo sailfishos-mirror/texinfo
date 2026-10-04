@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Impressão no Modo Texinfo (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como formatar e imprimir parte, ou todo, de um arquivo.">
+<meta name="keywords" content="Como formatar e imprimir parte, ou todo, de um arquivo.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Imprimindo-com-o-Emacs.html" rel="up" title="Imprimindo com o Emacs">
+<link href="Comando-de-Compila_00e7_00e3o.html" rel="next" title="Comando de Compilação">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+kbd.kbd {font-style: oblique}
+kbd.key {font-style: normal}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Impress_00e3o-no-Modo-Texinfo">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Comando-de-Compila_00e7_00e3o.html" accesskey="n" rel="next">Usando a Lista de Variáveis Locais</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Imprimindo-com-o-Emacs.html" accesskey="u" rel="up">Formatando e Imprimindo com o Emacs</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Formata_00e7_00e3o-e-Impress_00e3o-no-Modo-Texinfo"><span>D.7.1 Formatação e Impressão no Modo Texinfo<a class="copiable-link" href="#Formata_00e7_00e3o-e-Impress_00e3o-no-Modo-Texinfo"> &para;</a></span></h4>
+<a class="index-entry-id" id="index-Impressao-de-regiao-no-modo-Texinfo"></a>
+<a class="index-entry-id" id="index-Formatar-e-imprimir-no-modo-Texinfo"></a>
+<a class="index-entry-id" id="index-Imprimir-e-formatar-no-modo-Texinfo"></a>
+
+<p>O modo Texinfo fornece vários comandos de teclas predefinidos para
+formatação e impressão do TeX. Esses incluem comandos para ordenar
+índices, examinar a fila da impressora, encerrar o trabalho de formatação e
+recentralizar a exibição do buffer no qual as operações ocorrem.
+</p>
+<a class="index-entry-id" id="index-Imprimindo-uma-regiao-ou-buffer"></a>
+<a class="index-entry-id" id="index-Formatacao-e-impressao-de-regiao"></a>
+<a class="index-entry-id" id="index-Formatacao-e-impressao-de-buffer"></a>
+<a class="index-entry-id" id="index-Parte-da-formatacao-e-impressao-de-arquivos"></a>
+<p>Frequentemente, quando estiver escrevendo um documento, você desejará
+tipografar e imprimir somente parte de um arquivo para ver como ele
+ficará. Você consegue usar o <code class="code">texinfo-tex-region</code> e comandos
+relacionados para essa finalidade. Use o comando <code class="code">texinfo-tex-buffer</code>
+para formatar todo um buffer.
+</p>
+<p>Para que <code class="code">texinfo-tex-region</code> ou <code class="code">texinfo-tex-buffer</code> funcionem, o
+arquivo <em class="emph">precisa</em> começar com uma linha &lsquo;<samp class="samp">\input texinfo</samp>&rsquo; e precisa
+incluir uma linha <code class="code">@settitle</code>. O arquivo precisa terminar com
+<code class="code">@bye</code> sozinho em uma linha. (Ao usar <code class="code">texinfo-tex-region</code>, você
+precisa envolver a linha <code class="code">@settitle</code> com linhas de início de cabeçalho
+e de fim de cabeçalho).
+</p>
+<dl class="table">
+<dt><a id="index-texinfo_002dtex_002dbuffer"></a><span><kbd class="kbd">C-c C-t C-b</kbd><a class="copiable-link" href="#index-texinfo_002dtex_002dbuffer"> &para;</a></span></dt>
+<dt><kbd class="kbd">M-x texinfo-tex-buffer</kbd></dt>
+<dd><p>Executar <code class="command">texi2dvi</code> no buffer. Além de executar TeX no buffer,
+esse comando automaticamente cria ou atualiza índices conforme necessário.
+</p>
+</dd>
+<dt><kbd class="kbd">C-c C-t C-r</kbd></dt>
+<dt><kbd class="kbd">M-x texinfo-tex-region</kbd></dt>
+<dd><p>Executar TeX na região atual.
+</p>
+<p>Se comandos @ relacionados à saída impressa estiverem entre as linhas de
+início de cabeçalho e de fim de cabeçalho, então <code class="code">texinfo-tex-region</code>
+formatará a região de acordo. Por exemplo, se você escrever o comando
+<code class="code">@smallbook</code> entre as linhas de início de cabeçalho e de fim de
+cabeçalho, <code class="code">texinfo-tex-region</code> formatará a região no tamanho do livro
+&ldquo;small&rdquo;.
+</p>
+</dd>
+<dt><kbd class="kbd">C-c C-t C-i</kbd></dt>
+<dt><kbd class="kbd">M-x texinfo-texindex</kbd></dt>
+<dd><p>Executar <code class="command">texindex</code> para ordenar os índices de um arquivo do Texinfo
+formatado com <code class="code">texinfo-tex-region</code>. O comando <code class="code">texinfo-tex-region</code>
+não executa <code class="command">texindex</code> automaticamente; ele somente executa o
+comando de tipografia <code class="command">tex</code>. Você precisa executar o comando
+<code class="code">texinfo-tex-region</code> uma segunda vez depois de ordenar os arquivos
+brutos de índice com o comando <code class="command">texindex</code>. (Normalmente, você não
+formata um índice ao formatar uma região, somente quando formata um
+buffer. Agora que o comando <code class="command">texi2dvi</code> existe, existe pouca ou
+nenhuma necessidade para esse comando).
+</p>
+</dd>
+<dt><kbd class="kbd">C-c C-t C-p</kbd></dt>
+<dt><kbd class="kbd">M-x texinfo-tex-print</kbd></dt>
+<dd><p>Imprimir um arquivo DVI que foi criado com <code class="code">texinfo-tex-region</code> ou
+<code class="code">texinfo-tex-buffer</code>.
+</p>
+</dd>
+<dt><kbd class="kbd">C-c C-t C-q</kbd></dt>
+<dt><kbd class="kbd">M-x tex-show-print-queue</kbd></dt>
+<dd><p>Mostrar a fila de impressão.
+</p>
+</dd>
+<dt><kbd class="kbd">C-c C-t C-d</kbd></dt>
+<dt><kbd class="kbd">M-x texinfo-delete-from-print-queue</kbd></dt>
+<dd><p>Excluir um trabalho da fila de impressão; você será solicitado(a) a fornecer
+o número do trabalho mostrado por um comando <kbd class="kbd">C-c C-t C-q</kbd> anterior
+(<code class="code">texinfo-show-tex-print-queue</code>).
+</p>
+</dd>
+<dt><kbd class="kbd">C-c C-t C-k</kbd></dt>
+<dt><kbd class="kbd">M-x tex-kill-job</kbd></dt>
+<dd><p>Eliminar o trabalho TeX atualmente executando iniciado ou por
+<code class="code">texinfo-tex-region</code> ou por <code class="code">texinfo-tex-buffer</code> ou qualquer outro
+processo executando no buffer do shell do Texinfo.
+</p>
+</dd>
+<dt><kbd class="kbd">C-c C-t C-x</kbd></dt>
+<dt><kbd class="kbd">M-x texinfo-quit-job</kbd></dt>
+<dd><p>Encerre um trabalho de formatação do TeX que foi interrompido devido a um
+erro enviando um <kbd class="key">x</kbd> para ele. Quando você faz isso, o TeX preserva
+um registro do que fez em um arquivo <samp class="file">.log</samp>.
+</p>
+</dd>
+<dt><kbd class="kbd">C-c C-t C-l</kbd></dt>
+<dt><kbd class="kbd">M-x tex-recenter-output-buffer</kbd></dt>
+<dd><p>Reexibir o buffer do shell no qual os comandos de impressão e de formatação
+do TeX são executados para mostrar a saída gerada mais recente dele.
+</p></dd>
+</dl>
+
+<p>Assim, a sequência usual de comandos para formatar um buffer é a seguinte
+(com comentários à direita):
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">C-c C-t C-b <span class="r">Executar <code class="command">texi2dvi</code> no buffer.</span>
+C-c C-t C-p <span class="r">Imprimir o arquivo DVI.</span>
+C-c C-t C-q <span class="r">Exibir a fila da impressora.</span>
+</pre></div></div>
+
+<p>Os comandos de formatação do TeX do modo Texinfo iniciam um subshell no
+Emacs chamado o <samp class="file">*tex-shell*</samp>. Os comandos <code class="code">texinfo-tex-command</code>,
+<code class="code">texinfo-texindex-command</code> e <code class="code">tex-dvi-print-command</code> são todos
+executados nesse shell.
+</p>
+<p>Você consegue observar os comandos operarem no buffer &lsquo;<samp class="samp">*tex-shell*</samp>&rsquo; e
+consegue comutar, para e de, e usar o buffer &lsquo;<samp class="samp">*tex-shell*</samp>&rsquo; como faria
+com qualquer outro buffer de shell.
+</p>
+<p>Os comandos de formatação e de impressão dependem dos valores de várias
+variáveis. Os valores padrão são:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">    <span class="r">Variável</span>                              <span class="r">Valor padrão</span>
+
+texinfo-texi2dvi-command                  &quot;texi2dvi&quot;
+texinfo-tex-command                       &quot;tex&quot;
+texinfo-texindex-command                  &quot;texindex&quot;
+texinfo-delete-from-print-queue-command   &quot;lprm&quot;
+texinfo-tex-trailer                       &quot;@bye&quot;
+tex-start-of-header                       &quot;%**start&quot;
+tex-end-of-header                         &quot;%**end&quot;
+tex-dvi-print-command                     &quot;lpr -d&quot;
+tex-show-queue-command                    &quot;lpq&quot;
+</pre></div></div>
+
+<p>Você pode mudar os valores dessas variáveis com o comando <kbd class="kbd">M-x
+set-variable</kbd> (veja-se <a data-manual="emacs" href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Examinando.html#Examinando">Examinando e Configurando Variáveis</a> em <cite class="cite">O Manual do GNU Emacs</cite>), ou com teu arquivo de inicialização
+<samp class="file">.emacs</samp> (veja-se <a data-manual="emacs" href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Arquivo-de-Inicicia_00e7_00e3o.html#Arquivo-de-Inicicia_00e7_00e3o">Arquivo de Iniciciação</a> em <cite class="cite">O Manual do GNU
+Emacs</cite>).
+</p>
+<a class="index-entry-id" id="index-Personalizar-o-pacote-Emacs-_0028Development_002fDocs_002fTexinfo_0029"></a>
+<p>A partir da versão 20, o GNU Emacs oferece uma interface amigável, chamada
+<em class="dfn">Customize</em>, para mudança de valores de variáveis definíveis pelo(a)
+usuário(a). Veja-se <a data-manual="emacs" href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Personaliza_00e7_00e3o-F_00e1cil.html#Personaliza_00e7_00e3o-F_00e1cil">Interface de Personalização Fácil</a> em <cite class="cite">O Manual do GNU Emacs</cite>, para mais detalhes acerca disso. As variáveis
+do Texinfo podem ser encontradas no grupo &lsquo;<samp class="samp">Development/Docs/Texinfo</samp>&rsquo;,
+depois de invocar o comando <kbd class="kbd">M-x customize</kbd>.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Comando-de-Compila_00e7_00e3o.html">Usando a Lista de Variáveis Locais</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Imprimindo-com-o-Emacs.html">Formatando e Imprimindo com o Emacs</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

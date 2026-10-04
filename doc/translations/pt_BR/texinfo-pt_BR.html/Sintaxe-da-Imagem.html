@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Sintaxe da Imagem (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Sintaxe da Imagem (GNU Texinfo 7.3)">
+<meta name="keywords" content="Sintaxe da Imagem (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Imagens.html" rel="up" title="Imagens">
+<link href="Escalonamento-da-Imagem.html" rel="next" title="Escalonamento da Imagem">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Sintaxe-da-Imagem">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Escalonamento-da-Imagem.html" accesskey="n" rel="next">Escalonamento da Imagem</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Imagens.html" accesskey="u" rel="up">Inserindo Imagens</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Sintaxe-da-Imagem-1"><span>9.2.1 Sintaxe da Imagem<a class="copiable-link" href="#Sintaxe-da-Imagem-1"> &para;</a></span></h4>
+
+<p>Aqui está a sinopse do comando <code class="code">@image</code>:
+</p>
+<div class="example">
+<pre class="example-preformatted">@image{<var class="var">nomearquivo</var><span class="r">[,</span> <var class="var">largura</var><span class="r">[,</span> <var class="var">altura</var><span class="r">[,</span> <var class="var">alttexto</var><span class="r">[, </span><var class="var">extensão</var><span class="r">]]]]</span>}
+</pre></div>
+
+<a class="index-entry-id" id="index-Formatos-para-imagens"></a>
+<a class="index-entry-id" id="index-Formatos-de-imagem"></a>
+<p>O argumento <var class="var">nomearquivo</var> é obrigatório, e precisa não ter uma extensão,
+pois os diferentes processadores suportam formatos diferentes:
+</p>
+<ul class="itemize mark-bullet">
+<li><a class="index-entry-id" id="index-formato-de-imagem-eps"></a>
+TeX (saída DVI) lê o arquivo <samp class="file"><var class="var">nomearquivo</var>.eps</samp> (Formato
+encapsulado PostScript).
+
+</li><li><a class="index-entry-id" id="index-pdftex_002c-e-imagens"></a>
+<a class="index-entry-id" id="index-formato-de-imagem-png"></a>
+<a class="index-entry-id" id="index-formato-de-imagem-jpeg"></a>
+<a class="index-entry-id" id="index-inclusoes-de-imagem-pdf"></a>
+TeX (saída PDF) tenta (na ordem) <samp class="file"><var class="var">nomearquivo</var>.pdf</samp>,
+<samp class="file"><var class="var">nomearquivo</var>.png</samp>, <samp class="file"><var class="var">nomearquivo</var>.jpg</samp> e
+<samp class="file"><var class="var">nomearquivo</var>.jpeg</samp>. Ele também tenta as versões em letras
+maiúsculas das extensões. O formato PDF não suporta imagens EPS, de modo que
+essas precisam ser convertidas primeiro.
+
+</li><li>No Info, <samp class="file"><var class="var">nomearquivo</var>.txt</samp> é incluído literalmente (mais ou menos
+como se estivesse em <code class="code">@verbatim</code>). A saída Info também pode incluir
+uma referência para <samp class="file"><var class="var">nomearquivo</var>.png</samp> ou
+<samp class="file"><var class="var">nomearquivo</var>.jpg</samp>. (Veja-se abaixo).
+
+</li><li>Em HTML, uma referência para <samp class="file"><var class="var">nomearquivo</var>.png</samp>,
+<samp class="file"><var class="var">nomearquivo</var>.jpg</samp>, <samp class="file"><var class="var">nomearquivo</var>.jpeg</samp> ou
+<samp class="file"><var class="var">nomearquivo</var>.gif</samp> (nessa ordem) é gerada.  Se nenhum desses
+existir, fornece um erro, e gera uma referência para
+<samp class="file"><var class="var">nomearquivo</var>.jpg</samp> de qualquer maneira.
+
+</li><li><a class="index-entry-id" id="index-Imagens-SVG_002c-usadas-em-DocBook"></a>
+Em DocBook, todos os seguintes são verificados:
+<samp class="file"><var class="var">nomearquivo</var>.eps</samp>, <samp class="file"><var class="var">nomearquivo</var>.gif</samp>,
+<samp class="file"><var class="var">nomearquivo</var>.jpeg</samp>, <samp class="file"><var class="var">nomearquivo</var>.jpg</samp>,
+<samp class="file"><var class="var">nomearquivo</var>.pdf</samp>, <samp class="file"><var class="var">nomearquivo</var>.png</samp> e
+<samp class="file"><var class="var">nomearquivo</var>.svg</samp>. Referências são geradas para cada arquivo
+encontrado. Também, <samp class="file"><var class="var">nomearquivo</var>.txt</samp> é incluído literalmente, se
+presente. (Supõe-se que o processador DocBook subsequente escolha o
+adequado).
+
+</li><li>Para LaTeX, <samp class="file"><var class="var">nomearquivo</var></samp> sem nenhuma extensão é usado;
+supõe-se que o processador LaTeX subsequente escolha o tipo apropriado de
+imagem.
+
+</li><li>Para saída Info e HTML, o quinto argumento opcional <var class="var">extensão</var> para
+<code class="code">@image</code> é usado para a extensão de arquivo, se ele for especificado e
+o arquivo for encontrado.  Qualquer ponto inicial deveria ser incluído em
+<var class="var">extensão</var>.  Por exemplo:
+
+<a class="index-entry-id" id="index-formato-de-imagem-XPM"></a>
+<div class="example">
+<pre class="example-preformatted">@image{foo,,,,.xpm}
+</pre></div>
+
+</li></ul>
+
+<p>Se você quiser instalar arquivos de imagens para uso por leitores Info
+também, nós recomendamos colocá-los em um subdiretório como
+&lsquo;<samp class="samp"><var class="var">foo</var>-figuras</samp>&rsquo; para um pacote <var class="var">foo</var>.  A cópia dos arquivos
+para <code class="code">$(infodir)/<var class="var">foo</var>-figuras/</code> deveria ser feita em teu
+<code class="code">Makefile</code>.
+</p>
+<p>Os argumentos <var class="var">largura</var> e <var class="var">altura</var> estão descritos na próxima seção.
+</p>
+<p>Se uma imagem for a primeira coisa em um parágrafo e seguida por mais texto,
+então você deveria preceder o comando <code class="code">@image</code> por <code class="code">@indent</code> ou
+<code class="code">@noindent</code> para indicar o início da formatação do parágrafo.  Isso é
+especialmente importante para saída TeX para obter o recuo correto do
+parágrafo.
+</p>
+<p>Use <code class="code">@center</code> para centralizar uma imagem (veja-se <a class="pxref" href="_0040titlefont-_0040center-_0040sp.html"><code class="code">@titlefont</code>, <code class="code">@center</code> e <code class="code">@sp</code></a>).
+</p>
+<a class="index-entry-id" id="index-Atributo-Alt-para-imagens"></a>
+<a class="index-entry-id" id="index-Imagens-texto-alternativo-para"></a>
+<a class="index-entry-id" id="index-_002d-_0028na-sequencia-de-caracteres-alt-da-imagem_0029"></a>
+<p>Para saída HTML, o <em class="dfn">atributo alt</em> para imagens inline é configurado para
+o (quarto) argumento opcional <var class="var">alttexto</var> para <code class="code">@image</code>, se
+fornecido.  Se não fornecido, o nome completo de arquivo da imagem sendo
+exibida será usado.  O <var class="var">alttexto</var> é processado como texto do Texinfo, de
+forma que caracteres especiais, tais como &lsquo;<samp class="samp">&quot;</samp>&rsquo; e &lsquo;<samp class="samp">&lt;</samp>&rsquo; e &lsquo;<samp class="samp">&amp;</samp>&rsquo;,
+são escapados na saída gerada HTML; também, você pode obter uma sequência de
+caracteres <code class="code">alt</code> vazia com <code class="code">@-</code> (um comando que não produz saída;
+veja-se <a class="pxref" href="_0040_002d-_0040hyphenation.html"><code class="code">@-</code> e <code class="code">@hyphenation</code>: Hifenização em Saída Impressa</a>).
+</p>
+<p>Para saída Info, a sequência <code class="code">alttexto</code> também é processada como texto
+e saída do Texinfo.  Nesse caso, &lsquo;<samp class="samp">\</samp>&rsquo; é escapada como &lsquo;<samp class="samp">\\</samp>&rsquo; e
+&lsquo;<samp class="samp">&quot;</samp>&rsquo; como &lsquo;<samp class="samp">\&quot;</samp>&rsquo;; outros escapes não são feitos.
+</p>
+<p>Na saída Info, uma referência para o arquivo binário da imagem é escrita
+(tentando <var class="var">nomearquivo</var> sufixado com <samp class="file"><var class="var">extensão</var></samp>,
+<samp class="file"><var class="var">.extensão</var></samp>, <samp class="file">.png</samp>, ou <samp class="file">.jpg</samp>, nessa ordem) se um
+existir.  O arquivo <samp class="file">.txt</samp> também é incluído literalmente, se um
+existir.  Dessa maneira, leitores Info que consigam exibir imagens (tais
+como o navegador Info do Emacs, executando sob X) podem fazer isso, ao passo
+que leitores Info que somente consigam usar texto (tais como o leitor
+autônomo Info) conseguem exibir a versão textual.
+</p>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Escalonamento-da-Imagem.html">Escalonamento da Imagem</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Imagens.html">Inserindo Imagens</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

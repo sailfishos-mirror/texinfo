@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@title @subtitle @author (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Os comandos @title, @subtitle e @author.
+">
+<meta name="keywords" content="Os comandos @title, @subtitle e @author.
+">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="_0040titlepage.html" rel="up" title="@titlepage">
+<link href="_0040titlefont-_0040center-_0040sp.html" rel="next" title="@titlefont @center @sp">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsubsection-level-extent" id="g_t_0040title-_0040subtitle-_0040author">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040titlefont-_0040center-_0040sp.html" accesskey="n" rel="next"><code class="code">@titlefont</code>, <code class="code">@center</code> e <code class="code">@sp</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="_0040titlepage.html" accesskey="u" rel="up"><code class="code">@titlepage</code></a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsubsection" id="g_t_0040title_002c-_0040subtitle-e-_0040author"><span>2.8.2.1 <code class="code">@title</code>, <code class="code">@subtitle</code> e <code class="code">@author</code><a class="copiable-link" href="#g_t_0040title_002c-_0040subtitle-e-_0040author"> &para;</a></span></h4>
+
+<a class="anchor" id="title-subtitle-author"></a><a class="index-entry-id" id="index-title"></a>
+<a class="index-entry-id" id="index-subtitle"></a>
+<a class="index-entry-id" id="index-author"></a>
+
+<p>Uma maneira de se usar <code class="code">@titlepage</code> é a de se usar os comandos
+<code class="code">@title</code>, <code class="code">@subtitle</code> e <code class="code">@author</code> dentro do bloco do
+<code class="code">@titlepage</code>. Com esse método, você não especifica nenhuma formatação
+real da página de título. Você especifica o texto que quiser e o Texinfo faz
+a formatação. A formatação usual consiste de riscos pretos sob as linhas do
+título e do autor e o texto do subtítulo definido alinhado para o lado
+direito da página.
+</p>
+<p>Você consegue usar os comandos <code class="code">@title</code>, <code class="code">@subtitle</code>, e
+<code class="code">@author</code> para criar uma página de título na qual o espaçamento
+vertical e horizontal seja feito para você automaticamente.
+</p>
+<p>Escreva os comandos <code class="code">@title</code>, <code class="code">@subtitle</code>, ou <code class="code">@author</code> no
+início de uma linha seguido pelo título, subtítulo, ou autor. O comando
+<code class="code">@author</code> pode ser usado para uma citação em um bloco
+<code class="code">@quotation</code> (veja-se <a class="ref" href="_0040quotation.html"><code class="code">@quotation</code>: Citações de Bloco</a>); exceto para isso, é
+um erro usar quaisquer desses comandos fora de <code class="code">@titlepage</code>.
+</p>
+<p>O comando <code class="code">@title</code> normalmente produz uma linha na qual o título é
+configurado rente ao lado esquerdo da página em uma fonte mais larga que a
+normal. O título é sublinhado com uma linha preta. O título deve
+necessariamente ser dado em uma linha no arquivo fonte; ele será quebrado em
+múltiplas linhas de saída se necessário.
+</p>
+<p>Para títulos longos, o comando <code class="code">@*</code> pode ser usado para especificar as
+quebras de linha em títulos longos se as quebras automáticas não
+servirem. Tais quebras explícitas de linha geralmente são refletidas em
+todos os formatos de saída; se você quiser somente especificá-las para a
+saída impressa, use um condicional (veja-se <a class="ref" href="Condicionais.html">Texto Condicionalmente Visível</a>). Por
+exemplo:
+</p>
+<div class="example">
+<pre class="example-preformatted">@title Este Título Longo@inlinefmt{tex,@*} É Quebrado no @TeX{}
+</pre></div>
+
+<p>O comando <code class="code">@subtitle</code> normalmente configura subtítulos em uma fonte de
+tamanho normal rente ao lado direito da página.
+</p>
+<p>O comando <code class="code">@author</code> normalmente configura os nomes do(a) autor(a) ou
+autores(as) em uma fonte de tamanho médio rente ao lado esquerdo da página
+em uma linha próxima ao pé da página de título. Os nomes são seguidos por
+uma linha preta que é mais fina que a linha que normalmente sublinha o
+título.
+</p>
+<p>Existem duas maneiras de se usar o comando <code class="code">@author</code>: você consegue
+escrever o nome ou nomes na parte restante da linha que inicia com um
+comando <code class="code">@author</code>:
+</p>
+<div class="example">
+<pre class="example-preformatted">@author por Jane Smith e John Doe
+</pre></div>
+
+<p>ou você pode escrever os nomes um acima do outro, usando múltiplos comandos
+<code class="code">@author</code>:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@author Jane Smith
+@author John Doe
+</pre></div></div>
+
+<p>Um modelo para esse método se parece com isto:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@titlepage
+@title <var class="var">nome-do-manual-quando-impresso</var>
+@subtitle <var class="var">subtítulo-se-algum</var>
+@subtitle <var class="var">segundo-subtítulo</var>
+@author <var class="var">autor</var>
+@page
+...
+@end titlepage
+</pre></div></div>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040titlefont-_0040center-_0040sp.html"><code class="code">@titlefont</code>, <code class="code">@center</code> e <code class="code">@sp</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="_0040titlepage.html"><code class="code">@titlepage</code></a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

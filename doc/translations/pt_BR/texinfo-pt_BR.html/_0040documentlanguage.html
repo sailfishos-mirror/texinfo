@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@documentlanguage (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Declarando o idioma atual.">
+<meta name="keywords" content="Declarando o idioma atual.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Internacionaliza_00e7_00e3o.html" rel="up" title="Internacionalização">
+<link href="_0040documentencoding.html" rel="next" title="@documentencoding">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="g_t_0040documentlanguage">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040documentencoding.html" accesskey="n" rel="next"><code class="code">@documentencoding <var class="var">codificação</var></code>: Configurar Codificação de Entrada</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Internacionaliza_00e7_00e3o.html" accesskey="u" rel="up">Internacionalização</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="g_t_0040documentlanguage-ll_005b_005fcc_005d_003a-Configurar-o-Idioma-do-Documento"><span>15.1 <code class="code">@documentlanguage <var class="var">ll</var>[_<var class="var">cc</var>]</code>: Configurar o Idioma do Documento<a class="copiable-link" href="#g_t_0040documentlanguage-ll_005b_005fcc_005d_003a-Configurar-o-Idioma-do-Documento"> &para;</a></span></h3>
+<a class="anchor" id="documentlanguage"></a>
+<a class="index-entry-id" id="index-documentlanguage"></a>
+<a class="index-entry-id" id="index-Idioma_002c-declarando"></a>
+<a class="index-entry-id" id="index-Localidade_002c-declarando"></a>
+<a class="index-entry-id" id="index-Idioma-do-documento_002c-declarando"></a>
+
+<p>O comando <code class="code">@documentlanguage</code> declara a localidade atual do
+documento.  Escreva-o em uma linha dedicada, perto do começo do arquivo.
+</p>
+<div class="example">
+<pre class="example-preformatted">@documentlanguage <var class="var">ll</var>[_<var class="var">cc</var>]
+</pre></div>
+
+<p>Inclua um código de idioma ISO&nbsp;639-2 de duas letras (ou de três letras)
+(<var class="var">ll</var>) seguindo o nome do comando, opcionalmente seguido por um
+sublinhado e código de país ISO&nbsp;3166 de duas letras ou de três letras
+(<var class="var">cc</var>). Se você tiver um documento multi idioma, a intenção é a de poder
+usar esse comando várias vezes para declarar cada mudança de idioma.
+</p>
+<p>Assim como com GNU Gettext (veja-se <cite class="cite"><a data-manual="gettext" href="https://www.gnu.org/software/gettext/manual/html_node/index.html#Top">Gettext</a></cite>), se o código do
+país for omitido, o dialeto principal é assumido onde possível.  Por
+exemplo, <code class="code">de</code> é equivalente a <code class="code">de_DE</code> (alemão como falado na
+Alemanha).
+</p>
+<a class="index-entry-id" id="index-Sequencias-de-caracteres-de-documentos_002c-traducao-de"></a>
+<p>Esse comando muda a tradução de várias <em class="dfn">sequências de caracteres de
+documento</em>, tais como &ldquo;veja-se&rdquo; em referências cruzadas
+(veja-se <a class="pxref" href="Refer_00eancias-Cruzadas.html">Referências cruzadas</a>), &ldquo;Função&rdquo; em defuns (veja-se <a class="pxref" href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a>), e assim por diante. Opcionalmente, esse comando possivelmente
+afete como <code class="command">texi2any</code> ordena índices (veja-se <a class="pxref" href="Vari_00e1veis-Globais-de-Personaliza_00e7_00e3o.html">Variáveis Globais de Personalização</a>, sob <code class="code">DOCUMENTLANGUAGE_COLLATION</code>). Se o idioma do
+documento não estiver especificado, as sequências padrão de caracteres de
+documento em inglês serão geradas como estiverem.
+</p>
+<p>Observe que na saída Info, algumas sequências de caracteres, como &ldquo;Node:&rdquo;,
+&ldquo;Next:&rdquo;, &ldquo;Menu:&rdquo;, entre outras, são palavras-chave e portanto não são
+traduzidas.
+</p>
+<p>Na saída gerada DocBook, <code class="code">@documentlanguage</code> configura o idioma para
+as seções seguintes.
+</p>
+<p>Para LaTeX, esse comando faz com que o código carregue o pacote
+&lsquo;<samp class="samp">babel</samp>&rsquo; para ser gerado no preâmbulo e <code class="code">\selectlanguage</code> para ser
+gerado.
+</p>
+<a class="index-entry-id" id="index-txi_002dcc_002etex"></a>
+<p>Para TeX, esse comando faz com que um arquivo
+<samp class="file">txi-<var class="var">localidade</var>.tex</samp> seja lido (se ele existir).  Se o argumento
+<code class="code">@documentlanguage</code> contiver o sufixo opcional &lsquo;<samp class="samp">_<var class="var">cc</var></samp>&rsquo;, esse
+será tentado primeiro.  Por exemplo, com <code class="code">@documentlanguage de_DE</code>,
+TeX primeiro procura por <samp class="file">txi-de_DE.tex</samp>, depois por
+<samp class="file">txi-de.tex</samp>.
+</p>
+<p>Esse arquivo <samp class="file">txi-*</samp> é destinado a redefinir as várias palavras em
+inglês usadas na saída do TeX, como &lsquo;Chapter&rsquo;, &lsquo;See&rsquo; e assim por diante.
+Nós estamos cientes de que palavras individuais como essas nem sempre podem
+ser traduzidas isoladamente, e que uma estratégia muito diferente seria
+exigida para sequências de caracteres ideográficos (entre outros).  Ajuda
+para melhorar o suporte a idiomas do Texinfo é bem-vinda.
+</p>
+<a class="index-entry-id" id="index-Padroes-de-hifenizacao_002c-dependentes-do-idioma"></a>
+<p><code class="code">@documentlanguage</code> também muda os padrões atuais de hifenização do
+TeX, se o programa TeX sendo executado tiver o suporte necessário
+incluído.  Isso geralmente não será o caso para <code class="command">tex</code> em si, mas
+geralmente será o caso para distribuições atualizadas dos programas TeX
+estendidos <code class="command">etex</code> (saída DVI) e <code class="command">pdftex</code> (saída PDF).
+<code class="command">texi2dvi</code> usará os TeXs estendidos se estiverem disponíveis
+(veja-se <a class="pxref" href="Formatar-com-texi2dvi-ou-texi2pdf.html#Formatar-com-texi2dvi">Formatar com <code class="command">texi2dvi</code></a>).
+</p>
+<a class="index-entry-id" id="index-Codigos-de-idioma-ISO-639_002d2"></a>
+<a class="index-entry-id" id="index-Codigos-de-pais-ISO-3166"></a>
+<a class="index-entry-id" id="index-Codigos-de-idioma"></a>
+<a class="index-entry-id" id="index-Codigos-de-pais"></a>
+<p>Como as listas de códigos de idioma e códigos de país são atualizadas com
+relativa frequência, nós não tentamos listá-los aqui.  Os códigos válidos de
+idioma estão na página inicial oficial do ISO&nbsp;639,
+<a class="url" href="http://www.loc.gov/standards/iso639-2/">http://www.loc.gov/standards/iso639-2/</a>.  Os códigos de país e o sítio
+oficial do ISO&nbsp;3166 podem ser encontrados via
+<a class="url" href="http://en.wikipedia.org/wiki/ISO_3166">http://en.wikipedia.org/wiki/ISO_3166</a>.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0040documentencoding.html"><code class="code">@documentencoding <var class="var">codificação</var></code>: Configurar Codificação de Entrada</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Internacionaliza_00e7_00e3o.html">Internacionalização</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

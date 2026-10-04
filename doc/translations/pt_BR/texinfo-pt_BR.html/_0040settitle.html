@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>@settitle (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Crie um título para o trabalho impresso.">
+<meta name="keywords" content="Crie um título para o trabalho impresso.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Cabe_00e7alho-do-Arquivo-do-Texinfo.html" rel="up" title="Cabeçalho do Arquivo do Texinfo">
+<link href="Pre_00e2mbulo.html" rel="next" title="Preâmbulo">
+<link href="_0040setfilename.html" rel="prev" title="@setfilename">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="g_t_0040settitle">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Pre_00e2mbulo.html" accesskey="n" rel="next">Preâmbulo</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040setfilename.html" accesskey="p" rel="prev"><code class="code">@setfilename</code>: Configure o Nome do Arquivo da Saída Gerada</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Cabe_00e7alho-do-Arquivo-do-Texinfo.html" accesskey="u" rel="up">Cabeçalho do Arquivo do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="g_t_0040settitle_003a-Configura-o-T_00edtulo-do-Documento"><span>2.5.3 <code class="code">@settitle</code>: Configura o Título do Documento<a class="copiable-link" href="#g_t_0040settitle_003a-Configura-o-T_00edtulo-do-Documento"> &para;</a></span></h4>
+
+<a class="anchor" id="settitle"></a><a class="index-entry-id" id="index-settitle"></a>
+<a class="index-entry-id" id="index-Titulo-de-documento_002c-especificando"></a>
+
+<p>Um arquivo Texinfo deveria conter uma linha que se pareça com isto:
+</p>
+<div class="example">
+<pre class="example-preformatted">@settitle <var class="var">título</var>
+</pre></div>
+
+<p>Escreva o comando <code class="code">@settitle</code> no início de uma linha e siga-o na mesma
+pelo título.  Não escreva nada mais na linha.  O comando <code class="code">@settitle</code>
+deveria preceder tudo o que gera saída atual.  O melhor lugar para ele é
+logo depois do comando <code class="code">@setfilename</code>, se presente (descrito na seção
+anterior).
+</p>
+<p>Esse comando fornece o título para se usar em um cabeçalho ou rodapé para
+saída impressa frente e verso, caso tais títulos sejam produzidos. Para mais
+acerca de títulos para saída impressa, veja-se <a class="ref" href="Gera_00e7_00e3o-de-T_00edtulos.html">Geração de Títulos</a>.
+</p>
+<a class="index-entry-id" id="index-Etiqueta-_003ctitle_003e-do-HTML"></a>
+<p>Em HTML, <var class="var">title</var> serve como o &lsquo;<samp class="samp">&lt;title&gt;</samp>&rsquo; do documento e se torna a
+descrição padrão do documento na parte &lsquo;<samp class="samp">&lt;head&gt;</samp>&rsquo;.
+</p>
+<p>Quando a página de título for usada na saída gerada, como geralmente é o
+caso para saída impressa, o título no comando <code class="code">@settitle</code> não afeta o
+título conforme ele aparece na página de título. Assim, os dois não precisam
+não corresponder exatamente. Uma prática que nós recomendamos é a de incluir
+o número da versão ou o da edição do manual no título <code class="code">@settitle</code>; na
+página de título, o número da versão geralmente aparece como um
+<code class="code">@subtitle</code>, de forma que ele seria omitido do
+<code class="code">@title</code>. Veja-se <a class="xref" href="P_00e1gina-de-T_00edtulo-e-P_00e1gina-de-Copirraite.html">Páginas de Título e de Direitos Autorais</a>.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Pre_00e2mbulo.html">Preâmbulo</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="_0040setfilename.html"><code class="code">@setfilename</code>: Configure o Nome do Arquivo da Saída Gerada</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Cabe_00e7alho-do-Arquivo-do-Texinfo.html">Cabeçalho do Arquivo do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

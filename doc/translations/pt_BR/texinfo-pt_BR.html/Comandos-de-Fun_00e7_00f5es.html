@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Comandos de Funções (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Comandos para funções e entidades similares.">
+<meta name="keywords" content="Comandos para funções e entidades similares.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Comandos-de-Defini_00e7_00e3o-em-Detalhe.html" rel="up" title="Comandos de Definição em Detalhe">
+<link href="Fun_00e7_00f5es-Tipadas.html" rel="next" title="Funções Tipadas">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Comandos-de-Fun_00e7_00f5es">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Fun_00e7_00f5es-Tipadas.html" accesskey="n" rel="next">Funções em Linguagens Tipadas</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Comandos-de-Defini_00e7_00e3o-em-Detalhe.html" accesskey="u" rel="up">Os Comandos de Definição</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Fun_00e7_00f5es-e-Entidades-Similares"><span>14.6.1 Funções e Entidades Similares<a class="copiable-link" href="#Fun_00e7_00f5es-e-Entidades-Similares"> &para;</a></span></h4>
+
+<a class="index-entry-id" id="index-Definicoes-de-funcao"></a>
+<a class="index-entry-id" id="index-Definicoes-de-comando"></a>
+<a class="index-entry-id" id="index-Definicoes-de-macro_002c-linguagem-de-programacao"></a>
+
+<p>Esta seção descreve os comandos para descrever funções e entidades similares
+com argumentos simples:
+</p>
+<dl class="table">
+<dt><a id="index-deffn"></a><span><code class="code">@deffn <var class="var">categoria</var> <var class="var">nome</var> <var class="var">argumentos</var>&hellip;</code><a class="copiable-link" href="#index-deffn"> &para;</a></span></dt>
+<dd><p>O comando <code class="code">@deffn</code> é o comando geral de definição para funções,
+comandos interativos e entidades similares que podem receber argumentos
+simples.  Você precisa escolher um termo para descrever a categoria da
+entidade sendo definida; por exemplo, &ldquo;Função&rdquo; poderia ser usado se a
+entidade for uma função.  O comando <code class="code">@deffn</code> é escrito no início de
+uma linha e é seguido na mesma linha pela categoria da entidade sendo
+descrita, o nome dessa entidade específica e os argumentos dela, se
+existirem.  Termine a definição com <code class="code">@end deffn</code> em uma linha própria.
+</p>
+<p>Por exemplo, aqui está uma definição:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@deffn Comando forward-char nchars
+Move ponto para frente @var{nchars} caracteres.
+@end deffn
+</pre></div></div>
+
+<p>Isso mostra uma definição bastante concisa para um &ldquo;comando&rdquo; chamado
+<code class="code">forward-char</code> com um argumento, <var class="var">nchars</var>.
+</p>
+
+<p>No texto da descrição, no entanto, escreva um nome de argumento
+explicitamente com <code class="code">@var</code> para se referir ao valor do argumento.  No
+exemplo acima, nós usamos &lsquo;<samp class="samp">@var{nchars}</samp>&rsquo; dessa maneira.
+</p>
+<p>No caso extremamente incomum quando um nome de argumento contiver &lsquo;<samp class="samp">--</samp>&rsquo;,
+ou outra sequência de caracteres que seja tratada especialmente
+(veja-se <a class="pxref" href="Conven_00e7_00f5es.html">Convenções Sintáticas Gerais</a>), use <code class="code">@code</code> ao redor dos caracteres especiais.
+Isso evita a conversão para traços de ligação e travessões tipográficos.
+</p>
+</dd>
+<dt><a id="index-defun"></a><span><code class="code">@deffn <var class="var">nome</var> <var class="var">argumentos</var>&hellip;</code><a class="copiable-link" href="#index-defun"> &para;</a></span></dt>
+<dd><p>O comando <code class="code">@defun</code> é o comando de definição para funções com
+argumentos simples.  <code class="code">@defun</code> é equivalente a &lsquo;<samp class="samp">@deffn Função
+&hellip;</samp>&rsquo;.  Termine a definição com <code class="code">@end defun</code> em uma linha própria.
+</p>
+</dd>
+<dt><a id="index-defmac"></a><span><code class="code">@defmac <var class="var">nome</var> <var class="var">argumentos</var>&hellip;</code><a class="copiable-link" href="#index-defmac"> &para;</a></span></dt>
+<dd><p>O comando <code class="code">@defmac</code> é o comando de definição para macros.
+<code class="code">@defmac</code> é equivalente a &lsquo;<samp class="samp">@deffn Macro &hellip;</samp>&rsquo; e funciona como
+<code class="code">@defun</code>.
+</p>
+</dd>
+<dt><a id="index-defspec"></a><span><code class="code">@defspec <var class="var">nome</var> <var class="var">argumentos</var>&hellip;</code><a class="copiable-link" href="#index-defspec"> &para;</a></span></dt>
+<dd><p>O comando <code class="code">@defspec</code> é o comando de definição para formas especiais.
+(Na Lisp, uma forma especial é uma entidade muito parecida com uma função;
+veja-se <a data-manual="elisp" href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Special-Forms.html#Special-Forms">Special Forms</a> em <cite class="cite">GNU Emacs Lisp Reference Manual</cite>).
+<code class="code">@defspec</code> é equivalente a &lsquo;<samp class="samp">@deffn {Forma Especial} &hellip;</samp>&rsquo; e
+funciona como <code class="code">@defun</code>.
+</p></dd>
+</dl>
+
+<p>Todos esses comandos criam entradas no índice de funções.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Fun_00e7_00f5es-Tipadas.html">Funções em Linguagens Tipadas</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Comandos-de-Defini_00e7_00e3o-em-Detalhe.html">Os Comandos de Definição</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

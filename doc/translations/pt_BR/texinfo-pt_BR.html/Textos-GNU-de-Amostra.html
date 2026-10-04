@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Textos GNU de Amostra (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Textos GNU de Amostra (GNU Texinfo 7.3)">
+<meta name="keywords" content="Textos GNU de Amostra (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Arquivos-de-Amostra-do-Texinfo.html" rel="up" title="Arquivos de Amostra do Texinfo">
+<link href="Licen_00e7a-de-C_00f3pia-Literal.html" rel="next" title="Licença de Cópia Literal">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Textos-GNU-de-Amostra">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Licen_00e7a-de-C_00f3pia-Literal.html" accesskey="n" rel="next">Licença de Cópia Literal</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Arquivos-de-Amostra-do-Texinfo.html" accesskey="u" rel="up">Arquivos de Amostra do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Textos-GNU-de-Amostra-1"><span>C.1 Textos GNU de Amostra<a class="copiable-link" href="#Textos-GNU-de-Amostra-1"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Textos-GNU-de-amostra"></a>
+<a class="index-entry-id" id="index-Textos-de-amostra_002c-GNU"></a>
+<a class="index-entry-id" id="index-Textos-completos_002c-GNU"></a>
+
+<p>A seguir está uma amostra de documento do Texinfo com os textos completos
+que deveriam ser usados (adaptados conforme necessário) nos manuais GNU.
+</p>
+<p>Além dos textos jurídicos, também serve como exemplo prático de quantos
+elementos em um sistema GNU podem afetar o manual. Se você não estiver
+familiarizado(a) com todos esses diferentes elementos, não se preocupe. Eles
+não são obrigatórios e um manual perfeitamente bom pode ser escrito sem
+eles. No entanto, eles estão incluídos aqui porque muitos manuais se
+beneficiam (ou poderiam) deles.
+</p>
+<p>Veja-se <a class="xref" href="Arquivo-Curto-do-Texinfo-de-Amostra.html#Amostra-Curta">Amostra Curta</a>, para um exemplo mínimo de um arquivo do Texinfo.
+</p>
+<p>Aqui estão algumas observações acerca do exemplo:
+</p>
+<ul class="itemize mark-bullet">
+<li><a class="index-entry-id" id="index-automake_002c-e-informacoes-de-versao"></a>
+<a class="index-entry-id" id="index-UPDATED-Variavel-do-automake"></a>
+<a class="index-entry-id" id="index-UPDATED_002dMONTH-Variavel-do-automake"></a>
+<a class="index-entry-id" id="index-VERSION-Variavel-do-automake"></a>
+<a class="index-entry-id" id="index-time_002dstamp_002eel"></a>
+O <samp class="file">version.texi</samp> no comando <code class="code">@include</code> é mantido automaticamente
+pelo Automake (veja-se <a data-manual="automake" href="https://www.gnu.org/software/automake/manual/html_node/Texinfo.html#Texinfo">Texinfo</a> em <cite class="cite">GNU Automake</cite>). Ele configura os
+valores de &lsquo;<samp class="samp">VERSION</samp>&rsquo;, &lsquo;<samp class="samp">UPDATED</samp>&rsquo; e &lsquo;<samp class="samp">UPDATED-MONTH</samp>&rsquo; usados em
+outro lugar. Se tua distribuição não usar Automake, mas você usar Emacs,
+você pode achar o pacote <code class="code">time-stamp.el</code> útil (veja-se <a data-manual="emacs" href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Marcas-Temporais.html#Marcas-Temporais">Marcas
+Temporais</a> em <cite class="cite">O Manual do GNU Emacs</cite>).
+
+</li><li>O comando <code class="code">@syncodeindex</code> reflete a recomendação de usar apenas um
+índice sempre que possível, para facilitar para os(as) leitores(as)
+consultar as entradas do índice.
+
+</li><li>O <code class="code">@dircategory</code> especifica uma categoria para o manual. Ele é usado
+para construir o diretório Info. Veja-se <a class="xref" href="Categoria-de-Diret_00f3rio.html">Categoria de Diretório</a>, que inclui
+uma variedade de nomes recomendados de categorias. Veja-se <a class="xref" href="Instalando-Entradas-de-Diret_00f3rio.html">Instalando Arquivos de Diretório Info</a>.
+
+</li><li>O nó &lsquo;Invocando&rsquo; é um padrão GNU para ajudar usuários(as) a encontrar
+informações básicas acerca do uso da linha de comando de um determinado
+programa. Veja-se <a data-manual="standards" href="https://www.gnu.org/prep/standards/html_node/Detalhes-da-Estrutura-do-Manual.html#Detalhes-da-Estrutura-do-Manual">Detalhes da Estrutura do Manual</a> em <cite class="cite">Padrões GNU de
+Codificação</cite>.
+
+</li><li><a class="index-entry-id" id="index-Licenca-GNU-de-Documentacao-Livre_002c-incluindo-inteira"></a>
+<a class="index-entry-id" id="index-Licenca-de-Documentacao-Livre_002c-incluindo-inteira"></a>
+Esta amostra mostra como incluir a Licença de Documentação Livre em um
+manual usando-se o comando <code class="command">@include</code>. O arquivo <samp class="file">fdl.texi</samp>
+está disponível no Texinfo e em outras distribuições do fonte GNU. Ele
+também está disponível no sítio web do GNU (em
+<a class="uref" href="https://www.gnu.org/licenses/fdl-1.3.html">https://www.gnu.org/licenses/fdl-1.3.html</a>) junto com orientações para
+usá-lo.
+
+</li><li>Se a Fundação do Software Livre não for a titular do copirraite, então usar
+o nome apropriado.
+
+</li><li>Para documentos que expressem tuas opiniões, sentimentos ou experiências
+pessoais, é mais apropriado usar uma licença que permita somente cópia
+literal, em vez da Licença de Documentação Livre. Veja-se <a class="xref" href="Licen_00e7a-de-C_00f3pia-Literal.html">Licença de Cópia Literal</a>.
+
+</li></ul>
+
+<p>Aqui está um documento de amostra:
+</p>
+<pre class="verbatim">\input texinfo   @c -*-texinfo-*-
+@comment %**start of header
+@include version-pt_BR.texi
+@settitle Amostra GNU @value{VERSION}
+@syncodeindex pg cp
+@comment %**end of header
+@copying
+Este manual é para Amostra GNU (versão @value{VERSION}, @value{UPDATED}),
+o qual é um exemplo na documentação do Texinfo.
+
+Copirraite @copyright{} 2026 Fundação do Software Livre, Inc.
+
+@quotation
+É concedida permissão para copiar, distribuir e(ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3
+ou qualquer versão posterior publicada pela Fundação do Software Livre;
+sem Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada
+``Licença GNU de Documentação Livre''.
+@end quotation
+@end copying
+
+@dircategory Sistema de documentação Texinfo
+@direntry
+* amostra: (amostra)Invocando amostra.  amostra: (amostra)Invocando amostra
+@end direntry
+
+@documentinfo
+@title Amostra GNU
+@subtitle para versão @value{VERSION}, @value{UPDATED}
+@author A.U. Thor (@email{bug-sample@@gnu.org})
+@end documentinfo
+@maketitle
+
+@contents
+
+@node Top
+@top Amostra GNU
+
+Este manual é para Amostra GNU (versão @value{VERSION}, @value{UPDATED}).
+
+@node Invocando amostra
+@chapter Invocando amostra
+
+@pindex amostra
+@cindex invocando @command{amostra}
+
+Este é um manual de amostra. Não existe nenhum programa de
+amostra para invocar, mas se existisse, você poderia ver o
+uso básico e opções de linha de comando dele aqui.
+
+@node Licença GNU de Documentação Livre
+@appendix Licença GNU de Documentação Livre
+
+@include fdl-versao_1.3-pt_BR.texi
+
+@node Índice
+@unnumbered Índice
+
+@printindex cp
+
+@bye
+</pre>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Licen_00e7a-de-C_00f3pia-Literal.html">Licença de Cópia Literal</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Arquivos-de-Amostra-do-Texinfo.html">Arquivos de Amostra do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

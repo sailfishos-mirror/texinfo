@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Quebras (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Forçando ou impedindo quebras de linha e de página.">
+<meta name="keywords" content="Forçando ou impedindo quebras de linha e de página.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="index.html" rel="up" title="Top">
+<link href="Comandos-de-Defini_00e7_00e3o.html" rel="next" title="Comandos de Definição">
+<link href="Inserindo-F_00f3rmulas-Matem_00e1ticas.html" rel="prev" title="Inserindo Fórmulas Matemáticas">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="chapter-level-extent" id="Quebras">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Comandos-de-Defini_00e7_00e3o.html" accesskey="n" rel="next">Comandos de Definição</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Inserindo-F_00f3rmulas-Matem_00e1ticas.html" accesskey="p" rel="prev">Formatando Expressões Matemáticas</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="index.html" accesskey="u" rel="up">Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h2 class="chapter" id="For_00e7ando-e-Impedindo-Quebras"><span>13 Forçando e Impedindo Quebras<a class="copiable-link" href="#For_00e7ando-e-Impedindo-Quebras"> &para;</a></span></h2>
+
+<a class="index-entry-id" id="index-Forcando-quebras-de-linha-e-de-pagina"></a>
+<a class="index-entry-id" id="index-Fazendo-quebras-de-linha-e-de-pagina"></a>
+<a class="index-entry-id" id="index-Impedindo-quebras-de-linha-e-de-pagina"></a>
+<a class="index-entry-id" id="index-Quebras-de-linha-estranhas"></a>
+<a class="index-entry-id" id="index-Quebras-de-pagina_002c-estranhas"></a>
+
+<p>Quebras de linha e de página às vezes podem ocorrer no lugar &lsquo;errado&rsquo; em uma
+ou outra forma de saída.  Cabe inteiramente a você garantir que o texto
+aparente corretamente em todos os formatos de saída.
+</p>
+<p>Por exemplo, em um manual impresso, quebras de página podem ocorrer
+estranhamente no meio de um exemplo; para impedir isso, você pode manter o
+texto unido usando um comando de agrupamento que impeça que o texto seja
+dividido entre duas páginas.  Por outro lado, você pode querer forçar uma
+quebra de página onde nenhuma ocorreria normalmente.
+</p>
+<p>Você pode usar os comandos de quebra, impedimento de quebra ou de paginação
+para corrigir quebras problemáticas de linha e de página.
+</p>
+
+<ul class="mini-toc">
+<li><a href="Comandos-de-Quebra.html" accesskey="1">Comandos de Quebra</a></li>
+<li><a href="Quebras-de-Linha.html" accesskey="2"><code class="code">@*</code> e <code class="code">@/</code>: Gerar e Permitir Quebras de Linha</a></li>
+<li><a href="_0040_002d-_0040hyphenation.html" accesskey="3"><code class="code">@-</code> e <code class="code">@hyphenation</code>: Hifenização em Saída Impressa</a></li>
+<li><a href="_0040allowcodebreaks.html" accesskey="4"><code class="code">@allowcodebreaks</code>: Controle Quebras de Linha no <code class="code">@code</code></a></li>
+<li><a href="_0040w.html" accesskey="5"><code class="code">@w</code>{<var class="var">texto</var>}: Impedir Quebras de Linha</a></li>
+<li><a href="_0040tie.html" accesskey="6"><code class="code">@tie{}</code>: Inserindo um Espaço Inquebrável</a></li>
+<li><a href="_0040sp.html" accesskey="7"><code class="code">@sp <var class="var">n</var></code>: Inserir Linhas em Branco</a></li>
+<li><a href="_0040page.html" accesskey="8"><code class="code">@page</code>: Comece uma Nova Página</a></li>
+<li><a href="_0040group.html" accesskey="9"><code class="code">@group</code>: Impedir Quebras de Página</a></li>
+<li><a href="_0040need.html"><code class="code">@need <var class="var">mils</var></code>: Impedir Quebras de Página</a></li>
+</ul>
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Comandos-de-Defini_00e7_00e3o.html">Comandos de Definição</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Inserindo-F_00f3rmulas-Matem_00e1ticas.html">Formatando Expressões Matemáticas</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="index.html">Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

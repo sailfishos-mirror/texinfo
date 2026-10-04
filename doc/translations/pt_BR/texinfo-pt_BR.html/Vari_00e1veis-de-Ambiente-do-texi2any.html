@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Variáveis de Ambiente do texi2any (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Controle sobre formato de saída e uso do XS.">
+<meta name="keywords" content="Controle sobre formato de saída e uso do XS.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Tradutor-Gen_00e9rico-texi2any.html" rel="up" title="Tradutor Genérico texi2any">
+<link href="Sa_00edda-Impressa-do-texi2any.html" rel="next" title="Saída Impressa do texi2any">
+<link href="Invocando-texi2any.html" rel="prev" title="Invocando texi2any">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Vari_00e1veis-de-Ambiente-do-texi2any">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Sa_00edda-Impressa-do-texi2any.html" accesskey="n" rel="next">Saída Impressa do <code class="command">texi2any</code></a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Invocando-texi2any.html" accesskey="p" rel="prev">Invocando <code class="command">texi2any</code> a partir de um Shell</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Tradutor-Gen_00e9rico-texi2any.html" accesskey="u" rel="up"><code class="command">texi2any</code>: O Tradutor para Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Vari_00e1veis-de-Ambiente-Reconhecidas-pelo-texi2any"><span>20.2 Variáveis de Ambiente Reconhecidas pelo <code class="command">texi2any</code><a class="copiable-link" href="#Vari_00e1veis-de-Ambiente-Reconhecidas-pelo-texi2any"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Variavel-de-ambiente-TEXINFO_005fOUTPUT_005fFORMAT"></a>
+<p><code class="command">texi2any</code> também lê a variável de ambiente
+<code class="env">TEXINFO_OUTPUT_FORMAT</code> para determinar o formato da saída gerada, se
+não substituída por uma opção de linha de comando. O valor deveria ser um
+de:
+</p>
+<div class="example">
+<pre class="example-preformatted">docbook  dvi  dvipdf  epub3  html  info  latex  pdf  plaintext  ps  xml
+</pre></div>
+
+<p>Se não configurada ou especificada de outro modo, saída Info é o padrão.
+</p>
+<p><code class="code">TEXINFO_OUTPUT_FORMAT</code> pode assumir alguns outros valores especiais,
+os quais não correspondem a nenhum formato de saída configurável de linha de
+comando (veja-se <a class="pxref" href="Sele_00e7_00e3o-do-Formato-de-Sa_00edda.html">Seleção do Formato de Saída</a>).
+</p>
+<p>A variável de personalização de mesmo nome também é lida; se configurada,
+essa substitui uma configuração de variável de ambiente, mas não uma opção
+de linha de comando. Veja-se <a class="xref" href="Sele_00e7_00e3o-do-Formato-de-Sa_00edda.html">Seleção do Formato de Saída</a>.
+</p>
+<a class="index-entry-id" id="index-TEXINFO_005fXS"></a>
+<a class="index-entry-id" id="index-Modulos-de-extensao-da-Perl-_0028XS_0029"></a>
+<p>Você consegue controlar o uso de módulos de extensão Perl da implementação
+Perl do <code class="command">texi2any</code> configurando a variável de ambiente
+<code class="env">TEXINFO_XS</code>. Esses módulos são código nativo compilado que o código
+interpretado da Perl consegue usar. Idealmente, esses módulos de extensão
+deveriam simplesmente funcionar, e a única diferença notável que eles
+deveriam fazer é que <code class="command">texi2any</code> terminasse de executar mais cedo. No
+entanto, você consegue usar essa variável de ambiente para fins de solução
+de problemas: por exemplo, se tiver problemas com a saída gerada do
+<code class="command">texi2any</code> variando, dependendo se os módulos de extensão estiverem
+em uso.
+</p>
+<p>Os seguintes valores da <code class="env">TEXINFO_XS</code> são reconhecidos pelo
+<code class="command">texi2any</code>:
+</p>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">default</samp>&rsquo;</dt>
+<dd><p>O comportamento padrão. Tentar carregar módulos de extensão e voltar
+silenciosamente para as implementações interpretadas da Perl se isso falhar.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">warn</samp>&rsquo;</dt>
+<dd><p>Tentar carregar módulos de extensão e, se isso falhar, fornecer uma mensagem
+de aviso antes de voltar para as implementações interpretadas da Perl.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">required</samp>&rsquo;</dt>
+<dd><p>Tentar carregar módulos de extensão e, se isso falhar, fornecer uma mensagem
+e abortar.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">debug</samp>&rsquo;</dt>
+<dd><p>Tentar carregar módulos de extensão, imprimindo muitas mensagens ao fazer
+isso.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">omit</samp>&rsquo;</dt>
+<dd><p>Não usar módulos de extensão.
+</p>
+</dd>
+</dl>
+
+<p>Você pode desabilitar o uso da implementação de código nativo na
+implementação Perl do <code class="command">texi2any</code> para as principais etapas de
+processamento mais detalhadamente. Se os módulos de código nativo não forem
+usados em uma etapa, eles não poderão ser usados nas etapas seguintes. São
+distinguidas três etapas, cada uma associada a uma variável de ambiente:
+</p>
+<dl class="table">
+<dt><a id="index-TEXINFO_005fXS_005fPARSER"></a><span><em class="emph">parsing</em><a class="copiable-link" href="#index-TEXINFO_005fXS_005fPARSER"> &para;</a></span></dt>
+<dd><p>Corresponde à conversão da entrada do Texinfo em um formato interno de
+árvore usado para processamento posterior. Configure <code class="env">TEXINFO_XS_PARSER</code>
+como &lsquo;<samp class="samp">0</samp>&rsquo; para desabilitar o uso da implementação de código nativo do
+módulo analisador.
+</p></dd>
+<dt><a id="index-TEXINFO_005fXS_005fSTRUCTURE"></a><span><em class="emph">structure</em><a class="copiable-link" href="#index-TEXINFO_005fXS_005fSTRUCTURE"> &para;</a></span></dt>
+<dd><p>Corresponde à determinação de seccionamentos e de estruturas de
+nós. Configure <code class="env">TEXINFO_XS_STRUCTURE</code> como &lsquo;<samp class="samp">0</samp>&rsquo; para desabilitar o
+uso da implementação de código nativo de módulos Perl nessa etapa.
+</p></dd>
+<dt><a id="index-TEXINFO_005fXS_005fCONVERT"></a><span><em class="emph">conversion</em><a class="copiable-link" href="#index-TEXINFO_005fXS_005fCONVERT"> &para;</a></span></dt>
+<dd><p>Configure <code class="env">TEXINFO_XS_CONVERT</code> como &lsquo;<samp class="samp">0</samp>&rsquo; para desabilitar o uso do
+código nativo para conversão da árvore para o formato de saída. Observe que
+muitos formatos de saída não têm uma implementação de código nativo para
+essa etapa.
+</p></dd>
+</dl>
+
+<p>Isso pode ser útil para contornar defeitos ou incompatibilidades entre a
+implementação do código nativo e a implementação em código Perl puro.
+</p>
+<p>A implementação C do <code class="command">texi2any</code> usa somente código nativo para as
+etapas de <em class="emph">análise</em> e de <em class="emph">estruturação</em>. Para a etapa de
+<em class="emph">conversão</em>, o código nativo é usado, se possível. Se o código Perl for
+chamado, o programa sempre tenta carregar os módulos de extensão Perl
+disponíveis. A falha ao carregar uma extensão será informada e o programa
+aborta. Configurar-se <code class="env">TEXINFO_XS</code> como <code class="code">debug</code> ainda pode ser útil
+para obter mais informações. Configurar-se <code class="env">TEXINFO_XS</code> como <code class="code">omit</code>
+com a implementação C do <code class="command">texi2any</code> é um erro.
+</p>
+<a class="index-entry-id" id="index-TEXINFO_005fC_005fEMBED_005fPERL"></a>
+<a class="index-entry-id" id="index-Perl-Embutido-no-texi2any-da-C"></a>
+<p>Você pode controlar o uso do Perl embutido da implementação C do
+<code class="command">texi2any</code> configurando a variável de ambiente
+<code class="env">TEXINFO_C_EMBED_PERL</code> como &lsquo;<samp class="samp">0</samp>&rsquo; para desabilitar o uso do Perl
+embutido. Configure com cuidado, pois os arquivos de inicialização de
+personalização do HTML, a conversão para a maioria dos formatos de saída e a
+ordenação ideal do índice exigem Perl.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Sa_00edda-Impressa-do-texi2any.html">Saída Impressa do <code class="command">texi2any</code></a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Invocando-texi2any.html">Invocando <code class="command">texi2any</code> a partir de um Shell</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Tradutor-Gen_00e9rico-texi2any.html"><code class="command">texi2any</code>: O Tradutor para Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

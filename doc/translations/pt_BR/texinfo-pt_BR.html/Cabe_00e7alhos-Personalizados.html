@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Cabeçalhos Personalizados (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como criar teus próprios cabeçalhos e rodapés.">
+<meta name="keywords" content="Como criar teus próprios cabeçalhos e rodapés.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Cabe_00e7alhos.html" rel="up" title="Cabeçalhos">
+<link href="Formato-do-Cabe_00e7alho.html" rel="prev" title="Formato do Cabeçalho">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Cabe_00e7alhos-Personalizados">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Formato-do-Cabe_00e7alho.html" accesskey="p" rel="prev">Formatos Padrão de Cabeçalho</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Cabe_00e7alhos.html" accesskey="u" rel="up">Cabeçalhos de Página</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Como-Fazer-Teus-Pr_00f3prios-Cabe_00e7alhos"><span>E.2.3 Como Fazer Teus Próprios Cabeçalhos<a class="copiable-link" href="#Como-Fazer-Teus-Pr_00f3prios-Cabe_00e7alhos"> &para;</a></span></h4>
+
+<p>Você pode usar os cabeçalhos padrão fornecidos com o Texinfo ou especificar
+os teus próprios. Por padrão, o Texinfo não tem rodapés, de modo que se você
+especificá-los, o tamanho de página disponível para o texto principal será
+ligeiramente reduzido.
+</p>
+<p>Texinfo fornece seis comandos para se especificar cabeçalhos e rodapés:
+</p><ul class="itemize mark-bullet">
+<li><code class="code">@everyheading</code> e <code class="code">@everyfooting</code> geram cabeçalhos e rodapés de
+página que são os mesmos para ambas, páginas pares e ímpares.
+</li><li>Os comandos <code class="code">@evenheading</code> e <code class="code">@evenfooting</code> geram cabeçalhos e
+rodapés para páginas pares (à esquerda).
+</li><li><code class="code">@oddheading</code> e <code class="code">@oddfooting</code> geram cabeçalhos e rodapés para
+páginas ímpares (à direita).
+</li></ul>
+
+<p>Você precisa cancelar os comandos predefinidos de cabeçalho com o comando
+<code class="code">@headings off</code> antes de definir tuas próprias especificações.
+</p>
+<p>Aqui está como colocar o nome do capítulo à esquerda, o número da página no
+centro e a data à direita de cada cabeçalho para ambas, páginas pares e
+ímpares:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@headings off
+@everyheading @thischapter @| @thispage @| @today{}
+</pre></div></div>
+
+<p>Você precisa dividir a parte esquerda originária da parte central e a parte
+central originária da parte direita inserindo &lsquo;<samp class="samp">@|</samp>&rsquo; entre as
+partes. Caso contrário, o comando de especificação não será capaz de dizer
+onde o texto para uma parte termina e a próxima parte começa.
+</p>
+<p>Cada parte pode conter texto ou comandos @. O texto é impresso como se a
+parte estivesse dentro de um parágrafo comum no corpo da página. Os comandos
+@ substituem-se pelo número da página, data, nome do capítulo ou qualquer
+outra coisa.
+</p>
+<p>Aqui estão os seis comandos de cabeçalho e de rodapé:
+</p>
+<dl class="table">
+<dt><a class="index-entry-id" id="index-everyfooting"></a>
+<a id="index-everyheading"></a><span><code class="code">@everyheading <var class="var">esquerda</var> @| <var class="var">centro</var> @| <var class="var">direita</var></code><a class="copiable-link" href="#index-everyheading"> &para;</a></span></dt>
+<dt><code class="code">@everyfooting <var class="var">esquerda</var> @| <var class="var">centro</var> @| <var class="var">direita</var></code></dt>
+<dd><p>Os comandos &lsquo;every&rsquo; especificam o formato para ambas, páginas pares e
+ímpares. Esses comandos são para documentos que forem impressos em um lado
+de cada folha de papel ou para documentos nos quais você queira cabeçalhos
+ou rodapés simétricos.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-evenfooting"></a>
+<a class="index-entry-id" id="index-oddheading"></a>
+<a class="index-entry-id" id="index-oddfooting"></a>
+<a id="index-evenheading"></a><span><code class="code">@evenheading <var class="var">esquerda</var> @| <var class="var">centro</var> @| <var class="var">direita</var></code><a class="copiable-link" href="#index-evenheading"> &para;</a></span></dt>
+<dt><code class="code">@oddheading <var class="var">esquerda</var> @| <var class="var">centro</var> @| <var class="var">direita</var></code></dt>
+<dt><code class="code">@evenfooting <var class="var">esquerda</var> @| <var class="var">centro</var> @| <var class="var">direita</var></code></dt>
+<dt><code class="code">@oddfooting <var class="var">esquerda</var> @| <var class="var">centro</var> @| <var class="var">direita</var></code></dt>
+<dd><p>Os comandos &lsquo;par&rsquo; e &lsquo;ímpar&rsquo; especificam o formato para páginas pares e
+páginas ímpares. Esses comandos são para livros e manuais que forem
+impressos nos dois lados de cada folha de papel.
+</p></dd>
+</dl>
+
+<p>Use a série &lsquo;<samp class="samp">@this&hellip;</samp>&rsquo; dos comandos @ para fornecer os nomes dos
+capítulos e seções e o número da página. Você pode usar os comandos
+&lsquo;<samp class="samp">@this&hellip;</samp>&rsquo; nas partes esquerda, central ou direita dos cabeçalhos
+e rodapés.
+</p>
+<p>Aqui estão os comandos &lsquo;<samp class="samp">@this&hellip;</samp>&rsquo;:
+</p>
+<dl class="table">
+<dt><a id="index-thispage"></a><span><code class="code">@thispage</code><a class="copiable-link" href="#index-thispage"> &para;</a></span></dt>
+<dd><p>Expande para o número da página atual.
+</p>
+</dd>
+<dt><a id="index-thissection"></a><span><code class="code">@thissection</code><a class="copiable-link" href="#index-thissection"> &para;</a></span></dt>
+<dd><p>Expande para o número e nome da seção atual, no formato &lsquo;Seção 1.1: Título&rsquo;.
+</p>
+</dd>
+<dt><a id="index-thissectionname"></a><span><code class="code">@thissectionname</code><a class="copiable-link" href="#index-thissectionname"> &para;</a></span></dt>
+<dd><p>Expande para o nome da seção atual.
+</p>
+</dd>
+<dt><a id="index-thissectionnum"></a><span><code class="code">@thissectionnum</code><a class="copiable-link" href="#index-thissectionnum"> &para;</a></span></dt>
+<dd><p>Expande para o número da seção atual, no formato &lsquo;1.1&rsquo;.
+</p>
+</dd>
+<dt><a id="index-thischapter"></a><span><code class="code">@thischapter</code><a class="copiable-link" href="#index-thischapter"> &para;</a></span></dt>
+<dd><p>Expande para o número e nome do capítulo atual, no formato &lsquo;Capítulo 1:
+Título&rsquo;.
+</p>
+</dd>
+<dt><a id="index-thischaptername"></a><span><code class="code">@thischaptername</code><a class="copiable-link" href="#index-thischaptername"> &para;</a></span></dt>
+<dd><p>Expande para o nome do capítulo atual.
+</p>
+</dd>
+<dt><a id="index-thischapternum"></a><span><code class="code">@thischapternum</code><a class="copiable-link" href="#index-thischapternum"> &para;</a></span></dt>
+<dd><p>Expande para o número do capítulo atual ou letra do apêndice atual.
+</p>
+</dd>
+<dt><a id="index-thispart"></a><span><code class="code">@thispart</code><a class="copiable-link" href="#index-thispart"> &para;</a></span></dt>
+<dd><p>Expande para o nome da parte atual, conforme especificado pelo último
+comando <code class="code">@part</code>.
+</p>
+</dd>
+<dt><a id="index-thistitle"></a><span><code class="code">@thistitle</code><a class="copiable-link" href="#index-thistitle"> &para;</a></span></dt>
+<dd><p>Expande para o nome do documento, conforme especificado pelo comando
+<code class="code">@settitle</code>.
+</p>
+</dd>
+<dt><a id="index-thisfile"></a><span><code class="code">@thisfile</code><a class="copiable-link" href="#index-thisfile"> &para;</a></span></dt>
+<dd><p>Somente para arquivos <code class="code">@include</code>: expande para o nome do arquivo
+<code class="code">@include</code> atual. Se o atual arquivo fonte do Texinfo não for um
+arquivo <code class="code">@include</code>, esse comando não terá efeito. Esse comando
+<em class="emph">não</em> fornece o nome atual do arquivo fonte do Texinfo, a menos que
+seja um arquivo <code class="code">@include</code>. (Veja-se <a class="xref" href="Arquivos-de-Inclus_00e3o.html">Arquivos de Inclusão</a>, para mais
+informações acerca de arquivos <code class="code">@include</code>).
+</p></dd>
+</dl>
+
+<p>Você também pode usar o comando <code class="code">@today{}</code>, o qual expande para a
+data atual, no formato &lsquo;1 de janeiro de 1900&rsquo;.
+<a class="index-entry-id" id="index-today"></a>
+</p>
+<p>Outros comandos @ e texto são impressos em um cabeçalho ou rodapé como se
+estivessem no corpo de uma página. É útil incorporar texto, especialmente
+quando você estiver escrevendo rascunhos:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@headings off
+@everyheading @emph{Rascunho!} @| @thispage @| @thischapter
+@everyfooting @| @| Versão: 0.27: @today{}
+</pre></div></div>
+
+<p>Cuidado com títulos muito longos: eles podem se sobrepor a outra parte do
+cabeçalho ou do rodapé e apagá-la.
+</p>
+<p>Se você tiver capítulos e(ou) seções muito curtos, vários deles poderão
+aparecer em uma página. Você pode especificar quais capítulos e seções quer
+que <code class="code">@thischapter</code>, <code class="code">@thissection</code> e outras macros se refiram
+nessas páginas, como segue:
+</p>
+<dl class="table">
+<dt><a class="index-entry-id" id="index-everyfootingmarks"></a>
+<a id="index-everyheadingmarks"></a><span><code class="code">@everyheadingmarks <var class="var">referência</var></code><a class="copiable-link" href="#index-everyheadingmarks"> &para;</a></span></dt>
+<dt><code class="code">@everyfootingmarks <var class="var">referência</var></code></dt>
+<dd><p>O argumento <var class="var">referência</var> pode ser ou <code class="code">top</code> (os comandos
+<code class="code">@this...</code> se referirão ao capítulo/seção no topo de uma página) ou
+<code class="code">bottom</code> (os comandos refletirão a situação na parte inferior de uma
+página). Esses comandos &lsquo;<samp class="samp">@every...</samp>&rsquo; especificam o que fazer em ambas,
+páginas pares e ímpares.
+</p>
+</dd>
+<dt><a class="index-entry-id" id="index-oddheadingmarks"></a>
+<a class="index-entry-id" id="index-evenfootingmarks"></a>
+<a class="index-entry-id" id="index-oddfootingmarks"></a>
+<a id="index-evenheadingmarks"></a><span><code class="code">@evenheadingmarks <var class="var">referência</var></code><a class="copiable-link" href="#index-evenheadingmarks"> &para;</a></span></dt>
+<dt><code class="code">@oddheadingmarks <var class="var">referência</var></code></dt>
+<dt><code class="code">@evenfootingmarks <var class="var">referência</var></code></dt>
+<dt><code class="code">@oddfootingmarks <var class="var">referência</var></code></dt>
+<dd><p>Esses comandos &lsquo;<samp class="samp">@even...</samp>&rsquo; e &lsquo;<samp class="samp">@odd...</samp>&rsquo; especificam o que fazer
+somente em páginas pares ou ímpares, respectivamente. O argumento
+<var class="var">referência</var> é o mesmo que com os comandos &lsquo;<samp class="samp">@every...</samp>&rsquo;.
+</p></dd>
+</dl>
+
+<p>Escreva esses comandos imediatamente depois dos comandos
+<code class="code">@...contents</code> ou depois do comando <code class="code">@end titlepage</code> se você não
+tiver um sumário ou se ele estiver impresso no final do teu manual. Esses
+comandos não têm efeito no LaTeX.
+</p>
+<p>Por padrão, para TeX, os comandos <code class="code">@this...</code> refletem a situação na
+parte inferior de uma página tanto nos cabeçalhos quanto nos rodapés.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Formato-do-Cabe_00e7alho.html">Formatos Padrão de Cabeçalho</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Cabe_00e7alhos.html">Cabeçalhos de Página</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

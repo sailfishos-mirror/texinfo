@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Adicionando Formatos de Saída (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Páginas de manual e implementando novos formatos.">
+<meta name="keywords" content="Páginas de manual e implementando novos formatos.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Vis_00e3o-Geral.html" rel="up" title="Visão Geral">
+<link href="Hist_00f3rico.html" rel="prev" title="Histórico">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Adicionando-Formatos-de-Sa_00edda">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Hist_00f3rico.html" accesskey="p" rel="prev">Histórico</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Vis_00e3o-Geral.html" accesskey="u" rel="up">Visão Geral do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Adicionando-Formatos-de-Sa_00edda-1"><span>1.6 Adicionando Formatos de Saída<a class="copiable-link" href="#Adicionando-Formatos-de-Sa_00edda-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Formatos-adicionais-de-saida"></a>
+
+<p>Os formatos de saída nas seções anteriores lidam com uma variedade ampla de
+usos, porém, certamente, sempre existe espaço para mais.
+</p>
+<a class="index-entry-id" id="index-Formatos-de-saida_002c-suportando-mais"></a>
+<p>Se você for um(a) programador(a) e gostaria de contribuir para com o projeto
+GNU implementando formatos adicionais de saída para o Texinfo, isso seria
+excelente.   A maneira de fazer isso que seria mais útil é a de escrever uma
+estrutura de retaguarda nova para <code class="command">texi2any</code>, nossa implementação de
+referência de um analisador Texinfo; ela cria uma representação de árvore da
+entrada de Texinfo que você consegue usar para a conversão. A documentação
+no arquivo fonte <samp class="file">tta/perl/Texinfo/Convert/Converter.pm</samp> é um bom lugar
+para começar se você estiver disposto(a) a desenvolver em Perl
+(veja-se <a data-manual="texi2any_internals" href="https://www.gnu.org/software/texinfo/manual/texi2any_internals/html_chapter/Texinfo_003a_003aConvert_003a_003aConverter.html#Texinfo_003a_003aConvert_003a_003aConverter">Texinfo::Convert::Converter</a> em <cite class="cite">documentação dos
+módulos do Texinfo</cite>). <a class="ref" href="Tradutor-Gen_00e9rico-texi2any.html"><code class="command">texi2any</code>: O Tradutor para Texinfo</a>.
+</p>
+<a class="index-entry-id" id="index-Formatos-de-saida_002c-com-XML-do-Texinfo-como-entrada"></a>
+<a class="index-entry-id" id="index-Saida-XML-do-Texinfo_002c-como-entrada"></a>
+<p>Outra abordagem viável é a de usar a saída XML do Texinfo oriunda do
+<code class="command">texi2any</code> como tua entrada.   Esse XML é uma representação
+essencialmente completa da entrada, porém sem as peculiaridades da sintaxe e
+de opção do Texinfo, conforme descrito acima.
+</p>
+<a class="index-entry-id" id="index-Analisadores-Texinfo_002c-desencorajando-mais"></a>
+<p>Se você ainda não conseguir resistir à tentação de escrever um programa novo
+que leia diretamente o fonte do Texinfo, permita-nos te dar mais algumas
+advertências: por favor, não subestime a quantidade de trabalho exigida.
+Texinfo não é de forma alguma uma linguagem simples de se analisar
+corretamente, e permanece sob desenvolvimento, de maneira que você estaria
+se comprometendo com uma tarefa em andamento.
+</p>
+<a class="index-entry-id" id="index-Testes-da-linguagem-do-Texinfo"></a>
+<a class="index-entry-id" id="index-Testes_002c-da-linguagem-do-Texinfo"></a>
+<p>Testes extensivos da linguagem e do processador são desenvolvidos com
+<code class="command">texi2any</code>; nós encorajamos qualquer pessoa pensando em escrever um
+programa para processar o Texinfo a usar esses casos de teste e verificar se
+eles fornecem resultados corretos com teu novo programa.
+</p>
+<a class="index-entry-id" id="index-Saida-de-pagina-de-manual_002c-nao-suportada"></a>
+<p>De tempos em tempos, propostas são feitas para gerar páginas de manual Unix
+tradicionais a partir do fonte do Texinfo.   Entretanto, pelo motivo de que
+as páginas de manual tem um formato convencional estrito, criar uma página
+de manual boa exige um fonte completamente diferente daquele necessário para
+as aplicações Texinfo típicas de escrita de um tutorial de usuário(a) bom e
+(ou) um bom manual de referência.   Isso torna a geração de páginas de
+manual incompatível com o objetivo do projeto do Texinfo de não ter de
+documentar a mesma informação de maneiras diferentes para diferentes
+formatos de saída.   Você poderia também escrever a página de manual
+diretamente.
+</p>
+<a class="index-entry-id" id="index-help2man"></a>
+<a class="index-entry-id" id="index-O_0027Dea_002c-Brendan"></a>
+<p>Como um meio alternativo para suportar páginas de manual, você possivelmente
+ache que o programa <code class="command">help2man</code> seja útil.   Ele gera uma página de
+manual tradicional a partir da saída &lsquo;<samp class="samp">--help</samp>&rsquo; de um programa. De fato,
+as páginas de manual para os programas na distribuição do Texinfo são
+geradas com isso. Ele é software GNU escrito por Brendan O&rsquo;Dea, disponível a
+partir de <a class="uref" href="https://www.gnu.org/software/help2man">https://www.gnu.org/software/help2man</a>.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Hist_00f3rico.html">Histórico</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Vis_00e3o-Geral.html">Visão Geral do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

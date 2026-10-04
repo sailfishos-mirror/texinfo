@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Primeiro Nó (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Como escrever um nó &lsquo;Top&rsquo;.">
+<meta name="keywords" content="Como escrever um nó &lsquo;Top&rsquo;.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="N_00f3s.html" rel="up" title="Nós">
+<link href="Comando-_0040top.html" rel="next" title="Comando @top">
+<link href="Exig_00eancias-da-Linha-do-N_00f3.html" rel="prev" title="Exigências da Linha do Nó">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+kbd.kbd {font-style: oblique}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Primeiro-N_00f3">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Comando-_0040top.html" accesskey="n" rel="next">O Comando de Seccionamento <code class="code">@top</code></a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Exig_00eancias-da-Linha-do-N_00f3.html" accesskey="p" rel="prev">Exigências da Linha de <code class="code">@node</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="N_00f3s.html" accesskey="u" rel="up">Nós</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="O-Primeiro-N_00f3"><span>3.4 O Primeiro Nó<a class="copiable-link" href="#O-Primeiro-N_00f3"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-No-Top-e-primeiro"></a>
+<a class="index-entry-id" id="index-Primeiro-no"></a>
+
+<p>O primeiro nó de um arquivo Texinfo é o nó <em class="dfn">Top</em>, exceto em um arquivo
+incluído (veja-se <a class="pxref" href="Arquivos-de-Inclus_00e3o.html">Arquivos de Inclusão</a>). O nó Top deveria conter um sumário
+curto e um menu mestre. Veja-se <a class="ref" href="O-N_00f3-Top.html">O Nó &lsquo;Top&rsquo;</a> para mais informações acerca
+do conteúdo e exemplos de nó Top. Texto reto antes do nó Top fora de
+qualquer nó deveria ser evitado. Tal texto, se presente, não é gerado para
+DocBook.
+</p>
+
+<p>Aqui está uma descrição dos ponteiros de nó a serem usados no nó Top:
+</p>
+<ul class="itemize mark-bullet">
+<li><a class="index-entry-id" id="index-No-Acima-do-no-Top"></a>
+<a class="index-entry-id" id="index-_0028dir_0029-como-no-Acima-do-no-Top"></a>
+O nó Top (o qual precisa ser nomeado &lsquo;<samp class="samp">top</samp>&rsquo; ou &lsquo;<samp class="samp">Top</samp>&rsquo;) deveria ter
+como nó dele &lsquo;Acima&rsquo; o nome de um nó em outro arquivo, onde existe um menu
+que leva a esse arquivo. Especifique o nome de arquivo entre parênteses.
+
+<p>Usualmente, todos os arquivos Info estão disponíveis por meio de uma árvore
+virtual única do Info, construída a partir de múltiplos diretórios. Nesse
+caso, use &lsquo;<samp class="samp">(dir)</samp>&rsquo; como o ancestral do nó Top; isso especifica o nó de
+nível superior no arquivo <samp class="file">dir</samp>, o qual contém o menu principal para o
+sistema Info como um todo. (Cada diretório com arquivos Info é destinado a
+conter um arquivo chamado <samp class="file">dir</samp>).
+</p>
+<p>Isso está bom para Info, porém para saída HTML, alguém bem pode querer que o
+linque Acima oriundo do nó Top vá para algum lugar específico. Por exemplo,
+para GNU, o lugar natural seria <a class="url" href="https://www.gnu.org/manual/">https://www.gnu.org/manual/</a> (uma
+página da web que coleciona linques para a maioria dos manuais GNU), melhor
+especificada que apenas <code class="code">/manual/</code>, se o manual será instalado em
+<code class="code">www.gnu.org</code>. Isso pode ser especificado com a variável de
+personalização <code class="code">TOP_NODE_UP_URL</code> (veja-se <a class="pxref" href="Personaliza_00e7_00e3o-de-Nomes-de-Arquivo-e-de-Linques-para-HTML.html">Personalização de Nomes de Arquivo e de Linques para HTML</a>), como em
+</p>
+<div class="example">
+<pre class="example-preformatted">$ <kbd class="kbd">texi2any --html -c TOP_NODE_UP_URL=/manual/</kbd> ...
+</pre></div>
+
+
+</li><li><a class="index-entry-id" id="index-No-Anterior-do-no-Top"></a>
+O nó &lsquo;Anterior&rsquo; do nó Top é usualmente omitido.
+
+</li><li><a class="index-entry-id" id="index-No-Proximo-do-no-Top"></a>
+O nó &lsquo;Próximo&rsquo; do nó Top deveria ser o primeiro capítulo em teu documento.
+
+</li></ul>
+
+<p>Veja-se <a class="ref" href="Instalando-um-Arquivo-do-Info.html">Instalando um Arquivo do Info</a>, para mais informações acerca de
+instalar um arquivo Info no diretório <samp class="file">info</samp>.
+</p>
+<p>Geralmente, é melhor deixar os ponteiros completamente desligados e deixar
+que as ferramentas os definam implicitamente, com este resultado simples:
+</p>
+<div class="example">
+<pre class="example-preformatted">@node Top
+</pre></div>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Comando-_0040top.html">O Comando de Seccionamento <code class="code">@top</code></a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Exig_00eancias-da-Linha-do-N_00f3.html">Exigências da Linha de <code class="code">@node</code></a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="N_00f3s.html">Nós</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

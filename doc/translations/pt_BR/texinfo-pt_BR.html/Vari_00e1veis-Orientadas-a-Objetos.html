@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Variáveis Orientadas a Objetos (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Variáveis Orientadas a Objetos (GNU Texinfo 7.3)">
+<meta name="keywords" content="Variáveis Orientadas a Objetos (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Objetos-Abstratos.html" rel="up" title="Objetos Abstratos">
+<link href="M_00e9todos-Orientados-a-Objetos.html" rel="next" title="Métodos Orientados a Objetos">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+dt.def-line {font-size: 1rem}
+span:hover a.copiable-link {visibility: visible}
+strong.def-name {font-family: monospace; font-weight: bold}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsubsection-level-extent" id="Vari_00e1veis-Orientadas-a-Objetos">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="M_00e9todos-Orientados-a-Objetos.html" accesskey="n" rel="next">Métodos Orientados a Objetos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Objetos-Abstratos.html" accesskey="u" rel="up">Programação Orientada a Objetos</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsubsection" id="Vari_00e1veis-Orientadas-a-Objetos-1"><span>14.6.6.1 Variáveis Orientadas a Objetos<a class="copiable-link" href="#Vari_00e1veis-Orientadas-a-Objetos-1"> &para;</a></span></h4>
+
+<a class="index-entry-id" id="index-Variaveis_002c-orientadas-a-objetos"></a>
+
+<p>Estes comandos permitem que você defina diferentes tipos de variáveis em
+linguagens de programação orientadas a objetos.
+</p>
+<dl class="table">
+<dt><a id="index-defcv"></a><span><code class="code">@defcv <var class="var">categoria</var> <var class="var">classe</var> <var class="var">nome</var></code><a class="copiable-link" href="#index-defcv"> &para;</a></span></dt>
+<dd><p>O comando <code class="code">@defcv</code> é o comando geral de definição para variáveis
+associadas a classes em programação orientada a objetos.  O comando
+<code class="code">@defcv</code> é seguido por três argumentos: a categoria da coisa sendo
+definida, a classe à qual ela pertence e o nome dela.  Por exemplo:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@defcv {Opção da Classe} Janela padrão-borda
+...
+@end defcv
+</pre></div></div>
+
+<p>produz:
+</p><dl class="first-defcv def-block">
+<dt class="defcv def-line" id="index-padrao_002dborda"><span class="category-def">Opção da Classe da <code class="code">Janela</code>: </span><span><strong class="def-name">padrão-borda</strong><a class="copiable-link" href="#index-padrao_002dborda"> &para;</a></span></dt>
+<dd><p>&hellip;
+</p></dd></dl>
+
+<p><code class="code">@defcv</code> cria uma entrada no índice de variáveis.
+</p>
+</dd>
+<dt><a id="index-deftypecv"></a><span><code class="code">@deftypecv <var class="var">categoria</var> <var class="var">classe</var> <var class="var">tipo-dados</var> <var class="var">nome</var></code><a class="copiable-link" href="#index-deftypecv"> &para;</a></span></dt>
+<dd><p>O comando <code class="code">@deftypecv</code> é o comando de definição para variáveis tipadas
+de classe em programação orientada a objetos.  Ele é análogo ao
+<code class="code">@defcv</code> com a adição do parâmetro <var class="var">tipo-dados</var> para especificar o
+tipo da variável de instância.
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@deftypecv {Opção da Classe} Janela int padrão-borda
+...
+@end deftypecv
+</pre></div></div>
+
+<p>produz:
+</p>
+<dl class="first-deftypecv def-block">
+<dt class="deftypecv def-line" id="index-padrao_002dborda-of-Janela"><span class="category-def">Opção da Classe da <code class="code">Janela</code>: </span><span><code class="def-type">int</code> <strong class="def-name">padrão-borda</strong><a class="copiable-link" href="#index-padrao_002dborda-of-Janela"> &para;</a></span></dt>
+<dd><p>&hellip;
+</p></dd></dl>
+
+<p><code class="code">@deftypecv</code> cria uma entrada no índice de variáveis.
+</p>
+</dd>
+<dt><a id="index-defivar"></a><span><code class="code">@defivar <var class="var">classe</var> <var class="var">nome</var></code><a class="copiable-link" href="#index-defivar"> &para;</a></span></dt>
+<dd><p>O comando <code class="code">@defivar</code> é o comando de definição para variáveis de
+instância em programação orientada a objetos.  <code class="code">@defivar</code> é
+equivalente a &lsquo;<samp class="samp">@defcv {Variável da Instância} &hellip;</samp>&rsquo;.  Por
+exemplo:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@defivar Janela padrão-borda
+...
+@end defivar
+</pre></div></div>
+
+<p>produz:
+</p>
+<dl class="first-defcv first-defivar-alias-first-defcv def-block">
+<dt class="defcv defivar-alias-defcv def-line" id="index-padrao_002dborda-of-Janela-1"><span class="category-def">Variável de instância da <code class="code">Janela</code>: </span><span><strong class="def-name">padrão-borda</strong><a class="copiable-link" href="#index-padrao_002dborda-of-Janela-1"> &para;</a></span></dt>
+<dd><p>&hellip;
+</p></dd></dl>
+
+<p><code class="code">@defivar</code> cria uma entrada no índice de variáveis.
+</p>
+</dd>
+<dt><a id="index-deftypeivar"></a><span><code class="code">@deftypeivar <var class="var">classe</var> <var class="var">tipo-dados</var> <var class="var">nome</var></code><a class="copiable-link" href="#index-deftypeivar"> &para;</a></span></dt>
+<dd><p>O comando <code class="code">@deftypeivar</code> é o comando de definição para variáveis
+tipadas de instância em programação orientada a objetos.  Ele é análogo ao
+<code class="code">@defivar</code> com a adição do parâmetro <var class="var">tipo-dados</var> para especificar
+o tipo da variável de instância.
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@deftypeivar Janela int padrão-borda
+...
+@end deftypeivar
+</pre></div></div>
+
+<p>produz:
+</p>
+<dl class="first-deftypecv first-deftypeivar-alias-first-deftypecv def-block">
+<dt class="deftypecv deftypeivar-alias-deftypecv def-line" id="index-padrao_002dborda-of-Janela-2"><span class="category-def">Variável de Instância da <code class="code">Janela</code>: </span><span><code class="def-type"><code class="code">int</code></code> <strong class="def-name">padrão-borda</strong><a class="copiable-link" href="#index-padrao_002dborda-of-Janela-2"> &para;</a></span></dt>
+<dd><p>&hellip;
+</p></dd></dl>
+
+<p><code class="code">@deftypeivar</code> cria uma entrada no índice de variáveis.
+</p>
+</dd>
+</dl>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="M_00e9todos-Orientados-a-Objetos.html">Métodos Orientados a Objetos</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Objetos-Abstratos.html">Programação Orientada a Objetos</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Personalização da Navegação e de Cabeçalhos (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Personalização da Navegação e de Cabeçalhos (GNU Texinfo 7.3)">
+<meta name="keywords" content="Personalização da Navegação e de Cabeçalhos (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html" rel="up" title="Personalização da Saída Gerada HTML">
+<link href="Personaliza_00e7_00e3o-de-Recursos-do-HTML.html" rel="next" title="Personalização de Recursos do HTML">
+<link href="Personaliza_00e7_00e3o-de-Nomes-de-Arquivo-e-de-Linques-para-HTML.html" rel="prev" title="Personalização de Nomes de Arquivo e de Linques para HTML">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Personaliza_00e7_00e3o-da-Navega_00e7_00e3o-e-de-Cabe_00e7alhos">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-de-Recursos-do-HTML.html" accesskey="n" rel="next">Personalização de Recursos do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-de-Nomes-de-Arquivo-e-de-Linques-para-HTML.html" accesskey="p" rel="prev">Personalização de Nomes de Arquivo e de Linques para HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html" accesskey="u" rel="up">Personalização da Saída Gerada HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Personaliza_00e7_00e3o-da-Navega_00e7_00e3o-e-de-Cabe_00e7alhos-1"><span>22.8.3 Personalização da Navegação e de Cabeçalhos<a class="copiable-link" href="#Personaliza_00e7_00e3o-da-Navega_00e7_00e3o-e-de-Cabe_00e7alhos-1"> &para;</a></span></h4>
+
+<a class="index-entry-id" id="index-HEADERS-para-HTML"></a>
+<p>Cabeçalhos e rodapés com um painel de navegação são gerados no caso
+padrão. Se você usar <samp class="option">--no-headers</samp>, ou se a variável de
+personalização <code class="code">HEADERS</code> estiver desconfigurada, o painel de navegação
+só será inserido no início dos arquivos divididos.
+</p>
+<a class="index-entry-id" id="index-USE_005fLINKS"></a>
+<p>Por padrão, os elementos <code class="code">&lt;link&gt;</code> são gerados no <code class="code">&lt;head&gt;</code> do HTML
+para especificar relacionamentos entre a página HTML e outros recursos, por
+exemplo, o nó Topo, o próximo nó ou o sumário. Desconfigure <code class="code">USE_LINKS</code>
+para evitar esses elementos.
+</p>
+<a class="index-entry-id" id="index-SECTION_005fNAME_005fIN_005fTITLE"></a>
+<p>O <code class="code">&lt;title&gt;</code> e a descrição do documento em <code class="code">&lt;head&gt;</code> são baseados em
+<code class="code">@settitle</code> (veja-se <a class="pxref" href="_0040settitle.html"><code class="code">@settitle</code>: Configura o Título do Documento</a>). Se o manual for dividido, o
+nome do nó também será adicionado a esse título HTML. Configure
+<code class="code">SECTION_NAME_IN_TITLE</code> para usar o argumento do comando de
+estruturamento do capítulo associado em vez do nome do nó.
+</p>
+<a class="index-entry-id" id="index-OUTPUT_005fENCODING_005fNAME-para-HTML"></a>
+<p>Por padrão, se uma codificação de entrada for configurada (tipicamente por
+meio de <code class="code">@documentencoding</code>), essas informações serão usadas para
+configurar o nome da codificação de saída, caso contrário, a codificação da
+saída gerada será baseada na codificação padrão. Uma etiqueta &lsquo;<samp class="samp">&lt;meta&gt;</samp>&rsquo;
+é gerada, na seção &lsquo;<samp class="samp">&lt;head&gt;</samp>&rsquo; do HTML, para especificar a codificação da
+saída gerada. Veja-se <a class="xref" href="_0040documentencoding.html"><code class="code">@documentencoding <var class="var">codificação</var></code>: Configurar Codificação de Entrada</a>. Para configurar
+explicitamente a codificação da saída gerada, configure
+<code class="code">OUTPUT_ENCODING_NAME</code>. A codificação especificada deveria ser um nome
+de conjunto de caracteres normalizado usável em HTML, tipicamente um dos
+nomes de codificação preferidos da IANA.
+</p>
+<a class="index-entry-id" id="index-WORDS_005fIN_005fPAGE"></a>
+<p>Quando a saída é dividida em nós (veja-se <a class="pxref" href="Dividindo-HTML.html">Dividindo HTML</a>), o valor da
+variável de personalização <code class="code">WORDS_IN_PAGE</code> especifica o comprimento
+mínimo aproximado da página no qual um painel de navegação é colocado na
+parte inferior de uma página. Não é possível calibrar esse valor muito
+precisamente para resultados exatos: isso ocorre porque a contagem de
+palavras usadas para a verificação é baseada na saída HTML para o nó até o
+momento (incluindo qualquer barra de navegação na parte superior da página),
+o que produz um valor um pouco maior que o número de palavras que seriam
+visíveis para o(a) usuário(a) no navegador da web deles(as).
+</p>
+<p>A aparência do painel de navegação é afetada pelas seguintes variáveis de
+personalização, todas falsas no caso padrão:
+</p>
+<dl class="vtable">
+<dt><a id="index-DATE_005fIN_005fHEADER"></a><span><code class="code">DATE_IN_HEADER</code><a class="copiable-link" href="#index-DATE_005fIN_005fHEADER"> &para;</a></span></dt>
+<dd><p>Colocar a data de geração do documento no cabeçalho.
+</p>
+</dd>
+<dt><a id="index-HEADER_005fIN_005fTABLE"></a><span><code class="code">HEADER_IN_TABLE</code><a class="copiable-link" href="#index-HEADER_005fIN_005fTABLE"> &para;</a></span></dt>
+<dd><p>Usar tabelas para formatação de cabeçalho em vez de um simples <code class="code">&lt;div&gt;</code>.
+</p>
+</dd>
+<dt><a id="index-ICONS"></a><span><code class="code">ICONS</code><a class="copiable-link" href="#index-ICONS"> &para;</a></span></dt>
+<dd><p>Usar ícones para o painel de navegação.
+</p>
+</dd>
+<dt><a id="index-PROGRAM_005fNAME_005fIN_005fFOOTER"></a><span><code class="code">PROGRAM_NAME_IN_FOOTER</code><a class="copiable-link" href="#index-PROGRAM_005fNAME_005fIN_005fFOOTER"> &para;</a></span></dt>
+<dd><p>Se configurada, gerar o nome do programa e diversas informações relacionadas
+nos rodapés das páginas.
+</p>
+</dd>
+<dt><a id="index-VERTICAL_005fHEAD_005fNAVIGATION"></a><span><code class="code">VERTICAL_HEAD_NAVIGATION</code><a class="copiable-link" href="#index-VERTICAL_005fHEAD_005fNAVIGATION"> &para;</a></span></dt>
+<dd><p>Se configurada, um painel vertical de navegação é usado.
+</p></dd>
+</dl>
+
+<a class="index-entry-id" id="index-Arquivo-de-inicializacao_002c-botoes-de-direcao-de-icone-do-HTML"></a>
+<p>Configurar-se <code class="code">ICONS</code> é necessário, mas não suficiente para obter
+ícones para botões de direção, uma vez que nenhuma imagem de botão é
+especificada no caso padrão. Além disso, você precisa configurar as
+variáveis de personalização <code class="code">ACTIVE_ICONS</code> e <code class="code">PASSIVE_ICONS</code>. Você
+só consegue fazer isso usando um arquivo de inicialização (veja-se <a class="pxref" href="Invocando-texi2any.html">Invocando <code class="command">texi2any</code> a partir de um Shell</a>). Veja-se <cite class="cite"><a data-manual="texi2any_api" href="https://www.gnu.org/software/texinfo/manual/texi2any_api/html_node/index.html">Personalização da Saída do
+<code class="command">texi2any</code> do GNU Texinfo</a></cite>.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-de-Recursos-do-HTML.html">Personalização de Recursos do HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-de-Nomes-de-Arquivo-e-de-Linques-para-HTML.html">Personalização de Nomes de Arquivo e de Linques para HTML</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Personaliza_00e7_00e3o-da-Sa_00edda-Gerada-HTML.html">Personalização da Saída Gerada HTML</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

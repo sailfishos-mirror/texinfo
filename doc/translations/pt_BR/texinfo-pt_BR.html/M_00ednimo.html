@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Mínimo (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="O que um arquivo do Texinfo precisa ter.">
+<meta name="keywords" content="O que um arquivo do Texinfo precisa ter.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Escrevendo-um-Arquivo-do-Texinfo.html" rel="up" title="Escrevendo um Arquivo do Texinfo">
+<link href="Arquivo-Curto-do-Texinfo-de-Amostra.html" rel="next" title="Arquivo Curto do Texinfo de Amostra">
+<link href="Coment_00e1rios.html" rel="prev" title="Comentários">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="M_00ednimo">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Arquivo-Curto-do-Texinfo-de-Amostra.html" accesskey="n" rel="next">Amostra Curta</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Coment_00e1rios.html" accesskey="p" rel="prev">Comentários</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Escrevendo-um-Arquivo-do-Texinfo.html" accesskey="u" rel="up">Escrevendo um Arquivo do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="O-Que-um-Arquivo-do-Texinfo-Precisa-Ter"><span>2.3 O Que um Arquivo do Texinfo Precisa Ter<a class="copiable-link" href="#O-Que-um-Arquivo-do-Texinfo-Precisa-Ter"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Arquivo-minimo-do-Texinfo-_0028exigencias_0029"></a>
+<a class="index-entry-id" id="index-Exigido-no-arquivo-do-Texinfo"></a>
+<a class="index-entry-id" id="index-Minimo-do-arquivo-do-Texinfo"></a>
+
+<p>Por convenção, o nome de um arquivo do Texinfo termina com uma das extensões
+<samp class="file">.texi</samp>, <samp class="file">.texinfo</samp>, <samp class="file">.txi</samp> ou <samp class="file">.tex</samp>. Usar <samp class="file">.tex</samp>
+é desencorajado, pois essa extensão já é usada pelos arquivos de entrada do
+TeX e do LaTeX. A extensão mais comum e recomendada é <samp class="file">.texi</samp>. O
+nome de um arquivo do Texinfo deveria conter somente caracteres ASCII.
+</p>
+<p>O nome da saída gerada é baseado no nome do arquivo de entrada, no caso
+padrão. Primeiro, quaisquer das extensões <samp class="file">.texi</samp>, <samp class="file">.tex</samp>,
+<samp class="file">.txi</samp> ou <samp class="file">.texinfo</samp> são removidas do nome do arquivo de entrada;
+a seguir, a extensão específica do formato da saída gerada é
+adicionada&mdash;<samp class="file">.html</samp> ao gerar HTML, <samp class="file">.info</samp> ao gerar Info, etc. O
+nome da saída gerada deveria conter somente caracteres
+ASCII<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>.
+</p>
+<a class="index-entry-id" id="index-Exigencias-para-formatacao"></a>
+<a class="index-entry-id" id="index-Exigencias-minimas-para-formatacao"></a>
+<a class="index-entry-id" id="index-Exigencias-de-formatacao"></a>
+<p>Para a finalidade de ser transformado em um manual impresso, um arquivo do
+Texinfo precisa iniciar com uma linha como esta:
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">\input texinfo
+</pre></div></div>
+
+<p>O conteúdo do arquivo segue esse início, e então você precisa finalizar o
+fonte do Texinfo com uma linha como esta:
+</p>
+<div class="example">
+<pre class="example-preformatted">@bye
+</pre></div>
+
+<a class="index-entry-id" id="index-_005cinput-_0028iniciacao-do-TeX-bruto_0029"></a>
+
+<p>A linha <code class="code">@bye</code> no final do arquivo em uma linha própria informa ao
+TeX que o arquivo está terminado e para parar a formatação. Se deixar
+isso de fora, você será despejado(a) no prompt do TeX no final da
+execução.
+</p>
+<p>Além disso, você normalmente fornecerá um arquivo do Texinfo com um título,
+uma página de título, índices e similares, todos os quais estão explicados
+neste manual. Mas o mínimo, que pode ser útil para documentos curtos, é
+apenas a linha no início e a linha no final.
+</p>
+<p>Sem informações adicionais, as codificações de entrada e saída são assumidas
+como UTF-8, um conjunto universal de códigos compatível com ASCII de 7 bits.
+</p>
+
+</div>
+<div class="footnotes-segment">
+<hr>
+<h4 class="footnotes-heading">Notas de Rodapé</h4>
+
+<h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(1)</a></h5>
+<p><code class="command">texi2any</code> consegue manusear caracteres não ASCII em
+nomes de arquivo de entrada, mas caracteres não ASCII no nome da saída
+gerada criarão problemas para alguns formatos de saída, especialmente para
+referências cruzadas.</p>
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Arquivo-Curto-do-Texinfo-de-Amostra.html">Amostra Curta</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Coment_00e1rios.html">Comentários</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Escrevendo-um-Arquivo-do-Texinfo.html">Escrevendo um Arquivo do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>O Corpo do Documento (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="O resto dos nós.">
+<meta name="keywords" content="O resto dos nós.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Escrevendo-um-Arquivo-do-Texinfo.html" rel="up" title="Escrevendo um Arquivo do Texinfo">
+<link href="Finalizando-um-Arquivo.html" rel="next" title="Finalizando um Arquivo">
+<link href="O-N_00f3-Top.html" rel="prev" title="O Nó Top">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="O-Corpo-do-Documento">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Finalizando-um-Arquivo.html" accesskey="n" rel="next">Finalizando um Arquivo do Texinfo</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="O-N_00f3-Top.html" accesskey="p" rel="prev">O Nó &lsquo;Top&rsquo;</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Escrevendo-um-Arquivo-do-Texinfo.html" accesskey="u" rel="up">Escrevendo um Arquivo do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="O-Corpo-do-Documento-1"><span>2.11 O Corpo do Documento<a class="copiable-link" href="#O-Corpo-do-Documento-1"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Pagina-preliminar_002c-texto-em"></a>
+<p>O segmento do corpo contém todo o texto do documento. Um manual é dividido
+em um ou mais <em class="dfn">nós</em> (veja-se <a class="pxref" href="N_00f3s.html">Nós</a>). O exemplo ilustra um capítulo feito
+de três nós, um para material introdutório no capítulo e duas seções. O
+material introdutório contém uma lista enumerada.
+</p>
+<div class="example">
+<div class="group"><pre class="example-preformatted">@node Primeiro Capítulo
+@chapter Primeiro Capítulo
+
+@cindex capítulo, primeiro
+Este é o primeiro capítulo.
+@cindex entrada de índice, outra
+
+Aqui está uma lista numerada.
+
+@enumerate
+@item
+Este é o primeiro item.
+
+@item
+Este é o segundo item.
+@end enumerate
+
+
+@node Primeira Seção
+@section Primeira Seção
+
+Primeira seção do primeiro capítulo.
+
+
+@node Segunda Seção
+@section Segunda Seção
+
+Segunda seção do primeiro capítulo.
+</pre></div></div>
+
+<p>Na saída Info, o nó &lsquo;<samp class="samp">Primeiro Capítulo</samp>&rsquo; conterá um menu listando as
+duas seções no capítulo. Da mesma forma, quando esse nó for gerado no
+próprio arquivo HTML, ele conterá um sumário para o capítulo.
+</p>
+<p>Aqui está com o que o conteúdo desse capítulo se parecerá:
+</p>
+<br>
+<blockquote class="quotation">
+<h2 class="chapheading" id="g_t1_002e-Primeiro-Cap_00edtulo"><span>1. Primeiro Capítulo<a class="copiable-link" href="#g_t1_002e-Primeiro-Cap_00edtulo"> &para;</a></span></h2>
+
+<p>Este é o primeiro capítulo
+</p>
+<p>Aqui está uma lista numerada.
+</p>
+<ol class="enumerate">
+<li> Este é o primeiro item
+
+</li><li> Este é o segundo item
+</li></ol>
+
+<h3 class="heading" id="g_t1_002e1-Primeira-Se_00e7_00e3o"><span>1.1 Primeira Seção<a class="copiable-link" href="#g_t1_002e1-Primeira-Se_00e7_00e3o"> &para;</a></span></h3>
+
+<p>Primeira seção do primeiro capítulo.
+</p>
+<h3 class="heading" id="g_t1_002e2-Segunda-Se_00e7_00e3o"><span>1.2 Segunda Seção<a class="copiable-link" href="#g_t1_002e2-Segunda-Se_00e7_00e3o"> &para;</a></span></h3>
+
+<p>Segunda seção do primeiro capítulo.
+</p></blockquote>
+
+<p>(Na saída Info e HTML, o capítulo também seria dividido em nós).
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Finalizando-um-Arquivo.html">Finalizando um Arquivo do Texinfo</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="O-N_00f3-Top.html">O Nó &lsquo;Top&rsquo;</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Escrevendo-um-Arquivo-do-Texinfo.html">Escrevendo um Arquivo do Texinfo</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

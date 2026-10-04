@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Preâmbulo do Formato Info (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Preâmbulo do Formato Info (GNU Texinfo 7.3)">
+<meta name="keywords" content="Preâmbulo do Formato Info (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Especifica_00e7_00e3o-do-Formato-Info.html" rel="up" title="Especificação do Formato Info">
+<link href="Tabela-Indireta-do-Formato-Info.html" rel="next" title="Tabela Indireta do Formato Info">
+<link href="Manual-Inteiro-do-Formato-Info.html" rel="prev" title="Manual Inteiro do Formato Info">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Pre_00e2mbulo-do-Formato-Info">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Tabela-Indireta-do-Formato-Info.html" accesskey="n" rel="next">Formato Info: Tabela Indireta</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Manual-Inteiro-do-Formato-Info.html" accesskey="p" rel="prev">Formato Info: Um Manual Inteiro</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Especifica_00e7_00e3o-do-Formato-Info.html" accesskey="u" rel="up">Especificação do Formato Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Formato-Info_003a-Pre_00e2mbulo"><span>F.2 Formato Info: Preâmbulo<a class="copiable-link" href="#Formato-Info_003a-Pre_00e2mbulo"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Preambulo_002c-no-formato-Info"></a>
+
+<p>O <code class="t">&lt;preâmbulo&gt;</code> é o texto no início de todos os arquivos de saída. Não se
+destina a ser visível por padrão em um visualizador do Info, mas pode ser
+exibido mediante solicitação do(a) usuário(a).
+</p>
+<div class="example">
+<pre class="example-preformatted">    &lt;preâmbulo&gt; =
+&lt;identificação&gt;         # &quot;Este é NOMEARQUIVO, produzido por ...&quot;
+&lt;copiando texto&gt;        # Expansão do texto de @copying.
+&lt;entradas do diretório&gt; # Derivado de @dircategory e @direntry.
+</pre></div>
+
+<p>Essas peças são:
+</p>
+<dl class="table">
+<dt><code class="t">&lt;linha de identificação&gt;</code></dt>
+<dd><p>Uma sequência arbitrária de caracteres iniciando o arquivo da saída gerada,
+seguida por uma linha em branco.
+</p>
+</dd>
+<dt><code class="t">&lt;copiando texto&gt;</code></dt>
+<dd><p>A expansão de um ambiente <code class="code">@copying</code>, se o manual tiver um
+(veja-se <a class="pxref" href="_0040copying.html"><code class="code">@copying</code>: Declarar Permissões de Cópia</a>).
+</p>
+</dd>
+<dt><code class="t">&lt;entradas do diretório&gt;</code></dt>
+<dd><p>O resultado de quaisquer comandos <code class="code">@dircategory</code> e <code class="code">@direntry</code>
+presentes no manual (veja-se <a class="pxref" href="Instalando-Entradas-de-Diret_00f3rio.html">Instalando Arquivos de Diretório Info</a>).
+</p>
+</dd>
+</dl>
+
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Tabela-Indireta-do-Formato-Info.html">Formato Info: Tabela Indireta</a></span></span>, <span class="nav-button"><span class="nav-label">Anterior: </span><span class="nav-link"><a href="Manual-Inteiro-do-Formato-Info.html">Formato Info: Um Manual Inteiro</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Especifica_00e7_00e3o-do-Formato-Info.html">Especificação do Formato Info</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

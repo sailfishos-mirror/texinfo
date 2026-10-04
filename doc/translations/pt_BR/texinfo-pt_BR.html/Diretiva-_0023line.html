@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Diretiva #line (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Diretiva #line (GNU Texinfo 7.3)">
+<meta name="keywords" content="Diretiva #line (GNU Texinfo 7.3)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Processadores-Externos-de-Macro.html" rel="up" title="Processadores Externos de Macro">
+<link href="_0023line-e-TeX.html" rel="next" title="#line e TeX">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="subsection-level-extent" id="Diretiva-_0023line">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0023line-e-TeX.html" accesskey="n" rel="next">&lsquo;<samp class="samp">#line</samp>&rsquo; e TeX</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Processadores-Externos-de-Macro.html" accesskey="u" rel="up">Processadores Externos de Macro: Diretivas de Linha</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h4 class="subsection" id="Diretiva-_0023line-1"><span>17.7.1 Diretiva &lsquo;<samp class="samp">#line</samp>&rsquo;<a class="copiable-link" href="#Diretiva-_0023line-1"> &para;</a></span></h4>
+
+<a class="index-entry-id" id="index-Diretiva-_0023line"></a>
+
+<p>Uma linha de entrada como esta:
+</p>
+<div class="example">
+<pre class="example-preformatted">#line 100 &quot;foo.ptexi&quot;
+</pre></div>
+
+<p>indica que a próxima linha foi linha 100 do arquivo <samp class="file">foo.ptexi</samp>, e,
+portanto, isso é ao que uma mensagem de erro deveria se referir. Tanto M4
+(veja-se <a data-manual="m4" href="https://www.gnu.org/software/m4/manual/html_node/Recursos-de-preprocessador.html#Recursos-de-preprocessador">Recursos de preprocessador</a> em <cite class="cite">GNU M4</cite>) quanto CPP
+(veja-se <a data-manual="cpp" href="https://gcc.gnu.org/onlinedocs/cpp/Controle-de-Linha.html#Controle-de-Linha">Controle de Linha</a> em <cite class="cite">O Preprocessador C</cite> e <a data-manual="cpp" href="https://gcc.gnu.org/onlinedocs/cpp/Sa_00edda-de-Preprocessador.html#Sa_00edda-de-Preprocessador">Saída de
+Preprocessador</a> em <cite class="cite">O Preprocessador C</cite>) conseguem gerar tais linhas.
+</p>
+<p>O programa <code class="command">texi2any</code> reconhece essas linhas por padrão, exceto
+dentro dos blocos <code class="code">@verbatim</code> (veja-se <a class="pxref" href="_0040verbatim.html"><code class="code">@verbatim</code>: Texto Literal</a>). O
+reconhecimento delas pode ser desativado completamente com
+<code class="code">CPP_LINE_DIRECTIVES</code> (veja-se <a class="pxref" href="Vari_00e1veis-Globais-de-Personaliza_00e7_00e3o.html">Variáveis Globais de Personalização</a>),
+embora normalmente não exista razão para fazer isso.
+</p>
+<p>Para aqueles poucos programas (M4, CPP, Texinfo) que precisem documentar
+diretivas &lsquo;<samp class="samp">#line</samp>&rsquo; e, portanto, tem exemplos que, de outra forma,
+corresponderiam ao padrão, o comando <code class="code">@hashchar{}</code> pode ser usado
+(veja-se <a class="pxref" href="Inserindo-um-S_00edmbolo-Cerquilha.html">Inserindo &lsquo;#&rsquo; com <code class="code">@hashchar{}</code></a>).  A linha de exemplo acima se
+parece com isto no fonte para este manual:
+</p>
+<div class="example">
+<pre class="example-preformatted">@hashchar{}line 100 &quot;foo.ptexi&quot;
+</pre></div>
+
+<p>O comando <code class="code">@hashchar</code> foi adicionado ao Texinfo em 2013.  Se você não
+quiser depender dele, você também pode usar <code class="code">@set</code> e <code class="code">@value</code>
+para inserir o literal &lsquo;<samp class="samp">#</samp>&rsquo;:
+</p>
+<div class="example">
+<pre class="example-preformatted">@set hash #
+@value{hash}line 1 &quot;exemplo.c&quot;
+</pre></div>
+
+<p>Ou, se adequado, um ambiente <code class="code">@verbatim</code> pode ser usado em vez de
+<code class="code">@example</code>.  Como mencionado acima, o reconhecimento de <code class="code">#line</code> é
+desabilitado dentro de blocos verbatim.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="_0023line-e-TeX.html">&lsquo;<samp class="samp">#line</samp>&rsquo; e TeX</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Processadores-Externos-de-Macro.html">Processadores Externos de Macro: Diretivas de Linha</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Este manual é para o GNU Texinfo (versão 7.3, 1º de março de 2026),
+um sistema de documentação que consegue produzir informações online e um
+manual impresso a partir de uma fonte usando marcação semântica.
+
+Copyright © 1988-2026 Fundação do Software Livre, Inc.
+
+É concedida permissão para copiar, distribuir e (ou) modificar este
+documento sob os termos da Licença GNU de Documentação Livre, Versão 1.3 ou
+qualquer versão posterior publicada pela Free Software Foundation; sem
+Seções Invariantes, sem Textos de Capa Frontal e sem Textos de
+Contracapa. Uma cópia da licença está incluída na seção intitulada "Licença
+GNU de Documentação Livre". -->
+<title>Comandos Condicionais (GNU Texinfo 7.3)</title>
+
+<meta name="description" content="Texto para um formato fornecido.">
+<meta name="keywords" content="Texto para um formato fornecido.">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="_00cdndice-Geral.html" rel="index" title="Índice Geral">
+<link href="index.html#SEC_Contents" rel="contents" title="Sumário">
+<link href="Condicionais.html" rel="up" title="Condicionais">
+<link href="Comandos-Condicionais-N_00e3o.html" rel="next" title="Comandos Condicionais Não">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body lang="pt_BR">
+<div class="section-level-extent" id="Comandos-Condicionais">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Comandos-Condicionais-N_00e3o.html" accesskey="n" rel="next">Comandos Condicionais Não</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Condicionais.html" accesskey="u" rel="up">Texto Condicionalmente Visível</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+<hr>
+<h3 class="section" id="Comandos-Condicionais-1"><span>16.1 Comandos Condicionais<a class="copiable-link" href="#Comandos-Condicionais-1"> &para;</a></span></h3>
+
+<p>O Texinfo tem um ambiente <code class="code">@if<var class="var">formato</var></code> para cada formato de
+saída, para permitir inclusão condicional de texto para um formato de saída
+específico.
+</p>
+<a class="index-entry-id" id="index-ifinfo"></a>
+<p><code class="code">@ifinfo</code> inicia segmentos de texto que deveriam ser ignorados quando
+não produzir saída Info, em particular em saída impressa.  O segmento de
+texto aparece somente no arquivo Info e, para compatibilidade histórica, na
+saída de texto simples.
+</p>
+<a class="index-entry-id" id="index-ifdocbook"></a>
+<a class="index-entry-id" id="index-ifhtml"></a>
+<a class="index-entry-id" id="index-iflatex"></a>
+<a class="index-entry-id" id="index-ifplaintext"></a>
+<a class="index-entry-id" id="index-iftex"></a>
+<a class="index-entry-id" id="index-ifxml"></a>
+<p>Os ambientes para os outros formatos são análogos:
+</p>
+<dl class="table">
+<dt><code class="code">@ifdocbook &hellip; @end ifdocbook</code></dt>
+<dd><p>Texto para aparecer somente na saída DocBook.
+</p>
+</dd>
+<dt><code class="code">@ifhtml &hellip; @end ifhtml</code></dt>
+<dd><p>Texto para aparecer somente na saída HTML.
+</p>
+</dd>
+<dt><code class="code">@iflatex &hellip; @end iflatex</code></dt>
+<dd><p>Texto para aparecer somente na saída LaTeX.
+</p>
+</dd>
+<dt><code class="code">@ifplaintext &hellip; @end ifplaintext</code></dt>
+<dd><p>Texto para aparecer somente na saída de texto simples.
+</p>
+</dd>
+<dt><code class="code">@iftex &hellip; @end iftex</code></dt>
+<dd><p>Texto para aparecer somente no manual impresso.
+</p>
+</dd>
+<dt><code class="code">@ifxml &hellip; @end ifxml</code></dt>
+<dd><p>Texto para aparecer somente na saída XML.
+</p></dd>
+</dl>
+
+<p>Os comandos <code class="code">@if&hellip;</code> e <code class="code">@end if&hellip;</code> precisam aparecer em
+linhas dedicadas no teu arquivo fonte.  As quebras de linha que seguem os
+comandos são (mais ou menos) tratadas como espaços em branco, de forma que o
+texto condicional seja fluído normalmente para um parágrafo circundante.
+</p>
+<p>As construções <code class="code">@if&hellip;</code> são destinadas para condicionar fonte
+normal Texinfo; veja-se <a class="pxref" href="Comandos-Brutos-do-Formatador.html">Comandos Brutos do Formatador</a>, para usar comandos
+subjacentes de formatação diretamente.
+</p>
+<p>Aqui está um exemplo mostrando todos esses Condicionais:
+</p>
+<div class="example">
+<pre class="example-preformatted">@iftex
+Este texto aparecerá somente no manual impresso.
+@end iftex
+@ifinfo
+No entanto, este texto aparecerá somente em Info e em texto simples.
+@end ifinfo
+@ifhtml
+E este texto aparecerá somente em HTML.
+@end ifhtml
+@iflatex
+Além disso, este texto aparecerá somente em @LaTeX{}.
+@end iflatex
+@ifplaintext
+Enquanto este texto aparecerá somente em texto simples.
+@end ifplaintext
+@ifxml
+Não obstante, isto aparecerá somente em XML.
+@end ifxml
+@ifdocbook
+No entanto, isto aparecerá somente em DocBook.
+@end ifdocbook
+</pre></div>
+
+<p>O exemplo precedente produz a seguinte linha:
+</p>
+<p>E este texto aparecerá somente em HTML.
+</p>
+<p>Observe que você vê somente uma das linhas de entrada, dependendo de qual
+versão do manual estiver lendo.
+</p>
+<a class="index-entry-id" id="index-errormsg"></a>
+<p>Em documentos complexos, você pode querer que o Texinfo emita uma mensagem
+de erro em alguns condicionais que nunca deveriam ser processados.  O
+comando <code class="code">@errormsg{<var class="var">texto</var>}</code> fará isso; ele recebe um argumento,
+o texto da mensagem de erro.
+</p>
+<p>Nós mencionamos <code class="code">@errormsg{}</code> aqui, embora ele não esteja
+estritamente relacionado a condicionais, já que, na prática, é mais provável
+que ele seja útil nesse contexto.  Tecnicamente, ele pode ser usado em
+qualquer lugar.  Veja-se <a class="xref" href="Processadores-Externos-de-Macro.html">Processadores Externos de Macro: Diretivas de Linha</a>, para uma ressalva
+relativa aos números de linha que <code class="code">@errormsg</code> emite no TeX.
+</p>
+
+</div>
+<hr>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Próximo: </span><span class="nav-link"><a href="Comandos-Condicionais-N_00e3o.html">Comandos Condicionais Não</a></span></span>, <span class="nav-button"><span class="nav-label">Acima: </span><span class="nav-link"><a href="Condicionais.html">Texto Condicionalmente Visível</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="index.html#SEC_Contents" title="Sumário" rel="contents">Conteúdo</a>]</span><span class="nav-button">[<a href="_00cdndice-Geral.html" title="Índice" rel="index">Índice</a>]</span></p>
+
+
+
+</body>
+</html>
