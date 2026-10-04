@@ -1,3 +1,9 @@
+2026-10-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/mkwebdir.pl, doc/translations/mkwebdir.pl: Move file.  Place
+	any subdirectories at the end of the listing.
+	* doc/translations/README: add file.
+
 2026-10-04  Jamenson Espindula <jafesp@gmail.com>
 
 	* doc/translations/pt_BR: Add files for texinfo.texi translation.

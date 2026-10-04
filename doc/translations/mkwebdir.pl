@@ -29,11 +29,23 @@ print "<h1>Index of $dir</h1>\n";
 print "<ul>\n";
 print "<li><a href=..><code>..</code></a>\n";
 
+my @subdirs;
+
 for my $file (@files) {
   chomp $file;
   next if $file eq 'index.html';
-  print "<li><a href=./$file><code>$file</code></a>\n";
+  next if $file eq 'mkwebdir.pl';
+  if (-d $file) {
+    push @subdirs, $file;
+  } else {
+    print "<li><a href=./$file><code>$file</code></a>\n";
+  }
 }
+for my $subdir (@subdirs) {
+  print "<li><a href=./$subdir><code>$subdir/</code></a>\n";
+}
+
+
 print "</ul>\n";
 
 print "</body></html>\n";
