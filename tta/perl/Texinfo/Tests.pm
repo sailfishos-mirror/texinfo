@@ -113,11 +113,18 @@ sub configure_document_locales($) {
   Texinfo::Translations::setup_output_strings($locales_dir);
 }
 
+sub _compare_no_cr {
+  my ($line1, $line2) = @_;
+  $line1 =~ s/\R$//;
+  $line2 =~ s/\R$//;
+  return ($line1 ne $line2);
+}
+
 # not that subdirectories are not compared, so subdirectories generated
 # by INFO_JS_DIR, if different, will not trigger an error in test, but
 # will lead to different directories and files in diffs.
-sub compare_dirs_files($$;$) {
-  my ($dir1, $dir2, $ignore_files) = @_;
+sub compare_dirs_files($$;$$) {
+  my ($dir1, $dir2, $ignore_files, $binary) = @_;
 
   my %dir1_files;
   my %dir2_files;
@@ -153,9 +160,31 @@ sub compare_dirs_files($$;$) {
   }
   foreach my $file (sort(keys(%dir1_files))) {
     if (exists($dir2_files{$file})) {
-      my $status = compare("$dir1/$file", "$dir2/$file");
-      if ($status) {
-        push @errors, "$dir1/$file and $dir2/$file differ: $status";
+      if ($binary) {
+        my $status = compare("$dir1/$file", "$dir2/$file");
+        if ($status) {
+          push @errors, "$dir1/$file and $dir2/$file differ: $status";
+        }
+      } else {
+        my $fh1 = do { local *FH1 };
+        if (!open($fh1, "$dir1/$file")) {
+          push @errors, "could not open $dir1/$file: $!";
+          $fh1 = undef;
+        }
+        my $fh2 = do { local *FH2 };
+        if (!open($fh2, "$dir2/$file")) {
+          push @errors, "could not open $dir2/$file: $!";
+          $fh2 = undef;
+        }
+        if (defined($fh1) and defined($fh2)) {
+          binmode($fh1);
+          binmode($fh2);
+          my $status = File::Compare::compare_text($fh1, $fh2,
+                                                   \&_compare_no_cr);
+          if ($status) {
+            push @errors, "$dir1/$file and $dir2/$file differ: $status";
+          }
+        }
       }
       delete $dir2_files{$file};
     } else {

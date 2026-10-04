@@ -1127,6 +1127,10 @@ sub test($$) {
       } elsif (!defined($format_converter_options->{'OUTFILE'})) {
         $format_converter_options->{'OUTFILE'} = '';
       }
+
+      my $binary_format = 0;
+      $binary_format = 1 if ($format_type eq 'info');
+
       $format_converter_options->{'TEST'} = $default_test_level
         if (!exists($format_converter_options->{'TEST'}));
       $format_converter_options->{'INCLUDE_DIRECTORIES'} = [
@@ -1178,7 +1182,7 @@ sub test($$) {
             warn "ERROR: open $outfile: $!\n";
           } else {
             # binary formats (Info) are already encoded
-            if ($format ne 'info') {
+            if (!$binary_format) {
               my $output_encoding
                 = $converter->get_conf('OUTPUT_ENCODING_NAME');
               my $output_file_encoding
@@ -1419,9 +1423,12 @@ sub test($$) {
 
     foreach my $format (@tested_formats) {
       if (defined($converted{$format})) {
+        my $binary_format = 0;
+        $binary_format = 1 if ($format eq 'info');
+
         $out_result .= "\n".'$result_converted{\''.$format.'\'}->{\''
                        .$test_name.'\'} = ';
-        if ($format ne 'info') {
+        if (!$binary_format) {
           $out_result .= "'".protect_encode_string($converted{$format})."'";
         } else {
           # only protect the generated, do not encode as it is already encoded.
@@ -1499,10 +1506,15 @@ sub test($$) {
           my $base = $test_base_dir;
           my $reference_dir = "$srcdir/$base".'res_'.$format_type;
           my $results_dir = $base.'out_'.$format_type;
+
+          my $binary_format = 0;
+          $binary_format = 1 if ($format_type eq 'info');
+
           if (-d $reference_dir) {
             $reference_exists = 1;
             $tests_count += 1;
-            my $dir_errors = compare_dirs_files($reference_dir, $results_dir);
+            my $dir_errors = compare_dirs_files($reference_dir, $results_dir,
+                                                undef, $binary_format);
 
             # compare *_epub_package/EPUB and *_epub_package/EPUB/xhtml
             # contents too for epub
