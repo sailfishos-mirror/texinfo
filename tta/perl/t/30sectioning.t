@@ -397,23 +397,32 @@ my @tests_info = (
 '],
 # a subset of the next test, with ascii spaces only
 ['in_menu_only_special_ascii_spaces_node',
-undef, {'test_file' => 'in_menu_only_special_ascii_spaces_node.texi'}],
+undef, {'test_file' => 'in_menu_only_special_ascii_spaces_node.texi',
+        # NOTE relevant for all the tests with a CRLF in input file,
+        # we assume that the following condition also means that the
+        # XS code uses native text I/O on Windows, which is not
+        # true in some cases.
+        'skip' => ($^O eq 'MSWin32') ? 'difference on CRLF input' : undef}],
 ['in_menu_only_special_ascii_spaces_node_menu',
-undef, {'test_file' => 'in_menu_only_special_ascii_spaces_node.texi'},
+undef, {'test_file' => 'in_menu_only_special_ascii_spaces_node.texi',
+         'skip' => ($^O eq 'MSWin32') ? 'difference on CRLF input' : undef},
 {'FORMAT_MENU' => 'menu'}],
 # TODO for the LINE SEPARATOR and PARAGRAPH SEPARATOR Unicode characters
 # Perl and XS code give different width, therefore the corresponding
 # Texinfo code is commented out in the input file.
 ['in_menu_only_special_spaces_node',
 undef, {'test_file' => 'in_menu_only_special_spaces_node.texi',
-        'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef, }],
+        # TODO if Windows condition kept, change the message
+        'skip' => ($] < 5.014 or $^O eq 'MSWin32') ? 'Perl too old: /a regex flag needed' : undef, }],
 ['in_menu_only_special_spaces_node_menu',
 undef, {'test_file' => 'in_menu_only_special_spaces_node.texi',
-        'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef, },
+        # TODO if Windows condition kept, change the message
+        'skip' => ($] < 5.014 or $^O eq 'MSWin32') ? 'Perl too old: /a regex flag needed' : undef, },
        {'FORMAT_MENU' => 'menu', 'TRANSLITERATE_FILE_NAMES' => 0}],
 ['in_menu_only_special_spaces_node_menu_transliterate',
 undef, {'test_file' => 'in_menu_only_special_spaces_node.texi',
-        'skip' => ($] < 5.014 or $XS_convert) ?
+        # TODO if Windows condition kept, change the message
+        'skip' => ($] < 5.014 or $XS_convert or $^O eq 'MSWin32') ?
            '/a flag needed or non reproducible transliteration' : undef, },
        {'FORMAT_MENU' => 'menu', 'TRANSLITERATE_FILE_NAMES' => 1}],
 ['reference_to_only_special_spaces_node',

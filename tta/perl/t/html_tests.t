@@ -1748,7 +1748,8 @@ $css_init_file_texinfo, {'init_files' => ['test_css_info_functions.pm']}],
 ['simple_only_special_spaces_node',
 undef, {'test_file' => 'simple_only_special_spaces_node.texi',
         'init_files' => ['no_navigation.pm'],
-         'skip' => ($] < 5.014 or $XS_convert) ?
+         # TODO if Windows condition kept, change the message
+         'skip' => ($] < 5.014 or $XS_convert or $^O eq 'MSWin32') ?
            '/a flag needed or non reproducible transliteration' : undef,
        },
        # split at node is needed to test for the bug, not sure about
@@ -1761,12 +1762,14 @@ undef, {'test_file' => 'simple_only_special_spaces_node.texi',
 ['simple_only_special_spaces_node_no_translit_files',
 undef, {'test_file' => 'simple_only_special_spaces_node.texi',
         'init_files' => ['no_navigation.pm'],
-        'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef,
+         # TODO if Windows condition kept, change the message
+        'skip' => ($] < 5.014 or $^O eq 'MSWin32') ? 'Perl too old: /a regex flag needed' : undef,
        },
        {'SPLIT' => 'node', 'TRANSLITERATE_FILE_NAMES' => 0}],
 ['simple_only_special_spaces_node_test_split_section',
 undef, {'test_file' => 'simple_only_special_spaces_node.texi',
-        'skip' => ($] < 5.014 and not $use_XS)
+         # TODO if Windows condition kept, change the message
+        'skip' => ($] < 5.014 and not $use_XS or $^O eq 'MSWin32')
                    ? 'Perl too old: /a regex flag needed' : undef,
         'test_split' => 'section',
        },

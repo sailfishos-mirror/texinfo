@@ -1,5 +1,15 @@
 2026-10-04 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/30sectioning.t, tta/perl/t/40moresectioning.t,
+	tta/perl/t/html_tests.t: skip tests with input files with CRLF,
+	in_menu_only_special_ascii_spaces_node.texi,
+	in_menu_only_special_spaces_node.texi, only_special_spaces_node.texi
+	and simple_only_special_spaces_node.texi if the platforw detected by
+	Perl is Windows.  Note that this also skips tests when Windows is
+	detected but Perl and/or XS/C does not use native I/O.
+
+2026-10-04 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Tests.pm (compare_dirs_files): add comments.  Close
 	opened filehandles.
 

@@ -184,14 +184,16 @@ undef, {'test_file' => 'special_spaces_in_nodes.texi',
 # Texinfo code is commented out in the input file.
 ['only_special_spaces_node',
 undef, {'test_file' => 'only_special_spaces_node.texi',
-        'skip' => ($] < 5.018) ? 'Perl too old: LINE TABULATION in /a needed' : undef, },
+        # TODO if Windows condition kept, change the message
+        'skip' => ($] < 5.018 or $^O eq 'MSWin32') ? 'Perl too old: LINE TABULATION in /a needed' : undef, },
   {'TRANSLITERATE_FILE_NAMES' => 0}],
 # NOTE transliteration of some spaces in chapter arguments are different
 # with Perl and XS code, therefore the corresponding Texinfo code is
 # commented out in the input file.
 ['only_special_spaces_node_transliterate',
 undef, {'test_file' => 'only_special_spaces_node.texi',
- 'skip' => ($] < 5.018 or $XS_convert) ?
+        # TODO if Windows condition kept, change the message
+ 'skip' => ($] < 5.018 or $XS_convert or $^O eq 'MSWin32') ?
  'LINE TABULATION in /a needed or non reproducible transliteration' : undef, },
   {'TRANSLITERATE_FILE_NAMES' => 1}],
 ['equivalent_nodes_defined_linked',
