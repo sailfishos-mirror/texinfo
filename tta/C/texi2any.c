@@ -2904,11 +2904,11 @@ main (int argc, char *argv[], char *env[])
                     }
                 }
               if (!outfile_in_null_device_files)
-               {
-                 GNUT_set_from_cmdline (&cmdline_options,
+                {
+                  GNUT_set_from_cmdline (&cmdline_options,
                            cmdline_options.options->OUTFILE.number,
                            null_device_names[0]);
-               }
+                }
             }
         }
     }
