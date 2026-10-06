@@ -1,3 +1,9 @@
+2026-10-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Multiple Spaces): Add more commentary on
+	the inconsistencies and limitations of using @SPACE and @TAB
+	with TeX.  Suggestion from Patrice.
+
 2026-10-07 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/converter.c (converter_format_data)
