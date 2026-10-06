@@ -393,7 +393,7 @@ sub _parsed_manual_tree($$$$$;$) {
     Texinfo::Transformations::fill_gaps_in_sectioning_in_document($document,
                                                       $commands_heading_texi);
     if ($section_nodes) {
-      Texinfo::Transformations::insert_nodes_for_sectioning_commands(
+      Texinfo::ManipulateTree::insert_nodes_for_sectioning_commands(
                                                                $document);
     }
   }

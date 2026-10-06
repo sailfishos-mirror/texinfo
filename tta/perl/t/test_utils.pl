@@ -1014,7 +1014,7 @@ sub test($$) {
   }
 
   if ($document->get_conf('AUTO_SECTION_NODE')) {
-    Texinfo::Transformations::insert_nodes_for_sectioning_commands(
+    Texinfo::ManipulateTree::insert_nodes_for_sectioning_commands(
                                                              $document);
   }
 

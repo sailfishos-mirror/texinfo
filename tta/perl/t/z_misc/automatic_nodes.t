@@ -8,9 +8,9 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 3);
 BEGIN { plan tests => 5; }
 
 use Texinfo::Parser;
-use Texinfo::Transformations;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Document;
+use Texinfo::ManipulateTree;
 use Texinfo::Structuring;
 use Texinfo::XSLoader;
 
@@ -89,7 +89,7 @@ my $parser = Texinfo::Parser::parser();
 my $document = $parser->parse_text($sections_text);
 
 Texinfo::Structuring::associate_internal_references($document);
-Texinfo::Transformations::insert_nodes_for_sectioning_commands($document);
+Texinfo::ManipulateTree::insert_nodes_for_sectioning_commands($document);
 
 my $tree = $document->tree();
 my $result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
@@ -109,7 +109,7 @@ $document = $parser->parse_text('@node Top
 @end menu
 ');
 Texinfo::Structuring::associate_internal_references($document);
-Texinfo::Transformations::insert_nodes_for_sectioning_commands($document);
+Texinfo::ManipulateTree::insert_nodes_for_sectioning_commands($document);
 
 my $identifier_target = $document->labels_information();
 my $indices_information = $document->indices_information();

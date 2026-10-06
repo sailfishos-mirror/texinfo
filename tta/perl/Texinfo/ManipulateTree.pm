@@ -48,7 +48,8 @@ use Carp qw(cluck confess);
 use Scalar::Util qw(weaken);
 
 # Next two only needed for debugging, if customization variable TEST
-# is set > 2 (which never happens automatically).
+# is >= 2 (which only happens automatically if Devel::Refcount is detected
+# by configure).
 eval { require Devel::Refcount; Devel::Refcount->import(); };
 eval { require Devel::FindRef; Devel::FindRef->import(); };
 
@@ -1562,6 +1563,12 @@ expected, normally a L<Texinfo::Document/Getting customization
 options values registered in document> object.
 
 =over
+
+=item insert_nodes_for_sectioning_commands($document)
+X<C<insert_nodes_for_sectioning_commands>>
+
+Insert nodes for sectioning commands without node in C<$document>
+tree.
 
 =item move_index_entries_after_items_in_document($document)
 X<C<move_index_entries_after_items_in_document>>

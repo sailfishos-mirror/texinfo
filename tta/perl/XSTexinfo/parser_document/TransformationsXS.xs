@@ -113,16 +113,6 @@ regenerate_master_menu (SV *document_in, SV *use_sections_in=0)
           regenerate_master_menu (document, use_sections);
 
 void
-insert_nodes_for_sectioning_commands (SV *document_in)
-    PREINIT:
-        DOCUMENT *document = 0;
-    CODE:
-        document = get_sv_document_document (document_in,
-                               "insert_nodes_for_sectioning_commands");
-        if (document)
-          insert_nodes_for_sectioning_commands (document);
-
-void
 protect_hashchar_at_line_beginning_in_document (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;

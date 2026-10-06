@@ -15,11 +15,9 @@ Texinfo to other formats.  There is no promise of API stability.
 @node Texinfo@asis{::}Transformations DESCRIPTION
 @section Texinfo::Transformations DESCRIPTION
 
-Includes miscellaneous methods such as as
-@code{insert_nodes_for_sectioning_commands} that adds nodes for sectioning commands
-without nodes and @code{complete_tree_nodes_menus_in_document} and
-@code{complete_tree_nodes_missing_menu} that completes the node menus based on the
-sectioning tree.
+Includes miscellaneous methods such as @code{complete_tree_nodes_menus_in_document}
+and @code{complete_tree_nodes_missing_menu} that completes the node menus based on
+the sectioning tree.
 
 Methods for copying and modifying the Texinfo tree used for default
 conversion to output formats are in @ref{Texinfo@asis{::}ManipulateTree NAME,, Texinfo::ManipulateTree}.
@@ -65,13 +63,6 @@ parsed tree is copied into the added sectioning commands.
 If the sectioning commands are lowered or raised (with @code{@@raisesections},
 @code{@@lowersection}) the tree may be modified with @code{@@raisesections} or
 @code{@@lowersection} added to some tree elements.
-
-@item insert_nodes_for_sectioning_commands($document)
-@anchor{Texinfo@asis{::}Transformations insert_nodes_for_sectioning_commands($document)}
-@cindex @code{insert_nodes_for_sectioning_commands}
-
-Insert nodes for sectioning commands without node in @code{$document}
-tree.
 
 @item menu_to_simple_menu($menu)
 @anchor{Texinfo@asis{::}Transformations menu_to_simple_menu($menu)}

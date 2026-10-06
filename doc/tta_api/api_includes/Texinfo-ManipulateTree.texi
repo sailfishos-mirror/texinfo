@@ -37,6 +37,13 @@ expected, normally a @ref{Texinfo@asis{::}Document Getting customization
 options values registered in document} object.
 
 @table @asis
+@item insert_nodes_for_sectioning_commands($document)
+@anchor{Texinfo@asis{::}ManipulateTree insert_nodes_for_sectioning_commands($document)}
+@cindex @code{insert_nodes_for_sectioning_commands}
+
+Insert nodes for sectioning commands without node in @code{$document}
+tree.
+
 @item move_index_entries_after_items_in_document($document)
 @anchor{Texinfo@asis{::}ManipulateTree move_index_entries_after_items_in_document($document)}
 @cindex @code{move_index_entries_after_items_in_document}

@@ -252,11 +252,9 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-Includes miscellaneous methods such as as
-C<insert_nodes_for_sectioning_commands> that adds nodes for sectioning commands
-without nodes and C<complete_tree_nodes_menus_in_document> and
-C<complete_tree_nodes_missing_menu> that completes the node menus based on the
-sectioning tree.
+Includes miscellaneous methods such as C<complete_tree_nodes_menus_in_document>
+and C<complete_tree_nodes_missing_menu> that completes the node menus based on
+the sectioning tree.
 
 Methods for copying and modifying the Texinfo tree used for default
 conversion to output formats are in L<Texinfo::ManipulateTree>.
@@ -299,12 +297,6 @@ parsed tree is copied into the added sectioning commands.
 If the sectioning commands are lowered or raised (with C<@raisesections>,
 C<@lowersection>) the tree may be modified with C<@raisesections> or
 C<@lowersection> added to some tree elements.
-
-=item insert_nodes_for_sectioning_commands($document)
-X<C<insert_nodes_for_sectioning_commands>>
-
-Insert nodes for sectioning commands without node in C<$document>
-tree.
 
 =item menu_to_simple_menu($menu)
 X<C<menu_to_simple_menu>>

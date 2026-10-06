@@ -1987,7 +1987,7 @@ while (@input_files) {
       or (!defined(get_conf('AUTO_SECTION_NODE')
           and $formats_table{$converted_format}->{'auto_section_node'}))
       or $tree_transformations{'insert_nodes_for_sectioning_commands'}) {
-    Texinfo::Transformations::insert_nodes_for_sectioning_commands($document);
+    Texinfo::ManipulateTree::insert_nodes_for_sectioning_commands($document);
   }
 
   # information obtained through Texinfo::Structuring

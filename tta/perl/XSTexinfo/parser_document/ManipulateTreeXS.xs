@@ -129,6 +129,16 @@ protect_node_after_label_in_document (SV *document_in)
         if (document)
           protect_node_after_label_in_document (document);
 
+void
+insert_nodes_for_sectioning_commands (SV *document_in)
+    PREINIT:
+        DOCUMENT *document = 0;
+    CODE:
+        document = get_sv_document_document (document_in,
+                               "insert_nodes_for_sectioning_commands");
+        if (document)
+          insert_nodes_for_sectioning_commands (document);
+
 # could that be called in a situation where the document is not found?
 SV *
 tree_print_details (SV *tree_in, SV *fname_encoding_in=0, SV *use_filename_in=0)
