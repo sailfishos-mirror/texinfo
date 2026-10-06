@@ -404,16 +404,14 @@ sub _new_node($$;$$) {
   # otherwise, those that are protected with @asis.
   #
   # needed in nodes lines, @*ref and in menus with a label
-  $node_tree = Texinfo::ManipulateTree::protect_comma_in_tree($node_tree);
+  $node_tree = protect_comma_in_tree($node_tree);
   # always
-  Texinfo::ManipulateTree::protect_first_parenthesis($node_tree);
+  protect_first_parenthesis($node_tree);
   # in menu entry without label
-  $node_tree = Texinfo::ManipulateTree::protect_colon_in_tree($node_tree);
+  $node_tree = protect_colon_in_tree($node_tree);
   # in menu entry with label
-  $node_tree
-    = Texinfo::ManipulateTree::protect_node_after_label_in_tree($node_tree);
-  $node_tree
-    = Texinfo::ManipulateTree::reference_to_arg_in_tree($node_tree, $document);
+  $node_tree = protect_node_after_label_in_tree($node_tree);
+  $node_tree = reference_to_arg_in_tree($node_tree, $document);
 
   my $tree_space_before;
 
@@ -463,7 +461,7 @@ sub _new_node($$;$$) {
     if (defined($node)) {
       # remove cycles to release the previous node, which will not be used
       # and does not appear in the tree.
-      Texinfo::ManipulateTree::tree_remove_parents($node);
+      tree_remove_parents($node);
     }
 
     $node = Texinfo::TreeElement::new({'cmdname' => 'node', 'extra' => {}});
@@ -533,7 +531,7 @@ sub _new_node($$;$$) {
       } else {
         # remove cycles to release this empty node, which is discarded
         # and does not appear in the tree.
-        Texinfo::ManipulateTree::tree_remove_parents($node);
+        tree_remove_parents($node);
         $node = undef;
       }
     }
@@ -616,8 +614,7 @@ sub insert_nodes_for_sectioning_commands($) {
       } else {
         my $arguments_line = $content->{'contents'}->[0];
         my $line_arg = $arguments_line->{'contents'}->[0];
-        $new_node_tree
-         = Texinfo::ManipulateTree::copy_contents($line_arg);
+        $new_node_tree = copy_contents($line_arg);
       }
       my $normalized =
        Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(
@@ -656,8 +653,8 @@ sub insert_nodes_for_sectioning_commands($) {
         $new_node->{'parent'} = $content->{'parent'}
           if (exists($content->{'parent'}));
         # reassociate index entries and menus
-        Texinfo::ManipulateTree::modify_tree($content, \&_reassociate_to_node,
-                             [$new_node_relations, $previous_node_relations]);
+        modify_tree($content, \&_reassociate_to_node,
+                    [$new_node_relations, $previous_node_relations]);
       }
     }
     # check is_target to avoid erroneous nodes, such as duplicates
