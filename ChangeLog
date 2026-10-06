@@ -1,3 +1,9 @@
+2026-10-06 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/TransformationsNonXS.pm
+	(insert_nodes_for_sectioning_commands): remove building of Perl data
+	now that either Perl code or C code is used.
+
 2026-10-05 Patrice Dumas  <pertusus@free.fr>
 
 	* TODO: add task on replacing CRLF by LF when regenerating tests.
