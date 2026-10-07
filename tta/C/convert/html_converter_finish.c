@@ -25,9 +25,12 @@
 #include "tree.h"
 /* clear_strings_list free_strings_list destroy_strings_list */
 #include "utils.h"
+#include "errors.h"
 #include "api_to_perl.h"
 #include "hashmap.h"
 #include "translations.h"
+/* free_output_unit_list */
+#include "output_unit.h"
 /* html_clear_direction_string_type
    html_free_direction_icons_array
  */
@@ -40,6 +43,37 @@
 #include "html_prepare_converter.h"
 #include "html_converter_api.h"
 
+void
+html_release_output_units (CONVERTER *self)
+{
+  int i;
+  int check_counts = (self->conf->TEST.o.integer > 1);
+  ERROR_MESSAGE_LIST *error_messages = 0;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
+
+  if (check_counts)
+    error_messages = set_check_element_interpreter_refcount ();
+
+  for (i = 0; i < OUDT_external_nodes_units+1; i++)
+    {
+      if (self_html->output_units_descriptors[i])
+        {
+          OUTPUT_UNIT_LIST *output_unit_list
+            = retrieve_output_units (self->document,
+                       self_html->output_units_descriptors[i]);
+          if (output_unit_list)
+            free_output_unit_list (output_unit_list);
+          self_html->output_units_descriptors[i] = 0;
+        }
+    }
+
+  if (check_counts)
+    {
+      if (error_messages->number)
+        merge_error_messages_lists (&self->error_messages, error_messages);
+      unset_check_element_interpreter_refcount ();
+    }
+}
 
 static void
 free_special_unit_info_list (SPECIAL_UNIT_INFO_LIST *special_unit_info_list)

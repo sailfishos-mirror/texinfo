@@ -141,7 +141,7 @@ static CONVERTER_FORMAT_DATA converter_format_data[] = {
   {"html", "Texinfo::Convert::HTML", &html_format_setup, 0,
    &html_converter_defaults,
    &html_converter_initialize, &html_output, &html_convert,
-   &html_convert_tree, 0, &html_free_converter,
+   &html_convert_tree, &html_release_output_units, &html_free_converter,
    &html_cdt_tree, &html_element_cdt_tree},
   {"rawtext", "Texinfo::Convert::Text", 0, &rawtext_converter,
    0, 0, &rawtext_output,
@@ -710,7 +710,7 @@ converter_set_document (CONVERTER *converter, DOCUMENT *document)
     If there is already an associated document, reset information linked
     to the document.
 
-    We do not call destroy_converter_output_units because it should be the
+    We do not call converter_remove_output_units because it should be the
     caller responsibility to decide when the output units should be
     destroyed.
 
@@ -2593,40 +2593,6 @@ set_output_units_files (CONVERTER *self,
 
 
 static void
-destroy_converter_output_units (CONVERTER *self)
-{
-  int i;
-  int check_counts = (self->conf->TEST.o.integer > 1);
-  ERROR_MESSAGE_LIST *error_messages = 0;
-  HTML_CONVERTER_STATE *self_html = self->html_converter;
-
-  if (check_counts)
-    error_messages = set_check_element_interpreter_refcount ();
-  /* FIXME move to generic converter or move code to HTML specific function? */
-  if (self_html)
-    {
-      for (i = 0; i < OUDT_external_nodes_units+1; i++)
-        {
-          if (self_html->output_units_descriptors[i])
-            {
-              OUTPUT_UNIT_LIST *output_unit_list
-                = retrieve_output_units (self->document,
-                           self_html->output_units_descriptors[i]);
-              if (output_unit_list)
-                free_output_unit_list (output_unit_list);
-              self_html->output_units_descriptors[i] = 0;
-            }
-        }
-    }
-  if (check_counts)
-    {
-      if (error_messages->number)
-        merge_error_messages_lists (&self->error_messages, error_messages);
-      unset_check_element_interpreter_refcount ();
-    }
-}
-
-static void
 reset_tree_to_build (CONVERTER *self)
 {
   HTML_CONVERTER_STATE *self_html = self->html_converter;
@@ -2666,8 +2632,6 @@ converter_remove_output_units (CONVERTER *self)
        = converter_format_data[converter_format].converter_release_output_units;
       format_converter_release_output_units (self);
     }
-
-  destroy_converter_output_units (self);
 
   /* HTML specific, but good to be here.
      If there is still tree to build at this point, this means

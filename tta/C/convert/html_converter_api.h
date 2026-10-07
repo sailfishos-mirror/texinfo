@@ -51,7 +51,7 @@ TEXT html_output (CONVERTER *converter, DOCUMENT *document);
 TEXT html_convert (CONVERTER *converter, DOCUMENT *document);
 
 /* in html_converter_finish.c */
-void html_reset_converter (CONVERTER *self);
+void html_release_output_units (CONVERTER *self);
 
 void html_free_converter (CONVERTER *self);
 
