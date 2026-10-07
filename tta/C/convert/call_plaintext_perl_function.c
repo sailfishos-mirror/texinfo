@@ -39,7 +39,7 @@
 #include "xs_utils.h"
 #include "base_utils.h"
 #include "tree.h"
-/* for collect_commands_in_tree xasprintf 
+/* for collect_commands_list_in_tree xasprintf
  */
 #include "utils.h"
 /* for newSVpv_utf8 */
@@ -80,7 +80,7 @@ call_latex_convert_math_to_images (CONVERTER *self, DOCUMENT *document,
       document_sv = build_minimal_document (document);
       SvREFCNT_inc (document_sv);
     }
-  
+
   ENTER;
   SAVETMPS;
 
@@ -121,7 +121,7 @@ call_latex_convert_math_to_images (CONVERTER *self, DOCUMENT *document,
         CM_math, CM_displaymath, 0
       };
       CONST_ELEMENT_LIST *math_elements_list
-        = collect_commands_in_tree (document->tree, math_commands_list);
+        = collect_commands_list_in_tree (document->tree, math_commands_list);
 
       if (math_elements_list->number != (size_t)collected_elements_nr)
         {

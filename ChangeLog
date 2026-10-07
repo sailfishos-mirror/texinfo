@@ -1,5 +1,19 @@
 2026-10-07 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/utils.c (collect_commands_list_in_tree_internal)
+	(collect_commands_list_in_tree): rename
+	collect_commands_in_tree_internal to
+	collect_commands_list_in_tree_internal and collect_commands_in_tree to
+	collect_commands_list_in_tree.  Update caller.
+
+	* tta/perl/Texinfo/Common.pm (debug_print_reference_key_val_info):
+	rename debug_print_element_details to
+	debug_print_reference_key_val_info.  Update caller.
+
+	update ALTIMP comments
+
+2026-10-07 Patrice Dumas  <pertusus@free.fr>
+
 	update ALTIMP comments for transformations/manipulate tree
 
 2026-10-07 Patrice Dumas  <pertusus@free.fr>

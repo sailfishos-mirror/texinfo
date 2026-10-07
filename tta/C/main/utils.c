@@ -1154,6 +1154,7 @@ empty_spaces_argument (const ELEMENT *element)
 
 static const TEXT empty_text = {"", 1, 0};
 
+/* ALTIMP perl/Texinfo/Common.pm */
 const TEXT *
 simple_arg_text (const ELEMENT *element, int *surplus_arg)
 {
@@ -1604,7 +1605,7 @@ splitpath (const char *input_file_path, char **result)
   result[1] = file_name_and_directory[1];
 }
 
-/* Done in Texinfo::Common warn_unknown_language */
+/* ALTIMP perl/Texinfo/Common.pm */
 /* Check validity of TEXT as @documentlanguage argument.
 
    Return the language code part of the argument or NULL it TEXT
@@ -1675,6 +1676,7 @@ analyze_documentlanguage_argument (const char *text,
   return lang;
 }
 
+/* ALTIMP perl/Texinfo/Common.pm */
 const char *
 analyze_documentscript_argument (const char *text, int *valid_script)
 {
@@ -1735,6 +1737,7 @@ analyze_documentscript_argument (const char *text, int *valid_script)
   return 0;
 }
 
+/* ALTIMP perl/Texinfo/Common.pm */
 const char *
 analyze_documentlanguagevariant_argument_e (const ELEMENT *element,
                                             int *valid_variant,
@@ -1776,6 +1779,7 @@ analyze_documentlanguagevariant_argument_e (const ELEMENT *element,
   return "";
 }
 
+/* ALTIMP perl/Texinfo/Common.pm */
 STRING_LIST *
 documentlanguagevariant_variants (const ELEMENT *element)
 {
@@ -2066,6 +2070,7 @@ join_strings_list (const STRING_LIST *strings, const char *delimiter)
 
 
 
+/* implementation of File::Spec->file_name_is_absolute in Perl */
 int
 file_name_is_absolute (const char *filename)
 {
@@ -2160,6 +2165,7 @@ free_deprecated_dirs_list (DEPRECATED_DIRS_LIST *deprecated_dirs)
   free (deprecated_dirs->list);
 }
 
+/* Implementation of File::Spec->splitdir in Perl */
 STRING_LIST *
 splitdir (char *directories_str)
 {
@@ -2175,6 +2181,7 @@ splitdir (char *directories_str)
   return directories;
 }
 
+/* ALTIMP perl/Texinfo/Common.pm */
 /* Return value to be freed by caller. */
 /* try to locate a file called FILENAME, looking for it in the list of include
    directories. */
@@ -2244,6 +2251,7 @@ locate_include_file (const char *filename, const STRING_LIST *include_dirs_list,
   return 0;
 }
 
+/* ALTIMP perl/Texinfo/Common.pm */
 /* Return value to be freed by caller. */
 /* Used in main program, tests and HTML Converter.
 
@@ -2340,6 +2348,7 @@ locate_file_in_dirs (const char *filename,
 
 
 
+/* ALTIMP perl/Texinfo/Common.pm */
 const ELEMENT *
 block_line_argument_command (const ELEMENT *block_line_arg)
 {
@@ -2369,9 +2378,10 @@ block_line_argument_command (const ELEMENT *block_line_arg)
   return 0;
 }
 
+/* ALTIMP perl/Texinfo/Common.pm */
 /* the caller should allocate a two element table for results */
 void
-find_float_caption_shortcaption(const ELEMENT *float_e, const ELEMENT **result)
+find_float_caption_shortcaption (const ELEMENT *float_e, const ELEMENT **result)
 {
   size_t i;
 
@@ -2404,6 +2414,7 @@ find_float_caption_shortcaption(const ELEMENT *float_e, const ELEMENT **result)
     }
 }
 
+/* ALTIMP perl/Texinfo/Common.pm */
 int
 non_leading_trailing_indices (const ELEMENT *tree, ARG_INDICES *out_indices)
 {
@@ -2450,6 +2461,7 @@ non_leading_trailing_indices (const ELEMENT *tree, ARG_INDICES *out_indices)
   return 1;
 }
 
+/* ALTIMP perl/Texinfo/Common.pm */
 ELEMENT *
 multitable_columnfractions (const ELEMENT *multitable)
 {
@@ -2474,6 +2486,7 @@ multitable_columnfractions (const ELEMENT *multitable)
   return columnfractions;
 }
 
+/* ALTIMP perl/Texinfo/Common.pm */
 void
 collect_subentries (const ELEMENT *current, CONST_ELEMENT_LIST *e_list)
 {
@@ -2492,6 +2505,7 @@ collect_subentries (const ELEMENT *current, CONST_ELEMENT_LIST *e_list)
     }
 }
 
+/* ALTIMP perl/Texinfo/Common.pm */
 const ELEMENT *
 index_entry_referred_entry (const ELEMENT *element, enum command_id cmd)
 {
@@ -2814,6 +2828,7 @@ informative_command_value (const ELEMENT *element, enum command_id *cmd_out)
   return 0;
 }
 
+/* ALTIMP perl/Texinfo/Common.pm */
 int
 in_preamble (const ELEMENT *element)
 {
@@ -2896,6 +2911,7 @@ get_global_document_command (const GLOBAL_COMMANDS *global_commands,
 
 
 
+/* ALTIMP perl/Texinfo/Common.pm */
 ACCENTS_STACK *
 find_innermost_accent_contents (const ELEMENT *element)
 {
@@ -3015,7 +3031,7 @@ input_file_name_encoding (const char *name_encoding,
 
 /* misc functions used in general in structuring and in conversion */
 
-/* corresponding perl function in Common.pm */
+/* ALTIMP perl/Texinfo/Common.pm */
 /* the returned level will be < 0 if the command is not supposed
    to be associated to a level. */
 int
@@ -3060,7 +3076,7 @@ section_level_adjusted_command_name (const ELEMENT *element)
   return element->e.c->cmd;
 }
 
-/* corresponding perl function in Common.pm */
+/* ALTIMP perl/Texinfo/Common.pm */
 int
 is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries)
 {
@@ -3139,13 +3155,13 @@ is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries)
     any @-command.
  */
 
-void collect_commands_in_tree_internal (const ELEMENT *element,
+void collect_commands_list_in_tree_internal (const ELEMENT *element,
                                   const enum command_id *commands_list,
                                   CONST_ELEMENT_LIST *collected_commands_list);
 
 
 void
-collect_commands_in_tree_internal (const ELEMENT *element,
+collect_commands_list_in_tree_internal (const ELEMENT *element,
                                   const enum command_id *commands_list,
                                   CONST_ELEMENT_LIST *collected_commands_list)
 {
@@ -3171,18 +3187,19 @@ collect_commands_in_tree_internal (const ELEMENT *element,
     }
 
   for (j = 0; j < element->e.c->contents.number; j++)
-    collect_commands_in_tree_internal (element->e.c->contents.list[j],
+    collect_commands_list_in_tree_internal (element->e.c->contents.list[j],
                                        commands_list,
                                        collected_commands_list);
 }
 
+/* ALTIMP perl/Texinfo/Common.pm */
 CONST_ELEMENT_LIST *
-collect_commands_in_tree (const ELEMENT *root,
+collect_commands_list_in_tree (const ELEMENT *root,
                           const enum command_id *commands_list)
 {
   CONST_ELEMENT_LIST *collected_commands_list = new_const_element_list ();
 
-  collect_commands_in_tree_internal (root, commands_list,
+  collect_commands_list_in_tree_internal (root, commands_list,
                                      collected_commands_list);
 
   return collected_commands_list;

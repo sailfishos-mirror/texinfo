@@ -290,8 +290,8 @@ sub valid_tree_transformation($) {
 # the encoding corresponds to any 8bit encoding compatible with ISO-8859-1,
 # we convert US-ASCII as ISO-8859-1 to avoid errors for characters in
 # ISO-8859-1 but not in US-ASCII.
-# Used in Parser, not documented in Pod nor in the manual on purpose, to
-# be considered as not guaranteed backward compatibility.
+# Used in Parser, not documented anywhere on purpose, to be considered as
+# not guaranteed backward compatibility.
 our %encoding_name_conversion_map;
 %encoding_name_conversion_map = (
   'us-ascii' => 'iso-8859-1',
@@ -361,9 +361,9 @@ our %def_map = (
                                          'Method')},
 );
 
+our %def_aliases;
 # Argument not metasyntactic variables only.
 our %def_no_var_arg_commands;
-our %def_aliases;
 foreach my $def_command(keys %def_map) {
   if (ref($def_map{$def_command}) eq 'HASH') {
     my ($real_command) = keys(%{$def_map{$def_command}});
@@ -439,7 +439,7 @@ foreach my $internal_command (keys(%Texinfo::Commands::internal_commands)) {
 
 
 # functions used in main program, Parser and/or Texinfo::Structuring.
-# Not supposed to be called in user-defined code.
+# Not used in converters, in general not documented.
 
 # ALTIMP C/main/utils.c analyze_documentlanguage_argument
 sub analyze_documentlanguage_argument($) {
@@ -461,6 +461,7 @@ sub analyze_documentlanguage_argument($) {
 }
 
 
+# No equivalent C function, code is inlined in C/parsetexi/end_line.c
 # for Parser and main program
 sub warn_unknown_language($) {
   my $lang = shift;
@@ -487,6 +488,7 @@ sub warn_unknown_language($) {
   return $messages, $lang_code, $region_code;
 }
 
+# ALTIMP C/main/utils.c
 sub analyze_documentscript_argument($) {
   my $text = shift;
 
@@ -516,6 +518,7 @@ sub analyze_documentscript_argument($) {
   return 0, undef;
 }
 
+# ALTIMP C/main/utils.c
 # return (valid, surplus, variant)
 #  surplus: 1 if there was an unexpected trailing @-command, or 0
 #  variant: if undef, means that the argument was not empty and
@@ -541,6 +544,7 @@ sub _analyze_documentlanguagevariant_argument_e($) {
   return 1, $surplus, '';
 }
 
+# No equivalent C function, code is inlined in C/parsetexi/end_line.c
 sub warn_documentlanguagevariant_arguments($) {
   my $element = shift;
 
@@ -578,6 +582,7 @@ sub warn_documentlanguagevariant_arguments($) {
   return $messages, \@variants;
 }
 
+# ALTIMP C/main/utils.c
 sub documentlanguagevariant_variants($) {
   my $element = shift;
 
@@ -597,6 +602,7 @@ sub documentlanguagevariant_variants($) {
 
 # next functions are for code used in Structuring or Indices in addition
 # to Parser.  Also possibly used in Texinfo::Transformations.
+# Not used in converters, in general not documented.
 
 # ALTIMP C/main/utils.c
 sub ultimate_index($$) {
@@ -711,6 +717,7 @@ sub _count_opened_tree_braces($$) {
   return $braces_count;
 }
 
+# ALTIMP C/main/utils.c
 sub non_leading_trailing_indices($) {
   my $tree = shift;
 
@@ -768,9 +775,6 @@ sub non_leading_trailing_indices($) {
 # $LABEL_CONTENTS_CONTAINER contents such that the parentheses, the manual
 # part and the node part are not in the same elements in the contents,
 # and use the corresponding elements in the returned object.
-#
-# Could be documented, but only if there is evidence that this function
-# is useful in user-defined code.
 sub parse_node_manual($;$) {
   my ($label_contents_container, $modify_node) = @_;
 
@@ -939,8 +943,9 @@ sub parse_node_manual($;$) {
 
 # misc functions used in diverse contexts and useful in converters
 
+# ALTIMP C/main/utils.c
 # Wrapper around File::Spec->canonpath that replace backslashes by
-# forward slashes.
+# forward slashes.  Not documented.
 sub file_separator_canonpath($) {
   my $dir = shift;
 
@@ -956,7 +961,8 @@ sub file_separator_canonpath($) {
   }
 }
 
-# TODO document (documented in texi2any_api, not in POD)
+# ALTIMP C/main/utils.c
+# TODO document? (documented in texi2any_api, not in POD)
 sub empty_spaces_argument($) {
   my $element = shift;
 
@@ -984,7 +990,8 @@ sub empty_spaces_argument($) {
   return 1;
 }
 
-# TODO document (documented in texi2any_api, not in POD)
+# ALTIMP C/main/utils.c
+# TODO document? (documented in texi2any_api, not in POD)
 # Return argument of a brace command with simple text as argument, for
 # example @U
 sub simple_arg_text($) {
@@ -1019,6 +1026,7 @@ sub simple_arg_text($) {
 }
 
 # Equivalent code in C is inlined
+# TODO document in POD?
 sub non_leading_trailing_tree($) {
   my $tree = shift;
 
@@ -1034,6 +1042,7 @@ sub non_leading_trailing_tree($) {
   return $result;
 }
 
+# TODO document in POD?
 sub non_trailing_tree($) {
   my $tree = shift;
 
@@ -1048,7 +1057,7 @@ sub non_trailing_tree($) {
   return $result;
 }
 
-# ALTIMP C/convert/converter.c
+# ALTIMP C/main/utils.c
 # Used in converters
 # find the accent commands stack and the innermost text contents
 sub find_innermost_accent_contents($) {
@@ -1105,7 +1114,7 @@ sub find_innermost_accent_contents($) {
 }
 
 # ALTIMP C/main/utils.c
-# TODO document in POD? (already in texi2any_api) 
+# TODO document in POD? (already in texi2any_api)
 # Used in converters and parser
 sub multitable_columnfractions($) {
   my $multitable = shift;
@@ -1130,6 +1139,7 @@ sub multitable_columnfractions($) {
 # there is a command as argument for a block command (@itemize or
 # @table, @vtable...) if there is only one argument on the line,
 # it is a brace command but not an accent command and it is empty.
+# TODO document?
 sub block_line_argument_command($) {
   my $block_line_arg = shift;
 
@@ -1156,7 +1166,7 @@ sub block_line_argument_command($) {
 my $default_bullet_command = Texinfo::TreeElement::new({'cmdname' => 'bullet'});
 
 # ALTIMP C/main/convert_utils.c
-# TODO document in POD? (already in texi2any_api) 
+# TODO document in POD? (already in texi2any_api)
 sub itemize_line_prepended_element($) {
   my $block_line_arg = shift;
 
@@ -1182,6 +1192,7 @@ sub item_itemize_prepended($) {
 }
 
 # ALTIMP C/main/convert_utils.c
+# Only used in deprecated converter, not documented
 sub item_line_block_line_argument_command($) {
   my $block_line_arg = shift;
 
@@ -1202,6 +1213,7 @@ my $default_asis_command = Texinfo::TreeElement::new({'cmdname' => 'asis'});
 
 # ALTIMP C/main/convert_utils.c
 # always return something
+# Only used in deprecated converter, not documented
 sub block_item_line_command($) {
   my $block_line_arg = shift;
 
@@ -1214,7 +1226,7 @@ sub block_item_line_command($) {
 }
 
 # ALTIMP C/main/utils.c
-# TODO document in POD? (already in texi2any_api) 
+# TODO document in POD? (already in texi2any_api)
 sub find_float_caption_shortcaption($) {
   my $float = shift;
 
@@ -1530,6 +1542,7 @@ sub set_informative_command_value($$) {
   return 0;
 }
 
+# ALTIMP C/main/utils.c
 sub in_preamble($) {
   my $element = shift;
 
@@ -1754,7 +1767,7 @@ sub enumerate_number_representation($$) {
     my $base_letter = ord('a');
     $base_letter = ord('A') if (ucfirst($specification) eq $specification);
     my @letter_ords
-        = _decompose_integer(ord($specification) - $base_letter + $number - 1, 26);
+     = _decompose_integer(ord($specification) - $base_letter + $number - 1, 26);
     foreach my $ord (@letter_ords) {
       $result = chr($base_letter + $ord) . $result;
     }
@@ -2050,6 +2063,7 @@ sub _collect_commands_in_tree($$) {
   }
 }
 
+# ALTIMP C/main/utils.c
 sub collect_commands_list_in_tree($$) {
   my ($root, $commands_list) = @_;
 
@@ -2106,8 +2120,7 @@ sub get_label_element($) {
 # For code that can be called both from the main
 # context and from a converter.  With either a converter, and, if
 # not given, a document.
-# NOTE it is considered internal and should not be called in user-defined
-# code.  If this changes, should be documented.
+# NOTE should be avoided when possible, not documented.
 sub converter_or_document_line_warn($$$$;$) {
   my ($document, $converter, $text, $error_location_info, $continuation) = @_;
 
@@ -2183,10 +2196,11 @@ sub debug_print_element($;$) {
 }
 
 # for debugging
-# Shows Perl references; values are not always in a readable format.
+# Shows Perl reference keys and values; values are not always in a
+# readable format.
 # Texinfo::ManipulateTree::element_print_details does not show the
 # references, but shows all the information in a readable format.
-sub debug_print_element_details($;$) {
+sub debug_print_reference_key_val_info($;$) {
   my ($current, $print_parent) = @_;
 
   my $string = debug_print_element($current, $print_parent);

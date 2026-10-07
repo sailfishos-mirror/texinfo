@@ -1518,7 +1518,7 @@ end_line_misc_line (ELEMENT *current)
             }
           else if (current->e.c->cmd == CM_documentlanguage)
             {
-              /* message setup in Texinfo::Common warn_unknown_language */
+              /* messages setup in Texinfo::Common warn_unknown_language */
               char *region_code;
               int lang_is_valid;
               int region_is_valid;
@@ -1729,6 +1729,7 @@ end_line_misc_line (ELEMENT *current)
                   const char *variant
                     = analyze_documentlanguagevariant_argument_e (content,
                                                &valid_variant, &surplus_arg);
+  /* messages setup in Texinfo::Common warn_documentlanguagevariant_arguments */
                   if (variant)
                     {
                       if (surplus_arg)

@@ -665,7 +665,7 @@ sub output_unit_texi($) {
     # show the output_unit as element, as a possible bug is that
     # an element was passed in argument instead of an output unit
     return "unit $output_unit without type: ".
-       Texinfo::Common::debug_print_element_details($output_unit, 1)
+       Texinfo::Common::debug_print_reference_key_val_info($output_unit, 1)
       .' '.debug_print_output_unit($output_unit);
   }
 
