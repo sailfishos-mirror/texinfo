@@ -49,6 +49,8 @@
 #include "debug.h"
 #include "api_to_perl.h"
  */
+/* for decl_list_fns(... math_element_image...) */
+#include "convert_to_plaintext.h"
 #include "call_plaintext_perl_function.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to

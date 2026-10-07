@@ -120,7 +120,7 @@ remove_texinfo_command (enum command_id cmd)
     }
   else
     {
-      /* FIXME the cmd is never reused */
+      /* TODO the cmd is never reused */
       free (user_defined_command_data[cmd].cmdname);
       user_defined_command_data[cmd].cmdname = strdup ("");
     }

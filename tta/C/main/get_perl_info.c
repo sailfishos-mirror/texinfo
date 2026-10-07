@@ -1645,7 +1645,6 @@ converter_release_output_units_built (CONVERTER *converter)
   HTML_CONVERTER_STATE *self_html = converter->html_converter;
   int i;
 
-  /* FIXME in generic converter, or move to HTML specific code? */
   if (self_html)
     {
       for (i = 0; i < OUDT_external_nodes_units+1; i++)

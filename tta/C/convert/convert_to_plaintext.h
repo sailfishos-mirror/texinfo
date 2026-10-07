@@ -107,6 +107,29 @@ void plaintext_convert_line_new_context (CONVERTER *self,
 void pop_count_context (COUNT_CONTEXT_STACK *stack);
 void add_newline_if_needed (CONVERTER *self);
 
-decl_stack_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT);
+decl_list_fns(FONT_TYPE_STACK, font_type, FONT_TYPE);
+decl_stack_fns(FONT_TYPE_STACK, font_type, FONT_TYPE);
+
+decl_list_fns(FORMATTER_STACK, formatter, FORMATTER);
 decl_stack_fns(FORMATTER_STACK, formatter, FORMATTER);
+
+decl_list_fns(QUOTATION_AUTHORS_LIST, quotations_authors, CONST_ELEMENT_LIST);
+decl_stack_fns(QUOTATION_AUTHORS_LIST, quotations_authors, CONST_ELEMENT_LIST);
+
+decl_list_fns(DOCUMENT_CONTEXT_STACK, document_context, DOCUMENT_CONTEXT);
+decl_stack_fns(DOCUMENT_CONTEXT_STACK, document_context, DOCUMENT_CONTEXT);
+
+decl_list_fns(TARGET_LOCATION_LIST, target_location, TARGET_LOCATION);
+decl_list_fns(INDEX_ENTRY_LINE_COUNT_LIST, index_entry_location, int *);
+decl_list_fns(PENDING_TEXT_LIST, pending_text, PENDING_TEXT);
+
+decl_list_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT);
+decl_stack_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT);
+
+decl_list_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT);
+decl_list_fns(TEXT_CONTEXT_STACK, text_element_context, TEXT_CONTEXT);
+decl_list_fns(MATH_ELEMENT_IMAGE_LIST, math_element_image, MATH_ELEMENT_IMAGE);
+
+decl_list_fns(PENDING_FOOTNOTE_LIST, pending_footnote, PENDING_FOOTNOTE);
+decl_stack_fns(PENDING_FOOTNOTE_LIST, pending_footnote, PENDING_FOOTNOTE);
 #endif

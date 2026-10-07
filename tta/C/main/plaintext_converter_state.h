@@ -39,8 +39,6 @@ typedef struct FONT_TYPE {
 } FONT_TYPE;
 
 def_list_type(FONT_TYPE_STACK, FONT_TYPE);
-decl_list_fns(FONT_TYPE_STACK, font_type, FONT_TYPE);
-decl_stack_fns(FONT_TYPE_STACK, font_type, FONT_TYPE);
 
 typedef struct UPPER_CASE {
     int upper_case;
@@ -48,8 +46,6 @@ typedef struct UPPER_CASE {
 } UPPER_CASE;
 
 def_list_type(UPPER_CASE_STACK, UPPER_CASE);
-decl_list_fns(UPPER_CASE_STACK, upper_case, UPPER_CASE);
-decl_stack_fns(UPPER_CASE_STACK, upper_case, UPPER_CASE);
 
 typedef struct FORMATTER {
     FORMATTER_CONTAINER container;
@@ -63,11 +59,8 @@ typedef struct FORMATTER {
 } FORMATTER;
 
 def_list_type(FORMATTER_STACK, FORMATTER);
-decl_list_fns(FORMATTER_STACK, formatter, FORMATTER);
 
 def_list_type(QUOTATION_AUTHORS_LIST, CONST_ELEMENT_LIST);
-decl_list_fns(QUOTATION_AUTHORS_LIST, quotations_authors, CONST_ELEMENT_LIST);
-decl_stack_fns(QUOTATION_AUTHORS_LIST, quotations_authors, CONST_ELEMENT_LIST);
 
 typedef struct DOCUMENT_CONTEXT {
     int in_multitable;
@@ -75,8 +68,6 @@ typedef struct DOCUMENT_CONTEXT {
 } DOCUMENT_CONTEXT;
 
 def_list_type(DOCUMENT_CONTEXT_STACK, DOCUMENT_CONTEXT);
-decl_list_fns(DOCUMENT_CONTEXT_STACK, document_context, DOCUMENT_CONTEXT);
-decl_stack_fns(DOCUMENT_CONTEXT_STACK, document_context, DOCUMENT_CONTEXT);
 
 typedef struct TARGET_LOCATION {
     const ELEMENT *target_element;
@@ -84,12 +75,9 @@ typedef struct TARGET_LOCATION {
 } TARGET_LOCATION;
 
 def_list_type(TARGET_LOCATION_LIST, TARGET_LOCATION);
-/* TODO or in convert_to_plaintext.h */
-decl_list_fns(TARGET_LOCATION_LIST, target_location, TARGET_LOCATION);
 
 /* better not base on INDEX_ENTRY_LOCATION as it is another type */
 def_list_type(INDEX_ENTRY_LINE_COUNT_LIST, int *);
-decl_list_fns(INDEX_ENTRY_LINE_COUNT_LIST, index_entry_location, int *);
 
 enum conv_type {
    PLT_text,
@@ -109,7 +97,6 @@ typedef struct PENDING_TEXT {
 } PENDING_TEXT;
 
 def_list_type(PENDING_TEXT_LIST, PENDING_TEXT);
-decl_list_fns(PENDING_TEXT_LIST, pending_text, PENDING_TEXT);
 
 typedef struct COUNT_CONTEXT {
     size_t lines;
@@ -119,7 +106,6 @@ typedef struct COUNT_CONTEXT {
 } COUNT_CONTEXT;
 
 def_list_type(COUNT_CONTEXT_STACK, COUNT_CONTEXT);
-decl_list_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT);
 
 def_list_type(PENDING_TEXT_LIST_LINES, PENDING_TEXT_LIST);
 
@@ -136,7 +122,6 @@ typedef struct FORMAT_CONTEXT {
 } FORMAT_CONTEXT;
 
 def_list_type(FORMAT_CONTEXT_STACK, FORMAT_CONTEXT);
-decl_list_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT);
 
 typedef struct TEXT_CONTEXT {
     int counter;
@@ -144,7 +129,6 @@ typedef struct TEXT_CONTEXT {
 } TEXT_CONTEXT;
 
 def_list_type(TEXT_CONTEXT_STACK, TEXT_CONTEXT);
-decl_list_fns(TEXT_CONTEXT_STACK, text_element_context, TEXT_CONTEXT);
 
 typedef struct STRING_WITH_WIDTH {
     char *string;
@@ -164,7 +148,6 @@ typedef struct MATH_ELEMENT_IMAGE {
 } MATH_ELEMENT_IMAGE;
 
 def_list_type(MATH_ELEMENT_IMAGE_LIST, MATH_ELEMENT_IMAGE);
-decl_list_fns(MATH_ELEMENT_IMAGE_LIST, math_element_image, MATH_ELEMENT_IMAGE);
 
 typedef struct MATH_ELEMENTS_IMAGES {
     /* result of Texinfo::Convert::LaTeX::convert_math_to_images */
@@ -186,8 +169,6 @@ typedef struct PENDING_FOOTNOTE {
 } PENDING_FOOTNOTE;
 
 def_list_type(PENDING_FOOTNOTE_LIST, PENDING_FOOTNOTE);
-decl_list_fns(PENDING_FOOTNOTE_LIST, pending_footnote, PENDING_FOOTNOTE);
-decl_stack_fns(PENDING_FOOTNOTE_LIST, pending_footnote, PENDING_FOOTNOTE);
 
 typedef struct INDEX_ENTRY_INFO {
     const ELEMENT *node;
