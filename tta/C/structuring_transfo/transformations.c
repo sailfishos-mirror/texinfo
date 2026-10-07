@@ -13,7 +13,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-/* In sync with Texinfo::Transformations */
+/* In sync with Texinfo::Transformations and manipulate tree as indicated */
 
 #include <config.h>
 
@@ -60,7 +60,7 @@
 #include "transformations.h"
 
 
-/* In Texinfo::ManipulateTree */
+/* ALTIMP Texinfo/ManipulateTree.pm */
 void
 protect_first_parenthesis (ELEMENT *element)
 {
@@ -348,6 +348,7 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
     destroy_element_and_children (commands_heading_content);
 }
 
+/* ALTIMP Texinfo/ManipulateTreeNonXS.pm */
 static void
 relate_index_entries_to_table_items_in (ELEMENT *table,
                                         DOCUMENT *document)
@@ -469,6 +470,7 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
     }
 }
 
+/* ALTIMP Texinfo/ManipulateTreeNonXS.pm */
 static ELEMENT_LIST *
 relate_index_entries_to_table_items_internal (const char *type,
                                               ELEMENT *current,
@@ -483,6 +485,7 @@ relate_index_entries_to_table_items_internal (const char *type,
   return 0;
 }
 
+/* ALTIMP Texinfo/ManipulateTreeNonXS.pm */
 void
 relate_index_entries_to_table_items_in_document (DOCUMENT *document)
 {
@@ -490,6 +493,7 @@ relate_index_entries_to_table_items_in_document (DOCUMENT *document)
                document);
 }
 
+/* ALTIMP Texinfo/ManipulateTreeNonXS.pm */
 /* in itemize or enumerate */
 static void
 move_selected_element_index_entries_after_items (ELEMENT *current,
@@ -576,6 +580,7 @@ move_selected_element_index_entries_after_items (ELEMENT *current,
     }
 }
 
+/* ALTIMP Texinfo/ManipulateTreeNonXS.pm */
 static ELEMENT_LIST *
 move_index_entries_after_items_internal (const char *type,
                                          ELEMENT *current,
@@ -591,6 +596,7 @@ move_index_entries_after_items_internal (const char *type,
   return 0;
 }
 
+/* ALTIMP Texinfo/ManipulateTreeNonXS.pm */
 void
 move_index_entries_after_items_in_document (DOCUMENT *document)
 {
@@ -598,6 +604,7 @@ move_index_entries_after_items_in_document (DOCUMENT *document)
                document);
 }
 
+/* ALTIMP Texinfo/ManipulateTreeNonXS.pm */
 /* ERROR_MESSAGES is not actually useful, as the code checks that
    the new node target label does not exist already.
    node_tree is actually used as an element list, but we use an
@@ -824,6 +831,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
   return node;
 }
 
+/* ALTIMP Texinfo/ManipulateTreeNonXS.pm */
 ELEMENT_LIST *
 reassociate_to_node (const char *type, ELEMENT *current, void *argument)
 {
@@ -934,6 +942,7 @@ typedef struct ELEMENT_WITH_ADDED_INFO {
     char *normalized;
 } ELEMENT_WITH_ADDED_INFO;
 
+/* ALTIMP Texinfo/ManipulateTreeNonXS.pm */
 void
 insert_nodes_for_sectioning_commands (DOCUMENT *document)
 {

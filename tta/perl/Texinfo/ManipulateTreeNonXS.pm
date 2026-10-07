@@ -28,6 +28,7 @@
 
 # ALTIMP XSTexinfo/parser_document/ManipulateTreeXS.xs
 # ALTIMP C/main/manipulate_tree.c
+# ALTIMP C/structuring_transfo/transformations.c
 
 package Texinfo::ManipulateTree;
 
