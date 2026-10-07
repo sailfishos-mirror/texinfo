@@ -1,3 +1,9 @@
+2026-10-07 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/swig/perl/Makefile.am (AM_CPPFLAGS), tta/swig/python/Makefile.am
+	(AM_CPPFLAGS), tta/swig/perl/Makefile.PL: do not define LIBDIR,
+	CONVERTER_CONFIG nor PACKAGE_VERSION_CONFIG, they are not used.
+
 2026-10-06 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/ManipulateTreeNonXS.pm (_new_node)

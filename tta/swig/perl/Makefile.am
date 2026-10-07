@@ -12,9 +12,7 @@
 # Perl headers.
 # NOTE a disadvantage of passing defines through flags and not through a file
 # is that a change in value does not trigger remaking the output file.
-AM_CPPFLAGS = -DDATADIR=\"$(datadir)\" -DLIBDIR=\"$(libdir)\" \
-       -DCONVERTER_CONFIG=\"$(CONVERTER)\" \
-       -DPACKAGE_VERSION_CONFIG=\"$(PACKAGE_VERSION)\"
+AM_CPPFLAGS = -DDATADIR=\"$(datadir)\"
 
 txi_libs_srcdir = $(srcdir)/../../C
 

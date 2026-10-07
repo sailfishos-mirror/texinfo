@@ -19,8 +19,7 @@
    the language define.  This is likely to be the case for Perl, see comments
    in build_perl_info.c.
 
-   We define DATADIR, LIBDIR, CONVERTER_CONFIG and PACKAGE_VERSION_CONFIG
-   on the command-line.
+   We define DATADIR on the command-line.
  */
 
 /* All the functions defined inline should have their name prefixed by
