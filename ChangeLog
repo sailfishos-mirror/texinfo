@@ -1,3 +1,15 @@
+2026-10-07  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Attempt fix if @nabla etc. used in aux file.
+
+	* doc/texinfo.tex (\mathchardefdummies): New macro.  Provide
+	definitions for @nabla, @times and @cdot in case they are used in
+	section titles.
+	(\xrdefctxt): Call it.
+	
+	Report from Hilmar Preusse <hille42@web.de> for Blitz++ manual.
+	Debian bug report https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1149404.
+
 2026-10-06  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Multiple Spaces): Add more commentary on

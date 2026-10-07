@@ -9061,11 +9061,10 @@ Do not follow any of these commands with braces.
 For consistent output regardless of whether @command{texi2any} or
 @TeX{} is processing your Texinfo file, you should always follow a
 @code{@@@kbd{SPACE}} or @code{@@@kbd{TAB}} command with a non-whitespace
-character on the same line.  The reason for this is that
-@TeX{} ignores space characters following @code{@@@kbd{SPACE}},
-and also strips trailing whitespace from input lines, so treats
-@code{@@@kbd{SPACE}} at the end of a line as if the @code{@@@kbd{NL}}
-command had appeared instead.
+character on the same line.  The reason for this is that @TeX{} ignores
+space characters following @code{@@@kbd{SPACE}}, and also strips trailing
+whitespace from input lines, so treats @code{@@@kbd{SPACE}} at the end
+of a line as if the @code{@@@kbd{NL}} command had appeared instead.
 
 One workaround to use @code{@@@kbd{SPACE}} at the end of a line is to
 add an empty @samp{@@w@{@}} after the command.  For example:
