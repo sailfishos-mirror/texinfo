@@ -8,7 +8,7 @@ use Test::More;
 # Verify that calling a converter twice does not break.  Can also
 # be used to check that there are no memory leaks with valgrind.
   
-BEGIN { plan tests => 2; }
+BEGIN { plan tests => 4; }
 
 # For consistent test results, use the C locale.
 $ENV{LC_ALL} = 'C';
@@ -20,6 +20,7 @@ use Texinfo::Configure;
 
 use Texinfo::Parser;
 use Texinfo::Convert::HTML;
+use Texinfo::Convert::Info;
 use Texinfo::Config;
 use Texinfo::Tests qw(configure_document_locales find_dirs_t2a is_diff);
 
@@ -80,8 +81,29 @@ $converter->converter_remove_output_units();
 $converter->destroy_converter();
 
 is_diff($result_html, $second_result_html,
-   'two call of converter give the same result');
+   'two call of html converter give the same result');
 
+my ($info_converter, $result_info, $second_result_info);
+
+$info_converter
+ = Texinfo::Convert::Info->converter({'TEST' => $default_test_level,
+                                      'OUTFILE' => ''});
+
+$result_info = $info_converter->output($document);
+#print STDERR "1 $result_info\n";
+
+$info_converter->converter_remove_output_units();
+
+$second_result_info = $info_converter->output($document);
+#print STDERR "2 $second_result_info\n";
+
+$info_converter->converter_remove_output_units();
+$info_converter->destroy_converter();
+
+is_diff($result_info, $second_result_info,
+   'two call of info converter give the same result');
+
+# simple document tests
 $converter = Texinfo::Convert::HTML->converter({'TEST' => $default_test_level,
                                         'OUTPUT_CHARACTERS' => 1});
 
@@ -99,5 +121,22 @@ $converter->converter_remove_output_units();
 $converter->destroy_converter();
 
 is_diff($result_html, $second_result_html,
-   'output characters simple doc two call of converter same result');
+   'output characters simple doc two call of html converter same result');
+
+
+$info_converter
+ = Texinfo::Convert::Info->converter({'TEST' => $default_test_level,
+                                      'OUTFILE' => ''});
+
+$result_info = $info_converter->output($simple_document);
+
+$info_converter->converter_remove_output_units();
+
+$second_result_info = $info_converter->output($simple_document);
+
+$info_converter->converter_remove_output_units();
+$info_converter->destroy_converter();
+
+is_diff($result_info, $second_result_info,
+        'simple doc two call of info converter same result');
 

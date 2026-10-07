@@ -3662,6 +3662,17 @@ html_conversion_initialization (CONVERTER *self, const char *context,
   int *non_default_special_unit_directions =
      determine_non_default_special_unit_directions (self);
 
+  /*
+    If there is already an associated document, reset information linked
+    to the document.
+   */
+  if (self->document)
+    {
+      int i;
+      for (i = 0; i < OUDT_external_nodes_units+1; i++)
+        self->html_converter->output_units_descriptors[i] = 0;
+    }
+
   converter_set_document (self, document);
 
   if (!document && self->conf->DEBUG.o.integer > 0)

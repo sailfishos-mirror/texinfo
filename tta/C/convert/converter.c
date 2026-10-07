@@ -718,15 +718,6 @@ converter_set_document (CONVERTER *converter, DOCUMENT *document)
    */
   if (converter->document)
     {
-      int i;
-      for (i = 0; i < OUDT_external_nodes_units+1; i++)
-        /* FIXME do that only if converter->html_converter, or
-           put in the generic converter or move to HTML specific code?
-           For some reason this
-           does not trigger a segmentation fault.  Because this is
-           not often called as it requires reusing a converter?
-         */
-        converter->html_converter->output_units_descriptors[i] = 0;
       converter->document = 0;
     }
 

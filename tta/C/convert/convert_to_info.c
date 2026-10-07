@@ -277,6 +277,8 @@ info_output (CONVERTER *self, DOCUMENT *document)
 
   plaintext_conversion_initialization (self, document);
 
+  /* not initialized in plaintext */
+  self_plaintext->bytes = 0;
   self_plaintext->target_locations
     = (TARGET_LOCATION_LIST *) malloc (sizeof (TARGET_LOCATION_LIST));
   memset (self_plaintext->target_locations, 0,

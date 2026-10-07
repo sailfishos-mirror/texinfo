@@ -1,5 +1,22 @@
 2026-10-07 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_info.c (info_output): initialize info
+	converter bytes count.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(plaintext_conversion_initialization): reset node_names_cache only if
+	there are nodes.
+
+	* tta/C/convert/converter.c (converter_set_document),
+	tta/C/convert/html_prepare_converter.c
+	(html_conversion_initialization): reset html specific information
+	linked to the document in html specific code.
+
+	* tta/perl/t/z_misc/same_converter_init.t: test reusing a converter
+	for Info.
+
+2026-10-07 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/utils.c (collect_commands_list_in_tree_internal)
 	(collect_commands_list_in_tree): rename
 	collect_commands_in_tree_internal to

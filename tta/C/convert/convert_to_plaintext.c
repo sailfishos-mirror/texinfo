@@ -820,11 +820,14 @@ plaintext_conversion_initialization (CONVERTER *self, DOCUMENT *document)
         }
     }
 
-  self_plaintext->node_names_cache
-    = realloc (self_plaintext->node_names_cache,
+  if (document->nodes_list.number > 0)
+    {
+      self_plaintext->node_names_cache
+        = realloc (self_plaintext->node_names_cache,
                document->nodes_list.number * sizeof (STRING_WITH_WIDTH));
-  memset (self_plaintext->node_names_cache, 0,
+      memset (self_plaintext->node_names_cache, 0,
           document->nodes_list.number * sizeof (STRING_WITH_WIDTH));
+    }
 
   self_plaintext->encoding_object = 0;
 
