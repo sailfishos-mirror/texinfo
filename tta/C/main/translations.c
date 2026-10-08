@@ -85,6 +85,8 @@ static LANG_TRANSLATION_TREE_LIST unknown_lang_translations;
     -1: never call external (Perl) translate string
     0: default, use USE_LIBINTL_PERL_IN_XS value
     1: always call external (Perl) translate string
+
+ This function is only called with USE_EXTERNAL_TRANSLATE_STRING_IN set to 0.
  */
 void
 set_output_strings_translate_method (int use_external_translate_string_in)
@@ -177,6 +179,8 @@ locale_name_check (const char *line)
            || strcmp (line, "POSIX") == 0;
 }
 
+/* We use POSIX locale names only and not Windows locale names as
+   Gnulib should map them */
 void
 switch_messages_locale (void)
 {
@@ -202,6 +206,7 @@ switch_messages_locale (void)
       setenv_status = setenv ("LC_ALL", "en_US", 1);
       locale = setlocale (LC_MESSAGES, "");
     }
+#ifndef _WIN32
   if ((!locale || setenv_status) && !locale_command)
     {
       FILE *p;
@@ -241,6 +246,19 @@ switch_messages_locale (void)
             }
         }
     }
+#else
+  /* fr locale may be present in general on Windows */
+  if (!locale || setenv_status)
+    {
+      setenv_status = setenv ("LC_ALL", "fr_FR.UTF-8", 1);
+      locale = setlocale (LC_MESSAGES, "");
+    }
+  if (!locale || setenv_status)
+    {
+      setenv_status = setenv ("LC_ALL", "fr_FR", 1);
+      locale = setlocale (LC_MESSAGES, "");
+    }
+#endif
   if (locale)
     {
   /* check that the locale set is not "C"/"POSIX" as we want to set
@@ -281,6 +299,10 @@ translate_string (const char *string, const char *language_env,
                   const char *translation_context)
 {
   char *saved_LANGUAGE;
+  char *saved_LANG;
+  char *saved_LC_ALL;
+  char *saved_LC_MESSAGES;
+
   TEXT translated_string;
   text_init (&translated_string);
 
@@ -328,12 +350,9 @@ translate_string (const char *string, const char *language_env,
   We need to set LC_MESSAGES to a valid locale other than "C" or "POSIX"
   for translation via LANGUAGE to work.  (The locale is "C" if the
   tests are being run.)
-  LC_MESSAGES was reported not to exist for Perl on MS-Windows. */
-
-# ifndef _WIN32
-  char *saved_LANG;
-  char *saved_LC_ALL;
-  char *saved_LC_MESSAGES;
+  LC_MESSAGES was reported not to exist for Perl on MS-Windows, however
+  the locale-h gnulib module should define it (and also define setlocale).
+   */
 
   /* In
    https://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html
@@ -360,8 +379,6 @@ translate_string (const char *string, const char *language_env,
 
   switch_messages_locale ();
 
-# endif
-
   saved_LANGUAGE = getenv ("LANGUAGE");
 
   if (saved_LANGUAGE)
@@ -372,6 +389,11 @@ translate_string (const char *string, const char *language_env,
   textdomain (strings_textdomain);
   bind_textdomain_codeset (strings_textdomain, "utf-8");
 
+
+  /* May need to call SetEnvironmentVariable in the _UCRT case
+     as mentioned here:
+    https://www.gnu.org/software/gettext/FAQ.html#windows_setenv
+     However, the setenv Gnulib module seems to do that already */
   if (setenv ("LANGUAGE", language_env, 1) != 0)
     {
       fprintf (stderr,
@@ -404,7 +426,6 @@ translate_string (const char *string, const char *language_env,
   else
     unsetenv ("LANGUAGE");
 
-# ifndef _WIN32
   if (saved_LANG)
     {
       setenv ("LANG", saved_LANG, 1);
@@ -428,7 +449,6 @@ translate_string (const char *string, const char *language_env,
     }
   else
     setlocale (LC_MESSAGES, "");
-# endif
 
   call_sync_locale ();
 

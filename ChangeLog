@@ -1,3 +1,13 @@
+2026-10-08 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/translations.c (translate_string): remove the _WIN32
+	special case, the locale-h gnulib module should define LC_MESSAGES and
+	setlocale.  Also the setenv gnulib module should call the right
+	Windows function.  Report from Bruno and Eli.
+
+	* tta/C/main/translations.c (switch_messages_locale): add a special
+	case for _WIN32, do not call locales, instead also try a fr locale.
+
 2026-10-07 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/convert_to_plaintext.h (decl_list_fns(*))
