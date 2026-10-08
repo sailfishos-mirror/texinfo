@@ -195,8 +195,8 @@ sub output($$) {
   $input_basefile = $STDIN_DOCU_NAME if ($input_basefile eq '-');
 
   # no splitting when writing to the null device or to stdout
-  if ($Texinfo::Common::null_device_file{$output_file}
-       or $output_file eq '-') {
+  if (Texinfo::Common::is_null_device_name($output_file)
+      or $output_file eq '-') {
     $self->force_conf('SPLIT_SIZE', undef);
   }
 

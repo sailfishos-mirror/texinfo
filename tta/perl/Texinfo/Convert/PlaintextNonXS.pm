@@ -663,7 +663,7 @@ sub output($$) {
   my $output_units;
 
   if (defined($self->get_conf('OUTFILE'))
-      and ($Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')}
+      and (Texinfo::Common::is_null_device_name($self->get_conf('OUTFILE'))
            or $self->get_conf('OUTFILE') eq '-'
            or $self->get_conf('OUTFILE') eq '')) {
     if ($self->get_conf('SPLIT')) {

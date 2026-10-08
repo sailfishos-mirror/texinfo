@@ -160,6 +160,7 @@ int create_destination_directory (CONVERTER *self,
 void copy_file_to (CONVERTER *self,
                    const char *from, const char *to,
                    const char *from_file_name, const char *to_file_name);
+int is_null_device_name (const char *file_name);
 
 const char *current_bcp47_locale (CONVERTER *self);
 void set_converter_preamble_language_commands (CONVERTER *self);

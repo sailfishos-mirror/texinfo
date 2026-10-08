@@ -7457,22 +7457,13 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
       && self->conf->SPLIT.o.string
       && strcmp (self->conf->SPLIT.o.string, ""))
     {
-      int i;
       int need_unsplit = 0;
       const char *outfile = self->conf->OUTFILE.o.string;
       if (!strcmp (outfile, "") || !strcmp (outfile, "-"))
         need_unsplit = 1;
       else
-        {
-          for (i = 0; null_device_names[i]; i++)
-            {
-              if (!strcmp (null_device_names[i], outfile))
-                {
-                  need_unsplit = 1;
-                  break;
-                }
-            }
-        }
+        need_unsplit = is_null_device_name (outfile);
+
       if (need_unsplit)
         {
           message_list_document_warn (&self->error_messages, self->conf,

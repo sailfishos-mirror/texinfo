@@ -77,7 +77,7 @@ sub tex4ht_prepare($$)
   %formats = ();
 
   return 0 if (defined($self->get_conf('OUTFILE'))
-        and $Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')});
+    and Texinfo::Common::is_null_device_name($self->get_conf('OUTFILE')));
 
   $formats{'tex'} = {'exec' => 'httex',
                      'commands' => [],

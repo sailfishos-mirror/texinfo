@@ -118,13 +118,6 @@ sub pgdt_context($$) {
 }
 
 
-# determine the null device
-my $default_null_device = File::Spec->devnull();
-# Used in many converters and init files
-our %null_device_file = (
-  $default_null_device => 1
-);
-
 # equivalence between a @set flag and an @@-command
 our %set_flag_command_equivalent = (
   'txicodequoteundirected' => 'codequoteundirected',
@@ -211,6 +204,29 @@ sub valid_customization_option($) {
   my $option = shift;
 
   return $valid_customization_options{$option};
+}
+
+
+# determine the null device
+my $default_null_device = File::Spec->devnull();
+# used in main program
+our %null_device_file = (
+  $default_null_device => 1,
+);
+
+# Used in many converters and init files
+sub is_null_device_name($) {
+  my $file_name = shift;
+
+  if ($default_null_device eq $file_name) {
+    return 1;
+  # nul is the null device name on platforms where it is not
+  # case sensitive
+  } elsif (lc($default_null_device) eq 'nul'
+           and lc($file_name) eq 'nul') {
+    return 1;
+  }
+  return 0;
 }
 
 
@@ -2390,10 +2406,6 @@ outside of the module.
 Keys are customization options corresponding to @-commands.  For example
 C<frenchspacing> or C<footnotestyle>.
 
-=item %null_device_file
-
-Keys are null devices names, such as C</dev/null> or C<NUL>.
-
 =item %texinfo_output_formats
 X<C<%texinfo_output_formats>>
 
@@ -2562,6 +2574,11 @@ X<C<is_content_empty>>
 Return true if the I<$tree> has content that could be formatted.
 I<$do_not_ignore_index_entries> is optional.  If set, index entries
 are considered to be formatted.
+
+=item $result = is_null_device_file($file_name)
+
+Return 1 if I<$file_name> is the platform null device name, such as
+C</dev/null> or C<NUL>.
 
 =item ($file, $use_inc_dir) = locate_include_file($file_path, \@include_directories)
 X<C<locate_include_file>>

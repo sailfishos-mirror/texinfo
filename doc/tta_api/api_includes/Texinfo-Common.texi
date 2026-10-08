@@ -99,11 +99,6 @@ outside of the module.
 Keys are customization options corresponding to @@-commands.  For example
 @code{frenchspacing} or @code{footnotestyle}.
 
-@item %null_device_file
-@anchor{Texinfo@asis{::}Common %null_device_file}
-
-Keys are null devices names, such as @code{/dev/null} or @code{NUL}.
-
 @item %texinfo_output_formats
 @anchor{Texinfo@asis{::}Common %texinfo_output_formats}
 @cindex @code{%texinfo_output_formats}
@@ -290,6 +285,12 @@ otherwise there is no way to determine the input document content encoding.
 Return true if the @emph{$tree} has content that could be formatted.
 @emph{$do_not_ignore_index_entries} is optional.  If set, index entries
 are considered to be formatted.
+
+@item $result = is_null_device_file($file_name)
+@anchor{Texinfo@asis{::}Common $result = is_null_device_file($file_name)}
+
+Return 1 if @emph{$file_name} is the platform null device name, such as
+@code{/dev/null} or @code{NUL}.
 
 @item ($file, $use_inc_dir) = locate_include_file($file_path, \@@include_directories)
 @anchor{Texinfo@asis{::}Common ($file@comma{} $use_inc_dir) = locate_include_file($file_path@comma{} \@@include_directories)}

@@ -4147,16 +4147,8 @@ html_setup_output (CONVERTER *self, char **paths)
       if (!strcmp (outfile, "") || !strcmp (outfile, "-"))
         need_unsplit = 1;
       else
-        {
-          for (i = 0; null_device_names[i]; i++)
-            {
-              if (!strcmp (null_device_names[i], outfile))
-                {
-                  need_unsplit = 1;
-                  break;
-                }
-            }
-        }
+        need_unsplit = is_null_device_name (outfile);
+
       if (need_unsplit)
         {
           option_force_conf (&self->conf->SPLIT, 0, "");

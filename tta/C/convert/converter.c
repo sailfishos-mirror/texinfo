@@ -1368,6 +1368,29 @@ copy_file_to (CONVERTER *self,
     }
 }
 
+int
+is_null_device_name (const char *file_name)
+{
+  int i;
+
+  for (i = 0; null_device_names[i]; i++)
+    {
+      if (!strcmp (null_device_names[i], file_name))
+        {
+          return 1;
+        }
+      /* nul is the null device name on platforms where it is not
+         case sensitive */
+      else if (!strcasecmp (null_device_names[i], "nul")
+               && !strcasecmp (file_name, "nul"))
+        {
+          return 1;
+        }
+    }
+
+  return 0;
+}
+
 
 
 static const enum command_id conf_for_documentlanguage[]

@@ -1731,6 +1731,8 @@ if (defined($test_level)) {
 
   # in a test, /dev/null is used as out file.  Replace by the platform
   # null device if it is not /dev/null.
+  # Note that some shells, such as the MSYS2 shell may already have
+  # substituted to a platform specific null device on Windows.
   my $outfile = get_conf('OUTFILE');
   if (defined($outfile) and $outfile eq '/dev/null'
       and scalar(keys(%Texinfo::Common::null_device_file))

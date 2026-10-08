@@ -359,7 +359,7 @@ sub highlight_process($$) {
   %highlighted_cmds = ();
 
   return 0 if (defined($self->get_conf('OUTFILE'))
-        and $Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')});
+    and Texinfo::Common::is_null_device_name($self->get_conf('OUTFILE')));
 
   return 0 if (defined($highlighted_languages_list)
                and !scalar(keys(%$highlighted_languages_list)));

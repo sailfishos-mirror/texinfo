@@ -1,5 +1,22 @@
 2026-10-08 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_info.c (info_output),
+	tta/C/convert/convert_to_plaintext.c (plaintext_output),
+	tta/C/convert/converter.c (is_null_device_name),
+	tta/C/convert/html_prepare_converter.c (html_setup_output): add the
+	is_null_device_name function to determine if a file name is a null
+	device.
+
+	* tta/perl/Texinfo/Common.pm (is_null_device_name): add a function to
+	determine if a file name is a null revice.  Replace checking
+	%null_device_file key by calling is_null_device_name in converters.
+
+	* tta/C/convert/converter.c (is_null_device_name),
+	tta/perl/Texinfo/Common.pm (is_null_device_name): if the null device
+	name is nul (case insensitive), compare with case insensitivity. 
+
+2026-10-08 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/translations.c (translate_string): remove the _WIN32
 	special case, the locale-h gnulib module should define LC_MESSAGES and
 	setlocale.  Also the setenv gnulib module should call the right

@@ -250,7 +250,7 @@ sub l2h_process($$)
   # may have been relevant, but the cache file should not exist
   # (cache file is /dev/null-l2h_cache.pm).
   return 0 if (defined($self->get_conf('OUTFILE'))
-       and $Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')});
+     and Texinfo::Common::is_null_device_name($self->get_conf('OUTFILE')));
 
   my $options_latex_math;
   if ($self->get_conf('CONVERT_TO_LATEX_IN_MATH')) {

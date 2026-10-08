@@ -5100,7 +5100,7 @@ sub _setup_output($) {
   # no splitting when writing to the null device or to stdout or returning
   # a string
   if (defined($self->get_conf('OUTFILE'))
-      and ($Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')}
+      and (Texinfo::Common::is_null_device_name($self->get_conf('OUTFILE'))
            or $self->get_conf('OUTFILE') eq '-'
            or $self->get_conf('OUTFILE') eq '')) {
     $self->force_conf('SPLIT', '');

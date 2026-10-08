@@ -2884,6 +2884,8 @@ main (int argc, char *argv[], char *env[])
       if (test_mode_set)
         {
     /* in a test, /dev/null is used.  Replace by the platform null device.
+       Note that some shells, such as the MSYS2 shell may already have
+       substituted to a platform specific null device on Windows.
      */
           OPTION *outfile_option
             = GNUT_get_conf (program_options.options->OUTFILE.number);

@@ -333,16 +333,8 @@ info_output (CONVERTER *self, DOCUMENT *document)
   if (!strcmp (output_file, "-"))
     need_unsplit = 1;
   else
-    {
-      for (i = 0; null_device_names[i]; i++)
-        {
-          if (!strcmp (null_device_names[i], output_file))
-            {
-              need_unsplit = 1;
-              break;
-            }
-        }
-    }
+    need_unsplit = is_null_device_name (output_file);
+
   if (need_unsplit)
     option_force_conf (&self->conf->SPLIT_SIZE, -2, 0);
 
