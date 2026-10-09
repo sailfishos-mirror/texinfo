@@ -219,6 +219,8 @@ my @init_file_loading_messages;
 sub GNUT_load_init_file($) {
   my $file = shift;
 
+  # push an array reference where user-defined messages registered through
+  # texinfo_register_init_loading_* are added.
   push @init_file_loading_messages, [];
 
   my $result = do($file);
@@ -286,36 +288,10 @@ sub texinfo_register_init_loading_warning($) {
                                             'text' => $message};
 }
 
-# L2H removed in 2021
-# return undef var when there is nothing to set.
-# NOTE this has not been done consistently, many options were renamed
-# without doing something here.
-# NOTE in C there is no mapping of values.
-sub _GNUT_map_obsolete_options($$) {
-  my ($input_var, $input_value) = @_;
-
-  my $var = $input_var;
-  my $value = $input_value;
-
-  if ($input_var eq 'L2H') {
-    _GNUT_document_warn(sprintf(__("obsolete option: %s"), $input_var));
-    if (! $input_value) {
-      # nothing to do in that case
-      $var = undef;
-      $value = undef;
-    } else {
-      $var = 'HTML_MATH';
-      $value = 'l2h';
-    }
-  }
-  return $var, $value;
-}
-
 # Called from init files to set configuration options.
 sub texinfo_set_from_init_file($$) {
   my ($var, $value) = @_;
 
-  ($var, $value) = _GNUT_map_obsolete_options($var, $value);
   if (!defined($var)) {
     return 1;
   }
@@ -337,7 +313,6 @@ sub texinfo_set_from_init_file($$) {
 sub GNUT_set_from_cmdline($$) {
   my ($var, $value) = @_;
 
-  ($var, $value) = _GNUT_map_obsolete_options($var, $value);
   if (!defined($var)) {
     return 1;
   }
@@ -357,7 +332,6 @@ sub GNUT_set_from_cmdline($$) {
 sub GNUT_set_customization_default($$) {
   my ($var, $value) = @_;
 
-  ($var, $value) = _GNUT_map_obsolete_options($var, $value);
   if (!defined($var)) {
     return 1;
   }
