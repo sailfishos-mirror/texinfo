@@ -1340,7 +1340,7 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
   int is_target = (node->flags & EF_is_target);
   char *node_begin;
   int quoting_required = 0;
-  STRING_WITH_WIDTH node_text;
+  STRING_WITH_WIDTH node_name_width;
   int i;
   int warn_special_char
     = (self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer > 0
@@ -1351,7 +1351,7 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
   if (!is_target)
     return;
 
-  plaintext_node_name (self, node, &node_text);
+  plaintext_node_name (self, node, &node_name_width);
 
   if (self_plaintext->output_filename)
     output_filename = self_plaintext->output_filename;
@@ -1369,7 +1369,7 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
       || self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
     {
       const char *check_chars = ",";
-      const char *p = strpbrk (node_text.string.text, check_chars);
+      const char *p = strpbrk (node_name_width.string.text, check_chars);
 
       if (p)
         {
@@ -1378,7 +1378,7 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
                         (self->conf && self->conf->DEBUG.o.integer > 0),
                        node, 0,
                      "@node name should not contain `,': %s",
-                      node_text.string.text);
+                      node_name_width.string.text);
 
           if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
             quoting_required = 1;
@@ -1386,10 +1386,11 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
     }
   if (quoting_required)
     stream_output_n (self, node_quote, 1);
-  stream_output_n (self, node_text.string.text, node_text.string.end);
+  stream_output_n (self, node_name_width.string.text,
+                   node_name_width.string.end);
   if (quoting_required)
     stream_output_n (self, node_quote, 1);
-  free (node_text.string.text);
+  free (node_name_width.string.text);
 
   if (!node_relations)
     {
@@ -1450,9 +1451,9 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
             {
               int quoting_required = 0;
 
-              plaintext_node_name (self, node_direction, &node_text);
+              plaintext_node_name (self, node_direction, &node_name_width);
 
-              if (node_text.string.text[0] == '(' && !manual_content)
+              if (node_name_width.string.text[0] == '(' && !manual_content)
                 {
                   if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
                     quoting_required = 1;
@@ -1462,7 +1463,7 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
                   || self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
                 {
                   const char *check_chars = ",";
-                  const char *p = strpbrk (node_text.string.text,
+                  const char *p = strpbrk (node_name_width.string.text,
                                            check_chars);
 
                   if (p)
@@ -1474,7 +1475,7 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
                       (self->conf && self->conf->DEBUG.o.integer > 0),
                                    node, 0,
                       "@node %s name should not contain `,': %s",
-                           directions[i], node_text.string.text);
+                           directions[i], node_name_width.string.text);
                       if (
                    self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
                         quoting_required = 1;
@@ -1482,11 +1483,11 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
                 }
               if (quoting_required)
                 stream_output_n (self, node_quote, 1);
-              stream_output_n (self, node_text.string.text,
-                               node_text.string.end);
+              stream_output_n (self, node_name_width.string.text,
+                               node_name_width.string.end);
               if (quoting_required)
                 stream_output_n (self, node_quote, 1);
-              free (node_text.string.text);
+              free (node_name_width.string.text);
             }
         }
       else if (i == D_up && self->conf->TOP_NODE_UP.o.string)

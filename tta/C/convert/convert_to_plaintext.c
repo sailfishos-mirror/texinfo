@@ -1601,6 +1601,7 @@ plaintext_node_name (CONVERTER *self, const ELEMENT *element,
 
           if (!node_name->string.text)
             {
+              /* same as node_name, but we modify, so not const */
               STRING_WITH_WIDTH *new_node_name
                 = &self_plaintext->node_names_cache[node_number -1];
               plaintext_convert_node_name (self, element,
@@ -2961,13 +2962,13 @@ plaintext_process_printindex (CONVERTER *self,
         }
       else
         {
-          STRING_WITH_WIDTH node_name;
+          STRING_WITH_WIDTH node_name_width;
           const char *p;
           int quoting_required = 0;
           int warn_special_char = (!self_plaintext->silent
                   && self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer > 0);
 
-          plaintext_node_name (self, node, &node_name);
+          plaintext_node_name (self, node, &node_name_width);
 
           if (warn_special_char
               || self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
@@ -2975,7 +2976,7 @@ plaintext_process_printindex (CONVERTER *self,
      /* protect characters that need to be protected in menu node entry
         after menu entry name and also :, as the Info readers
         should consider text up to : to be part of the index entry. */
-              p = node_name.string.text;
+              p = node_name_width.string.text;
               char warned_char[3];
               while (*p)
                 {
@@ -3003,7 +3004,7 @@ plaintext_process_printindex (CONVERTER *self,
                     {
                       if (! is_c_hashmap_registered (
                             &self_plaintext->index_entry_node_colon,
-                                       node_name.string.text))
+                                       node_name_width.string.text))
                         {
                           message_list_command_warn (&self->error_messages,
                             (self->conf && self->conf->DEBUG.o.integer > 0),
@@ -3013,7 +3014,7 @@ plaintext_process_printindex (CONVERTER *self,
 
                           c_hashmap_register (
                                  &self_plaintext->index_entry_node_colon,
-                                          node_name.string.text, 0);
+                                          node_name_width.string.text, 0);
                         }
                     }
 
@@ -3026,12 +3027,13 @@ plaintext_process_printindex (CONVERTER *self,
 
           if (quoting_required)
             stream_output_n (self, node_quote, 1);
-          stream_output_n (self, node_name.string.text, node_name.string.end);
-          line_width += node_name.width;
+          stream_output_n (self, node_name_width.string.text,
+                           node_name_width.string.end);
+          line_width += node_name_width.width;
           if (quoting_required)
             stream_output_n (self, node_quote, 1);
 
-          free (node_name.string.text);
+          free (node_name_width.string.text);
         }
 
       stream_output_n (self, ".", 1);
