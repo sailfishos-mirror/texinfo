@@ -5181,9 +5181,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                       /* flush before @math, including spaces */
                       const TEXT pending_word = para_add_pending_word (1);
                       stream_output_count_nl (self, pending_word);
-           /* TODO same as @image code.  Does not seems to have any effect,
-              leading spaces in @math are lost anyway (which is not important).
-              add an empty word so that following spaces aren't lost */
+           /* NOTE same as @image code.  Does not have any effect as leading
+              spaces in @math are ignored spaces_before_argument.
+              Add an empty word so that following spaces aren't lost */
                       para_add_next ("", 0, 0);
 
            /* math rendered as an image, push a count to capture content */
@@ -7666,9 +7666,6 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
 
           stream_final_result (self, &unit_file->body);
 
-          /* TODO in Perl, file is opened when first encountered
-             not when counter is 0.  Probably best to align Perl
-             with this code */
           if (unit_file->counter == 0)
             {
               const char *out_filepath = unit_file->filepath;

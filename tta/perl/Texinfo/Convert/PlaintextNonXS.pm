@@ -797,16 +797,24 @@ sub output($$) {
     # output with pages
     print STDERR "DO Elements with filenames\n"
       if ($self->{'debug'});
-    my %files_filehandle;
+    my %files_body;
 
     foreach my $output_unit (@$output_units) {
       my $output_unit_filename = $output_unit->{'unit_filename'};
-      my $out_filepath = $self->{'out_filepaths'}->{$output_unit_filename};
-      my $file_fh;
-      # open the file and output the elements
-      if (!exists($files_filehandle{$output_unit_filename})) {
-        my $error_message;
-        ($file_fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
+      $self->convert_output_unit($output_unit);
+      my $output_unit_text = _stream_final_result($self);
+
+      if (!exists($files_body{$output_unit_filename})) {
+        $files_body{$output_unit_filename} = '';
+      }
+      $files_body{$output_unit_filename} .= $output_unit_text;
+
+      $self->{'file_counters'}->{$output_unit_filename}--;
+      if ($self->{'file_counters'}->{$output_unit_filename} == 0) {
+        # open the file and output the elements
+        my $out_filepath = $self->{'out_filepaths'}->{$output_unit_filename};
+        my ($file_fh, $error_message)
+               = Texinfo::Convert::Utils::output_files_open_out(
                              $self->output_files_information(),
                              $out_filepath, undef,
                              $self->get_conf('OUTPUT_ENCODING_NAME'));
@@ -817,15 +825,10 @@ sub output($$) {
           $self->conversion_finalization();
           return undef;
         }
-        $files_filehandle{$output_unit_filename} = $file_fh;
-      } else {
-        $file_fh = $files_filehandle{$output_unit_filename};
-      }
-      $self->convert_output_unit($output_unit);
-      my $output_unit_text = _stream_final_result($self);
-      print $file_fh $output_unit_text;
-      $self->{'file_counters'}->{$output_unit_filename}--;
-      if ($self->{'file_counters'}->{$output_unit_filename} == 0) {
+
+        print $file_fh $files_body{$output_unit_filename};
+        delete $files_body{$output_unit_filename};
+
         # Do not close STDOUT now such that the file descriptor is not reused
         # by open, which uses the lowest-numbered file descriptor not open,
         # for another filehandle.  Closing STDOUT is handled by the caller.
@@ -3484,9 +3487,9 @@ sub _convert($$) {
             # flush before @math, including spaces
             _stream_output_count_nl($self,
                        add_pending_word($formatter->{'container'}, 1));
-            # TODO same as @image code.  Does not seems to have any effect,
-            # leading spaces in @math are lost anyway (which is not important).
-            # add an empty word so that following spaces aren't lost
+            # NOTE same as @image code.  Does not have any effect as leading
+            # spaces in @math are ignored spaces_before_argument.
+            # Add an empty word so that following spaces aren't lost
             add_next($formatter->{'container'}, '');
             # math rendered as an image, push a count to capture content
             push @{$self->{'count_context'}}, {'lines' => 0,
