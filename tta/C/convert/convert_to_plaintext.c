@@ -855,10 +855,12 @@ plaintext_conversion_initialization (CONVERTER *self, DOCUMENT *document)
   self_plaintext->open_double_quote = "\"";
   self_plaintext->close_double_quote = "\"";
 
+  free (self_plaintext->enabled_encoding);
+  self_plaintext->to_utf8 = 0;
+
   if (self->conf->ENABLE_ENCODING.o.integer > 0
       && self->conf->OUTPUT_ENCODING_NAME.o.string)
     {
-      free (self_plaintext->enabled_encoding);
       self_plaintext->enabled_encoding
          = strdup (self->conf->OUTPUT_ENCODING_NAME.o.string);
       if (!strcmp (self_plaintext->enabled_encoding, "utf-8"))
@@ -874,6 +876,8 @@ plaintext_conversion_initialization (CONVERTER *self, DOCUMENT *document)
           self_plaintext->close_double_quote = "\xe2\x80\x9d";
         }
     }
+  else
+    self_plaintext->enabled_encoding = 0;
 
   if (self->conf->OPEN_QUOTE_SYMBOL.o.string)
     self_plaintext->open_quote = self->conf->OPEN_QUOTE_SYMBOL.o.string;
@@ -6173,7 +6177,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
    /* all the @-commands that have an information for the formatting, like
       @paragraphindent, @frenchspacing... */
-      else if (self_plaintext->commands_data[cmd].flags & PF_informative)
+      else if (plaintext_commands_data[cmd].flags & PF_informative)
         {
           set_informative_command_value (self->sorted_options, element);
 
@@ -7226,7 +7230,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           pop_(text_element_context) (&self_plaintext->text_element_context);
         }
 
-      if (self_plaintext->commands_data[cmd].flags
+      if (plaintext_commands_data[cmd].flags
                                       & PF_advance_paragraph_count)
         {
           FORMAT_CONTEXT *top_format_context

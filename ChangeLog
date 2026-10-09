@@ -1,5 +1,17 @@
 2026-10-09 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): use plaintext_commands_data instead
+	of self_plaintext->commands_data for unmodified information.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(plaintext_conversion_initialization): properly reinitialize
+	enabled_encoding and to_utf8 fields.
+
+	* tta/C/main/plaintext_converter_state.h: change order of some fields.
+
+2026-10-09 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_plaintext.c (plaintext_convert_node_name)
 	(plaintext_node_name, plaintext_cache_node_names),
 	tta/C/main/plaintext_converter_state.h (STRING_WITH_WIDTH): replace

@@ -87,8 +87,8 @@ enum conv_type {
 };
 
 typedef struct PENDING_TEXT {
-    TEXT text;
     enum conv_type type;
+    TEXT text;
     union {
       const ELEMENT *anchor;
       /* representation of image without control characters, for debugging */
@@ -137,13 +137,13 @@ typedef struct STRING_WITH_WIDTH {
 } STRING_WITH_WIDTH;
 
 typedef struct MATH_ELEMENT_IMAGE {
+    char *filename;
+    int dpi;
+    int depth;
     /* the element is used to make sure that going through the tree
        and through the MATH_ELEMENT_IMAGE_LIST list is done in sync.
      */
     const ELEMENT *element;
-    char *filename;
-    int dpi;
-    int depth;
 } MATH_ELEMENT_IMAGE;
 
 def_list_type(MATH_ELEMENT_IMAGE_LIST, MATH_ELEMENT_IMAGE);
@@ -180,11 +180,9 @@ typedef struct INDEX_ENTRY_INFO {
 typedef struct PLAINTEXT_CONVERTER_STATE {
     COMMAND_STACK context;
     FORMAT_CONTEXT_STACK format_context;
-    /* text_element_context */
     TEXT_CONTEXT_STACK text_element_context;
     FORMATTER_STACK formatters;
     COUNT_CONTEXT_STACK count_context;
-    /* document_context */
     DOCUMENT_CONTEXT_STACK document_context;
 
     /* based on converter format */
@@ -193,15 +191,18 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
     /* to cache values based on customization options */
     char *enabled_encoding;
     int to_utf8;
-    /* */
+    /* based on global customization options */
+    /* TODO dynamically set only for expanded formats and PF_ignored */
     PLAINTEXT_COMMAND_STRUCT commands_data[BUILTIN_CMD_NUMBER];
-    int silent;
+    /* also based on OUTPUT_ENCODING_NAME, so could be different for
+       each document */
     const char *open_quote;
     const char *close_quote;
     const char *open_double_quote;
     const char *close_double_quote;
 
     /* conversion state */
+    int silent;
     int in_copying_header;
     const ENCODING_CONVERSION *encoding_object;
     char *output_filename;
