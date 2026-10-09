@@ -196,7 +196,7 @@ info_header (CONVERTER *self, const char *input_basefile,
 
       tmp->e.c->contents.list = 0;
       destroy_element (tmp);
-      plaintext_process_footnotes (self, 0);
+      info_format_footnotes (self, 0);
       self_plaintext->in_copying_header = 0;
     }
   if (self->document->global_commands.dircategory_direntry.number)
@@ -471,7 +471,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
         message_list_document_warn (&self->error_messages, self->conf,
                                          0, "document without nodes");
       convert_to_plaintext_internal (self, root);
-      plaintext_process_footnotes (self, 0);
+      info_format_footnotes (self, 0);
       stream_final_result (self, &node_text);
 
       write_or_return (0, encoded_outfile_name, file_fh, &result,
@@ -871,6 +871,144 @@ void
 info_format_contents (CONVERTER *self, SECTIONING_ROOT *sectioning_root,
                            enum command_id contents_or_shortcontents_cmd)
 {
+}
+
+void
+info_format_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  /* may not be used */
+  FORMATTER formatter = new_formatter (self, formatter_line, -1, -1);
+
+  push_formatter (self, &formatter);
+
+  if (self_plaintext->pending_footnotes.number > 0)
+    {
+      ELEMENT *label_element = 0;
+      const ELEMENT *node_element;
+      const char *identifier;
+      ELEMENT *footnotes_node = 0;
+      size_t i;
+
+      if (output_unit && output_unit->uc.unit_command)
+        {
+          node_element = output_unit->uc.unit_command;
+
+          if (node_element->e.c->cmd == CM_node)
+            {
+              identifier
+                = lookup_extra_string (node_element, AI_key_identifier);
+              if (identifier)
+                {
+                  const ELEMENT *arguments_line
+                    = node_element->e.c->contents.list[0];
+                  label_element = arguments_line->e.c->contents.list[0];
+                }
+            }
+        }
+
+      add_newline_if_needed (self);
+
+      if (!self->conf->footnotestyle.o.string
+          || strcmp (self->conf->footnotestyle.o.string, "separate")
+        /* no node label happens only in very special cases, such as
+           a @footnote in @copying and @insertcopying (and USE_NODES=0?) */
+          || !label_element)
+        {
+          stream_output (self, "   ---------- Footnotes ----------\n\n");
+          add_lines_count (self, 2);
+        }
+      else
+        {
+          ELEMENT *footnotes_node_arg = new_element (ET_line_arg);
+          ELEMENT *footnotes_suffix = new_element (ET_other_text);
+          footnotes_node
+            = new_command_element (ET_line_command, CM_node);
+          ELEMENT *footnote_arguments_line
+            = new_element (ET_arguments_line);
+          ELEMENT *label_element_copy = copy_contents (label_element, 0,
+                                                       ET_NONE);
+          char *footnote_node_id;
+          NODE_RELATIONS footnotes_node_relations = { 0 };
+
+          text_append_n (footnotes_suffix->e.text, "-Footnotes", 10);
+          xasprintf (&footnote_node_id, "%s-Footnotes", identifier);
+
+          add_to_element_contents (footnotes_node_arg, label_element_copy);
+          add_element_to_element_contents (footnotes_node_arg,
+                                           footnotes_suffix);
+          add_element_to_element_contents (footnote_arguments_line,
+                                           footnotes_node_arg);
+          add_element_to_element_contents (footnotes_node,
+                                           footnote_arguments_line);
+          footnotes_node->flags |= EF_is_target;
+          add_extra_string (footnotes_node, AI_key_identifier,
+                            footnote_node_id);
+
+          footnotes_node_relations.element = footnotes_node;
+          footnotes_node_relations.node_directions = new_directions ();
+          footnotes_node_relations.node_directions[D_up] = node_element;
+
+          info_format_node (self, footnotes_node, &footnotes_node_relations);
+
+          free (footnotes_node_relations.node_directions);
+
+          self_plaintext->current_node = footnotes_node;
+          add_(element) (&self_plaintext->added_element, footnotes_node);
+        }
+
+      for (i = 0; i < self_plaintext->pending_footnotes.number; i++)
+        {
+          const PENDING_FOOTNOTE *footnote_info
+            = &self_plaintext->pending_footnotes.list[i];
+
+     /* If nested within another footnote and footnotestyle is separate,
+        the element here will be the parent element and not the footnote
+        element, while the pxref will point to the name with the
+        footnote node taken into account.  Not really problematic as
+        nested footnotes are not right. */
+
+          if (label_element && self_plaintext->target_locations)
+            {
+              char *footnote_anchor_id;
+
+              ELEMENT *footnote_anchor_arg = new_element (ET_brace_arg);
+              ELEMENT *footnote_anchor = new_command_element (ET_brace_command,
+                                                              CM_anchor);
+              ELEMENT *label_element_copy = copy_contents (label_element, 0,
+                                                           ET_NONE);
+              ELEMENT *footnote_anchor_postfix_e
+                = new_text_element (ET_other_text);
+              text_printf (footnote_anchor_postfix_e->e.text, "-Footnote-%d",
+                           footnote_info->number);
+
+              add_to_element_contents (footnote_anchor_arg, label_element_copy);
+              add_element_to_element_contents (footnote_anchor_arg,
+                                               footnote_anchor_postfix_e);
+
+              xasprintf (&footnote_anchor_id, "%s%s", identifier,
+                         footnote_anchor_postfix_e->e.text->text);
+
+              footnote_anchor->flags |= EF_is_target;
+              add_extra_string (footnote_anchor, AI_key_identifier,
+                                footnote_anchor_id);
+              add_to_element_contents (footnote_anchor, footnote_anchor_arg);
+
+              plaintext_add_target_location (self, footnote_anchor);
+              add_(element) (&self_plaintext->added_element, footnote_anchor);
+            }
+          plaintext_process_one_footnote (self, footnote_info);
+        }
+      self_plaintext->pending_footnotes.number = 0;
+    }
+
+  self_plaintext->footnote_index = 0;
+
+  const TEXT end_result = para_end ();
+  stream_output_count_nl (self, end_result);
+
+  para_destroy ();
+  pop_formatter (self, 0);
 }
 
 void

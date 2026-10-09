@@ -131,6 +131,8 @@ typedef struct PLAINTEXT_FORMAT_FUNCTIONS {
                                enum command_id contents_or_shortcontents_cmd);
     void (* format_error_outside_of_any_node) (CONVERTER *self,
                                                const ELEMENT *element);
+    void (* format_footnotes) (CONVERTER *self,
+                               const OUTPUT_UNIT *output_unit);
     TEXT (* format_image) (CONVERTER *self, const char *image_file,
                    const TEXT *text, const TEXT *alt,
                    int dpi, int depth, int *lines_count);
@@ -1096,7 +1098,7 @@ protect_sentence_ends (const char *text)
   return t.text;
 }
 
-static void
+void
 add_lines_count (CONVERTER *self, int lines_count)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
@@ -1157,7 +1159,7 @@ stream_output (CONVERTER *self, const char *text)
    */
 }
 
-static void
+void
 stream_output_count_nl (CONVERTER *self, const TEXT text)
 {
   int count;
@@ -1716,7 +1718,57 @@ static int footnote_indent = 3;
 #define NO_NUMBER_FOOTNOTE_SYMBOL "*"
 
 void
-plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
+plaintext_process_one_footnote (CONVERTER *self,
+                                const PENDING_FOOTNOTE *footnote_info)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  int j;
+  enum command_id old_context_cmd;
+
+  push_top_formatter (self, CM_footnote);
+
+  TEXT_CONTEXT *text_element_context
+    = top_(text_element_context) (
+                       &self_plaintext->text_element_context);
+  for (j = 0; j < footnote_indent; j++)
+    {
+      stream_output_n (self, " ", 1);
+    }
+  text_element_context->counter += footnote_indent;
+
+  if (self->conf->NUMBER_FOOTNOTES.o.integer > 0)
+    {
+      char *formatted_footnote_number_str;
+      xasprintf (&formatted_footnote_number_str, "(%d) ",
+                 footnote_info->number);
+
+      stream_output (self, formatted_footnote_number_str);
+      text_element_context->counter
+         += strlen (formatted_footnote_number_str);
+      free (formatted_footnote_number_str);
+    }
+  else
+    {
+      stream_output (self, "(" NO_NUMBER_FOOTNOTE_SYMBOL ") ");
+      text_element_context->counter += 4;
+    }
+
+  if (footnote_info->element->e.c->contents.number > 0)
+    convert_to_plaintext_internal (self,
+                footnote_info->element->e.c->contents.list[0]);
+
+  add_newline_if_needed (self);
+
+  if (footnote_info->added)
+    destroy_tree_added_elements (footnote_info->added);
+
+  old_context_cmd = pop_top_formatter (self);
+  if (old_context_cmd != CM_footnote)
+    abort ();
+}
+
+void
+plaintext_format_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   /* may not be used */
@@ -1729,7 +1781,6 @@ plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
       ELEMENT *label_element = 0;
       const ELEMENT *node_element;
       const char *identifier;
-      ELEMENT *footnotes_node = 0;
       size_t i;
 
       if (output_unit && output_unit->uc.unit_command)
@@ -1760,130 +1811,13 @@ plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
           stream_output (self, "   ---------- Footnotes ----------\n\n");
           add_lines_count (self, 2);
         }
-      else
-        {
-          ELEMENT *footnotes_node_arg = new_element (ET_line_arg);
-          ELEMENT *footnotes_suffix = new_element (ET_other_text);
-          footnotes_node
-            = new_command_element (ET_line_command, CM_node);
-          ELEMENT *footnote_arguments_line
-            = new_element (ET_arguments_line);
-          ELEMENT *label_element_copy = copy_contents (label_element, 0,
-                                                       ET_NONE);
-          char *footnote_node_id;
-          NODE_RELATIONS footnotes_node_relations = { 0 };
-
-          text_append_n (footnotes_suffix->e.text, "-Footnotes", 10);
-          xasprintf (&footnote_node_id, "%s-Footnotes", identifier);
-
-          add_to_element_contents (footnotes_node_arg, label_element_copy);
-          add_element_to_element_contents (footnotes_node_arg,
-                                           footnotes_suffix);
-          add_element_to_element_contents (footnote_arguments_line,
-                                           footnotes_node_arg);
-          add_element_to_element_contents (footnotes_node,
-                                           footnote_arguments_line);
-          footnotes_node->flags |= EF_is_target;
-          add_extra_string (footnotes_node, AI_key_identifier,
-                            footnote_node_id);
-
-          footnotes_node_relations.element = footnotes_node;
-          footnotes_node_relations.node_directions = new_directions ();
-          footnotes_node_relations.node_directions[D_up] = node_element;
-
-          plaintext_functions[self->format].format_node (self, footnotes_node,
-                                                   &footnotes_node_relations);
-
-          free (footnotes_node_relations.node_directions);
-
-          self_plaintext->current_node = footnotes_node;
-          add_(element) (&self_plaintext->added_element, footnotes_node);
-        }
 
       for (i = 0; i < self_plaintext->pending_footnotes.number; i++)
         {
-          enum command_id old_context_cmd;
           const PENDING_FOOTNOTE *footnote_info
             = &self_plaintext->pending_footnotes.list[i];
-          int j;
 
-     /* If nested within another footnote and footnotestyle is separate,
-        the element here will be the parent element and not the footnote
-        element, while the pxref will point to the name with the
-        footnote node taken into account.  Not really problematic as
-        nested footnotes are not right. */
-
-          if (label_element && self_plaintext->target_locations)
-            {
-              char *footnote_anchor_id;
-
-              ELEMENT *footnote_anchor_arg = new_element (ET_brace_arg);
-              ELEMENT *footnote_anchor = new_command_element (ET_brace_command,
-                                                              CM_anchor);
-              ELEMENT *label_element_copy = copy_contents (label_element, 0,
-                                                           ET_NONE);
-              ELEMENT *footnote_anchor_postfix_e
-                = new_text_element (ET_other_text);
-              text_printf (footnote_anchor_postfix_e->e.text, "-Footnote-%d",
-                           footnote_info->number);
-
-              add_to_element_contents (footnote_anchor_arg, label_element_copy);
-              add_element_to_element_contents (footnote_anchor_arg,
-                                               footnote_anchor_postfix_e);
-
-              xasprintf (&footnote_anchor_id, "%s%s", identifier,
-                         footnote_anchor_postfix_e->e.text->text);
-
-              footnote_anchor->flags |= EF_is_target;
-              add_extra_string (footnote_anchor, AI_key_identifier,
-                                footnote_anchor_id);
-              add_to_element_contents (footnote_anchor, footnote_anchor_arg);
-
-              plaintext_add_target_location (self, footnote_anchor);
-              add_(element) (&self_plaintext->added_element, footnote_anchor);
-            }
-
-          push_top_formatter (self, CM_footnote);
-
-
-          TEXT_CONTEXT *text_element_context
-            = top_(text_element_context) (
-                               &self_plaintext->text_element_context);
-          for (j = 0; j < footnote_indent; j++)
-            {
-              stream_output_n (self, " ", 1);
-            }
-          text_element_context->counter += footnote_indent;
-
-          if (self->conf->NUMBER_FOOTNOTES.o.integer > 0)
-            {
-              char *formatted_footnote_number_str;
-              xasprintf (&formatted_footnote_number_str, "(%d) ",
-                         footnote_info->number);
-
-              stream_output (self, formatted_footnote_number_str);
-              text_element_context->counter
-                 += strlen (formatted_footnote_number_str);
-              free (formatted_footnote_number_str);
-            }
-          else
-            {
-              stream_output (self, "(" NO_NUMBER_FOOTNOTE_SYMBOL ") ");
-              text_element_context->counter += 4;
-            }
-
-          if (footnote_info->element->e.c->contents.number > 0)
-            convert_to_plaintext_internal (self,
-                        footnote_info->element->e.c->contents.list[0]);
-
-          add_newline_if_needed (self);
-
-          if (footnote_info->added)
-            destroy_tree_added_elements (footnote_info->added);
-
-          old_context_cmd = pop_top_formatter (self);
-          if (old_context_cmd != CM_footnote)
-            abort ();
+          plaintext_process_one_footnote (self, footnote_info);
         }
       self_plaintext->pending_footnotes.number = 0;
     }
@@ -3610,6 +3544,7 @@ static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[] = {
    &plaintext_format_anchor,
    &plaintext_format_contents,
    &plaintext_format_error_outside_of_any_node,
+   &plaintext_format_footnotes,
    &plaintext_format_image,
    &plaintext_format_image_element,
    &plaintext_format_node,
@@ -3621,6 +3556,7 @@ static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[] = {
    &info_format_anchor,
    &info_format_contents,
    &info_format_error_outside_of_any_node,
+   &info_format_footnotes,
    &info_format_image,
    &info_format_image_element,
    &info_format_node,
@@ -7430,7 +7366,7 @@ plaintext_convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit)
         }
     }
 
-  plaintext_process_footnotes (self, output_unit);
+  plaintext_functions[self->format].format_footnotes (self, output_unit);
 
   adjust_final_locations (self);
 }

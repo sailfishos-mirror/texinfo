@@ -627,7 +627,7 @@ sub convert_output_unit($$) {
     }
   }
   $self->count_context_bug_message('', $output_unit);
-  $self->process_footnotes($output_unit);
+  $self->format_footnotes($output_unit);
   _adjust_final_locations($self);
   $self->count_context_bug_message('footnotes ', $output_unit);
 
@@ -1466,7 +1466,36 @@ sub _close_code($) {
 }
 
 my $footnote_indent = 3;
-sub process_footnotes($;$) {
+sub process_one_footnote($$) {
+  my ($self, $footnote_info) = @_;
+
+  my $footnote_number = $footnote_info->{'number'};
+  # this pushes on 'context', 'formatters', 'format_context',
+  # 'text_element_context' and 'document_context'
+  $self->push_top_formatter('footnote');
+  my $formatted_footnote_number;
+  if ($self->get_conf('NUMBER_FOOTNOTES')) {
+    $formatted_footnote_number = $footnote_number;
+  } else {
+    $formatted_footnote_number = $NO_NUMBER_FOOTNOTE_SYMBOL;
+  }
+  my $footnote_text = ' ' x $footnote_indent
+           . "($formatted_footnote_number) ";
+  $self->{'text_element_context'}->[-1]->{'counter'} +=
+     Texinfo::Convert::Unicode::string_width($footnote_text);
+  _stream_output($self, $footnote_text);
+
+  my $footnote_element = $footnote_info->{'footnote_element'};
+  if (exists($footnote_element->{'contents'})) {
+    _convert($self, $footnote_element->{'contents'}->[0]);
+  }
+  _add_newline_if_needed($self);
+
+  my $old_context = $self->pop_top_formatter();
+  die if ($old_context ne 'footnote');
+}
+
+sub format_footnotes($;$) {
   my ($self, $output_unit) = @_;
 
   my $formatter = new_formatter($self, 'line'); # may not be used
@@ -1500,75 +1529,11 @@ sub process_footnotes($;$) {
       my $footnotes_header = "   ---------- Footnotes ----------\n\n";
       _stream_output($self, $footnotes_header);
       _add_lines_count($self, 2);
-    } else {
-      my $footnotes_node_arg
-            = Texinfo::TreeElement::new({'type' => 'line_arg',
-                             'contents' => [$label_element,
-                        Texinfo::TreeElement::new({'text' => '-Footnotes'})]});
-      my $footnotes_node = Texinfo::TreeElement::new({
-        'cmdname' => 'node',
-        'contents' => [Texinfo::TreeElement::new({'type' => 'arguments_line',
-                                      'contents' => [$footnotes_node_arg],})],
-        'extra' => {'is_target' => 1,
-                'identifier'
-                  => $node_element->{'extra'}->{'identifier'}.'-Footnotes',
-                   }
-      });
-      my $footnotes_node_relations = {
-         'element' => $footnotes_node,
-         'node_directions' => {'up' => $node_element},
-      };
-      $self->format_node($footnotes_node, $footnotes_node_relations);
-      $self->{'current_node'} = $footnotes_node;
     }
 
     while (@{$self->{'pending_footnotes'}}) {
       my $footnote_info = shift @{$self->{'pending_footnotes'}};
-      my $footnote_number = $footnote_info->{'number'};
-
-      # If nested within another footnote and footnotestyle is separate,
-      # the element here will be the parent element and not the footnote
-      # element, while the pxref will point to the name with the
-      # footnote node taken into account.  Not really problematic as
-      # nested footnotes are not right.
-      if (defined($label_element) and defined($self->{'target_locations'})) {
-        my $footnote_anchor_postfix = "-Footnote-$footnote_number";
-        my $footnote_anchor_arg
-          = Texinfo::Common::non_leading_trailing_tree($label_element);
-        $footnote_anchor_arg->{'type'} = 'brace_arg';
-        push @{$footnote_anchor_arg->{'contents'}},
-               Texinfo::TreeElement::new({'text' => $footnote_anchor_postfix});
-        my $footnote_anchor = Texinfo::TreeElement::new({'cmdname' => 'anchor',
-                                    'contents' => [$footnote_anchor_arg],
-                                    'extra' => {'is_target' => 1,
-                                                'identifier'
-       => $node_element->{'extra'}->{'identifier'}.$footnote_anchor_postfix},
-                            });
-        $self->add_target_location($footnote_anchor);
-      }
-      # this pushes on 'context', 'formatters', 'format_context',
-      # 'text_element_context' and 'document_context'
-      $self->push_top_formatter('footnote');
-      my $formatted_footnote_number;
-      if ($self->get_conf('NUMBER_FOOTNOTES')) {
-        $formatted_footnote_number = $footnote_number;
-      } else {
-        $formatted_footnote_number = $NO_NUMBER_FOOTNOTE_SYMBOL;
-      }
-      my $footnote_text = ' ' x $footnote_indent
-               . "($formatted_footnote_number) ";
-      $self->{'text_element_context'}->[-1]->{'counter'} +=
-         Texinfo::Convert::Unicode::string_width($footnote_text);
-      _stream_output($self, $footnote_text);
-
-      my $footnote_element = $footnote_info->{'footnote_element'};
-      if (exists($footnote_element->{'contents'})) {
-        _convert($self, $footnote_element->{'contents'}->[0]);
-      }
-      _add_newline_if_needed($self);
-
-      my $old_context = $self->pop_top_formatter();
-      die if ($old_context ne 'footnote');
+      process_one_footnote($self, $footnote_info);
     }
   }
   $self->{'footnote_index'} = 0;
@@ -3399,6 +3364,7 @@ sub _convert($$) {
              add_next($formatter->{'container'},
                       "($formatted_footnote_number)", 1));
         my $footnotestyle = $self->get_conf('footnotestyle');
+        # FIXME do not do that for plaintext, only for Info
         if (defined($footnotestyle) and $footnotestyle eq 'separate'
             and exists($self->{'current_node'})) {
           # arguments_line type element

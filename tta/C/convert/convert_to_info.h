@@ -18,6 +18,7 @@ TEXT info_output (CONVERTER *self, DOCUMENT *document);
 void info_format_anchor (CONVERTER *self, const ELEMENT *anchor);
 void info_format_contents (CONVERTER *self, SECTIONING_ROOT *sectioning_root,
                            enum command_id contents_or_shortcontents_cmd);
+void info_format_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit);
 void info_format_printindex (CONVERTER *self, const ELEMENT *printindex);
 void info_format_ref (CONVERTER *self, enum command_id cmd,
                       const ELEMENT *element);

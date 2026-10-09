@@ -141,7 +141,7 @@ sub _info_header($$$) {
     $self->{'in_copying_header'} = 1;
     $self->_convert({'contents' =>
           $global_commands->{'copying'}->{'contents'}});
-    $self->process_footnotes();
+    $self->format_footnotes();
     delete $self->{'in_copying_header'};
   }
   if (exists($global_commands->{'dircategory_direntry'})) {
@@ -335,7 +335,7 @@ sub output($$) {
 
     my $root = $document->tree();
     $self->_convert($root);
-    $self->process_footnotes();
+    $self->format_footnotes();
     my $root_output = $self->_stream_final_result();
 
     my $output = $header.$root_output;
@@ -597,6 +597,98 @@ sub format_contents($$$) {
   my ($self, $section_root, $contents_or_shortcontents) = @_;
 
   return ('', 0);
+}
+
+sub format_footnotes($;$) {
+  my ($self, $output_unit) = @_;
+
+  my $formatter = $self->new_formatter('line'); # may not be used
+  push @{$self->{'formatters'}}, $formatter;
+
+  if (scalar(@{$self->{'pending_footnotes'}})) {
+    my $node_element;
+    my $label_element;
+    if (defined($output_unit) and exists($output_unit->{'unit_command'})) {
+      $node_element = $output_unit->{'unit_command'};
+      # We only do new nodes with nodes, not with sectioning command
+      # without node that can be a target to cross-references.
+      if ($node_element->{'cmdname'} eq 'node'
+          and exists($node_element->{'extra'})
+          and exists($node_element->{'extra'}->{'identifier'})) {
+        # arguments_line type element
+        my $arguments_line = $node_element->{'contents'}->[0];
+        $label_element = $arguments_line->{'contents'}->[0];
+      }
+    }
+
+    $self->_add_newline_if_needed();
+    my $footnotestyle = $self->get_conf('footnotestyle');
+    if (!defined($footnotestyle) or $footnotestyle ne 'separate'
+        # no node label happens only in very special cases, such as
+        # a @footnote in @copying and @insertcopying (and USE_NODES=0?)
+        or !defined($label_element)) {
+      my $footnotes_header = "   ---------- Footnotes ----------\n\n";
+      $self->_stream_output($footnotes_header);
+      $self->_add_lines_count(2);
+    } else {
+      my $footnotes_node_arg
+            = Texinfo::TreeElement::new({'type' => 'line_arg',
+                             'contents' => [$label_element,
+                        Texinfo::TreeElement::new({'text' => '-Footnotes'})]});
+      my $footnotes_node = Texinfo::TreeElement::new({
+        'cmdname' => 'node',
+        'contents' => [Texinfo::TreeElement::new({'type' => 'arguments_line',
+                                      'contents' => [$footnotes_node_arg],})],
+        'extra' => {'is_target' => 1,
+                'identifier'
+                  => $node_element->{'extra'}->{'identifier'}.'-Footnotes',
+                   }
+      });
+      my $footnotes_node_relations = {
+         'element' => $footnotes_node,
+         'node_directions' => {'up' => $node_element},
+      };
+      $self->format_node($footnotes_node, $footnotes_node_relations);
+      $self->{'current_node'} = $footnotes_node;
+    }
+
+    while (@{$self->{'pending_footnotes'}}) {
+      my $footnote_info = shift @{$self->{'pending_footnotes'}};
+      my $footnote_number = $footnote_info->{'number'};
+
+      # If nested within another footnote and footnotestyle is separate,
+      # the element here will be the parent element and not the footnote
+      # element, while the pxref will point to the name with the
+      # footnote node taken into account.  Not really problematic as
+      # nested footnotes are not right.
+      if (defined($label_element) and defined($self->{'target_locations'})) {
+        my $footnote_anchor_postfix = "-Footnote-$footnote_number";
+        my $footnote_anchor_arg
+          = Texinfo::Common::non_leading_trailing_tree($label_element);
+        $footnote_anchor_arg->{'type'} = 'brace_arg';
+        push @{$footnote_anchor_arg->{'contents'}},
+               Texinfo::TreeElement::new({'text' => $footnote_anchor_postfix});
+        my $footnote_anchor = Texinfo::TreeElement::new({'cmdname' => 'anchor',
+                                    'contents' => [$footnote_anchor_arg],
+                                    'extra' => {'is_target' => 1,
+                                                'identifier'
+       => $node_element->{'extra'}->{'identifier'}.$footnote_anchor_postfix},
+                            });
+        $self->add_target_location($footnote_anchor);
+      }
+
+      $self->process_one_footnote($footnote_info);
+    }
+  }
+  $self->{'footnote_index'} = 0;
+
+  $self->_stream_output_count_nl(
+                 Texinfo::Convert::Paragraph::end($formatter->{'container'}));
+
+  pop @{$self->{'formatters'}};
+  Texinfo::Convert::Paragraph::destroy($formatter->{'container'});
+
+  return;
 }
 
 sub format_printindex($$) {

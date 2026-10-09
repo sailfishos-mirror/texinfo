@@ -72,8 +72,8 @@ void plaintext_node_name (CONVERTER *self, const ELEMENT *element,
                           STRING_WITH_WIDTH *string_result);
 void plaintext_cache_node_names (CONVERTER *self,
                                  NODE_RELATIONS_LIST *nodes_list);
-void plaintext_process_footnotes (CONVERTER *self,
-                                  const OUTPUT_UNIT *output_unit);
+void plaintext_process_one_footnote (CONVERTER *self,
+                                     const PENDING_FOOTNOTE *footnote_info);
 void plaintext_process_printindex (CONVERTER *self,
                                    const ELEMENT *printindex, int in_info);
 int plaintext_stream_image_formatted_text (CONVERTER *self,
@@ -87,8 +87,10 @@ void plaintext_add_quoted_image (CONVERTER *self, TEXT *image_string,
                                  TEXT *image_quoted, TEXT *trailing_text);
 void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
 /* TODO add plaintext_ prefix for all the functions? */
+void add_lines_count (CONVERTER *self, int lines_count);
 void stream_output_n (CONVERTER *self, const char *text, size_t n);
 void stream_output (CONVERTER *self, const char *text);
+void stream_output_count_nl (CONVERTER *self, const TEXT text);
 void stream_output_add_text (CONVERTER *self, const char *text, size_t n);
 void stream_output_add_next (CONVERTER *self, const char *text, size_t n);
 TEXT pending_to_text (PENDING_TEXT_LIST *pending_texts);
