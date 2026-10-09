@@ -142,6 +142,7 @@ typedef struct PLAINTEXT_FORMAT_FUNCTIONS {
     void (* format_printindex) (CONVERTER *self, const ELEMENT *element);
     void (* format_ref) (CONVERTER *self, enum command_id cmd,
                          const ELEMENT *element);
+    void (* format_reference_to_footnote) (CONVERTER *self);
     TEXT (* quote_image) (CONVERTER *self, const TEXT *image_text);
 } PLAINTEXT_FORMAT_FUNCTIONS;
 
@@ -1806,6 +1807,11 @@ plaintext_format_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
 
   para_destroy ();
   pop_formatter (self, 0);
+}
+
+void
+plaintext_format_reference_to_footnote (CONVERTER *self)
+{
 }
 
 /* move SOURCE to the end of DST_PENDING_TEXT, exchanging the pending texts
@@ -3527,6 +3533,7 @@ static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[] = {
    &plaintext_format_node,
    &plaintext_format_printindex,
    &plaintext_format_ref,
+   &plaintext_format_reference_to_footnote,
    &plaintext_quote_image,
   },
   {
@@ -3539,6 +3546,7 @@ static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[] = {
    &info_format_node,
    &info_format_printindex,
    &info_format_ref,
+   &info_format_reference_to_footnote,
    &info_quote_image,
   }
 };
@@ -4918,48 +4926,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   stream_output_count_nl (self, added);
                 }
 
+              plaintext_functions[self->format]
+                                 .format_reference_to_footnote (self);
 
-              if (self->conf->footnotestyle.o.string
-                  && !strcmp (self->conf->footnotestyle.o.string, "separate")
-                  && self_plaintext->current_node)
-                {
-                  /* arguments_line type element */
-                  const ELEMENT *arguments_line
-                    = self_plaintext->current_node->e.c->contents.list[0];
-                  ELEMENT *line_arg = arguments_line->e.c->contents.list[0];
-
-                  ELEMENT *footnote_ref = new_element (ET_NONE);
-                  ELEMENT *open_parenthese = new_text_element (ET_other_text);
-                  text_append_n (open_parenthese->e.text, " (", 2);
-                  ELEMENT *close_parenthese = new_text_element (ET_other_text);
-                  text_append_n (close_parenthese->e.text, ")", 1);
-                  ELEMENT *footnote_pxref
-                                 = new_command_element (ET_brace_command,
-                                                        CM_pxref);
-                  ELEMENT *footnote_brace_arg = new_element (ET_brace_arg);
-                  ELEMENT *footnote_name = new_text_element (ET_other_text);
-                  text_printf (footnote_name->e.text, "-Footnote-%d",
-                               self_plaintext->footnote_index);
-
-                  add_element_to_element_contents (footnote_ref,
-                                                   open_parenthese);
-                  add_to_element_contents (footnote_ref, footnote_pxref);
-                  add_element_to_element_contents (footnote_ref,
-                                                   close_parenthese);
-                  add_to_element_contents (footnote_pxref, footnote_brace_arg);
-                  add_to_contents_as_array (footnote_brace_arg, line_arg);
-                  add_element_to_element_contents (footnote_brace_arg,
-                                                   footnote_name);
-
-                  convert_to_plaintext_internal (self, footnote_ref);
-
-                  destroy_element (footnote_name);
-                  destroy_element (footnote_brace_arg);
-                  destroy_element (footnote_pxref);
-                  destroy_element (open_parenthese);
-                  destroy_element (close_parenthese);
-                  destroy_element (footnote_ref);
-                }
               return;
             }
           else if (cmd == CM_anchor || cmd == CM_namedanchor)

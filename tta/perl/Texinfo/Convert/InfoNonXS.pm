@@ -691,6 +691,33 @@ sub format_footnotes($;$) {
   return;
 }
 
+sub format_reference_to_footnote($) {
+  my $self = shift;
+
+  my $footnotestyle = $self->get_conf('footnotestyle');
+  if (defined($footnotestyle) and $footnotestyle eq 'separate'
+      and exists($self->{'current_node'})) {
+    # arguments_line type element
+    my $arguments_line = $self->{'current_node'}->{'contents'}->[0];
+    my $line_arg = $arguments_line->{'contents'}->[0];
+    $self->_convert(Texinfo::TreeElement::new({'contents' =>
+           [Texinfo::TreeElement::new({'text' => ' ('}),
+            Texinfo::TreeElement::new({'cmdname' => 'pxref',
+             'contents' => [
+               Texinfo::TreeElement::new({'type' => 'brace_arg',
+                'contents' => [
+                   $line_arg,
+                   Texinfo::TreeElement::new(
+                        {'text' => "-Footnote-$self->{'footnote_index'}"})
+                ]
+               })
+             ]
+            }),
+            Texinfo::TreeElement::new({'text' => ')'})],
+      }));
+  }
+}
+
 sub format_printindex($$) {
   my ($self, $printindex) = @_;
 

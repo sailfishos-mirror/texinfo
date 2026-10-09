@@ -143,9 +143,9 @@ $result_converted{'plaintext'}->{'footnote_no_number_separate'} = 'top
 1 Chapter
 *********
 
-Para(*) (see chap-Footnote-1).
+Para(*).
 
-   Para2(*) (see chap-Footnote-2).
+   Para2(*).
 
    ---------- Footnotes ----------
 

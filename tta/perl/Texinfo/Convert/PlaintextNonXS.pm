@@ -1523,6 +1523,12 @@ sub format_footnotes($;$) {
   return;
 }
 
+sub format_reference_to_footnote($) {
+  my $self = shift;
+
+  return;
+}
+
 sub _compute_spaces_align_line($$$) {
   my ($line_width, $max_column, $direction) = @_;
 
@@ -3341,29 +3347,7 @@ sub _convert($$) {
         _stream_output_count_nl($self,
              add_next($formatter->{'container'},
                       "($formatted_footnote_number)", 1));
-        my $footnotestyle = $self->get_conf('footnotestyle');
-        # FIXME do not do that for plaintext, only for Info
-        if (defined($footnotestyle) and $footnotestyle eq 'separate'
-            and exists($self->{'current_node'})) {
-          # arguments_line type element
-          my $arguments_line = $self->{'current_node'}->{'contents'}->[0];
-          my $line_arg = $arguments_line->{'contents'}->[0];
-          _convert($self, Texinfo::TreeElement::new({'contents' =>
-           [Texinfo::TreeElement::new({'text' => ' ('}),
-            Texinfo::TreeElement::new({'cmdname' => 'pxref',
-             'contents' => [
-               Texinfo::TreeElement::new({'type' => 'brace_arg',
-                'contents' => [
-                   $line_arg,
-                   Texinfo::TreeElement::new(
-                        {'text' => "-Footnote-$self->{'footnote_index'}"})
-                ]
-               })
-             ]
-            }),
-            Texinfo::TreeElement::new({'text' => ')'})],
-            }));
-        }
+        $self->format_reference_to_footnote();
         return;
       } elsif ($cmdname eq 'anchor' or $cmdname eq 'namedanchor') {
         _stream_output_count_nl($self,

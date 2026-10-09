@@ -370,9 +370,9 @@ End:
 $result_converted{'plaintext'}->{'two_footnotes_in_nodes_separate_no_header'} = '2 footnotes in 2 nodes
 **********************
 
-A(1) (see Top-Footnote-1)
+A(1)
 
-   B(2) (see Top-Footnote-2)
+   B(2)
 
    ---------- Footnotes ----------
 
@@ -387,9 +387,9 @@ A(1) (see Top-Footnote-1)
 1 chapter
 *********
 
-C(1) (see chapter-Footnote-1)
+C(1)
 
-   D(2) (see chapter-Footnote-2)
+   D(2)
 
    ---------- Footnotes ----------
 
