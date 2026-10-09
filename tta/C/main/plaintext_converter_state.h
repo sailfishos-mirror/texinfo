@@ -131,8 +131,7 @@ typedef struct TEXT_CONTEXT {
 def_list_type(TEXT_CONTEXT_STACK, TEXT_CONTEXT);
 
 typedef struct STRING_WITH_WIDTH {
-    char *string;
-    int len;
+    TEXT string;
     /* TODO or size_t?  Matches return type of para_counter */
     int width;
 } STRING_WITH_WIDTH;

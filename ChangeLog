@@ -1,5 +1,13 @@
 2026-10-09 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c (plaintext_convert_node_name)
+	(plaintext_node_name, plaintext_cache_node_names),
+	tta/C/main/plaintext_converter_state.h (STRING_WITH_WIDTH): replace
+	string and len fields of STRING_WITH_WIDTH by a TEXT for more
+	consistent code.  Update users.
+
+2026-10-09 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Config.pm (texinfo_set_from_init_file)
 	(GNUT_set_from_cmdline, GNUT_set_customization_default): remove
 	_GNUT_map_obsolete_options and call to _GNUT_map_obsolete_options.  It

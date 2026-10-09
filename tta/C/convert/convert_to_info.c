@@ -731,7 +731,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
 
       plaintext_node_name (self, element, &node_name_width);
 
-      if (is_c_hashmap_registered (seen_anchors, node_name_width.string))
+      if (is_c_hashmap_registered (seen_anchors, node_name_width.string.text))
         {
           if (!self_plaintext->silent)
             {
@@ -745,11 +745,11 @@ info_output (CONVERTER *self, DOCUMENT *document)
                         element_command_name (element), texinfo_string);
               free (texinfo_string);
             }
-          free (node_name_width.string);
+          free (node_name_width.string.text);
           continue;
         }
 
-      c_hashmap_register (seen_anchors, node_name_width.string, 0);
+      c_hashmap_register (seen_anchors, node_name_width.string.text, 0);
 
       if (element->e.c->cmd == CM_node)
         prefix = "Node";
@@ -761,20 +761,20 @@ info_output (CONVERTER *self, DOCUMENT *document)
         {
           TEXT converted_text
                = encode_with_iconv (self_plaintext->encoding_object->iconv,
-                                              node_name_width.string,
-                                              node_name_width.len,
+                                              node_name_width.string.text,
+                                              node_name_width.string.end,
                                               0, ieh_error, 0);
           text_append_n (&tag_text, converted_text.text, converted_text.end);
           free (converted_text.text);
         }
       else
-        text_append_n (&tag_text, node_name_width.string,
-                       node_name_width.len);
+        text_append_n (&tag_text, node_name_width.string.text,
+                       node_name_width.string.end);
 
       text_printf (&tag_text, "\x7F%zu\n",
                    self_plaintext->target_locations->list[j].bytes);
 
-      free (node_name_width.string);
+      free (node_name_width.string.text);
     }
   text_append_n (&tag_text, "\x1F\nEnd Tag Table\n", 16);
 
@@ -1099,7 +1099,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
     {
       STRING_WITH_WIDTH node_name_width;
       plaintext_node_name (self, target_element, &node_name_width);
-      node_name = node_name_width.string;
+      node_name = node_name_width.string.text;
       need_free_node_name = 1;
     }
   else if (label_element && label_element->e.c->contents.number == 1
@@ -1369,7 +1369,7 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
       || self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
     {
       const char *check_chars = ",";
-      const char *p = strpbrk (node_text.string, check_chars);
+      const char *p = strpbrk (node_text.string.text, check_chars);
 
       if (p)
         {
@@ -1378,7 +1378,7 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
                         (self->conf && self->conf->DEBUG.o.integer > 0),
                        node, 0,
                      "@node name should not contain `,': %s",
-                      node_text.string);
+                      node_text.string.text);
 
           if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
             quoting_required = 1;
@@ -1386,10 +1386,10 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
     }
   if (quoting_required)
     stream_output_n (self, node_quote, 1);
-  stream_output_n (self, node_text.string, node_text.len);
+  stream_output_n (self, node_text.string.text, node_text.string.end);
   if (quoting_required)
     stream_output_n (self, node_quote, 1);
-  free (node_text.string);
+  free (node_text.string.text);
 
   if (!node_relations)
     {
@@ -1452,7 +1452,7 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
 
               plaintext_node_name (self, node_direction, &node_text);
 
-              if (node_text.string[0] == '(' && !manual_content)
+              if (node_text.string.text[0] == '(' && !manual_content)
                 {
                   if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
                     quoting_required = 1;
@@ -1462,7 +1462,7 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
                   || self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
                 {
                   const char *check_chars = ",";
-                  const char *p = strpbrk (node_text.string,
+                  const char *p = strpbrk (node_text.string.text,
                                            check_chars);
 
                   if (p)
@@ -1474,7 +1474,7 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
                       (self->conf && self->conf->DEBUG.o.integer > 0),
                                    node, 0,
                       "@node %s name should not contain `,': %s",
-                           directions[i], node_text.string);
+                           directions[i], node_text.string.text);
                       if (
                    self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
                         quoting_required = 1;
@@ -1482,10 +1482,11 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
                 }
               if (quoting_required)
                 stream_output_n (self, node_quote, 1);
-              stream_output_n (self, node_text.string, node_text.len);
+              stream_output_n (self, node_text.string.text,
+                               node_text.string.end);
               if (quoting_required)
                 stream_output_n (self, node_quote, 1);
-              free (node_text.string);
+              free (node_text.string.text);
             }
         }
       else if (i == D_up && self->conf->TOP_NODE_UP.o.string)

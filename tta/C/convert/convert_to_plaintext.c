@@ -904,7 +904,7 @@ plaintext_conversion_finalization (CONVERTER *self)
   size_t i;
 
   for (i = 0; i < self->document->nodes_list.number; i++)
-    free (self_plaintext->node_names_cache[i].string);
+    free (self_plaintext->node_names_cache[i].string.text);
 
   pop_top_formatter (self);
 
@@ -1569,8 +1569,7 @@ plaintext_convert_node_name (CONVERTER *self, const ELEMENT *element,
   pop_count_context (&self_plaintext->count_context);
   pop_formatter (self, 1);
 
-  string_result->string = result.text;
-  string_result->len = result.end;
+  string_result->string = result;
 }
 
 /* NOTE do caching for nodes in nodes_list only, for two reasons.
@@ -1596,7 +1595,7 @@ plaintext_node_name (CONVERTER *self, const ELEMENT *element,
           const STRING_WITH_WIDTH *node_name
             = &self_plaintext->node_names_cache[node_number -1];
 
-          if (!node_name->string)
+          if (!node_name->string.text)
             {
               STRING_WITH_WIDTH *new_node_name
                 = &self_plaintext->node_names_cache[node_number -1];
@@ -1604,12 +1603,11 @@ plaintext_node_name (CONVERTER *self, const ELEMENT *element,
                                            new_node_name);
             }
 
+          text_init (&string_result->string);
           /* allow NUL in string */
-          string_result->string = malloc ((node_name->len +1) * sizeof (char));
-          memcpy (string_result->string, node_name->string,
-                  (node_name->len +1) * sizeof (char));
+          text_append_n (&string_result->string, node_name->string.text,
+                         node_name->string.end);
           string_result->width = node_name->width;
-          string_result->len = node_name->len;
           return;
         }
     }
@@ -1658,8 +1656,7 @@ plaintext_cache_node_names (CONVERTER *self, NODE_RELATIONS_LIST *nodes_list)
       result = stream_to_text (self);
       normalize_top_node_name_text (&result);
       node_name->width = para_counter ();
-      node_name->string = result.text;
-      node_name->len = result.end;
+      node_name->string = result;
 
       /* reset counters */
       para_end_line ();
@@ -2974,7 +2971,7 @@ plaintext_process_printindex (CONVERTER *self,
      /* protect characters that need to be protected in menu node entry
         after menu entry name and also :, as the Info readers
         should consider text up to : to be part of the index entry. */
-              p = node_name.string;
+              p = node_name.string.text;
               char warned_char[3];
               while (*p)
                 {
@@ -3002,7 +2999,7 @@ plaintext_process_printindex (CONVERTER *self,
                     {
                       if (! is_c_hashmap_registered (
                             &self_plaintext->index_entry_node_colon,
-                                       node_name.string))
+                                       node_name.string.text))
                         {
                           message_list_command_warn (&self->error_messages,
                             (self->conf && self->conf->DEBUG.o.integer > 0),
@@ -3012,7 +3009,7 @@ plaintext_process_printindex (CONVERTER *self,
 
                           c_hashmap_register (
                                  &self_plaintext->index_entry_node_colon,
-                                          node_name.string, 0);
+                                          node_name.string.text, 0);
                         }
                     }
 
@@ -3025,12 +3022,12 @@ plaintext_process_printindex (CONVERTER *self,
 
           if (quoting_required)
             stream_output_n (self, node_quote, 1);
-          stream_output_n (self, node_name.string, node_name.len);
+          stream_output_n (self, node_name.string.text, node_name.string.end);
           line_width += node_name.width;
           if (quoting_required)
             stream_output_n (self, node_quote, 1);
 
-          free (node_name.string);
+          free (node_name.string.text);
         }
 
       stream_output_n (self, ".", 1);
