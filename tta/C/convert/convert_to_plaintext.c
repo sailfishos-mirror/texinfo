@@ -1771,46 +1771,23 @@ void
 plaintext_format_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
-  /* may not be used */
   FORMATTER formatter = new_formatter (self, formatter_line, -1, -1);
 
   push_formatter (self, &formatter);
 
   if (self_plaintext->pending_footnotes.number > 0)
     {
-      ELEMENT *label_element = 0;
-      const ELEMENT *node_element;
-      const char *identifier;
       size_t i;
-
-      if (output_unit && output_unit->uc.unit_command)
-        {
-          node_element = output_unit->uc.unit_command;
-
-          if (node_element->e.c->cmd == CM_node)
-            {
-              identifier
-                = lookup_extra_string (node_element, AI_key_identifier);
-              if (identifier)
-                {
-                  const ELEMENT *arguments_line
-                    = node_element->e.c->contents.list[0];
-                  label_element = arguments_line->e.c->contents.list[0];
-                }
-            }
-        }
+      ELEMENT *tree = cdt_tree ("@t{----------} Footnotes @t{----------}",
+                                self, 0 ,0);
 
       add_newline_if_needed (self);
+      plaintext_convert_line (self, tree, footnote_indent, -1, 0, 0);
+      ensure_end_of_line (self);
+      stream_output_n (self, "\n", 1);
+      add_lines_count (self, 1);
 
-      if (!self->conf->footnotestyle.o.string
-          || strcmp (self->conf->footnotestyle.o.string, "separate")
-        /* no node label happens only in very special cases, such as
-           a @footnote in @copying and @insertcopying (and USE_NODES=0?) */
-          || !label_element)
-        {
-          stream_output (self, "   ---------- Footnotes ----------\n\n");
-          add_lines_count (self, 2);
-        }
+      destroy_element_and_children (tree);
 
       for (i = 0; i < self_plaintext->pending_footnotes.number; i++)
         {

@@ -1498,38 +1498,16 @@ sub process_one_footnote($$) {
 sub format_footnotes($;$) {
   my ($self, $output_unit) = @_;
 
-  my $formatter = new_formatter($self, 'line'); # may not be used
+  my $formatter = new_formatter($self, 'line');
   push @{$self->{'formatters'}}, $formatter;
 
   if (scalar(@{$self->{'pending_footnotes'}})) {
-    my $node_element;
-    my $label_element;
-    if (defined($output_unit) and exists($output_unit->{'unit_command'})) {
-      $node_element = $output_unit->{'unit_command'};
-      # We only do new nodes with nodes, not with sectioning command
-      # without node that can be a target to cross-references.
-      # TODO if doing plaintext, and not Info shouldn't all the
-      # footnote be formatted without a separate node and with the
-      # --- footnotes --- separator?
-      if ($node_element->{'cmdname'} eq 'node'
-          and exists($node_element->{'extra'})
-          and exists($node_element->{'extra'}->{'identifier'})) {
-        # arguments_line type element
-        my $arguments_line = $node_element->{'contents'}->[0];
-        $label_element = $arguments_line->{'contents'}->[0];
-      }
-    }
-
     _add_newline_if_needed($self);
-    my $footnotestyle = $self->get_conf('footnotestyle');
-    if (!defined($footnotestyle) or $footnotestyle ne 'separate'
-        # no node label happens only in very special cases, such as
-        # a @footnote in @copying and @insertcopying (and USE_NODES=0?)
-        or !defined($label_element)) {
-      my $footnotes_header = "   ---------- Footnotes ----------\n\n";
-      _stream_output($self, $footnotes_header);
-      _add_lines_count($self, 2);
-    }
+    my $tree = $self->cdt('@t{----------} Footnotes @t{----------}');
+    $self->convert_line($tree, $footnote_indent);
+    _ensure_end_of_line($self);
+    _stream_output($self, "\n");
+    _add_lines_count($self, 1);
 
     while (@{$self->{'pending_footnotes'}}) {
       my $footnote_info = shift @{$self->{'pending_footnotes'}};

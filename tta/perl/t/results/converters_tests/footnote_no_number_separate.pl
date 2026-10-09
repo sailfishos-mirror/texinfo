@@ -147,6 +147,8 @@ Para(*) (see chap-Footnote-1).
 
    Para2(*) (see chap-Footnote-2).
 
+   ---------- Footnotes ----------
+
    (*) Footnote 1.
 
    (*) Footnote 2.

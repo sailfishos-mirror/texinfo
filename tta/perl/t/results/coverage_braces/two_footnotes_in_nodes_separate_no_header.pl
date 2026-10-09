@@ -374,6 +374,8 @@ A(1) (see Top-Footnote-1)
 
    B(2) (see Top-Footnote-2)
 
+   ---------- Footnotes ----------
+
    (1) Footnote Top/1
 
    para2
@@ -388,6 +390,8 @@ A(1) (see Top-Footnote-1)
 C(1) (see chapter-Footnote-1)
 
    D(2) (see chapter-Footnote-2)
+
+   ---------- Footnotes ----------
 
    (1) Footnote chapter/1
 
