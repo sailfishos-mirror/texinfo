@@ -1,5 +1,12 @@
 2026-10-10 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Common.pm (count_bytes): use processing_output_encoding
+	to determine the Perl encoding.
+
+	Changes in comments, remove unneeded TODOs.
+
+2026-10-10 Patrice Dumas  <pertusus@free.fr>
+
 	hide COLLATION_LANGUAGE and DOCUMENTLANGUAGE_COLLATION, remove from C
 
 	* tta/C/main/document_types.h (enum collation_type_name),

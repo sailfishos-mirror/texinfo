@@ -1981,25 +1981,27 @@ my $last_encoding;
 sub count_bytes($;$) {
   my ($string, $encoding) = @_;
 
-  # TODO if/when code is used again.  Encoding is unlikely to be ascii, as
-  # documentencoding ascii is mapped to output encoding name us-ascii.
-  # Also it may have been better to call
-  # Texinfo::Common::processing_output_encoding, in
-  # which case us-ascii would be mapped to iso-8859-1.
-  if (defined($encoding) and $encoding ne 'ascii') {
+  if (defined($encoding) and $encoding ne '') {
     if (!defined($last_encoding) or $last_encoding ne $encoding) {
       # Look up and save encoding object for next time.  This is
       # slightly faster than calling Encode::encode.
       $last_encoding = $encoding;
-      $Encode_encoding_object = Encode::find_encoding($encoding);
-      if (!defined($Encode_encoding_object)) {
-        Carp::croak "Unknown encoding '$encoding'";
+      my $perl_encoding = processing_output_encoding($encoding);
+      if (defined($perl_encoding)) {
+        $Encode_encoding_object = Encode::find_encoding($perl_encoding);
+        if (!defined($Encode_encoding_object)) {
+          Carp::croak "Unknown Perl encoding '$perl_encoding' for '$encoding'";
+        }
+      } else {
+        $Encode_encoding_object = undef;
       }
     }
-    return length($Encode_encoding_object->encode($string));
-  } else {
-    return length($string);
+    if (defined($Encode_encoding_object)) {
+      return length($Encode_encoding_object->encode($string));
+    }
   }
+
+  return length($string);
 }
 
 # custom heading command line is split at @|

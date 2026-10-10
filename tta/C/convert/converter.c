@@ -134,7 +134,6 @@ static CONVERTER_FORMAT_DATA converter_format_data[] = {
    &plaintext_converter_defaults,
    &plaintext_converter_initialize, &plaintext_output, &plaintext_convert,
    &plaintext_convert_tree, 0, &plaintext_free_converter, 0, 0},
-  /* TODO having plaintext_format_setup here could lead to being called twice */
   {"info", "Texinfo::Convert::Info", &plaintext_format_setup, 0,
    &info_converter_defaults,
    &plaintext_converter_initialize, &info_output, &plaintext_convert,
@@ -278,6 +277,8 @@ converter_format_perl_class_name (enum converter_format format)
 /* Initialize converter data (independent of customization) */
 /* Corresponds to code run directly in the module namespace when doing
    use/require $module in Perl */
+/* Caller should make sure that it is only called once per format
+   sharing the same function */
 void
 setup_converter_format (enum converter_format converter_format)
 {

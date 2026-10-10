@@ -95,9 +95,9 @@ sub new($%) {
 
 # Simply return a copy of the string, in UTF-8.
 # Note: this should return an encoded string, because Unicode::Collate
-# getSortKey returns a byte string and if the getSortKey function
-# is called from C code it may not handle any "wide characters" in
-# the sort key.
+# getSortKey returns a byte string (and if the getSortKey function
+# is called from C code again someday it may not handle any "wide characters"
+# in the sort key).
 # The ordering will be the Unicode code point order because the UTF-8
 # sequences sort in code point order.
 sub getSortKey($$) {
@@ -419,7 +419,6 @@ sub format_index_entries_sort_strings($) {
 # http://www.unicode.org/reports/tr10/#Variable_Weighting
 my %collate_options = ( 'variable' => 'Non-Ignorable' );
 
-# called from C/main/call_perl_function.c
 sub _setup_lang_collator($;$) {
   my ($lang_sorting_locale, $collate_options_ref) = @_;
 

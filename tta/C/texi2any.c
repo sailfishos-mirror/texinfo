@@ -715,9 +715,6 @@ warn_deprecated_dirs (DEPRECATED_DIRS_LIST *deprecated_dirs_used)
 
   Return 0 in case of success.
  */
-/* TODO warn/exit if loaded twice?  The problem with being loaded
-   twice is that the init files code may have modified previous
-   interpreter data */
 static void
 load_interpreter (INTERPRETER_LOADING_INFO *loading_info)
 {
@@ -725,6 +722,9 @@ load_interpreter (INTERPRETER_LOADING_INFO *loading_info)
   char *load_modules_path;
   int status;
 
+  /* make sure that the interpreter is not loaded twice.  If loaded
+     twice, init files code could have modified the previous interpreter
+     data that has been replaced */
   if (loading_info->embedded_interpreter != txi_interpreter_want_embedded)
     return;
 
