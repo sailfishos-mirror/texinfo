@@ -1,5 +1,12 @@
 2026-10-11 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/ext/highlight_syntax.pm (highlight_setup): read the
+	remaining lines from the highlight program pipe to avoid an error
+	when closing the pipe.
+	Also show $? in command pipe closing error message.
+
+2026-10-11 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/ext/highlight_syntax.pm: use single quoted strings when
 	there is no interpolation.
 

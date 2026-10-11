@@ -163,6 +163,9 @@ sub highlight_setup($$) {
         last;
       }
     }
+    # read the remaining lines, otherwise there is an error when closing
+    # the pipe.
+    while (defined($line = <HIGHLIGHT_LANG_LIST>)) {};
     #use Data::Dumper;
     #print STDERR Data::Dumper->Dump([$highlighted_languages_list]);
     #exit 1;
@@ -197,8 +200,8 @@ sub highlight_setup($$) {
   }
   if (!close(HIGHLIGHT_LANG_LIST)) {
     $self->converter_document_warn(sprintf(__(
-                             '%s: closing communication failed: %s: %s'),
-                                           $highlight_type, $cmd, $!));
+                             "%s: closing communication failed (%s): %s: %s"),
+                                           $highlight_type, $?, $cmd, $!));
   }
 
   if (scalar(keys(%$highlighted_languages_list)) == 0) {
