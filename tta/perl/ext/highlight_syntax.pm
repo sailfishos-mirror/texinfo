@@ -699,6 +699,9 @@ sub highlight_open_inline_container_type($$$) {
   return '';
 }
 
+my %small_block_associated_command
+ = %Texinfo::Common::small_block_associated_command;
+
 sub highlight_preformatted_command($$$$$) {
   my ($self, $cmdname, $command, $args, $content) = @_;
 
@@ -729,37 +732,68 @@ sub highlight_preformatted_command($$$$$) {
         # of @example as it is discarded.  So need to do the preformatted
         # type formatting, from _convert_preformatted_type() and
         # _preformatted_class().
-        # Since we are formatting @example itself, it is not in the preformatted
-        # context anymore, so we readd.
-        my $preformatted_classes_stack = $self->preformatted_classes_stack();
-        my @pre_classes = @{$preformatted_classes_stack};
-        # NOTE $pre_class_format is setup below to correspond to
-        # $pre_class_commands{$cmdname}, which cannot be used directly,
-        # as it is private.
-        my $pre_class_format = $cmdname;
-        my $main_cmdname = $cmdname;
-        if (exists($Texinfo::Common::small_block_associated_command{$cmdname})) {
-          $pre_class_format
-            = $Texinfo::Common::small_block_associated_command{$cmdname};
-          $main_cmdname
-            = $Texinfo::Common::small_block_associated_command{$cmdname};
-        }
-        push @pre_classes, $pre_class_format;
+
+        my $result_content
+          = $highlighted_cmds{$cmdname}->{'results'}->{$command};
+
+        ####### begin sync with _convert_preformatted_type
+        # NOTE specific formatting for specific contexts is not done here.
+
+        # do it here, it should have been correctly registered with example
+        # and not preformatted through highlight_open_inline_container_type.
+        $result_content
+            = $self->get_associated_formatted_inline_content($command)
+                              . $result_content;
+
+        # a newline immediately after a <pre> is ignored.
+        $result_content =~ s/^\n/\n\n/;
+
+        # following code replaces the next line
+        # $pre_class = _preformatted_class($self) if (!defined($pre_class));
+        ####### begin sync with _preformatted_class
         my $pre_class;
+        my $preformatted_classes_stack = $self->preformatted_classes_stack();
+        # Since we are formatting @example itself, it is not on the preformatted
+        # class stack anymore, so we readd.
+        my @pre_classes = @{$preformatted_classes_stack};
+        # Code similar to code setting %pre_class_commands; using
+        # $pre_class_commands{$cmdname} as in the HTML converter to
+        # put on the preformatted classes stack cannot be used directly,
+        # as it is private.
+        if (exists($small_block_associated_command{$cmdname})) {
+          push @pre_classes, $small_block_associated_command{$cmdname};
+        } else {
+          push @pre_classes, $cmdname;
+        }
+
         foreach my $class (@pre_classes) {
-          # FIXME maybe add   or $pre_class eq 'menu'  to override
-          # 'menu' with 'menu-comment'?
-          $pre_class = $class unless ($pre_class
+          $pre_class = $class unless (defined($pre_class)
        and exists($Texinfo::Commands::preformatted_code_commands{$pre_class})
        and !(exists($Texinfo::Commands::preformatted_code_commands{$class})
              or $class eq 'menu'));
         }
         $pre_class = $pre_class.'-preformatted';
+        ####### end sync with _preformatted_class
+        my $preformatted_result_content = $self->html_attribute_class('pre',
+                                   [$pre_class]).">".$result_content."</pre>";
 
-        # Add classes as done in the default conversion function.
-        # TODO is it correct?  What should be done with @example arguments?
+        ####### end sync with _convert_preformatted_type
+
+        ###### begin sync with _convert_preformatted_command
         my @classes;
+
+        # this is mainly for classes as there are purprosely no classes
+        # for small*
+        my $main_cmdname;
+        if (exists($small_block_associated_command{$cmdname})) {
+          $main_cmdname = $small_block_associated_command{$cmdname};
+          push @classes, $cmdname;
+        } else {
+          $main_cmdname = $cmdname;
+        }
+
         if ($cmdname eq 'example') {
+          # arguments_line type element
           my $arguments_line = $command->{'contents'}->[0];
           if (exists($arguments_line->{'contents'})) {
             for my $example_arg (@{$arguments_line->{'contents'}}) {
@@ -777,22 +811,11 @@ sub highlight_preformatted_command($$$$$) {
           push @classes, $main_cmdname;
           $main_cmdname = 'example';
         }
-        unshift @classes, $main_cmdname;
 
-        my $result_content
-          = $highlighted_cmds{$cmdname}->{'results'}->{$command};
-        # do it here, what was done in preformatted is discarded.
-        # It should have been correctly registered
-        # through highlight_open_inline_container_type.
-        $result_content
-            = $self->get_associated_formatted_inline_content($command)
-                              . $result_content;
-        # a newline immediately after a <pre> is ignored.
-        $result_content =~ s/^\n/\n\n/;
-        my $preformatted_result_content = $self->html_attribute_class('pre',
-                                   [$pre_class]).">".$result_content."</pre>";
+        unshift @classes, $main_cmdname;
         return $self->html_attribute_class('div', \@classes).">\n"
                .$preformatted_result_content.'</div>'."\n";
+        ####### end sync with _convert_preformatted_command
       }
     # no error nor verbose message if there was no retrieved information
     # for that language
