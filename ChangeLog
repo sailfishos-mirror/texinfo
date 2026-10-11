@@ -1,3 +1,9 @@
+2026-10-11  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Invoking texi2any, Setting the Output File Name):
+	Move discussion of -o taking priority over @setfilename to
+	"Setting the Output File Name".
+
 2026-10-11 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/ext/highlight_syntax.pm (highlight_setup): read the

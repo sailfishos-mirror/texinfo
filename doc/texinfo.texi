@@ -15349,13 +15349,8 @@ with hierarchically structured manuals.  You should specify
 @opindex -o @var{dest}
 @c @vindex OUTFILE
 @c @vindex SUBDIR
-Specify that the output should be directed to @var{dest}.  If @var{dest}
-is @samp{-}, output goes to standard output.
-
-A value given with @option{--output} overrides any file name specified in
-a @code{@@setfilename} command found in the Texinfo source.  If neither
-@code{@@setfilename} nor this option are specified, the input file name is
-used to determine the output name.  @xref{Setting the Output File Name}.
+Specify that the output should be directed to @var{dest}.  If @var{dest} is
+@samp{-}, output goes to standard output.  @xref{Setting the Output File Name}.
 
 When generating HTML or plaintext and output is split, @var{dest} is used
 as the name for the directory into which all files are written.
@@ -15560,6 +15555,8 @@ When producing another output format, @command{texi2any} will replace any
 final extension with the output format-specific extension (@samp{html}
 when generating HTML, for example), or add a dot followed by the
 extension (@samp{.html} for HTML) if the given name has no extension.
+Note that a value given with @option{-o} takes priority over any file name
+specified in a @code{@@setfilename} line in the input.
 
 For split Info output, the names of the subfiles are set by appending
 @samp{-1}, @samp{-2}, @dots{}, @samp{-10}, @samp{-11}, and so on to the
