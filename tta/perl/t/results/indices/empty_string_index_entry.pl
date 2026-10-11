@@ -317,6 +317,8 @@ $result_converted{'latex'}->{'empty_string_index_entry'} = '\\documentclass{book
 \\usepackage{amsmath}
 \\usepackage[gen]{eurosym}
 \\usepackage{textcomp}
+\\usepackage[utf8]{inputenc}
+\\usepackage[T1]{fontenc}
 % This is used to provide a default no-operation \'keyval\' definition
 % of the "alt" key in the "Gin" ("Graphics Inclusion") family used
 % by graphicx.  This prevents an "alt" attribute generating an error in
@@ -327,8 +329,6 @@ $result_converted{'latex'}->{'empty_string_index_entry'} = '\\documentclass{book
 \\usepackage{graphicx}
 \\usepackage{etoolbox}
 \\usepackage{titleps}
-\\usepackage[utf8]{inputenc}
-\\usepackage[T1]{fontenc}
 \\usepackage{imakeidx}
 \\usepackage{embrac}
 \\usepackage{expl3}

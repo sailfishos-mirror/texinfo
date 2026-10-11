@@ -136,6 +136,8 @@ $result_converted{'latex'}->{'multiple_spaces_in_float_type'} = '\\documentclass
 \\usepackage{amsmath}
 \\usepackage[gen]{eurosym}
 \\usepackage{textcomp}
+\\usepackage[utf8]{inputenc}
+\\usepackage[T1]{fontenc}
 % This is used to provide a default no-operation \'keyval\' definition
 % of the "alt" key in the "Gin" ("Graphics Inclusion") family used
 % by graphicx.  This prevents an "alt" attribute generating an error in
@@ -146,8 +148,6 @@ $result_converted{'latex'}->{'multiple_spaces_in_float_type'} = '\\documentclass
 \\usepackage{graphicx}
 \\usepackage{etoolbox}
 \\usepackage{titleps}
-\\usepackage[utf8]{inputenc}
-\\usepackage[T1]{fontenc}
 \\usepackage{float}
 % use hidelinks to remove boxes around links to be similar to Texinfo TeX
 \\usepackage[hidelinks]{hyperref}

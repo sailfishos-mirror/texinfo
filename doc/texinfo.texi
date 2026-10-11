@@ -16435,9 +16435,10 @@ only.
 @vtable @code
 @item CLASS_BEGIN_USEPACKAGE
 If set, the corresponding text will replace the @LaTeX{} @code{\documentclass},
-package imports that are always output and are output right after
+package imports that are always output right after
 @code{\documentclass}, and package imports that depend on the document encoding
 setting the input and font encoding (@code{inputenc} and @code{fontenc}).
+These packages were selected as packages users may want to replace.
 
 The text replaced is along:
 @example LaTeX
@@ -16446,34 +16447,45 @@ The text replaced is along:
 \usepackage@{amsmath@}
 \usepackage[gen]@{eurosym@}
 \usepackage@{textcomp@}
-\usepackage@{graphicx@}
-\usepackage@{etoolbox@}
-\usepackage@{titleps@}
 \usepackage[utf8]@{inputenc@}
 \usepackage[T1]@{fontenc@}
 @end example
 
 @item END_USEPACKAGE
-If set, the corresponding text will replace the package imports that depend
-on the Texinfo commands used, and the last packages imports that are always
-output and output after all the other packages imports.  The last package
-imports corresponds to @samp{\usepackage[hidelinks]@{hyperref@}}.
+If set, the corresponding text will replace some package imports that
+are always output after fonts setting packages, the package imports that
+depend on the Texinfo commands used, and the last packages imports that are
+always output and output after all the other packages imports.  The last
+package imports corresponds to @samp{\usepackage[hidelinks]@{hyperref@}}.
 
 Here is an example of the corresponding text for a document with indices,
 @code{@@need}, @code{@@multitable}, definition commands, @code{@@cartouche},
 lists, and @code{@@float}:
 @example LaTeX
+% Prevents an "alt" attribute generating an error in older
+% versions of graphicx.
+\makeatletter
+\providecommand\KV@@Gin@@alt@{@}
+\makeatother
+\usepackage@{graphicx@}
+\usepackage@{etoolbox@}
+\usepackage@{titleps@}
 \usepackage@{imakeidx@}
 \usepackage@{needspace@}
 \usepackage@{array@}
 \usepackage@{embrac@}
 \usepackage@{expl3@}
 \usepackage@{tabularx@}
-\usepackage[framemethod=tikz]@{mdframed@}
+\usepackage@{tcolorbox@}
 \usepackage@{enumitem@}
 \usepackage@{float@}
 \usepackage[hidelinks]@{hyperref@}
 @end example
+
+Getting the packages list right is not easy because the generated LaTeX code
+is often tied to the choice of these packages, and packages are dynamically
+added based on the input manual features.  Therefore, setting this
+customization variable should be done with caution.
 
 @item LATEX_FLOATS_FILE_EXTENSION
 Set new floats definition file extension for @LaTeX{} output.

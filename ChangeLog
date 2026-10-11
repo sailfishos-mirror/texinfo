@@ -1,3 +1,13 @@
+2026-10-11 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_latex_header): move usepackage
+	for graphicx, etoolbox and titleps to packages covered by
+	END_USEPACKAGE.  It is less likely fo users to want to replace these
+	packages, making CLASS_BEGIN_USEPACKAGE easier to modify.
+
+	* doc/texinfo.texi (@LaTeX{} Customization Variables): update.
+	Incite to change CLASS_BEGIN_USEPACKAGE, but not END_USEPACKAGE.
+
 2026-10-11  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/configure.ac, configure.ac: remove apparently unneeded

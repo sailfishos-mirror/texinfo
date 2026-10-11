@@ -1817,16 +1817,6 @@ sub _latex_header($) {
     $class_and_usepackage_begin .= $math_usepackage;
     $class_and_usepackage_begin .= '\usepackage[gen]{eurosym}
 \usepackage{textcomp}
-% This is used to provide a default no-operation \'keyval\' definition
-% of the "alt" key in the "Gin" ("Graphics Inclusion") family used
-% by graphicx.  This prevents an "alt" attribute generating an error in
-% older versions of graphicx.
-\makeatletter
-\providecommand\KV@Gin@alt{}
-\makeatother
-\usepackage{graphicx}
-\usepackage{etoolbox}
-\usepackage{titleps}
 ';
     if (!defined($latex_tagged_pdf_var)) {
       my $enc_usepackages = _enc_usepackage($self->{'output_encoding_name'});
@@ -1846,6 +1836,17 @@ sub _latex_header($) {
   }
   my $usepackage_end = $self->get_conf('END_USEPACKAGE');
   if (!defined($usepackage_end)) {
+    $usepackage_end .= '% This is used to provide a default no-operation \'keyval\' definition
+% of the "alt" key in the "Gin" ("Graphics Inclusion") family used
+% by graphicx.  This prevents an "alt" attribute generating an error in
+% older versions of graphicx.
+\makeatletter
+\providecommand\KV@Gin@alt{}
+\makeatother
+\usepackage{graphicx}
+\usepackage{etoolbox}
+\usepackage{titleps}
+';
     #if (exists($self->{'packages'}->{'appendix'})) {
     #  $usepackage_end .= "\\usepackage[toc]{appendix}\n";
     #}

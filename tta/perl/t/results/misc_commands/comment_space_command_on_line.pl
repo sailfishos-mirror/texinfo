@@ -377,6 +377,8 @@ $result_converted{'latex'}->{'comment_space_command_on_line'} = '\\documentclass
 \\usepackage{amsmath}
 \\usepackage[gen]{eurosym}
 \\usepackage{textcomp}
+\\usepackage[utf8]{inputenc}
+\\usepackage[T1]{fontenc}
 % This is used to provide a default no-operation \'keyval\' definition
 % of the "alt" key in the "Gin" ("Graphics Inclusion") family used
 % by graphicx.  This prevents an "alt" attribute generating an error in
@@ -387,8 +389,6 @@ $result_converted{'latex'}->{'comment_space_command_on_line'} = '\\documentclass
 \\usepackage{graphicx}
 \\usepackage{etoolbox}
 \\usepackage{titleps}
-\\usepackage[utf8]{inputenc}
-\\usepackage[T1]{fontenc}
 \\usepackage{imakeidx}
 \\usepackage[activate=false]{microtype}
 \\usepackage{float}
