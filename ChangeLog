@@ -1,3 +1,11 @@
+2026-10-11 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/ext/tex4ht.pm ($tex4ht_file_content_encoding): encode
+	generated tex/latex/texi file and decode resulting HTML file.  Use
+	iso-8859-1 as it is what gives the best results in the test suite
+	since accented letters are iso-8859-1 encoded, though it is not
+	perfect as image file with accent in their names are UTF-8 encoded.
+
 2026-10-10 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Common.pm (count_bytes): use processing_output_encoding
