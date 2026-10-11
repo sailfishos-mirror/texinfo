@@ -68,13 +68,11 @@ my %formats;
 my $tex4ht_initial_dir;
 my $tex4ht_out_dir;
 
-sub tex4ht_prepare($$)
-{
-  # set file names
-  my $self = shift;
-  my $document = shift;
+# set file names
+sub tex4ht_prepare($$) {
+  my ($self, $document) = @_;
 
-  my $document_root = $document->tree();
+  my $tree_root = $document->tree();
 
   # this initialization may not be needed, but it is cleaner anyway,
   # in case there is more than one texinfo file processed.
@@ -151,7 +149,7 @@ sub tex4ht_prepare($$)
 
   my @replaced_commands = sort(keys(%commands));
   my $collected_commands = Texinfo::Common::collect_commands_list_in_tree(
-                                        $document_root, \@replaced_commands);
+                                        $tree_root, \@replaced_commands);
   my %format_collected_commands = ();
   foreach my $element (@{$collected_commands}) {
     my $command = $element->{'cmdname'};
@@ -319,8 +317,7 @@ sub tex4ht_prepare($$)
 }
 
 # run tex4ht and extract HTML for all the formats
-sub tex4ht_process($)
-{
+sub tex4ht_process($) {
   my $self = shift;
 
   # check first that there are collected commands before attempting chdir.
@@ -358,8 +355,7 @@ sub tex4ht_process($)
 
 # run tex4ht and extract HTML fragments from the result file
 sub tex4ht_process_format($$) {
-  my $self = shift;
-  my $format = shift;
+  my ($self, $format) = @_;
 
   return 0 unless ($formats{$format}->{'counter'});
 
@@ -469,19 +465,14 @@ sub tex4ht_process_format($$) {
   return 0;
 }
 
-sub tex4ht_convert_command($$$;$$)
-{
-  my $self = shift;
-  my $cmdname = shift;
-  my $command = shift;
-  my $args = shift;
-  my $content = shift;
+sub tex4ht_convert_command($$$;$$) {
+  my ($self, $cmdname, $command, $args, $content) = @_;
 
-  if (not defined ($commands{$cmdname})) {
+  if (not defined($commands{$cmdname})) {
     # nothing was collected, do the usual output
     return &{$self->default_command_conversion($cmdname)}($self,
                                $cmdname, $command, $args, $content);
-  } elsif (not defined ($commands{$cmdname}->{'results'})) {
+  } elsif (not defined($commands{$cmdname}->{'results'})) {
     # no results at all for that command, also do the usual output
     warn "tex4ht.pm: no results at all for \@$cmdname (element $command)\n"
            if ($self->get_conf('VERBOSE'));
@@ -503,9 +494,9 @@ sub tex4ht_convert_command($$$;$$)
   }
 }
 
-sub tex4ht_finish($)
-{
+sub tex4ht_finish($) {
   my $self = shift;
+
   # this is different from the warning in tex4ht_process_command as, here,
   # this is the number of retrieved fragment, not processed fragment.
   if ($self->get_conf('VERBOSE')) {
