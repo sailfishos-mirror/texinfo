@@ -1,5 +1,10 @@
 2026-10-11 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/ext/highlight_syntax.pm: use single quoted strings when
+	there is no interpolation.
+
+2026-10-11 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/ext/highlight_syntax.pm (highlight_setup): warn if closing
 	the communication with the command errored out.
 

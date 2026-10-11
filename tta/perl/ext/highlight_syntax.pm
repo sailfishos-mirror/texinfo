@@ -501,7 +501,7 @@ sub highlight_process($$) {
   if (! -d $highlight_out_dir) {
     if (!mkdir $highlight_out_dir) {
       $self->converter_document_warn(
-         sprintf(__("highlight_syntax.pm: could not make directory %s: %s"),
+         sprintf(__('highlight_syntax.pm: could not make directory %s: %s'),
                                       $highlight_out_dir, $!));
     }
   }
@@ -526,7 +526,7 @@ sub highlight_process($$) {
       = $self->encoded_output_file_name($input_language_path_name);
     unless (open(HIGHLIGHT_LANG_IN, ">$encoded_input_language_path_name")) {
       $self->converter_document_warn(
-             sprintf(__("highlight_syntax.pm: could not open %s: %s"),
+             sprintf(__('highlight_syntax.pm: could not open %s: %s'),
                                       $input_language_path_name, $!));
       return 1;
     }
@@ -558,7 +558,7 @@ sub highlight_process($$) {
     }
     if (! close(HIGHLIGHT_LANG_IN)) {
       $self->converter_document_warn(
-             sprintf(__("highlight_syntax.pm: error on closing %s: %s"),
+             sprintf(__('highlight_syntax.pm: error on closing %s: %s'),
                                       $input_language_path_name, $!));
       return 1;
     }
@@ -587,7 +587,7 @@ sub highlight_process($$) {
     }
     if (system($encoded_cmd)) {
       $self->converter_document_error(
-          sprintf(__("highlight_syntax.pm: command did not succeed: %s"),
+          sprintf(__('highlight_syntax.pm: command did not succeed: %s'),
                                   $cmd));
       return 1;
     }
@@ -598,7 +598,7 @@ sub highlight_process($$) {
       = $self->encoded_output_file_name($html_result_path_name);
     unless (open(HIGHLIGHT_LANG_OUT, $encoded_html_result_path_name)) {
       $self->converter_document_warn(
-         sprintf(__("highlight_syntax.pm: could not open %s: %s"),
+         sprintf(__('highlight_syntax.pm: could not open %s: %s'),
                                   $html_result_path_name, $!));
       return 1;
     }
@@ -633,14 +633,14 @@ sub highlight_process($$) {
     }
     if ($separators_count != $language_fragments_nr +1) {
       $self->converter_document_warn(sprintf(__(
-       "highlight_syntax.pm: %s: %d separators; expected %d, the number of fragments +1"),
+       'highlight_syntax.pm: %s: %d separators; expected %d, the number of fragments +1'),
                       $language, $separators_count, $language_fragments_nr+1));
     }
     if (defined($text) and $text ne '') {
       my $element = $languages{$language}->{'commands'}->[$got_count-1];
       my $cmdname = $element->{'cmdname'};
       $self->converter_document_warn(sprintf(__(
-                 "highlight_syntax.pm: %s: end of \@%s item %d not found"),
+                 'highlight_syntax.pm: %s: end of @%s item %d not found'),
                                   $language, $cmdname, $got_count));
     }
     # note that this check is not the most detailed that could be done, a check
@@ -649,12 +649,12 @@ sub highlight_process($$) {
     # for a language, not a command, so it should not be needed either.
     if ($got_count != $languages{$language}->{'counter'}) {
       $self->converter_document_warn(sprintf(__(
-         "highlight_syntax.pm: %s: retrieved %d items in HTML; expected %d"),
+         'highlight_syntax.pm: %s: retrieved %d items in HTML; expected %d'),
                             $language, $got_count, $language_fragments_nr));
     }
     if (!close(HIGHLIGHT_LANG_OUT)) {
       $self->converter_document_warn(
-             sprintf(__("highlight_syntax.pm: error on closing %s: %s"),
+             sprintf(__('highlight_syntax.pm: error on closing %s: %s'),
                                       $html_result_path_name, $!));
     }
   }
@@ -711,7 +711,7 @@ sub highlight_preformatted_command($$$$$) {
 
       if (not defined($language)) {
         $self->converter_document_warn(sprintf(__(
-       "highlight_syntax.pm: output has HTML item for \@%s but no language %s"),
+       'highlight_syntax.pm: output has HTML item for @%s but no language %s'),
                                     $cmdname, $command));
       } else {
         $highlighted_cmds{$cmdname}->{'output_languages_counters'}
@@ -807,7 +807,7 @@ sub highlight_preformatted_command($$$$$) {
       # If they are not equal there should have been a message already.
       if ($cmd_language_input_count == $cmd_language_retrieved_count) {
         $self->converter_document_warn(sprintf(__(
-                "highlight_syntax.pm: output has no HTML item for \@%s %s %s"),
+                'highlight_syntax.pm: output has no HTML item for @%s %s %s'),
                                     $cmdname, $language, $command));
       } elsif ($self->get_conf('VERBOSE') or $self->get_conf('DEBUG')) {
         warn "highlight_syntax.pm: output has no HTML item for \@$cmdname $language $command\n";
