@@ -1,5 +1,9 @@
 2026-10-11 Patrice Dumas  <pertusus@free.fr>
 
+	* po/POTFILES.in: update.
+
+2026-10-11 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Makefile.am (all-local): add all-local with
 	stamp.regenerate_file_lists to have products_regenerate_file_lists
 	files back after make maintainer-clean followed by make (without a
