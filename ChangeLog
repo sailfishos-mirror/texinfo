@@ -1,3 +1,10 @@
+2026-10-11 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/t/09indices.t (nested_and_duplicate_sortas): add test with
+	multiple @sortas and nested @sortas.  Based on Werner Lemberg report.
+
+2026-10-11 Patrice Dumas  <pertusus@free.fr>
+
 2026-10-11  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Node Line Requirements, Menu Parts):
@@ -17,7 +24,7 @@
 2026-10-11 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/manipulate_indices.c (INDEX_COLLATOR): ifdef the whole
-	coll union, to avoid defining an empty union.  Fond on Solaris.
+	coll union, to avoid defining an empty union.  Found on Solaris.
 
 2026-10-11 Patrice Dumas  <pertusus@free.fr>
 

@@ -896,6 +896,21 @@ c
 
 @printindex cp
 ', {'test_formats' => ['docbook']}],
+['nested_and_duplicate_sortas',
+'@node top
+@top top
+
+@node chapter index
+@chapter Index
+
+@findex @sortas{@sortas{bbb}ddd X}@sortas{bbb}ddd
+@findex @sortas{first} cc @sortas{second}
+@findex aa
+@findex hh
+@findex dd
+
+@printindex fn
+'],
 ['test_sorting_symbols',
 '@node top
 @top top

@@ -1465,6 +1465,7 @@ t/results/indices/index_table_chapter_no_node/res_plaintext/indices-refs.txt
 t/results/indices/index_table_chapter_no_node/res_plaintext/node-with-ftable-and-vtable.txt
 t/results/indices/index_table_chapter_no_node/res_plaintext/node-with-printindex.txt
 t/results/indices/multiple_index_text_sortas_seeentry_seealso.pl
+t/results/indices/nested_and_duplicate_sortas.pl
 t/results/indices/nodes_before_top.pl
 t/results/indices/nodes_before_top/res_html/a-node.html
 t/results/indices/nodes_before_top/res_html/another.html
