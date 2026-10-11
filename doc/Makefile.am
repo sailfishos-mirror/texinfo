@@ -16,7 +16,8 @@ AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_WARNING=0
 SUBDIRS = tta_api
 
 info_TEXINFOS = texinfo.texi info-stnd.texi texi2any_api.texi
-texinfo_TEXINFOS = pod2texi.texi html_default_commands_args.texi
+texinfo_TEXINFOS = pod2texi.texi
+texi2any_api_TEXINFOS = html_default_commands_args.texi
 DISTCLEANFILES = texinfo.info* info-stnd.info* texi2any_api.info*
 
 TEXINFO_TEX = texinfo.tex
