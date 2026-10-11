@@ -10,9 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-make maintainer-clean removes products_regenerate_file_lists, which is right,
-but make does not regenerate the file, only make dist.  Bug?
-
 No "shadow targets" nor nodes added when a node is associated to
 a @*heading*, we should keep a track of this, such that users relying on
 @heading know that it is different for heading and keep this in a TODO.

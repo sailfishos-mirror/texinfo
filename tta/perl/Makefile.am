@@ -48,6 +48,10 @@ $(products_regenerate_file_lists): $(srcdir)/stamp.regenerate_file_lists
 EXTRA_DIST += stamp.regenerate_file_lists
 MAINTAINERCLEANFILES += $(products_regenerate_file_lists) stamp.regenerate_file_lists
 
+# Not strictly needed for make all, but it allows to have the files back after
+# make maintainer-clean followed by make (without a need to run make dist too).
+all-local: stamp.regenerate_file_lists
+
 if !PREFER_C_TEXI2ANY
 bin_SCRIPTS = texi2any
 else
