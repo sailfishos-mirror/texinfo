@@ -1,5 +1,11 @@
 2026-10-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Setting the Output File Name): Add a
+	cross-reference to "Global Customization Variables" for more
+	details on OUTFILE and SUBDIR.
+
+2026-10-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Invoking texi2any) <-D>: Refer to a "flag" rather
 	than "variable" to avoid possible confusion with customisation
 	variables.

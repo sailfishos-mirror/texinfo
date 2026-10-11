@@ -15547,7 +15547,16 @@ in input file names, but non ASCII characters in output name will create
 problems for some output formats, especially for cross-references.}.
 
 You can give the @option{-o} option to change the output file name;
-see @ref{Invoking @command{texi2any}}.
+see @ref{Invoking @command{texi2any}}.  You can also use the customization
+variables @code{OUTFILE} and/or @code{SUBDIR} to affect the name or location
+of output files; see @ref{Global Customization Variables} for details.
+
+@ignore
+OUTFILE and SUBDIR do not match up exactly with -o, as -o can set either
+variable depending on the output format (with split output, it sets SUBDIR
+instead).  We refer to the section on customization variables rather than
+going into detail about how the command-line options affect these variables.
+@end ignore
 
 If the input has a @code{@@setfilename} line (@pxref{@code{@@setfilename}}),
 the argument is the output filename for Info output.
