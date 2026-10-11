@@ -99,7 +99,7 @@ sub tex4ht_prepare($$) {
   my $math_conversion = $self->get_conf('T4H_MATH_CONVERSION');
   if (defined($math_conversion) and !$formats{$math_conversion}) {
     $self->converter_document_error(
-         sprintf(__("tex4ht.pm: unknown conversion type for math: %s"),
+         sprintf(__('tex4ht.pm: unknown conversion type for math: %s'),
                                       $math_conversion));
     $math_conversion = undef;
   }
@@ -108,7 +108,7 @@ sub tex4ht_prepare($$) {
   my $tex_conversion = $self->get_conf('T4H_TEX_CONVERSION');
   if (defined($tex_conversion) and !$formats{$tex_conversion}) {
     $self->converter_document_error(
-         sprintf(__("tex4ht.pm: unknown conversion type for \@tex: %s"),
+         sprintf(__('tex4ht.pm: unknown conversion type for @tex: %s'),
                                       $tex_conversion));
     $tex_conversion = undef;
   }
@@ -117,7 +117,7 @@ sub tex4ht_prepare($$) {
   my $latex_conversion = $self->get_conf('T4H_LATEX_CONVERSION');
   if (defined($latex_conversion) and !$formats{$latex_conversion}) {
     $self->converter_document_error(
-         sprintf(__("tex4ht.pm: unknown conversion type for \@latex: %s"),
+         sprintf(__('tex4ht.pm: unknown conversion type for @latex: %s'),
                                       $latex_conversion));
     $latex_conversion = undef;
   }
@@ -225,7 +225,7 @@ sub tex4ht_prepare($$) {
           local *TEX4HT_TEXFILE;
           unless (open(*TEX4HT_TEXFILE, ">$encoded_tex4ht_file_path_name")) {
             $self->converter_document_error(
-                    sprintf(__("tex4ht.pm: could not open %s: %s"),
+                    sprintf(__('tex4ht.pm: could not open %s: %s'),
                                           $tex4ht_file_path_name, $!));
             return 1;
           }
@@ -307,7 +307,7 @@ sub tex4ht_prepare($$) {
         }
         if (!close ($fh)) {
           $self->converter_document_warn(
-                  sprintf(__("tex4ht.pm: error on closing %s: %s"),
+                  sprintf(__('tex4ht.pm: error on closing %s: %s'),
                                         $tex4ht_file_path_name, $!));
         }
       }
@@ -333,7 +333,7 @@ sub tex4ht_process($) {
     = $self->encoded_output_file_name($tex4ht_out_dir);
   unless (chdir $encoded_tex4ht_out_dir) {
     $self->converter_document_warn(
-            sprintf(__("tex4ht.pm: chdir %s failed: %s"),
+            sprintf(__('tex4ht.pm: chdir %s failed: %s'),
                          $tex4ht_out_dir, $!));
     return 1;
   }
@@ -347,7 +347,7 @@ sub tex4ht_process($) {
   }
   unless (chdir $tex4ht_initial_dir) {
     $self->converter_document_warn(sprintf(__(
-          "tex4ht.pm: unable to return to initial directory: %s"), $!));
+          'tex4ht.pm: unable to return to initial directory: %s'), $!));
     return 1 + $errors;
   }
   return $errors;
@@ -360,7 +360,7 @@ sub tex4ht_process_format($$) {
   return 0 unless ($formats{$format}->{'counter'});
 
   $self->converter_document_warn(
-              sprintf(__("tex4ht.pm: output file missing: %s"),
+              sprintf(__('tex4ht.pm: output file missing: %s'),
                                $formats{$format}->{'basefile_name'}))
     unless (-f $formats{$format}->{'basefile_path'});
 
@@ -392,14 +392,14 @@ sub tex4ht_process_format($$) {
   # mixed up with the main script STDIN.  It is important because
   # if tex fails, it will read from STDIN and the input may trigger
   # diverse actions by tex.
-  if (not(open(TEX4HT, "|-", $encoded_cmd))) {
+  if (not(open(TEX4HT, '|-', $encoded_cmd))) {
     $self->converter_document_error(sprintf(__(
-                         "tex4ht.pm: command failed: %s"), $cmd));
+                         'tex4ht.pm: command failed: %s'), $cmd));
     return 1;
   }
   if (!close(TEX4HT)) {
     $self->converter_document_warn(sprintf(__(
-                         "tex4ht.pm: closing communication failed: %s: %s"),
+                         'tex4ht.pm: closing communication failed: %s: %s'),
                          $cmd, $!));
     return 1;
   }
@@ -412,7 +412,7 @@ sub tex4ht_process_format($$) {
   my $encoded_html_basefile = $formats{$format}->{'html_basefile_path'};
   unless (open(TEX4HT_HTMLFILE, $encoded_html_basefile)) {
     $self->converter_document_warn(
-              sprintf(__("tex4ht.pm: could not open %s: %s"),
+              sprintf(__('tex4ht.pm: could not open %s: %s'),
                                   $html_basefile, $!));
     return 1;
   }
@@ -448,7 +448,7 @@ sub tex4ht_process_format($$) {
       unless ($end_found) {
         # should be a bug or mangled output
         $self->converter_document_warn(sprintf(__(
-                               "tex4ht.pm: end of %s item %d for \@%s not found"),
+                           'tex4ht.pm: end of %s item %d for @%s not found'),
                                       $format, $count, $cmdname));
       }
     }
@@ -457,7 +457,7 @@ sub tex4ht_process_format($$) {
     # unless tex4ht somehow mangles the output, this should
     # never happen, could also be considered as en error or a bug.
     $self->converter_document_warn(sprintf(__(
-       "tex4ht.pm: processing produced %d items in HTML; expected %d for format %s"),
+       'tex4ht.pm: processing produced %d items in HTML; expected %d for format %s'),
                                  $got_count, $formats{$format}->{'counter'},
                                  $format));
   }
@@ -504,18 +504,18 @@ sub tex4ht_finish($) {
       if (not defined($commands{$command}->{'output_counter'})) {
         if (defined($commands{$command}->{'counter'})) {
           $self->converter_document_warn(sprintf(__(
-           "tex4ht.pm: output counter UNDEF; expected %d for \@%s"),
+           'tex4ht.pm: output counter UNDEF; expected %d for @%s'),
                                  $commands{$command}->{'counter'}, $command));
         } else {
           warn sprintf(__(
-            "tex4ht.pm: no expected items in the document for \@%s"),
+            'tex4ht.pm: no expected items in the document for @%s'),
                                              $command)."\n";
         }
       } elsif ($commands{$command}->{'output_counter'} != $commands{$command}->{'counter'}) {
         # NOTE with math commands in @copying and multiple @insertcopying,
         # there may be more items output than found in the document tree
         warn sprintf(__(
-           "tex4ht.pm: processing retrieved %d items in HTML; collected %d for \@%s"),
+     'tex4ht.pm: processing retrieved %d items in HTML; collected %d for @%s'),
                                   $commands{$command}->{'output_counter'},
                                   $commands{$command}->{'counter'}, $command)."\n";
       }

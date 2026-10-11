@@ -429,8 +429,6 @@ sub l2h_to_html($$$) {
   my $call_start = $latex2html_command;
   # use init file, if specified
   my $init_file = $self->get_conf('L2H_FILE');
-  # FIXME not clear whether encoded_input_file_name or encoded_output_file_name
-  # should be used here
   if (defined($init_file) and $init_file ne '') {
     # FIXME likely incorrect, should use the same encoding as
     # the encoding used to encode call

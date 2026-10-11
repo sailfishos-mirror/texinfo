@@ -195,8 +195,11 @@ sub highlight_setup($$) {
       }
     }
   }
-  # FIXME check error status
-  close(HIGHLIGHT_LANG_LIST);
+  if (!close(HIGHLIGHT_LANG_LIST)) {
+    $self->converter_document_warn(sprintf(__(
+                             '%s: closing communication failed: %s: %s'),
+                                           $highlight_type, $cmd, $!));
+  }
 
   if (scalar(keys(%$highlighted_languages_list)) == 0) {
     # important if $cmd returns no output to have a message.  If there
