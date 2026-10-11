@@ -3061,7 +3061,7 @@ A description of the item (optional).
 @end enumerate
 
 The template for a generic menu entry looks like this (but see the
-next section for one more possibility):
+next subsection for one more possibility):
 
 @example
 * @var{menu-entry-name}: @var{node-name}.   @var{description}
@@ -3087,10 +3087,14 @@ Unfortunately you must type
 node names without any extra spaces or some versions of some Info
 readers will not find the node (@pxref{Node Line Requirements}).
 
+Due to the syntax of a menu entry described in this and the next
+subsection, you cannot reliably use a colon character in
+@var{menu-entry-name}, or a period, comma or colon in @var{node-name}.
+(@xref{Info Node Names Constraints}.)
 @command{texi2any} warns and protect names when the text of a menu item
-(and node names and cross-references) contains a problematic construct that
-could interfere with its parsing in Info.  @xref{Info Node Names Constraints}.
-
+contains a problematic construct that could interfere with its parsing
+in Info (@pxref{Info Format Menu}, and see @ref{Info Format Cross
+Reference}).
 
 @node Less Cluttered Menu Entry
 @nodedescription Two part menu entry.

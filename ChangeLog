@@ -1,5 +1,10 @@
 2026-10-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Menu Parts): Give more detail about problematic
+	constructs and cross-reference Info Format appendix.
+
+2026-10-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Cross Reference Parts): Mention restriction
 	on characters in label name as well as node name.  Report from Eli.
 
