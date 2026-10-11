@@ -718,11 +718,11 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
 
 typedef struct INDEX_COLLATOR {
     enum collation_type_name type;
-    union {
   #ifdef HAVE_NEWLOCALE
+    union {
       locale_t locale;
-  #endif
     } coll;
+  #endif
 } INDEX_COLLATOR;
 
 static BYTES_STRING *
