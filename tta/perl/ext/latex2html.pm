@@ -2,7 +2,7 @@
 #
 # latex2html.pm: interface to LaTeX2HTML
 #
-#    Copyright (C) 1999, 2000, 2003, 2005, 2006, 2009, 2011-2024
+#    Copyright (C) 1999, 2000, 2003, 2005, 2006, 2009, 2011-2026
 #                  Free Software Foundation, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
@@ -106,13 +106,9 @@ my $html_output_count;
 #
 # First stage: Generation of Latex file
 
-sub l2h_to_latex($$$$$)
-{
-  my $self = shift;
-  my $l2h_latex_path_string = shift;
-  my $l2h_latex_path_name = shift;
-  my $latex_text_indices_to_convert = shift;
-  my $latex_texts = shift;
+sub l2h_to_latex($$$$$) {
+  my ($self, $l2h_latex_path_string, $l2h_latex_path_name,
+      $latex_text_indices_to_convert, $latex_texts) = @_;
 
   unless (open(L2H_LATEX, ">$l2h_latex_path_string")) {
     $self->converter_document_error(sprintf(__(
@@ -164,12 +160,10 @@ my $html_converted_count;
 our %l2h_cache;
 my @l2h_from_html;
 
-sub l2h_process($$)
-{
-  my $self = shift;
-  my $document = shift;
+sub l2h_process($$) {
+  my ($self, $document) = @_;
 
-  my $document_root = $document->tree();
+  my $tree_root = $document->tree();
 
   @latex_texts = ();           # array used to associate the index with
                                # a latex text.
@@ -266,7 +260,7 @@ sub l2h_process($$)
 
   my @replaced_commands = ('displaymath', 'latex', 'math', 'tex');
   my $collected_commands = Texinfo::Common::collect_commands_list_in_tree(
-                                        $document_root, \@replaced_commands);
+                                        $tree_root, \@replaced_commands);
 
   my $texinfo_command_index = 0;     # index of latex elements/commands processed
   my @latex_text_indices_to_convert; # indices of latex texts that should be converted
@@ -403,11 +397,8 @@ sub l2h_process($$)
 #   Return 1, on success
 #          0, otherwise
 #
-sub l2h_to_html($$$)
-{
-  my $self = shift;
-  my $l2h_latex_path_string = shift;
-  my $l2h_latex_path_name = shift;
+sub l2h_to_html($$$) {
+  my ($self, $l2h_latex_path_string, $l2h_latex_path_name) = @_;
 
   my $l2h_prefix = "${l2h_name}_";
 
@@ -503,10 +494,8 @@ sub l2h_to_html($$$)
 #   reads in contents into array indexed by text indices
 #   return the indices of retrieved fragments
 
-sub l2h_retrieve_from_html($$)
-{
-  my $self = shift;
-  my $l2h_html_file_name = shift;
+sub l2h_retrieve_from_html($$) {
+  my ($self, $l2h_html_file_name) = @_;
 
   my @html_retrieved_text_indices;   # the text indices retrieved
 
@@ -570,13 +559,8 @@ sub l2h_retrieve_from_html($$)
 
 # called each time an element handled by latex2html is encountered, should
 # output the corresponding html
-sub l2h_convert_command($$$;$$)
-{
-  my $self = shift;
-  my $cmdname = shift;;
-  my $command = shift;
-  my $args = shift;
-  my $content = shift;
+sub l2h_convert_command($$$;$$) {
+  my ($self, $cmdname, $command, $args, $content) = @_;
 
   # if not defined($latex_commands_count) the initialization did not
   # went to the point of commands collections.
@@ -652,8 +636,7 @@ sub l2h_convert_command($$$;$$)
 }
 
 # store results in the cache and remove temporary files.
-sub l2h_finish($)
-{
+sub l2h_finish($) {
   my $self = shift;
 
   return 0 if (not defined($latex_commands_count));
@@ -726,9 +709,9 @@ sub l2h_finish($)
 # cache as code defining the %l2h_cache hash keys and values.
 
 # Load cached strings.
-sub l2h_init_cache($)
-{
+sub l2h_init_cache($) {
   my $self = shift;
+
   my ($encoded_l2h_cache_path_name, $l2h_cache_path_encoding)
     = $self->encoded_output_file_name($l2h_cache_path_name);
   if (-r $encoded_l2h_cache_path_name) {
@@ -761,11 +744,12 @@ sub l2h_init_cache($)
 }
 
 # store all the text obtained through latex2html or from previous runs cache
-sub l2h_store_cache($)
-{
+sub l2h_store_cache($) {
   my $self = shift;
+
   # do not reset the cache if there was no new conversion
   return unless ($html_converted_count);
+
   my ($key, $value);
   my ($encoded_l2h_cache_path_name, $l2h_cache_path_encoding)
     = $self->encoded_output_file_name($l2h_cache_path_name);
@@ -808,10 +792,9 @@ sub l2h_store_cache($)
 
 # return cached html, if it exists for text, and if all pictures
 # are there, as well
-sub l2h_from_cache($$)
-{
-  my $self = shift;
-  my $text = shift;
+sub l2h_from_cache($$) {
+  my ($self, $text) = @_;
+
   my $cached = $l2h_cache{$text};
   if (defined($cached)) {
     while ($cached =~ m/SRC="(.*?)"/g) {
