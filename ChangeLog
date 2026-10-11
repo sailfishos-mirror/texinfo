@@ -1,5 +1,11 @@
 2026-10-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Node Line Requirements, Menu Parts):
+	Remove warning about multiple spaces in menu entries, handled
+	correctly by Info since 2022.
+
+2026-10-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Menu Parts): Give more detail about problematic
 	constructs and cross-reference Info Format appendix.
 

@@ -2504,9 +2504,6 @@ single space.  For example:
 @c However, it is best to leave those special cases non documented
 
 @noindent all define the same node, namely @samp{foo bar}.
-@c FIXME to be removed.  In 2022 both Info readers find the node.
-In menu entries, a single internal space should be used in node
-names or some versions of some Info readers will not find the node.
 @end itemize
 
 
@@ -3081,11 +3078,7 @@ it with the first (and all others).  It's up to you.  An empty line,
 or the next menu entry, ends a description.
 
 Space characters in a menu are preserved as-is in the Info output; this
-allows you to format the menu as you wish.
-@c FIXME to be removed.  In 2022 both Info readers find the node.
-Unfortunately you must type
-node names without any extra spaces or some versions of some Info
-readers will not find the node (@pxref{Node Line Requirements}).
+allows you to format the menu as you wish (@pxref{Node Line Requirements}).
 
 Due to the syntax of a menu entry described in this and the next
 subsection, you cannot reliably use a colon character in
