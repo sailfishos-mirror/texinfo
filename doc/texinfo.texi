@@ -3885,6 +3885,16 @@ Whitespace before and after the commas separating these arguments is
 ignored.  To include a comma in one of the arguments, use
 @code{@@comma@{@}} (@pxref{Inserting a Comma}).
 
+When outputting to Info, you cannot reliably use a colon character
+within a cross-reference label (in the second or third argument to
+one of the cross-reference commands).
+There are also problematic constructs in node or anchor names in Info
+(@pxref{Info Node Names Constraints}).  If a label or node or anchor
+name has one of these problems, @command{texi2any} issues a warning and
+uses a @dfn{quoting} mechanism in its output. (@xref{Info Format Cross
+Reference} for more details.)  This may not be parsed correctly by all
+Info-reading programs,
+
 Cross-references with one, two, three, four, and five arguments are
 described separately in following sections.
 
@@ -3915,10 +3925,6 @@ See Hurricanes, page @var{ppp} --- for the details
 
 @noindent instead of
 @w{`See Hurricanes, page @var{ppp}, --- for the details'}.
-
-@command{texi2any} warns and protect names when the text of a cross-reference
-(and node names and menu items) contains a problematic construct that could
-interfere with its parsing in Info.  @xref{Info Node Names Constraints}.
 
 
 @raisesections
