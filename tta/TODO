@@ -10,19 +10,17 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-No "shadow targets" nor nodes added when a node is associated to
-a @*heading*, we should keep a track of this, such that users relying on
-@heading know that it is different for heading and keep this in a TODO.
+Revisit (dir) by language or not.  Check the remaining of the thread?
+ https://lists.gnu.org/archive/html/bug-texinfo/2026-08/msg00029.html
+Also check "Texinfo manuals translations" below to make sure that
+everything is decided.  Add to Texinfo manual?
 
-1 messages awaiting Gavin answer:
-https://lists.gnu.org/archive/html/bug-texinfo/2026-08/msg00031.html
 
-There is basic documentation of AUTO_SECTION_NODE, but the information
-that nodes are added for sectioning commands without node for formats
-for which is makes a difference need to be integrated in the
-main Node/chapter structuring sections of the document.
+Revisit tests and CRLF?
+https://lists.gnu.org/archive/html/bug-texinfo/2026-10/msg00022.html
 
-+ add to documentation and NEWS
+
+Add shadow target/automatic nodes for sections without nodes to NEWS
 
 
 Document LATEX_TAGGED_PDF + NEWS, change variable name if needed in code
@@ -44,9 +42,13 @@ by
 
 Add breadcrumbs navigation to NEWS?
 Document init files? (asked on the mailing list).
+chm.pm is already in the manual.
 
 Bugs
 ====
+
+To be investigated/fixed as C without libperl/Perl is more important now, as
+proposed by Gavin.
 
 Without XS, Cygwin32 fails with
 2026-05-28T11:00:40.8301466Z libtool: link: gcc -shared  convert/.libs/libtexinfo_convert_la-converter.o convert/.libs/libtexinfo_convert_la-cmd_converter.o convert/.libs/libtexinfo_convert_la-converters_options.o convert/.libs/libtexinfo_convert_la-convert_html.o convert/.libs/libtexinfo_convert_la-format_html.o convert/.libs/libtexinfo_convert_la-html_converter_init_options.o convert/.libs/libtexinfo_convert_la-html_converter_finish.o convert/.libs/libtexinfo_convert_la-html_conversion_state.o convert/.libs/libtexinfo_convert_la-html_prepare_converter.o convert/.libs/libtexinfo_convert_la-html_converter_api.o convert/.libs/libtexinfo_convert_la-plaintexinfo_converter_api.o convert/.libs/libtexinfo_convert_la-rawtext_converter_api.o  -Wl,--whole-archive ./.libs/libcallperl_libtexinfo_convert.a -Wl,--no-whole-archive  ./.libs/libtexinfo.dll.a /cygdrive/d/a/ci-check/ci-check/texinfo-7.3.20260528dev/build/tta/C/.libs/libtexinfo.dll.a -liconv -lintl  -g -O2   -o .libs/cygtexinfo-convert-1.dll -Wl,--enable-auto-image-base -Xlinker --out-implib -Xlinker .libs/libtexinfo-convert.dll.a
@@ -220,14 +222,6 @@ Related glibc enhancement request (probably obsoleted by
 main/unicode-collation/ code):
  request for Non-Ignorable Variable Weighting Unicode collation
  https://sourceware.org/bugzilla/show_bug.cgi?id=31658
-
-
-Missing tests
-=============
-
-Unit test of end_line_count for Texinfo/Convert/Paragraph.pm .... containers.
-
-anchor in flushright, on an empty line, with a current byte offset.
 
 
 Future features
@@ -499,17 +493,16 @@ cross-references to external translated HTML manuals.
 
 Anchors and node names in translated manuals:
 
-When starting from an untranslated manual, nodes, anchor and float names
-(hereafter called targets) would be in the untranslated language (English).
-Then the targets and the associated commands should be translated as the
-manual is translated.  In the short term, it is recommended to keep
-anchors with the untranslated target names such that cross-references
-from external manuals can be either to translated or untranslated target
-names.  In the longer term, it is recommended to keep a mention of the
-untranslated targets, such that it is possible for persons not
-understanding the translation language to move sections around, but
-explicit anchors could be removed, and it is even recommended to remove
-them in the long term.
+When starting from an untranslated manual, sectioning commands, nodes, anchor
+and float names (hereafter called targets) would be in the untranslated
+language (English).  Then the targets and the associated commands should be
+translated as the manual is translated.  In the short term, it is recommended
+to keep anchors with the untranslated target names such that cross-references
+from external manuals can be either to translated or untranslated target names.
+In the longer term, it is recommended to keep a mention of the untranslated
+targets, such that it is possible for persons not understanding the translation
+language to move sections around, but explicit anchors could be removed, and it
+is even recommended to remove them in the long term.
 
 Example of macros that could help the transition and remain in the final
 translated manual.  "name" would be the translated name, and "en" the
@@ -568,7 +561,7 @@ language.
 - making statistics about translations (e.g. which parts of a document
 are translated), which is useful for huge documents that cannot be
 easily translated in one go, or looking for nodes that exist in one
-lanugage but not other (if you allow translators to write new
+language but not other (if you allow translators to write new
 documentation in their own language).
 
 https://lists.gnu.org/archive/html/bug-texinfo/2014-09/msg00002.html

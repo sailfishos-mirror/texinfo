@@ -1,3 +1,7 @@
+2026-10-13 Patrice Dumas  <pertusus@free.fr>
+
+	TODO: add a point on @heading and shadow targets for the future
+
 2026-10-13  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* texindex/texindex.awk (BEGIN): correct bounds of a loop.

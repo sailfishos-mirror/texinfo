@@ -42,6 +42,11 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
       https://sphinx-tabs.readthedocs.io/en/latest/
     example:
       https://developer.gnome.org/documentation/tutorials/beginners/getting_started/content_view.html#bind-the-text-view-in-the-source-code
+  - there are no "shadow" targets for @heading commands not already associated
+    to a @node.  This was done on purpose when designing the "shadow" targets
+    feature, as the change was big enough.  Also requiring explicit @node for
+    @heading may be better for flexibility.  This decision may be rediscussed in
+    the future.
 
 * texi2any:
   - HTML: support thumbnails.
