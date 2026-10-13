@@ -16051,7 +16051,23 @@ of @command{texi2any}.
 @vtable @code
 @item AUTO_SECTION_NODE
 If set, insert nodes for sectioning commands lacking a corresponding node.
-Done by default in @command{texi2any} for Info and HTML output.
+Done by default in @command{texi2any} for Info and HTML output.  This
+allows you to create a node for these output formats using only a sectioning
+command, using the section title as the node name.
+
+In HTML output split by node, you may wish to set this variable to
+@samp{0} to obtain finer control over output file splitting than that
+afforded by the @code{SPLIT} variable.  In this usage, you provide explicit
+@code{@@node} commands to separate the regions of the manual that should be
+placed in different output files.  In contrast to the @samp{chapter} and
+@samp{section} settings for @code{SPLIT} which apply uniformly across the
+entire manual, you can split your manual at different levels in the chapter
+structuring hierarchy according to what you consider best for different parts
+of your manual.
+
+Note that regardless of the setting of this variable, sectioning commands
+without a corresponding @code{@@node} line can still be the target of
+cross-references; see @ref{Cross Reference Targets}.
 
 @item CHECK_MISSING_MENU_ENTRY
 When a @code{@@menu} block occurs in a node, check if there is a menu
