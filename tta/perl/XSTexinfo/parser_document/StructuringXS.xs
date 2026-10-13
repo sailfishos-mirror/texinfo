@@ -66,7 +66,7 @@ sectioning_structure (SV *document_in)
           }
 
 void
-sectioning_targets (SV *document_in)
+sectioning_targets (SV *document_in, SV *warn_duplicate_section_target_sv=0)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
@@ -74,7 +74,12 @@ sectioning_targets (SV *document_in)
                                              "sectioning_targets");
         if (document)
           {
-            sectioning_targets (document);
+            int warn_duplicate_section_target = -1;
+            if (warn_duplicate_section_target_sv
+                && SvOK (warn_duplicate_section_target_sv))
+              warn_duplicate_section_target
+                 = SvIV (warn_duplicate_section_target_sv);
+            sectioning_targets (document, warn_duplicate_section_target);
           }
 
 void

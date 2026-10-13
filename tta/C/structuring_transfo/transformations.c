@@ -944,7 +944,8 @@ typedef struct ELEMENT_WITH_ADDED_INFO {
 
 /* ALTIMP Texinfo/ManipulateTreeNonXS.pm */
 void
-insert_nodes_for_sectioning_commands (DOCUMENT *document)
+insert_nodes_for_sectioning_commands (DOCUMENT *document,
+                                      int warn_duplicate_section_target)
 {
   const SECTION_RELATIONS_LIST *sections_list = &document->sections_list;
 
@@ -952,10 +953,24 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
   size_t idx;
   NODE_RELATIONS *previous_node_relations = 0;
   size_t node_idx = 0;
+  C_HASHMAP *first_normalized = 0;
+  const C_HASHMAP *identifiers_target = 0;
+  OPTIONS *options;
+  int warn_debug;
+  ERROR_MESSAGE_LIST *error_messages;
 
   /* associate normalized reference added name to the number of
      section commands with such a normalized name. */
   C_HASHMAP *normalized_nr = new_c_hashmap (sections_list->number);
+
+  if (warn_duplicate_section_target > 0)
+    {
+      first_normalized = new_c_hashmap (sections_list->number);
+      identifiers_target = &document->identifiers_target;
+      error_messages = &document->error_messages;
+      options = document->options;
+      warn_debug = (options && options->DEBUG.o.integer > 0);
+    }
 
   /* cache information to avoid redoing the computations and avoid
      duplicating code. */
@@ -1016,12 +1031,51 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
                   normalized_nr_count++;
                   c_hashmap_set_value (normalized_nr,
                            normalized, (const void *)normalized_nr_count);
+
+                  if (warn_duplicate_section_target > 0)
+                    {
+                      int target_found;
+                      const ELEMENT *existing_target
+                        = c_hashmap_value (first_normalized, normalized,
+                                           &target_found);
+
+                      if (target_found)
+                        {
+                          char *section_texinfo
+                            = convert_contents_to_texinfo (new_node_tree);
+                          /* section argument missing */
+                          if (!section_texinfo)
+                            section_texinfo = strdup ("");
+                          message_list_command_warn (error_messages, warn_debug,
+                                  content, 0, "@%s `%s' already found target",
+                                  builtin_command_name (content->e.c->cmd),
+                                  section_texinfo);
+                          free (section_texinfo);
+                          message_list_command_warn (error_messages, warn_debug,
+                                  existing_target, 1, "found @%s",
+                            builtin_command_name (existing_target->e.c->cmd));
+                        }
+                    }
                 }
               else
                 {
                   normalized_nr_count = 1;
                   c_hashmap_register (normalized_nr,
                            normalized, (const void *)normalized_nr_count);
+
+                  if (warn_duplicate_section_target > 0)
+                    {
+                      const ELEMENT *target = 0;
+                      if (identifiers_target_number (identifiers_target))
+                        {
+                          target = find_identifier_target (identifiers_target,
+                                                           normalized);
+
+                        }
+                      if (!target)
+                        c_hashmap_register (first_normalized,
+                                            normalized, content);
+                    }
                 }
 
               elements_with_added[section_number -1].normalized = normalized;
@@ -1785,6 +1839,7 @@ protect_first_parenthesis_in_targets_in_document (DOCUMENT *document)
 void
 complete_transform_document (DOCUMENT *document, unsigned long flags,
                              int format_menu, int auto_section_node,
+                             int warn_duplicate_section_target,
                              const char *commands_heading_texi)
 {
   int use_sections = (flags & STTF_complete_menus_use_sections);
@@ -1800,10 +1855,11 @@ complete_transform_document (DOCUMENT *document, unsigned long flags,
     move_index_entries_after_items_in_document (document);
 
   if (auto_section_node > 0)
-    insert_nodes_for_sectioning_commands (document);
+    insert_nodes_for_sectioning_commands (document,
+                                          warn_duplicate_section_target);
 
   sectioning_structure (document);
-  sectioning_targets (document);
+  sectioning_targets (document, warn_duplicate_section_target);
 
   associate_internal_references (document);
 

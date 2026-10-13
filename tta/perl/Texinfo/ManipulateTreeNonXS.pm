@@ -579,13 +579,18 @@ sub _new_node($$;$$) {
   return $node;
 }
 
-sub insert_nodes_for_sectioning_commands($) {
-  my $document = shift;
+sub insert_nodes_for_sectioning_commands($;$) {
+  my ($document, $warn_duplicated) = @_;
 
   my $root = $document->tree();
   my $nodes_list = $document->nodes_list();
   my $sections_list = $document->sections_list();
+  my $identifier_target;
+  if ($warn_duplicated) {
+    $identifier_target = $document->labels_information();
+  }
 
+  my %first_normalized;
   my $previous_node_relations;
   # associate normalized reference added name to the number of
   # section commands with such a normalized name
@@ -622,8 +627,29 @@ sub insert_nodes_for_sectioning_commands($) {
            $new_node_tree);
       if (!exists($normalized_nr{$normalized})) {
         $normalized_nr{$normalized} = 1;
+        if ($warn_duplicated and !exists($identifier_target->{$normalized})) {
+          $first_normalized{$normalized} = $content;
+        }
       } else {
         $normalized_nr{$normalized}++;
+        if (exists($first_normalized{$normalized})) {
+          my $debug = $document->get_conf('DEBUG');
+          my $error_messages = $document->{'error_messages'};
+
+          my $existing_target = $first_normalized{$normalized};
+          my $section_texinfo
+      = Texinfo::Convert::Texinfo::convert_contents_to_texinfo($new_node_tree);
+          # section argument missing
+          $section_texinfo = '' if (!defined($section_texinfo));
+          push @$error_messages, Texinfo::Report::line_warn(
+                        sprintf(__("\@%s `%s' already found target"),
+                           $content->{'cmdname'}, $section_texinfo),
+                           $content->{'source_info'}, 0, $debug);
+          push @$error_messages, Texinfo::Report::line_warn(
+                               sprintf(__("found \@%s"),
+                                  $existing_target->{'cmdname'}),
+                          $existing_target->{'source_info'}, 1, $debug);
+        }
       }
       $elements_with_added{$content} = [$content, $new_node_tree,
                                         $section_relations,

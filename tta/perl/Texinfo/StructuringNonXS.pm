@@ -293,8 +293,8 @@ sub sectioning_structure($) {
   }
 }
 
-sub sectioning_targets($) {
-  my $document = shift;
+sub sectioning_targets($;$) {
+  my ($document, $warn_duplicated) = @_;
 
   my $sections_list = $document->sections_list();
   my $identifier_target = $document->labels_information();
@@ -328,7 +328,8 @@ sub sectioning_targets($) {
     if (defined($identifier_target)
         and $identifier_target->{$normalized}) {
       my $existing_target = $identifier_target->{$normalized};
-      if (exists($Texinfo::Commands::sectioning_heading_commands{
+      if ($warn_duplicated
+          and exists($Texinfo::Commands::sectioning_heading_commands{
                                         $existing_target->{'cmdname'}})) {
         my $debug = $document->get_conf('DEBUG');
         my $error_messages = $document->{'error_messages'};

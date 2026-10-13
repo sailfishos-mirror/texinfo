@@ -240,6 +240,7 @@ our %program_customization_options = (
   'SORT_ELEMENT_COUNT_WORDS'         => undef,
   'TEXI2DVI'                         => 'texi2dvi',
   'TREE_TRANSFORMATIONS'             => undef,
+  'WARN_DUPLICATE_SECTION_TARGET'    => undef,
 );
 
 our %unique_at_command_options = (

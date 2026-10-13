@@ -335,6 +335,18 @@ Text.
 $result_errors{'insert_nodes_for_sectioning_commands'} = '* W l21|@unnumbered missing argument
  warning: @unnumbered missing argument
 
+* W l19|@section `section\' already found target
+ warning: @section `section\' already found target
+
+* WC l17|found @section
+ warning: found @section
+
+* W l23|@section `@asis{}\' already found target
+ warning: @section `@asis{}\' already found target
+
+* WC l21|found @unnumbered
+ warning: found @unnumbered
+
 ';
 
 $result_nodes_list{'insert_nodes_for_sectioning_commands'} = '1|Top

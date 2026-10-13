@@ -127,7 +127,9 @@ DDDDDDDDD.
 @xref{with foo after}. --- link to section with @@ref in name
 
 @xref{two}. --- another link to a section named two.
-', {'test_formats' => ['latex']}]
+', {'test_formats' => ['latex'],
+    'WARN_DUPLICATE_SECTION_TARGET' => 1},
+],
 );
 
 foreach my $test (@test_cases) {

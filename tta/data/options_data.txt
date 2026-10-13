@@ -161,7 +161,8 @@ TRACE_INCLUDES  program_cmdline 0      integer
 FORMAT_MENU     program_cmdline menu   char
 
 
-# set in the default case for Info and HTML output
+# set in the default case in the main program through the format table
+# for Info and HTML output
 AUTO_SECTION_NODE            program_customization undef     integer
 # output warnings when node with
 # automatic direction and directions in menu are not consistent
@@ -177,6 +178,11 @@ SORT_ELEMENT_COUNT           program_customization undef     char
 SORT_ELEMENT_COUNT_WORDS     program_customization undef     integer
 TEXI2DVI                     program_customization texi2dvi  char
 TREE_TRANSFORMATIONS         program_customization undef     char
+# unset in the default case in the main program through the format table
+# for Info and HTML output, since AUTO_SECTION_NODE is set and in that
+# case the added node are disambiguated by a postpended string if
+# several section names are the same.
+WARN_DUPLICATE_SECTION_TARGET   program_customization undef  integer
 
 
 # up node of Top node default value

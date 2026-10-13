@@ -306,6 +306,7 @@ void set_document_options (DOCUMENT *document,
 
 void complete_transform_document (DOCUMENT *document, unsigned long flags,
                                   int format_menu, int auto_section_node=0,
+                                  int warn_duplicate_section_target=0,
                                   const char *fill_gap_heading_texi=0);
 
 // manipulate_tree.h

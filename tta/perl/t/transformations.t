@@ -108,7 +108,10 @@ Text.
 
 @section @asis{}
 
-@bye',{'AUTO_SECTION_NODE' => 1},],
+@bye',
+  {'AUTO_SECTION_NODE' => 1,
+   'WARN_DUPLICATE_SECTION_TARGET' => 1,},
+,],
 ['test_fill_gaps_in_sectioning',
 '@top top
 

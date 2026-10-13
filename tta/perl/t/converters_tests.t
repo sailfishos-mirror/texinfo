@@ -1701,7 +1701,9 @@ DDDDDDDDD.
 @xref{with foo after}. --- link to section with @@ref in name
 
 @xref{two}. --- another link to a section named two.
-', {'test_input_file_name' => 'shadow_links_to_sections.texi'}, ],
+', {'test_input_file_name' => 'shadow_links_to_sections.texi',
+    'WARN_DUPLICATE_SECTION_TARGET' => 1},
+],
 ['indices_in_begin_tables_lists',
 undef, {'test_file' => '../../../tests/formatting/indices_in_begin_tables_lists.texi'},
 {'SPLIT' => '', 'USE_NODES' => 0}],

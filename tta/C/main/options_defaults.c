@@ -561,6 +561,7 @@ set_program_customization_options_defaults (OPTIONS *options)
   option_set_conf (&options->SORT_ELEMENT_COUNT_WORDS, -1, 0);
   option_set_conf (&options->TEXI2DVI, -2, "texi2dvi");
   option_set_conf (&options->TREE_TRANSFORMATIONS, -2, 0);
+  option_set_conf (&options->WARN_DUPLICATE_SECTION_TARGET, -1, 0);
 }
 
 void
@@ -577,6 +578,7 @@ add_program_customization_options_defaults (OPTIONS_LIST *options_list)
   add_option_value (options_list, "SORT_ELEMENT_COUNT_WORDS", -1, 0);
   add_option_value (options_list, "TEXI2DVI", -2, "texi2dvi");
   add_option_value (options_list, "TREE_TRANSFORMATIONS", -2, 0);
+  add_option_value (options_list, "WARN_DUPLICATE_SECTION_TARGET", -1, 0);
 }
 
 

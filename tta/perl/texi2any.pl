@@ -831,6 +831,7 @@ my %formats_table = (
              'nodes_tree' => 1,
              'floats' => 1,
              'auto_section_node' => 1,
+             'no_warn_duplicate_section_target' => 1,
              'module' => 'Texinfo::Convert::Info'
            },
   'plaintext' => {
@@ -847,6 +848,7 @@ my %formats_table = (
              'move_index_entries_after_items' => 1,
              'relate_index_entries_to_table_items' => 1,
              'no_warn_non_empty_parts' => 1,
+             'no_warn_duplicate_section_target' => 1,
              'auto_section_node' => 1,
              'module' => 'Texinfo::Convert::HTML'
            },
@@ -1985,11 +1987,22 @@ while (@input_files) {
                                                                  $document);
   }
 
+  my $warn_duplicate_section_target
+    = get_conf('WARN_DUPLICATE_SECTION_TARGET');
+  if (!defined($warn_duplicate_section_target)) {
+    if ($formats_table{$converted_format}->{'no_warn_duplicate_section_target'}) {
+      $warn_duplicate_section_target = 0;
+    } else {
+      $warn_duplicate_section_target = 1;
+    }
+  }
+
   if (get_conf('AUTO_SECTION_NODE')
-      or (!defined(get_conf('AUTO_SECTION_NODE')
-          and $formats_table{$converted_format}->{'auto_section_node'}))
+      or (not defined(get_conf('AUTO_SECTION_NODE'))
+          and $formats_table{$converted_format}->{'auto_section_node'})
       or $tree_transformations{'insert_nodes_for_sectioning_commands'}) {
-    Texinfo::ManipulateTree::insert_nodes_for_sectioning_commands($document);
+    Texinfo::ManipulateTree::insert_nodes_for_sectioning_commands($document,
+                                             $warn_duplicate_section_target);
   }
 
   # information obtained through Texinfo::Structuring
@@ -1997,7 +2010,10 @@ while (@input_files) {
   # every format needs the sectioning structure
   Texinfo::Structuring::sectioning_structure($document);
 
-  Texinfo::Structuring::sectioning_targets($document);
+  # targets are always associated to sectioning commands not already associated
+  # to nodes.
+  Texinfo::Structuring::sectioning_targets($document,
+                                           $warn_duplicate_section_target);
 
   Texinfo::Structuring::associate_internal_references($document);
 

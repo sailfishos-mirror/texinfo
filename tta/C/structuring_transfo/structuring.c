@@ -424,7 +424,7 @@ sectioning_structure (DOCUMENT *document)
 }
 
 void
-sectioning_targets (DOCUMENT *document)
+sectioning_targets (DOCUMENT *document, int warn_duplicate_section_target)
 {
   const C_HASHMAP *identifiers_target = &document->identifiers_target;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
@@ -481,8 +481,9 @@ sectioning_targets (DOCUMENT *document)
             = find_identifier_target (identifiers_target, normalized);
           if (existing_target)
             {
-              if (command_data[existing_target->e.c->cmd].flags
-                     & CF_sectioning_heading)
+              if (warn_duplicate_section_target > 0
+                  && command_data[existing_target->e.c->cmd].flags
+                      & CF_sectioning_heading)
                 {
                   char *section_texinfo
                     = convert_contents_to_texinfo (line_arg);

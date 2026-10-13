@@ -130,14 +130,23 @@ protect_node_after_label_in_document (SV *document_in)
           protect_node_after_label_in_document (document);
 
 void
-insert_nodes_for_sectioning_commands (SV *document_in)
+insert_nodes_for_sectioning_commands (SV *document_in, SV *warn_duplicate_section_target_sv=0)
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
         document = get_sv_document_document (document_in,
                                "insert_nodes_for_sectioning_commands");
         if (document)
-          insert_nodes_for_sectioning_commands (document);
+          {
+            int warn_duplicate_section_target = -1;
+            if (warn_duplicate_section_target_sv
+                && SvOK (warn_duplicate_section_target_sv))
+              warn_duplicate_section_target
+                 = SvIV (warn_duplicate_section_target_sv);
+
+            insert_nodes_for_sectioning_commands (document,
+                                      warn_duplicate_section_target);
+          }
 
 # could that be called in a situation where the document is not found?
 SV *

@@ -154,14 +154,16 @@ typedef struct FORMAT_SPECIFICATION {
 
 static FORMAT_SPECIFICATION formats_table[] = {
   {"info", STTF_nodes_tree | STTF_floats
-           | STTF_auto_section_node,
+           | STTF_auto_section_node
+           | STTF_no_warn_duplicate_section_target,
    NULL, "Texinfo::Convert::Info", NULL},
   {"html", STTF_relate_index_entries_to_table_items
            | STTF_move_index_entries_after_items
            | STTF_no_warn_non_empty_parts
            | STTF_nodes_tree | STTF_floats | STTF_split
            | STTF_internal_links
-           | STTF_auto_section_node,
+           | STTF_auto_section_node
+           | STTF_no_warn_duplicate_section_target,
    NULL, "Texinfo::Convert::HTML", NULL},
   {"plaintext", STTF_nodes_tree | STTF_floats | STTF_split,
    NULL, "Texinfo::Convert::Plaintext", NULL},
@@ -1221,6 +1223,7 @@ main (int argc, char *argv[], char *env[])
   const OPTION *split_option;
   const OPTION *show_builtin_css_rules_option;
   const OPTION *auto_section_node_option;
+  const OPTION *warn_duplicate_section_target_option;
   int no_warn = 0;
   int test_mode_set = 0;
   int debug = 0;
@@ -2844,6 +2847,10 @@ main (int argc, char *argv[], char *env[])
   auto_section_node_option
     = GNUT_get_conf (program_options.options->AUTO_SECTION_NODE.number);
 
+  warn_duplicate_section_target_option
+    = GNUT_get_conf (program_options.options
+                               ->WARN_DUPLICATE_SECTION_TARGET.number);
+
   initialize_options_list (&parser_options);
   /* Copy relevant customization variables into the parser options. */
   for (i = 0; i < TXI_OPTIONS_NR; i++)
@@ -2946,6 +2953,7 @@ main (int argc, char *argv[], char *env[])
       size_t j;
       OPTIONS_LIST *file_cmdline_options;
       int auto_section_node = -1;
+      int warn_duplicate_section_target = 0;
 
       input_file_arg = input_files.list[file_index];
 
@@ -3240,11 +3248,20 @@ main (int argc, char *argv[], char *env[])
           || transformation_flags & STTF_insert_nodes_for_sectioning_commands)
         auto_section_node = 1;
 
+      if ((warn_duplicate_section_target_option
+           && warn_duplicate_section_target_option->o.integer > 0)
+          || ((!warn_duplicate_section_target_option
+               || warn_duplicate_section_target_option->o.integer < 0)
+              && !(converted_format_specification->flags
+                   & STTF_no_warn_duplicate_section_target)))
+        warn_duplicate_section_target = 1;
+
       /* do_menu corresponds to FORMAT_MENU undef or set to menu */
       complete_transform_document (document,
                                    converted_format_specification->flags
                                     | transformation_flags,
-                                   do_menu, auto_section_node, 0);
+                                   do_menu, auto_section_node,
+                                   warn_duplicate_section_target, 0);
 
       merge_error_messages_lists (&document->parser_error_messages,
                                   &document->error_messages);

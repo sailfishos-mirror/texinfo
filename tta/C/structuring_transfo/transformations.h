@@ -31,7 +31,7 @@
 #define STTF_floats                                 0x0080
 #define STTF_no_warn_non_empty_parts                0x0100
 #define STTF_nodes_tree                             0x0200
-/* #define STTF_        0x0400 */
+#define STTF_no_warn_duplicate_section_target       0x0400
 
 /* for complete_tree_nodes_menus, complete_tree_nodes_missing_menu
    and regenerate_master_menu */
@@ -57,7 +57,8 @@ void complete_tree_nodes_menus_in_document (DOCUMENT *document,
                                             int use_sections);
 void complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections);
 int regenerate_master_menu (DOCUMENT *document, int use_sections);
-void insert_nodes_for_sectioning_commands (DOCUMENT *document);
+void insert_nodes_for_sectioning_commands (DOCUMENT *document,
+                                      int warn_duplicate_section_target);
 ELEMENT *protect_hashchar_at_line_beginning (ELEMENT *tree,
                                              DOCUMENT *document);
 void protect_hashchar_at_line_beginning_in_document (DOCUMENT *document);
@@ -66,6 +67,7 @@ void protect_first_parenthesis_in_targets_in_document (DOCUMENT *document);
 
 void complete_transform_document (DOCUMENT *document, unsigned long flags,
                                   int format_menu, int auto_section_node,
+                                  int warn_duplicate_section_target,
                                   const char *commands_heading_texi);
 
 #endif

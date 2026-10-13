@@ -1,3 +1,46 @@
+2026-10-13 Patrice Dumas  <pertusus@free.fr>
+
+	customization of duplicate section targets warning
+
+	* tta/data/options_data.txt (WARN_DUPLICATE_SECTION_TARGET): add
+	customization option.
+
+	* tta/C/structuring_transfo/transformations.c
+	(insert_nodes_for_sectioning_commands),
+	tta/perl/Texinfo/ManipulateTreeNonXS.pm
+	(insert_nodes_for_sectioning_commands),
+	tta/perl/XSTexinfo/parser_document/ManipulateTreeXS.xs
+	(insert_nodes_for_sectioning_commands): add warnings for duplicate
+	section targets and add an argument to trigger those warnings.
+
+	* tta/C/structuring_transfo/structuring.c (sectioning_targets),
+	tta/perl/Texinfo/StructuringNonXS.pm (sectioning_targets),
+	tta/perl/XSTexinfo/parser_document/StructuringXS.xs
+	(sectioning_targets): add an argument to control warnings.
+
+	* tta/C/structuring_transfo/transformations.h
+	(STTF_no_warn_duplicate_section_target),
+	tta/C/structuring_transfo/transformations.c
+	(complete_transform_document), tta/C/texi2any.c (formats_table, main),
+	tta/perl/texi2any.pl (%formats_table), tta/swig/texinfo.i: add to
+	complete_transform_document an argument to control warnings for
+	duplicate section targets, passed to
+	insert_nodes_for_sectioning_commands and sectioning_targets, and set
+	it based on the format and on WARN_DUPLICATE_SECTION_TARGET value
+	in the main program in C.  In Perl, use more directly
+	WARN_DUPLICATE_SECTION_TARGET value and %formats_table to pass
+	the argument to insert_nodes_for_sectioning_commands and
+	sectioning_targets.
+	The warnings are unset in the default case for HTML and Info, which
+	have automatic nodes for sectioning commands without nodes set.
+
+	* tta/perl/t/test_utils.pl (test): pass WARN_DUPLICATE_SECTION_TARGET
+	to insert_nodes_for_sectioning_commands and sectioning_targets.
+
+	* tta/perl/t/converters_tests.t, tta/perl/t/docbook_tests.t, 
+	tta/perl/t/transformations.t: set WARN_DUPLICATE_SECTION_TARGET for
+	some tests.
+
 2026-10-11 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/t/09indices.t (nested_and_duplicate_sortas): add test with
