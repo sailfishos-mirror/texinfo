@@ -1558,6 +1558,40 @@ use @code{@@author} more than once.  (However, the order of @code{@@title},
 @code{@@subtitle}, and @code{@@author} commands relative to each other is
 not significant.)
 
+For long titles, the @code{@@*} command may be used to specify the
+line breaks in long titles if the automatic breaks do not suit.  Such
+explicit line breaks are generally reflected in all output formats; if
+you only want to specify them for the printed output, use a
+conditional (@pxref{Conditionals}).  For example:
+
+@example
+@@title This Long Title@@inlinefmt@{tex,@@*@} Is Broken in @@TeX@{@}
+@end example
+
+There are two ways to use the @code{@@author} command: you can write
+the name or names on the remaining part of the line that starts with
+an @code{@@author} command:
+
+@example
+@@author by Jane Smith and John Doe
+@end example
+
+@noindent
+or you can write the names one above each other by using multiple
+@code{@@author} commands:
+
+@example
+@group
+@@author Jane Smith
+@@author John Doe
+@end group
+@end example
+
+The @code{@@author} command may be used for a quotation in
+an @code{@@quotation} block (@pxref{@code{@@quotation}});
+except for that, it is an error to use any of these commands outside
+of @code{@@documentinfo} (or @code{@@titlepage}).
+
 Other Texinfo code found in @code{@@documentinfo} is output in metadata
 sections of output formats.  Texinfo processors do not interpret this
 additional code especially, therefore you often need to use
@@ -1735,26 +1769,13 @@ spacing is done for you automatically.
 
 Write the @code{@@title}, @code{@@subtitle}, or @code{@@author}
 commands at the beginning of a line followed by the title, subtitle,
-or author.  The @code{@@author} command may be used for a quotation in
-an @code{@@quotation} block (@pxref{@code{@@quotation}});
-except for that, it is an error to use any of these commands outside
-of @code{@@titlepage}.
+or author.
 
 The @code{@@title} command normally produces a line in which the title is set
 flush to the left-hand side of the page in a larger than normal font.
 The title is underlined with a black rule.  The title must be given on
 a single line in the source file; it will be broken into multiple
 lines of output is needed.
-
-For long titles, the @code{@@*} command may be used to specify the
-line breaks in long titles if the automatic breaks do not suit.  Such
-explicit line breaks are generally reflected in all output formats; if
-you only want to specify them for the printed output, use a
-conditional (@pxref{Conditionals}).  For example:
-
-@example
-@@title This Long Title@@inlinefmt@{tex,@@*@} Is Broken in @@TeX@{@}
-@end example
 
 The @code{@@subtitle} command normally sets subtitles in a normal-sized font
 flush to the right-hand side of the page.
@@ -1764,25 +1785,6 @@ or authors in a middle-sized font flush to the left-hand side of the
 page on a line near the bottom of the title page.  The names are
 followed by a black rule that is thinner than the rule that normally
 underlines the title.
-
-There are two ways to use the @code{@@author} command: you can write
-the name or names on the remaining part of the line that starts with
-an @code{@@author} command:
-
-@example
-@@author by Jane Smith and John Doe
-@end example
-
-@noindent
-or you can write the names one above each other by using multiple
-@code{@@author} commands:
-
-@example
-@group
-@@author Jane Smith
-@@author John Doe
-@end group
-@end example
 
 @need 950
 A template for this method looks like this:
@@ -1812,11 +1814,11 @@ The @code{@@titlefont}, @code{@@center}, and @code{@@sp} commands.
 @findex center
 @findex sp @r{(titlepage line spacing)}
 
-Texinfo also provides a second method for creating a title page,
-using typesetting commands that are not to be used in the main text.
-This method uses the @code{@@titlefont}, @code{@@sp}, and @code{@@center} 
-commands to generate a title page in which the words on the page are
-centered.
+Texinfo also provides a second method for creating a title page with
+@code{@@titlepage}, using typesetting commands that are not to be used in the
+main text.  This method uses the @code{@@titlefont}, @code{@@sp}, and
+@code{@@center} commands to generate a title page in which the words on the
+page are centered.
 
 Use the @code{@@titlefont} command to select a large font suitable for
 the title itself.  You can use @code{@@titlefont} more than once if you
