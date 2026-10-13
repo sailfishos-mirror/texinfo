@@ -820,10 +820,10 @@ BEGIN {
 	}
 
 	# Set things up such that 'a' < 'A' < 'b' < 'B' < ...
-	i = Ordval["a"]
-	j = Ordval["z"]
-	newval = i + 512
-	for (; i <= j; i++) {
+	a = Ordval["a"]
+	z = Ordval["z"]
+	newval = a + 512
+	for (i = a; i <= z; i++) {
 		c = sprintf("%c", i)
 
 		if (islower(c)) {
@@ -834,10 +834,8 @@ BEGIN {
 
 	# Set up case-insensitive sorting order, such that
 	# 'a' = 'A' < 'b' = 'B' < ...
-	i = Ordval["a"]
-	j = Ordval["z"]
-	newval = i + 512
-	for (; i <= j; i++) {
+	newval = a + 512
+	for (i = a; i <= z; i++) {
 		c = sprintf("%c", i)
 
 		if (islower(c)) {
