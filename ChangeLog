@@ -1,3 +1,15 @@
+2026-10-13  Gavin Smith <gavinsmith0123@gmail.com>
+
+	texindex: fix sort order
+
+	* texindex/texindex.awk (BEGIN): Set up case-insensitive order array
+	"Ordval_ignorecase" as intended to sort upper case and lower case
+	characters after other characters, as intended.  The previous code
+	was incorrect and led to "[" and "]" sorting after alphabetical
+	characters based on their position in the ASCII table.
+	
+	Report from Werner Lemberg.
+
 2026-10-13 Patrice Dumas  <pertusus@free.fr>
 
 	* NEWS, doc/texinfo.texi (WARN_DUPLICATE_SECTION_TARGET): add

@@ -816,6 +816,7 @@ BEGIN {
 
 		if (isdigit(c))
 			Ordval[c] += 512
+		Ordval_ignorecase[c] = Ordval[c]
 	}
 
 	# Set things up such that 'a' < 'A' < 'b' < 'B' < ...
@@ -831,18 +832,18 @@ BEGIN {
 		}
 	}
 
-	# Set up case-insensitive sorting order.
-	# In this order, multibyte UTF-8 sequences like é sort after
-	# ASCII letters.
-	for (i = 0; i < 256; i++) {
+	# Set up case-insensitive sorting order, such that
+	# 'a' = 'A' < 'b' = 'B' < ...
+	i = Ordval["a"]
+	j = Ordval["z"]
+	newval = i + 512
+	for (; i <= j; i++) {
 		c = sprintf("%c", i)
-		Ordval_ignorecase[c] = i  # map character to value
-		# Upper case comes before lower case in the ASCII order
-		# so value for upper case is already set.
-		if (islower(c))
-			Ordval_ignorecase[c] = Ordval_ignorecase[toupper(c)]
-		else if (isdigit(c))
-			Ordval_ignorecase[c] += 512
+
+		if (islower(c)) {
+			Ordval_ignorecase[c] = newval
+			Ordval_ignorecase[toupper(c)] = newval++
+		}
 	}
 }
 
