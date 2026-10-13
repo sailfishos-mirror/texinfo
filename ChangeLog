@@ -1,5 +1,9 @@
 2026-10-13  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* NEWS: mention <span> for output of @expansion{} etc.
+
+2026-10-13  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Global Customization Variables)
 	<AUTO_SECTION_NODE>:
 	Go into more detail about the possible use of AUTO_SECTION_NODE=0.

@@ -42,6 +42,8 @@ X.Y ()
       .  add HTML_COPY_IMAGES customization variable.  If on, copy image
          files to destination directory, unless image begins with . or ..
          or is an absolute file name.
+      . add <span> with a class for output of @expansion{}, @arrow{},
+        @point{}, @print{} and @result{}, to allow use of CSS styling
 
 * Distribution
   . Remove --enable-refcounts-checks, --enable-perl-api-texi-build
