@@ -16377,8 +16377,9 @@ about having the indices sorted correctly, especially when working on
 the draft of a manual.
 
 @item WARN_DUPLICATE_SECTION_TARGET
-If set, warn if two sectioning commands without associated node have the same
-name if used as a target for cross-references.
+If set, warn if two sectioning commands without an associated node have
+the same name if used as a target for cross-references.  (@xref{Cross
+Reference Targets}.)
 Done by default in @command{texi2any} except for Info and HTML output.
 
 @end vtable

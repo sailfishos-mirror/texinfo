@@ -1,5 +1,11 @@
 2026-10-13  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Global Customization Variables)
+	<WARN_DUPLICATE_SECTION_TARGET>:
+	Add xref to "Cross Reference Targets".
+
+2026-10-13  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Cross Reference Targets): New node in
 	"Cross-references" chapter.  First attempt at documenting new
 	"shadow targets" feature.
