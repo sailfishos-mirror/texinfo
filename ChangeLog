@@ -1,3 +1,9 @@
+2026-10-13  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Cross Reference Targets): New node in
+	"Cross-references" chapter.  First attempt at documenting new
+	"shadow targets" feature.
+
 2026-10-13 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (Document Metadata, @code{@@title @@subtitle

@@ -3780,15 +3780,59 @@ cross-reference results in an hyperlink.  In DocBook, the @code{<link>}
 element is used for cross-references unless it is to another manual,
 in which case the cross-reference names that manual.
 
-The various cross-reference commands use nodes, anchors
-(@pxref{@code{@@anchor}}) or float labels (@pxref{@code{@@float}}) to define
-cross-reference locations.  When @TeX{} generates a DVI file, it records each
-cross-reference location page number and uses the page numbers in making
-references.  Thus, even if you are writing a manual that will only be printed,
-and not used online, you must nonetheless write @code{@@node} lines (or
-@code{@@anchor} anchors) in order to name the places to which you make
-cross-references.
 
+@node Cross Reference Targets
+@nodedescription Defining the target of a cross-reference.
+@section Cross-reference Targets
+
+The various cross-reference commands refer to specific locations in
+the file, known as cross-reference @dfn{targets}.  The following
+Texinfo commands create targets:
+
+@itemize @bullet
+@item A @code{@@node} command (@pxref{Nodes}).
+
+@item An @code{@@anchor} or @code{@@namedanchor} command
+(@pxref{@code{@@anchor}}).
+
+@item A @code{@@float} command, when given the optional
+second argument (@pxref{@code{@@float}}).
+
+@item A sectioning command, such as @code{@@chapter}
+(@pxref{Chapter Structuring}), if not immediately preceded by
+a @code{@@node} command.
+
+@end itemize
+
+When @TeX{} generates a DVI or PDF file, it records each
+cross-reference location page number and uses the page numbers in making
+references.  
+
+@cindex Shadow targets
+Targets created under the fourth bullet point in the above list, by
+sectioning commands, are known as @dfn{shadow targets}.  They are called
+this because these targets can be ``shadowed'' by a target created by
+another command.  For example, if a @code{@@node} and @code{@@section}
+command both create a target with a name @samp{foo}, a reference to
+the target @samp{foo} is to the location of the @code{@@node}, and not
+to that of the @code{@@section}.  In general, a cross-reference command
+cannot reference a shadow target if another target has the same name
+as it.
+
+Shadow targets do not have to be unique, unlike targets created by the
+other three classes of commands listed above.  This is because it is
+perfectly valid in a Texinfo document to have multiple sections with
+the same title (regardless of whether @code{@@node} commands are used
+with these sections or not).  However, you cannot reliably reference
+a shadow target if another shadow target has the same name: this may
+lead to the Texinfo processors issuing an error or warning.
+
+For approximately the first 40 years of Texinfo's existence, it was not
+possible to directly cross-reference a sectioning command.  For that
+reason, it is usual practice to directly precede a sectioning command
+with a @code{@@node} command.  You may wish to do this to explicitly
+provide a target name which differs from the section name.  @xref{Node
+Names} for some considerations for choosing node names.
 
 
 
