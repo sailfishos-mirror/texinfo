@@ -1,5 +1,11 @@
 2026-10-13  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Nodes): Remove out-of-date discussion of
+	using sectioning commands without node commands.  Cross-reference
+	"Cross Reference Targets" node and documentation of AUTO_SECTION_NODE.
+
+2026-10-13  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Global Customization Variables)
 	<WARN_DUPLICATE_SECTION_TARGET>:
 	Add xref to "Cross Reference Targets".
