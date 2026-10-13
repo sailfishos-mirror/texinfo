@@ -37,7 +37,7 @@
 	* tta/perl/t/test_utils.pl (test): pass WARN_DUPLICATE_SECTION_TARGET
 	to insert_nodes_for_sectioning_commands and sectioning_targets.
 
-	* tta/perl/t/converters_tests.t, tta/perl/t/docbook_tests.t, 
+	* tta/perl/t/converters_tests.t, tta/perl/t/docbook_tests.t,
 	tta/perl/t/transformations.t: set WARN_DUPLICATE_SECTION_TARGET for
 	some tests.
 
@@ -45,8 +45,6 @@
 
 	* tta/perl/t/09indices.t (nested_and_duplicate_sortas): add test with
 	multiple @sortas and nested @sortas.  Based on Werner Lemberg report.
-
-2026-10-11 Patrice Dumas  <pertusus@free.fr>
 
 2026-10-11  Gavin Smith <gavinsmith0123@gmail.com>
 
@@ -167,8 +165,8 @@
 
 2026-10-10 Patrice Dumas  <pertusus@free.fr>
 
-	* tta/perl/Texinfo/Common.pm (count_bytes): use processing_output_encoding
-	to determine the Perl encoding.
+	* tta/perl/Texinfo/Common.pm (count_bytes): use
+	processging_output_encoding to determine the Perl encoding.
 
 	Changes in comments, remove unneeded TODOs.
 
@@ -197,7 +195,7 @@
 	DOCUMENTLANGUAGE_COLLATION or COLLATION_LANGUAGE are set.
 
 	* NEWS, doc/texinfo.texi (Printing Indices & Menus)
-	(Setting the language, Global Customization Variables): update, 
+	(Setting the language, Global Customization Variables): update,
 	put documentation related to COLLATION_LANGUAGE and
 	DOCUMENTLANGUAGE_COLLATION in @ignore.
 
@@ -215,7 +213,7 @@
 2026-10-10 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (@code{@@documentencoding}): add a footnote
-	explaining that texi2any may substitute encodings.  Used "based on"
+	explaining that texi2any may substitute encodings.  Use "based on"
 	instead of "set to" in the main text to match this possibility of
 	substitution.  The text remains vague on purpose to avoid committing
 	to anything, but the user should not be surprised if the output
@@ -247,7 +245,7 @@
 
 	* tta/C/convert/convert_to_plaintext.c
 	(plaintext_setup_output_encoding),
-	tta/C/main/plaintext_converter_state.h (PLAINTEXT_CONVERTER_STATE), 
+	tta/C/main/plaintext_converter_state.h (PLAINTEXT_CONVERTER_STATE),
 	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_setup_output_encoding):
 	set encoding_name converter field in setup_output_encoding based on
 	processing_output_encoding call on OUTPUT_ENCODING_NAME.  Do not do
@@ -394,7 +392,7 @@
 
 	* tta/C/convert/converter.c (is_null_device_name),
 	tta/perl/Texinfo/Common.pm (is_null_device_name): if the null device
-	name is nul (case insensitive), compare with case insensitivity. 
+	name is nul (case insensitive), compare with case insensitivity.
 
 2026-10-08 Patrice Dumas  <pertusus@free.fr>
 
@@ -566,7 +564,7 @@
 2026-10-03 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/swig/perl/Makefile.am (all-local): copy .libs in .libs/auto
-	using an explicit copy taking care that we wnat to copy in a
+	using an explicit copy taking care that we want to copy in a
 	subdirectory instead of using LN_S, in case LN_S does a copy.
 
 2026-10-03 Patrice Dumas  <pertusus@free.fr>
@@ -674,7 +672,7 @@
 	programs.  Keep insert_nodes_for_sectioning_commands as a tree
 	transformation for backward compatibility.
 
-	* tta/perl/t/info_tests.t, tta/perl/t/transformations.t: replace 
+	* tta/perl/t/info_tests.t, tta/perl/t/transformations.t: replace
 	insert_nodes_for_sectioning_commands tree transformation by
 	AUTO_SECTION_NODE.
 
@@ -703,7 +701,7 @@
 
 	* tta/configure.ac: determine use_shared_txi_libraries right after
 	with_swig is set.  Do the SWIG related tests only if both with_swig
-	and use_shared_txi_libraries are set. 
+	and use_shared_txi_libraries are set.
 
 	* tta/configure.ac: update/improve comments.
 
@@ -803,7 +801,7 @@
 	based on -o/--output command-line option.  Update --help.
 
 	* tta/C/convert/convert_to_plaintext.c (plaintext_output),
-	tta/C/convert/html_prepare_converter.c (html_setup_output), 
+	tta/C/convert/html_prepare_converter.c (html_setup_output),
 	tta/perl/Texinfo/Convert/HTMLNonXS.pm (_setup_output),
 	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (output): in HTML and
 	plaintext converters, if SPLIT and OUTFILE is set, set SUBDIR based on
@@ -921,7 +919,7 @@
 	features check function.  Do not reset outdir.
 	Add -o to list-of-tests tests when needed, mainly for split HTML and
 	plaintext.
-	This prepare for erroring with -o DIR when a file is expected.
+	This prepares for erroring with -o DIR when a file is expected.
 
 2026-09-25 Patrice Dumas  <pertusus@free.fr>
 
@@ -1352,7 +1350,7 @@
 	more fields.
 
 	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm (new)
-	(@para_ordered_conf): show conf set from caller in debugging output, 
+	(@para_ordered_conf): show conf set from caller in debugging output,
 	as in C.
 
 2026-09-08 Patrice Dumas  <pertusus@free.fr>
@@ -2000,7 +1998,7 @@
 	in format context to know the current cell index.
 
 	* tta/C/convert/convert_to_plaintext.c (release_count_context)
-	(align_lines, align_environment, convert_to_plaintext_internal) :
+	(align_lines, align_environment, convert_to_plaintext_internal):
 	reset images and entry locations properly, free pending lines and
 	images lists.
 
@@ -2373,7 +2371,7 @@
 	* tta/C/convert/convert_to_plaintext.c (align_lines)
 	(align_environment, convert_to_plaintext_internal),
 	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_align_lines)
-	(_align_environment, _convert): add to parent count context pending 
+	(_align_environment, _convert): add to parent count context pending
 	texts directly in align_lines.  Do not return anything.  Use
 	stream_output when possible.  In C, in align_environment, this
 	requires saving the aligned environment count context first before
@@ -2737,7 +2735,7 @@
 	(fill_gaps_in_sectioning_in_document),
 	tta/perl/Texinfo/TransformationsNonXS.pm
 	(fill_gaps_in_sectioning_in_document): pass Texinfo code as argument
-	and parse to a Texinfo tree in fill_gaps_in_sectioning_in_document. 
+	and parse to a Texinfo tree in fill_gaps_in_sectioning_in_document.
 
 	* Pod-Simple-Texinfo/pod2texi.pl (_parsed_manual_tree): adapt to
 	fill_gaps_in_sectioning_in_document change.
@@ -2909,7 +2907,7 @@
 2026-08-18 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/convert_to_plaintext.c (informative_global_commands):
-	addmissing terminating NULL.
+	add missing terminating NULL.
 
 	* tta/C/convert/convert_to_plaintext.c (pop_formatter): add an
 	argument to set if a formatter is reused, such that the memory is not
@@ -3076,7 +3074,7 @@
 	plaintext C @quotation, @author and @center
 
 	* tta/C/convert/convert_to_plaintext.c (push_top_formatter)
-	(pop_top_formatter, pop_document_context, plaintext_free_converter), 
+	(pop_top_formatter, pop_document_context, plaintext_free_converter),
 	tta/C/main/plaintext_converter_state.h (QUOTATION_AUTHORS_LIST)
 	(DOCUMENT_CONTEXT, PLAINTEXT_CONVERTER_STATE): add
 	DOCUMENT_CONTEXT_STACK and QUOTATION_AUTHORS_LIST within.
@@ -3537,7 +3535,7 @@
 	use text_before_first_node.
 
 	* tta/C/convert/convert_to_plaintext.c
-	(convert_to_plaintext_internal): add some conditions for now existing
+	(convert_to_plaintext_internal): add some conditions for not handled
 	elements, and use braces instead of ; when there is no code yet.
 
 2026-08-10 Patrice Dumas  <pertusus@free.fr>
@@ -3590,7 +3588,7 @@
 	* tta/C/main/command_stack.c: replace ELEMENT_STACK type by
 	CONST_ELEMENT_LIST type.  Use stack macros for const ELEMENT *
 	CONST_ELEMENT_LIST stack.  Remove ELEMENT_STACK by removing
-	def_list_type call on ELEMENT_STACK in document_types.h.  
+	def_list_type call on ELEMENT_STACK in document_types.h.
 
 2026-08-09 Patrice Dumas  <pertusus@free.fr>
 
@@ -3692,7 +3690,10 @@
 	Set Info-document* language related variable in Info based on preamble
 
 	* tta/C/convert/convert_to_info.c (info_output),
-	tta/perl/Texinfo/Convert/InfoNonXS.pm (output): 
+	tta/perl/Texinfo/Convert/InfoNonXS.pm (output): set local variables
+	based on @documentscript and @documentlanguagevariant, and set
+	the local variable based on @documentlanguage to the value at
+	the end of the preamble.
 
 	* tta/perl/Texinfo/Translations.pm (_set_lang_info_translation):
 	always set 'bcp47_locale' even if there is a translation cache.
