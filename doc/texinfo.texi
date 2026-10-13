@@ -16330,6 +16330,11 @@ You may find this useful for speeding up @command{texi2any} if you don't care
 about having the indices sorted correctly, especially when working on
 the draft of a manual.
 
+@item WARN_DUPLICATE_SECTION_TARGET
+If set, warn if two sectioning commands without associated node have the same
+name if used as a target for cross-references.
+Done by default in @command{texi2any} except for Info and HTML output.
+
 @end vtable
 
 

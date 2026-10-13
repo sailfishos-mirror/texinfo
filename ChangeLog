@@ -1,5 +1,10 @@
 2026-10-13 Patrice Dumas  <pertusus@free.fr>
 
+	* NEWS, doc/texinfo.texi (WARN_DUPLICATE_SECTION_TARGET): add
+	WARN_DUPLICATE_SECTION_TARGET basic description.
+
+2026-10-13 Patrice Dumas  <pertusus@free.fr>
+
 	customization of duplicate section targets warning
 
 	* tta/data/options_data.txt (WARN_DUPLICATE_SECTION_TARGET): add

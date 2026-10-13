@@ -28,7 +28,8 @@ X.Y ()
     If you want to specify a directory for an output file, set the SUBDIR
     customization variable.
   . add AUTO_SECTION_NODE customization variable, replacing the
-    insert_nodes_for_sectioning_commands tree transformation.
+    insert_nodes_for_sectioning_commands tree transformation, add the
+    WARN_DUPLICATE_SECTION_TARGET customization option.
   . remove COLLATION_LANGUAGE and DOCUMENTLANGUAGE_COLLATION customization
     variables.
   . Info and plaintext C converters.
