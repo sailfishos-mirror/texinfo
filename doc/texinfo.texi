@@ -2720,62 +2720,6 @@ Write each @code{@@raisesections} and @code{@@lowersections} command
 on a line of its own.
 
 
-@node Unstructured Nodes
-@nodedescription Nodes outside the main document structure.
-@section Unstructured Nodes
-
-@cindex Unstructured nodes
-All the examples of nodes in this chapter so far have used a @code{@@node}
-line followed by a structuring command (such as @code{@@chapter}).
-
-@c @cindex Topic-oriented documentation
-However, you can also create nodes without using a structuring command.
-You may find this useful if you do not want your manual (or parts of
-a manual) to have a hierarchical structure, with chapters superior to
-sections, sections superior to sub-sections and so on.
-
-@c comment this out until we know if we properly support this style
-@c of documentation in Texinfo.
-@c This unstructured
-@c style of documentation is known as @dfn{topic-oriented documentation},
-@c notably used by the DITA and Mallard systems.
-
-To do this, follow the @code{@@node} line with one of the heading commands.
-For example:
-
-@example
-@@node Topic
-@@heading All about the Topic
-@dots{}
-@end example
-
-The argument to the heading command will be printed as usual.  When
-the @code{xrefautomaticsectiontitle} flag is on
-(@pxref{@code{xrefautomaticsectiontitle}}), this argument will also be
-used as the text for any cross-references to the node.
-
-Such nodes are not part of a hierarchical document structure.  This means
-that they are not listed in any table of contents, and automatic
-node direction pointers (@samp{Next}, @samp{Prev} or @samp{Up};
-@pxref{Writing a Node}) do not link to or from these nodes.
-
-@findex xrefname
-If you wish to create an unstructured node @emph{without} printing
-a heading at the start, you can use the @code{@@xrefname} command in
-place of the heading command.  For example:
-
-@example
-@@node Topic
-@@xrefname All about the Topic
-@dots{}
-@end example
-
-The @code{@@xrefname} command provides the text for cross-references to
-the node when the @code{xrefautomaticsectiontitle} flag is on, so
-@samp{@@xref@{Topic@}} would produce output like ``See `All about the
-Topic@w{'}''.
-
-
 @node Nodes
 @nodedescription Writing nodes, the basic unit of Texinfo.
 @chapter Nodes
@@ -3361,6 +3305,64 @@ Texinfo File''.  This shows a @code{@@node} line followed by a
 @@cindex File ending
 @end group
 @end example
+
+
+@node Unstructured Nodes
+@nodedescription Nodes outside the main document structure.
+@section Unstructured Nodes
+
+@cindex Unstructured nodes
+All the examples of nodes in this chapter so far have used a @code{@@node}
+line followed by a structuring command (such as @code{@@chapter}).
+
+@c @cindex Topic-oriented documentation
+However, you can also create nodes without using a structuring command.
+You may find this useful if you do not want your manual (or parts of
+a manual) to have a hierarchical structure, with chapters superior to
+sections, sections superior to sub-sections and so on.
+
+@c comment this out until we know if we properly support this style
+@c of documentation in Texinfo.
+@c This unstructured
+@c style of documentation is known as @dfn{topic-oriented documentation},
+@c notably used by the DITA and Mallard systems.
+
+To do this, follow the @code{@@node} line with one of the heading commands.
+For example:
+
+@example
+@@node Topic
+@@heading All about the Topic
+@dots{}
+@end example
+
+The argument to the heading command will be printed as usual.  When
+the @code{xrefautomaticsectiontitle} flag is on
+(@pxref{@code{xrefautomaticsectiontitle}}), this argument will also be
+used as the text for any cross-references to the node.
+
+Such nodes are not part of a hierarchical document structure.  This means
+that they are not listed in any table of contents, and automatic
+node direction pointers (@samp{Next}, @samp{Prev} or @samp{Up};
+@pxref{Writing a Node}) do not link to or from these nodes.
+
+@findex xrefname
+If you wish to create an unstructured node @emph{without} printing
+a heading at the start, you can use the @code{@@xrefname} command in
+place of the heading command.  For example:
+
+@example
+@@node Topic
+@@xrefname All about the Topic
+@dots{}
+@end example
+
+The @code{@@xrefname} command provides the text for cross-references to
+the node when the @code{xrefautomaticsectiontitle} flag is on, so
+@samp{@@xref@{Topic@}} would produce output like ``See `All about the
+Topic@w{'}''.
+
+
 
 
 @node Node Descriptions

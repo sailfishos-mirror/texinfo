@@ -1,5 +1,10 @@
 2026-10-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Unstructured Nodes): Move from "Chapter
+	Structuring" chapter to "Nodes" chapter.  Suggestion from Patrice.
+
+2026-10-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Revise documentation of node/structuring commands
 
 	* doc/texinfo.texi (Tree Structuring): Remove example of
