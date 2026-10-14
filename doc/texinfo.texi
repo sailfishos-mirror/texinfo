@@ -16043,7 +16043,9 @@ of @command{texi2any}.
 If set, insert nodes for sectioning commands lacking a corresponding node.
 Done by default in @command{texi2any} for Info and HTML output.  This
 allows you to create a node for these output formats using only a sectioning
-command, using the section title as the node name.
+command, using the section title as the node name.  For the @code{@@top}
+sectioning command, as an exception, the inserted node is always named
+@samp{Top}.
 
 In HTML output split by node, you may wish to set this variable to
 @samp{0} to obtain finer control over output file splitting than that
