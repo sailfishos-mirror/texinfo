@@ -347,7 +347,7 @@ Manual testing:
 . if necessary, check if the HTML customization API can be updated for
   - lilypond Documentation/lilypond.init.  To redo the manuals:
      cd Documentation
-     rm -rf out
+     rm -rf out # or rm -f out/en/*/*.html
      make -j8 TEXI2ANY=../../texinfo/tta/perl/texi2any.pl html
   - ffmpeg doc/t2h.pm.  To test and compare more easily with previous version:
      ./configure --makeinfo='../texinfo/tta/perl/texi2any.pl -c "PACKAGE_AND_VERSION=GNU Texinfo 7.3" -c PROGRAM=makeinfo'
@@ -601,6 +601,8 @@ Ensure texinfo.tex, htmlxref.d/Texinfo_*.cnf are updated on ftp.gnu.org.
 Upload texi2dvi, texi2pdf (official releases only)
 
 * For release/* branch only: propagate htmlxref.d/Texinfo_*.cnf from master
+
+(cd tta/perl/t ; git clean -n .) # show directories to remove
 
 (cd tta/perl ; ../maintain/regenerate_file_lists.pl) # list all test results
 

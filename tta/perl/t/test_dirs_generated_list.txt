@@ -377,7 +377,6 @@ t/results/html_tests/redirection_same_labels
 t/results/html_tests/redirection_same_labels/res_html
 t/results/html_tests/sectioning_check_menu_structure
 t/results/html_tests/sectioning_check_menu_structure/res_html
-t/results/html_tests/set_add_transliterated_redirection_files
 t/results/html_tests/set_unit_file_name_filepath
 t/results/html_tests/set_unit_file_name_filepath/res_html
 t/results/html_tests/simple_only_special_spaces_node
@@ -565,7 +564,6 @@ t/results/init_files_tests/button_replacement_direction_strings_customization
 t/results/init_files_tests/button_replacement_direction_strings_customization/res_html
 t/results/init_files_tests/button_replacement_for_special_unit_direction
 t/results/init_files_tests/button_replacement_for_special_unit_direction/res_html
-t/results/init_files_tests/call_translate_in_translation
 t/results/init_files_tests/customize_definition_index_translations
 t/results/init_files_tests/customize_definition_index_translations/res_html
 t/results/init_files_tests/customize_special_element

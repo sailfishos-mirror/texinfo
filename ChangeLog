@@ -1,3 +1,12 @@
+2026-10-14 Patrice Dumas  <pertusus@free.fr>
+
+	* README-hacking: add (cd tta/perl/t ; git clean -n .) to show
+	empty directories that are not useful, are not shown by git status,
+	and will en up in tta/perl/t/test_dirs_generated_list.txt.  Based on a
+	report from Werner Lemberg.
+
+	* tta/perl/t/test_dirs_generated_list.txt: update.
+
 2026-10-13 Patrice Dumas  <pertusus@free.fr>
 
 	TODO: add a point on @heading and shadow targets for the future
