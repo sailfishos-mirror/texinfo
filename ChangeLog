@@ -2,6 +2,16 @@
 
 	Revise documentation of node/structuring commands
 
+	* doc/texinfo.texi (Tree Structuring): Remove example of
+	@node/@chapter completely.  This may have been next to the hierarchical
+	chart to explain node pointers but the example doesn't use them.
+	(Chapter Structuring): Put basic examples of @chapter or @node/@chapter
+	here.
+
+2026-10-14  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Revise documentation of node/structuring commands
+
 	* doc/texinfo.texi (Chapter Structuring): Mention alternative name
 	"sectioning commands".  Mention that sectioning commands can separate
 	a document into nodes.  Do not say that a @node command is "normally"

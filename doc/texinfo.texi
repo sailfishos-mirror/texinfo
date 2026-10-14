@@ -2225,10 +2225,23 @@ subsubsections.  These commands generate large headings in the text,
 like the one above.  They also provide information for generating the
 table of contents (@pxref{Contents,, Generating a Table of Contents}).
 
-Sectioning commands may also separate a document into so-called
-@dfn{nodes}.  A @code{@@node} command is often used immediately before
-each sectioning command.  This is discussed in more detail in the
-next chapter (@pxref{Nodes}).
+For example, the @code{@@chapter} command introduces a chapter.  It
+could be used like this:
+
+@example
+@@chapter Chapter 2
+@end example
+
+A @code{@@node} command is often used immediately before each sectioning
+command, as follows:
+
+@example
+@@node Chapter 2
+@@chapter Chapter 2
+@end example
+
+The sectioning commands are described in the sections that follow.
+The @code{@@node} command is described in the next chapter (@pxref{Nodes}).
 
 
 @node Tree Structuring
@@ -2260,20 +2273,6 @@ Section  Section   Section  Section   Section  Section
 
 @end group
 @end example
-
-In a Texinfo file that has this structure, the beginning of Chapter 2
-would be written like this:
-
-@example
-@group
-@@node    Chapter 2
-@@chapter Chapter 2
-@end group
-@end example
-
-The chapter structuring commands are described in the sections that
-follow; the @code{@@node} command is described in
-the next chapter (@pxref{Nodes}).
 
 
 @node Structuring Command Types
