@@ -1,7 +1,7 @@
 2026-10-14 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (Global Customization Variables): precise that with
-	AUTO_SECTION_NODE the node name used to @top is always "Top".
+	AUTO_SECTION_NODE the node name used for @top is always "Top".
 
 2026-10-14 Patrice Dumas  <pertusus@free.fr>
 
