@@ -1,5 +1,9 @@
 2026-10-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Nodes): Remove extraneous sentence.
+
+2026-10-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Unstructured Nodes): Move from "Chapter
 	Structuring" chapter to "Nodes" chapter.  Suggestion from Patrice.
 
