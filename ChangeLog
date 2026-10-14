@@ -1,5 +1,17 @@
 2026-10-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Revise documentation of node/structuring commands
+
+	* doc/texinfo.texi (Chapter Structuring): Mention alternative name
+	"sectioning commands".  Mention that sectioning commands can separate
+	a document into nodes.  Do not say that a @node command is "normally"
+	used with a sectioning command.
+	(Tree Structuring): Remove example with explicit node pointers as this
+	exact example is also given in the "Nodes" chapter in "Node Menu
+	Illustration".
+
+2026-10-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Tree Structuring): Update "previous chapter"
 	to "next chapter" after last change.
 

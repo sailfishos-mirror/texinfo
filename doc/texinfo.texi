@@ -2219,14 +2219,16 @@ ignored.
 @cindex Structuring of chapters
 @cindex Sectioning
 
-Texinfo's @dfn{chapter structuring} commands divide a document into a
-hierarchy of chapters, sections, subsections, and subsubsections.  These
-commands generate large headings in the text, like the one above.  They
-also provide information for generating the table of contents
-(@pxref{Contents,, Generating a Table of Contents}).
+Texinfo's @dfn{chapter structuring} or @dfn{sectioning} commands divide
+a document into a hierarchy of chapters, sections, subsections, and
+subsubsections.  These commands generate large headings in the text,
+like the one above.  They also provide information for generating the
+table of contents (@pxref{Contents,, Generating a Table of Contents}).
 
-Normally you put a @code{@@node} command immediately before each
-chapter structuring command.  @xref{Nodes}.
+Sectioning commands may also separate a document into so-called
+@dfn{nodes}.  A @code{@@node} command is often used immediately before
+each sectioning command.  This is discussed in more detail in the
+next chapter (@pxref{Nodes}).
 
 
 @node Tree Structuring
@@ -2265,17 +2267,6 @@ would be written like this:
 @example
 @group
 @@node    Chapter 2
-@@chapter Chapter 2
-@end group
-@end example
-
-@noindent
-For purposes of example, here is how it would be written with
-explicit node pointers:
-
-@example
-@group
-@@node    Chapter 2,  Chapter 3, Chapter 1, Top
 @@chapter Chapter 2
 @end group
 @end example
