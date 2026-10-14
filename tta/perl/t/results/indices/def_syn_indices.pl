@@ -549,6 +549,8 @@ definedx truc after
 Tag Table:
 Node: Top27
 Node: Chapter index120
+Ref: Index: pg219
+Ref: Index: fn608
 
 End Tag Table
 

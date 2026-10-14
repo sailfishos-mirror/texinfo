@@ -355,6 +355,11 @@ XS_STRXFRM_COLLATION_LOCALE        converter_customization undef   char
 # used internally for EPUB
 _INLINE_STYLE_WIDTH                converter_customization undef   integer
 
+# used to produce output for Info readers that can accept new tags.
+# (any Emacs Info reader, standalone Info reader released after 2025)
+# considered internal/not documented as it is used for development only
+_USE_NEW_INFO_TAGS                 converter_customization undef   integer
+
 # Not strings
 LINKS_DIRECTIONS                   converter_other undef   buttons
 TOP_BUTTONS                        converter_other undef   buttons

@@ -557,10 +557,16 @@ In chapter 2
 
 
 Tag Table:
+Ref: Index: cp61
 Ref: unnumbered1105
+Ref: Index: cp1143
 Ref: top (chapter) section2187
+Ref: Index: cp2242
 Ref: second3286
+Ref: Index: cp3301
+Ref: Index: cp4358
 Ref: Chapter5402
+Ref: Index: cp5423
 Ref: Chapter 26484
 
 End Tag Table

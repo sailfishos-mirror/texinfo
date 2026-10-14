@@ -69,8 +69,20 @@ typedef struct DOCUMENT_CONTEXT {
 
 def_list_type(DOCUMENT_CONTEXT_STACK, DOCUMENT_CONTEXT);
 
+enum conv_type {
+   PLT_text,
+   PLT_protected_text,
+   PLT_anchor,
+   PLT_quoted_image,
+   PLT_index,
+};
+
 typedef struct TARGET_LOCATION {
-    const ELEMENT *target_element;
+    enum conv_type type;
+    union {
+      const ELEMENT *target_element;
+      const char *index_argument;
+    } tl;
     size_t bytes;
 } TARGET_LOCATION;
 
@@ -79,13 +91,6 @@ def_list_type(TARGET_LOCATION_LIST, TARGET_LOCATION);
 /* better not base on INDEX_ENTRY_LOCATION as it is another type */
 def_list_type(INDEX_ENTRY_LINE_COUNT_LIST, int *);
 
-enum conv_type {
-   PLT_text,
-   PLT_protected_text,
-   PLT_anchor,
-   PLT_quoted_image,
-};
-
 typedef struct PENDING_TEXT {
     enum conv_type type;
     TEXT text;
@@ -93,6 +98,8 @@ typedef struct PENDING_TEXT {
       const ELEMENT *anchor;
       /* representation of image without control characters, for debugging */
       TEXT image_string;
+      /* for index */
+      const char *argument;
     } l;
 } PENDING_TEXT;
 

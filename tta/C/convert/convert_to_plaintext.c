@@ -1232,16 +1232,30 @@ stream_encode (CONVERTER *self, PENDING_TEXT_LIST *pending_texts, TEXT *result)
         {
           text_destroy (&pending_text->l.image_string);
         }
-      else if (self_plaintext->target_locations
-               && pending_text->type == PLT_anchor)
+      else if (self_plaintext->target_locations)
         {
-          TARGET_LOCATION target_location;
-          target_location.target_element = pending_text->l.anchor;
-          target_location.bytes = self_plaintext->bytes;
+          if (pending_text->type == PLT_anchor)
+            {
+              TARGET_LOCATION target_location;
+              target_location.type = pending_text->type;
+              target_location.tl.target_element = pending_text->l.anchor;
+              target_location.bytes = self_plaintext->bytes;
 
-          add_(target_location) (self_plaintext->target_locations,
-                                 target_location);
-          pending_text->l.anchor = 0;
+              add_(target_location) (self_plaintext->target_locations,
+                                     target_location);
+              pending_text->l.anchor = 0;
+            }
+          else if (pending_text->type == PLT_index)
+            {
+              TARGET_LOCATION target_location;
+              target_location.type = pending_text->type;
+              target_location.tl.index_argument = pending_text->l.argument;
+              target_location.bytes = self_plaintext->bytes;
+
+              add_(target_location) (self_plaintext->target_locations,
+                                     target_location);
+              pending_text->l.argument = 0;
+            }
         }
       pending_text->type = PLT_text;
     }
@@ -2498,6 +2512,8 @@ plaintext_process_printindex (CONVERTER *self,
           break;
         }
     }
+  /* an index merged in another one is not present in sorted_indexes,
+     therefore it is ignored here. */
   /* no entries should not be possible, as only indices with entries are
      left in sorted index names array */
   if (!index_sorted || !index_sorted->entries_number)
@@ -2605,6 +2621,14 @@ plaintext_process_printindex (CONVERTER *self,
 
   if (in_info)
     {
+      COUNT_CONTEXT *count_context
+       = top_(count_context) (&self_plaintext->count_context);
+      PENDING_TEXT_LIST *pending = &count_context->pending_text;
+      PENDING_TEXT *pending_index = add_top_pending_text (pending,
+                                                          PLT_index);
+      pending_index->l.argument = index_name;
+      add_top_pending_text (pending, PLT_text);
+
       stream_output_n (self, "\x00\x08[index\x00\x08]\n", 12);
       add_lines_count (self, 1);
     }

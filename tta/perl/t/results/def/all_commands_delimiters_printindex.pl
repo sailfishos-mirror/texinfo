@@ -3207,6 +3207,9 @@ Variables
 Tag Table:
 Node: Top27
 Node: chap74
+Ref: Index: fn2616
+Ref: Index: tp4987
+Ref: Index: vr5322
 
 End Tag Table
 

@@ -1,5 +1,27 @@
 2026-10-14 Patrice Dumas  <pertusus@free.fr>
 
+	add printed indices location tags in Info
+
+	* tta/data/options_data.txt (_USE_NEW_INFO_TAGS): add.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_process_printindex)
+	(stream_encode), tta/C/main/plaintext_converter_state.h
+	(enum conv_type, TARGET_LOCATION, PENDING_TEXT),
+	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_stream_encode)
+	(process_printindex): put an index special pending text type in
+	pending texts for @printindex, with index name as argument.  Gather
+	the bytes count of such pending text in stream_encode and put in
+	target_locations.  Extend associated struct and enum.
+
+	* tta/C/convert/convert_to_info.c (info_output),
+	tta/perl/Texinfo/Convert/InfoNonXS.pm (output): add new index
+	location tags from target_locations in the Info file tags.  In the
+	default case, prepend "Ref: ^H" as a standalone Info reader released
+	before 2025 breaks with any tag different from Ref and Node.  If
+	_USE_NEW_INFO_TAGS is set, use directly the Index: tag.
+
+2026-10-14 Patrice Dumas  <pertusus@free.fr>
+
 	* NEWS: announce the redesign of the Info and plaintext converters
 	even though it is not user facing, it helps extending the converter
 	for new object placed in the output stream, in particular with bytes

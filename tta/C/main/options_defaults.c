@@ -225,6 +225,7 @@ set_converter_customization_options_defaults (OPTIONS *options)
   option_set_conf (&options->XS_EXTERNAL_FORMATTING, -1, 0);
   option_set_conf (&options->XS_STRXFRM_COLLATION_LOCALE, -2, 0);
   option_set_conf (&options->_INLINE_STYLE_WIDTH, -1, 0);
+  option_set_conf (&options->_USE_NEW_INFO_TAGS, -1, 0);
 }
 
 void
@@ -370,6 +371,7 @@ add_converter_customization_options_defaults (OPTIONS_LIST *options_list)
   add_option_value (options_list, "XS_EXTERNAL_FORMATTING", -1, 0);
   add_option_value (options_list, "XS_STRXFRM_COLLATION_LOCALE", -2, 0);
   add_option_value (options_list, "_INLINE_STYLE_WIDTH", -1, 0);
+  add_option_value (options_list, "_USE_NEW_INFO_TAGS", -1, 0);
 }
 
 

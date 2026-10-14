@@ -166,6 +166,7 @@ our %converter_customization_options = (
   'XS_EXTERNAL_FORMATTING'           => undef,
   'XS_STRXFRM_COLLATION_LOCALE'      => undef,
   '_INLINE_STYLE_WIDTH'              => undef,
+  '_USE_NEW_INFO_TAGS'               => undef,
 );
 
 our %converter_other_options = (

@@ -512,6 +512,8 @@ Ref: public domain anchor486
 Ref: Top-Footnote-1555
 Ref: caption copying footnote anchor590
 Node: Copying and floats628
+Ref: Index: cp1107
+Ref: Index: fn1275
 Ref: Copying and floats-Footnote-11479
 Ref: Copying and floats-Footnote-21552
 

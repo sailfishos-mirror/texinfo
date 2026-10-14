@@ -1183,12 +1183,18 @@ sub _stream_encode($$) {
       }
     }
     if (defined($pending_string->[1])
-        and $pending_string->[1]->{'conv_type'} eq 'anchor'
         and exists($self->{'target_locations'})) {
-      push @{$self->{'target_locations'}}, {
-             'target_element' => $pending_string->[1]->{'anchor'},
-             'bytes' => $self->{'bytes'}
-      };
+      if ($pending_string->[1]->{'conv_type'} eq 'anchor') {
+        push @{$self->{'target_locations'}}, {
+               'target_element' => $pending_string->[1]->{'anchor'},
+               'bytes' => $self->{'bytes'}
+        };
+      } elsif ($pending_string->[1]->{'conv_type'} eq 'index') {
+        push @{$self->{'target_locations'}}, {
+               'index_argument' => $pending_string->[1]->{'argument'},
+               'bytes' => $self->{'bytes'}
+        };
+      }
     }
   }
 
@@ -1820,6 +1826,8 @@ sub process_printindex($$;$) {
     $sorted_indexes = $self->get_converter_indices_sorted_by_index();
   }
 
+  # an index merged in another one is not present in sorted_indexes,
+  # therefore it is ignored here.
   if (!defined($sorted_indexes) or !exists($sorted_indexes->{$index_name})) {
     return;
   }
@@ -1905,6 +1913,10 @@ sub process_printindex($$;$) {
 
   _add_newline_if_needed($self);
   if ($in_info) {
+    my $printindex_info = {'conv_type' => 'index', 'argument' => $index_name};
+    my $count_context = $self->{'count_context'}->[-1];
+    push @{$count_context->{'pending_text'}}, ['', $printindex_info], [''];
+
     my $info_printindex_magic = "\x{00}\x{08}[index\x{00}\x{08}]\n";
     _stream_output($self, $info_printindex_magic);
     _add_lines_count($self, 1);

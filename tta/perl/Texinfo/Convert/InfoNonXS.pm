@@ -513,36 +513,49 @@ sub output($$) {
   # This may happen for anchors in @insertcopying
   my %seen_anchors;
   foreach my $location (@{$self->{'target_locations'}}) {
-    my $element = $location->{'target_element'};
+    if (exists($location->{'target_element'})) {
+      my $element = $location->{'target_element'};
 
-    next unless (exists($element->{'extra'})
-                 and $element->{'extra'}->{'is_target'});
-    my $prefix;
+      next unless (exists($element->{'extra'})
+                   and $element->{'extra'}->{'is_target'});
+      my $prefix;
 
-    my ($label_text, undef) = $self->node_name($element);
+      my ($label_text, undef) = $self->node_name($element);
 
-    if (exists($seen_anchors{$label_text})) {
-      my $label_element = Texinfo::Common::get_label_element($element);
+      if (exists($seen_anchors{$label_text})) {
+        my $label_element = Texinfo::Common::get_label_element($element);
 
-      $self->plaintext_line_error($self,
+        $self->plaintext_line_error($self,
                                   sprintf(__("\@%s output more than once: %s"),
-          $element->{'cmdname'},
-          Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+            $element->{'cmdname'},
+            Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
                                                           $label_element)),
-        $element->{'source_info'});
-      next;
-    } else {
-      $seen_anchors{$label_text} = 1;
-    }
+          $element->{'source_info'});
+        next;
+      } else {
+        $seen_anchors{$label_text} = 1;
+      }
 
-    if ($element->{'cmdname'} eq 'node') {
-      $prefix = 'Node';
-    } else { # anchor, namedanchor, float and section without node
-      $prefix = 'Ref';
-    }
+      if ($element->{'cmdname'} eq 'node') {
+        $prefix = 'Node';
+      } else { # anchor, namedanchor, float and section without node
+        $prefix = 'Ref';
+      }
 
-    $tag_text .=  "$prefix: ".$self->_encode_string($label_text)
+      $tag_text .=  "$prefix: ".$self->_encode_string($label_text)
                                       ."\x{7F}$location->{'bytes'}\n";
+    } elsif (exists($location->{'index_argument'})) {
+      # standalone Info reader released before 2025 breaks if there is a tag
+      # different from Ref and Node.  Therefore reuse Ref with a special
+      # character for the Index location tag in the default case
+      if (!$self->get_conf('_USE_NEW_INFO_TAGS')) {
+        $tag_text .=  "Ref: \x{08}";
+      }
+
+      $tag_text .=  "Index: ".
+        $self->_encode_string($location->{'index_argument'})
+                                      ."\x{7F}$location->{'bytes'}\n";
+    }
   }
   $tag_text .=  "\x{1F}\nEnd Tag Table\n";
 
