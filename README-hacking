@@ -349,6 +349,8 @@ Manual testing:
      cd Documentation
      rm -rf out # or rm -f out/en/*/*.html
      make -j8 TEXI2ANY=../../texinfo/tta/perl/texi2any.pl html
+     # or for easier comparison with installed texi2any X.Y output
+     #make -j8 TEXI2ANY='../../texinfo/tta/perl/texi2any.pl -c PACKAGE_AND_VERSION=\"GNU Texinfo X.Y\"' html
   - ffmpeg doc/t2h.pm.  To test and compare more easily with previous version:
      ./configure --makeinfo='../texinfo/tta/perl/texi2any.pl -c "PACKAGE_AND_VERSION=GNU Texinfo 7.3" -c PROGRAM=makeinfo'
      make docclean

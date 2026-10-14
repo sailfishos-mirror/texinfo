@@ -32,7 +32,6 @@ X.Y ()
     WARN_DUPLICATE_SECTION_TARGET customization option.
   . remove COLLATION_LANGUAGE and DOCUMENTLANGUAGE_COLLATION customization
     variables.
-  . Info and plaintext C converters.
   . Build and install Python and Perl modules with Texinfo Parser, Reader,
     and Document information by default, if SWIG is found.
   . USE_UNIDECODE removed.  former effect is now always on.
@@ -44,6 +43,9 @@ X.Y ()
          or is an absolute file name.
       . add <span> with a class for output of @expansion{}, @arrow{},
         @point{}, @print{} and @result{}, to allow use of CSS styling
+  Info and plaintext output:
+      . C converters.
+      . partial redesign of conversion.
 
 * Distribution
   . Remove --enable-refcounts-checks, --enable-perl-api-texi-build
