@@ -1,5 +1,10 @@
 2026-10-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Tree Structuring): Update "previous chapter"
+	to "next chapter" after last change.
+
+2026-10-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Chapter Structuring, Nodes): Swap order of
 	chapters.  Suggestion from Patrice.
 

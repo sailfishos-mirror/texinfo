@@ -2282,7 +2282,7 @@ explicit node pointers:
 
 The chapter structuring commands are described in the sections that
 follow; the @code{@@node} command is described in
-the previous chapter (@pxref{Nodes}).
+the next chapter (@pxref{Nodes}).
 
 
 @node Structuring Command Types
