@@ -1647,12 +1647,19 @@ plaintext_node_name (CONVERTER *self, const ELEMENT *element,
 /* the advantage of using that function is that we know that nodes only
    are processed and the $label_element can be obtained more simply
    than when the node is setup by a call to node_name(). */
-void
-info_cache_node_names (CONVERTER *self, NODE_RELATIONS_LIST *nodes_list)
+/* If CHECK_INDEX_STRING_IN_NODE_NAMES is set, check if the "Index"
+   string is present in at least one node name and return 1 if so.
+   The Info readers may use that string to discover nodes with printed
+   indices.
+ */
+int
+info_cache_node_names (CONVERTER *self, NODE_RELATIONS_LIST *nodes_list,
+                       int check_index_string_in_node_names)
 {
   size_t i;
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   ELEMENT *node_text = new_element (ET__code);
+  int index_string_in_node_found = 0;
 
   if (!node_names_formatter)
     {
@@ -1688,6 +1695,11 @@ info_cache_node_names (CONVERTER *self, NODE_RELATIONS_LIST *nodes_list)
       node_name->width = para_counter ();
       node_name->string = result;
 
+      if (check_index_string_in_node_names
+          && !index_string_in_node_found
+          && strcasestr (result.text, "Index"))
+        index_string_in_node_found = 1;
+
       /* reset counters */
       para_end_line ();
 
@@ -1698,6 +1710,8 @@ info_cache_node_names (CONVERTER *self, NODE_RELATIONS_LIST *nodes_list)
   pop_formatter (self, 1);
 
   destroy_element (node_text);
+
+  return index_string_in_node_found;
 }
 
 static void

@@ -1404,13 +1404,21 @@ sub node_name($$) {
 
 # Only used for Info, kept in this file to use other functions
 # and have an organization similar to C.
-# the advantage of using that function is that we know that nodes only
+#
+# The advantage of using that function is that we know that nodes only
 # are processed and the $label_element can be obtained more simply
 # than when the node is setup by a call to node_name().
-sub _cache_node_names($$) {
-  my ($self, $nodes_list) = @_;
+#
+# If CHECK_INDEX_STRING_IN_NODE_NAMES is set, check if the "Index"
+# string is present in at least one node name and return 1 if so.
+# The Info readers may use that string to discover nodes with printed
+# indices.
+sub _cache_node_names($$;$) {
+  my ($self, $nodes_list, $check_index_string_in_node_names) = @_;
 
   my $node_names_hash = $self->{'node_names_text'};
+
+  my $index_string_in_node_found;
 
   if (!defined($node_names_formatter)) {
     $node_names_formatter = new_formatter($self, 'line', 0, undef,
@@ -1437,6 +1445,12 @@ sub _cache_node_names($$) {
 
     pop @{$self->{'count_context'}};
 
+    if ($check_index_string_in_node_names
+        and !$index_string_in_node_found
+        and $result =~ /Index/i) {
+      $index_string_in_node_found = 1;
+    }
+
     $node_names_hash->{$node}
       = {'text' => Texinfo::Common::normalize_top_node_name($result),
          'width' => $width };
@@ -1444,6 +1458,8 @@ sub _cache_node_names($$) {
     Texinfo::Convert::Paragraph::end_line($formatter->{'container'});
   }
   pop @{$self->{'formatters'}};
+
+  return $index_string_in_node_found;
 }
 
 

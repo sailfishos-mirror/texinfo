@@ -268,7 +268,10 @@ sub output($$) {
     }
   }
 
-  $self->_cache_node_names($document->nodes_list());
+  my $ambiguous_index_string_in_node_names
+    = $self->_cache_node_names($document->nodes_list(),
+                 (not (defined($global_commands)
+                       and exists($global_commands->{'printindex'}))));
 
   my $header = $self->_info_header($input_basefile, $output_filename);
   my $header_bytes = length($header);
@@ -512,6 +515,24 @@ sub output($$) {
   }
   # This may happen for anchors in @insertcopying
   my %seen_anchors;
+
+  if ($ambiguous_index_string_in_node_names) {
+    # add a tag (with an impossible index name at an impossible location)
+    # for an Info file with at least one  node with "Index" in its name but no
+    # @printindex.  An Info reader knowing about the Index: tag can infer
+    # that the processor doing the Info file is recent enough and
+    # only Index: tags should be used to determine printed indices locations,
+    # such that nodes with "Index" in their name are not considered to
+    # actually be nodes with printed indices.
+
+    if (!$self->get_conf('_USE_NEW_INFO_TAGS')) {
+      $tag_text .= "Ref: \x{08}";
+    }
+
+    $tag_text .= 'Index: '.
+      $self->_encode_string('_')."\x{7F}0\n";
+  }
+
   foreach my $location (@{$self->{'target_locations'}}) {
     if (exists($location->{'target_element'})) {
       my $element = $location->{'target_element'};
@@ -549,10 +570,10 @@ sub output($$) {
       # different from Ref and Node.  Therefore reuse Ref with a special
       # character for the Index location tag in the default case
       if (!$self->get_conf('_USE_NEW_INFO_TAGS')) {
-        $tag_text .=  "Ref: \x{08}";
+        $tag_text .= "Ref: \x{08}";
       }
 
-      $tag_text .=  "Index: ".
+      $tag_text .= 'Index: '.
         $self->_encode_string($location->{'index_argument'})
                                       ."\x{7F}$location->{'bytes'}\n";
     }

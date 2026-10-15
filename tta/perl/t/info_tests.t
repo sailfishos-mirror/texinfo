@@ -1458,7 +1458,14 @@ AA.
 @xref{(Two)}.
 ',
 {'AUTO_SECTION_NODE' => 1}],
+['index_string_in_node_no_index',
+'@node Top
+@top t
 
+@node chap indeXaa
+@chapter chap
+
+'],
 );
 
 my @file_tests = (

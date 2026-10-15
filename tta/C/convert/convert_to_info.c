@@ -274,6 +274,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
   char *preamble_documentlanguagevariant = 0;
   C_HASHMAP *seen_anchors;
   TEXT node_text;
+  int ambiguous_index_string_in_node_names;
 
   plaintext_conversion_initialization (self, document);
 
@@ -396,7 +397,9 @@ info_output (CONVERTER *self, DOCUMENT *document)
         }
     }
 
-  info_cache_node_names (self, &self->document->nodes_list);
+  ambiguous_index_string_in_node_names
+     = info_cache_node_names (self, &self->document->nodes_list,
+                (! self->document->global_commands.printindex.number));
 
   info_header (self, input_basefile, output_filename, &header);
 
@@ -718,6 +721,36 @@ info_output (CONVERTER *self, DOCUMENT *document)
     text_append_n (&tag_text, "(Indirect)\n", 11);
 
   seen_anchors = new_c_hashmap (self_plaintext->target_locations->number);
+
+  if (ambiguous_index_string_in_node_names)
+    {
+  /* add a tag (with an impossible index name at an impossible location)
+     for an Info file with at least one  node with "Index" in its name but no
+     @printindex.  An Info reader knowing about the Index: tag can infer
+     that the processor doing the Info file is recent enough and
+     only Index: tags should be used to determine printed indices locations,
+     such that nodes with "Index" in their name are not considered to
+     actually be nodes with printed indices.
+   */
+
+      if (self->conf->_USE_NEW_INFO_TAGS.o.integer <= 0)
+        text_append_n (&tag_text, "Ref: \x08", 6);
+
+      text_append_n (&tag_text, "Index: ", 7);
+
+      if (self_plaintext->encoding_object)
+        {
+          TEXT converted_text
+           = encode_with_iconv (self_plaintext->encoding_object->iconv,
+                                "_", 1, 0, ieh_error, 0);
+          text_append_n (&tag_text, converted_text.text,
+                         converted_text.end);
+          free (converted_text.text);
+        }
+      else
+        text_append_n (&tag_text, "_", 1);
+      text_append_n (&tag_text, "\x{7F}0\n", 3);
+    }
 
   for (j = 0; j < self_plaintext->target_locations->number; j++)
     {
