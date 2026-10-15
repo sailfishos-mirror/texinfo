@@ -396,7 +396,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
         }
     }
 
-  plaintext_cache_node_names (self, &self->document->nodes_list);
+  info_cache_node_names (self, &self->document->nodes_list);
 
   info_header (self, input_basefile, output_filename, &header);
 
@@ -789,9 +789,10 @@ info_output (CONVERTER *self, DOCUMENT *document)
 
           if (self_plaintext->encoding_object)
             {
+              /* conversion to drop const for the prototype */
               TEXT converted_text
                = encode_with_iconv (self_plaintext->encoding_object->iconv,
-                                    target_location->tl.index_argument,
+                                    (char *)target_location->tl.index_argument,
                                     strlen (target_location->tl.index_argument),
                                     0, ieh_error, 0);
               text_append_n (&tag_text, converted_text.text,

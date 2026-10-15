@@ -703,10 +703,9 @@ sub output($$) {
   }
 
   my $nodes_list = $document->nodes_list();
-  # Do not call _cache_node_names as only the node names used in index
+  # Do not cache node names as only the node names used in index
   # formatting are needed, therefore we may generate names that are
   # not used if we call the function.
-  #_cache_node_names($self, $nodes_list);
 
   Texinfo::OutputUnits::split_pages($output_units, $nodes_list,
                                     $self->get_conf('SPLIT'));
@@ -1403,6 +1402,8 @@ sub node_name($$) {
           $self->{'node_names_text'}->{$node}->{'width'});
 }
 
+# Only used for Info, kept in this file to use other functions
+# and have an organization similar to C.
 # the advantage of using that function is that we know that nodes only
 # are processed and the $label_element can be obtained more simply
 # than when the node is setup by a call to node_name().

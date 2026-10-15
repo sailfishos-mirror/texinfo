@@ -70,8 +70,8 @@ const enum command_id *plaintext_get_informative_global_commands (void);
 
 void plaintext_node_name (CONVERTER *self, const ELEMENT *element,
                           STRING_WITH_WIDTH *string_result);
-void plaintext_cache_node_names (CONVERTER *self,
-                                 NODE_RELATIONS_LIST *nodes_list);
+void info_cache_node_names (CONVERTER *self,
+                            NODE_RELATIONS_LIST *nodes_list);
 void plaintext_process_one_footnote (CONVERTER *self,
                                      const PENDING_FOOTNOTE *footnote_info);
 void plaintext_process_printindex (CONVERTER *self,
