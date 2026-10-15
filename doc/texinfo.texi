@@ -1996,10 +1996,15 @@ main text of the document.
 @cindex Node, @samp{Top}
 @anchor{Top Node Example}@c
 
-The `Top' node is the node in which a reader enters an Info manual.
-As such, it should contain a very brief description of the manual
-(including the version number).  The contents of the `Top' node do
-not appear in printed output nor in DocBook output.
+The `Top' node is part of the file that you can use to introduce the
+manual.  It should contain a very brief description of the manual
+(including the version number).
+
+In Info output, it is the the default node in which a reader enters the
+manual.  Likewise in HTML, the contents of the `Top' node appear before
+any of the chapters or sections in the document.  In certain output
+formats, including printed output and in DocBook output, the contents
+of the `Top' node do not appear.
 
 It is conventional to write a line with a @code{@@top} command
 containing the title of the document immediately after the
