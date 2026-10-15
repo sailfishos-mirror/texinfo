@@ -1,5 +1,14 @@
 2026-10-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Short Sample Texinfo File):
+	Remove @node lines duplicating @section lines.
+	(The Body of the Document): Remove duplicate @node lines for
+	@chapter and @section.  Word node carefully to avoid saying the
+	exact number of nodes in the example; only say there are three
+	nodes for Info output.
+
+2026-10-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (The Top Node): Edit slightly to avoid being
 	specific to the Info format.
 

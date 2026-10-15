@@ -942,13 +942,11 @@ This is the second item.
 @end group
 
 
-@@node First Section
 @@section First Section
 
 First section of first chapter.
 
 
-@@node Second Section
 @@section Second Section
 
 Second section of first chapter.
@@ -2109,19 +2107,19 @@ Beginning a Texinfo File
 
 
 @node The Body of the Document
-@nodedescription The rest of the nodes.
+@nodedescription The rest of the manual.
 @section The Body of the Document
 
 @cindex Frontmatter, text in
 The body segment contains all the text of the document.
-A manual is divided into one or more @dfn{nodes} (@pxref{Nodes}).  
-The example illustrates a chapter made of three nodes, one
-for introductory material in the chapter, and two sections.
-The introductory material contains an enumerated list.
+A manual is divided one or more chapters, sections or smaller divisions
+using chapter structuring commands (@pxref{Chapter Structuring}).
+
+The example illustrates a chapter with introductory material, followed
+by two sections.  The introductory material contains an enumerated list.
 
 @example
 @group
-@@node First Chapter
 @@chapter First Chapter
 
 @@cindex chapter, first
@@ -2139,25 +2137,26 @@ This is the second item.
 @@end enumerate
 
 
-@@node First Section
 @@section First Section
 
 First section of first chapter.
 
 
-@@node Second Section
 @@section Second Section
 
 Second section of first chapter.
 @end group
 @end example
 
-In the Info output, the @samp{First Chapter} node will contain a
-menu listing the two sections in the chapter.  Similarly, when this
-node is output in its own HTML file, it will contain a table of contents
-for the chapter.
+In the Info output, the output will contain three nodes: one for the
+introductory material in the @samp{First Chapter} chapter, and one each
+for the two sections.  The @samp{First Chapter} node will have a menu
+menu listing the two sections in the chapter.  Similarly, when this node
+is output in its own HTML file, it will contain a table of contents for
+the chapter.
 
-Here is what the contents of this chapter will look like:
+Here is a rough representation of what the contents of this chapter will
+look like:
 
 @sp 1
 @need 700
@@ -2184,9 +2183,6 @@ First section of first chapter.
 
 Second section of first chapter.
 @end quotation
-
-@noindent (In the Info and HTML output, the chapter would also be split
-into nodes.)
 
 
 @node Ending a File
