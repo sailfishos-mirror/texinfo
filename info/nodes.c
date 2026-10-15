@@ -217,6 +217,8 @@ build_tag_table (FILE_BUFFER *file_buffer)
 
       if (anchor)
         entry->flags |= T_IsAnchor;
+      else
+        entry->flags |= T_IsNode;
 
       entry->filename = file_buffer->fullpath;
 
@@ -260,6 +262,7 @@ get_nodes_of_tags_table (FILE_BUFFER *file_buffer,
       char *nodedef;
       unsigned p;
       int anchor = 0;
+      int index = 0;
       long nodestart;
 
       /* Prepare to skip this line. */
@@ -278,7 +281,32 @@ get_nodes_of_tags_table (FILE_BUFFER *file_buffer,
         {
           name_offset = string_in_line (INFO_REF_LABEL, s.buffer + s.start);
           if (name_offset != -1)
-            anchor = 1;
+            {
+              /* check if it is a Ref: \bIndex: */
+              int quote_offset = name_offset;
+              quote_offset
+                += skip_whitespace (s.buffer + s.start + quote_offset);
+              if (*(s.buffer + s.start + quote_offset) == '\b')
+                {
+                  int index_label_offset = string_in_line (INFO_INDEX_LABEL,
+                                       s.buffer + s.start + quote_offset +1);
+                  if (index_label_offset != -1)
+                    {
+                      name_offset = index_label_offset + quote_offset +1;
+                      index = 1;
+                    }
+                }
+              if (!index)
+                anchor = 1;
+            }
+        }
+
+      /* No Node:, no Ref:.  Maybe it's an Index:.  */
+      if (name_offset == -1)
+        {
+          name_offset = string_in_line (INFO_INDEX_LABEL, s.buffer + s.start);
+          if (name_offset != -1)
+            index = 1;
         }
 
       /* If not there, not a defining line, either there is an unknown tag type
@@ -330,14 +358,27 @@ get_nodes_of_tags_table (FILE_BUFFER *file_buffer,
           continue;
         }
 
-      entry->nodename = xmalloc (p + 1);
-      strncpy (entry->nodename, nodedef, p);
-      entry->nodename[p] = 0;
+      if (index)
+        {
+          entry->indexname = xmalloc (p + 1);
+          strncpy (entry->indexname, nodedef, p);
+          entry->indexname[p] = 0;
+        }
+      else
+        {
+          entry->nodename = xmalloc (p + 1);
+          strncpy (entry->nodename, nodedef, p);
+          entry->nodename[p] = 0;
+        }
 
       entry->nodestart = nodestart;
 
       if (anchor)
         entry->flags |= T_IsAnchor;
+      else if (index)
+        entry->flags |= T_IsIndex;
+      else
+        entry->flags |= T_IsNode;
 
       /* The filename of this node is currently known as the same as the
          name of this file. */
@@ -566,6 +607,7 @@ static void
 free_info_tag (TAG *tag)
 {
   free (tag->nodename);
+  free (tag->indexname);
   
   /* We don't free tag->filename, because that filename is part of the
      subfiles list for the containing FILE_BUFFER.  free_info_tags ()
@@ -1047,14 +1089,14 @@ info_get_node_tag_of_file_buffer (FILE_BUFFER *file_buffer,
     return NULL;
 
   for (i = 0; (tag = file_buffer->tags[i]); i++)
-    if (strcmp (nodename, tag->nodename) == 0)
+    if (tag->nodename && strcmp (nodename, tag->nodename) == 0)
       return &file_buffer->tags[i];
 
   /* For "Top" node only, look for it case-insensitively if not found. */
   if (!tag && !strcasecmp (nodename, "Top"))
     {
       for (i = 0; (tag = file_buffer->tags[i]); i++)
-        if (strcasecmp (nodename, tag->nodename) == 0)
+        if (tag->nodename && strcasecmp (nodename, tag->nodename) == 0)
           return &file_buffer->tags[i];
     }
   return NULL;
@@ -1182,7 +1224,7 @@ set_tag_nodelen (FILE_BUFFER *subfile, TAG *tag)
 }
 
 /* Return the node described by *INPUT_TAG_PTR, retrieving contents from
-   subfile if the file is split.  If the tag is an anchor tag, find the
+   subfile if the file is split.  If the tag is not a node tag, find the
    associated node tag first.  Return 0 on failure.  If FAST, don't
    process the node to find cross-references, a menu, or perform character
    encoding conversion. */
@@ -1191,7 +1233,7 @@ info_node_of_tag_ext (FILE_BUFFER *fb, TAG **input_tag_ptr, int fast)
 {
   TAG *input_tag = *input_tag_ptr;
   NODE *node;
-  int is_anchor;
+  int is_not_node;
   TAG **node_tag_ptr;
   TAG *node_tag, *anchor_tag = 0;
   int node_pos, anchor_pos;
@@ -1225,17 +1267,17 @@ info_node_of_tag_ext (FILE_BUFFER *fb, TAG **input_tag_ptr, int fast)
 
   node = 0;
 
-  is_anchor = input_tag->flags & T_IsAnchor;
+  is_not_node = !(input_tag->flags & T_IsNode);
  
-  if (is_anchor)
+  if (is_not_node)
     {
       anchor_pos = input_tag_ptr - fb->tags;
 
       /* Look backwards in the tag table for the node preceding
-         the anchor (we're assuming the tags are given in order),
-         skipping over any preceding anchors.  */
+         the anchor or index (we're assuming the tags are given in order),
+         skipping over any preceding anchors and index tags.  */
       for (node_pos = anchor_pos - 1;
-           node_pos >= 0 && (fb->tags[node_pos]->flags & T_IsAnchor);
+           node_pos >= 0 && (!(fb->tags[node_pos]->flags & T_IsNode));
            node_pos--)
         ;
 
@@ -1313,7 +1355,7 @@ info_node_of_tag_ext (FILE_BUFFER *fb, TAG **input_tag_ptr, int fast)
       node->flags |= N_Replica;
     }
 
-  if (is_anchor)
+  if (is_not_node)
     {
       /* Start displaying the node at the anchor position.  */
 

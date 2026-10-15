@@ -1,3 +1,26 @@
+2026-10-16 Patrice Dumas  <pertusus@free.fr>
+
+	read index tag in Info reader and handle tag not being a node name
+
+	* info/nodes.c (build_tag_table, get_nodes_of_tags_table)
+	(info_node_of_tag_ext), info/scan.c (copy_input_to_output)
+	(scan_node_contents), info/session-cmd.c (info_last_node)
+	(info_first_node, info_search_internal): add T_IsNode flag and set for
+	a node.  Replace checks of tag being an anchor by check of not being a
+	node (and vice sersa) when it is more logical.
+
+	* info/nodes.c (get_nodes_of_tags_table, free_info_tag)
+	(info_node_of_tag_ext), info/nodes.h (INFO_INDEX_LABEL, struct TAG)
+	(T_IsIndex): read an Index tag from the Tag table.  Set indexname,
+	added to struct TAG, for Index tag, not nodename.  Free indexname.
+	Handle Index tag in info_node_of_tag_ext like an anchor tag.
+
+	* info/indices.c (info_indices_of_file_buffer), info/info.c
+	(add_initial_nodes), info/nodes.c (info_get_node_tag_of_file_buffer),
+	info/session-cmd.c (info_goto_node, info_search_internal)
+	(tag_of_reference): check if a tag has a nodename to find a node or
+	anchor.
+
 2026-10-15  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Short Sample Texinfo File):

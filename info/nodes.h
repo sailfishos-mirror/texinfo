@@ -66,6 +66,7 @@ typedef struct {
 #define INFO_FILE_LABEL                 "File:"
 #define INFO_REF_LABEL                  "Ref:"
 #define INFO_NODE_LABEL                 "Node:"
+#define INFO_INDEX_LABEL                "Index:"
 #define INFO_PREV_LABEL                 "Prev:"
 #define INFO_ALTPREV_LABEL              "Previous:"
 #define INFO_NEXT_LABEL                 "Next:"
@@ -94,7 +95,9 @@ typedef struct {
    current file. */
 typedef struct {
   char *filename;               /* The file where this node can be found. */
-  char *nodename;               /* The node pointed to by this tag. */
+  char *nodename;               /* The node pointed to by this tag (Node
+                                   or Ref tag). */
+  char *indexname;              /* The index name of this tag (Index tag). */
   long nodestart;               /* The value read from the tag table.
                                    Should never be negative */
   long nodestart_adjusted;      /* Where the node or anchor actually is. */
@@ -104,7 +107,9 @@ typedef struct {
 
 /* Values for TAG.flags. */
 #define T_SeenBySearch 0x01     /* Tag has already been seen in a search. */
-#define T_IsAnchor     0x02     /* Tag is an anchor */
+#define T_IsNode       0x02     /* Tag is a node */
+#define T_IsAnchor     0x04     /* Tag is an anchor */
+#define T_IsIndex      0x08     /* Tag is an index */
 
 /* The following structure is used to remember information about the contents
    of Info files that we have loaded at least once before.  The FINFO member

@@ -1539,6 +1539,7 @@ dump_node_to_stream (FILE_BUFFER *file_buffer,
       REFERENCE **menu = NULL;
 
       /* If this node is an Index, do not dump the menu references. */
+      /* FIXME improve that check, see indices.c info_indices_of_file_buffer */
       if (string_in_line ("Index", node->nodename) == -1)
         menu = node->references;
 

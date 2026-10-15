@@ -439,7 +439,8 @@ add_initial_nodes (int argc, char **argv, char **error)
 
               /* First look for an exact match. */
               for (j = 0; (tag = file_buffer->tags[j]); j++)
-                if (strcmp (user_nodenames[i], tag->nodename) == 0)
+                if (tag->nodename
+                    && strcmp (user_nodenames[i], tag->nodename) == 0)
                   {
                     node_nodename = tag->nodename;
                     break;
@@ -451,6 +452,9 @@ add_initial_nodes (int argc, char **argv, char **error)
                   int len = strlen (user_nodenames[i]);
                   for (j = 0; (tag = file_buffer->tags[j]); j++)
                     {
+                      if (!tag->nodename)
+                        continue;
+
                       if (mbscasecmp (user_nodenames[i], tag->nodename) == 0)
                         {
                           /* Exact, case-insensitive match. */

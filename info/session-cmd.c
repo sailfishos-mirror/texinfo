@@ -2220,7 +2220,7 @@ DECLARE_INFO_COMMAND (info_last_node, _("Select the last node in this file"))
       if (count == 0 || (count == 1 && !info_explicit_arg))
         count = -1;
       for (i = 0; count && fb->tags[i]; i++)
-        if (!(fb->tags[i]->flags & T_IsAnchor)) /* don't count anchor tags */
+        if (fb->tags[i]->flags & T_IsNode) /* count only node tags */
           {
             count--;
             last_node_tag_idx = i;
@@ -2253,7 +2253,7 @@ DECLARE_INFO_COMMAND (info_first_node, _("Select the first node in this file"))
       int last_node_tag_idx = -1;
 
       for (i = 0; count && fb->tags[i]; i++)
-        if (!(fb->tags[i]->flags & T_IsAnchor)) /* don't count anchor tags */
+        if (fb->tags[i]->flags & T_IsNode) /* count only node tags */
           {
             count--;
             last_node_tag_idx = i;
@@ -2560,6 +2560,8 @@ DECLARE_INFO_COMMAND (info_goto_node, _("Read a node name and select it"))
           {
             for (i = 0; fb->tags[i]; i++)
               {
+                if (!fb->tags[i]->nodename)
+                  continue;
                 entry = xmalloc (sizeof (REFERENCE));
                 entry->filename = entry->nodename = NULL;
                 if (this_is_the_current_fb)
@@ -3117,7 +3119,8 @@ info_search_internal (char *string, WINDOW *window,
       char *initial_nodename = window->node->nodename;
 
       for (i = 0; file_buffer->tags[i]; i++)
-        if (strcmp (initial_nodename, file_buffer->tags[i]->nodename) == 0)
+        if (file_buffer->tags[i]->nodename
+            && strcmp (initial_nodename, file_buffer->tags[i]->nodename) == 0)
           {
             starting_tag = i;
             subfile_name = file_buffer->tags[i]->filename;
@@ -3171,7 +3174,7 @@ info_search_internal (char *string, WINDOW *window,
         break;
       first_time = 0;
 
-      /* Find the next tag that isn't an anchor.  */
+      /* Find the next tag that is a node.  */
       for (i = current_tag + dir; ; i += dir)
         {
           if (i < 0)
@@ -3186,7 +3189,7 @@ info_search_internal (char *string, WINDOW *window,
             }
 
           tag = file_buffer->tags[i];
-          if (!(tag->flags & T_IsAnchor))
+          if (tag->flags & T_IsNode)
             break;
         }
 
@@ -3377,7 +3380,7 @@ tag_of_reference (REFERENCE *r, WINDOW *window, FILE_BUFFER **fb, TAG ***t)
     return 0;
 
   for (i = 0; *(*t = &(*fb)->tags[i]); i++)
-    if (!strcmp (nodename, (**t)->nodename))
+    if ((**t)->nodename && !strcmp (nodename, (**t)->nodename))
       goto found_tag;
   return 0;
  found_tag: ;
