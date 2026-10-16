@@ -239,6 +239,7 @@ clear_option (OPTION *option)
         break;
 
       case GOT_integer:
+      case GOT_boolean:
         option->o.integer = -1;
 
       default:
@@ -258,6 +259,7 @@ free_option (OPTION *option)
   switch (option->type)
     {
       case GOT_integer:
+      case GOT_boolean:
         break;
 
       case GOT_char:
@@ -296,6 +298,7 @@ initialize_option (OPTION *option, enum global_option_type type,
   switch (type)
     {
       case GOT_integer:
+      case GOT_boolean:
         option->o.integer = -1;
         break;
 
@@ -332,6 +335,7 @@ option_set_conf_internal (OPTION *option, int int_value, const char *char_value)
   switch (option->type)
     {
       case GOT_integer:
+      case GOT_boolean:
         option->o.integer = int_value;
         break;
       case GOT_char:
@@ -370,6 +374,7 @@ copy_option (OPTION *destination, const OPTION *source)
   switch (source->type)
     {
       case GOT_integer:
+      case GOT_boolean:
         destination->o.integer = source->o.integer;
         break;
 
@@ -796,7 +801,7 @@ set_informative_command_value (OPTION **sorted_options,
       if (option)
         {
           int int_value = -1;
-          if (option->type == GOT_integer)
+          if (option->type == GOT_integer || option->type == GOT_boolean)
             int_value = strtoul (value, NULL, 10);
           option_set_conf (option, int_value, value);
         }

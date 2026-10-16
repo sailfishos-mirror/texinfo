@@ -1,3 +1,22 @@
+2026-10-16 Patrice Dumas  <pertusus@free.fr>
+
+	add boolean type for customization variables
+
+	* tta/C/main/option_types.h (enum global_option_type),
+	tta/maintain/regenerate_C_options_info.pl: add boolean option type.
+
+	* tta/data/options_data.txt: change options type to boolean for
+	options that are boolean options.
+
+	* tta/C/convert/converter.c (set_commands_options_value)
+	(copy_command_option_value_option, command_init),
+	tta/C/main/build_perl_info.c (build_sv_option),
+	tta/C/main/customization_options.c (clear_option, free_option)
+	(initialize_option, option_set_conf_internal, copy_option)
+	(set_informative_command_value), tta/C/main/get_perl_info.c
+	(get_sv_option), tta/C/main/txi_config.c (set_option_value): handle
+	GOT_boolean enum global_option_type, doing the same as for integer.
+
 2026-10-16  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/session-cmd.c

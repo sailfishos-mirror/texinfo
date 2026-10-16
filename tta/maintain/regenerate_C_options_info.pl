@@ -286,18 +286,16 @@ foreach my $command_name (@commands_order) {
 }
 print CODE "}\n\n";
 
-sub get_value($$)
-{
-  my $type = shift;
-  my $value = shift;
+sub get_value($$) {
+  my ($type, $value) = @_;
 
   my $char_value = 0;
   my $int_value = '-2';
-  if ($type eq 'integer') {
+  if ($type eq 'integer' or $type eq 'boolean') {
     $int_value = -1;
   }
   if ($value ne 'undef') {
-    if ($type eq 'integer') {
+    if ($type eq 'integer' or $type eq 'boolean') {
       $int_value = $value;
     } else {
       my $protected = $value;
@@ -364,7 +362,8 @@ foreach my $category (sort(keys(%option_categories))) {
   print ODCF "void\n$options_fun\n{\n";
   foreach my $option_info (@{$option_categories{$category}}) {
     my ($option, $value, $type) = @$option_info;
-    if ($type eq 'char' or $type eq 'bytes' or $type eq 'integer') {
+    if ($type eq 'char' or $type eq 'bytes' or $type eq 'integer'
+        or $type eq 'boolean') {
       my ($int_value, $char_value) = get_value($type, $value);
       print ODCF "  option_set_conf (&options->${option}, $int_value, $char_value);\n";
     } else {
@@ -380,7 +379,8 @@ foreach my $category (sort(keys(%option_categories))) {
   }
   foreach my $option_info (@{$option_categories{$category}}) {
     my ($option, $value, $type) = @$option_info;
-    if ($type eq 'char' or $type eq 'bytes' or $type eq 'integer') {
+    if ($type eq 'char' or $type eq 'bytes' or $type eq 'integer'
+        or $type eq 'boolean') {
       my ($int_value, $char_value) = get_value($type, $value);
       print ODCF "  add_option_value (options_list, "
                    ."\"$option\", $int_value, $char_value);\n";
@@ -463,8 +463,9 @@ foreach my $format (@sorted_formats) {
     my ($option, $value) = @$option_spec;
     my $option_info = $options{$option};
     my ($category, $main_default, $type) = @$option_info;
-    my ($int_value, $char_value) = get_value($type, $value);
-    if ($type eq 'char' or $type eq 'bytes' or $type eq 'integer') {
+    if ($type eq 'char' or $type eq 'bytes' or $type eq 'integer'
+        or $type eq 'boolean') {
+      my ($int_value, $char_value) = get_value($type, $value);
       print CDCF "  option_set_conf (&options->${option}, $int_value, $char_value);\n";
     }
   }
@@ -475,8 +476,9 @@ foreach my $format (@sorted_formats) {
     my ($option, $value) = @$option_spec;
     my $option_info = $options{$option};
     my ($option_unused, $main_default, $type) = @$option_info;
-    my ($int_value, $char_value) = get_value($type, $value);
-    if ($type eq 'char' or $type eq 'bytes' or $type eq 'integer') {
+    if ($type eq 'char' or $type eq 'bytes' or $type eq 'integer'
+        or $type eq 'boolean') {
+      my ($int_value, $char_value) = get_value($type, $value);
       print CDCF "  add_option_value (options_list, "
                    ."\"$option\", $int_value, $char_value);\n";
     }

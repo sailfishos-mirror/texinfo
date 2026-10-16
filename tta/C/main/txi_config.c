@@ -172,7 +172,7 @@ set_option_value (OPTIONS_LIST *options_list, size_t number,
 {
   OPTION *option = options_list->sorted_options[number -1];
 
-  if (option->type == GOT_integer)
+  if (option->type == GOT_integer || option->type == GOT_boolean)
     {
       char *endptr;
       long long_value = strtol (value, &endptr, 10);
@@ -191,6 +191,7 @@ set_option_value (OPTIONS_LIST *options_list, size_t number,
            to Perl.
            Not exactly the same as comparison won't fail in C, while
            it will fail in Perl and trigger a warning. */
+        /* FIXME do something different for GOT_integer */
            if (!strcmp (value, ""))
              option_set_conf (option, 0, 0);
            else

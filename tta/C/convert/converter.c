@@ -342,7 +342,7 @@ set_commands_options_value (COMMAND_OPTION_VALUE *commands_init_conf,
       if (if_set_in_list && !(option->flags & OF_set_in_list))
         continue;
 
-      if (option->type == GOT_integer)
+      if (option->type == GOT_integer || option->type == GOT_boolean)
         {
           commands_init_conf[option_nr_cmd->cmd].type = option->type;
           commands_init_conf[option_nr_cmd->cmd].v.value
@@ -1510,7 +1510,8 @@ static void
 copy_command_option_value_option (OPTION *option,
                                   const COMMAND_OPTION_VALUE *cmd_option_value)
 {
-  if (cmd_option_value->type == GOT_integer)
+  if (cmd_option_value->type == GOT_integer
+      || cmd_option_value->type == GOT_boolean)
     option_set_conf (option, cmd_option_value->v.value, 0);
   else
     option_set_conf (option, -1, cmd_option_value->v.string);
@@ -1528,10 +1529,6 @@ command_init (enum command_id cmd, COMMAND_OPTION_VALUE *commands_init_conf)
   if (commands_init_conf)
     {
       const COMMAND_OPTION_VALUE *cmd_init_conf = &commands_init_conf[cmd];
-       /*
-      if (cmd_init_conf->type == GOT_integer && cmd_init_conf->v.value >= 0
-          || cmd_init_conf->type == GOT_char && cmd_init_conf->v.string)
-        */
       if (cmd_init_conf->set)
         {
           result = (COMMAND_OPTION_VALUE *)
@@ -1547,7 +1544,8 @@ command_init (enum command_id cmd, COMMAND_OPTION_VALUE *commands_init_conf)
       result = (COMMAND_OPTION_VALUE *)
                           malloc (sizeof (COMMAND_OPTION_VALUE));
       result->type = default_option->type;
-      if (default_option->type == GOT_integer)
+      if (default_option->type == GOT_integer
+          || default_option->type == GOT_boolean)
         result->v.value = default_option->o.integer;
       else
         result->v.string = default_option->o.string;

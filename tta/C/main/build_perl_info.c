@@ -3497,6 +3497,7 @@ build_sv_option (const OPTION *option, CONVERTER *converter)
   switch (option->type)
     {
       case GOT_integer:
+      case GOT_boolean:
         if (option->o.integer == -1)
           return newSV (0);
         return newSViv (option->o.integer);

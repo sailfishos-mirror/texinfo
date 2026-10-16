@@ -29,15 +29,15 @@
 
 
 # Parser only options
-IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME  parser 1 integer
+IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME  parser 1 boolean
 # handle cpp like synchronization lines
-CPP_LINE_DIRECTIVES                     parser 1 integer
+CPP_LINE_DIRECTIVES                     parser 1 boolean
 # max number of nested macro calls
 MAX_MACRO_CALL_NESTING                  parser 100000 integer
 # if set, do not record index entries and ignore index related @-commands
-NO_INDEX                                parser 0 integer
+NO_INDEX                                parser 0 boolean
 # if set, ignore @*macro, @def*index, @alias and @definfoenclose
-NO_USER_COMMANDS                        parser 0 integer
+NO_USER_COMMANDS                        parser 0 boolean
 
 
 # @-commands that can be used multiple time in a document and default
@@ -47,7 +47,7 @@ NO_USER_COMMANDS                        parser 0 integer
 allowcodebreaks            multiple_at_command true     char
 codequotebacktick          multiple_at_command off      char
 codequoteundirected        multiple_at_command off      char
-contents                   multiple_at_command 0        integer
+contents                   multiple_at_command 0        boolean
 deftypefnnewline           multiple_at_command off      char
 documentencoding           multiple_at_command utf-8    char
 
@@ -70,8 +70,8 @@ microtype                  multiple_at_command undef    char
 oddheading                 multiple_at_command undef    char
 oddfooting                 multiple_at_command undef    char
 paragraphindent            multiple_at_command 3        integer
-shortcontents              multiple_at_command 0        integer
-summarycontents            multiple_at_command 0        integer
+shortcontents              multiple_at_command 0        boolean
+summarycontents            multiple_at_command 0        boolean
 urefbreakstyle             multiple_at_command after    char
 xrefautomaticsectiontitle  multiple_at_command off      char
 
@@ -95,7 +95,7 @@ fonttextsize         unique_at_command 11      integer
 # --footnote-style
 footnotestyle        unique_at_command end     char
 # --no-validate
-novalidate           unique_at_command 0       integer
+novalidate           unique_at_command 0       boolean
 oddfootingmarks      unique_at_command undef   char
 oddheadingmarks      unique_at_command undef   char
 pagesizes            unique_at_command undef   char
@@ -112,20 +112,20 @@ SPLIT_SIZE                converter_cmdline 300000  integer
 # --fill-column
 FILLCOLUMN                converter_cmdline 72      integer
 # --number-sections
-NUMBER_SECTIONS           converter_cmdline 1       integer
+NUMBER_SECTIONS           converter_cmdline 1       boolean
 # --number-footnotes
-NUMBER_FOOTNOTES          converter_cmdline 1       integer
+NUMBER_FOOTNOTES          converter_cmdline 1       boolean
 # only in HTML
 # --transliterate-file-names
-TRANSLITERATE_FILE_NAMES  converter_cmdline 0       integer
+TRANSLITERATE_FILE_NAMES  converter_cmdline 0       boolean
 # --split
 SPLIT                     converter_cmdline undef   char
 # --headers.  Used to set diverse
 # customization options in main program.
 # Only directly used in HTML converter
-HEADERS                   converter_cmdline 1       integer
+HEADERS                   converter_cmdline 1       boolean
 # --node-files.  Default depends on SPLIT;  Used in HTML only.
-NODE_FILES                converter_cmdline undef   integer
+NODE_FILES                converter_cmdline undef   boolean
 # --verbose
 VERBOSE                   converter_cmdline undef   integer
 # --output    Sets OUTPUT if non split and not ending by /.
@@ -138,7 +138,7 @@ SUBDIR                    converter_cmdline undef   char
 # The option is directly used in
 # Info/Plaintext, and used in diverse formats
 # for index sorting and plain text output.
-ENABLE_ENCODING           converter_cmdline 1       integer
+ENABLE_ENCODING           converter_cmdline 1       boolean
 
 
 # used in main program, defaults documented in manual
@@ -150,11 +150,11 @@ INTERNAL_LINKS  program_cmdline undef  bytes
 # --error-limit
 ERROR_LIMIT     program_cmdline 100    integer
 # --force
-FORCE           program_cmdline undef  integer
+FORCE           program_cmdline undef  boolean
 # --no-warn
-NO_WARN         program_cmdline undef  integer
+NO_WARN         program_cmdline undef  boolean
 # --trace-includes
-TRACE_INCLUDES  program_cmdline 0      integer
+TRACE_INCLUDES  program_cmdline 0      boolean
 
 # following also set in converters
 # --headers.  Modified by the format.
@@ -163,46 +163,46 @@ FORMAT_MENU     program_cmdline menu   char
 
 # set in the default case in the main program through the format table
 # for Info and HTML output
-AUTO_SECTION_NODE            program_customization undef     integer
+AUTO_SECTION_NODE            program_customization undef     boolean
 # output warnings when node with
 # automatic direction and directions in menu are not consistent
 # with sectionning, and when node directions are not consistent
 # with menu directions.
-CHECK_NORMAL_MENU_STRUCTURE  program_customization 1         integer
-CHECK_MISSING_MENU_ENTRY     program_customization 1         integer
+CHECK_NORMAL_MENU_STRUCTURE  program_customization 1         boolean
+CHECK_MISSING_MENU_ENTRY     program_customization 1         boolean
 DUMP_STRUCTURE               program_customization undef     bytes
 DUMP_TREE                    program_customization undef     bytes
-DUMP_TEXI                    program_customization undef     integer
-SHOW_BUILTIN_CSS_RULES       program_customization 0         integer
+DUMP_TEXI                    program_customization undef     boolean
+SHOW_BUILTIN_CSS_RULES       program_customization 0         boolean
 SORT_ELEMENT_COUNT           program_customization undef     char
-SORT_ELEMENT_COUNT_WORDS     program_customization undef     integer
+SORT_ELEMENT_COUNT_WORDS     program_customization undef     boolean
 TEXI2DVI                     program_customization texi2dvi  char
 TREE_TRANSFORMATIONS         program_customization undef     char
 # unset in the default case in the main program through the format table
 # for Info and HTML output, since AUTO_SECTION_NODE is set and in that
 # case the added node are disambiguated by a postpended string if
 # several section names are the same.
-WARN_DUPLICATE_SECTION_TARGET   program_customization undef  integer
+WARN_DUPLICATE_SECTION_TARGET   program_customization undef  boolean
 
 
 # up node of Top node default value
 TOP_NODE_UP                        converter_customization (dir)   char
 BASEFILENAME_LENGTH                converter_customization 255-10  integer
-CASE_INSENSITIVE_FILENAMES         converter_customization 0       integer
+CASE_INSENSITIVE_FILENAMES         converter_customization 0       boolean
 # currently only used in HTML
 DEBUG                              converter_customization 0       integer
-DOC_ENCODING_FOR_INPUT_FILE_NAME   converter_customization 1       integer
-DOC_ENCODING_FOR_OUTPUT_FILE_NAME  converter_customization 0       integer
+DOC_ENCODING_FOR_INPUT_FILE_NAME   converter_customization 1       boolean
+DOC_ENCODING_FOR_OUTPUT_FILE_NAME  converter_customization 0       boolean
 # only used in HTML
 HANDLER_FATAL_ERROR_LEVEL          converter_customization 100     integer
 # only used in HTML
 IMAGE_LINK_PREFIX                  converter_customization undef   char
 TEST                               converter_customization 0       integer
 # for textcontent format
-TEXTCONTENT_COMMENT                converter_customization undef   integer
+TEXTCONTENT_COMMENT                converter_customization undef   boolean
 # Not used since the XML format is not generated anymore.
 TEXINFO_DTD_VERSION                converter_customization 7.3     char
-USE_UNICODE_COLLATION              converter_customization 1       integer
+USE_UNICODE_COLLATION              converter_customization 1       boolean
 
 # Some are for all converters, EXTENSION for instance, some for
 # some converters, for example CLOSE_QUOTE_SYMBOL and many
@@ -212,9 +212,9 @@ USE_UNICODE_COLLATION              converter_customization 1       integer
 AFTER_BODY_OPEN                    converter_customization undef   char
 AFTER_SHORT_TOC_LINES              converter_customization undef   char
 AFTER_TOC_LINES                    converter_customization undef   char
-ASCII_DASHES_AND_QUOTES            converter_customization undef   integer
-ASCII_GLYPH                        converter_customization undef   integer
-ASCII_PUNCTUATION                  converter_customization undef   integer
+ASCII_DASHES_AND_QUOTES            converter_customization undef   boolean
+ASCII_GLYPH                        converter_customization undef   boolean
+ASCII_PUNCTUATION                  converter_customization undef   boolean
 AUTO_MENU_DESCRIPTION_ALIGN_COLUMN converter_customization undef   integer
 AUTO_MENU_MAX_WIDTH                converter_customization undef   integer
 BEFORE_SHORT_TOC_LINES             converter_customization undef   char
@@ -223,30 +223,30 @@ BIG_RULE                           converter_customization undef   char
 BODY_ELEMENT_ATTRIBUTES            converter_customization undef   char
 # for LaTeX
 CLASS_BEGIN_USEPACKAGE             converter_customization undef   char
-COPIABLE_LINKS                     converter_customization undef   integer
+COPIABLE_LINKS                     converter_customization undef   boolean
 CHAPTER_HEADER_LEVEL               converter_customization undef   integer
-CHECK_HTMLXREF                     converter_customization undef   integer
+CHECK_HTMLXREF                     converter_customization undef   boolean
 CLOSE_DOUBLE_QUOTE_SYMBOL          converter_customization undef   char
 CLOSE_QUOTE_SYMBOL                 converter_customization undef   char
 COLLATION_LANGUAGE                 converter_customization undef   char
 COMMAND_LINE_ENCODING              converter_customization undef   char
-INDENTED_BLOCK_COMMANDS_IN_TABLE   converter_customization undef   integer
+INDENTED_BLOCK_COMMANDS_IN_TABLE   converter_customization undef   boolean
 CONTENTS_OUTPUT_LOCATION           converter_customization undef   char
-CONVERT_TO_LATEX_IN_MATH           converter_customization undef   integer
-DATE_IN_HEADER                     converter_customization undef   integer
+CONVERT_TO_LATEX_IN_MATH           converter_customization undef   boolean
+DATE_IN_HEADER                     converter_customization undef   boolean
 DEFAULT_RULE                       converter_customization undef   char
-DEF_TABLE                          converter_customization undef   integer
-DO_ABOUT                           converter_customization undef   integer
+DEF_TABLE                          converter_customization undef   boolean
+DO_ABOUT                           converter_customization undef   boolean
 # not documented, used for tests
-_DOCBOOK_PIECE                     converter_customization undef   integer
+_DOCBOOK_PIECE                     converter_customization undef   boolean
 DOCTYPE                            converter_customization undef   char
-DOCUMENTLANGUAGE_COLLATION         converter_customization undef   integer
+DOCUMENTLANGUAGE_COLLATION         converter_customization undef   boolean
 # for LaTeX
 END_USEPACKAGE                     converter_customization undef   char
 # for ext/epub3.pm
-EPUB_CREATE_CONTAINER_FILE         converter_customization undef   integer
+EPUB_CREATE_CONTAINER_FILE         converter_customization undef   boolean
 # for ext/epub3.pm
-EPUB_KEEP_CONTAINER_FOLDER         converter_customization undef   integer
+EPUB_KEEP_CONTAINER_FOLDER         converter_customization undef   boolean
 EXTENSION                          converter_customization undef   char
 EXTERNAL_CROSSREF_EXTENSION        converter_customization undef   char
 # This is used like a boolean, but it is set to a char to match SPLIT, such
@@ -256,36 +256,36 @@ EXTERNAL_DIR                       converter_customization undef   char
 EXTRA_HEAD                         converter_customization undef   char
 FOOTNOTE_END_HEADER_LEVEL          converter_customization undef   integer
 FOOTNOTE_SEPARATE_HEADER_LEVEL     converter_customization undef   integer
-HEADER_IN_TABLE                    converter_customization undef   integer
+HEADER_IN_TABLE                    converter_customization undef   boolean
 # for ext/highlight_syntax.pm
 HIGHLIGHT_SYNTAX                   converter_customization undef   char
 # for ext/highlight_syntax.pm
 HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE  converter_customization undef   char
-HTML_COPY_IMAGES                   converter_customization 0       integer
+HTML_COPY_IMAGES                   converter_customization 0       boolean
 HTML_MATH                          converter_customization undef   char
 HTML_ROOT_ELEMENT_ATTRIBUTES       converter_customization undef   char
 HTMLXREF_FILE                      converter_customization undef   char
 HTMLXREF_MODE                      converter_customization undef   char
-ICONS                              converter_customization undef   integer
+ICONS                              converter_customization undef   boolean
 INDEX_ENTRY_COLON                  converter_customization undef   char
-INDEX_SPECIAL_CHARS_WARNING        converter_customization undef   integer
+INDEX_SPECIAL_CHARS_WARNING        converter_customization undef   boolean
 INFO_JS_DIR                        converter_customization undef   char
-INFO_SPECIAL_CHARS_QUOTE           converter_customization undef   integer
-INFO_SPECIAL_CHARS_WARNING         converter_customization undef   integer
-INFO_MATH_IMAGES                   converter_customization undef   integer
-IGNORE_REF_TO_TOP_NODE_UP          converter_customization undef   integer
-INLINE_CSS_STYLE                   converter_customization undef   integer
+INFO_SPECIAL_CHARS_QUOTE           converter_customization undef   boolean
+INFO_SPECIAL_CHARS_WARNING         converter_customization undef   boolean
+INFO_MATH_IMAGES                   converter_customization undef   boolean
+IGNORE_REF_TO_TOP_NODE_UP          converter_customization undef   boolean
+INLINE_CSS_STYLE                   converter_customization undef   boolean
 INPUT_FILE_NAME_ENCODING           converter_customization undef   char
 JS_WEBLABELS                       converter_customization undef   char
 JS_WEBLABELS_FILE                  converter_customization undef   char
 LATEX_FLOATS_FILE_EXTENSION        converter_customization tfl     char
 LATEX_TAGGED_PDF                   converter_customization undef   char
 LOCALE_ENCODING                    converter_customization undef   char
-L2H_CLEAN                          converter_customization undef   integer
+L2H_CLEAN                          converter_customization undef   boolean
 L2H_FILE                           converter_customization undef   char
 L2H_HTML_VERSION                   converter_customization undef   char
 L2H_L2H                            converter_customization undef   char
-L2H_SKIP                           converter_customization undef   integer
+L2H_SKIP                           converter_customization undef   boolean
 L2H_TMP                            converter_customization undef   char
 MATHJAX_CONFIGURATION              converter_customization undef   char
 MATHJAX_SCRIPT                     converter_customization undef   char
@@ -294,16 +294,16 @@ MAX_HEADER_LEVEL                   converter_customization undef   integer
 MENU_ENTRY_COLON                   converter_customization undef   char
 MENU_SYMBOL                        converter_customization undef   char
 MESSAGE_ENCODING                   converter_customization undef   char
-MONOLITHIC                         converter_customization undef   integer
-NO_CSS                             converter_customization undef   integer
+MONOLITHIC                         converter_customization undef   boolean
+NO_CSS                             converter_customization undef   boolean
 NO_NUMBER_FOOTNOTE_SYMBOL          converter_customization undef   char
-NO_CUSTOM_HTML_ATTRIBUTE           converter_customization undef   integer
-NODE_NAME_IN_INDEX                 converter_customization undef   integer
-NODE_NAME_IN_MENU                  converter_customization undef   integer
-NO_TOP_NODE_OUTPUT                 converter_customization undef   integer
+NO_CUSTOM_HTML_ATTRIBUTE           converter_customization undef   boolean
+NODE_NAME_IN_INDEX                 converter_customization undef   boolean
+NODE_NAME_IN_MENU                  converter_customization undef   boolean
+NO_TOP_NODE_OUTPUT                 converter_customization undef   boolean
 OPEN_DOUBLE_QUOTE_SYMBOL           converter_customization undef   char
 OPEN_QUOTE_SYMBOL                  converter_customization undef   char
-OUTPUT_CHARACTERS                  converter_customization undef   integer
+OUTPUT_CHARACTERS                  converter_customization undef   boolean
 OUTPUT_ENCODING_NAME               converter_customization undef   char
 OUTPUT_FILE_NAME_ENCODING          converter_customization undef   char
 PACKAGE                            converter_customization undef   char
@@ -314,51 +314,51 @@ PACKAGE_VERSION                    converter_customization undef   char
 PRE_BODY_CLOSE                     converter_customization undef   char
 PREFIX                             converter_customization undef   char
 PROGRAM                            converter_customization undef   char
-PROGRAM_NAME_IN_ABOUT              converter_customization undef   integer
-PROGRAM_NAME_IN_FOOTER             converter_customization undef   integer
-SECTION_NAME_IN_TITLE              converter_customization undef   integer
-SHORT_TOC_LINK_TO_TOC              converter_customization undef   integer
-SHOW_TITLE                         converter_customization undef   integer
+PROGRAM_NAME_IN_ABOUT              converter_customization undef   boolean
+PROGRAM_NAME_IN_FOOTER             converter_customization undef   boolean
+SECTION_NAME_IN_TITLE              converter_customization undef   boolean
+SHORT_TOC_LINK_TO_TOC              converter_customization undef   boolean
+SHOW_TITLE                         converter_customization undef   boolean
 T4H_LATEX_CONVERSION               converter_customization undef   char
 T4H_MATH_CONVERSION                converter_customization undef   char
 T4H_TEX_CONVERSION                 converter_customization undef   char
-TEXI2HTML                          converter_customization undef   integer
+TEXI2HTML                          converter_customization undef   boolean
 TEXINFO_OUTPUT_FORMAT              converter_customization undef   char
 # Not used, the corresponding formats are not generated anymore
-TXI_MARKUP_NO_SECTION_EXTENT       converter_customization undef   integer
-TOC_LINKS                          converter_customization undef   integer
+TXI_MARKUP_NO_SECTION_EXTENT       converter_customization undef   boolean
+TOC_LINKS                          converter_customization undef   boolean
 TOP_FILE                           converter_customization undef   char
 TOP_NODE_FILE_TARGET               converter_customization undef   char
 TOP_NODE_UP_URL                    converter_customization undef   char
-USE_ACCESSKEY                      converter_customization undef   integer
-USE_ISO                            converter_customization undef   integer
-USE_LINKS                          converter_customization undef   integer
-USE_NODES                          converter_customization undef   integer
-USE_NODE_DIRECTIONS                converter_customization undef   integer
-USE_NUMERIC_ENTITY                 converter_customization undef   integer
-USE_SETFILENAME_EXTENSION          converter_customization undef   integer
-USE_TITLEPAGE_FOR_TITLE            converter_customization undef   integer
-USE_XML_SYNTAX                     converter_customization undef   integer
-VERTICAL_HEAD_NAVIGATION           converter_customization undef   integer
+USE_ACCESSKEY                      converter_customization undef   boolean
+USE_ISO                            converter_customization undef   boolean
+USE_LINKS                          converter_customization undef   boolean
+USE_NODES                          converter_customization undef   boolean
+USE_NODE_DIRECTIONS                converter_customization undef   boolean
+USE_NUMERIC_ENTITY                 converter_customization undef   boolean
+USE_SETFILENAME_EXTENSION          converter_customization undef   boolean
+USE_TITLEPAGE_FOR_TITLE            converter_customization undef   boolean
+USE_XML_SYNTAX                     converter_customization undef   boolean
+VERTICAL_HEAD_NAVIGATION           converter_customization undef   boolean
 WORDS_IN_PAGE                      converter_customization undef   integer
-XREF_USE_FLOAT_LABEL               converter_customization undef   integer
-XREF_USE_NODE_NAME_ARG             converter_customization undef   integer
+XREF_USE_FLOAT_LABEL               converter_customization undef   boolean
+XREF_USE_NODE_NAME_ARG             converter_customization undef   boolean
 
 # TODO Not documented for now.
 # If set, conversion/formatting not in C.
-XS_EXTERNAL_CONVERSION             converter_customization undef   integer
-XS_EXTERNAL_FORMATTING             converter_customization undef   integer
+XS_EXTERNAL_CONVERSION             converter_customization undef   boolean
+XS_EXTERNAL_FORMATTING             converter_customization undef   boolean
 
 # used for development tests, not sure that it will stay in the long term
 XS_STRXFRM_COLLATION_LOCALE        converter_customization undef   char
 
 # used internally for EPUB
-_INLINE_STYLE_WIDTH                converter_customization undef   integer
+_INLINE_STYLE_WIDTH                converter_customization undef   boolean
 
 # used to produce output for Info readers that can accept new tags.
 # (any Emacs Info reader, standalone Info reader released after 2025)
 # considered internal/not documented as it is used for development only
-_USE_NEW_INFO_TAGS                 converter_customization undef   integer
+_USE_NEW_INFO_TAGS                 converter_customization undef   boolean
 
 # Not strings
 LINKS_DIRECTIONS                   converter_other undef   buttons

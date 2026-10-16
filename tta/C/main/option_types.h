@@ -26,6 +26,7 @@
 enum global_option_type {
    GOT_NONE,
    GOT_integer,
+   GOT_boolean,
    GOT_char,
    GOT_bytes,
    GOT_icons,
