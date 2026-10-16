@@ -3510,7 +3510,15 @@ tree_search_check_node (WINDOW *window)
       window->point = window->node->body_start;
       tree_search_check_node_backwards (window);
     }
-  info_error (previous_match ?  _("No more matches") : _("Search failed"));
+  if (previous_match)
+    {
+      info_error (_("No more matches"));
+    }
+  else
+    {
+      info_error (_("Search failed"));
+      window->node->active_menu = 0;
+    }
 
  funexit:
   free (string);
@@ -3623,7 +3631,15 @@ tree_search_check_node_backwards (WINDOW *window)
     }
 
   /* Otherwise, no result. */
-  info_error (previous_match ?  _("No more matches") : _("Search failed"));
+  if (previous_match)
+    {
+      info_error (_("No more matches"));
+    }
+  else
+    {
+      info_error (_("Search failed"));
+      window->node->active_menu = 0;
+    }
 
  funexit:
   free (string);

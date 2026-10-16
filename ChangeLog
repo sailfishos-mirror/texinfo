@@ -1,3 +1,13 @@
+2026-10-16  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/session-cmd.c
+	(tree_search_check_node, tree_search_check_node_backwards):
+	If search fails, clear active_menu field of current node.  This
+	prevents subsequent commands attempting to continue the search.
+	This would freeze the program if done from the dir node.
+	
+	Report from Aidan <aidanczhai@gmail.com>.
+
 2026-10-16 Patrice Dumas  <pertusus@free.fr>
 
 	read index tag in Info reader and handle tag not being a node name
