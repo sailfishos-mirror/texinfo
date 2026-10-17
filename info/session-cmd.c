@@ -3524,8 +3524,7 @@ tree_search_check_node (WINDOW *window)
 } /*********** end tree_search_check_node *************/
 
 
-/* The same as tree_search_check_node, but backwards.  Go backwards through
-   the tree structure to previous matches. */
+/* The same as tree_search_check_node, but backwards. */
 static void
 tree_search_check_node_backwards (WINDOW *window)
 {
@@ -3580,9 +3579,11 @@ tree_search_check_node_backwards (WINDOW *window)
               if (!tag_of_reference (r, window, &file_buffer, &tag))
                 continue;
 
+              /* This inverts what is done for the forwards search.  It's
+                 possible that we will visit the nodes in a different order if
+                 there is more than one reference to a node. */
               if (!((*tag)->flags & T_SeenBySearch))
                 continue;
-              (*tag)->flags &= ~T_SeenBySearch;
 
               node = info_node_of_tag (file_buffer, tag);
               if (!node)
@@ -3610,7 +3611,21 @@ tree_search_check_node_backwards (WINDOW *window)
   if (window->hist_index >= 2
       && window->hist[window->hist_index - 2]->node->active_menu != 0)
     {
+      TAG **tag;
+      REFERENCE *r;
+      FILE_BUFFER *file_buffer;
+
       forget_node_fast (window);
+      r = window->node->references[window->node->active_menu - 1];
+
+      /* Clear the flag to say we've been to the node we just came back
+         from.  This reverse the order from the forwards search, where
+         we set this flag just before going down. */
+      if (r && tag_of_reference (r, window, &file_buffer, &tag))
+        {
+          (*tag)->flags &= ~T_SeenBySearch;
+        }
+
       goto check_menus;
     }
 
