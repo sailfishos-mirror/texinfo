@@ -3490,23 +3490,22 @@ tree_search_check_node (WINDOW *window)
          When we call tree_search_check_node_backwards, this will go
          backwards through the tree structure to the last match.
          Change active_menu back to a valid value afterwards .*/
-      {
-        int n = 0;
+      int n = 0;
 
-        while (window->node->references[n])
-          n++;
-        window->node->active_menu = n + 1;
+      while (window->node->references[n])
+        n++;
+      window->node->active_menu = n + 1;
 
-        info_parse_and_select ("Top", window);
-        /* Check if this worked. */
-        if (strcmp (window->node->nodename, "Top"))
-          {
-            /* Loading "Top" node failed. */
-            window->node->active_menu = 0;
-            goto funexit;
-          }
-        window->node->active_menu = BEFORE_MENU;
-      }
+      info_parse_and_select ("Top", window);
+      /* Check if this worked. */
+      if (strcmp (window->node->nodename, "Top"))
+        {
+          /* Loading "Top" node failed. */
+          window->node->active_menu = 0;
+          goto funexit;
+        }
+      window->node->active_menu = BEFORE_MENU;
+
       window->point = window->node->body_start;
       tree_search_check_node_backwards (window);
     }
@@ -3591,14 +3590,14 @@ tree_search_check_node_backwards (WINDOW *window)
               window->node->active_menu = ref_index + 1;
               info_set_node_of_window_fast (window, node);
               window->point = window->node->nodelen;
-              {
-                /* Start at the last menu entry in the subordinate node. */
-                int i;
-                i = 0;
-                while(window->node->references[i])
-                  i++;
-                window->node->active_menu = i + 1;
-              }
+
+              /* Start at the last menu entry in the subordinate node. */
+              int i;
+              i = 0;
+              while (window->node->references[i])
+                i++;
+              window->node->active_menu = i + 1;
+
               goto check_menus;
             }
         }

@@ -1,5 +1,12 @@
 2026-10-17  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/session-cmd.c
+	(tree_search_check_node, tree_search_check_node_backwards):
+	Remove extra code blocks used to avoid having a variable declaration
+	other than at the start of a block.
+
+2026-10-17  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Tree search fix
 
 	* info/session-cmd.c (tree_search_check_node_backwards):
