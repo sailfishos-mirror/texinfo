@@ -1,3 +1,8 @@
+2026-10-17 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/maintain/regenerate_perl_options_info.pl: generate
+	%options_type_integer hash in Texinfo::Options.
+
 2026-10-16 Patrice Dumas  <pertusus@free.fr>
 
 	add boolean type for customization variables

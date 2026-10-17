@@ -270,6 +270,31 @@ our %unique_at_command_options = (
 
 #################################################
 
+our %options_type_integer = (
+  'MAX_MACRO_CALL_NESTING'           => 1,
+  'paragraphindent'                  => 1,
+  'fonttextsize'                     => 1,
+  'SPLIT_SIZE'                       => 1,
+  'FILLCOLUMN'                       => 1,
+  'VERBOSE'                          => 1,
+  'ERROR_LIMIT'                      => 1,
+  'BASEFILENAME_LENGTH'              => 1,
+  'DEBUG'                            => 1,
+  'HANDLER_FATAL_ERROR_LEVEL'        => 1,
+  'TEST'                             => 1,
+  'AUTO_MENU_DESCRIPTION_ALIGN_COLUMN' => 1,
+  'AUTO_MENU_MAX_WIDTH'              => 1,
+  'CHAPTER_HEADER_LEVEL'             => 1,
+  'FOOTNOTE_END_HEADER_LEVEL'        => 1,
+  'FOOTNOTE_SEPARATE_HEADER_LEVEL'   => 1,
+  'MAX_HEADER_LEVEL'                 => 1,
+  'WORDS_IN_PAGE'                    => 1,
+);
+
+
+
+#################################################
+
 my %regular_options_types;
 
 my %common_parser_regular_options_defaults = (

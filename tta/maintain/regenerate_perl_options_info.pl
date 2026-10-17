@@ -32,6 +32,8 @@ my %option_categories;
 
 my %options;
 
+my %option_types;
+
 while (<STDIN>) {
   if (not (/^#/ or /^ *$/)) {
     if (/^([^ ]+) +([^ ]+) +([^ ]+) +(.+)$/) {
@@ -42,6 +44,11 @@ while (<STDIN>) {
 
       if (($type eq 'char' or $type eq 'bytes') and $value ne 'undef') {
         $value = "'".$value."'";
+      } elsif ($type eq 'integer') {
+        if (not exists($option_types{'integer'})) {
+          $option_types{'integer'} = [];
+        }
+        push @{$option_types{'integer'}}, $option;
       }
 
       if (!exists($option_categories{$category})) {
@@ -114,6 +121,17 @@ foreach my $category (sort(keys(%option_categories))) {
   foreach my $option_info (@{$option_categories{$category}}) {
     my ($option, $value, $type) = @$option_info;
     print OUT '  '.sprintf('%-34s', "'$option'")." => $value,\n";
+  }
+  print OUT ");\n\n";
+}
+
+print OUT "\n\n#################################################\n\n";
+
+foreach my $type (sort(keys(%option_types))) {
+  my @option_names = @{$option_types{$type}};
+  print OUT "our %options_type_${type} = (\n";
+  foreach my $option_name (@option_names) {
+    print OUT '  '.sprintf('%-34s', "'$option_name'")." => 1,\n";
   }
   print OUT ");\n\n";
 }
