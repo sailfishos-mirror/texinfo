@@ -1,3 +1,20 @@
+2026-10-17  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Tree search fix
+
+	* info/session-cmd.c (tree_search_check_node_backwards):
+	Clear T_SeenBySearch flag on node tag as soon as we load the
+	node.  This prevents the node being loaded again in case of a
+	malformed Info file that refers to the node in a deeper menu.
+	
+	In the mtools.info file, some nodes had two menus.  Info would
+	treat the second "* Menu:" line as a reference to the "Top" node.
+	This would lead to an infinite loop in this function when doing
+	a tree search in or across this manual, such as a tree search starting
+	at the dir node.
+
+	Report from Aidan <aidanczhai@gmail.com>.
+
 2026-10-17 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Makefile.am (test_files),
