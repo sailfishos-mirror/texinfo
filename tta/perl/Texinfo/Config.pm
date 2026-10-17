@@ -37,6 +37,9 @@ use 5.006;
 use strict;
 use warnings;
 
+# stop \d from matching non-ASCII numbers
+use if $] >= 5.014, re => '/a';
+
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
@@ -47,6 +50,9 @@ use Encode;
 
 # for __( and __p( and some functions
 use Texinfo::Common;
+
+# for %options_type_integer
+use Texinfo::Options;
 
 use Texinfo::XSLoader;
 
@@ -288,6 +294,23 @@ sub texinfo_register_init_loading_warning($) {
                                             'text' => $message};
 }
 
+sub _GNUT_check_value_type($$) {
+  my ($var, $value, $customization_values) = @_;
+
+  if (exists($Texinfo::Options::options_type_integer{$var})) {
+    if (defined($value)) {
+      if (not ($value =~ /^\d+$/
+               or $var eq 'paragraphindent' and $value eq '-2')) {
+        _GNUT_document_warn(
+          sprintf(__("\"%s\" invalid for %s (integer number expected)"),
+                                $value, $var));
+        return 0;
+      }
+    }
+  }
+  return 1;
+}
+
 # Called from init files to set configuration options.
 sub texinfo_set_from_init_file($$) {
   my ($var, $value) = @_;
@@ -302,6 +325,9 @@ sub texinfo_set_from_init_file($$) {
                                 'texinfo_set_from_init_file', $var));
     return 0;
   }
+  if (!_GNUT_check_value_type($var, $value)) {
+    return 0;
+  }
   return 0 if (exists($cmdline_options->{$var}));
   delete $options_defaults->{$var};
   $init_files_options->{$var} = $value;
@@ -310,6 +336,7 @@ sub texinfo_set_from_init_file($$) {
 
 # set option from the command line, called from main program.
 # Highest precedence.
+# Only for strings and integers.
 sub GNUT_set_from_cmdline($$) {
   my ($var, $value) = @_;
 
@@ -317,13 +344,16 @@ sub GNUT_set_from_cmdline($$) {
     return 1;
   }
 
-  delete $init_files_options->{$var};
-  delete $options_defaults->{$var};
+  if (!_GNUT_check_value_type($var, $value)) {
+    return 0;
+  }
   if (!Texinfo::Common::valid_customization_option($var)) {
     _GNUT_document_warn(sprintf(__("unknown variable from command line: %s"),
                                $var));
     return 0;
   }
+  delete $init_files_options->{$var};
+  delete $options_defaults->{$var};
   $cmdline_options->{$var} = $value;
   return 1;
 }

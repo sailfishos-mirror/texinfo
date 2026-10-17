@@ -51,20 +51,31 @@ texinfo_get_conf (option_name)
         RETVAL
 
 int
-texinfo_set_from_init_file (option_name, SV *value)
+texinfo_set_from_init_file (option_name, SV *value_sv)
         const char *option_name = SvPVbyte_nolen($arg);
       PREINIT:
-        OPTION *option;
         int status = 0;
+        const char *value = 0;
       CODE:
-        option = texinfo_find_init_file_option_name (option_name);
-        if (option)
+        if (!SvOK(value_sv))
+          status = GNUT_set_from_init_file (option_name, 0);
+        else if (!SvROK(value_sv))
+          { /* do not use get_sv_option, to go through code that warns for
+               incorrect string value */
+            value = SvPVutf8_nolen(value_sv);
+            status = GNUT_set_from_init_file (option_name, value);
+          }
+        else
           {
-            int get_sv_status;
-            get_sv_status = get_sv_option (option, value, 0, 0, 0);
-            if (get_sv_status == 0)
-              status = 1;
-            texinfo_command_line_option_add_option_number (option->number);
+            OPTION *option = texinfo_find_init_file_option_name (option_name);
+            if (option)
+              {
+                int get_sv_status;
+                get_sv_status = get_sv_option (option, value_sv, 0, 0, 0);
+                if (get_sv_status == 0)
+                  status = 1;
+                texinfo_command_line_option_add_option_number (option->number);
+              }
           }
         RETVAL = status;
     OUTPUT:

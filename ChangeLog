@@ -1,5 +1,32 @@
 2026-10-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/txi_config.c (GNUT_check_value_type),
+	tta/perl/Texinfo/Config.pm (_GNUT_check_value_type): add, to give a
+	warning if a string is given for an integer customization option.
+
+	* tta/C/main/txi_config.c (GNUT_set_from_cmdline)
+	(GNUT_set_from_init_file), tta/perl/Texinfo/Config.pm
+	(texinfo_set_from_init_file, GNUT_set_from_cmdline),
+	tta/perl/XSTexinfo/parser_document/ConfigXS.xs
+	(texinfo_set_from_init_file): call GNUT_check_value_type when setting
+	customization variables.  Call GNUT_set_from_init_file from
+	texinfo_set_from_init_file XS interface to get that call too.
+
+	* tta/C/main/txi_config.c (GNUT_set_from_init_file): call clear_option
+	if a value is NULL, to handle types of customization variables not
+	handled by set_option_value.
+
+	* tta/C/main/txi_config.c (set_option_value): set a NULL value for an
+	integer or boolean variable to 0.  If a string value is
+	NULL, keep the option NULL instead of setting to an empty string.
+	Seems to be more in line with Perl, which keeps undef strings.
+
+	* tta/C/main/txi_config.c (GNUT_set_from_cmdline): if an option value
+	is undef, call set_option_value with the value set to 0, now that it
+	is handled for both integer and string variables.
+
+2026-10-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/maintain/regenerate_perl_options_info.pl: generate
 	%options_type_integer hash in Texinfo::Options.
 

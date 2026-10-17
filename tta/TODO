@@ -25,6 +25,15 @@ should set AUTO_SECTION_NODE=1 for plaintext such that SPLIT=node has the
 documented effect, I'll put that in a TODO, need a test).
 
 
+Review GNUT_set_from_cmdline and C code, to check differences.  For instance
+for "undef", and maybe more.  Verify documentations also.
+
+
+Integer customization variables set to undef currently are considered to
+be more or less like 0.  Check if it is right and modify/add tests.
+Verify documentations also.
+
+
 Add shadow target/automatic nodes for sections without nodes to NEWS
 
 
