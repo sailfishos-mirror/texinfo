@@ -1,5 +1,17 @@
 2026-10-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Makefile.am (test_files),
+	tta/perl/t/init/integer_customization_string.pm,
+	tta/tests/Makefile.onetst b/tta/tests/Makefile.onetst,
+	tta/tests/customization/list-of-tests
+	(simplest_integer_customization_string_command_line)
+	(simplest_integer_customization_string_init_file): add tests of
+	paragraphindent customization variable set to a string through
+	the command line or an init file.
+	Based on a report by aidan.
+
+2026-10-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/txi_config.c (GNUT_check_value_type),
 	tta/perl/Texinfo/Config.pm (_GNUT_check_value_type): add, to give a
 	warning if a string is given for an integer customization option.
