@@ -1718,6 +1718,9 @@ my @parser_settable_options
       = keys(%Texinfo::Common::default_parser_customization_values);
 # Copy relevant customization variables into the parser options.
 foreach my $parser_settable_option (@parser_settable_options) {
+  # TODO undef is supposed to be a valid value to be set by the user,
+  # this is not the case here.  Could be good or bad, actually.
+  # Also different from C.
   if (defined(get_conf($parser_settable_option))) {
     $parser_options->{$parser_settable_option}
        = get_conf($parser_settable_option);

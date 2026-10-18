@@ -1,3 +1,12 @@
+2026-10-18 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/data/converters_defaults.txt (common_parser): set the pârser
+	defaults to the same as options_data.txt.
+
+	* tta/perl/Texinfo/ParserNonXS.pm (parser): handle undef
+	EXPANDED_FORMATS.  This cannot happen with main program nor regular
+	tests, but better be robust.
+
 2026-10-18  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/scan.c (scan_node_contents): Do not interpret repeated

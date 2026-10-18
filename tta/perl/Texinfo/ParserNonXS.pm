@@ -642,8 +642,10 @@ sub parser(;$) {
 
   # turn the array to a hash.
   $parser->{'expanded_formats_hash'} = {};
-  foreach my $expanded_format(@{$parser_conf->{'EXPANDED_FORMATS'}}) {
-    $parser->{'expanded_formats_hash'}->{$expanded_format} = 1;
+  if (defined($parser_conf->{'EXPANDED_FORMATS'})) {
+    foreach my $expanded_format(@{$parser_conf->{'EXPANDED_FORMATS'}}) {
+      $parser->{'expanded_formats_hash'}->{$expanded_format} = 1;
+    }
   }
 
   return $parser;

@@ -36,21 +36,22 @@
 
 # for Texinfo::Parser
 # variables not specific of Parser, used in other contexts.  Spread over
-# the different categories set below.  The default values are in general
-# the same as elsewhere, but occasionally may be specific of the Parser.
+# the different categories set below.  The default values are the same
+# as in options_data.txt.
 -- common_parser
 
 documentlanguage           undef
 # if >= 10, tree is printed in texi2any.pl after parsing.
 # If >= 100 tree is printed every line.
 DEBUG                      0
-EXPANDED_FORMATS           []
+EXPANDED_FORMATS           undef
 # if not 'menu' no menu error related.
 FORMAT_MENU                menu
 # use document encoding for input file names encoding if set
 DOC_ENCODING_FOR_INPUT_FILE_NAME   1
 # encoding of command line strings used to decode file names for error messages
 COMMAND_LINE_ENCODING      undef
+# array customization option set in the main program in the default case
 INCLUDE_DIRECTORIES        [ '.' ]
 # used for input file name encoding
 INPUT_FILE_NAME_ENCODING   undef
