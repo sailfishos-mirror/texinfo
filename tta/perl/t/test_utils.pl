@@ -339,7 +339,7 @@ sub set_converter_option_defaults($$;$) {
   # directory name, which is overriden in tests anyway.
   $converter_options->{'TEXINFO_OUTPUT_FORMAT'} = $format;
 
-  if (!defined($converter_options->{'DEBUG'})) {
+  if (!defined($converter_options->{'DEBUG'}) and defined($debug)) {
     $converter_options->{'DEBUG'} = $debug;
   }
   if (!defined($converter_options->{'CHECK_HTMLXREF'})) {
@@ -893,8 +893,8 @@ sub test($$) {
 
   my $completed_parser_options =
           {'INCLUDE_DIRECTORIES' => [$srcdir.'/t/include/'],
-           'DEBUG' => $debug,
             %$parser_options};
+  $completed_parser_options->{'DEBUG'} = $debug if (defined($debug));
 
   my $parser = Texinfo::Parser::parser($completed_parser_options);
 

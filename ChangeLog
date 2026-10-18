@@ -1,5 +1,10 @@
 2026-10-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/test_utils.pl (set_converter_option_defaults, test):
+	set DEBUG key value only if the corresponding value is defined.
+
+2026-10-18 Patrice Dumas  <pertusus@free.fr>
+
 	checks on variables and Perl types for all customization variables
 
 	* tta/maintain/regenerate_perl_options_info.pl: set %options_type_*
