@@ -1,6 +1,23 @@
 2026-10-18 Patrice Dumas  <pertusus@free.fr>
 
-	* tta/data/converters_defaults.txt (common_parser): set the pârser
+	warn if boolean customization variable value is not 0 or 1
+
+	* tta/maintain/regenerate_perl_options_info.pl: output the list of
+	booeal options in Texinfo::Options.
+
+	* tta/C/main/txi_config.c (GNUT_check_value_type),
+	tta/perl/Texinfo/Config.pm (_GNUT_check_value_type): check that a
+	boolean customization is set to 0 or 1 and warn if not.  Return the
+	value, set to "0" or "1" if the variable is a boolean variable.
+
+	* tta/C/main/txi_config.c (GNUT_set_from_cmdline)
+	(GNUT_set_from_init_file), tta/perl/Texinfo/Config.pm
+	(texinfo_set_from_init_file, GNUT_set_from_cmdline): update call of
+	GNUT_check_value_type.
+
+2026-10-18 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/data/converters_defaults.txt (common_parser): set the parser
 	defaults to the same as options_data.txt.
 
 	* tta/perl/Texinfo/ParserNonXS.pm (parser): handle undef

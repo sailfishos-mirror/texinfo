@@ -44,11 +44,11 @@ while (<STDIN>) {
 
       if (($type eq 'char' or $type eq 'bytes') and $value ne 'undef') {
         $value = "'".$value."'";
-      } elsif ($type eq 'integer') {
-        if (not exists($option_types{'integer'})) {
-          $option_types{'integer'} = [];
+      } elsif ($type eq 'integer' or $type eq 'boolean') {
+        if (not exists($option_types{$type})) {
+          $option_types{$type} = [];
         }
-        push @{$option_types{'integer'}}, $option;
+        push @{$option_types{$type}}, $option;
       }
 
       if (!exists($option_categories{$category})) {

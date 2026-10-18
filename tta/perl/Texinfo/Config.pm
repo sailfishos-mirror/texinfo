@@ -304,11 +304,26 @@ sub _GNUT_check_value_type($$) {
         _GNUT_document_warn(
           sprintf(__("\"%s\" invalid for %s (integer number expected)"),
                                 $value, $var));
-        return 0;
+        return (0, $value);
+      }
+    }
+  } elsif (exists($Texinfo::Options::options_type_boolean{$var})) {
+    if (defined($value)) {
+      if ($value ne '1' and $value ne '0') {
+        _GNUT_document_warn(
+          sprintf(__("\"%s\" invalid for %s (0 or 1 expected)"),
+                           $value, $var));
+        my $result_value;
+        if ($value) {
+          $result_value = 1;
+        } else {
+          $result_value = 0;
+        }
+        return (1, $result_value);
       }
     }
   }
-  return 1;
+  return (1, $value);
 }
 
 # Called from init files to set configuration options.
@@ -325,9 +340,11 @@ sub texinfo_set_from_init_file($$) {
                                 'texinfo_set_from_init_file', $var));
     return 0;
   }
-  if (!_GNUT_check_value_type($var, $value)) {
-    return 0;
-  }
+
+  my $status;
+  ($status, $value) = _GNUT_check_value_type($var, $value);
+  return 0 if (!$status);
+
   return 0 if (exists($cmdline_options->{$var}));
   delete $options_defaults->{$var};
   $init_files_options->{$var} = $value;
@@ -344,14 +361,16 @@ sub GNUT_set_from_cmdline($$) {
     return 1;
   }
 
-  if (!_GNUT_check_value_type($var, $value)) {
-    return 0;
-  }
   if (!Texinfo::Common::valid_customization_option($var)) {
     _GNUT_document_warn(sprintf(__("unknown variable from command line: %s"),
                                $var));
     return 0;
   }
+
+  my $status;
+  ($status, $value) = _GNUT_check_value_type($var, $value);
+  return 0 if (!$status);
+
   delete $init_files_options->{$var};
   delete $options_defaults->{$var};
   $cmdline_options->{$var} = $value;

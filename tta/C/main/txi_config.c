@@ -165,9 +165,10 @@ txi_config_document_warn (const char *format, ...)
     }
 }
 
-int
-GNUT_check_value_type (OPTION *option, const char *value)
+const char *
+GNUT_check_value_type (OPTION *option, const char *value, int *status)
 {
+  *status = 1;
   if (option->type == GOT_integer)
     {
       if (value)
@@ -182,17 +183,35 @@ GNUT_check_value_type (OPTION *option, const char *value)
                       && option->number
                                == txi_base_options.paragraphindent.number))
                 {
-                  return 1;
+                  return value;
                 }
             }
           txi_config_document_warn (
                       "\"%s\" invalid for %s (integer number expected)",
                          value, option->name);
+          *status = 0;
           return 0;
         }
     }
+  else if (option->type == GOT_boolean)
+    {
+      if (value)
+        {
+          if (!(!strcmp(value, "0") || !strcmp(value, "1")))
+            {
+              txi_config_document_warn (
+                      "\"%s\" invalid for %s (0 or 1 expected)",
+                         value, option->name);
 
-  return 1;
+              if (!strcmp (value, ""))
+                 return "0";
+               else
+                 return "1";
+            }
+        }
+    }
+
+  return value;
 }
 
 /* The caller should have already converted a char option string to UTF-8 */
@@ -272,7 +291,10 @@ GNUT_set_from_cmdline (OPTIONS_LIST *options_list, size_t number,
     }
   else
     {
-      if (! GNUT_check_value_type (option, value))
+      int status;
+
+      value = GNUT_check_value_type (option, value, &status);
+      if (! status)
         return;
 
       set_option_value (options_list, number, value);
@@ -355,7 +377,9 @@ GNUT_set_from_init_file (const char *option_name, const char *value)
       return 0;
     }
 
-  if (! GNUT_check_value_type (option, value))
+  int status;
+  value = GNUT_check_value_type (option, value, &status);
+  if (! status)
     return 0;
 
   if (option_number_in_option_list (cmdline_options, option->number))
