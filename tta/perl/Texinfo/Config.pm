@@ -302,7 +302,7 @@ sub texinfo_register_init_loading_warning($) {
 }
 
 sub _GNUT_check_value_type($$) {
-  my ($var, $value, $customization_values) = @_;
+  my ($var, $value) = @_;
 
   if (exists($options_type_integer{$var})) {
     if (!defined($value)) {
