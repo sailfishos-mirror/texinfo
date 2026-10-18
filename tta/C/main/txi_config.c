@@ -193,7 +193,7 @@ GNUT_check_value_type (OPTION *option, const char *value, int *status)
                 }
             }
           txi_config_document_warn (
-                      "\"%s\" invalid for %s (integer number expected)",
+                      "\"%s\" invalid for %s (number expected)",
                          value, option->name);
           *status = 0;
           return 0;

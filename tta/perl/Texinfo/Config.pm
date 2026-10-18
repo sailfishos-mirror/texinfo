@@ -312,7 +312,7 @@ sub _GNUT_check_value_type($$) {
     } elsif (not ($value =~ /^\d+$/
              or $var eq 'paragraphindent' and $value eq '-2')) {
       _GNUT_document_warn(
-        sprintf(__("\"%s\" invalid for %s (integer number expected)"),
+        sprintf(__("\"%s\" invalid for %s (number expected)"),
                               $value, $var));
       return (0, $value);
     }
