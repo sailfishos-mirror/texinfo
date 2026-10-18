@@ -99,6 +99,8 @@ type_base_one_perl_test_files_generated_list =  \
     test_scripts/customization_perl_simplest_stage_handler_undef_return.sh \
     test_scripts/customization_perl_simplest_integer_customization_string_command_line.sh \
     test_scripts/customization_perl_simplest_integer_customization_string_init_file.sh \
+    test_scripts/customization_perl_simplest_boolean_customization_invalid_command_line.sh \
+    test_scripts/customization_perl_simplest_boolean_customization_invalid_init_file.sh \
     test_scripts/coverage_perl_formatting_macro_expand.sh \
     test_scripts/coverage_perl_formatting_info.sh \
     test_scripts/coverage_perl_formatting_plaintext.sh \
@@ -244,6 +246,8 @@ type_base_one_native_test_files_generated_list =  \
     test_scripts/customization_native_simplest_stage_handler_undef_return.sh \
     test_scripts/customization_native_simplest_integer_customization_string_command_line.sh \
     test_scripts/customization_native_simplest_integer_customization_string_init_file.sh \
+    test_scripts/customization_native_simplest_boolean_customization_invalid_command_line.sh \
+    test_scripts/customization_native_simplest_boolean_customization_invalid_init_file.sh \
     test_scripts/coverage_native_formatting_macro_expand.sh \
     test_scripts/coverage_native_formatting_info.sh \
     test_scripts/coverage_native_formatting_plaintext.sh \

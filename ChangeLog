@@ -1,5 +1,15 @@
 2026-10-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Makefile.am (test_files),
+	tta/perl/t/init/boolean_customization_invalid.pm,
+	tta/tests/Makefile.onetst, tta/tests/customization/list-of-tests
+	(simplest_boolean_customization_invalid_command_line)
+	(simplest_boolean_customization_invalid_init_file): add tests setting
+	a boolean variable to something else than 1 or 0, both from
+	command-line and init file.
+
+2026-10-18 Patrice Dumas  <pertusus@free.fr>
+
 	warn if boolean customization variable value is not 0 or 1
 
 	* tta/maintain/regenerate_perl_options_info.pl: output the list of

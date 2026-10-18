@@ -235,6 +235,7 @@ test_files = \
  t/init/access_output_unit_in_handler.pm \
  t/init/access_tree_output_unit_in_handler.pm \
  t/init/add_directions_buttons.pm \
+ t/init/boolean_customization_invalid.pm \
  t/init/button_replacement_for_special_unit_direction.pm \
  t/init/command_translation_modified.init \
  t/init/css_in_node_redirection_page.pm \

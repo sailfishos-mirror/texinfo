@@ -28,3 +28,8 @@ simplest_stage_handler_undef_return ../formatting/simplest.texi --html -o. --ini
 # from command-line and init file
 simplest_integer_customization_string_command_line ../formatting/simplest.texi -c paragraphindent=none
 simplest_integer_customization_string_init_file ../formatting/simplest.texi --init integer_customization_string.pm
+
+# test setting a boolean variable to something else than 1 or 0,
+# both from command-line and init file
+simplest_boolean_customization_invalid_command_line ../formatting/simplest.texi --html -c NUMBER_SECTIONS="" -c USE_NUMERIC_ENTITY=3 -c TEXI2HTML="a b c"
+simplest_boolean_customization_invalid_init_file ../formatting/simplest.texi --html --init boolean_customization_invalid.pm
