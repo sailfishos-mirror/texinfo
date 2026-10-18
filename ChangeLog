@@ -1,5 +1,22 @@
 2026-10-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/txi_config.c (set_option_value): set to -1 if value is
+	NULL and type is GOT_boolean.
+
+	* tta/C/texi2any.c (get_cmdline_customization_option),
+	tta/C/main/txi_config.c (GNUT_set_from_cmdline): handle "undef" in
+	get_cmdline_customization_option only, not in GNUT_set_from_cmdline.
+	Do not call clear_option in get_cmdline_customization_option, instead
+	set value to NULL, let the equivalent be done in set_option_value
+	through GNUT_set_from_cmdline.
+
+	* tta/C/main/txi_config.c (GNUT_set_from_cmdline)
+	(GNUT_set_from_init_file): use an additional variable, corrected_value
+	for the return value of GNUT_check_value_type, to avoid restting the
+	value argument variable.
+
+2026-10-18 Patrice Dumas  <pertusus@free.fr>
+
 	warn if an integer option is set to undef
 
 	* tta/C/main/txi_config.c (GNUT_check_value_type),

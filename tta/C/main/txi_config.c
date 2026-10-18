@@ -220,27 +220,26 @@ GNUT_check_value_type (OPTION *option, const char *value, int *status)
   return value;
 }
 
-/* The caller should have already converted a char option string to UTF-8 */
+/* The caller should have already converted a char option string to UTF-8
+   and have done checks on values.
+ */
 static void
 set_option_value (OPTIONS_LIST *options_list, size_t number,
                   const char *value)
 {
   OPTION *option = options_list->sorted_options[number -1];
 
-  if (option->type == GOT_integer || option->type == GOT_boolean)
+  if (option->type == GOT_boolean && !value)
+    option_set_conf (option, -1, 0);
+  else if (option->type == GOT_integer || option->type == GOT_boolean)
     {
-      if (!value)
-        option_set_conf (option, 0, 0);
+      char *endptr;
+      long long_value = strtol (value, &endptr, 10);
+      int int_value = (int) long_value;
+      if (endptr != value)
+        option_set_conf (option, int_value, 0);
       else
-        {
-          char *endptr;
-          long long_value = strtol (value, &endptr, 10);
-          int int_value = (int) long_value;
-          if (endptr != value)
-            option_set_conf (option, int_value, 0);
-          else
-            fatal ("set_option_value: unexpected invalid integer");
-        }
+        fatal ("set_option_value: unexpected invalid integer");
     }
   else if (option->type == GOT_char
            || option->type == GOT_bytes)
@@ -273,21 +272,15 @@ void
 GNUT_set_from_cmdline (OPTIONS_LIST *options_list, size_t number,
                        const char *value)
 {
+  const char *corrected_value;
   OPTION *option = options_list->sorted_options[number -1];
-  if (!strcmp (value, "undef"))
-    {
-      set_option_value (options_list, number, 0);
-    }
-  else
-    {
-      int status;
+  int status;
 
-      value = GNUT_check_value_type (option, value, &status);
-      if (! status)
-        return;
+  corrected_value = GNUT_check_value_type (option, value, &status);
+  if (! status)
+    return;
 
-      set_option_value (options_list, number, value);
-    }
+  set_option_value (options_list, number, corrected_value);
 }
 
 OPTION *
@@ -351,6 +344,8 @@ int
 GNUT_set_from_init_file (const char *option_name, const char *value)
 {
   OPTION *option;
+  const char *corrected_value;
+  int status;
 
   if (warn_obsolete_options (option_name))
     return 0;
@@ -366,8 +361,7 @@ GNUT_set_from_init_file (const char *option_name, const char *value)
       return 0;
     }
 
-  int status;
-  value = GNUT_check_value_type (option, value, &status);
+  corrected_value = GNUT_check_value_type (option, value, &status);
   if (! status)
     return 0;
 
@@ -377,13 +371,13 @@ GNUT_set_from_init_file (const char *option_name, const char *value)
   /* when called from texinfo_set_from_init_file XS and undef.
      Mainly relevant for customization types not handled by
      set_option_value below */
-  if (!value)
+  if (!corrected_value)
     {
       clear_option (option);
       options_list_add_option_number (&init_files_options, option->number);
     }
 
-  set_option_value (&init_files_options, option->number, value);
+  set_option_value (&init_files_options, option->number, corrected_value);
   return 1;
 }
 
