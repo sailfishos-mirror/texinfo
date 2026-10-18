@@ -344,16 +344,16 @@ parser (const char *file_path, const VALUE_LIST *values,
             parser_conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME
                                                   (option->o.integer);
           else if (!strcmp (option->name, "CPP_LINE_DIRECTIVES"))
-            parser_conf_set_CPP_LINE_DIRECTIVES (option->o.integer);
+            parser_conf_set_CPP_LINE_DIRECTIVES ((option->o.integer > 0));
           else if (!strcmp (option->name, "MAX_MACRO_CALL_NESTING"))
             parser_conf_set_MAX_MACRO_CALL_NESTING (option->o.integer);
           else if (!strcmp (option->name, "NO_INDEX"))
-            parser_conf_set_NO_INDEX (option->o.integer);
+            parser_conf_set_NO_INDEX ((option->o.integer > 0));
           else if (!strcmp (option->name, "NO_USER_COMMANDS"))
-            parser_conf_set_NO_USER_COMMANDS (option->o.integer);
+            parser_conf_set_NO_USER_COMMANDS ((option->o.integer > 0));
           else if (!strcmp (option->name, "DOC_ENCODING_FOR_INPUT_FILE_NAME"))
             parser_conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME
-                                               (option->o.integer);
+                                               ((option->o.integer > 0));
           else if (!strcmp (option->name, "INPUT_FILE_NAME_ENCODING"))
             {
               if (option->o.string)

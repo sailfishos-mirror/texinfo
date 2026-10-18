@@ -87,17 +87,37 @@ sub parser(;$) {
           parser_conf_set_show_menu(0);
         }
       } elsif ($key eq 'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME') {
-        parser_conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME($conf->{$key});
+        if (defined($conf->{$key})) {
+          parser_conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME($conf->{$key});
+        } else {
+          parser_conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME(0);
+        }
       } elsif ($key eq 'CPP_LINE_DIRECTIVES') {
-        parser_conf_set_CPP_LINE_DIRECTIVES($conf->{$key});
+        if (defined($conf->{$key})) {
+          parser_conf_set_CPP_LINE_DIRECTIVES($conf->{$key});
+        } else {
+          parser_conf_set_CPP_LINE_DIRECTIVES(0);
+        }
       } elsif ($key eq 'MAX_MACRO_CALL_NESTING') {
         parser_conf_set_MAX_MACRO_CALL_NESTING($conf->{$key});
       } elsif ($key eq 'NO_INDEX') {
-        parser_conf_set_NO_INDEX($conf->{$key});
+        if (defined($conf->{$key})) {
+          parser_conf_set_NO_INDEX($conf->{$key});
+        } else {
+          parser_conf_set_NO_INDEX(0);
+        }
       } elsif ($key eq 'NO_USER_COMMANDS') {
-        parser_conf_set_NO_USER_COMMANDS($conf->{$key});
+        if (defined($conf->{$key})) {
+          parser_conf_set_NO_USER_COMMANDS($conf->{$key});
+        } else {
+          parser_conf_set_NO_USER_COMMANDS(0);
+        }
       } elsif ($key eq 'DOC_ENCODING_FOR_INPUT_FILE_NAME') {
-        parser_conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME($conf->{$key});
+        if (defined($conf->{$key})) {
+          parser_conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME($conf->{$key});
+        } else {
+          parser_conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME(0);
+        }
       } elsif ($key eq 'INPUT_FILE_NAME_ENCODING') {
         if (defined($conf->{$key})) {
           parser_conf_set_INPUT_FILE_NAME_ENCODING($conf->{$key});
