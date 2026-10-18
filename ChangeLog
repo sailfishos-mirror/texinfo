@@ -1,5 +1,15 @@
 2026-10-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Config.pm (GNUT_get_customization)
+	(texinfo_get_conf): add GNUT_get_customization that get customization
+	variable and information about being set.  Redefine texinfo_get_conf
+	as a function of GNUT_get_customization.
+
+	* tta/perl/texi2any.pl: call GNUT_get_customization to set parser
+	option only if the option was set, but set if undef.
+
+2026-10-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Config.pm (_GNUT_check_value_type): remove useless
 	unused argument.
 

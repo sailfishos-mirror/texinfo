@@ -468,7 +468,7 @@ sub texinfo_remove_from_option_list($$) {
   return 1;
 }
 
-# This function can be used to get main program variables
+# These functions can be used to get main program variables
 # customization values.
 # For conversion customization variables, converter methods
 # should be used instead, the implementation usually used being
@@ -478,7 +478,10 @@ sub texinfo_remove_from_option_list($$) {
 # Texinfo::MainConfig package below, but it should not be accessed/used
 # in user defined code (and the Texinfo::MainConfig interface
 # is therefore undocumented).
-sub texinfo_get_conf($) {
+
+# get main program variable customization value and whether the
+# variable was actually set.  More similar to texinfo_get_conf in C.
+sub GNUT_get_customization($) {
   my $var = shift;
 
   confess("BUG: texinfo_get_conf: undef \$cmdline_options."
@@ -486,14 +489,22 @@ sub texinfo_get_conf($) {
     if (!$cmdline_options);
 
   if (exists($cmdline_options->{$var})) {
-    return $cmdline_options->{$var};
+    return ($cmdline_options->{$var}, 1);
   } elsif (exists($init_files_options->{$var})) {
-    return $init_files_options->{$var};
+    return ($init_files_options->{$var}, 1);
   } elsif (exists($options_defaults->{$var})) {
-    return $options_defaults->{$var};
+    return ($options_defaults->{$var}, 1);
   } else {
-    return undef;
+    return (undef, 0);
   }
+}
+
+# get main program variable customization value.
+sub texinfo_get_conf($) {
+  my $var = shift;
+
+  my ($conf, $set) = GNUT_get_customization($var);
+  return $conf;
 }
 
 
