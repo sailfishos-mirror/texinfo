@@ -256,6 +256,7 @@ test_files = \
  t/init/misc_file_collision.init \
  t/init/no_navigation.pm \
  t/init/only_toc_out.init \
+ t/init/parser_customization_undef.pm \
  t/init/redefine_need.init \
  t/init/redefined_buttons.pm \
  t/init/redirection_file_collision_with_special.init \

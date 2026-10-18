@@ -1,5 +1,14 @@
 2026-10-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Makefile.am (test_files),
+	tta/perl/t/init/parser_customization_undef.pm,
+	tta/tests/Makefile.onetst, tta/tests/customization/list-of-tests
+	(cpp_lines_parser_customization_undef_command_line)
+	(cpp_lines_parser_customization_undef_init_file): add tests setting a
+	boolean variable used by parser to undef.
+
+2026-10-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/parsetexi/parser_api.c (parser), tta/perl/Texinfo/ParserXS.pm
 	(parser): handle undef boolean customization variables by setting the
 	parser setter function to 0.

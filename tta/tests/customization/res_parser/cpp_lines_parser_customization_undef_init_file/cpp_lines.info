@@ -1,0 +1,80 @@
+This is cpp_lines.info, produced by texi2any version from
+cpp_lines.texi.
+
+#line 3 "a_file" # 66 "g_f" 4
+
+   <before top>.
+
+
+File: cpp_lines.info,  Node: Top,  Next: chap,  Up: (dir)
+
+
+File: cpp_lines.info,  Node: chap,  Prev: Top
+
+# 10 25 209 # 1 2 # 46
+
+
+  #line 5 "f"
+
+   <after lacro def>
+
+   # line 7 "k"
+
+   <after macro call>.
+
+   <after macrotwo def>
+
+   line before # line 666 "x"
+
+   <after macrotwo call>.
+
+   <after inc>.
+
+   
+#line 5 "in verb"
+
+   <after verb>
+
+   a(1)
+
+   a(2)
+
+   #line 60 "email2" etext2 <#line 50 "email1" etext1>
+
+   no line directive text space <no line directive mail space>
+
+   #line 60 "email12" text space <#line 50 "email11" mail space>
+
+   <#line 80
+ "email3">
+   etext3,
+
+   #line 60 "email4"
+
+   etext4
+
+   #line 70 "email3"
+
+   #line 5 "accentêd"
+
+   ---------- Footnotes ----------
+
+   (1) #line 25 "footnote" in footnote
+
+   (2) #line 35 "footnote2"
+
+   in 2footnote
+
+
+Tag Table:
+Node: Top124
+Node: chap185
+Ref: chap-Footnote-1832
+Ref: chap-Footnote-2872
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:

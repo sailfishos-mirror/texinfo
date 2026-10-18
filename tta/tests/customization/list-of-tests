@@ -38,3 +38,8 @@ simplest_boolean_customization_invalid_init_file ../formatting/simplest.texi --h
 # command-line and init file
 simplest_integer_customization_undef_command_line ../formatting/simplest.texi --html --no-split -c CHAPTER_HEADER_LEVEL=undef
 simplest_integer_customization_undef_init_file ../formatting/simplest.texi --html --no-split --init integer_customization_undef.pm
+
+# test setting a variable used by parser to undef, both
+# from command-line and init file
+cpp_lines_parser_customization_undef_command_line ../../perl/t/input_files/cpp_lines.texi -c MESSAGE_ENCODING=UTF-8 -c CPP_LINE_DIRECTIVES=undef
+cpp_lines_parser_customization_undef_init_file ../../perl/t/input_files/cpp_lines.texi -c MESSAGE_ENCODING=UTF-8 --init parser_customization_undef.pm
