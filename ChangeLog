@@ -1,5 +1,12 @@
 2026-10-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/txi_config.c (texinfo_find_init_file_option_name)
+	(GNUT_set_from_init_file): remove warn_obsolete_options and
+	warn_obsolete_options call, as it has never been done consistently.
+	Also an unknown customization variable already triggers a warning.
+
+2026-10-18 Patrice Dumas  <pertusus@free.fr>
+
 	* NEWS: document stricter checking of boolean and integer
 	customization variables.
 

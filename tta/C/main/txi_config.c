@@ -303,25 +303,10 @@ texinfo_find_command_line_option_name (const char *option_name)
   return option;
 }
 
-/* In Perl the values may be mapped, here we just ignore */
-static int
-warn_obsolete_options (const char *option_name)
-{
-  if (!strcmp (option_name, "L2H"))
-    {
-      txi_config_document_warn ("obsolete option: %s", option_name);
-      return 1;
-    }
-  return 0;
-}
-
 OPTION *
 texinfo_find_init_file_option_name (const char *option_name)
 {
   OPTION *option;
-
-  if (warn_obsolete_options (option_name))
-    return 0;
 
   option = find_option_string (init_files_options.sorted_options,
                                option_name);
@@ -346,9 +331,6 @@ GNUT_set_from_init_file (const char *option_name, const char *value)
   OPTION *option;
   const char *corrected_value;
   int status;
-
-  if (warn_obsolete_options (option_name))
-    return 0;
 
   option = find_option_string (init_files_options.sorted_options,
                                option_name);
