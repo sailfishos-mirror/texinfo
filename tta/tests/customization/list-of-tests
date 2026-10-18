@@ -33,3 +33,8 @@ simplest_integer_customization_string_init_file ../formatting/simplest.texi --in
 # both from command-line and init file
 simplest_boolean_customization_invalid_command_line ../formatting/simplest.texi --html -c NUMBER_SECTIONS="" -c USE_NUMERIC_ENTITY=3 -c TEXI2HTML="a b c"
 simplest_boolean_customization_invalid_init_file ../formatting/simplest.texi --html --init boolean_customization_invalid.pm
+
+# test setting an integer variable to undef, both from
+# command-line and init file
+simplest_integer_customization_undef_command_line ../formatting/simplest.texi --html --no-split -c CHAPTER_HEADER_LEVEL=undef
+simplest_integer_customization_undef_init_file ../formatting/simplest.texi --html --no-split --init integer_customization_undef.pm

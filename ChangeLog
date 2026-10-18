@@ -1,5 +1,14 @@
 2026-10-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Makefile.am (test_files),
+	tta/perl/t/init/integer_customization_undef.pm,
+	tta/tests/Makefile.onetst, tta/tests/customization/list-of-tests
+	(simplest_integer_customization_undef_command_line)
+	(simplest_integer_customization_undef_init_file): add tests setting an
+	integer variable to undef, both from command-line and init file.
+
+2026-10-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/txi_config.c (set_option_value): set to -1 if value is
 	NULL and type is GOT_boolean.
 
