@@ -1,3 +1,23 @@
+2026-10-18  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Loop prevention in tree search
+
+	* info/nodes.h (T_TreeSearchRoute): New define.
+
+	* info/session-cmd.c
+	(tag_for_node): New.
+	(tree_search_check_node, tree_search_check_node_backwards):
+	Check T_TreeSearchRoute flag on tag table before going down
+	a menu entry, in order to protect against cyclical menu structures.
+	Add debugging statements at level 4.
+	(mark_tree_search_path, clear_tree_search_path): New functions, to
+	setup and clear T_TreeSearchRoute flags.
+	(do_tree_search_next, do_tree_search_prev): Wrappers for
+	tree_search_check_node and tree_search_check_node_backwards.
+	(info_tree_search, info_tree_search_next, info_tree_search_previous)
+	(info_search_next, info_search_previous):
+	Use these wrappers for user commands.
+
 2026-10-18 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/txi_config.c (GNUT_check_value_type),

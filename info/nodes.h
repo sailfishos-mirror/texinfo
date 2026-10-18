@@ -110,6 +110,7 @@ typedef struct {
 #define T_IsNode       0x02     /* Tag is a node */
 #define T_IsAnchor     0x04     /* Tag is an anchor */
 #define T_IsIndex      0x08     /* Tag is an index */
+#define T_TreeSearchRoute 0x10  /* Node on path to current tree search node. */
 
 /* The following structure is used to remember information about the contents
    of Info files that we have loaded at least once before.  The FINFO member
