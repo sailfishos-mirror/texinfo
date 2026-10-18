@@ -268,7 +268,9 @@ GNUT_set_customization_default (size_t number, const char *value)
 }
 
 /* Only for strings and integers. */
-void
+/* only part of the corresponding Perl code, remaining is done in the
+   main program */
+int
 GNUT_set_from_cmdline (OPTIONS_LIST *options_list, size_t number,
                        const char *value)
 {
@@ -278,9 +280,10 @@ GNUT_set_from_cmdline (OPTIONS_LIST *options_list, size_t number,
 
   corrected_value = GNUT_check_value_type (option, value, &status);
   if (! status)
-    return;
+    return status;
 
   set_option_value (options_list, number, corrected_value);
+  return 1;
 }
 
 OPTION *

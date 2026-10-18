@@ -425,13 +425,30 @@ get_cmdline_customization_option (OPTIONS_LIST *options_list,
           else
             {
               char *option_value = p;
+              int status;
+
               if (!strcasecmp (p, "undef"))
                 option_value = 0;
               else if (option->type == GOT_char)
                 option_value = GNUT_decode_input (p);
 
-              GNUT_set_from_cmdline (options_list, option->number,
-                                     option_value);
+              status = GNUT_set_from_cmdline (options_list, option->number,
+                                              option_value);
+
+              if (status)
+                {
+                  if (option->type != GOT_char && option->type != GOT_bytes
+                      && option->type != GOT_boolean
+                      && option->type != GOT_integer)
+                    {
+                      char *message;
+                      xasprintf (&message,
+                       "variable of unexpected type set from command-line: %s",
+                                 option_name);
+                      fatal (message);
+                      free (message);
+                    }
+                }
 
               if (option->type == GOT_char)
                 free (option_value);
@@ -439,7 +456,6 @@ get_cmdline_customization_option (OPTIONS_LIST *options_list,
         }
       else
         {
-          /* in Perl obsolete options may get another error message */
           txi_config_document_warn ("unknown variable from command line: %s",
                          option_name);
         }

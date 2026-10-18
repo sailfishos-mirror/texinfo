@@ -51,7 +51,7 @@ use Encode;
 # for __( and __p( and some functions
 use Texinfo::Common;
 
-# for %options_type_integer
+# for %options_type_*
 use Texinfo::Options;
 
 use Texinfo::XSLoader;
@@ -116,6 +116,13 @@ sub import {
 # for error messages, passed from main calling context through initialization
 # function.
 my $real_command_name = '';
+
+my %options_type_boolean = %Texinfo::Options::options_type_boolean;
+my %options_type_buttons = %Texinfo::Options::options_type_buttons;
+my %options_type_bytes = %Texinfo::Options::options_type_bytes;
+my %options_type_char = %Texinfo::Options::options_type_char;
+my %options_type_icons = %Texinfo::Options::options_type_icons;
+my %options_type_integer = %Texinfo::Options::options_type_integer;
 
 
 #####################################################################
@@ -297,7 +304,7 @@ sub texinfo_register_init_loading_warning($) {
 sub _GNUT_check_value_type($$) {
   my ($var, $value, $customization_values) = @_;
 
-  if (exists($Texinfo::Options::options_type_integer{$var})) {
+  if (exists($options_type_integer{$var})) {
     if (!defined($value)) {
       _GNUT_document_warn(sprintf(__("value expected for %s (setting to 0)"),
                           $var));
@@ -309,7 +316,7 @@ sub _GNUT_check_value_type($$) {
                               $value, $var));
       return (0, $value);
     }
-  } elsif (exists($Texinfo::Options::options_type_boolean{$var})) {
+  } elsif (exists($options_type_boolean{$var})) {
     if (defined($value)) {
       if ($value ne '1' and $value ne '0') {
         _GNUT_document_warn(
@@ -343,6 +350,29 @@ sub texinfo_set_from_init_file($$) {
     return 0;
   }
 
+  if (defined($value)) {
+    if (exists($options_type_bytes{$var}) or exists($options_type_char{$var})
+        or exists($options_type_boolean{$var})
+        or exists($options_type_integer{$var})) {
+      if (ref($value) ne '') {
+        confess("scalar expected for $var");
+      }
+    } elsif (exists($options_type_buttons{$var})) {
+      if (ref($value) ne 'ARRAY') {
+        confess("array reference expected for $var");
+      }
+    } elsif (exists($options_type_icons{$var})) {
+      if (ref($value) ne 'HASH') {
+        confess("hash reference expected for $var");
+      }
+    } else {
+      _GNUT_document_warn(sprintf(__(
+           "%s: %s should not be set from an initialization file"),
+          'texinfo_set_from_init_file', $var));
+    }
+  }
+
+  delete $init_files_options->{$var};
   my $status;
   ($status, $value) = _GNUT_check_value_type($var, $value);
   return 0 if (!$status);
@@ -369,9 +399,19 @@ sub GNUT_set_from_cmdline($$) {
     return 0;
   }
 
+  if (ref($value) ne '') {
+    confess("unexpected value set from command-line for $var: $value");
+  }
+
   my $status;
   ($status, $value) = _GNUT_check_value_type($var, $value);
   return 0 if (!$status);
+
+  if (!exists($options_type_bytes{$var}) and !exists($options_type_char{$var})
+      and !exists($options_type_boolean{$var})
+      and !exists($options_type_integer{$var})) {
+    confess("variable of unexpected type set from command-line: $var");
+  }
 
   delete $init_files_options->{$var};
   delete $options_defaults->{$var};

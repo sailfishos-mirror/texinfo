@@ -56,21 +56,52 @@ texinfo_set_from_init_file (option_name, SV *value_sv)
       PREINIT:
         int status = 0;
         const char *value = 0;
+        OPTION *option = 0;
       CODE:
-        if (!SvOK(value_sv))
-          status = GNUT_set_from_init_file (option_name, 0);
-        else if (!SvROK(value_sv))
-          { /* do not use get_sv_option, to go through code that warns for
-               incorrect string value */
-            value = SvPVutf8_nolen(value_sv);
-            status = GNUT_set_from_init_file (option_name, value);
-          }
+        option = texinfo_find_init_file_option_name (option_name);
+        if (!option) /* let C code do the warning */
+          status = GNUT_set_from_init_file (option_name, value);
         else
           {
-            OPTION *option = texinfo_find_init_file_option_name (option_name);
-            if (option)
+            if (option->type == GOT_char || option->type == GOT_bytes
+                || option->type == GOT_boolean
+                || option->type == GOT_integer)
+              {
+                if (!SvOK(value_sv))
+                  status = GNUT_set_from_init_file (option_name, 0);
+                else if (!SvROK(value_sv))
+                  { /* do not use get_sv_option, to go through code that
+                       warns for incorrect string value */
+                    value = SvPVutf8_nolen(value_sv);
+                    status = GNUT_set_from_init_file (option_name, value);
+                  }
+                else
+                  croak ("scalar expected for %s", option_name);
+              }
+            else
               {
                 int get_sv_status;
+
+                if (SvOK(value_sv))
+                  {
+                    if (option->type == GOT_buttons)
+                      {
+                        if (SvTYPE(SvRV(value_sv)) != SVt_PVAV)
+                          croak ("array reference expected for %s",
+                                 option_name);
+                      }
+                    else if (option->type == GOT_icons)
+                      {
+                        if (SvTYPE(SvRV(value_sv)) != SVt_PVHV)
+                          croak ("hash reference expected for %s",
+                                 option_name);
+                      }
+                   else
+                     txi_config_document_warn (
+                      "%s: %s should not be set from an initialization file",
+                      "texinfo_set_from_init_file", option_name);
+                  }
+
                 get_sv_status = get_sv_option (option, value_sv, 0, 0, 0);
                 if (get_sv_status == 0)
                   status = 1;

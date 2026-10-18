@@ -37,8 +37,8 @@ OPTION *GNUT_get_conf (size_t number);
 char *GNUT_decode_input (char *text);
 char *GNUT_encode_message (char *text);
 int GNUT_set_customization_default (size_t number, const char *value);
-void GNUT_set_from_cmdline (OPTIONS_LIST *options_list, size_t number,
-                            const char *value);
+int GNUT_set_from_cmdline (OPTIONS_LIST *options_list, size_t number,
+                           const char *value);
 int GNUT_set_from_init_file (const char *option_name,
                              const char *option_value);
 

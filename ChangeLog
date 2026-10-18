@@ -1,5 +1,23 @@
 2026-10-18 Patrice Dumas  <pertusus@free.fr>
 
+	checks on variables and Perl types for all customization variables
+
+	* tta/maintain/regenerate_perl_options_info.pl: set %options_type_*
+	for all the types in Texinfo::Options.
+
+	* tta/C/main/txi_config.c (GNUT_set_from_cmdline): return a status.
+
+	* tta/perl/Texinfo/Config.pm (texinfo_set_from_init_file)
+	(GNUT_set_from_cmdline),
+	tta/perl/XSTexinfo/parser_document/ConfigXS.xs
+	(texinfo_set_from_init_file), tta/C/texi2any.c
+	(get_cmdline_customization_option): check that the Perl type of a
+	variable matches with the customization variable type, confess or
+	croak if not.  Check that string and integer/boolean variables only
+	are set from command-line.
+
+2026-10-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/txi_config.c (texinfo_find_init_file_option_name)
 	(GNUT_set_from_init_file): remove warn_obsolete_options and
 	warn_obsolete_options call, as it has never been done consistently.
