@@ -226,31 +226,14 @@ set_option_value (OPTIONS_LIST *options_list, size_t number,
       if (!value)
         option_set_conf (option, 0, 0);
       else
-        { /* TODO this is duplicated with GNUT_check_value_type,
-             try to have only one */
+        {
           char *endptr;
           long long_value = strtol (value, &endptr, 10);
           int int_value = (int) long_value;
           if (endptr != value)
-            {
-              if (int_value >= 0
-                  || (int_value == -2
-                      && option->number == txi_base_options.paragraphindent.number))
-                option_set_conf (option, int_value, 0);
-            }
+            option_set_conf (option, int_value, 0);
           else
-            {
-            /* warn?  No such check in Perl */
-            /* Consider that the option is set if the string is not empty, similar
-               to Perl.
-               Not exactly the same as comparison won't fail in C, while
-               it will fail in Perl and trigger a warning. */
-            /* FIXME do different code for GOT_integer */
-               if (!strcmp (value, ""))
-                 option_set_conf (option, 0, 0);
-               else
-                 option_set_conf (option, 1, 0);
-            }
+            fatal ("set_option_value: unexpected invalid integer");
         }
     }
   else if (option->type == GOT_char
