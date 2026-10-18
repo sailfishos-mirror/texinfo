@@ -599,7 +599,7 @@ sub _id_to_filename($$) {
   my ($self, $id) = @_;
 
   my $basefilename_length = $self->get_conf('BASEFILENAME_LENGTH');
-  if (defined($basefilename_length) and $basefilename_length >= 0) {
+  if (defined($basefilename_length) and $basefilename_length > 0) {
     return substr($id, 0, $basefilename_length);
   } else {
     return $id;

@@ -140,8 +140,8 @@ SHORT_TOC_LINK_TO_TOC  1
 SHOW_TITLE             undef
 SPLIT                  node
 # ignores EXTENSION
-# ignores EXTENSION
 TOP_FILE               index.html
+# ignores EXTENSION
 TOP_NODE_FILE_TARGET   index.html
 USE_ACCESSKEY          undef
 USE_ISO                1

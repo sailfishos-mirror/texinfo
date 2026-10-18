@@ -127,7 +127,7 @@ HEADERS                   converter_cmdline 1       boolean
 # --node-files.  Default depends on SPLIT;  Used in HTML only.
 NODE_FILES                converter_cmdline undef   boolean
 # --verbose
-VERBOSE                   converter_cmdline undef   integer
+VERBOSE                   converter_cmdline 0   integer
 # --output    Sets OUTPUT if non split and not ending by /.
 # Setting can be format dependent
 OUTFILE                   converter_cmdline undef   char
@@ -215,8 +215,8 @@ AFTER_TOC_LINES                    converter_customization undef   char
 ASCII_DASHES_AND_QUOTES            converter_customization undef   boolean
 ASCII_GLYPH                        converter_customization undef   boolean
 ASCII_PUNCTUATION                  converter_customization undef   boolean
-AUTO_MENU_DESCRIPTION_ALIGN_COLUMN converter_customization undef   integer
-AUTO_MENU_MAX_WIDTH                converter_customization undef   integer
+AUTO_MENU_DESCRIPTION_ALIGN_COLUMN converter_customization 0   integer
+AUTO_MENU_MAX_WIDTH                converter_customization 0   integer
 BEFORE_SHORT_TOC_LINES             converter_customization undef   char
 BEFORE_TOC_LINES                   converter_customization undef   char
 BIG_RULE                           converter_customization undef   char
@@ -224,7 +224,8 @@ BODY_ELEMENT_ATTRIBUTES            converter_customization undef   char
 # for LaTeX
 CLASS_BEGIN_USEPACKAGE             converter_customization undef   char
 COPIABLE_LINKS                     converter_customization undef   boolean
-CHAPTER_HEADER_LEVEL               converter_customization undef   integer
+# for HTML
+CHAPTER_HEADER_LEVEL               converter_customization 2   integer
 CHECK_HTMLXREF                     converter_customization undef   boolean
 CLOSE_DOUBLE_QUOTE_SYMBOL          converter_customization undef   char
 CLOSE_QUOTE_SYMBOL                 converter_customization undef   char
@@ -254,8 +255,10 @@ EXTERNAL_CROSSREF_EXTENSION        converter_customization undef   char
 EXTERNAL_CROSSREF_SPLIT            converter_customization undef   char
 EXTERNAL_DIR                       converter_customization undef   char
 EXTRA_HEAD                         converter_customization undef   char
-FOOTNOTE_END_HEADER_LEVEL          converter_customization undef   integer
-FOOTNOTE_SEPARATE_HEADER_LEVEL     converter_customization undef   integer
+# For HTML
+FOOTNOTE_END_HEADER_LEVEL          converter_customization 4   integer
+# For HTML
+FOOTNOTE_SEPARATE_HEADER_LEVEL     converter_customization 4   integer
 HEADER_IN_TABLE                    converter_customization undef   boolean
 # for ext/highlight_syntax.pm
 HIGHLIGHT_SYNTAX                   converter_customization undef   char
@@ -290,7 +293,8 @@ L2H_TMP                            converter_customization undef   char
 MATHJAX_CONFIGURATION              converter_customization undef   char
 MATHJAX_SCRIPT                     converter_customization undef   char
 MATHJAX_SOURCE                     converter_customization undef   char
-MAX_HEADER_LEVEL                   converter_customization undef   integer
+# For HTML
+MAX_HEADER_LEVEL                   converter_customization 4   integer
 MENU_ENTRY_COLON                   converter_customization undef   char
 MENU_SYMBOL                        converter_customization undef   char
 MESSAGE_ENCODING                   converter_customization undef   char
@@ -340,7 +344,8 @@ USE_SETFILENAME_EXTENSION          converter_customization undef   boolean
 USE_TITLEPAGE_FOR_TITLE            converter_customization undef   boolean
 USE_XML_SYNTAX                     converter_customization undef   boolean
 VERTICAL_HEAD_NAVIGATION           converter_customization undef   boolean
-WORDS_IN_PAGE                      converter_customization undef   integer
+# For HTML
+WORDS_IN_PAGE                      converter_customization 200   integer
 XREF_USE_FLOAT_LABEL               converter_customization undef   boolean
 XREF_USE_NODE_NAME_ARG             converter_customization undef   boolean
 

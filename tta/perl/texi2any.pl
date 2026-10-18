@@ -1216,7 +1216,7 @@ There is NO WARRANTY, to the extent permitted by law."), "2026")."\n";
                      }
                      set_from_cmdline('SPLIT', $split); },
  'no-split' => sub { set_from_cmdline('SPLIT', '');
-                     set_from_cmdline('SPLIT_SIZE', undef);},
+                     set_from_cmdline('SPLIT_SIZE', 0);},
  'headers!' => sub { set_from_cmdline('HEADERS', $_[1]);
                      if (!$_[1]) {
                        set_from_cmdline('FORMAT_MENU', 'nomenu');

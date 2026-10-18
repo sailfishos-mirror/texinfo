@@ -4249,7 +4249,8 @@ sub _convert($$) {
 
           if (defined($node_description)) {
             my $description_align_column;
-            if (defined($self->get_conf('AUTO_MENU_DESCRIPTION_ALIGN_COLUMN'))) {
+            if (defined($self->get_conf('AUTO_MENU_DESCRIPTION_ALIGN_COLUMN'))
+                and $self->get_conf('AUTO_MENU_DESCRIPTION_ALIGN_COLUMN') > 0) {
               $description_align_column
                  = $self->get_conf('AUTO_MENU_DESCRIPTION_ALIGN_COLUMN');
             } else {
@@ -4285,7 +4286,8 @@ sub _convert($$) {
 
             my $text_element_context = { 'counter' => $text_count };
 
-            if (defined($self->get_conf('AUTO_MENU_MAX_WIDTH'))) {
+            if (defined($self->get_conf('AUTO_MENU_MAX_WIDTH'))
+                and $self->get_conf('AUTO_MENU_MAX_WIDTH') > 0) {
               $text_element_context->{'max'}
                  = $self->get_conf('AUTO_MENU_MAX_WIDTH');
             } else {

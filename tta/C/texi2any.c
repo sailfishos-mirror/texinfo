@@ -2041,7 +2041,7 @@ main (int argc, char *argv[], char *env[])
                             cmdline_options.options->SPLIT.number, "");
           GNUT_set_from_cmdline (&cmdline_options,
                             cmdline_options.options->SPLIT_SIZE.number,
-                            "undef");
+                            "0");
           break;
         case SPLIT_OPT:
           {

@@ -16421,13 +16421,13 @@ output quotation marks.
 @item AUTO_MENU_DESCRIPTION_ALIGN_COLUMN
 For Info output, column at which to start a menu entry description
 provided by @code{@@nodedescription} or @code{@@nodedescriptionblock}.
-Undefined by default, in which case 45% of the fill column value is used
+Set to 0 by default, in which case 45% of the fill column value is used
 (@pxref{Invoking @command{texi2any}}).
 
 @item AUTO_MENU_MAX_WIDTH
 Maximum number of columns in a menu entry line in Info when adding a
 description from @code{@@nodedescription} or @code{@@nodedescriptionblock}.
-Undefined by default, in which case 10% more than the fill column value
+Set to 0 by default, in which case 10% more than the fill column value
 is used (@pxref{Invoking @command{texi2any}}).
 
 @item CLOSE_DOUBLE_QUOTE_SYMBOL
@@ -19125,6 +19125,7 @@ better to use HTML Xref Configuration only.
 You can change the maximum length of a base file name
 for internal cross-references by setting @code{BASEFILENAME_LENGTH}; by
 default, the base file names are truncated to 245 characters.
+No truncation if set to 0.
 @c (@pxref{HTML Xref Link Basics}).
 
 

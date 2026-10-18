@@ -197,7 +197,7 @@ sub output($$) {
   # no splitting when writing to the null device or to stdout
   if (Texinfo::Common::is_null_device_name($output_file)
       or $output_file eq '-') {
-    $self->force_conf('SPLIT_SIZE', undef);
+    $self->force_conf('SPLIT_SIZE', 0);
   }
 
   my ($fh, $encoded_outfile_name);
@@ -385,7 +385,7 @@ sub output($$) {
     my $split_size = $self->get_conf('SPLIT_SIZE');
     foreach my $output_unit (@$output_units) {
       if ($first_node_seen
-          and defined($split_size)
+          and $split_size != 0
           and $self->{'bytes'} > $out_file_nr * $split_size
           and defined($fh)) {
         # Split the output into an additional output file.

@@ -6435,7 +6435,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                       int description_indent_length;
                       uintptr_t seen_description_nr = 0;
                       if (
-            self->conf->AUTO_MENU_DESCRIPTION_ALIGN_COLUMN.o.integer >= 0)
+            self->conf->AUTO_MENU_DESCRIPTION_ALIGN_COLUMN.o.integer > 0)
                         description_align_column
                  = self->conf->AUTO_MENU_DESCRIPTION_ALIGN_COLUMN.o.integer;
                       else
@@ -6491,7 +6491,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                                  (&self_plaintext->text_element_context);
                       TEXT_CONTEXT text_element_context = { text_count, 0 };
 
-                      if (self->conf->AUTO_MENU_MAX_WIDTH.o.integer >= 0)
+                      if (self->conf->AUTO_MENU_MAX_WIDTH.o.integer > 0)
                         text_element_context.max
                           = self->conf->AUTO_MENU_MAX_WIDTH.o.integer;
                       else
