@@ -351,13 +351,14 @@ This is explained later on (@pxref{Conversion Customization Variables}).
 @node Setting Main Program String Variables
 @subsection Setting Main Program String Variables
 
-To set the value of a string customization variable from an initialization file,
-use @code{texinfo_set_from_init_file}:
+To set the value of a string, integer or boolean customization variable from an
+initialization file, use @code{texinfo_set_from_init_file}:
 
 @defun texinfo_set_from_init_file ($variable_name, $variable_value)
 @var{$variable_name} is a string containing the name of the variable
 you want to set, and @var{$variable_value} is the value to which you
-want to set it.  @var{$variable_value} may be @samp{undef}.
+want to set it.  @var{$variable_value} may be @samp{undef}, except for
+customization variables that take any number as an argument.
 @end defun
 
 For example,

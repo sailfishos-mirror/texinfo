@@ -1,5 +1,14 @@
 2026-10-18 Patrice Dumas  <pertusus@free.fr>
 
+	* NEWS: document stricter checking of boolean and integer
+	customization variables.
+
+	* doc/texi2any_api.texi b/doc/texi2any_api.texi
+	(Setting Main Program String Variables): say that integer
+	customization variable cannot be undef.
+
+2026-10-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Makefile.am (test_files),
 	tta/perl/t/init/integer_customization_undef.pm,
 	tta/tests/Makefile.onetst, tta/tests/customization/list-of-tests

@@ -27,6 +27,7 @@ X.Y ()
     plaintext, a file otherwise.
     If you want to specify a directory for an output file, set the SUBDIR
     customization variable.
+  . stricter checking of boolean and integer customization variable argument.
   . add AUTO_SECTION_NODE customization variable, replacing the
     insert_nodes_for_sectioning_commands tree transformation, add the
     WARN_DUPLICATE_SECTION_TARGET customization option.
