@@ -83,7 +83,7 @@ texinfo_set_from_init_file('NODE_FOOTER_BUTTONS', ['Back', 'Forward']);
 texinfo_set_from_init_file('LINKS_DIRECTIONS',
     ['Top', 'Index', 'Contents', 'About', 'Up', 'NextFile', 'PrevFile']);
 
-texinfo_set_from_init_file('WORDS_IN_PAGE', undef);
+texinfo_set_from_init_file('WORDS_IN_PAGE', 0);
 texinfo_set_from_init_file('FORMAT_MENU', 'nomenu');
 texinfo_set_from_init_file('USE_NODES', 0);
 

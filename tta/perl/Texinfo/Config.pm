@@ -298,14 +298,16 @@ sub _GNUT_check_value_type($$) {
   my ($var, $value, $customization_values) = @_;
 
   if (exists($Texinfo::Options::options_type_integer{$var})) {
-    if (defined($value)) {
-      if (not ($value =~ /^\d+$/
-               or $var eq 'paragraphindent' and $value eq '-2')) {
-        _GNUT_document_warn(
-          sprintf(__("\"%s\" invalid for %s (integer number expected)"),
-                                $value, $var));
-        return (0, $value);
-      }
+    if (!defined($value)) {
+      _GNUT_document_warn(sprintf(__("value expected for %s (setting to 0)"),
+                          $var));
+      return (1, 0);
+    } elsif (not ($value =~ /^\d+$/
+             or $var eq 'paragraphindent' and $value eq '-2')) {
+      _GNUT_document_warn(
+        sprintf(__("\"%s\" invalid for %s (integer number expected)"),
+                              $value, $var));
+      return (0, $value);
     }
   } elsif (exists($Texinfo::Options::options_type_boolean{$var})) {
     if (defined($value)) {

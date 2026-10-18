@@ -171,7 +171,13 @@ GNUT_check_value_type (OPTION *option, const char *value, int *status)
   *status = 1;
   if (option->type == GOT_integer)
     {
-      if (value)
+      if (!value)
+        {
+          txi_config_document_warn ("value expected for %s (setting to 0)",
+                                    option->name);
+          return "0";
+        }
+      else
         {
           char *endptr;
           long long_value = strtol (value, &endptr, 10);

@@ -6885,7 +6885,7 @@ sub _default_format_element_footer($$$$;$) {
     } elsif (defined($split) and $split eq 'node') {
       if ($self->get_conf('HEADERS')) {
         my $no_footer_word_count;
-        if ($self->get_conf('WORDS_IN_PAGE')) {
+        if ($self->get_conf('WORDS_IN_PAGE') > 0) {
           $content = '' if (!defined($content));
           # NOTE it would have been better to skip a leading space, but
           # it cannot happen as the content should start with an HTML element.

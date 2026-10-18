@@ -1,5 +1,18 @@
 2026-10-18 Patrice Dumas  <pertusus@free.fr>
 
+	warn if an integer option is set to undef
+
+	* tta/C/main/txi_config.c (GNUT_check_value_type),
+	tta/perl/Texinfo/Config.pm (_GNUT_check_value_type): warn if a
+	customization of type integer (but not boolean) is set to undef.
+
+	* tta/perl/init/book.pm: set WORDS_IN_PAGE to 0 instead of undef.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (_default_format_element_footer):
+	compare WORDS_IN_PAGE explicitly to 0.
+
+2026-10-18 Patrice Dumas  <pertusus@free.fr>
+
 	avoid setting and needing to set integer options to undef
 
 	* tta/perl/Texinfo/Convert/InfoNonXS.pm (output),
