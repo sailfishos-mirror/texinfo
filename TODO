@@ -200,6 +200,20 @@ After next release:
    uninorm/u32-normalize unistr/u8-to-u32 unistr/u32-strdup
    and uchar-h-c23 instead of uchar-h (although it could be more robust)
 
+* texi2any and Info readers:
+  The standalone Info reader accepts tags different from Ref and Node
+  since 2025.  The "Index" tag added in 2027 to the Info format comes
+  with the possibility to prepend with "Ref: ^H" to be readable by
+  standalone Info readers released before 2025.  When enough time has
+  passed since 2025 (20 years?) such that old standalone readers have become
+  rare enough, texi2any could be adjusted to output the Index tag without
+  any string prepended.  (This could be done by setting _USE_NEW_INFO_TAGS
+  to 1 in the default case).
+  When enough time has passed after the date when the prepended string
+  stopped being output by programs generating Info (20 more years?),
+  the Info readers could be adjusted to drop support for Index tags with
+  a prepended string.
+
 ***********************************************************************
 
 * Ideas that will not be implemented:
