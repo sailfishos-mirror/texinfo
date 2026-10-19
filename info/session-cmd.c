@@ -964,29 +964,7 @@ DECLARE_INFO_COMMAND (info_split_window, _("Split the current window"))
     info_error ("%s", msg_win_too_small);
   else
     {
-      NODE *copy = xmalloc (sizeof (NODE));
-      *copy = *window->node; /* Field-by-field copy of structure. */
-
-      if (copy->flags & N_Replica)
-        {
-          /* No problem - we have made a replica of a replica. */
-        }
-      else
-        {
-          /* We must duplicate all internal data structures in case
-             the original node is destroyed. */
-          copy->references = info_copy_references (copy->references);
-          copy->nodename = xstrdup (copy->nodename);
-
-          if (copy->up)
-            copy->up = xstrdup (copy->up);
-          if (copy->next)
-            copy->next = xstrdup (copy->next);
-          if (copy->prev)
-            copy->prev = xstrdup (copy->prev);
-          copy->contents = xstrdup (copy->contents);
-        }
-
+      NODE *copy = info_copy_node (window->node);
       info_set_node_of_window (split, copy);
       /* Make sure point still appears in the active window. */
       info_show_point (window);
@@ -1714,27 +1692,23 @@ DECLARE_INFO_COMMAND (info_visit_menu,
 
   for (i = 0; (entry = menu[i]); i++)
     {
-      WINDOW *new;
+      if (entry->type != REFERENCE_MENU_ITEM)
+        continue;
 
-      if (entry->type != REFERENCE_MENU_ITEM) continue;
-
-      copy = xmalloc (sizeof (NODE));
-      *copy = *window->node; /* Field-by-field copy of structure. */
-      new = window_make_window ();
-      info_set_node_of_window (new, copy);
-      window_tile_windows (TILE_INTERNALS);
-
+      WINDOW *new = window_make_window ();
       if (!new)
         {
           info_error ("%s", msg_win_too_small);
           break;
         }
-      else
-        {
-          active_window = new;
-          if (!info_select_reference (new, entry))
-            break;
-        }
+
+      copy = info_copy_node (window->node);
+      info_set_node_of_window (new, copy);
+      window_tile_windows (TILE_INTERNALS);
+
+      active_window = new;
+      if (!info_select_reference (new, entry))
+        break;
     }
 }
 

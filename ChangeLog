@@ -1,5 +1,19 @@
 2026-10-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Fix M-x visit-menu
+
+	* info/nodes.c (info_copy_node): New function, with code split
+	from info_split_window.
+	* info/session-cmd.c (info_split_window): Call info_copy_node.
+	(info_visit_menu): Rewrite to use info_copy_node.  Do not crash
+	if enough new windows could not be created for all the referenced
+	nodes.
+	
+	Crash with "M-x visit-menu" reported by Aidan <aidanczhai@gmail.com>
+	for "info texinfo".
+
+2026-10-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Customization Variables for @-Commands):
 	Document paragraphindent specially.
 

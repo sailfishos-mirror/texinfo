@@ -161,6 +161,7 @@ TAG *info_create_tag (void);
 NODE *info_create_node (void);
 void free_node (NODE *node);
 NODE *replicate_node (const NODE *node);
+NODE *info_copy_node (NODE *node);
 
 NODE *info_get_node (const char *filename, const char *nodename);
 TAG **info_get_node_tag_of_file_buffer (FILE_BUFFER *file_buffer,

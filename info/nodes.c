@@ -1014,6 +1014,36 @@ replicate_node (const NODE *n)
   return result;
 }
 
+/* Copy a node for placing in an Info window. */
+NODE *
+info_copy_node (NODE *node)
+{
+  NODE *copy = xmalloc (sizeof (NODE));
+  *copy = *node;
+
+  if (copy->flags & N_Replica)
+    {
+      /* No problem - we have made a replica of a replica. */
+      return copy;
+    }
+  else
+    {
+      /* We must duplicate all internal data structures in case
+         the original node is destroyed. */
+      copy->references = info_copy_references (copy->references);
+      copy->nodename = xstrdup (copy->nodename);
+
+      if (copy->up)
+        copy->up = xstrdup (copy->up);
+      if (copy->next)
+        copy->next = xstrdup (copy->next);
+      if (copy->prev)
+        copy->prev = xstrdup (copy->prev);
+      copy->contents = xstrdup (copy->contents);
+      return copy;
+    }
+}
+
 
 /* Return the length of the node which starts at BINDING. */
 static size_t
