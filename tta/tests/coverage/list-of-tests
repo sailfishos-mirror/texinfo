@@ -33,3 +33,5 @@ formatting_chm formatting.texi -D 'needcollationcompat Need collation compatibil
 
 # Not sure about the difference with formatting
 formatting_regions formatting_regions.texi -D 'needcollationcompat Need collation compatibility' --html --no-split -c SHOW_TITLE=1
+
+formatting_plaintext_empty_output_string formatting.texi --plaintext -o ''

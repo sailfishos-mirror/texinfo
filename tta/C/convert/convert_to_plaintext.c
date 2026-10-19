@@ -7380,7 +7380,6 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
   TEXT result;
   OUTPUT_UNIT_LIST output_units = { 0 };
   const NODE_RELATIONS_LIST *nodes_list;
-  TEXT output_unit_result;
 
   plaintext_conversion_initialization (self, document);
 
@@ -7476,9 +7475,15 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
   /* Now do the output */
 
   if (!output_units.list[0]->unit_filename)
-    {
+    {/* No output with this code path, not very interesting.
+        Code path tested in one test only, tta/tests/coverage
+        formatting_plaintext_empty_output_string */
+      TEXT output_unit_result;
       char *outfile_name = 0;
       char *encoded_outfile_name = 0;
+
+      text_init (&output_unit_result);
+
       /* no page */
       if (strcmp (output_file, ""))
         {

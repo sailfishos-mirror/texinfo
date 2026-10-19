@@ -119,6 +119,7 @@ type_base_one_perl_test_files_generated_list =  \
     test_scripts/coverage_perl_formatting_xhtml.sh \
     test_scripts/coverage_perl_formatting_chm.sh \
     test_scripts/coverage_perl_formatting_regions.sh \
+    test_scripts/coverage_perl_formatting_plaintext_empty_output_string.sh \
     test_scripts/layout_perl_formatting_texi2html.sh \
     test_scripts/layout_perl_formatting_texi2html_nodes.sh \
     test_scripts/layout_perl_formatting_info_ascii_punctuation.sh \
@@ -270,6 +271,7 @@ type_base_one_native_test_files_generated_list =  \
     test_scripts/coverage_native_formatting_xhtml.sh \
     test_scripts/coverage_native_formatting_chm.sh \
     test_scripts/coverage_native_formatting_regions.sh \
+    test_scripts/coverage_native_formatting_plaintext_empty_output_string.sh \
     test_scripts/layout_native_formatting_texi2html.sh \
     test_scripts/layout_native_formatting_texi2html_nodes.sh \
     test_scripts/layout_native_formatting_info_ascii_punctuation.sh \

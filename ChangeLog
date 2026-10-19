@@ -1,3 +1,13 @@
+2026-10-19 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_output): initialize
+	output_unit_result when there are no files to output to.
+
+	* tta/tests/Makefile.onetst, tta/tests/coverage/list-of-tests
+	(formatting_plaintext_empty_output_string): add test of plaintext with
+	output file set to an empty strings, not outputting to an output file
+	but to a string.
+
 2026-10-20  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/info-stnd.texi: Do not use NEXT, PREVIOUS or PRIOR as names of
@@ -324,7 +334,7 @@
 	warn if boolean customization variable value is not 0 or 1
 
 	* tta/maintain/regenerate_perl_options_info.pl: output the list of
-	booeal options in Texinfo::Options.
+	boolean options in Texinfo::Options.
 
 	* tta/C/main/txi_config.c (GNUT_check_value_type),
 	tta/perl/Texinfo/Config.pm (_GNUT_check_value_type): check that a
@@ -725,7 +735,7 @@
 
 	* tta/perl/Texinfo/Convert/LaTeX.pm (_latex_header): move usepackage
 	for graphicx, etoolbox and titleps to packages covered by
-	END_USEPACKAGE.  It is less likely fo users to want to replace these
+	END_USEPACKAGE.  It is less likely for users to want to replace these
 	packages, making CLASS_BEGIN_USEPACKAGE easier to modify.
 
 	* doc/texinfo.texi (@LaTeX{} Customization Variables): update.
