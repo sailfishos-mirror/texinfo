@@ -47,8 +47,8 @@ DECLARE_INFO_COMMAND (info_all_files, _("Show all matching files"))
       return;
     }
 
-  /* FIXME: Copy allfiles_node so it is unique in the window history? */
-  info_set_node_of_window (window, allfiles_node);
+  info_set_node_of_window (window,
+                           replicate_node (allfiles_node));
 }
 
 

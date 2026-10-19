@@ -1,5 +1,16 @@
 2026-10-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Fix crash with repeated "all-files" node in window history
+
+	* info/session-cmd.c (info_all_files):
+	Call replicate_node on allfiles_node so it can be safely placed in
+	a window.
+	
+	Crash after "M-x all-files" followed by repeated "l" reported by
+	Aidan <aidanczhai@gmail.com>.
+
+2026-10-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Fix junk at end of printed key sequence.
 
 	* info/util.c (text_buffer_add_string): Always null terminate output
