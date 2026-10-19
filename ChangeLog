@@ -1,5 +1,12 @@
 2026-10-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/session-cmd.c (info_find_menu): Do not print error message
+	if menu marker was found.
+
+	Report from Aidan <aidanczhai@gmail.com>
+
+2026-10-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Fix M-x visit-menu
 
 	* info/nodes.c (info_copy_node): New function, with code split

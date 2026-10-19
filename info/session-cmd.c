@@ -1653,6 +1653,7 @@ DECLARE_INFO_COMMAND (info_find_menu, _("Move to the start of this node's menu")
       window->point = position;
       window_adjust_pagetop (window);
       window->flags |= W_UpdateWindow;
+      return;
     }
   else
     {
