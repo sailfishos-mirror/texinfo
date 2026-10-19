@@ -15857,9 +15857,9 @@ variable with the same name (minus the leading @code{@@}):
 @@headings              @@kbdinputstyle     @@microtype
 @@novalidate            @@oddfooting        @@oddfootingmarks
 @@oddheading            @@oddheadingmarks   @@pagesizes
-@@paragraphindent       @@setfilename       @@setchapternewpage
-@@shortcontents         @@smallbook         @@summarycontents
-@@urefbreakstyle        @@xrefautomaticsectiontitle
+@@setfilename           @@setchapternewpage @@shortcontents
+@@smallbook             @@summarycontents   @@urefbreakstyle
+@@xrefautomaticsectiontitle
 @end example
 
 Setting such a customization variable to a value @samp{foo} is similar
@@ -15868,6 +15868,13 @@ though, since any side effects of parsing the Texinfo source are not
 redone.  Also, some variables do not take Texinfo code when generating
 particular formats, but an argument that is already formatted.  This
 is the case, for example, for HTML for @code{documentdescription}.
+
+@code{paragraphindent} represents the @code{@@paragraphindent} command
+(and the @option{--paragraph-indent} option).  If its value is a positive
+integer @var{n}, the effect is the same as @samp{@@paragraphindent @var{n}}.
+The value 0 represents a setting of @samp{@@paragraphindent none}.
+The value -2 represents a setting of @samp{@@paragraphindent asis}.
+(@xref{@code{paragraphindent}}.)
 
 Note that if @command{texi2any} is invoked to process the file with
 @TeX{} (e.g., with the @option{--pdf} option), then these customization
