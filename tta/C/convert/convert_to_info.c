@@ -749,7 +749,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
         }
       else
         text_append_n (&tag_text, "_", 1);
-      text_append_n (&tag_text, "\x{7F}0\n", 3);
+      text_append_n (&tag_text, "\x7F" "0\n", 3);
     }
 
   for (j = 0; j < self_plaintext->target_locations->number; j++)
