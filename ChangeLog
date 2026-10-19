@@ -1,5 +1,11 @@
 2026-10-19 Patrice Dumas  <pertusus@free.fr>
 
+	* TODO (Info): index markers has been generated for a long time, since
+	2004, add an entry about removing code supporting absent index markers
+	in the future.
+
+2026-10-19 Patrice Dumas  <pertusus@free.fr>
+
 	* TODO: outline a long-term plan for dropping the "Ref: ^H" prepended
 	strings to Index tags to cope with standalone Info readers released
 	before 2025.
