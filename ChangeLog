@@ -1,5 +1,18 @@
 2026-10-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Fix junk at end of printed key sequence.
+
+	* info/util.c (text_buffer_add_string): Always null terminate output
+	buffer.
+	
+	When printing a key sequence in the echo area, junk left over from
+	a previous key sequence could be displayed due to this function being
+	used.
+
+	Report from Aidan <aidanczhai@gmail.com>.
+
+2026-10-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Fix "M-x describe-key RET C-x 2"
 
 	* info/infodoc.c (describe_key): Check for prefix mapping before

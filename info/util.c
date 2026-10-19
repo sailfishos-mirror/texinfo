@@ -215,6 +215,7 @@ text_buffer_add_string (struct text_buffer *buf, const char *str, size_t len)
   text_buffer_alloc (buf, len);
   memcpy (buf->base + buf->off, str, len);
   buf->off += len;
+  buf->base[buf->off] = '\0';
   return len;
 }
 
