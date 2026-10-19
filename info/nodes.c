@@ -1312,7 +1312,14 @@ info_node_of_tag_ext (FILE_BUFFER *fb, TAG **input_tag_ptr, int fast)
         ;
 
       /* An info file with an anchor before any nodes is pathological, but
-         it's possible, so don't crash.  */
+         it's possible, so don't crash.
+
+         If there is no printed index in an Info file, an "Index: _^?0"
+         entry may be output at the beginning of the Tag table.  This tag
+         does not lead to any printed index, but should trigger Info readers to
+         assume that explicit Index markers are present.  It is important not
+         to crash when such an entry is present.
+       */
       if (node_pos < 0)
         return NULL;
 
