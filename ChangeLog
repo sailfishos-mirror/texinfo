@@ -1,5 +1,12 @@
 2026-10-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* util/htmlxref.d/Texinfo_GNU.cnf: remove line for "stabs" as this
+	manual isn't online any more at this location.
+	
+	Report from Thérèse Godefroy and Eli Zaretskii.
+
+2026-10-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Fix crash with repeated "all-files" node in window history
 
 	* info/session-cmd.c (info_all_files):
