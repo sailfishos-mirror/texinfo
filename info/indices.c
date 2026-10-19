@@ -48,6 +48,7 @@ static char *index_search = NULL;
 
 /* A couple of "globals" describing where the initial index was found. */
 static char *initial_index_filename = NULL;
+/* set, if not found with Index tag; not used, available for debugging */
 static char *initial_index_nodename = NULL;
 
 /* A couple of "globals" describing where the last index was found. */
@@ -161,19 +162,48 @@ info_indices_of_file_buffer (FILE_BUFFER *file_buffer)
   if (file_buffer->tags)
     {
       TAG *tag;
-      TAG *last_index_tag = 0;
+      char *last_nodename_with_index = 0;
 
       for (i = 0; (tag = file_buffer->tags[i]); i++)
         {
-          if (tag->nodename && strcasestr (tag->nodename, "Index")
-              && !(tag->flags & T_IsAnchor)) /* Not an anchor. */
+          if (tag->indexname
+              || (tag->nodename && strcasestr (tag->nodename, "Index")
+                  && !(tag->flags & T_IsAnchor))) /* Not an anchor. */
             {
               NODE *node;
               REFERENCE **menu;
 
               node = info_node_of_tag (file_buffer, &file_buffer->tags[i]);
 
+              /* use an Index tag to determine that markers should be used
+                 even if there is no associated node.  There is an Index tag
+                 without associated node if there is no printindex, in the
+                 beginning of the tag table, to indicate that markers are to
+                 be used */
+              if (tag->indexname)
+                {
+                  if (!initial_index_filename)
+                    {
+                      /* Remember the filename of this index. */
+                      initial_index_filename = xstrdup (file_buffer->filename);
+                      /* no initial_index_nodename in that case */
+
+                      /* Clear list in case earlier node had "Index" in name,
+                         as we now know that all the nodes with indices
+                         in the Info filebuffer should have markers. */
+                      clear_index_nodenames ();
+                      free (result);
+                      result = NULL;
+                    }
+                }
+
               if (!node)
+                continue;
+
+              /* do not re-add a node index that has already been found
+                 with the name */
+              if (tag->indexname && last_nodename_with_index
+                  && (! strcmp(last_nodename_with_index, node->nodename)))
                 continue;
 
               /* If there are no nodes with marker all the menus will
@@ -195,7 +225,7 @@ info_indices_of_file_buffer (FILE_BUFFER *file_buffer)
                       free (result);
                       result = NULL;
                     }
-                  last_index_tag = tag;
+                  last_nodename_with_index = node->nodename;
                 }
               else if (initial_index_filename)
                 {
@@ -223,11 +253,11 @@ info_indices_of_file_buffer (FILE_BUFFER *file_buffer)
               free_node (node);
             }
         }
-      if (last_index_tag)
+      if (last_nodename_with_index)
         {
           /* Remember the filename and nodename of this index. */
           last_index_filename = xstrdup (file_buffer->filename);
-          last_index_nodename = xstrdup (last_index_tag->nodename);
+          last_index_nodename = xstrdup (last_nodename_with_index);
         }
     }
 

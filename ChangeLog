@@ -1,5 +1,14 @@
 2026-10-18 Patrice Dumas  <pertusus@free.fr>
 
+	info: find indices with Index tags too
+
+	* info/indices.c (info_indices_of_file_buffer): keep information on
+	last node name found with an index, instead of last tag.
+	Use Index tag to switch to use of markers to find nodes with index,
+	and to find a node with index, if not already found.
+
+2026-10-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Makefile.am (test_files),
 	tta/perl/t/init/parser_customization_undef.pm,
 	tta/tests/Makefile.onetst, tta/tests/customization/list-of-tests
