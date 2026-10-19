@@ -1,5 +1,14 @@
 2026-10-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Fix "M-x describe-key RET C-x 2"
+
+	* info/infodoc.c (describe_key): Check for prefix mapping before
+	checking for undefined mapping, otherwise the wrong field of a union
+	would be accessed.  This fixes checking the binding of a multi-key
+	sequence, such as "C-x 2".
+
+2026-10-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/session-cmd.c (info_find_menu): Do not print error message
 	if menu marker was found.
 

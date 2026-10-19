@@ -479,16 +479,16 @@ DECLARE_INFO_COMMAND (describe_key, _("Print documentation for KEY"))
       *k++ = keystroke;
       *k = '\0';
 
-      if (!map[keystroke].value.function
+      if (map[keystroke].type == ISKMAP)
+        {
+          map = map[keystroke].value.keymap;
+          continue;
+        }
+      else if (!map[keystroke].value.function
           || !map[keystroke].value.function->func) /* "invalid" mapping */
         {
           message_in_echo_area (_("%s is undefined"), pretty_keyseq (keys));
           return;
-        }
-      else if (map[keystroke].type == ISKMAP)
-        {
-          map = map[keystroke].value.keymap;
-          continue;
         }
       else
         {
