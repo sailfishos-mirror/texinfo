@@ -15877,7 +15877,7 @@ is the case, for example, for HTML for @code{documentdescription}.
 integer @var{n}, the effect is the same as @samp{@@paragraphindent @var{n}}.
 The value 0 represents a setting of @samp{@@paragraphindent none}.
 The value -2 represents a setting of @samp{@@paragraphindent asis}.
-(@xref{@code{paragraphindent}}.)
+(@xref{@code{@@paragraphindent}}.)
 
 Note that if @command{texi2any} is invoked to process the file with
 @TeX{} (e.g., with the @option{--pdf} option), then these customization
