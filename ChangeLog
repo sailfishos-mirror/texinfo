@@ -1,5 +1,10 @@
 2026-10-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Printing Indices & Menus):
+	Place excessive detail in @ignore block.
+
+2026-10-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	info: fix M-x last-node with final anchor in tag table
 
 	* info/session-cmd (info_last_node):
