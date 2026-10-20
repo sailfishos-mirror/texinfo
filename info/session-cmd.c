@@ -2232,10 +2232,9 @@ DECLARE_INFO_COMMAND (info_first_node, _("Select the first node in this file"))
             count--;
             last_node_tag_idx = i;
           }
-      if (count > 0)
-        i = last_node_tag_idx + 1;
-      if (i > 0)
-        node = info_get_node (fb->filename, fb->tags[i - 1]->nodename);
+      if (last_node_tag_idx != -1)
+        node = info_get_node (fb->filename,
+                              fb->tags[last_node_tag_idx]->nodename);
     }
 
   if (!node)

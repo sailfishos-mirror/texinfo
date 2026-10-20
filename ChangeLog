@@ -1,5 +1,11 @@
 2026-10-20 Patrice Dumas  <pertusus@free.fr>
 
+	* info/session-cmd.c (info_first_node): use an index in tag table
+	which is checked to be for a node.  Same clearer code from Gavin as
+	info_last_node.
+
+2026-10-20 Patrice Dumas  <pertusus@free.fr>
+
 	add nodes for sectioning commands in the default case for plaintext output
 
 	* doc/texinfo.texi (Global Customization Variables), tta/C/texi2any.c
@@ -47,7 +53,7 @@
 
 	info: fix M-x last-node with final anchor in tag table
 
-	* info/session-cmd (info_last_node):
+	* info/session-cmd.c (info_last_node):
 	Always use an index in tag table which is checked to be for a
 	node, rather than sometimes using index of the final entry.
 	
