@@ -2602,6 +2602,10 @@ t/results/plaintext_tests/nested_code_commands.pl
 t/results/plaintext_tests/nested_indentedblock.pl
 t/results/plaintext_tests/nested_multitable.pl
 t/results/plaintext_tests/no_empty_line_after_section.pl
+t/results/plaintext_tests/no_node_with_section_split.pl
+t/results/plaintext_tests/no_node_with_section_split/res_plaintext/no_node_with_section_split.txt
+t/results/plaintext_tests/no_node_with_section_split/res_plaintext/one.txt
+t/results/plaintext_tests/no_node_with_section_split/res_plaintext/two.txt
 t/results/plaintext_tests/no_punctuation_commands.pl
 t/results/plaintext_tests/no_punctuation_commands_frenchspacing.pl
 t/results/plaintext_tests/non_break_spaces.pl

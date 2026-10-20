@@ -837,6 +837,8 @@ my %formats_table = (
   'plaintext' => {
              'nodes_tree' => 1,
              'floats' => 1,
+             'auto_section_node' => 1,
+             'no_warn_duplicate_section_target' => 1,
              'split' => 1,
              'module' => 'Texinfo::Convert::Plaintext'
            },

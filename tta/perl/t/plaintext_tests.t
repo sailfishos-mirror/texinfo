@@ -1112,6 +1112,15 @@ undef, {'test_file' => 'punctuation_small_case_accents_latin1.texi'},
 ['punctuation_sc_accents_to_utf8_ascii_glyph_usascii',
 undef, {'test_file' => 'punctuation_small_case_accents_us_ascii.texi'},
         {'ASCII_GLYPH' => 1, 'OUTPUT_ENCODING_NAME' => 'utf-8'}],
+['no_node_with_section_split',
+'@node Top
+@top aa
+
+@chapter one
+
+@chapter two
+', {'AUTO_SECTION_NODE' => 1}, {'SPLIT' => 'node'}
+],
 );
 
 foreach my $test (@test_cases) {
@@ -1120,6 +1129,9 @@ foreach my $test (@test_cases) {
 
 foreach my $test (@file_tests) {
   $test->[2]->{'test_formats'} = ['file_plaintext'];
+  $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi'
+    unless (exists($test->[2]->{'test_input_file_name'})
+            or exists($test->[2]->{'test_file'}));
 }
 
 run_all('plaintext_tests', [@test_cases, @file_tests]);

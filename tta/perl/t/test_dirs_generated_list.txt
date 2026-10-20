@@ -797,6 +797,8 @@ t/results/plaintext_tests/east_asian_in_w
 t/results/plaintext_tests/east_asian_in_w/res_plaintext
 t/results/plaintext_tests/japanese_utf8
 t/results/plaintext_tests/japanese_utf8/res_plaintext
+t/results/plaintext_tests/no_node_with_section_split
+t/results/plaintext_tests/no_node_with_section_split/res_plaintext
 t/results/plaintext_tests/non_break_spaces
 t/results/plaintext_tests/non_break_spaces/res_plaintext
 t/results/plaintext_tests/punctuation_sc_accents_ascii_glyph

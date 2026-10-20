@@ -1,3 +1,17 @@
+2026-10-20 Patrice Dumas  <pertusus@free.fr>
+
+	add nodes for sectioning commands in the default case for plaintext output
+
+	* doc/texinfo.texi (Global Customization Variables), tta/C/texi2any.c
+	(formats_table), tta/perl/texi2any.pl (%formats_table): set
+	auto_section_node and no_warn_duplicate_section_target in formats
+	table for plaintext.
+
+	* tta/perl/t/plaintext_tests.t (no_node_with_section_split),
+	tta/perl/t/test_dirs_generated_list.txt,
+	tta/perl/t/test_files_generated_list.txt: add tests of plaintext split
+	by node with sectioning commands without nodes.
+
 2026-10-19 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/convert_to_plaintext.c (plaintext_output): initialize
