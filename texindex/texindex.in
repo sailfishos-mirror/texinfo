@@ -113,4 +113,7 @@ fi
 # shells and seds.
 # 
 escaped0=`echo "$0" | sed 's,\\\\,\\\\\\\\,g'`
-exec $awk_binary -v Invocation_name="$escaped0" -f "$ti_script" -- "$@"
+
+ti_version="@VERSION@"
+
+exec $awk_binary -v Invocation_name="$escaped0" -v Texindex_version="$ti_version" -f "$ti_script" -- "$@"

@@ -26,14 +26,10 @@ EXTRA_DIST = texindex.in
 # let's install the awk script in $(sharedir)/texinfo.
 dist_pkgdata_SCRIPTS = texindex.awk
 
-# configure-time variables we use in texindex.in or
-# (FIXME) texindex.awk.
-# Unlike regular Automake, we have to allow for @@VERSION@@,
-# which jrweave generates in the code segment.
+# configure-time variables we use in texindex.in.
 do_subst = sed -e 's,[@]pkgdatadir[@],$(pkgdatadir),g' \
                -e 's,[@]TI_AWK[@],$(TI_AWK),g' \
-               -e 's,[@]PACKAGE[@],$(PACKAGE),g' \
-               -e 's,[@][@]*VERSION[@][@]*,$(VERSION),g'
+               -e 's,[@]VERSION[@]*,$(VERSION),g'
 
 # build the texindex shell wrapper from texindex.in, following automake.
 texindex: texindex.in Makefile

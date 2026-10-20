@@ -1,5 +1,16 @@
 2026-10-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Fix texindex --version
+
+	* texindex/Makefile.am (do_subst):
+	Replace @VERSION@ in texindex.in.  Do not replace @PACAKGE@ as
+	this isn't used.  Remove handling of "@@VERSION@@".
+	* texindex/texindex.in: Pass value of @VERSION@ on awk command line.
+	* texindex/texindex.awk: Assume version number is passed in in
+	Texindex_version variable.
+
+2026-10-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Printing Indices & Menus):
 	Place excessive detail in @ignore block.
 

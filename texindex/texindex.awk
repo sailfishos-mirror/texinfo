@@ -326,8 +326,6 @@ BEGIN {
 	EXIT_SUCCESS = 0
 	EXIT_FAILURE = 1
 
-	Texindex_version = "@VERSION@"
-
 	# --combine-equal-keys setting
 	CombineEqualKeys = FALSE
 
@@ -339,6 +337,11 @@ BEGIN {
 	if (! Invocation_name) {
 		# provide fallback in case it's not passed in.
 		Invocation_name = "texindex"
+	}
+
+	if (! Texindex_version) {
+		# provide fallback in case it's not passed in.
+		Texindex_version = ""
 	}
 	
 	check_split_null()
