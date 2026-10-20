@@ -1,5 +1,16 @@
 2026-10-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	info: fix M-x last-node with final anchor in tag table
+
+	* info/session-cmd (info_last_node):
+	Always use an index in tag table which is checked to be for a
+	node, rather than sometimes using index of the final entry.
+	
+	M-x last-node did not work when the final entry in the tag table
+	was an index anchor.  Report from Aidan <aidanczhai@gmail.com>.
+
+2026-10-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/util.c (text_buffer_add_string): Allocate enough memory for
 	terminating null.
 	(text_buffer_alloc): Declare as static.
