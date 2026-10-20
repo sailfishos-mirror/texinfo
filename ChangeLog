@@ -1,5 +1,10 @@
 2026-10-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi: Do not use NEXT, PREVIOUS or PRIOR as names of
+	keys.  Only use PgUp/PageUp and PgDn/PageDown.
+
+2026-10-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Fix texindex --version
 
 	* texindex/Makefile.am (do_subst):

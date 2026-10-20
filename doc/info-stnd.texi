@@ -444,7 +444,8 @@ current node is visible on the screen.
 @table @asis
 @item @key{SPC} (@code{scroll-forward})
 @kindex SPC@r{, in Info windows}
-@itemx @key{NEXT}
+@itemx @key{PageDown}
+@kindex PageDown
 @kindex NEXT
 @findex scroll-forward
 Shift the text in this window up.  That is, show more of the node which
@@ -458,9 +459,11 @@ redisplaying almost a completely new screenful of lines.  If you are at
 the end of a node, @key{SPC} takes you to the ``next'' node, so that you can
 read an entire manual from start to finish by repeating @key{SPC}.
 
-@kindex PageDown
+@ignore
+@c Discussing these alternative names is probably not useful.
 The @key{NEXT} key is known as the @key{PageDown} key on some
 keyboards.
+@end ignore
 
 @item @kbd{C-v} (@code{scroll-forward-page-only})
 @kindex C-v
@@ -478,7 +481,8 @@ ilk.
 
 @item @key{DEL} (@code{scroll-backward})
 @kindex DEL@r{, in Info windows}
-@item @key{PREVIOUS}
+@item @key{PageUp}
+@kindex PageUp
 @kindex PREVIOUS
 @findex scroll-backward
 Shift the text in this window down.  The inverse of
@@ -494,9 +498,11 @@ If your keyboard lacks the @key{DEL} key, look for a key called
 @key{BS}, or @samp{Backspace}, sometimes designated with an arrow which
 points to the left, which should perform the same function.
 
-@kindex PageUp
+@ignore
+@c Discussing these alternative names is probably not useful.
 The @key{PREVIOUS} key is the @key{PageUp} key on many keyboards.  Emacs
 refers to it by the name @key{PRIOR}.
+@end ignore
 
 @item @kbd{M-v} (@code{scroll-backward-page-only})
 @kindex M-v
@@ -2736,16 +2742,16 @@ Here are some keybindings that are only used in Info on MS-DOS/Windows.
 
 @heading Node commands
 
-@kindex C-NEXT
 @kindex C-PgDn
-@kindex C-PREVIOUS
+@kindex C-NEXT
 @kindex C-PgUp
+@kindex C-PREVIOUS
 @kindex C-CENTER
 @kindex C-UP
 @table @kbd
-@item C-@key{NEXT}
+@item C-@key{PgDn}
 @code{next-node}
-@item C-@key{PREVIOUS}
+@item C-@key{PgUp}
 @code{prev-node}
 @item C-@key{UP} (an arrow key)
 @code{up-node}
@@ -2753,10 +2759,13 @@ Here are some keybindings that are only used in Info on MS-DOS/Windows.
 @code{history-node}
 @end table
 
+@ignore
+@c Discussing these alternative names is probably not useful.
 The @key{NEXT} key is known as the @key{PgDn} key on some
 keyboards.
 The @key{PREVIOUS} key is known as the @key{PgUp} key on some
 keyboards.
+@end ignore
 
 
 @heading Echo area commands
