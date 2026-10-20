@@ -29,7 +29,6 @@ void text_buffer_free (struct text_buffer *buf);
 void text_buffer_alloc (struct text_buffer *buf, size_t len);
 size_t text_buffer_vprintf (struct text_buffer *buf, const char *format,
 			    va_list ap);
-size_t text_buffer_space_left (struct text_buffer *buf);
 #if HAVE_ICONV
 size_t text_buffer_iconv (struct text_buffer *buf, iconv_t iconv_state,
                           ICONV_CONST char **inbuf, size_t *inbytesleft);

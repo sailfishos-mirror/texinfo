@@ -166,7 +166,7 @@ text_buffer_alloc (struct text_buffer *buf, size_t len)
 
 /* Return number of bytes that can be written to text buffer without
    reallocating the text buffer. */
-size_t
+static size_t
 text_buffer_space_left (struct text_buffer *buf)
 {
   /* buf->size is the offset of the first byte after the allocated space.
@@ -212,7 +212,7 @@ text_buffer_iconv (struct text_buffer *buf, iconv_t iconv_state,
 size_t
 text_buffer_add_string (struct text_buffer *buf, const char *str, size_t len)
 {
-  text_buffer_alloc (buf, len);
+  text_buffer_alloc (buf, len + 1);
   memcpy (buf->base + buf->off, str, len);
   buf->off += len;
   buf->base[buf->off] = '\0';

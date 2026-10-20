@@ -1,5 +1,11 @@
 2026-10-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/util.c (text_buffer_add_string): Allocate enough memory for
+	terminating null.
+	(text_buffer_alloc): Declare as static.
+
+2026-10-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Customization Variables for @-Commands):
 	Fix xref.
 
