@@ -1,5 +1,14 @@
 2026-10-21  Gavin Smith <gavinsmith0123@gmail.com>
 
+	@result{} etc. display properly in PDF outline
+
+	* doc/texinfo.tex (\pdfoutlinedefs): Use @U to provide definitions
+	for several Texinfo commands, so they display properly in the PDF
+	outline when used in a section title.  These are all used in the
+	Texinfo manual.
+
+2026-10-21  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Make @U work in PDF outline
 
 	* doc/texinfo.tex (\parseXMLCharref): Output name building macro

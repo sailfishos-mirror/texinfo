@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2026-10-21.01}
+\def\texinfoversion{2026-10-21.02}
 %
 % Copyright 1985, 1986, 1988, 1990-2026 Free Software Foundation, Inc.
 %
@@ -1236,6 +1236,20 @@ output) for that.)}
 % Some improvement on what \indexnofonts gives us
 \def\pdfoutlinedefs{%
   \def\U##1{\csname uni:##1\endcsname}%
+  \def\result##1{\U{21D2}}%
+  \def\expansion##1{\U{21A6}}%
+  \def\print##1{\U{22A3}}%
+  \def\error##1{[error]}%
+  \def\equiv##1{\U{2261}}%
+  \def\point##1{\U{22C6}}%
+  \def\leq##1{\U{2264}}%
+  \def\geq##1{\U{2265}}%
+  \def\copyright##1{\U{00A9}}%
+  \def\registeredsymbol##1{\U{00AE}}%
+  \def\pounds##1{\U{00A3}}%
+  \def\textdegree##1{\U{00B0}}%
+  \def\euro##1{\U{20AC}}%
+  \def\bullet##1{\U{2022}}%
 }
 
 % definitions for pdftex or luatex with pdf output
