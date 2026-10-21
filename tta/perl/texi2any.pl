@@ -1323,7 +1323,8 @@ There is NO WARRANTY, to the extent permitted by law."), "2026")."\n";
  'split-size=s' => sub {set_from_cmdline('SPLIT_SIZE', $_[1])},
  'paragraph-indent|p=s' => sub {
     my $value = _decode_input($_[1]);
-    if ($value =~ /^([0-9]+)$/ or $value eq 'none' or $value eq 'asis') {
+    if ($value =~ /^([0-9]+)$/ or $value eq 'none' or $value eq 'asis'
+        or $value eq '-2') {
       my $integer_value =   ($value eq 'none') ? 0
                           : ($value eq 'asis') ? -2
                           : ($value + 0);

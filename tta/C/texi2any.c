@@ -2004,7 +2004,7 @@ main (int argc, char *argv[], char *env[])
             /* actually const but constrained by prototypes */
             char *value = GNUT_decode_input ((char *) optarg);
             if (!strcmp (value, "none") || !strcmp (value, "asis")
-                || is_ascii_digit (value))
+                || is_ascii_digit (value) || !strcmp (value, "-2"))
               {
                 const char *integer_value;
                 if (value[0] == 'n') /* none */
