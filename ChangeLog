@@ -1,5 +1,13 @@
 2026-10-21 Patrice Dumas  <pertusus@free.fr>
 
+	document that -2 can be used instead of asis for paragraphindent
+
+	* NEWS, doc/texinfo.texi (Invoking @command{texi2any}, Command List)
+	(@code{@@paragraphindent}): document that -2 can be used instead of
+	asis as @paragraphindent argument and for --paragraph-indent.
+
+2026-10-21 Patrice Dumas  <pertusus@free.fr>
+
 	accept -2 as --paragraph-indent command-line argument
 
 	* tta/C/texi2any.c (main), tta/perl/texi2any.pl: do not error out for

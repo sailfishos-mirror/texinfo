@@ -15434,7 +15434,7 @@ this option overrides the value set in a Texinfo file by an
 The value of @var{indent} is interpreted as follows:
 
 @table @asis
-@item @samp{asis}
+@item @samp{asis} or @samp{-2}
 Preserve any existing indentation (or lack thereof) at the beginnings
 of paragraphs.
 
@@ -21127,7 +21127,7 @@ Change page dimensions.  @xref{pagesizes}.
 
 @item @@paragraphindent @var{indent}
 Indent paragraphs by @var{indent} number of spaces (perhaps 0); preserve
-source file indentation if @var{indent} is @code{asis}.
+source file indentation if @var{indent} is @code{asis} (or @code{-2}).
 @xref{@code{@@paragraphindent}}.
 
 @item @@part @var{title}
@@ -24649,6 +24649,7 @@ The indentation is according to the value of @var{indent}:
 
 @table @asis
 @item @code{asis}
+@itemx -2
 Do not change the existing indentation (not implemented in printed
 output).
 

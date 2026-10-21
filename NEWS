@@ -16,6 +16,7 @@ X.Y ()
   . @xml, @ifxml and @ifnotxml are deprecated.
   . new commands @documentscript and @documentlanguagevariant for the
     rare cases where @documentlanguage is not enough.
+  . -2 can be used as @paragraphindent argument instead of asis.
 
 * texi2any
   . Texinfo XML deprecated as an output format.  Remove options --xml,
