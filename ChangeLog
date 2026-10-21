@@ -1,5 +1,13 @@
 2026-10-21 Patrice Dumas  <pertusus@free.fr>
 
+	accept -2 as paragraphindent argument, same as asis in TeX
+
+	* doc/texinfo.tex (\minustwoword, \paragraphindent): handle -2 the
+	same as asis as paragraphindent argument.  Using catcode for - to get
+	the same representation for - for comparison from Gavin.
+
+2026-10-21 Patrice Dumas  <pertusus@free.fr>
+
 	accept -2 as paragraphindent argument, same as asis
 
 	* tta/C/parsetexi/end_line.c (parse_line_command_args),

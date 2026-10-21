@@ -910,15 +910,20 @@ where each line of input produces a line of output.}
 %
 \def\asisword{asis} % no translation, these are keywords
 \def\noneword{none}
+% Set - active for the comparison, as it is active in the main processing
+{\catcode`\-=\active \gdef\minustwoword{-2}}
 %
 \parseargdef\paragraphindent{%
   \def\temp{#1}%
   \ifx\temp\asisword
   \else
-    \ifx\temp\noneword
-      \defaultparindent = 0pt
+    \ifx\temp\minustwoword % -2 represents asis as integer
     \else
-      \defaultparindent = #1em
+      \ifx\temp\noneword
+        \defaultparindent = 0pt
+      \else
+        \defaultparindent = #1em
+      \fi
     \fi
   \fi
   \parindent = \defaultparindent
