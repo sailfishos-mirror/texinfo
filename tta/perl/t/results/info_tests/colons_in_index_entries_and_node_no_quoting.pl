@@ -263,8 +263,8 @@ $result_converted_sort_strings{'file_info'}->{'colons_in_index_entries_and_node_
 $result_converted_errors{'file_info'}->{'colons_in_index_entries_and_node_no_quoting'} = '* W l4|menu entry node name should not contain `:\'
  warning: menu entry node name should not contain `:\'
 
-* W l8|@node name should not contain `,\': One::node, with entries.
- warning: @node name should not contain `,\': One::node, with entries.
+* W l8|node name should not contain `,\': One::node, with entries.
+ warning: node name should not contain `,\': One::node, with entries.
 
 * W l8|node name with index entries should not contain `:\'
  warning: node name with index entries should not contain `:\'

@@ -189,8 +189,8 @@ End:
 $result_converted_errors{'info'}->{'quoted_xref_in_flushright'} = '* W l4|menu entry node name should not contain `:\'
  warning: menu entry node name should not contain `:\'
 
-* W l4|@node name should not contain `,\': a:,b
- warning: @node name should not contain `,\': a:,b
+* W l4|node name should not contain `,\': a:,b
+ warning: node name should not contain `,\': a:,b
 
 * W l9|@ref node name should not contain `:\'
  warning: @ref node name should not contain `:\'

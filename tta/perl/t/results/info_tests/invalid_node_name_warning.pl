@@ -276,8 +276,8 @@ $result_converted_errors{'info'}->{'invalid_node_name_warning'} = '* W l5|menu e
 * W l7|menu entry node name should not contain `:\'
  warning: menu entry node name should not contain `:\'
 
-* W l12|@node name should not contain `,\': node,comma
- warning: @node name should not contain `,\': node,comma
+* W l12|node name should not contain `,\': node,comma
+ warning: node name should not contain `,\': node,comma
 
 * W l16|@ref cross-reference name should not contain `:\'
  warning: @ref cross-reference name should not contain `:\'

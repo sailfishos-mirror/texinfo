@@ -1625,7 +1625,7 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
             message_list_command_warn (&self->error_messages,
                         (self->conf && self->conf->DEBUG.o.integer > 0),
                        node, 0,
-                     "@node name should not contain `,': %s",
+                     "node name should not contain `,': %s",
                       node_name_width.string.text);
 
           if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)

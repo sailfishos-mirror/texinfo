@@ -1114,7 +1114,7 @@ sub format_node($$;$) {
   if ($node_text =~ /,/) {
     if ($self->{'info_special_chars_warning'}) {
       $self->plaintext_line_warn($self, sprintf(__(
-                 "\@node name should not contain `,': %s"),
+                 "node name should not contain `,': %s"),
                      $node_text), $node->{'source_info'});
     }
     if ($self->{'info_special_chars_quote'}) {
