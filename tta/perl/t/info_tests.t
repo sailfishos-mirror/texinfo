@@ -1458,6 +1458,12 @@ AA.
 @xref{(Two)}.
 ',
 {'AUTO_SECTION_NODE' => 1}],
+['comma_in_added_node_for_sectioning_command',
+'@top top
+
+@chapter Titles (headers, footers)
+
+', {'AUTO_SECTION_NODE' => 1}],
 ['index_string_in_node_no_index',
 '@node Top
 @top t

@@ -1567,6 +1567,7 @@ t/results/info_tests/colons_in_index_entries_and_node.pl
 t/results/info_tests/colons_in_index_entries_and_node/res_info/colons_in_index_entries_and_node.info
 t/results/info_tests/colons_in_index_entries_and_node_no_quoting.pl
 t/results/info_tests/colons_in_index_entries_and_node_no_quoting/res_info/colons_in_index_entries_and_node_no_quoting.info
+t/results/info_tests/comma_in_added_node_for_sectioning_command.pl
 t/results/info_tests/def_in_copying.pl
 t/results/info_tests/del_quote_linebreaking.pl
 t/results/info_tests/direntry_dircategory.pl

@@ -44,6 +44,10 @@
 <param name="Local" value="chapter2.html">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
+<param name="Name" value="(parenthesis::some co) mma, and . N node with xrefname">
+<param name="Local" value="_0028parenthesis_003a_003asome-co_0029-mma_002c-and-_002e-N-node-with-xrefname.html">
+</OBJECT> </LI>
+<LI> <OBJECT type="text/sitemap">
 <param name="Name" value="Appendix A An appendix">
 <param name="Local" value="node-with-empty-xrefname.html">
 </OBJECT> </LI>

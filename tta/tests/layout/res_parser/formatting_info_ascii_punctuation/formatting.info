@@ -730,6 +730,7 @@ Something in Top.
 Menu comment
 
 * description:chapter2.   Chapter 2
+* (parenthesis::some co) mma, and . N node with xrefname:: generated
 * node with empty xrefname:: appendix with xrefname before
 
 
@@ -3432,7 +3433,7 @@ File: formatting.info,  Node: subsubsection three---four----'',  Prev: subsubsec
 .......................
 
 
-File: formatting.info,  Node: chapter2,  Next: node with empty xrefname,  Prev: chapter,  Up: Top
+File: formatting.info,  Node: chapter2,  Next: (parenthesis::some co) mma, and . N node with xrefname,  Prev: chapter,  Up: Top
 
 chapter 2
 *********
@@ -3729,7 +3730,13 @@ chapter 2
 * xxx, zzz:                              chapter.            (line 2297)
 
 
-File: formatting.info,  Node: node with empty xrefname,  Prev: chapter2,  Up: Top
+File: formatting.info,  Node: (parenthesis::some co) mma, and . N node with xrefname,  Next: node with empty xrefname,  Prev: chapter2,  Up: Top
+
+(parenthesis::some co) mma, and . N *note node with xrefname::
+**************************************************************
+
+
+File: formatting.info,  Node: node with empty xrefname,  Prev: (parenthesis::some co) mma, and . N node with xrefname,  Up: Top
 
 Appendix A An appendix
 **********************
@@ -3737,30 +3744,31 @@ Appendix A An appendix
 
 Tag Table:
 Node: Top19250
-Node: chapter19513
-Ref: Index: truc79337
-Ref: Index: codeidx79444
-Ref: Index: cp79549
-Ref: Index: fn87749
-Ref: Index: tp100059
-Ref: chapter-Footnote-1100425
-Ref: chapter-Footnote-2100445
-Ref: chapter-Footnote-3100466
-Ref: chapter-Footnote-4100486
-Ref: chapter-Footnote-5100507
-Ref: chapter-Footnote-6100527
-Ref: chapter-Footnote-7100548
-Ref: chapter-Footnote-8100586
-Node: s--ect,ion100606
-Node: subsection100809
-Ref: anchor100990
-Node: subsubsection ``simple-double--100990
-Node: node with xrefname101190
-Node: subsubsection three---four----''101273
-Node: chapter2101445
-Ref: Index: cp101567
-Ref: Index: fn109760
-Node: node with empty xrefname122042
+Node: chapter19584
+Ref: Index: truc79408
+Ref: Index: codeidx79515
+Ref: Index: cp79620
+Ref: Index: fn87820
+Ref: Index: tp100130
+Ref: chapter-Footnote-1100496
+Ref: chapter-Footnote-2100516
+Ref: chapter-Footnote-3100537
+Ref: chapter-Footnote-4100557
+Ref: chapter-Footnote-5100578
+Ref: chapter-Footnote-6100598
+Ref: chapter-Footnote-7100619
+Ref: chapter-Footnote-8100657
+Node: s--ect,ion100677
+Node: subsection100880
+Ref: anchor101061
+Node: subsubsection ``simple-double--101061
+Node: node with xrefname101261
+Node: subsubsection three---four----''101344
+Node: chapter2101516
+Ref: Index: cp101670
+Ref: Index: fn109863
+Node: (parenthesis::some co) mma, and . N node with xrefname122145
+Node: node with empty xrefname122422
 
 End Tag Table
 

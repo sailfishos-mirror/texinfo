@@ -1,5 +1,16 @@
 2026-10-21 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/info_tests.t
+	(comma_in_added_node_for_sectioning_command),
+	tta/perl/t/test_files_generated_list.txt: add test with generated node
+	with a comma in the name of the sectioning command.
+
+	* tta/tests/coverage/formatting.texi: add sectioning command without
+	node with characters that need protection in Info in the sectioning
+	command name.
+
+2026-10-21 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_info.c (info_format_node),
 	tta/perl/Texinfo/Convert/InfoNonXS.pm (format_node): use node instead
 	of @node in warning about comma in node name, as it could be confusing

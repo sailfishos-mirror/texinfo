@@ -2935,6 +2935,9 @@ chapter 2
 * truc <5>:                              chapter.            (line 1866)
 * xxx, zzz:                              chapter.            (line 2285)
 
+(parenthesis::some co) mma, and . N node with xrefname
+******************************************************
+
 Appendix A An appendix
 **********************
 
@@ -2945,8 +2948,10 @@ Top section
       1.1.1.1 subsubsection "simple-double-
       1.1.1.2 three--four---"
 chapter 2
+(parenthesis::some co) mma, and . N node with xrefname
 Appendix A An appendix
 Top section
 1 chapter
 chapter 2
+(parenthesis::some co) mma, and . N node with xrefname
 Appendix A An appendix

@@ -3862,6 +3862,10 @@ See <link linkend="node-with-empty-xrefname">sec for empty xrefname</link>.
 <index role="fn"></index>
 
 </chapter>
+<chapter label="" id="_0028parenthesis_003a_003asome-co_0029-mma_002c-and-_002e-N-node-with-xrefname">
+<title>(parenthesis::some co) mma, and . N <link linkend="node-with-xrefname">node with xrefname</link></title>
+
+</chapter>
 <appendix label="A" id="node-with-empty-xrefname">
 <title>An appendix</title>
 

@@ -1729,6 +1729,7 @@ Something in Top.
 Menu comment
 
 * description:chapter2.   Chapter 2
+* (parenthesis::some co) mma, and . N node with xrefname:: generated
 * node with empty xrefname:: appendix with xrefname before
 
 
@@ -3539,6 +3540,8 @@ three---four----''
 chapter2
 chapter 2
 
+
+(parenthesis::some co) mma, and . N node with xrefname
 
 node with empty xrefname
 
