@@ -185,7 +185,7 @@ info_file_in_path (const char *filename, struct stat *finfo)
 
 /* Check if TRY_FILENAME exists, possibly compressed.  If so, return
    filename in TRY_FILENAME. */
-char *
+static char *
 info_check_compressed (char *try_filename, struct stat *finfo)
 {
   int statable = (stat (try_filename, finfo) == 0);

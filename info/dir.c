@@ -239,8 +239,9 @@ lookup_dir_entry (const char *label, int sloppy)
 }
 
 /* Look up entry in "dir" in search directory.  Return
-   value is a pointer to a newly allocated REFERENCE. */
-const REFERENCE *
+   value is a pointer to a newly allocated REFERENCE.  Return value
+   to be destroyed with info_reference_free. */
+REFERENCE *
 dir_entry_of_infodir (const char *label, const char *searchdir)
 {
   char *dir_fullpath;
@@ -254,24 +255,19 @@ dir_entry_of_infodir (const char *label, const char *searchdir)
   const REFERENCE *entry;
   REFERENCE *entry2;
 
-/* Space for an appended compressed file extension, like ".gz". */
-#define PADDING "XXXXXXXXX"
-  if (IS_ABSOLUTE(searchdir))
-    len = xasprintf (&dir_fullpath, "%s/dir%s", searchdir, PADDING);
-  else
-    len = xasprintf (&dir_fullpath, "./%s/dir%s", searchdir, PADDING);
-  dir_fullpath[len - strlen(PADDING)] = '\0';
-#undef PADDING
+  dir_fullpath = info_file_of_infodir ("dir", searchdir, &dummy);
+  if (!dir_fullpath)
+    return 0;
 
-  result = info_check_compressed (dir_fullpath, &dummy);
-  if (!result)
-    {
-      free (dir_fullpath);
-      return 0;
-    }
-
-  dir_node = info_get_node (dir_fullpath, "Top");
+  FILE_BUFFER *file_buffer = info_find_file (dir_fullpath);
   free (dir_fullpath);
+  if (!file_buffer)
+    return 0;
+
+  dir_node = info_get_node_of_file_buffer (file_buffer, "Top");
+  if (!dir_node)
+    return 0;
+
   entry = info_get_menu_entry_by_label (dir_node, label, 1);
   if (!entry || !entry->filename)
     {

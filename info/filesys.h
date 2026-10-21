@@ -44,8 +44,6 @@ char *info_find_fullpath (const char *partial, struct stat *finfo);
 char *info_file_find_next_in_path (const char *filename, int *diridx,
                                    struct stat *finfo);
 
-char *info_check_compressed (char *try_filename, struct stat *finfo);
-
 char *info_file_of_infodir (const char *filename, const char *dirname,
                             struct stat *finfo);
 

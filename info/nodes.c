@@ -1134,8 +1134,7 @@ info_get_node_tag_of_file_buffer (FILE_BUFFER *file_buffer,
 
 /* Return a pointer to a NODE structure for the Info node NODENAME in
    FILE_BUFFER.  If the node cannot be found, return a NULL pointer.
-   Return value should be freed by caller, but none of its fields should
-   be. */
+   Return value should be freed by caller with free_node. */
 NODE *
 info_get_node_of_file_buffer (FILE_BUFFER *file_buffer, const char *nodename)
 {

@@ -1,3 +1,18 @@
+2026-10-21  Gavin Smith <gavinsmith0123@gmail.com>
+
+	info --all checks dir.info, dir.info.gz etc.
+
+	* info/dir.c (dir_entry_of_infodir): Use info_file_of_infodir
+	to find "dir" file, to take care of checking for file with extensions,
+	rather than calling info_check_compressed.
+	Since the caller has to free the return value, do not declare function
+	as returning a const value.
+	* info/filesys.c (info_check_compressed): Declare as file-static.
+
+	* info/nodes.c (info_get_node_tag_of_file_buffer): Edit comment.
+	
+	Report from Aidan Zhai <aidanczhai@gmail.com>.
+
 2026-10-21 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/t/info_tests.t

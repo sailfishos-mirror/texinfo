@@ -636,11 +636,10 @@ info_find_matching_files (char *filename)
   for (searchdir = infopath_first (&i); searchdir;
        searchdir = infopath_next (&i))
     {
-      const REFERENCE *new_ref = dir_entry_of_infodir (filename, searchdir);
+      REFERENCE *new_ref = dir_entry_of_infodir (filename, searchdir);
 
       if (new_ref)
-        add_pointer_to_array (info_copy_reference (new_ref),
-                              ref_index, ref_list, ref_slots, 2);
+        add_pointer_to_array (new_ref, ref_index, ref_list, ref_slots, 2);
     }
 
   /* Look for files with matching names. */
