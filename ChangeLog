@@ -1,3 +1,22 @@
+2026-10-21  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Make @U work in PDF outline
+
+	* doc/texinfo.tex (\parseXMLCharref): Output name building macro
+	and UTF-8 sequence in different control sequences.  This will allow
+	us to reuse the UTF-8 sequence.
+
+	(\ifutfeightbytes): New conditional.
+	(\DeclareUnicodeCharacterUTFviii): In \u8:... and \uni:... definitions,
+	yield the UTF-8 sequence if \ifutfeightbytes is true.
+	(\pdfoutlinedefs): New macro, with definition of @U.
+	(\defpdfoutlinetextunicode): Call \pdfoutlinedefs.  Set
+	\utfeightbytestrue so that if @U is used in a PDF outline entry, it
+	will yield the UTF-8 sequence, which can further turn into the UTF-16
+	sequence inside \expandutfsixteen.
+	(\expandutfsixteen): Elaborate on why this macro takes a purely
+	textual argument.
+
 2026-10-20 Patrice Dumas  <pertusus@free.fr>
 
 	* info/session-cmd.c (info_first_node): use an index in tag table
