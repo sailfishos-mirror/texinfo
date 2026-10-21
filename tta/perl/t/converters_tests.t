@@ -1557,7 +1557,46 @@ xrefautomaticsectiontitle on @ref{entiti}.
 
 @node chapter
 @chapter Chap
-']
+'],
+['paragraphindent_possibilities',
+'@node Top
+@top top
+
+@node chapter
+@chapter chap
+
+ default first para
+
+ default para
+
+@paragraphindent asis
+
+       para asis (7)
+
+@paragraphindent none
+
+     para none
+
+@paragraphindent 23
+
+    para 23
+
+@paragraphindent -2
+
+       para -2 (7)
+
+@paragraphindent 0
+
+  para 0
+
+@paragraphindent -4
+
+  para incorrect -4
+
+@paragraphindent something
+
+  para incorrect something
+'],
 );
 
 my @html_text_cases = (

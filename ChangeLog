@@ -1,3 +1,17 @@
+2026-10-21 Patrice Dumas  <pertusus@free.fr>
+
+	accept -2 as paragraphindent argument, same as asis
+
+	* tta/C/parsetexi/end_line.c (parse_line_command_args),
+	tta/perl/Texinfo/ParserNonXS.pm (_parse_line_command_args):
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_informative_command_output):
+	handle -2 as paragraphindent value.
+
+	* tta/perl/t/converters_tests.t (paragraphindent_possibilities),
+	tta/perl/t/test_files_generated_list.txt: add test of various
+	possibilities for @paragraphindent.
+
 2026-10-21  Gavin Smith <gavinsmith0123@gmail.com>
 
 	@result{} etc. display properly in PDF outline
@@ -192,7 +206,7 @@
 
 2026-10-18 Patrice Dumas  <pertusus@free.fr>
 
-	* tta/C/convert/convert_to_info.c (info_output): do not use {} ater
+	* tta/C/convert/convert_to_info.c (info_output): do not use {} after
 	\x, it is not correct C.  Report and solution from Bruno Haible.
 
 2026-10-18 Patrice Dumas  <pertusus@free.fr>

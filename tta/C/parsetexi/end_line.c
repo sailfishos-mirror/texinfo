@@ -584,7 +584,7 @@ parse_line_command_args (ELEMENT *line_command)
     case CM_paragraphindent:
       {
         if (!strcmp (line, "none") || !strcmp (line, "asis")
-            || is_whole_number (line))
+            || is_whole_number (line) || !strcmp (line, "-2"))
           ADD_ARG(line);
         else
           line_error ("@paragraphindent arg must be "

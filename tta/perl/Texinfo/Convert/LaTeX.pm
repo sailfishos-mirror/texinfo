@@ -1936,7 +1936,7 @@ sub _informative_command_output($$) {
     }
   } elsif ($cmdname eq 'paragraphindent') {
     my $indentation_spec = $self->get_conf($cmdname);
-    if ($indentation_spec eq 'asis') {
+    if ($indentation_spec eq 'asis' or $indentation_spec eq '-2') {
       # not implemented here, same as in TeX.
       return '';
     } else {

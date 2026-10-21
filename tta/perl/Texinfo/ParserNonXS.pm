@@ -8529,7 +8529,8 @@ sub _parse_line_command_args($$$) {
   } elsif ($command eq 'paragraphindent') {
     if ($line =~ /^([\w\-]+)$/) {
       my $value = $1;
-      if ($value =~ /^(\d+)$/ or $value eq 'none' or $value eq 'asis') {
+      if ($value =~ /^(\d+)$/ or $value eq 'none' or $value eq 'asis'
+          or $value eq '-2') {
         $args = [$1];
       } else {
         _line_error($self, sprintf(__(
