@@ -1,3 +1,9 @@
+2026-10-21  Kamila Szewczyk  <szewczyk@cs.uni-saarland.de> (tiny change)
+
+	* doc/texinfo.tex (\listoffloats): Do not use the undefined
+	\No in the warning for a float type with no floats; reword
+	the warning as "no floats to list for type: TYPE".
+
 2026-10-21  Gavin Smith <gavinsmith0123@gmail.com>
 
 	info --all checks dir.info, dir.info.gz etc.
