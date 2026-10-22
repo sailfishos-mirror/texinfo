@@ -1327,7 +1327,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
       else if (cmd_flags & CF_brace
                && parsed_command_data(cmd).data == BRACE_noarg)
         ok = 1; /* glyph command */
-      if (cmd == CM_c || cmd == CM_comment)
+      if (cmd == CM_c || cmd == CM_comment || cmd == CM_U)
         ok = 1;
     }
   else if (((outer_flags & CF_brace)       /* "full text commands" */

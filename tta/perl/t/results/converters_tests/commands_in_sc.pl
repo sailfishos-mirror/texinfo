@@ -202,7 +202,7 @@ $result_texts{'commands_in_sc'} = 'commands in sc
 ******
 
 A N~ AA TeX MYIMAGE CHAP (F)NODE
-EXT inverb 00FF MA+TH  LA A (B)  (LB)
+EXT inverb U+00ff MA+TH  LA A (B)  (LB)
 C E AB (D)';
 
 $result_errors{'commands_in_sc'} = '';

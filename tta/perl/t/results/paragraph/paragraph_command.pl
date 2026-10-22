@@ -92,7 +92,7 @@ aaa.
 
 i also dotless i.
 
-0075 also U+0075.
+U+0075 also U+0075.
 
 m1 email.
 

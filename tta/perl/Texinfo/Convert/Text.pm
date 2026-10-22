@@ -704,6 +704,35 @@ sub _convert($$) {
                     and exists($Texinfo::Commands::brace_commands{$cmdname})))) {
       my $result;
       my $in_code;
+
+      if ($cmdname eq 'U') {
+        my ($arg_text, $surplus_arg)
+          = Texinfo::Common::simple_arg_text($element->{'contents'}->[0]);
+        if (defined($arg_text) and $arg_text ne '') {
+          # Syntactic checks on the value were already done in Parser.pm,
+          # but we have one more thing to test: since this is the one
+          # place where we might output actual UTF-8 binary bytes, we have
+          # to check that it is possible.  If not, silently fall back to
+          # plain text, on the theory that the user wants something.
+          if (defined($options->{'enabled_encoding'})
+              and lc($options->{'enabled_encoding'}) eq 'utf-8') {
+            my $possible_conversion
+                = Texinfo::Convert::Unicode::check_unicode_point_conversion(
+                   $arg_text, $options->{'DEBUG'});
+            if ($possible_conversion) {
+              $result = chr(hex($arg_text)); # ok to call chr
+            } else {
+              $result = "U+$arg_text";
+            }
+          } else {
+            $result = "U+$arg_text";
+          }
+        } else {
+          $result = '';
+        }
+        return $result;
+      }
+
       $options->{'set_case'}++ if ($cmdname eq 'sc');
       if (exists($Texinfo::Commands::brace_code_commands{$cmdname})
           or exists($Texinfo::Commands::math_commands{$cmdname})) {

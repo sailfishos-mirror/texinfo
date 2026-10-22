@@ -167,9 +167,9 @@ list:
 $result_headings_list{'U_in_index'} = '';
 
 $result_indices_sort_strings{'U_in_index'} = 'cp:
- 0074 letter t
- 00B5 greek letter mu
- 0131 dotless i
+ ı dotless i
+ t letter t
+ µ greek letter mu
 ';
 
 
@@ -222,14 +222,32 @@ th.index-letter-header-printindex {text-align: left}
 <a class="index-entry-id" id="index-00B5-greek-letter-mu"></a>
 
 <div class="printindex cp-printindex">
+<table class="index-letters-header-printindex cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_cp_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#chap_cp_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#chap_cp_letter-_039c"><b>Μ</b></a>
+ &nbsp; 
+</td></tr></table>
 <table class="index-entries-printindex cp-entries-printindex">
 <tr><td colspan="2"><hr></td></tr>
-<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_symbol-1">0</th></tr>
-<tr><td class="printindex-index-entry"><a href="#index-0074-letter-t">&#x0074; letter t</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td class="printindex-index-entry"><a href="#index-00B5-greek-letter-mu">&#x00B5; greek letter mu</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_letter-I">I</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-0131-dotless-i">&#x0131; dotless i</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="2"><hr></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_letter-T">T</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-0074-letter-t">&#x0074; letter t</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_letter-_039c">Μ</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-00B5-greek-letter-mu">&#x00B5; greek letter mu</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 </table>
+<table class="index-letters-footer-printindex cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_cp_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#chap_cp_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#chap_cp_letter-_039c"><b>Μ</b></a>
+ &nbsp; 
+</td></tr></table>
 </div>
 </div>
 </div>
@@ -241,9 +259,9 @@ th.index-letter-header-printindex {text-align: left}
 ';
 
 $result_converted_sort_strings{'html'}->{'U_in_index'} = 'cp:
- 0074 letter t
- 00B5 greek letter mu
- 0131 dotless i
+ ı dotless i
+ t letter t
+ µ greek letter mu
 ';
 
 1;

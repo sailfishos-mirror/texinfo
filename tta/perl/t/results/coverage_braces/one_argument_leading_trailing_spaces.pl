@@ -92,7 +92,7 @@ $result_texis{'one_argument_leading_trailing_spaces'} = '@code{ in code } @slant
 
 
 $result_texts{'one_argument_leading_trailing_spaces'} = ' in code   in slanted   var   sub 
- http://example.com  1234  w   verb .
+ http://example.com  U+1234  w   verb .
  e ^  a *  i   bb [
 aa ...
 ';

@@ -323,6 +323,7 @@ FILE_STREAM *allocate_file_stream (OUTPUT_FILES_INFORMATION *self,
 
 char *enumerate_number_representation (const char *specification, int number);
 char *enumerate_item_representation (const ELEMENT *element);
+char *hex_string_to_utf8_char (const char *text, int debug_level, int *out_len);
 
 const ELEMENT *get_global_document_command (
                                       const GLOBAL_COMMANDS *global_commands,

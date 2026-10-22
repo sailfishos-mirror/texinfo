@@ -1,3 +1,25 @@
+2026-10-22 Patrice Dumas  <pertusus@free.fr>
+
+	handle @U in conversion to raw text and allow @U in "plain text" context
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal), tta/C/main/utils.c
+	(hex_string_to_utf8_char): add hex_string_to_utf8_char based on
+	convert_to_plaintext_internal code.
+
+	* tta/C/main/convert_to_text.c (convert_to_text_internal),
+	tta/perl/Texinfo/Convert/Text.pm (_convert): handle @U in raw Text
+	converter.
+
+	* tta/C/parsetexi/parser.c (check_valid_nesting),
+	tta/perl/Texinfo/ParserNonXS.pm (%in_plain_text_commands): allow @U in
+	"plain text" context, where only accents and glyphs commands are
+	accepted.
+
+	* tta/perl/t/02coverage.t (U_in_contain_plain_text),
+	tta/perl/t/test_files_generated_list.txt: test @U in commands
+	containing plaintext, sortas and accents.
+
 2026-10-21  Kamila Szewczyk  <szewczyk@cs.uni-saarland.de> (tiny change)
 
 	* doc/texinfo.tex (\listoffloats): Do not use the undefined

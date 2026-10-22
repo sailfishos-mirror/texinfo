@@ -437,6 +437,7 @@ foreach my $no_brace_command (keys(%nobrace_commands)) {
 }
 $in_plain_text_commands{'c'} = 1;
 $in_plain_text_commands{'comment'} = 1;
+$in_plain_text_commands{'U'} = 1;
 
 # commands that may appear in any text argument, similar constraints
 # as in paragraphs.

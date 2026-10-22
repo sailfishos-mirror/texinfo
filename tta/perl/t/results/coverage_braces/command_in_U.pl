@@ -23,7 +23,7 @@ $result_tree_text{'command_in_U'} = '*document_root C1
 $result_texis{'command_in_U'} = '@U{@code{09AF}}';
 
 
-$result_texts{'command_in_U'} = '09AF';
+$result_texts{'command_in_U'} = '';
 
 $result_errors{'command_in_U'} = '* W l1|no argument specified for @U
  warning: no argument specified for @U

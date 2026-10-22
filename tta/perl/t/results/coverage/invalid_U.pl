@@ -63,8 +63,8 @@ $result_texis{'invalid_U'} = '@U @U{} @U{z} @U{abc} @U{9999999999999} @U{110000}
 ';
 
 
-$result_texts{'invalid_U'} = ' z abc 9999999999999 110000 10FFFF
-0023 FFFD wxyz
+$result_texts{'invalid_U'} = ' U+z U+abc U+9999999999999 U+110000 U+10FFFF
+U+0023 U+FFFD U+wxyz
 ';
 
 $result_errors{'invalid_U'} = '* E l1|@U expected braces

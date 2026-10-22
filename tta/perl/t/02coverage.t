@@ -639,6 +639,20 @@ In float with caption.
 '@U @U{} @U{z} @U{abc} @U{9999999999999} @U{110000} @U{10FFFF}
 @U{ 0023 } @U{FFFD} @U{ wxyz }
 '],
+['U_in_contain_plain_text',
+'@node Top
+@top top
+
+@node chap
+@chapter chap
+
+TT @U{2021} a@tie{}b @^{@U{1E2B}}.
+
+@findex aa @sortas{@U{2021} a@tie{}b @^{@U{1E2B}}}
+
+@printindex fn
+
+'],
 ['test_errormsg',
 'Some text
 @errormsg{Text @~e @code{code}}

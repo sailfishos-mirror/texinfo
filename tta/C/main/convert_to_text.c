@@ -845,6 +845,41 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                         && command_data[data_cmd].flags & CF_math)))
         {
           int in_code = 0;
+
+          if (data_cmd == CM_U)
+            {
+              int surplus_arg;
+              const TEXT *arg_text
+                = simple_arg_text (element->e.c->contents.list[0],
+                                   &surplus_arg);
+              if (arg_text && strcmp (arg_text->text, ""))
+                {
+                  int conversion_done = 0;
+                  if (text_options->encoding
+                      && !strcasecmp (text_options->encoding, "utf-8"))
+                    {
+                      int len;
+                      char *U_result
+                            = hex_string_to_utf8_char (arg_text->text,
+                                             text_options->DEBUG, &len);
+
+                      if (U_result)
+                        {
+                          text_append_n (result, U_result, len);
+                          free (U_result);
+                          conversion_done = 1;
+                        }
+                    }
+
+                  if (!conversion_done)
+                    {
+                      text_append_n (result, "U+", 2);
+                      text_append_n (result, arg_text->text, arg_text->end);
+                    }
+                }
+              return;
+            }
+
           if (data_cmd == CM_sc)
             text_options->set_case++;
 

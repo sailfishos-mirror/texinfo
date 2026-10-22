@@ -202,7 +202,7 @@ $result_texts{'commands_in_var'} = 'commands in var
 ******
 
 a n~ aa TeX myimage chap (f)node
-ext inverb 00ff ma+th  la a (b)  (lb)
+ext inverb U+00ff ma+th  la a (b)  (lb)
 c e ab (d)';
 
 $result_errors{'commands_in_var'} = '';

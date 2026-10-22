@@ -5203,25 +5203,13 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                       int conversion_done = 0;
                       if (self_plaintext->to_utf8)
                         {
-                          unsigned long int val;
-                          int ret;
+                          int len;
+                          char *result
+                            = hex_string_to_utf8_char (arg_text->text,
+                                      self->conf->DEBUG.o.integer, &len);
 
-                          ret = sscanf (arg_text->text, "%lx", &val);
-                          if (ret != 1)
+                          if (result)
                             {
-                              if (self->conf->DEBUG.o.integer > 0)
-                                fprintf (stderr,
-                                  "C|conversion hex sscanf failed for `%s'\n",
-                                         arg_text->text);
-                            }
-                          else if (val < 0x10FFFF)
-                            {
-                              uint8_t result_u8[7];
-                              int len = u8_uctomb (result_u8, (ucs4_t) val, 6);
-                              if (len < 0)
-                                fatal ("u8_uctomb returns negative value");
-                              result_u8[len] = 0;
-                              char *result = string_from_utf8 (result_u8);
                               stream_output_add_text (self, result, len);
                               free (result);
                               conversion_done = 1;

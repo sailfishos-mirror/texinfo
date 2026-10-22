@@ -110,7 +110,7 @@ kbd: ``simple-double--three---four----''
 @,{--c} -c,
 @ogonek{--a} -a;
 
-@U{0075} 0075
+@U{0075} U+0075
 
 @* 
 
@@ -283,7 +283,7 @@ a_ .a a; ahl
 a sunny day
 
 ->
-0075
+U+0075
 * (C) ... ... ==
 error-> ==> - -| =>
 AA ae oe AE OE /o /O ss /l /L D
@@ -781,10 +781,10 @@ Invalid use of @':
 @dotless{a} a
 
 @U, without braces @U{}, with empty arg 
-@U{z}, with non-hex arg z
-@U{abc}, with <4 hex digits abc
-@U{FFFFFFFFFFFFFF}, value much too large FFFFFFFFFFFFFF
-@U{110000}, value just beyond Unicode 110000
+@U{z}, with non-hex arg U+z
+@U{abc}, with <4 hex digits U+abc
+@U{FFFFFFFFFFFFFF}, value much too large U+FFFFFFFFFFFFFF
+@U{110000}, value just beyond Unicode U+110000
 
 @TeX, but without brace TeX
 @# #
@@ -970,7 +970,7 @@ kbd: ``simple-double--three---four----''
 @,{--c} -c,
 @ogonek{--a} -a;
 
-@U{0075} 0075
+@U{0075} U+0075
 
 @* 
 
@@ -1143,7 +1143,7 @@ a_ .a a; ahl
 a sunny day
 
 ->
-0075
+U+0075
 * (C) ... ... ==
 error-> ==> - -| =>
 AA ae oe AE OE /o /O ss /l /L D
@@ -1641,10 +1641,10 @@ Invalid use of @':
 @dotless{a} a
 
 @U, without braces @U{}, with empty arg 
-@U{z}, with non-hex arg z
-@U{abc}, with <4 hex digits abc
-@U{FFFFFFFFFFFFFF}, value much too large FFFFFFFFFFFFFF
-@U{110000}, value just beyond Unicode 110000
+@U{z}, with non-hex arg U+z
+@U{abc}, with <4 hex digits U+abc
+@U{FFFFFFFFFFFFFF}, value much too large U+FFFFFFFFFFFFFF
+@U{110000}, value just beyond Unicode U+110000
 
 @TeX, but without brace TeX
 @# #
