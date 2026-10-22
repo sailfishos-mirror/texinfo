@@ -1,3 +1,7 @@
+2026-10-22  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/t/quoted-index-label.sh: new test.
+
 2026-10-22 Patrice Dumas  <pertusus@free.fr>
 
 	handle @U in conversion to raw text and allow @U in "plain text" context

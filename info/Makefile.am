@@ -207,6 +207,7 @@ info_tests = \
 	t/empty.sh \
 	t/index-paren.sh \
 	t/quoted-index-target.sh \
+	t/quoted-index-label.sh \
 	t/help.sh
 
 TESTS = $(info_tests)
