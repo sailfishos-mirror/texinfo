@@ -1,5 +1,11 @@
 2026-10-22 Patrice Dumas  <pertusus@free.fr>
 
+	Import strcasestr gnulib module in tta
+
+	* tta/: Run "gnulib-tool --add-import strcasestr".
+
+2026-10-22 Patrice Dumas  <pertusus@free.fr>
+
 	update manual with more information on automatic nodes and menus
 
 	* doc/texinfo.texi (Master Menu Parts): say that the Texinfo manual

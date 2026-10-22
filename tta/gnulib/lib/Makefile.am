@@ -41,6 +41,7 @@
 #  libunistring \
 #  locale-h \
 #  setenv \
+#  strcasestr \
 #  strchrnul \
 #  strndup \
 #  uchar-h-c23 \
@@ -1732,6 +1733,24 @@ EXTRA_DIST += stdlib.in.h
 
 ## end   gnulib module stdlib-h
 
+## begin gnulib module strcasestr
+
+
+EXTRA_DIST += strcasestr.c
+
+EXTRA_libgnu_la_SOURCES += strcasestr.c
+
+## end   gnulib module strcasestr
+
+## begin gnulib module strcasestr-simple
+
+
+EXTRA_DIST += str-two-way.h strcasestr.c
+
+EXTRA_libgnu_la_SOURCES += strcasestr.c
+
+## end   gnulib module strcasestr-simple
+
 ## begin gnulib module strchrnul
 
 if GL_COND_OBJ_STRCHRNUL
@@ -1887,6 +1906,54 @@ MOSTLYCLEANFILES += string.h string.h-t1 string.h-t2
 EXTRA_DIST += string.in.h
 
 ## end   gnulib module string-h
+
+## begin gnulib module strings-h
+
+BUILT_SOURCES += strings.h
+
+# We need the following in order to create <strings.h> when the system
+# doesn't have one that works with the given compiler.
+strings.h: strings.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(WARN_ON_USE_H) $(ARG_NONNULL_H)
+	$(gl_V_at)$(SED_HEADER_STDOUT) \
+	      -e 's|@''GUARD_PREFIX''@|GL|g' \
+	      -e 's|@''HAVE_STRINGS_H''@|$(HAVE_STRINGS_H)|g' \
+	      -e 's|@''INCLUDE_NEXT''@|$(INCLUDE_NEXT)|g' \
+	      -e 's|@''PRAGMA_SYSTEM_HEADER''@|@PRAGMA_SYSTEM_HEADER@|g' \
+	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
+	      -e 's|@''NEXT_STRINGS_H''@|$(NEXT_STRINGS_H)|g' \
+	      -e 's/@''GNULIB_FFS''@/$(GL_GNULIB_FFS)/g' \
+	      -e 's/@''GNULIB_STRCASECMP''@/$(GL_GNULIB_STRCASECMP)/g' \
+	      -e 's/@''GNULIB_STRCASECMP_L''@/$(GL_GNULIB_STRCASECMP_L)/g' \
+	      -e 's/@''GNULIB_STRNCASECMP''@/$(GL_GNULIB_STRNCASECMP)/g' \
+	      -e 's/@''GNULIB_STRNCASECMP_L''@/$(GL_GNULIB_STRNCASECMP_L)/g' \
+	      -e 's|@''HAVE_FFS''@|$(HAVE_FFS)|g' \
+	      -e 's|@''HAVE_STRCASECMP''@|$(HAVE_STRCASECMP)|g' \
+	      -e 's|@''HAVE_STRCASECMP_L''@|$(HAVE_STRCASECMP_L)|g' \
+	      -e 's|@''HAVE_STRNCASECMP''@|$(HAVE_STRNCASECMP)|g' \
+	      -e 's|@''HAVE_STRNCASECMP_L''@|$(HAVE_STRNCASECMP_L)|g' \
+	      -e 's|@''HAVE_DECL_STRNCASECMP''@|$(HAVE_DECL_STRNCASECMP)|g' \
+	      -e 's|@''REPLACE_STRCASECMP''@|$(REPLACE_STRCASECMP)|g' \
+	      -e 's|@''REPLACE_STRCASECMP_L''@|$(REPLACE_STRCASECMP_L)|g' \
+	      -e 's|@''REPLACE_STRNCASECMP''@|$(REPLACE_STRNCASECMP)|g' \
+	      -e 's|@''REPLACE_STRNCASECMP_L''@|$(REPLACE_STRNCASECMP_L)|g' \
+	      -e '/definitions of _GL_FUNCDECL_RPL/r $(CXXDEFS_H)' \
+	      -e '/definition of _GL_ARG_NONNULL/r $(ARG_NONNULL_H)' \
+	      -e '/definition of _GL_WARN_ON_USE/r $(WARN_ON_USE_H)' \
+	      $(srcdir)/strings.in.h > $@-t
+	$(AM_V_at)mv $@-t $@
+MOSTLYCLEANFILES += strings.h strings.h-t
+
+EXTRA_DIST += strings.in.h
+
+## end   gnulib module strings-h
+
+## begin gnulib module strncasecmp
+
+if GL_COND_OBJ_STRNCASECMP
+libgnu_la_SOURCES += strncasecmp.c
+endif
+
+## end   gnulib module strncasecmp
 
 ## begin gnulib module strndup
 

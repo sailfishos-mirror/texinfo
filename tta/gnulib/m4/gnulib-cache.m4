@@ -46,6 +46,7 @@
 #  libunistring \
 #  locale-h \
 #  setenv \
+#  strcasestr \
 #  strchrnul \
 #  strndup \
 #  uchar-h-c23 \
@@ -93,6 +94,7 @@ gl_MODULES([
   libunistring
   locale-h
   setenv
+  strcasestr
   strchrnul
   strndup
   uchar-h-c23

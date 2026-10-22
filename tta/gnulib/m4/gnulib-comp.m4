@@ -159,10 +159,14 @@ AC_DEFUN([gl_EARLY],
   gl_STDIO_H_EARLY
   # Code from module stdio-windows:
   # Code from module stdlib-h:
+  # Code from module strcasestr:
+  # Code from module strcasestr-simple:
   # Code from module strchrnul:
   # Code from module streq:
   # Code from module streq-opt:
   # Code from module string-h:
+  # Code from module strings-h:
+  # Code from module strncasecmp:
   # Code from module strndup:
   # Code from module strnlen:
   # Code from module sys_stat-h:
@@ -697,6 +701,17 @@ AC_DEFUN([gl_INIT],
   gl_STDLIB_H
   gl_STDLIB_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
+  gl_FUNC_STRCASESTR
+  if test $HAVE_STRCASESTR = 0 || test $REPLACE_STRCASESTR = 1; then
+    AC_LIBOBJ([strcasestr])
+    gl_PREREQ_STRCASESTR
+  fi
+  gl_FUNC_STRCASESTR_SIMPLE
+  if test $HAVE_STRCASESTR = 0 || test $REPLACE_STRCASESTR = 1; then
+    AC_LIBOBJ([strcasestr])
+    gl_PREREQ_STRCASESTR
+  fi
+  gl_STRING_MODULE_INDICATOR([strcasestr])
   gl_FUNC_STRCHRNUL
   gl_CONDITIONAL([GL_COND_OBJ_STRCHRNUL],
                  [test $HAVE_STRCHRNUL = 0 || test $REPLACE_STRCHRNUL = 1])
@@ -709,6 +724,16 @@ AC_DEFUN([gl_INIT],
   gl_STRING_H
   gl_STRING_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
+  gl_STRINGS_H
+  gl_STRINGS_H_REQUIRE_DEFAULTS
+  AC_PROG_MKDIR_P
+  gl_FUNC_STRNCASECMP
+  gl_CONDITIONAL([GL_COND_OBJ_STRNCASECMP],
+                 [test $HAVE_STRNCASECMP = 0 || test $REPLACE_STRNCASECMP = 1])
+  AM_COND_IF([GL_COND_OBJ_STRNCASECMP], [
+    gl_PREREQ_STRNCASECMP
+  ])
+  gl_STRINGS_MODULE_INDICATOR([strncasecmp])
   gl_FUNC_STRNDUP
   gl_CONDITIONAL([GL_COND_OBJ_STRNDUP],
                  [test $HAVE_STRNDUP = 0 || test $REPLACE_STRNDUP = 1])
@@ -1228,11 +1253,15 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/stdio.in.h
   lib/stdlib.c
   lib/stdlib.in.h
+  lib/str-two-way.h
+  lib/strcasestr.c
   lib/strchrnul.c
   lib/strchrnul.valgrind
   lib/streq-opt.h
   lib/streq.c
   lib/string.in.h
+  lib/strings.in.h
+  lib/strncasecmp.c
   lib/strndup.c
   lib/strnlen.c
   lib/sys_stat.in.h
@@ -1479,9 +1508,13 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/stdint_h.m4
   m4/stdio_h.m4
   m4/stdlib_h.m4
+  m4/strcasecmp.m4
+  m4/strcasestr.m4
   m4/strchrnul.m4
   m4/streq.m4
   m4/string_h.m4
+  m4/strings_h.m4
+  m4/strncasecmp.m4
   m4/strndup.m4
   m4/strnlen.m4
   m4/sys_cdefs_h.m4

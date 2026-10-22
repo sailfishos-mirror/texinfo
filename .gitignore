@@ -308,6 +308,7 @@ tta/gnulib/lib/stdint.h
 tta/gnulib/lib/stdio.h
 tta/gnulib/lib/stdlib.h
 tta/gnulib/lib/string.h
+tta/gnulib/lib/strings.h
 tta/gnulib/lib/sys/stat.h
 tta/gnulib/lib/sys/time.h
 tta/gnulib/lib/sys/types.h
