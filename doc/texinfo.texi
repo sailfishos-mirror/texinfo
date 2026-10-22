@@ -2070,8 +2070,9 @@ long as the line does not begin with an asterisk, it will not be
 treated as a menu entry.  (@xref{Writing a Menu}, for more
 information.)
 
-For example, the master menu for this manual looks like the following
-(but has many more entries):
+For example, the master menu for this manual would have looked like
+the following (though with many more entries) had it not been generated
+automatically:
 
 @example
 @group
@@ -2446,7 +2447,7 @@ is otherwise the same.
 
 In other output formats, the @code{@@majorheading} and @code{@@chapheading}
 commands produce a similar output to @code{@@chapter}.  The difference is
-the lack of numbering and the lack of any association with nodes.
+the lack of numbering and the omission from the table of contents.
 @xref{@code{@@chapter}}.
 
 
@@ -2739,14 +2740,17 @@ such as the one at the end of this sentence, are made with @code{@@xref}
 and related commands; see @ref{Cross References}.  Other @@-commands may
 also be the target of cross-references (@pxref{Cross Reference Targets}).
 
-Normally, you put a node command immediately before each chapter
-structuring command---for example, an @code{@@section} or
-@code{@@subsection} line.  (@xref{Chapter Structuring}.)
+Normally, you put a chapter structuring command---for example, an
+@code{@@section} or @code{@@subsection} line immediately after each node.
+(@xref{Chapter Structuring}.)
 
-If you use a chapter structuring command without such a @code{@@node}
-line, @command{texi2any} may output the file as if a @code{@@node} line
-were present; see @code{AUTO_SECTION_NODE} in @ref{Global Customization
-Variables} for more details.
+If you use a chapter structuring command without preceding @code{@@node}
+line, @command{texi2any} will output the file as if a @code{@@node} line was
+present for Info, HTML and plaintext output---the formats for which
+nodes play a role in the structure of the output.  The generated node name is
+based on the section title if the section title is unique.  See
+@code{AUTO_SECTION_NODE} in @ref{Global Customization Variables} for more
+details.
 
 
 @node Writing a Node
@@ -3096,7 +3100,9 @@ tools implicitly define them, with this simple result:
 
 The @code{@@top} command is a special sectioning command that you
 should only use after a @samp{@@node Top} line at the beginning of a
-Texinfo file.
+Texinfo file.  If there is no node before the command, @command{texi2any}
+will output the file as if a @samp{@@node Top} line was present for Info,
+HTML and plaintext output.
 
 It produces the same sort of output as @code{@@unnumbered}
 (@pxref{@code{@@unnumbered @@appendix}}).  In @LaTeX{} @code{\part*} is used.
@@ -3284,8 +3290,8 @@ different Info file.  However, it would be very confusing for readers
 to have the `Next', `Previous' and `Up' pointers lead to nodes that
 do not correspond, even loosely, to the next, previous and up node.
 
-A @code{@@node} command and a chapter structuring command are
-conventionally used together, in that order, often followed by
+A @code{@@node} command is conventionally followed by a chapter
+structuring command.  Chapter structuring commands are often followed by
 indexing commands.  (As shown in the example above, you may follow the
 @code{@@node} line with a comment line, e.g., to show which pointer is
 which if explicit pointers are used.)  The Texinfo processors use this
@@ -3446,9 +3452,9 @@ It is often more convenient to let @command{texi2any} generate
 menus for you, as you do not then have the burden of updating menu
 blocks in your Texinfo source when you add, remove, or relocate nodes.
 In the usual case of a hierarchically organized manual with sectioning
-commands associated with nodes, and with node pointers left out, you
-should only write menus if you want exact control over the contents
-and formatting of menus in Info.
+commands associated with automatically generated or explicit nodes with
+node pointers left out, you should only write menus if you want exact control
+over the contents and formatting of menus in Info.
 
 
 @node Writing a Menu
@@ -16061,11 +16067,11 @@ of @command{texi2any}.
 @vtable @code
 @item AUTO_SECTION_NODE
 If set, insert nodes for sectioning commands lacking a corresponding node.
-Done by default in @command{texi2any} for Info, HTML and plaintext output.
-This allows you to create a node for these output formats using only a
-sectioning command, using the section title as the node name.  For the
-@code{@@top} sectioning command, as an exception, the inserted node is always
-named @samp{Top}.
+The node name is based on the section title if the section title is unique.
+For the @code{@@top} sectioning command, as an exception, the inserted node
+is always named @samp{Top}.  Done by default in @command{texi2any} for Info,
+HTML and plaintext output.  This allows you to create a node for these output
+formats using only a sectioning command.
 
 In HTML output split by node, you may wish to set this variable to
 @samp{0} to obtain finer control over output file splitting than that

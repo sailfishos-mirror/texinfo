@@ -1,3 +1,34 @@
+2026-10-22 Patrice Dumas  <pertusus@free.fr>
+
+	update manual with more information on automatic nodes and menus
+
+	* doc/texinfo.texi (Master Menu Parts): say that the Texinfo manual
+	master menu is automatically generated.
+
+	* doc/texinfo.texi (@code{@@majorheading @@chapheading}): replace not
+	longer true lack of association of heading commands with nodes.
+
+	* doc/texinfo.texi (Nodes): instead of node before chapter structuring
+	command describe node before structuring commands as nodes are more
+	likely to be omitted than structuring commands.  Expand a bit on the
+	autoamtic nodes creation.
+
+	* doc/texinfo.texi (@code{@@top} Command): explain that, if not
+	associated to a node, a @top command has a "@node Top" associated.
+
+	* doc/texinfo.texi (Node Menu Illustration): replace having node and
+	chapter structuring command being used together by having node
+	followed by chapter structuring command, as nodes can be automatically
+	generated.
+
+	* doc/texinfo.texi (Menus): mention that nodes can be automatically
+	generated.
+
+	* doc/texinfo.texi (Global Customization Variables): add more
+	information on AUTO_SECTION_NODE, by explaining that node names are
+	based on section command title only if the sectioning command title is
+	unique.
+
 2026-10-22  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* TODO: remove link to closed Emacs issue for supporting node name
