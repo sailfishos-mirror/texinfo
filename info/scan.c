@@ -1137,11 +1137,11 @@ scan_reference_label (REFERENCE *entry, int in_index)
     }
   else
     {
-      /* If in an index node, go forward to the last colon on the line
-         (not preceded by a newline, NUL or DEL).  This is in order to
-         support index entries containing colons.  This should work fine
-         as long as the node name does not contain a colon as well. */
-
+      /* If in an index node and label does not begin with DEL, go forward
+         to the last colon on the line (not preceded by a newline, NUL
+         or DEL).  This is in order to support index entries containing
+         colons.  This works correctly as long there is not an unquoted
+         node name containing a colon. */
       char *p;
       size_t n, m = 0;
       p = inptr + label_len;
