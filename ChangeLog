@@ -1,5 +1,10 @@
 2026-10-22  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* TODO: remove link to closed Emacs issue for supporting node name
+	quoting.
+
+2026-10-22  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/scan.c (scan_reference_label) <index entry>: Edit comment.
 
 2026-10-22  Gavin Smith <gavinsmith0123@gmail.com>
