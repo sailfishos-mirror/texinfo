@@ -22,8 +22,8 @@ srcdir=${srcdir:-.}
 # produce such index menus).
 run_ginfo --file quoted-index-label.info
 
-printf 'iquoted : label\r' >&7 &
-printf Dq >&7 &
+printf 'iquoted : label\r' >&7
+printf Dq >&7
 timeout_test
 
 # Check that we went to the right node.
