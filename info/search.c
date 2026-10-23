@@ -714,6 +714,7 @@ find_node_in_binding (const char *nodename, const SEARCH_BINDING *binding)
 {
   long position;
   int offset;
+  int file_name_offset;
   SEARCH_BINDING s;
 
   s.buffer = binding->buffer;
@@ -729,6 +730,28 @@ find_node_in_binding (const char *nodename, const SEARCH_BINDING *binding)
 
       s.start = position;
       s.start += skip_node_separator (s.buffer + s.start);
+
+      file_name_offset = string_in_line (INFO_FILE_LABEL, s.buffer + s.start);
+
+      /* past "File:" if not more than 3 characters away from being first
+         in line */
+      if (file_name_offset != -1
+          && file_name_offset <= strlen (INFO_FILE_LABEL) +3)
+        {
+          char *filename_start;
+          char *read_filename;
+
+          s.start += file_name_offset;
+          s.start += skip_whitespace (s.buffer + s.start);
+          filename_start = s.buffer + s.start;
+          s.start += read_quoted_string (filename_start,
+                                         "\n\r\t,", 0, &read_filename);
+           /* not sure what it means
+          if (!read_filename)
+            continue;
+            */
+          free (read_filename);
+        }
 
       offset = string_in_line (INFO_NODE_LABEL, s.buffer + s.start);
 

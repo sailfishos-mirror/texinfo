@@ -1,0 +1,32 @@
+This is before_comma, Node: after_node.info, produced by texi2any
+version 7.3dev+nc from comma_node_in_file_name.texi.
+
+
+File: before_comma, Node: after_node.info,  Node: Top,  Next: chap,  Up: (dir)
+
+top
+***
+
+*Note chap::
+
+* Menu:
+
+* chap::
+
+
+File: before_comma, Node: after_node.info,  Node: chap,  Prev: Top,  Up: Top
+
+1 Chap
+******
+
+
+Tag Table:
+Node: Top120
+Node: chap246
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:
