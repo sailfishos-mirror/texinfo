@@ -1,5 +1,9 @@
 2026-10-23 Patrice Dumas  <pertusus@free.fr>
 
+	* info/t/quoted-target.sh: remove an unneeded \.
+
+2026-10-23 Patrice Dumas  <pertusus@free.fr>
+
 	* info/t/README: add information on XDG_CONFIG_HOME being reset,
 	$srcdir/t/config being used and the definition of D.  Based on Gavin
 	explanations.

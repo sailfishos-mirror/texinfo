@@ -19,7 +19,7 @@ srcdir=${srcdir:-.}
 
 run_ginfo -f quoting
 # Follow a cross-reference to a node with colons and commas in its name
-printf '\t\t\r\t\r\Dq' >&7
+printf '\t\t\r\t\rDq' >&7
 timeout_test
 
 if test ! -f $ginfo_output; then
