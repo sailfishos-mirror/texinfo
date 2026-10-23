@@ -25255,9 +25255,10 @@ but any number of spaces are ignored.  The @t{<id>} node identifiers and
    <fn> = <filename> | <del><filename><del>
 @end example
 
-This @t{<node>} defines @t{<id1>} in file @t{<filename>}, which is typically
-either @samp{manualname} or @samp{manualname.info}.  No parenthesized
-@t{<infofile>} component may appear within @t{<id1>}.
+This @t{<node>} defines @t{<id1>}.  No parenthesized @t{<infofile>}
+component may appear within @t{<id1>}.  @t{<filename>} is only indicative,
+and is based on on the output file name.  It is typically either
+@samp{manualname} or @samp{manualname.info}.
 
 Each of the identifiers after @code{Next}, @code{Prev} and @code{Up}
 refer to nodes or anchors within a file.  These pointers normally

@@ -1,5 +1,11 @@
 2026-10-23 Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Info Format Regular Nodes): do not state that a
+	node is necessarily in File:, as it is not true with subfiles, and
+	mention that the File: file name is only indicative.
+
+2026-10-23 Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Info Format Regular Nodes): modify specification
 	to show that ndoe line file name may be DEL-quoted.
 
