@@ -1,3 +1,14 @@
+2026-10-23 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/convert_to_info.c (info_format_node),
+	tta/perl/Texinfo/Convert/InfoNonXS.pm (format_node): quote with DEL
+	the file name on the node line if it contains a comma.  Report from
+	Eli Zaretskii.
+
+	* tta/perl/t/info_tests.t (comma_node_in_file_name),
+	tta/perl/t/test_files_generated_list.txt: add test of Info output with
+	a comma in file name.
+
 2026-10-23  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Do not run printf processes in background when writing to a pipe.
@@ -32,9 +43,9 @@
 	longer true lack of association of heading commands with nodes.
 
 	* doc/texinfo.texi (Nodes): instead of node before chapter structuring
-	command describe node before structuring commands as nodes are more
+	command mention structuring commands after node as nodes are more
 	likely to be omitted than structuring commands.  Expand a bit on the
-	autoamtic nodes creation.
+	automatic nodes creation.
 
 	* doc/texinfo.texi (@code{@@top} Command): explain that, if not
 	associated to a node, a @top command has a "@node Top" associated.

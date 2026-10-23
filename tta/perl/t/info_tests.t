@@ -1472,6 +1472,20 @@ AA.
 @chapter chap
 
 '],
+# this tests that in the resulting Info a comma in file name is protected.
+# It can also be used to test the Info readers that a ", Node:" in the
+# file name is not used for the node name.
+['comma_node_in_file_name',
+'@setfilename before_comma, Node: after_node.info
+
+@node Top
+@top top
+
+@xref{chap}
+
+@node chap
+@chapter Chap
+']
 );
 
 my @file_tests = (

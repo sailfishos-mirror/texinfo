@@ -1106,8 +1106,22 @@ sub format_node($$;$) {
   }
 
   $self->add_target_location($node);
-  my $node_begin = "\x{1F}\nFile: $output_filename,  Node: ";
-  $self->_stream_output($node_begin);
+
+  $self->_stream_output("\x{1F}\nFile: ");
+
+  my $file_need_quotes;
+  if ($output_filename =~ /,/) {
+    if ($self->{'info_special_chars_quote'}) {
+      $file_need_quotes = 1;
+    }
+  }
+  if ($file_need_quotes) {
+    my $quote = "\x{7f}";
+    $self->_stream_output($quote . $output_filename .$quote);
+  } else {
+    $self->_stream_output($output_filename);
+  }
+  $self->_stream_output(',  Node: ');
 
   my $pre_quote = '';
   my $post_quote = '';

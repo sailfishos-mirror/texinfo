@@ -1588,6 +1588,7 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
   int is_target = (node->flags & EF_is_target);
   char *node_begin;
   int quoting_required = 0;
+  int file_name_quoting_required = 0;
   STRING_WITH_WIDTH node_name_width;
   int i;
   int warn_special_char
@@ -1609,9 +1610,24 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
 
   plaintext_add_target_location (self, node);
 
-  xasprintf (&node_begin, "\x1f\nFile: %s,  Node: ", output_filename);
-  stream_output (self, node_begin);
-  free (node_begin);
+  stream_output_n (self, "\x1f\nFile: ", 8);
+  if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
+    {
+      const char *check_chars = ",";
+      const char *p = strpbrk (output_filename, check_chars);
+
+      if (p)
+        {
+          if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
+            file_name_quoting_required = 1;
+        }
+    }
+  if (file_name_quoting_required)
+    stream_output_n (self, node_quote, 1);
+  stream_output (self, output_filename);
+  if (file_name_quoting_required)
+    stream_output_n (self, node_quote, 1);
+  stream_output_n (self, ",  Node: ", 9);
 
   if (warn_special_char
       || self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
