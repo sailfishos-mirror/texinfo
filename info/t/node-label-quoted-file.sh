@@ -24,8 +24,7 @@ timeout_test
 if test ! -f $ginfo_output; then
   retval=1
 else
-  # Return non-zero (test failure) if files differ
-  diff $ginfo_output $t/file-label-quoted-target
+  grep 'Arrived in Chapter.' $ginfo_output
   retval=$?
 fi
 

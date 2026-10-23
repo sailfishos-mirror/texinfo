@@ -58,7 +58,7 @@ $result_tree_text{'comma_node_in_file_name'} = '*document_root C5
     {spaces_before_argument: }
     {chap}
     {spaces_after_argument:\\n}
- *@chapter C1 l9 {Chap}
+ *@chapter C3 l9 {Chap}
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -68,6 +68,9 @@ $result_tree_text{'comma_node_in_file_name'} = '*document_root C5
     {spaces_before_argument: }
     {Chap}
     {spaces_after_argument:\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {Arrived in Chapter.\\n}
 ';
 
 
@@ -80,6 +83,8 @@ $result_texis{'comma_node_in_file_name'} = '@setfilename before_comma, Node: aft
 
 @node chap
 @chapter Chap
+
+Arrived in Chapter.
 ';
 
 
@@ -91,6 +96,8 @@ chap
 
 1 Chap
 ******
+
+Arrived in Chapter.
 ';
 
 $result_errors{'comma_node_in_file_name'} = '';
@@ -152,6 +159,8 @@ File: before_comma, Node: after_node.info,  Node: chap,  Prev: Top,  Up: Top
 
 1 Chap
 ******
+
+Arrived in Chapter.
 
 
 Tag Table:

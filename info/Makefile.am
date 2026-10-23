@@ -225,8 +225,7 @@ endif
 EXTRA_DIST += $(info_tests) $(info_tests_with_pseudotty) $(XFAIL_TESTS) \
   t/README t/infodir \
   t/Init-test.inc \
-  t/config/texinfo/infokey t/node-target \
-  t/file-label-quoted-target
+  t/config/texinfo/infokey t/node-target
 
 dist_check_SCRIPTS = t/config/texinfo/info-hooks/manual-not-found
 

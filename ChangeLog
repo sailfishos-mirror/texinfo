@@ -1,5 +1,20 @@
 2026-10-23 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/info_tests.t (comma_node_in_file_name),
+	info/t/infodir/comma_node_in_file_name.info,
+	info/t/node-label-quoted-file.sh, info/Makefile.am (EXTRA_DIST): add a
+	distinctive string in comma_node_in_file_name and in
+	info/t/infodir/comma_node_in_file_name.info and grep that string
+	instead of comparing to a file in info/t/node-label-quoted-file.sh.
+	Remove info/t/file-label-quoted-target.  Report from Gavin.
+
+	* t/README: revert change implying that there could be other file
+	similar to t/node-target, only t/node-target is supposed to be used,
+	and grep is in general preferred to comparing to a file.  Based on a
+	report from Gavin.
+
+2026-10-23 Patrice Dumas  <pertusus@free.fr>
+
 	* info/t/quoted-target.sh: remove an unneeded \.
 
 2026-10-23 Patrice Dumas  <pertusus@free.fr>
