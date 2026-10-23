@@ -64,6 +64,5 @@ I/O error.
 
 Many of the tests of interactive operation try to position the cursor 
 on a cross-reference by various means, follow the reference, and dump the node
-reached to a file.
-
-
+reached to a file.  (Distinctive text in the dumped node can be matched
+with grep, to check that we ended up where we thought we would.)

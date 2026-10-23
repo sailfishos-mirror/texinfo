@@ -1,5 +1,9 @@
 2026-10-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/t/README: add text from Patrice.
+
+2026-10-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Do not use "node-target" file in Info tests.
 
 	* info/t/adjust-anchors.sh,
