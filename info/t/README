@@ -32,6 +32,12 @@ to indicate success or failure.
 Non interactive tests can run 'info' as $ginfo.  The interactive tests
 use the run_ginfo function.
 
+In Init-test.inc the XDG_CONFIG_HOME environment variable is reset to
+point to $srcdir/t/config, such that the infokey used is
+$srcdir/t/config/infokey.  This key file, contains definitions used
+in specific tests.  There is also a definition of D as print-node, as
+dumping nodes to the test log file $ginfo_output is often used in tests.
+
 Tests of interactive operation
 ------------------------------
 
@@ -58,7 +64,7 @@ I/O error.
 
 Many of the tests of interactive operation try to position the cursor 
 on a cross-reference by various means, follow the reference, and dump the node
-reached to a file.  (It can be compared with a target file in
+reached to a file.  (It can be compared with a target file such as
 info/t/node-target, to check that we ended up where we thought we would.)
 
 
