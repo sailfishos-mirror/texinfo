@@ -1,5 +1,17 @@
 2026-10-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Do not run printf processes in background when writing to a pipe.
+
+	* info/t/body-start.sh, info/t/quoted-index-target.sh,
+	* info/t/quoted-label-and-target.sh: remove & from end of printf
+	invocation.
+
+	According to my understanding, this should only be necessary if
+	we are writing more than 512 bytes (minimum pipe buffer size according
+	to POSIX), and ginfo does not read from the pipe due to a bug.
+
+2026-10-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/t/quoted-index-label.sh: do not run two printf commands in
 	the background at the same time.  report from Bruno Haible.
 
