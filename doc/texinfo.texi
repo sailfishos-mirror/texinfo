@@ -25244,16 +25244,18 @@ File: <fn>, Node: <id1>, (Next: <id2>, )? (Prev: <id3>, )? Up: <id4>
 
 @noindent
 At least one space or tab must be present after each colon and comma,
-but any number of spaces are ignored.  The @t{<id>} node identifiers have
-following format:
+but any number of spaces are ignored.  The @t{<id>} node identifiers and
+@t{<fn>} have following format:
 
 @example
    <id> = (<lparen><infofile><rparen>)?<node-spec>?
    <node-spec> = <nodename> | <del><nodename><del>
    <del> = ^?
+
+   <fn> = <filename> | <del><filename><del>
 @end example
 
-This @t{<node>} defines @t{<id1>} in file @t{<fn>}, which is typically
+This @t{<node>} defines @t{<id1>} in file @t{<filename>}, which is typically
 either @samp{manualname} or @samp{manualname.info}.  No parenthesized
 @t{<infofile>} component may appear within @t{<id1>}.
 
