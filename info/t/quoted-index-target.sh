@@ -20,7 +20,7 @@ srcdir=${srcdir:-.}
 # Perform an index search for a quoted target
 run_ginfo --file quoting --index-search "Colon::in, name"
 
-printf Dq >&7 &
+printf Dq >&7
 timeout_test
 
 # Check that we went to the right node.

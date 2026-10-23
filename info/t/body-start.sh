@@ -19,7 +19,7 @@ srcdir=${srcdir:-.}
 
 run_ginfo -f body-start
 # Check that node headers aren't included in searches
-printf 'sPotential match\r\rDq' >&7 &
+printf 'sPotential match\r\rDq' >&7
 
 timeout_test
 
