@@ -1,3 +1,38 @@
+2026-10-23  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Do not use "node-target" file in Info tests.
+
+	* info/t/adjust-anchors.sh,
+	* info/t/body-start.sh,
+	* info/t/c-u-m-x-scroll-forward.sh,
+	* info/t/end-of-line.sh,
+	* info/t/goal-column.sh,
+	* info/t/goto-quoted.sh,
+	* info/t/inc-sea-forward-nonregex.sh,
+	* info/t/inc-sea-forward.sh,
+	* info/t/inc-sea-insensitive.sh,
+	* info/t/index-long-nodeline.sh,
+	* info/t/index-search.sh,
+	* info/t/index.sh,
+	* info/t/next-quoted.sh,
+	* info/t/quoted-label-and-target.sh,
+	* info/t/quoted-label-as-target.sh,
+	* info/t/quoted-manual-in-label.sh,
+	* info/t/quoted-manual-in-target.sh,
+	* info/t/quoted-target.sh,
+	* info/t/search-after-tag.sh,
+	* info/t/split-index.sh,
+	* info/t/star-note-non-whitespace.sh,
+	* info/t/tab-argument.sh,
+	* info/t/tab.sh,
+	* info/t/xref-across-lines.sh,
+	* info/t/xref-to-anchor.sh:
+	Use grep in dumped node rather than running it with diff against
+	t/node-target.
+
+	* info/t/node-target: deleted
+	* info/t/README: update
+
 2026-10-23 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/t/info_tests.t (comma_node_in_file_name),

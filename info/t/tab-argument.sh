@@ -22,7 +22,8 @@ run_ginfo -f intera -n 'Argument to tab'
 printf '\0252\t\rDq' >&7
 timeout_test
 
-diff $ginfo_output $t/node-target
+# Check we went to the right node.
+grep "^File: intera.info, *Node: Node 1 *$" $ginfo_output
 retval=$?
 
 cleanup

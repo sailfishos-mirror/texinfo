@@ -35,8 +35,8 @@ printf '\rDq' >&7
 
 timeout_test
 
-# Return non-zero (test failure) if files differ
-diff $ginfo_output $t/node-target
+# Check we went to the right node.
+grep "^File: intera.info, *Node: Node 1 *$" $ginfo_output
 retval=$?
 
 cleanup

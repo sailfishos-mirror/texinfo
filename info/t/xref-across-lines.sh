@@ -21,7 +21,8 @@ run_ginfo -f intera -n 'Xref target crosses lines'
 printf '\t\rDq' >&7
 timeout_test
 
-diff $ginfo_output $t/node-target
+# Check we went to the right node.
+grep "^File: intera.info, *Node: Node 1 *$" $ginfo_output
 retval=$?
 
 cleanup

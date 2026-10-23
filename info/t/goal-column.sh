@@ -24,7 +24,8 @@ printf '\005\016\016\006\006' >&7
 printf '\rDq' >&7
 timeout_test
 
-diff $ginfo_output $t/node-target
+# Check we went to the right node.
+grep "^File: intera.info, *Node: Node 1 *$" $ginfo_output
 retval=$?
 
 cleanup

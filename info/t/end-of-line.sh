@@ -26,8 +26,8 @@ timeout_test
 if test ! -f $ginfo_output; then
   retval=1
 else
-  # Return non-zero (test failure) if files differ
-  diff $ginfo_output $t/node-target
+  # Check we went to the right node.
+  grep "^File: intera.info, *Node: Node 1 *$" $ginfo_output
   retval=$?
 fi
 
