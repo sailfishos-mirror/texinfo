@@ -590,14 +590,12 @@ program that might process Texinfo in the future.
 @end itemize
 
 @cindex Future of Texinfo implementations
-At the time,
-the new Perl program was much slower than the old C program.
-Since then, the parser, part of the Info converter
-and the HTML converter as a whole have been translated to C, leading to
-important gains in speed compared to the pure Perl implementation of
-@command{texi2any}.  The main program has also been translated to C.  The
-@command{texi2any} C implementation embeds a Perl interpreter for the parts
-that require Perl.
+At the time, the new Perl program was much slower than the old C program.
+Since then, the parser and the Info, plaintext and HTML converters have been
+translated to C, leading to important gains in speed compared to the pure Perl
+implementation of @command{texi2any}.  The main program has also been
+translated to C.  The @command{texi2any} C implementation embeds a Perl
+interpreter for the parts that require Perl.
 
 
 @node Adding Output Formats
