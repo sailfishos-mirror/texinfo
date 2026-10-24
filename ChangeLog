@@ -1,5 +1,13 @@
 2026-10-24 Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Structuring With Nodes): explain the alternative
+	regarding structuring, where sectioning commands without nodes are
+	associated to the preceding node.
+
+	* doc/texinfo.texi (Nodes): refer to the new section.
+
+2026-10-24 Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (History): update the list of converters
 	implemented in C.
 

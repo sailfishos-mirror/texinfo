@@ -2746,9 +2746,11 @@ If you use a chapter structuring command without preceding @code{@@node}
 line, @command{texi2any} will output the file as if a @code{@@node} line was
 present for Info, HTML and plaintext output---the formats for which
 nodes play a role in the structure of the output.  The generated node name is
-based on the section title if the section title is unique.  See
-@code{AUTO_SECTION_NODE} in @ref{Global Customization Variables} for more
-details.
+based on the section title if the section title is unique.
+@xref{Structuring With Nodes} for an alternative, where
+sectioning commands without nodes are with the preceding node.
+See @code{AUTO_SECTION_NODE} in @ref{Global Customization Variables} for
+more details.
 
 
 @node Writing a Node
@@ -3367,6 +3369,71 @@ the node when the @code{xrefautomaticsectiontitle} flag is on, so
 Topic@w{'}''.
 
 
+@node Structuring With Nodes
+@section Structuring With Nodes
+
+You can use nodes to separate the regions of the manual that hold
+sectioning command that are not associated to a @code{@@node}.  In that
+case, sectioning commands without nodes are associated to the preceding
+node.  This is different from the default case, where nodes
+for sectioning commands lacking a corresponding node are inserted.
+Note that the same Texinfo code can be interpreted according to these
+two possibilities for structuring.
+
+When nodes are used to separate the regions of
+the manual, you can split your manual at different levels in the chapter
+structuring hierarchy according to what you consider best for different parts
+of your manual.
+
+In the following example, the region of the @samp{Big section 1}
+node would include the associated section but also subsections.
+And the last node, @samp{Second chapter.  Smaller} contains a chapter
+with its sections, but also an @code{@@unnumbered} that is at
+the @code{@@chapter} level.
+
+@example
+@@node Top
+@@top top
+
+@@node First chapter
+@@chapter First chapter
+
+@@node Big section 1
+@@section Big section 1
+
+Section text.
+
+@@subsection Big section Subsection 1
+
+...
+
+@@subsection Big section Subsection 2
+
+@@node Big section 2
+@@section Big section 2
+
+@@node Second chapter.  Smaller
+@@chapter Second chapter
+
+@@section Second chapter sec 1
+
+Average length Section.
+
+@@section Second chapter sec 2
+
+@@unnumbered Addendum with little content
+@end example
+
+The structuring alternatives have an effect on the output only for formats
+using nodes for structuring: Info, HTML and plaintext.  Note that sectioning
+commands without a corresponding @code{@@node} line can be the target of
+cross-references in any case; see @ref{Cross Reference Targets}.
+
+Associating sectioning without node to the previous node is mainly relevant
+when split at node for HTML and plaintext (@pxref{HTML Splitting}).  You also
+need to set the customization variable @code{AUTO_SECTION_NODE} to 0 to
+select this option instead of the default.  See @code{AUTO_SECTION_NODE} in
+@ref{Global Customization Variables} for more details.
 
 
 @node Node Descriptions
