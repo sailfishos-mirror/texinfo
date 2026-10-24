@@ -25483,13 +25483,17 @@ node or anchor within that manual.
 
 The second form has a descriptive label.  A cross-reference in this form
 should usually be terminated with a comma or period, to make it
-feasible to find the end of the @t{<id>}.
+feasible to find the end of the @t{<id>} (@command{texi2any}
+should add some punctuation if it is not already present in the input
+Texinfo code).
 
 If @t{<label>} contains a colon character (@t{:}), it should be
 surrounded with a pair of @t{<del>} characters.
 Likewise, quoting characters may be used for the node
 name if it contains problematic characters;
-then a terminating comma or period is not needed.
+in that case @command{texi2any} should still add a terminating dot
+if there is no punctuation after the node name, although
+it may not be needed by all the Info readers.
 As stated earlier, this quoting mechanism is not supported in all
 Info-reading programs.
 

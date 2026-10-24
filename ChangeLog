@@ -1,5 +1,14 @@
 2026-10-24 Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Info Format Cross Reference): distinguish what
+	texi2any does in term of adding punctuation for DEL-quoted node, and
+	what the Info readers need (being vague for the Info readers part).
+	Report from Eli Zaretskii.
+	For consistency, also give the information that texi2any should add
+	punctuation after the eference if needed, being somewhat vague.
+
+2026-10-24 Patrice Dumas  <pertusus@free.fr>
+
 	Add a section for initialization files distributed with texi2any
 
 	* doc/texinfo.texi (Installed Initialization Files, Generating HTML):
