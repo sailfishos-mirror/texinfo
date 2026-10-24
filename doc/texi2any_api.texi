@@ -225,10 +225,16 @@ the current user's home directory;
 
 @c @item @file{/usr/share/texinfo/init/}
 
-@item @file{@var{datadir}/texinfo/ext/} with @var{datadir} as above.
+@item @file{@var{datadir}/texi2any/ext/} with @var{datadir} as above.
 @end enumerate
 
-The @file{@var{datadir}/texinfo/ext/} directory contains the
+The @file{@var{datadir}/texi2any/init/} contains init files shipped with
+@command{texi2any}.  These initialization files are not considered important
+enough to become part of @command{texi2any} and there is no commitment
+regarding their maintenance, but they should be up-to-date at the time of a
+release and can be used as example.
+
+The @file{@var{datadir}/texi2any/ext/} directory contains the
 init files directly loaded from @command{texi2any} code.  When loaded from
 @command{texi2any} code directly, init files are only searched for
 in that directory, being considered as part of the program and not as user

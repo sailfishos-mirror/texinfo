@@ -1,3 +1,12 @@
+2026-10-24 Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi (Loading Init Files): correct extensions
+	directory name.
+
+	* doc/texi2any_api.texi (Loading Init Files): describe in which
+	directory init file shipped with texi2any, but not part of texi2any,
+	are located.  Idea from Gavin.
+
 2026-10-23 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (Info Format Regular Nodes): do not state that a
