@@ -17645,11 +17645,6 @@ modify almost every aspect of HTML output.  Initialization files
 contain code and are loaded by @option{--init-file} (@pxref{Invoking
 @command{texi2any}}).
 
-Some initialization files are maintained with Texinfo and installed
-in the default case.  For example, @file{chm.pm} produces the intermediate
-compressed HTML Help format files that can be subsequently converted to
-the CHM format.
-
 The documentation of @command{texi2any} HTML output adaptation using
 customization files is in a separate manual.  @xref{,,, texi2any_api, GNU
 Texinfo @command{texi2any} Output Customization}.
@@ -20112,6 +20107,31 @@ as the hyperlink.  If set to@tie{}0, use the node name if
 otherwise use the node name or section name depending on
 @code{USE_NODES}.  The default is @samp{undef}.
 
+@end table
+
+
+@node Installed Initialization Files
+@section Installed Initialization Files
+
+Some initialization files are installed in the default case.  These
+initialization files are not considered important enough to be part of
+@command{texi2any} and there is no commitment regarding their maintenance, but
+they should be up-to-date at the time of a release.  They can be directly
+loaded with @option{--init-file}.
+
+@table @file
+@item book.pm
+Produces an output more similar to a book than the default HTML output (which
+is already somewhat in line with a book formatting).  Initially based on
+the ScriptBasic style.
+
+@item breadcrumb_navigation.pm
+Replaces the Up direction in the navigation panel by @dfn{breadcrumb
+navigation}, which shows all the upper sectioning command titles.
+
+@item chm.pm
+Produces the intermediate compressed HTML Help format files that can be
+subsequently converted to the CHM format, for instance by @command{chmcmd}.
 @end table
 
 

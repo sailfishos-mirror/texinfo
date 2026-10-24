@@ -1,5 +1,15 @@
 2026-10-24 Patrice Dumas  <pertusus@free.fr>
 
+	Add a section for initialization files distributed with texi2any
+
+	* doc/texinfo.texi (Installed Initialization Files, Generating HTML):
+	add the "Installed Initialization Files" section, with the list of the
+	installed init files and an explanation that there should not be any
+	expectation regading the maintenance of those files.
+	Move chm.pm description to the list.
+
+2026-10-24 Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Loading Init Files): correct extensions
 	directory name.
 
