@@ -676,6 +676,15 @@ Text
 
 @printindex cp
 '],
+['dot_and_dot_space_in_node_menu_entry',
+'@node Top
+
+@menu
+* name: aa.bb@asis{. }c
+@end menu
+
+@node aa.bb@asis{. }c
+'],
 ['test_index',
 '@node Top
 @top Element top

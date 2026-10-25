@@ -6284,22 +6284,39 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                     {
                       const char *check_chars;
                       const char *p;
+                      char shown_char[3];
 
                       if (entry_name_seen)
                         check_chars = ",\t.";
                       else
                         check_chars = ":";
 
-                      p = strpbrk (node_text.text, check_chars);
-
-                      if (p && (*p != '.' || *(p+1) == ' '))
+                      p = node_text.text;
+                      while (p)
                         {
+                          const char *q = strpbrk (p, check_chars);
+
+                          if (!q)
+                            break;
+
+                          if (*q == '.')
+                            {
+                              if (! *(q+1))
+                                break;
+                              if (!strchr (whitespace_chars, *(q+1)))
+                                {
+                                  p = q+1;
+                                  continue;
+                                }
+                              shown_char[1] = *(q+1);
+                              shown_char[2] = '\0';
+                            }
+                          else
+                            shown_char[1] = '\0';
+                          shown_char[0] = *q;
+
                           if (warn_special_char)
                             {
-                              char shown_char[3] = {*p, '\0', '\0'};
-                              if (*p == '.')
-                                shown_char[1] = *(p+1);
-
                               message_list_command_warn (&self->error_messages,
                                (self->conf && self->conf->DEBUG.o.integer > 0),
                                element, 0,
@@ -6308,7 +6325,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                             }
                           if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
                             node_quoting_required = 1;
+
+                          break;
                         }
+
              /* also protect . although only '. ' ends the node name in menu,
                 to simplify Info readers. */
                       if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0

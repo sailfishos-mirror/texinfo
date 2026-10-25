@@ -1577,6 +1577,7 @@ t/results/info_tests/direntry_dircategory/res_info/direntry_dircategory.info
 t/results/info_tests/direntry_dircategory/res_info/direntry_dircategory.info-1
 t/results/info_tests/direntry_dircategory/res_info/direntry_dircategory.info-2
 t/results/info_tests/direntry_dircategory_and_commands.pl
+t/results/info_tests/dot_and_dot_space_in_node_menu_entry.pl
 t/results/info_tests/empty_arguments.pl
 t/results/info_tests/empty_caption.pl
 t/results/info_tests/empty_copying_not_ended.pl
