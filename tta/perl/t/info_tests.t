@@ -676,6 +676,20 @@ Text
 
 @printindex cp
 '],
+['lead_parenthesis_in_node_name_in_printindex',
+'@node top
+@top Element top
+
+@node @asis{(}toto) titi
+@chapter C @asis{(}toto) titi
+
+@cindex pp
+
+@node appendix
+@appendix print idx
+
+@printindex cp
+'],
 ['dot_and_dot_space_in_node_menu_entry',
 '@node Top
 

@@ -2118,9 +2118,12 @@ sub process_printindex($$;$) {
         if ($self->{'info_special_chars_quote'}) {
           $need_quoting = 1;
         }
-      # also protect . although only '. ' ends the node name in menu,
+      # Protect if there is a leading ( as the node can only be an internal
+      # node.
+      # Also protect . although only '. ' ends the node name in menu,
       # to simplify Info readers.
-      } elsif ($node_name =~ /\./ and $self->{'info_special_chars_quote'}) {
+      } elsif ((substr($node_name, 0, 1) eq '(' or $node_name =~ /\./)
+               and $self->{'info_special_chars_quote'}) {
         $need_quoting = 1;
       }
       if ($need_quoting) {

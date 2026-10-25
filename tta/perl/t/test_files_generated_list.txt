@@ -1607,6 +1607,7 @@ t/results/info_tests/index_string_in_node_no_index.pl
 t/results/info_tests/invalid_node_name_no_warning.pl
 t/results/info_tests/invalid_node_name_warning.pl
 t/results/info_tests/known_encoding.pl
+t/results/info_tests/lead_parenthesis_in_node_name_in_printindex.pl
 t/results/info_tests/multiline_image_and_align.pl
 t/results/info_tests/multitable_anchor_and_index_entry.pl
 t/results/info_tests/multitable_flushright_image.pl
