@@ -25333,15 +25333,18 @@ but any number of spaces are ignored.  The @t{<id>} node identifiers and
 @t{<fn>} have the following syntax:
 
 @example
-   <id> = (<lparen><infofile><rparen>)?<node-spec>?
+   <id> = <node id>
+   <node id> = (<lparen><infofile><rparen>)?<node-spec>?
    <node-spec> = <nodename> | <del><nodename><del>
    <del> = ^?
 
    <fn> = <filename> | <del><filename><del>
 @end example
 
-This @t{<node>} defines node @t{<id1>} in this Info manual.
-No @t{<infofile>} component may appear within @t{<id1>}.
+This @t{<node>} defines node @t{<node id1>} in this Info manual.
+The @t{<infofile>} component is the name of the manual being referenced,
+if an external manual is referenced.
+No @t{<infofile>} component may appear within @t{<node id1>}.
 
 @t{<filename>} is typically either @samp{manualname} or
 @samp{manualname.info}, the file name of the Info file (or main Info
@@ -25369,6 +25372,11 @@ characters (@samp{CTRL-?}, character number 127).  @command{makeinfo} adds
 these characters when needed in the default case.  Note that not all Info
 readers recognize this syntax.  @xref{Info Node Names Constraints}.
 
+On the node line, the @t{<nodename>} should be surrounded with a pair of
+@t{<del>} characters if it contains
+a comma, or if there is a leading parenthesis in the @t{<nodename>}.
+The @t{<filename>} should be quoted if it contains a comma.
+
 The @t{<general text>} of the node can include the special constructs
 described next.
 
@@ -25385,18 +25393,48 @@ places no restrictions on their location.
     <menu> =
 * Menu:
 (<menu entry> | <menu comment>)*
+
+    <menu entry> =
+  * <node id>:: <menu entry description>?
+| * <label>:<node id>(,|^I|. ) <menu entry description>?
+
+    <label> = <label text> | <del><label text><del>
 @end example
 
 The parts of a @t{<menu entry>} are also described in @ref{Menu
-Parts}.  They have the same syntax as cross-references, with a leading @samp{*}
-instead of @samp{* (N|n)ote} (@pxref{Info Format Cross Reference}).  Indices
-extend the menu format to specify the destination line; @pxref{Info Format
-Printindex}.
+Parts}.  The optional @t{<menu entry description>} can span more
+than one line but cannot contain a blank line.  @samp{^I} is the tab
+character.  The @t{<node id>} refers to a node or anchor, in the same way as a
+reference in the node information line does (@pxref{Info Format Regular
+Nodes}).  In particular, the @t{<node id>} can contain an optional
+parenthesized @t{<infofile>} for the name of the manual being referenced.
+
+The @t{<menu entry>} should start at the beginning of a line and be on
+the line except for the optional menu entry description, while
+cross-references can appear within flowing text and contain end of lines.
+The syntax used to specify the node and label are similar, with a
+leading @samp{*} instead of @samp{* (N|n)ote} and only slightly different
+characters after a node when there is a label (@pxref{Info Format Cross
+Reference}).  Indices extend the menu format to specify the destination line;
+@pxref{Info Format Printindex}.
 
 A @t{<menu comment>} is any line not beginning with @samp{*} that
 appears either at the beginning of the menu or is separated from a
 menu entry by one or more blank lines.  These comments are intended to
 be displayed as part of the menu, as-is (@pxref{Writing a Menu}).
+
+The @t{<nodename>} in @t{<node id>} should be surrounded with a pair of
+@t{<del>} characters if it starts with a parenthesis both with and
+without a @t{<label>}.  If there is no @t{<label>}, the @t{<nodename>} should
+be quoted if it contains a colon character (@t{:}).  If there is a @t{<label>},
+the @t{<nodename>} should be quoted if it contains a comma, a dot or a tab
+(@t{^I}) character.
+
+A dot not followed by a space does not end a node name in a menu entry, so it
+could have been possible to quote only for a dot followed by a space,
+@samp{.}, but to simplify the Info readers implementation, @t{<nodename>}
+should be quoted there is a @t{<label>} and the node contains a dot in
+any context.
 
 
 @node Info Format Image
@@ -25487,7 +25525,7 @@ the entries occurs in the text:
 
 @example
     <index entry> =
-* <entry text>: <node-spec>. <line-spec>
+* <entry text>: <node id>. <line-spec>
 
     <line-spec> =
 <lparen>line <lineno><rparen>
@@ -25495,13 +25533,24 @@ the entries occurs in the text:
 
 @noindent
 
-The initial part, @samp{<entry text>: <entry node>.}, should be on a
-single line.  The @t{<entry text>} is the index term.
+The initial part, @samp{<entry text>: <node id>.}, should be on a
+single line.  The @t{<entry text>} is the index term.  The @t{<node id>}
+cannot contain the name of a manual being referenced since all the
+nodes referenced in the indices are in the current Info manual.
 
 Even though @t{<entry text>} is followed by a colon, it may itself
 contain colons, so Info readers should try to include as much of the
 line as possible in the @t{<entry text>}.  (However, @t{<entry text>}
-may not contain the @code{DEL} characters that may occur in @t{<node-spec>}.)
+may not contain the @code{DEL} characters that may occur in @t{<node id>}.)
+
+The @t{<nodename>} in @t{<node id>} should be surrounded with a pair of
+@t{<del>} characters if it contains
+a comma, a dot or a tab (@t{^I}) character, or if there is a leading
+parenthesis in the @t{<nodename>} as in a menu entry with a label.  In
+addition, if the @t{<nodename>} contains a colon character (@t{:}), it should
+be quoted such that the Info readers know that it is part of the node and not
+of the index entry text.
+
 
 @t{<lineno>} is an unsigned integer, given relative to the start
 of the @t{<entry node>}.  An optional line break may occur before
@@ -25529,10 +25578,9 @@ A general cross-reference in Info format has one of the following two forms:
 
 @example
     <cross-reference> =
-  * (N|n)ote <id>::
-| * (N|n)ote <label>:<id>(.|,)
+  * (N|n)ote <node id>::
+| * (N|n)ote <label>:<node id>(.|,)
 
-    <id> = (<lparen><infofile><rparen>)?<node-spec>?
     <label> = <label text> | <del><label text><del>
 @end example
 
@@ -25543,7 +25591,7 @@ such as the one in Emacs, can display @samp{*Note} and @samp{*note} as
 @samp{See} and @samp{see} respectively.) In both cases, @t{<label
 text>} is descriptive text.
 
-In both forms the @t{<id>} refers to a node or anchor, in the same way
+In both forms the @t{<node id>} refers to a node or anchor, in the same way
 as a reference in the node information line does (@pxref{Info Format
 Regular Nodes}).  The optional parenthesized @samp{<infofile>} is the
 name of the manual being referenced, and @t{<node-spec>} gives the
@@ -25551,13 +25599,16 @@ node or anchor within that manual.
 
 The second form has a descriptive label.  A cross-reference in this form
 should be terminated with a comma or period to make it feasible to find
-the end of the @t{<id>}.
+the end of the @t{<node id>}.
 
-If @t{<label>} contains a colon character (@t{:}), it should be
+If @t{<label text>} contains a colon character (@t{:}), it should be
 surrounded with a pair of @t{<del>} characters.
-Likewise, quoting characters may be used for the node
-name if it contains problematic characters.
-(In that case, a terminating comma or period is not strictly needed
+Likewise, quoting characters should be used for the node
+if there is a leading parenthesis in the @t{<nodename>}.  If there
+is no @t{<label>} the node should be quoted if there is a colon
+character (@t{:}).  If there is a label, the node should be quoted
+if it contains a comma or a dot.
+(If the node is quoted, a terminating comma or period is not strictly needed
 as the @t{<del>} bytes delimit the node name, but some Info readers
 may depend on such a terminator being present.)
 

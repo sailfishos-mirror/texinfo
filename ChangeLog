@@ -1,5 +1,18 @@
 2026-10-25 Patrice Dumas  <pertusus@free.fr>
 
+	add more details and homogenize Info format specification notations
+
+	* doc/texinfo.texi (Info Format Regular Nodes, Info Format Menu)
+	(Info Format Printindex, Info Format Cross Reference): describe better
+	the differences between a menu entry and a cross-reference.  Report
+	from Eli.
+	Specify a menu entry more precisely.  Detail all the cases where
+	DEL-quoting happen.
+	Homogenize notations, and refer to the first definition of a
+	metavariable instead of redefining the variable.
+
+2026-10-25 Patrice Dumas  <pertusus@free.fr>
+
 	do not warn about special characters in nodes in plaintext
 
 	* tta/C/convert/convert_to_plaintext.c
