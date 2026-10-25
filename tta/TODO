@@ -131,9 +131,9 @@ least when they are accessed from one library, which needs not happen
 when they are const:
 https://mail.gnu.org/archive/html/bug-texinfo/2026-02/msg00139.html
 https://mail.gnu.org/archive/html/bug-texinfo/2026-02/msg00150.html
-Some variables that could be in that situaton, although they did not
-make cygwin in github CI nor mingw Eli tests fail.  They are all set in
-libtexinfo.
+Eli and the github CI tests do not fail with XS for msys/mingw.  However,
+ctexi2any on msys/mingw segfaults in the CI and in Eli tests.
+In 2026-02 the variables that could be relevant are all set in libtexinfo.
 The list:
 C/main/customization_options.h: txi_base_options, txi_base_sorted_options,
 txi_options_command_map => libtexinfo-convert (converter.c, format_html.c...)
@@ -148,16 +148,15 @@ C/main/utils.h: output_conversions, input_conversions
 C/main/utils.h: null_device_names
   => texi2any.c
 
-On Windows, the DLL are not found by texi2any.exe.  Accoring to Eli, the
-easiest way to fix could be be to copy the DLLs into the directory where
-texi2any.exe is installed (in addition to the directory where they are already
-copied by "make install".  That is, on Windows there will be two copies of each
-DLL installed, not one.
-https://lists.gnu.org/archive/html/bug-texinfo/2026-02/msg00090.html
-Another simpler solution was hinted at earlier by Bruno, use libtool -bindir
-option.  This is implemented in
+On Windows, the DLL are not found by texi2any.exe.
+A solution hinted at by Bruno use libtool -bindir option, implemented in
 https://cgit.git.savannah.gnu.org/cgit/texinfo.git/commit/?id=facdf1455f7ff333502ff8348d44ab434455a9c3
 waiting for testing.
+If it does not work, another possibility from Eli could be to copy the DLLs
+into the directory where texi2any.exe is installed (in addition to the
+directory where they are already copied by "make install".  That is, on
+Windows there will be two copies of each DLL installed, not one.
+https://lists.gnu.org/archive/html/bug-texinfo/2026-02/msg00090.html
 
 
 hyphenation: should only appear in toplevel.
@@ -203,29 +202,31 @@ by native \p{East_Asian_Width=Fullwidth} + \p{East_Asian_Width=Wide}
 when the oldest supported Perl version is 5.12.0 (released in 2010).
 
 
-Sorting indices in C with strxfrm_l using an utf-8 locale with
-LC_COLLATE_MASK on Debian GNU/Linux with glibc is quite consistent with Perl
-for number and letters, but leads to a different output than collation
-used in texi2any for non alphanumeric characters.  It is because in
-texi2any we collate using Variable Weighting set to Non-ignorable (see
-http://www.unicode.org/reports/tr10/#Variable_Weighting).
-For spaces, the output with Non-Ignorable Variable Weighting looks better for
-index sorting, as it allows to have spaces and punctuation marks sort before
+Future features
+===============
+
+Language dependent index collation has been removed from the documentation
+and is only available in Perl.  In C texi2any, the undocumented
+XS_STRXFRM_COLLATION_LOCALE customization variable can be used to specify a
+locale and use it with strxfrm_l to sort, but it is only for testing and
+should not be kept in the long term because of the lack of Non-ignorable
+Variable Weighting.  Indeed, sorting indices in C with strxfrm_l using an
+utf-8 locale with LC_COLLATE_MASK on Debian GNU/Linux with glibc is quite
+consistent with the collation used in texi2any for number and letters,
+but leads to a different output for non alphanumeric characters.  It is
+because in texi2any we collate using Variable Weighting set to Non-ignorable
+(see http://www.unicode.org/reports/tr10/#Variable_Weighting).  For spaces,
+the output with Non-Ignorable Variable Weighting looks better for index
+sorting, as it allows to have spaces and punctuation marks sort before
 letters.
-The undocumented XS_STRXFRM_COLLATION_LOCALE customization variable can be
-used to specify a locale and use it with strxfrm_l to sort, but it is only
-for testing and should not be kept in the long term because of the lack
-of Non-ignorable Variable Weighting.  It is still somewhat relevant for
-locale-dependent sorting, which otherwise calls Perl language
-dependent sorting.
-Related glibc enhancement request (probably obsoleted by
-main/unicode-collation/ code):
+The plan is to wait for native C collating language dependent code
+with customizable Variable Weighting before reenabling this feature.
+
+Related glibc enhancement request (obsoleted by main/unicode-collation/
+code?):
  request for Non-Ignorable Variable Weighting Unicode collation
  https://sourceware.org/bugzilla/show_bug.cgi?id=31658
 
-
-Future features
-===============
 
 Add the possibility to add text to a parsed document by restarting
 parsing, when called as parse_piece or parse_string, by
@@ -233,8 +234,10 @@ storing the parser document state not already in document in document.
 There would be a customization variable to set the parser to be
 restartable, and then parse_piece and parse_string could pass
 a document to retrieve the parsing state.  This should probably
-wait for a clear use case. Currently, the parser is never reused
+wait for a clear use case.  Currently, the parser is never reused
 for different documents in the main codes, only in specific tests.
+If it is useful, it would only need to be available through the
+SWIG interface, not in texi2any.
 
 
 From Gavin on the preamble_before_beginning implementation:
@@ -866,53 +869,6 @@ internal nodes.  In general, it is because gdt() is used instead of direct
 HTML.
 
 
-Notes on protection of punctuation in nodes (done)
-==================================================
-
-This is implemented, in tta/perl/Texinfo/TransformationsNonXS.pm in
-_new_node for Texinfo generation, and in Info with INFO_SPECIAL_CHARS_QUOTE.
-*[nN]ote is not protected, though, but it is not clear it would be right to
-do.  There is a warning with @strong{note...}.
-
-Automatic generation of node names from section names.  To be protected:
-* in every case
-  ( at the beginning
-* In @node line
-  commas
-* In menu entry
-  * if there is a label
-    tab comma dot
-  * if there is no label
-    :
-* In @ref
-  commas
-
-In Info
-
-in cross-references. First : is searched.  if followed by a : the node
-name is found and there is no label. When parsing a node a filename
-with ( is searched for.  Nested parentheses are taken into account.
-
-Nodes:
-* in every case
-  ( at the beginning
-* in Node line
-  commas
-* In menu entry and *Note
-  * if there is a label
-    tab comma dot
-  * if there is no label
-    :
-
-Labels in Info (not index entries, in index entries the last : not in
-                a uoted node should be used to determine the end of the
-                index entry).
-  :
-
-* at the beginning of a line in a @menu
-*note more or less everywhere
-
-
 Interrogations and remarks
 ==========================
 
@@ -933,25 +889,6 @@ For converters in C, agreed with Gavin that, in general, it is better not to
 translate a perl tree in input, but access directly the C tree that was setup
 by the XS parser.  When using the TreeElements interface, being able to
 create a C element based on a Perl element is needed, though.
-
-The Perl/C interface when no XS code is used for structuring works because
-all the C data is built as Perl structure at one point after which C code
-is not called anymore to modify the tree or other Document data.  At that
-point the F_DOCM_* flags should remain unset as there is no modification in
-C data needing to be built to Perl.  Therefore all the calls to XS interfaces
-afterwards, mainly on a Document, returns the Perl data.  This is not
-fundamentaly problematic, as it works.  However, the design of the Document XS
-interface was that the Perl structure could be built on demand, and in that
-case, it is not possible.
-
-When the structure code is done in C and conversion is done in Perl, there
-is no need to rebuild all the document data to Perl.  This is probably
-because there is no Perl code modifying the document data without also
-modifying the underlying C code, ie no case of missing XS interface in
-code run in tests at that point, before conversion.  But it is probably
-more by chance than by design, if code changing the structure of the tree
-that lack XS to change the C data was called at that point, the C and Perl
-data would diverge.
 
 There is disagreement on the strategy to use for libraries versioning.
 For Gavin, the code that can link against libraries should be the code
@@ -1132,6 +1069,29 @@ export TEXINFO_XS=omit
 
 This does not happen for t/*.t tests, as STDERR is encoded in UTF-8
 in test_utils.pl.
+
+Following was relevant when there were environment variables that allowed
+to do part only part of parsing/structuring/converting in C.  Now that
+it is not possible anymore, the next two paragraphs are probably obsolete.
+
+The Perl/C interface when no XS code is used for structuring works because
+all the C data is built as Perl structure at one point after which C code
+is not called anymore to modify the tree or other Document data.  At that
+point the F_DOCM_* flags should remain unset as there is no modification in
+C data needing to be built to Perl.  Therefore all the calls to XS interfaces
+afterwards, mainly on a Document, returns the Perl data.  This is not
+fundamentaly problematic, as it works.  However, the design of the Document XS
+interface was that the Perl structure could be built on demand, and in that
+case, it is not possible.
+
+When the structure code is done in C and conversion is done in Perl, there
+is no need to rebuild all the document data to Perl.  This is probably
+because there is no Perl code modifying the document data without also
+modifying the underlying C code, ie no case of missing XS interface in
+code run in tests at that point, before conversion.  But it is probably
+more by chance than by design, if code changing the structure of the tree
+that lack XS to change the C data was called at that point, the C and Perl
+data would diverge.
 
 
 HTML5 validation tidy errors that do not need fixing
