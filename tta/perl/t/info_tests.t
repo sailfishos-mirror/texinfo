@@ -1475,6 +1475,9 @@ AA.
 # this tests that in the resulting Info a comma in file name is protected.
 # It can also be used to test the Info readers that a ", Node:" in the
 # file name is not used for the node name.
+# On Windows the test fails with Perl because "before_comma, Node:" is
+# stripped from the file name most likely because it is considered to
+# be a drive name.
 ['comma_node_in_file_name',
 '@setfilename before_comma, Node: after_node.info
 
@@ -1487,7 +1490,9 @@ AA.
 @chapter Chap
 
 Arrived in Chapter.
-']
+',
+ {'skip' => ($^O eq 'MSWin32') ? 'file looking like a drive stripped' : undef},
+],
 );
 
 my @file_tests = (

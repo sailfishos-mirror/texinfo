@@ -1586,7 +1586,6 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   const char *output_filename;
   int is_target = (node->flags & EF_is_target);
-  char *node_begin;
   int quoting_required = 0;
   int file_name_quoting_required = 0;
   STRING_WITH_WIDTH node_name_width;
