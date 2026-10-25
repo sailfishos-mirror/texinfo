@@ -136,8 +136,8 @@ AC_SUBST([HOST_IS_WINDOWS_VARIABLE])
 # perl_conf_LIB_CFLAGS, perl_conf_CPPFLAGS, perl_conf_LDFLAGS,
 # perl_conf_LIB_LDFLAGS,
 # platform_PERL_LIBADD, perl_conf_LIBS, perl_conf_CFLAGS,
-# perl_conf_EMBED_LIB_CFLAGS, platform_LDFLAGS, XSUBPP,
-# XSUBPPARGS and XS_VERSION.  Defined in m4/txi_perl_conf.m4.
+# platform_LDFLAGS, XSUBPP, XSUBPPARGS and XS_VERSION.
+# Defined in m4/txi_perl_conf.m4.
 txi_PERL_CONF
 
 AC_MSG_CHECKING([ExtUtils::Embed])
@@ -292,6 +292,7 @@ else
   # lacking.
   perl_conf_CPPFLAGS=
   perl_conf_CFLAGS=
+  perl_conf_LDFLAGS=
   perl_conf_LIB_CFLAGS=
   perl_conf_LIB_LDFLAGS=$platform_LDFLAGS
   platform_PERL_LIBADD=

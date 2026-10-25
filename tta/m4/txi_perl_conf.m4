@@ -88,10 +88,6 @@ perl_conf_CFLAGS=$PERL_CONF_ccflags
 # ldopts
 perl_conf_LDFLAGS=$perl_conf_LIB_LDFLAGS
 
-# ccflags or ExtUtils::Embed ccopts do not include cccdlflags,
-# which are needed for libraries
-perl_conf_EMBED_LIB_CFLAGS=$PERL_CONF_cccdlflags
-
 # perllibs: The list of libraries needed by Perl only
 txi_LOOKUP_PERL_CONF_VALUES([[libperl], [perllibs]])
 AC_MSG_CHECKING([libperl link flags])
@@ -142,7 +138,6 @@ AC_SUBST([perl_conf_LIB_LDFLAGS], [$perl_conf_LIB_LDFLAGS])
 AC_SUBST([platform_PERL_LIBADD], [$platform_PERL_LIBADD])
 AC_SUBST([perl_conf_LIBS], [$perl_conf_LIBS])
 AC_SUBST([perl_conf_CFLAGS], [$perl_conf_CFLAGS])
-AC_SUBST([perl_conf_EMBED_LIB_CFLAGS], [$perl_conf_EMBED_LIB_CFLAGS])
 
 # not really related to Perl
 AC_SUBST([platform_LDFLAGS], [$platform_LDFLAGS])
