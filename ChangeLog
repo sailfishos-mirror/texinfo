@@ -1,5 +1,11 @@
 2026-10-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Info Format Cross Reference): Strengthen
+	language to imply that a terminating comma or period should always
+	be used, by removing the word "usually".
+
+2026-10-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Info Format Cross Reference): Revert recent
 	change discussion what texi2any should do.  This appendix is not
 	about the behaviour of texi2any.

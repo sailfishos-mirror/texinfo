@@ -25551,16 +25551,19 @@ name of the manual being referenced, and @t{<node-spec>} gives the
 node or anchor within that manual.
 
 The second form has a descriptive label.  A cross-reference in this form
-should usually be terminated with a comma or period, to make it
-feasible to find the end of the @t{<id>}.
+should be terminated with a comma or period to make it feasible to find
+the end of the @t{<id>}.
 
 If @t{<label>} contains a colon character (@t{:}), it should be
 surrounded with a pair of @t{<del>} characters.
 Likewise, quoting characters may be used for the node
-name if it contains problematic characters;
-then a terminating comma or period is not needed.
-As stated earlier, this quoting mechanism is not supported in all
-Info-reading programs.
+name if it contains problematic characters.
+(In that case, a terminating comma or period is not strictly needed
+as the @t{<del>} bytes delimit the node name, but some Info readers
+may depend on such a terminator being present.)
+
+As stated earlier, the quoting mechanism with @t{<del>} is not supported
+in all Info-reading programs.
 
 The format does not prescribe how to find other manuals to resolve
 such references.
