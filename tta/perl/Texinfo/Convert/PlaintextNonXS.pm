@@ -559,7 +559,8 @@ sub converter_initialize($) {
     }
   } else {
     $self->{'info_special_chars_quote'} = 0;
-    if (!defined($self->get_conf('INFO_SPECIAL_CHARS_WARNING'))) {
+    if (!defined($self->get_conf('INFO_SPECIAL_CHARS_WARNING'))
+        and $self->format_warn_info_special_chars()) {
       $self->set_conf('INFO_SPECIAL_CHARS_WARNING', 1);
     }
   }
@@ -1693,6 +1694,10 @@ sub _align_environment($$$) {
 }
 
 sub format_warn_strong_note($) {
+  return 0;
+}
+
+sub format_warn_info_special_chars($) {
   return 0;
 }
 

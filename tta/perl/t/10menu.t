@@ -96,7 +96,7 @@ Horizontal space
 @node first
 '],
 ['invalid_info_menu_entry',
-'@node first
+'@node Top
 
 @menu
 * (f)@asis{a:}::
@@ -870,6 +870,7 @@ my @test_invalid = (
 my %info_tests = (
  'part_appendix_in_generated_menu' => 1,
  'appendix_and_associated_part_in_generated_menu' => 1,
+ 'invalid_info_menu_entry' => 1,
 );
 
 foreach my $test (@test_cases) {

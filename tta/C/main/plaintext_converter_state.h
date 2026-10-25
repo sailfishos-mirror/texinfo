@@ -193,6 +193,7 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
 
     /* based on converter format */
     int warn_strong_note;
+    int warn_info_special_chars;
 
     /* to cache values based on customization options */
     char *enabled_encoding;

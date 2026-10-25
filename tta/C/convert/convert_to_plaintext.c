@@ -7296,7 +7296,10 @@ plaintext_converter_initialize (CONVERTER *self)
   memset (self_plaintext, 0, sizeof (*self_plaintext));
 
   if (self->format == COF_info)
-    self_plaintext->warn_strong_note = 1;
+    {
+      self_plaintext->warn_strong_note = 1;
+      self_plaintext->warn_info_special_chars = 1;
+    }
 
   memcpy (self_plaintext->commands_data, plaintext_commands_data,
           BUILTIN_CMD_NUMBER * sizeof (PLAINTEXT_COMMAND_STRUCT));
@@ -7336,7 +7339,8 @@ plaintext_converter_initialize (CONVERTER *self)
     }
   else
     {
-      if (self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer == -1)
+      if (self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer == -1
+          && self_plaintext->warn_info_special_chars)
         option_set_conf (&self->conf->INFO_SPECIAL_CHARS_WARNING, 1, 0);
     }
 

@@ -11,15 +11,15 @@ use Encode;
 $result_tree_text{'invalid_info_menu_entry'} = '*document_root C2
  *before_node_section C1
   *preamble_before_content
- *@node C3 l1 {first}
+ *@node C3 l1 {Top}
  |EXTRA
- |identifier:{first}
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
    *line_arg C3
     {spaces_before_argument: }
-    {first}
+    {Top}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C7 l3
@@ -133,7 +133,7 @@ $result_tree_text{'invalid_info_menu_entry'} = '*document_root C2
 ';
 
 
-$result_texis{'invalid_info_menu_entry'} = '@node first
+$result_texis{'invalid_info_menu_entry'} = '@node Top
 
 @menu
 * (f)@asis{a:}::
@@ -155,13 +155,15 @@ $result_texts{'invalid_info_menu_entry'} = '
 
 $result_errors{'invalid_info_menu_entry'} = '';
 
-$result_nodes_list{'invalid_info_menu_entry'} = '1|first
+$result_nodes_list{'invalid_info_menu_entry'} = '1|Top
  menus:
   (f)@asis{a:}
   (f)node
   (f)@asis{node. }
   (f)@asis{node,n}
   (f)@asis{node	n}
+ node_directions:
+  next->(f)@asis{a:}
 ';
 
 $result_sections_list{'invalid_info_menu_entry'} = '';
@@ -180,23 +182,6 @@ $result_converted{'plaintext'}->{'invalid_info_menu_entry'} = '* Menu:
 * name: (f)node	n. d3
 ';
 
-$result_converted_errors{'plaintext'}->{'invalid_info_menu_entry'} = '* W l4|menu entry node name should not contain `:\'
- warning: menu entry node name should not contain `:\'
-
-* W l5|menu entry name should not contain `:\'
- warning: menu entry name should not contain `:\'
-
-* W l6|menu entry node name should not contain `. \'
- warning: menu entry node name should not contain `. \'
-
-* W l7|menu entry node name should not contain `,\'
- warning: menu entry node name should not contain `,\'
-
-* W l8|menu entry node name should not contain `	\'
- warning: menu entry node name should not contain `	\'
-
-';
-
 
 $result_converted{'html'}->{'invalid_info_menu_entry'} = '<!DOCTYPE html>
 <html>
@@ -211,7 +196,7 @@ $result_converted{'html'}->{'invalid_info_menu_entry'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<link href="#first" rel="start" title="first">
+<link href="#Top" rel="start" title="Top">
 <style type="text/css">
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
@@ -223,7 +208,7 @@ td.menu-entry-destination {vertical-align: top}
 </head>
 
 <body>
-<h4 class="node" id="first"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
+<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <table class="menu">
 <tr><td class="menu-entry-destination">&bull; <a href="f.html#a_003a" accesskey="1">(f)a:</a>:</td><td class="menu-entry-description">
@@ -250,7 +235,7 @@ $result_converted_errors{'html'}->{'invalid_info_menu_entry'} = '* W |must speci
 ';
 
 
-$result_converted{'xml'}->{'invalid_info_menu_entry'} = '<node identifier="first"><nodename> first</nodename></node>
+$result_converted{'xml'}->{'invalid_info_menu_entry'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"></nodenext></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>(f)<asis>a:</asis></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
@@ -259,6 +244,49 @@ $result_converted{'xml'}->{'invalid_info_menu_entry'} = '<node identifier="first
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle>name</menutitle><menuseparator>: </menuseparator><menunode>(f)<asis>node,n</asis></menunode><menuseparator>. </menuseparator><menudescription><pre xml:space="preserve">d2
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle>name</menutitle><menuseparator>: </menuseparator><menunode>(f)<asis>node	n</asis></menunode><menuseparator>. </menuseparator><menudescription><pre xml:space="preserve">d3
 </pre></menudescription></menuentry></menu>
+';
+
+
+$result_converted{'info'}->{'invalid_info_menu_entry'} = Encode::encode('utf-8', 'This is , produced from .
+
+
+File: ,  Node: Top,  Next: (f)a:,  Up: (dir)
+
+* Menu:
+
+* (f)a:::
+* name:: (f)node.
+* name: (f)node. . d
+* name: (f)node,n. d2
+* name: (f)node	n. d3
+
+
+Tag Table:
+Node: Top27
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:
+');
+
+$result_converted_errors{'info'}->{'invalid_info_menu_entry'} = '* W l4|menu entry node name should not contain `:\'
+ warning: menu entry node name should not contain `:\'
+
+* W l5|menu entry name should not contain `:\'
+ warning: menu entry name should not contain `:\'
+
+* W l6|menu entry node name should not contain `. \'
+ warning: menu entry node name should not contain `. \'
+
+* W l7|menu entry node name should not contain `,\'
+ warning: menu entry node name should not contain `,\'
+
+* W l8|menu entry node name should not contain `	\'
+ warning: menu entry node name should not contain `	\'
+
 ';
 
 1;

@@ -627,6 +627,10 @@ sub format_warn_strong_note($) {
   return 1;
 }
 
+sub format_warn_info_special_chars($) {
+  return 1;
+}
+
 sub format_contents($$$) {
   my ($self, $section_root, $contents_or_shortcontents) = @_;
 
