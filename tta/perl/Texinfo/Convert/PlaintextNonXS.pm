@@ -2094,6 +2094,7 @@ sub process_printindex($$;$) {
     } else {
       my ($node_name, $width) = $self->node_name($node);
 
+      my $need_quoting;
       # protect characters that need to be protected in menu node entry
       # after menu entry name and also :, as the Info readers
       # should consider text up to : to be part of the index entry.
@@ -2110,10 +2111,17 @@ sub process_printindex($$;$) {
           $self->{'index_entry_node_colon'}->{$node_name} = 1;
         }
         if ($self->{'info_special_chars_quote'}) {
-          my $pre_quote = "\x{7f}";
-          my $post_quote = $pre_quote;
-          $node_name = $pre_quote . $node_name . $post_quote;
+          $need_quoting = 1;
         }
+      # also protect . although only '. ' ends the node name in menu,
+      # to simplify Info readers.
+      } elsif ($node_name =~ /\./ and $self->{'info_special_chars_quote'}) {
+        $need_quoting = 1;
+      }
+      if ($need_quoting) {
+        my $pre_quote = "\x{7f}";
+        my $post_quote = $pre_quote;
+        $node_name = $pre_quote . $node_name . $post_quote;
       }
       _stream_output($self, $node_name);
       $line_width += $width;

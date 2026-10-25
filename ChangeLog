@@ -1,3 +1,15 @@
+2026-10-25 Patrice Dumas  <pertusus@free.fr>
+
+	protect . in node name in index
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_process_printindex),
+	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (process_printindex):
+	protect . although only '. ' ends the node name in printindex menu,
+	to simplify Info readers.  From Eli.
+
+	* tta/perl/t/info_tests.t (punctuation_in_node_name_in_printindex),
+	tta/perl/t/test_files_generated_list.txt: add test.
+
 2026-10-25  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Info Format Cross Reference): Remove

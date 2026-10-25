@@ -650,6 +650,32 @@ Text
 
 @printindex cp
 '],
+['punctuation_in_node_name_in_printindex',
+'@node top
+@top Element top
+
+@node dot.no space
+@chapter dot.no space
+
+@cindex aa dnsp
+
+@node dot. space
+@chapter dot. space
+
+@cindex bb dsp
+
+@node comma@comma{}no space
+@chapter comma,no space
+
+@cindex cc cnsp
+
+@node comma@comma{} space
+@chapter comma, space
+
+@cindex dd csp
+
+@printindex cp
+'],
 ['test_index',
 '@node Top
 @top Element top

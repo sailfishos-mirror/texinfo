@@ -1627,6 +1627,7 @@ t/results/info_tests/paragraphindent_none_first.pl
 t/results/info_tests/paragraphindent_not_in_preamble.pl
 t/results/info_tests/parenthesis_in_node_name_explicit_refs.pl
 t/results/info_tests/parenthesis_in_node_name_implicit_refs.pl
+t/results/info_tests/punctuation_in_node_name_in_printindex.pl
 t/results/info_tests/pxref_test.pl
 t/results/info_tests/quote_node_names_info.pl
 t/results/info_tests/quote_node_names_info/res_info/nodequote.info

@@ -2986,6 +2986,16 @@ plaintext_process_printindex (CONVERTER *self,
 
                   break;
                 }
+
+            /* also protect . although only '. ' ends the node name in menu,
+               to simplify Info readers. */
+              if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0
+                  && !quoting_required)
+                {
+                  const char *q = strpbrk (node_name_width.string.text, ".");
+                  if (q)
+                    quoting_required = 1;
+                }
             }
 
           if (quoting_required)
