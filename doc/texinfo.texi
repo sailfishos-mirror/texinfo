@@ -25330,7 +25330,7 @@ File: <fn>, Node: <id1>, (Next: <id2>, )? (Prev: <id3>, )? Up: <id4>
 @noindent
 At least one space or tab must be present after each colon and comma,
 but any number of spaces are ignored.  The @t{<id>} node identifiers and
-@t{<fn>} have following format:
+@t{<fn>} have the following syntax:
 
 @example
    <id> = (<lparen><infofile><rparen>)?<node-spec>?
