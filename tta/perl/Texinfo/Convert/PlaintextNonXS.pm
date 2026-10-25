@@ -4148,14 +4148,14 @@ sub _convert($$) {
           delete $self->{'formatters'}->[-1]->{'suppress_styles'};
           delete $self->{'formatters'}->[-1]->{'no_added_eol'};
 
-          $pre_quote = $post_quote = '';
+          my $need_quoting;
 
           # Quote a node beginning with a parenthesis that is not an external
           # name.  Happens for nodes added for sectioning commands.
           if (substr($node_text, 0, 1) eq '('
               and !exists($menu_entry_node->{'extra'}->{'manual_content'})) {
             if ($self->{'info_special_chars_quote'}) {
-              $pre_quote = $post_quote = "\x{7f}";
+              $need_quoting = 1;
             }
           }
 
@@ -4167,8 +4167,13 @@ sub _convert($$) {
                                $element->{'source_info'});
               }
               if ($self->{'info_special_chars_quote'}) {
-                $pre_quote = $post_quote = "\x{7f}";
+                $need_quoting = 1;
               }
+            # also protect . although only '. ' ends the node name in menu,
+            # to simplify Info readers.
+            } elsif ($node_text =~ /\./
+                     and $self->{'info_special_chars_quote'}) {
+              $need_quoting = 1;
             }
           } else {
             if ($node_text =~ /:/) {
@@ -4178,11 +4183,21 @@ sub _convert($$) {
                                $element->{'source_info'});
               }
               if ($self->{'info_special_chars_quote'}) {
-                $pre_quote = $post_quote = "\x{7f}";
+                $need_quoting = 1;
               }
             }
           }
-          _stream_output($self, $pre_quote.$node_text.$post_quote);
+          if ($need_quoting) {
+            my $node_quote = "\x{7f}";
+            my $added_new_line = '';
+            if (chomp($node_text)) {
+              $added_new_line = "\n";
+            }
+            _stream_output($self, $node_quote.$node_text.$node_quote
+                                  .$added_new_line);
+          } else {
+            _stream_output($self, $node_text);
+          }
         } elsif ($content->{'type'} eq 'menu_entry_name') {
           # Flush output so not to include in name text
           _stream_output_count_nl($self,

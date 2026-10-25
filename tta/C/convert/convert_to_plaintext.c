@@ -6309,12 +6309,34 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                           if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
                             node_quoting_required = 1;
                         }
+             /* also protect . although only '. ' ends the node name in menu,
+                to simplify Info readers. */
+                      if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0
+                          && entry_name_seen && !node_quoting_required)
+                        {
+                          const char *q = strpbrk (node_text.text, ".");
+                          if (q)
+                            node_quoting_required = 1;
+                        }
                     }
                   if (node_quoting_required)
-                    stream_output_n (self, node_quote, 1);
-                  stream_output_n (self, node_text.text, node_text.end);
-                  if (node_quoting_required)
-                    stream_output_n (self, node_quote, 1);
+                    {
+                      stream_output_n (self, node_quote, 1);
+                      if (node_text.text[node_text.end -1] == '\n')
+                        {
+                          stream_output_n (self, node_text.text,
+                                           node_text.end -1);
+                          stream_output_n (self, node_quote, 1);
+                          stream_output_n (self, "\n", 1);
+                        }
+                      else
+                        {
+                          stream_output_n (self, node_text.text, node_text.end);
+                          stream_output_n (self, node_quote, 1);
+                        }
+                    }
+                  else
+                    stream_output_n (self, node_text.text, node_text.end);
 
                   free (node_text.text);
                 }

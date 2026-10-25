@@ -36,10 +36,10 @@ blah:blah.
 * Menu:
 
 * blah:blah::
-* the topic:blumpty.fump.
+* the topic:blumpty.fump.
 * normal node::
 * funny:label:secret,node.
-* (man:u.al)ext::
+* (man:u.al)ext::
 
 
 File: nodequote.info,  Node: blah:blah,  Next: blumpty.fump,  Prev: Top,  Up: Top
@@ -75,11 +75,11 @@ stuff here.
 
 Tag Table:
 Node: Top55
-Node: blah:blah869
-Node: blumpty.fump992
-Node: normal node1116
-Node: secret,node1276
-Node: top secret node1381
+Node: blah:blah873
+Node: blumpty.fump996
+Node: normal node1120
+Node: secret,node1280
+Node: top secret node1385
 
 End Tag Table
 

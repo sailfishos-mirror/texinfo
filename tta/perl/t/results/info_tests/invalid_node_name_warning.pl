@@ -233,8 +233,7 @@ File: ,  Node: Top,  Next: nodename. a,  Up: (dir)
 
 * Menu:
 
-* truc:: nodename. a
-
+* truc:: nodename. a
 * machin: node,comma, def
 * bidule:::
 
@@ -252,9 +251,9 @@ File: ,  Node: bidule:,  Prev: node,comma,  Up: Top
 
 Tag Table:
 Node: Top27
-Node: nodename. a159
-Node: node,comma232
-Node: bidule:309
+Node: nodename. a158
+Node: node,comma231
+Node: bidule:308
 
 End Tag Table
 
