@@ -1,5 +1,11 @@
 2026-10-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Info Format Cross Reference): Revert recent
+	change discussion what texi2any should do.  This appendix is not
+	about the behaviour of texi2any.
+
+2026-10-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Info Format Regular Nodes):
 	Restore some of previous wording.  Discuss file name in split
 	manual.  Remove unnecessary word "parenthesized".  Do not state
