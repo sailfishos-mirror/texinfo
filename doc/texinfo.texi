@@ -25530,7 +25530,6 @@ A general cross-reference in Info format has one of the following two forms:
 @example
     <cross-reference> =
   * (N|n)ote <id>::
-@c| * (N|n)ote <label>:<id>(.|,)?
 | * (N|n)ote <label>:<id>(.|,)
 
     <id> = (<lparen><infofile><rparen>)?<node-spec>?

@@ -1,5 +1,11 @@
 2026-10-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Info Format Cross Reference): Remove
+	commented-out line from syntax specification showing terminating
+	comma or period as optional.
+
+2026-10-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Info Format Cross Reference): Strengthen
 	language to imply that a terminating comma or period should always
 	be used, by removing the word "usually".
