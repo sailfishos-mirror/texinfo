@@ -2,6 +2,14 @@
 
 	Revise documentation of @top
 
+	* doc/texinfo.texi (The Top Node): Add introductory text
+	introducing the word "node".  Add TODO saying that what introduces
+	the Top node needs to be looked at.
+
+2026-10-26  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Revise documentation of @top
+
 	* doc/texinfo.texi (First Node, The Top Node):
 	Eliminate documentation of "First Node" and merge into
 	"The Top Node".

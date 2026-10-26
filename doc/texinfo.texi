@@ -1993,11 +1993,17 @@ main text of the document.
 @anchor{Top Node Example}@c
 @anchor{First Node}@c merged node
 
-The first node of a Texinfo file is the @dfn{Top} node, except in an
-included file (@pxref{Include Files}).  The `Top' node is part of the
-file that you can use to introduce the manual.  It should contain a very
-brief description of the manual (including the version number, if there
-is one).  For example:
+A Texinfo manual, following the preamble, consists of subdivisions called
+@dfn{nodes}.
+
+@c TODO: check with texinfo.tex and texi2any what exactly introduces
+@c the Top node - is @top on its own enough without "@node Top", and does this
+@c create a "Top" xref target?  What about "@node Top" without @top?
+
+The first node is the @dfn{Top} node.  The `Top' node is part of
+the file that you can use to introduce the manual.  It should contain
+a very brief description of the manual (including the version number,
+if there is one).  For example:
 
 @cindex Top node example
 @example
