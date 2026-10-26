@@ -19126,7 +19126,7 @@ links to most GNU manuals; therefore @code{TOP_NODE_UP_URL} is best
 specified as @code{/manual/} if the manual will be installed on
 @code{www.gnu.org}.
 
-@xref{First Node} for more about the Top node pointers.
+@xref{Top Node Pointers} for more about the Top node pointers.
 
 @item images links
 @vindex IMAGE_LINK_PREFIX
@@ -20104,7 +20104,7 @@ A URL used for Top node up references; the default is
 For overriding the Up pointer name in case @code{TOP_NODE_UP_URL} is set and
 for other formats, see @code{TOP_NODE_UP} in @ref{Customization Variables for
 Multiple Formats}.  @xref{File Names and Links Customization for HTML}.  For
-more about the Top node pointers, @pxref{First Node}.
+more about the Top node pointers, @pxref{Top Node Pointers}.
 
 @cindex @code{accesskey} @subentry customization variable for
 @item USE_ACCESSKEY
