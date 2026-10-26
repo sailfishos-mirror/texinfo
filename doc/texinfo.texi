@@ -2165,16 +2165,17 @@ Beginning a Texinfo File
 
 
 @node The Body of the Document
-@nodedescription The rest of the manual.
+@nodedescription The rest of the nodes.
 @section The Body of the Document
 
 @cindex Frontmatter, text in
 The body segment contains all the text of the document.
-A manual is divided one or more chapters, sections or smaller divisions
-using chapter structuring commands (@pxref{Chapter Structuring}).
+A manual is divided one or more nodes using chapter structuring commands
+(@pxref{Chapter Structuring}).
 
-The example illustrates a chapter with introductory material, followed
-by two sections.  The introductory material contains an enumerated list.
+The example illustrates a chapter made of three nodes, one for
+introductory material in the chapter, and two sections.  The introductory
+material contains an enumerated list.
 
 @example
 @group

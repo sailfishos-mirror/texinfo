@@ -1,5 +1,12 @@
 2026-10-26  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (The Body of The Document): Partly revert changes
+	made to this node on 2026-10-15, as we are happy to say that a
+	@section creates a "node" in a Texinfo file even without a @node
+	command being used.  Patrice, bug-texinfo, 2026-10-16.
+
+2026-10-26  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Revise documentation of @top
 
 	* doc/texinfo.texi (The Top Node): Add introductory text
