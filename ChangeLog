@@ -1,5 +1,11 @@
 2026-10-26  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (First Node, Top Node Pointers):
+	Create new node "Top Node Pointers" as subsection of "The Top Node",
+	containing text removed from "First Node".
+
+2026-10-26  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Revise documentation of @top
 
 	* doc/texinfo.texi (First Node, @code{@@top} Command):

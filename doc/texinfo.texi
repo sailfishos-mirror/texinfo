@@ -2035,6 +2035,61 @@ This is a short sample Texinfo file.
 @end group
 @end example
 
+@node Top Node Pointers
+@subsection Top Node Pointers
+
+Here is a description of the node pointers to be used in the Top node:
+
+@itemize @bullet
+@item
+@cindex Up node of Top node
+@cindex (dir) as Up node of Top node
+The Top node (which must be named @samp{top} or @samp{Top}) should have
+as its `Up' node the name of a node in another file, where there is a
+menu that leads to this file.  Specify the file name in parentheses.
+
+Usually, all Info files are available through a single virtual Info
+tree, constructed from multiple directories.  In this case, use
+@samp{(dir)} as the parent of the Top node; this specifies the
+top-level node in the @file{dir} file, which contains the main menu
+for the Info system as a whole.  (Each directory with Info files is
+intended to contain a file named @file{dir}.)
+
+That's fine for Info, but for HTML output, one might well want the Up
+link from the Top node to go to some specific place.
+For example, for GNU the natural place would be
+@url{https://www.gnu.org/manual/} (a web page collecting links to most
+GNU manuals), better specified as just @code{/manual/} if the manual
+will be installed on @code{www.gnu.org}.  This can be specified with
+the @code{TOP_NODE_UP_URL} customization variable (@pxref{File Names
+and Links Customization for HTML}), as in
+
+@example
+$ @kbd{texi2any --html -c TOP_NODE_UP_URL=/manual/} ...
+@end example
+
+@c the following line is not true anymore
+@c All links to @code{(dir)} will be replaced by the given url.
+
+@item
+@cindex Prev node of Top node
+The `Prev' node of the Top node is usually omitted.
+
+@item
+@cindex Next node of Top node
+The `Next' node of the Top node should be the first chapter in your
+document.
+
+@end itemize
+
+It is usually best to leave the pointers off entirely and let the
+tools implicitly define them, with this simple result:
+
+@example
+@@node Top
+@end example
+
+
 
 @node Master Menu Parts
 @subsection Parts of a Master Menu
@@ -3074,57 +3129,6 @@ a short summary and a master menu.
 
 Straight text before the Top node outside of any node should be avoided.
 Such text, if present, is not output for DocBook.
-
-Here is a description of the node pointers to be used in the Top node:
-
-@itemize @bullet
-@item
-@cindex Up node of Top node
-@cindex (dir) as Up node of Top node
-The Top node (which must be named @samp{top} or @samp{Top}) should have
-as its `Up' node the name of a node in another file, where there is a
-menu that leads to this file.  Specify the file name in parentheses.
-
-Usually, all Info files are available through a single virtual Info
-tree, constructed from multiple directories.  In this case, use
-@samp{(dir)} as the parent of the Top node; this specifies the
-top-level node in the @file{dir} file, which contains the main menu
-for the Info system as a whole.  (Each directory with Info files is
-intended to contain a file named @file{dir}.)
-
-That's fine for Info, but for HTML output, one might well want the Up
-link from the Top node to go to some specific place.
-For example, for GNU the natural place would be
-@url{https://www.gnu.org/manual/} (a web page collecting links to most
-GNU manuals), better specified as just @code{/manual/} if the manual
-will be installed on @code{www.gnu.org}.  This can be specified with
-the @code{TOP_NODE_UP_URL} customization variable (@pxref{File Names
-and Links Customization for HTML}), as in
-
-@example
-$ @kbd{texi2any --html -c TOP_NODE_UP_URL=/manual/} ...
-@end example
-
-@c the following line is not true anymore
-@c All links to @code{(dir)} will be replaced by the given url.
-
-@item
-@cindex Prev node of Top node
-The `Prev' node of the Top node is usually omitted.
-
-@item
-@cindex Next node of Top node
-The `Next' node of the Top node should be the first chapter in your
-document.
-
-@end itemize
-
-It is usually best to leave the pointers off entirely and let the
-tools implicitly define them, with this simple result:
-
-@example
-@@node Top
-@end example
 
 
 @node Texinfo Document Structure
