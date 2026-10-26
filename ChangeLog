@@ -1,5 +1,15 @@
 2026-10-26  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Revise documentation of @top
+
+	* doc/texinfo.texi (First Node, @code{@@top} Command):
+	Move xref to "The Top Node" chapter to "@top Command" node, in
+	preparation for eliminating "First Node" node.
+	(First Node): Remove seemingly irrelevant xref to "Installing an
+	Info File".
+
+2026-10-26  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Move "@top Command" node
 
 	* doc/texinfo.texi (@code{@@top} Command):

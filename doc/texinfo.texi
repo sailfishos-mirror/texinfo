@@ -2372,7 +2372,9 @@ Texinfo file.  If there is no node before the command, @command{texi2any}
 will output the file as if a @samp{@@node Top} line was present for Info,
 HTML and plaintext output.
 
-It produces the same sort of output as @code{@@unnumbered}
+@xref{The Top Node} for more information on the Top node contents and examples.
+
+@code{@@top} produces the same sort of output as @code{@@unnumbered}
 (@pxref{@code{@@unnumbered @@appendix}}).  In @LaTeX{} @code{\part*} is used.
 
 @code{@@top} is ignored when raising or lowering sections.  That is,
@@ -3068,11 +3070,10 @@ single space.  For example:
 
 The first node of a Texinfo file is the @dfn{Top} node, except in an
 included file (@pxref{Include Files}).  The Top node should contain
-a short summary and a master menu.  @xref{The Top Node} for more
-information on the Top node contents and examples.  Straight text
-before the Top node outside of any node should be avoided.  Such
-text, if present, is not output for DocBook.
+a short summary and a master menu.
 
+Straight text before the Top node outside of any node should be avoided.
+Such text, if present, is not output for DocBook.
 
 Here is a description of the node pointers to be used in the Top node:
 
@@ -3117,9 +3118,6 @@ The `Next' node of the Top node should be the first chapter in your
 document.
 
 @end itemize
-
-@xref{Installing an Info File}, for more information about installing
-an Info file in the @file{info} directory.
 
 It is usually best to leave the pointers off entirely and let the
 tools implicitly define them, with this simple result:
