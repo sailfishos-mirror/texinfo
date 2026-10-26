@@ -1184,7 +1184,7 @@ label, built as specified in the I<HTML Xref> Texinfo documentation node.
 
 =begin comment
 
-FIXME relations are separate.
+TODO documentation: relations are separate.
 
 If you called L<Texinfo::Structuring::construct_nodes_tree|Texinfo::Structuring/construct_nodes_tree($document)>,
 the I<node_directions> hash in the nodes relations associates I<up>,
@@ -1213,7 +1213,7 @@ The I<indent> or I<noindent> key value is set if the corresponding
 
 =begin comment
 
-FIXME relations are separate.
+TODO documentation: relations are separate.
 
 =item C<@part>
 
@@ -1254,7 +1254,7 @@ determined by L<< C<Texinfo::Structuring::sectioning_structure>|Texinfo::Structu
 
 =begin comment
 
-FIXME relations are separate.
+TODO documentation: relations are separate.
 
 The node preceding the command is in I<associated_node>.
 The part preceding the command is in I<associated_part>.

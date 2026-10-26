@@ -2057,8 +2057,6 @@ while (@input_files) {
     Texinfo::Structuring::number_floats($document);
   }
 
-  #Texinfo::Document::rebuild_document($document);
-
   # parser errors
   my $errors = $document->parser_errors();
   # document/structuring errors

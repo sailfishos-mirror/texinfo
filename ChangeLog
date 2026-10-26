@@ -1,5 +1,29 @@
 2026-10-26 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/InfoNonXS.pm (output): remove a FIXME
+	already handled, as seen in:
+	https://lists.gnu.org/archive/html/bug-texinfo/2026-08/msg00034.html
+	Change a FIXME to a NOTE.
+
+	* tta/perl/t/init/translated_strings_customization.pm: remove obsolete
+	FIXME.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm: move comment related to @U,
+	relocate FIXME on UTF-8 and fontenc to the association of encoding
+	with fontenc, update comments.
+	Change a FIXME to NOTE.  Change a FIXME to a TODO to remove first
+	@*ref argument possibility to be an external node.
+
+	* tta/perl/Texinfo/Parser.pm: change documentation FIXME to TODO.
+
+	* tta/perl/t/z_misc/do_master_menu.t: change FIXMEs to NOTEs.
+
+	* tta/perl/t/init/stage_handler_undef_return.pm,
+	tta/perl/t/init/stage_handler_bad_return.pm: change formatting of
+	function beginning.
+
+2026-10-26 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/test_utils.pl: remove unused protect_non_ascii.
 
 2026-10-26  Gavin Smith <gavinsmith0123@gmail.com>

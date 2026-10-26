@@ -130,7 +130,7 @@ my $nodes_list = $document->nodes_list();
 my $top_node = $identifier_target->{'Top'};
 my $top_node_structure
   = $nodes_list->[$top_node->{'extra'}->{'node_number'} -1];
-# FIXME does not test the XS code
+# NOTE does not test the XS code
 my $master_menu = Texinfo::Structuring::new_detailmenu(undef,
                                         undef, $document,
                                         $identifier_target, $nodes_list,
@@ -180,7 +180,7 @@ $nodes_list = $document->nodes_list();
 $top_node = $identifier_target->{'Top'};
 $top_node_structure
   = $nodes_list->[$top_node->{'extra'}->{'node_number'} -1];
-# FIXME does not test the XS code
+# NOTE does not test the XS code
 $master_menu = Texinfo::Structuring::new_detailmenu(undef,
                                           undef, $document,
                                           $identifier_target, $nodes_list,
@@ -188,11 +188,11 @@ $master_menu = Texinfo::Structuring::new_detailmenu(undef,
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($master_menu);
 is($out, $reference, 'master menu no detailmenu');
 
+# There are XS interfaces for the following codes, such that C is tested
 $parser = Texinfo::Parser::parser();
 $document = $parser->parse_text($in_detailmenu);
 Texinfo::Structuring::associate_internal_references($document);
 Texinfo::Transformations::regenerate_master_menu($document);
-#Texinfo::Document::rebuild_document($document);
 my $tree = $document->tree();
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
@@ -204,7 +204,6 @@ $parser = Texinfo::Parser::parser();
 $document = $parser->parse_text($no_detailmenu);
 Texinfo::Structuring::associate_internal_references($document);
 Texinfo::Transformations::regenerate_master_menu($document);
-#Texinfo::Document::rebuild_document($document);
 $tree = $document->tree();
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 

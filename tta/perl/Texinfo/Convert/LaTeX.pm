@@ -751,7 +751,7 @@ register_style_format_command('cmd_text', 'kbd',
                         '\\ttfamily\\textsl', \%LaTeX_style_brace_commands,
                         \%style_brace_format_command_new_commands);
 
-# FIXME headitemfont
+# FIXME do something adapted for headitemfont
 my @asis_commands = ('asis', 'clicksequence', 'headitemfont');
 
 foreach my $asis_command (@asis_commands) {
@@ -940,18 +940,11 @@ sub conversion_initialization($;$) {
 
   %{$self->{'quotes_map'}} = %quotes_map;
 
-  # The Perl output encoding is ignored here, it is determined for each
-  # output file.
+  # The Perl output encoding is ignored here.  It is not needed here because
+  # it is determined for each output file anyway.
   (undef, $self->{'output_encoding_name'})
     = Texinfo::Common::processing_output_encoding(
                     $self->get_conf('OUTPUT_ENCODING_NAME'));
-  # this condition means that there is no way to turn off
-  # @U expansion to utf-8 characters even though this
-  # could output characters that are not known in the
-  # fontenc and will lead to an error.
-  # This is described in the Texinfo manual, but not in
-  # in a precise way.
-  # FIXME add a customization variable?  Use a fontenc with more points?
   if ($self->{'output_encoding_name'}
       and $self->{'output_encoding_name'} eq 'utf-8') {
     # cache this to avoid redoing calls to get_conf
@@ -1381,6 +1374,9 @@ sub convert_to_latex_math($$;$$) {
 
 # associates to an inputenc and fontenc
 my %LaTeX_encoding_names_map = (
+  # FIXME the T1 fontenc does not contain all of UTF-8, while all could
+  # be there either directly as characters or from @U expansion.  Use a fontenc
+  # with more coverage?
   'utf-8' => ['utf8', 'T1'],
   # from https://ctan.gutenberg-asso.fr/macros/latex/base/inputenc.pdf
   # The ASCII encoding only allows characters in the range 32-127,
@@ -1575,7 +1571,7 @@ sub _latex_header($) {
   }
   if (exists($self->{'index_entries'})
       and scalar(keys(%{$self->{'index_entries'}}))) {
-    # FIXME with noclearpage looks more like regular Texinfo output, as indices
+    # NOTE with noclearpage looks more like regular Texinfo output, as indices
     # are output in the flow of the text, not as separate chapter/section-like
     # elements.  However, with noclearpage, the index may not be output if
     # it is at the end of the file, for example in latex_tests indices test.
@@ -3772,11 +3768,9 @@ sub _convert($$) {
         }
 
         my $file_element;
-        # FIXME not sure if Texinfo TeX uses the external node manual
-        # specified as part of the node name with manual name prepended
-        # in parentheses
         if (defined($args[3])) {
           $file_element = $args[3];
+        # TODO this should not happen anymore, remove
         } elsif ($node_arg and $node_arg->{'extra'}
                  and defined($node_arg->{'extra'}->{'normalized'})
                  and exists($node_arg->{'extra'}->{'manual_content'})) {
@@ -3875,7 +3869,7 @@ sub _convert($$) {
                 $self->{'normalized_nodes_associated_section'}->{$normalized_name}
                   = $section_command;
               } elsif (not defined($current->{'parent'})) {
-                # that means that it is an anchor, but we did not find an root
+                # that means that it is an anchor, but we did not find a root
                 # sectioning command nor 'before_node_section' type, which
                 # should not be possible.
                 print STDERR "BUG/TODO assoc ".$reference->{'cmdname'}
@@ -4234,6 +4228,13 @@ sub _convert($$) {
           # character does not mean that LaTeX will be able to process it.
           my $res;
           if ($self->{'to_utf8'}) {
+            # There is no way to turn off @U expansion to utf-8
+            # characters if encoding output is utf-8 even though this
+            # could output characters that are not known in the
+            # fontenc and will lead to an error.  This is not specific
+            # of @U, this also happens with characters already UTF-8 encoded
+            # that are not known in the fontenc.
+            # This is described in the Texinfo manual.
             my $possible_conversion
             = Texinfo::Convert::Unicode::check_unicode_point_conversion(
                                                   $arg_text, $self->{'debug'});

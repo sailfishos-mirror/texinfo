@@ -261,7 +261,6 @@ sub output($$) {
         }
       }
       if (exists($lang_info->{'variants'})) {
-        # FIXME use - or ', ' as delimiter?
         $preamble_documentlanguagevariant
           = join('-', @{$lang_info->{'variants'}});
       }
@@ -506,9 +505,9 @@ sub output($$) {
     }
   }
 
-  # FIXME we assume ASCII compatible encoding in the Info format, the labels
+  # NOTE we assume ASCII compatible encoding in the Info format, the labels
   # and numbers are not encoded.  Also the coding information is at the end
-  # which make it difficult to fix that.
+  # which make it difficult to switch encodings early when reading the file.
   $tag_text .= "\x{1F}\nTag Table:\n";
   if ($out_file_nr > 1) {
     $tag_text .=  "(Indirect)\n";
