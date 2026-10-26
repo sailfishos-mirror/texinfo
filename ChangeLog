@@ -1,5 +1,13 @@
 2026-10-26  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Revise documentation of @top
+
+	* doc/texinfo.texi (The Top Node): Edit to remove @menu from our
+	example of a "Top" node.  Cross-reference "Master Menu Parts" if
+	the reader is interested in using a @menu inside the "Top" node.
+
+2026-10-26  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (First Node, Top Node Pointers):
 	Create new node "Top Node Pointers" as subsection of "The Top Node",
 	containing text removed from "First Node".

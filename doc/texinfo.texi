@@ -1994,7 +1994,15 @@ main text of the document.
 
 The `Top' node is part of the file that you can use to introduce the
 manual.  It should contain a very brief description of the manual
-(including the version number).
+(including the version number, if there is one).  For example:
+
+@cindex Top node example
+@example
+@@node Top
+@@top Short Sample
+
+This is a short sample Texinfo file.
+@end example
 
 In Info output, it is the the default node in which a reader enters the
 manual.  Likewise in HTML, the contents of the `Top' node appear before
@@ -2014,26 +2022,10 @@ In the Info output (and sometimes HTML output), the `Top' node usually
 contains a top-level @dfn{menu} listing the chapters, and possibly a
 @dfn{detailed menu} listing all the nodes in the entire document.  It
 is not usually necessary to give such a menu in the Texinfo source, as
-@command{texi2any} generates these menus automatically.  However, the
-following example shows how you would use the @code{@@menu} command to
-give a menu in the `Top' node:
+@command{texi2any} generates these menus automatically.  @xref{Master
+Menu Parts} for how you would specify the contents of such a menu
+explicitly.
 
-
-@cindex Top node example
-@example
-@@node Top
-@@top Short Sample
-
-This is a short sample Texinfo file.
-
-@group
-@@menu
-* First Chapter::    The first chapter is the
-                       only chapter in this sample.
-* Index::            Complete index.
-@@end menu
-@end group
-@end example
 
 @node Top Node Pointers
 @subsection Top Node Pointers
