@@ -40,10 +40,6 @@ by
 \usepackage{unicode-math}
 
 
-Add breadcrumbs navigation to NEWS?
-Document init files? (asked on the mailing list).
-chm.pm is already in the manual.
-
 Bugs
 ====
 

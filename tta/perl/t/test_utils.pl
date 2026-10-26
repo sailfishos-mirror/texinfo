@@ -277,39 +277,6 @@ sub protect_encode_string($) {
   return Encode::encode('utf-8', $protected);
 }
 
-# protect non ascii characters and special Perl characters in double quotes,
-# such that the resulting string is ASCII but contains the same encoded
-# information.
-# FIXME Unused.  Remove when it is clear that there is no issue with the
-# current way to deal with Info strings.
-sub protect_non_ascii($) {
-  my $text = shift;
-
-  my $result = '';
-  while ($text ne '') {
-    # the character put in that regex are for efficiency (assuming that one
-    # regex that catch more is more efficient than going through each
-    # character) as they are caught below as ASCII characters
-    if ($text =~ s/^([A-Za-z0-9 ,.:*_;?!\/(){}|=+&%<>`]+)//) {
-      $result .= $1;
-    } elsif ($text =~ s/^(.)//s) {
-      # protecting ' is probably unneeded
-      if ($1 eq '\\' or $1 eq "'" or $1 eq '"' or $1 eq '@' or $1 eq '$') {
-        $result .= '\\' .$1;
-      } elsif ($1 eq "\r") {
-        # probably not strictly needed, but possibly safer, and more readable
-        $result .= "\\r";
-      } elsif (ord($1) <= 127) {
-        # other ASCII characters
-        $result .= $1;
-      } else {
-        $result .= '\\x' . lc(sprintf("%02x",ord($1)));
-      }
-    }
-  }
-  return $result;
-}
-
 sub new_test($;$$$) {
   my ($name, $generate, $debug, $test_formats) = @_;
 
