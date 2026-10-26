@@ -2,6 +2,14 @@
 
 	Revise documentation of @top
 
+	* doc/texinfo.texi (First Node, The Top Node):
+	Eliminate documentation of "First Node" and merge into
+	"The Top Node".
+
+2026-10-26  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Revise documentation of @top
+
 	* doc/texinfo.texi (File Names and Links Customization for HTML),
 	(HTML Customization Variables List):
 	Update xrefs to "First Node" to point to "Top Node Pointers" instead.

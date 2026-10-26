@@ -1986,15 +1986,18 @@ main text of the document.
 
 
 @node The Top Node
-@nodedescription Creating the `Top' node
+@nodedescription How to write a `Top' node.
 @section The `Top' Node
 @cindex Top node
 @cindex Node, @samp{Top}
 @anchor{Top Node Example}@c
+@anchor{First Node}@c merged node
 
-The `Top' node is part of the file that you can use to introduce the
-manual.  It should contain a very brief description of the manual
-(including the version number, if there is one).  For example:
+The first node of a Texinfo file is the @dfn{Top} node, except in an
+included file (@pxref{Include Files}).  The `Top' node is part of the
+file that you can use to introduce the manual.  It should contain a very
+brief description of the manual (including the version number, if there
+is one).  For example:
 
 @cindex Top node example
 @example
@@ -2003,6 +2006,9 @@ manual.  It should contain a very brief description of the manual
 
 This is a short sample Texinfo file.
 @end example
+
+Straight text before the Top node outside of any node should be avoided.
+Such text, if present, is not output for DocBook.
 
 In Info output, it is the the default node in which a reader enters the
 manual.  Likewise in HTML, the contents of the `Top' node appear before
@@ -2019,8 +2025,8 @@ the @samp{@@copying} text, but there's no need to repeat the copyright
 information, so we don't use @samp{@@insertcopying} here.
 
 In the Info output (and sometimes HTML output), the `Top' node usually
-contains a top-level @dfn{menu} listing the chapters, and possibly a
-@dfn{detailed menu} listing all the nodes in the entire document.  It
+contains a top-level @dfn{master menu} listing the chapters, and possibly
+a @dfn{detailed menu} listing all the nodes in the entire document.  It
 is not usually necessary to give such a menu in the Texinfo source, as
 @command{texi2any} generates these menus automatically.  @xref{Master
 Menu Parts} for how you would specify the contents of such a menu
@@ -3107,20 +3113,6 @@ single space.  For example:
 
 @noindent all define the same node, namely @samp{foo bar}.
 @end itemize
-
-
-@node First Node
-@nodedescription How to write a `Top' node.
-@section The First Node
-@cindex Top node is first
-@cindex First node
-
-The first node of a Texinfo file is the @dfn{Top} node, except in an
-included file (@pxref{Include Files}).  The Top node should contain
-a short summary and a master menu.
-
-Straight text before the Top node outside of any node should be avoided.
-Such text, if present, is not output for DocBook.
 
 
 @node Texinfo Document Structure
