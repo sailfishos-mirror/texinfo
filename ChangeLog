@@ -1,3 +1,14 @@
+2026-10-26  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Move "@top Command" node
+
+	* doc/texinfo.texi (@code{@@top} Command):
+	Move node to "Chapter Structuring" chapter, before "@chapter".
+	Suggestion from Patrice.
+	
+	Note there was formerly a node in this location before change
+	on 2012-06-29 (Karl Berry, git ref fb924a20f9db7).
+
 2026-10-25 Patrice Dumas  <pertusus@free.fr>
 
 	protect node name with leading parenthesis in index menu
