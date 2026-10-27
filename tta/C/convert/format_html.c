@@ -8039,9 +8039,7 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
   if (cmd != CM_inforef && !book && !file && arg_node)
     {
       const char *normalized = lookup_extra_string (arg_node, AI_key_normalized);
-      const ELEMENT *manual_content = lookup_extra_container (arg_node,
-                                                      AI_key_manual_content);
-      if (normalized && !manual_content)
+      if (normalized)
         {
           target_node = find_identifier_target (
                                   &self->document->identifiers_target,
@@ -8216,7 +8214,6 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
     node argument to be able to use the $file argument */
 
       ELEMENT *label_element = 0;
-      ELEMENT *manual_content = 0;
       ELEMENT *node_content = 0;
 
       if (arg_node)
@@ -8235,35 +8232,12 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
             }
         }
 
- /* file argument takes precedence over the file in the node (file)node entry */
       if (file)
         {
           if (!label_element)
             label_element = new_element (ET_NONE);
           add_extra_container (label_element, AI_key_manual_content,
                                copy_container_contents (file_arg->arg_tree));
-        }
-      else
-        {
-          manual_content = lookup_extra_container (arg_node,
-                                                 AI_key_manual_content);
-        }
-
-      if (manual_content)
-        {
-          TEXT text;
-          if (!label_element)
-            label_element = new_element (ET_NONE);
-
-          add_extra_container (label_element, AI_key_manual_content,
-                               copy_container_contents (manual_content));
-
-          /* convert the manual part to file string */
-          html_set_code_context (self, 1);
-          text = html_convert_tree_explanation (self, manual_content,
-                                                "node file in ref");
-          file = text.text;
-          html_pop_code_context (self);
         }
 
       if (!name)

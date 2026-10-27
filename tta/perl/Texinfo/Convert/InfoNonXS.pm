@@ -811,7 +811,6 @@ sub format_ref($$$) {
   }
 
   if (exists($node_arg->{'extra'})
-      and !exists($node_arg->{'extra'}->{'manual_content'})
       # exclude external nodes, as only internal refs get an extra normalized
       and defined($node_arg->{'extra'}->{'normalized'})
       # exclude external nodes again, in case internal refs get normalized

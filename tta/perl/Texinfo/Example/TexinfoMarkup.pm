@@ -1260,21 +1260,6 @@ sub _convert($$;$) {
             Texinfo::Convert::Text::reset_options_code(
                                  $self->{'convert_text_options'});
           }
-          if (!defined($manual) and $node_arg
-              and $node_arg->{'extra'}
-              and $node_arg->{'extra'}->{'manual_content'}) {
-            Texinfo::Convert::Text::set_options_code(
-                                 $self->{'convert_text_options'});
-            Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
-                                  $self->{'convert_text_options'});
-            $manual = Texinfo::Convert::Text::convert_to_text(
-                         $node_arg->{'extra'}->{'manual_content'},
-                                   $self->{'convert_text_options'});
-            Texinfo::Convert::Text::reset_options_encoding(
-                                 $self->{'convert_text_options'});
-            Texinfo::Convert::Text::reset_options_code(
-                                 $self->{'convert_text_options'});
-          }
           if (defined($manual)) {
             my $manual_base = $manual;
             $manual_base =~ s/\.[^\.]*$//;

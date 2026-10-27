@@ -1513,8 +1513,7 @@ sub _convert($$;$) {
             my $linkend = '';
             my $node_arg = $element->{'contents'}->[0];
             if (exists($node_arg->{'extra'})
-                and defined($node_arg->{'extra'}->{'normalized'})
-                and !exists($node_arg->{'extra'}->{'manual_content'})) {
+                and defined($node_arg->{'extra'}->{'normalized'})) {
               $linkend = " linkend=\"$node_arg->{'extra'}->{'normalized'}\"";
             }
             my $link_text = $section_name;

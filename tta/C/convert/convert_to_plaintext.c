@@ -3127,9 +3127,8 @@ plaintext_format_ref (CONVERTER *self, enum command_id cmd,
     {
       const char *normalized
        = lookup_extra_string (arg_node, AI_key_normalized);
-      const ELEMENT *manual_content = lookup_extra_container (arg_node,
-                                                      AI_key_manual_content);
-      if (normalized && !manual_content)
+  /* excludes external nodes, as only internal refs get an extra normalized */
+      if (normalized)
         {
           target_element = find_identifier_target (
                                   &self->document->identifiers_target,

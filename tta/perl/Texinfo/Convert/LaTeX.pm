@@ -3770,11 +3770,6 @@ sub _convert($$) {
         my $file_element;
         if (defined($args[3])) {
           $file_element = $args[3];
-        # TODO this should not happen anymore, remove
-        } elsif ($node_arg and $node_arg->{'extra'}
-                 and defined($node_arg->{'extra'}->{'normalized'})
-                 and exists($node_arg->{'extra'}->{'manual_content'})) {
-          $file_element = $node_arg->{'extra'}->{'manual_content'};
         }
         my $filename = '';
         if ($file_element) {
@@ -3791,7 +3786,6 @@ sub _convert($$) {
         if ($cmdname ne 'inforef' and $book eq '' and $filename eq ''
             and $node_arg and $node_arg->{'extra'}
             and defined($node_arg->{'extra'}->{'normalized'})
-            and !$node_arg->{'extra'}->{'manual_content'}
             and $identifiers_target
             and $identifiers_target->{$node_arg->{'extra'}->{'normalized'}}) {
           # internal reference

@@ -4508,7 +4508,6 @@ sub _convert_xref_command($$$$) {
   if ($cmdname ne 'inforef' and !defined($book) and !defined($file)
       and defined($arg_node) and exists($arg_node->{'extra'})
       and exists($arg_node->{'extra'}->{'normalized'})
-      and !exists($arg_node->{'extra'}->{'manual_content'})
       and $self->converter_find_identifier_target(
                              $arg_node->{'extra'}->{'normalized'})) {
     my $target_node
@@ -4633,7 +4632,7 @@ sub _convert_xref_command($$$$) {
           = $arg_node->{'extra'}->{'normalized'};
       }
     }
-    # file argument takes precedence over the file in the node (file)node entry
+    # file argument
     if (defined($file)) {
       if (!$label_element) {
         $label_element = Texinfo::TreeElement::new({'extra' => {}});
@@ -4641,17 +4640,6 @@ sub _convert_xref_command($$$$) {
         $label_element->{'extra'} = {};
       }
       $label_element->{'extra'}->{'manual_content'} = $file_arg->{'arg_tree'};
-    } elsif (defined($arg_node) and exists($arg_node->{'extra'})
-             and exists($arg_node->{'extra'}->{'manual_content'})) {
-      my $manual_content = $arg_node->{'extra'}->{'manual_content'};
-      if (!defined($label_element)) {
-        $label_element = Texinfo::TreeElement::new({'extra' => {}});
-      } elsif (!exists($label_element->{'extra'})) {
-        $label_element->{'extra'} = {};
-      }
-      $label_element->{'extra'}->{'manual_content'} = $manual_content;
-      $file = $self->set_context_convert_tree($manual_content, $CTXF_code,
-                                              'node file in ref');
     }
 
     if (!defined($name)) {
