@@ -40,25 +40,25 @@ by
 \usepackage{unicode-math}
 
 
+Change "Node Line Requirements" on "node name may not start with a left
+parenthesis" to state what is quoted?  Wait a bit to know what Emacs Info
+reader support.
+
+
 Bugs
 ====
 
 To be investigated/fixed as C without libperl/Perl is more important now, as
 proposed by Gavin.
 
-Without XS, Cygwin32 fails with
-2026-10-25T10:38:56.1347576Z libtool: link: gcc -shared  convert/.libs/libtexinfo_convert_la-converter.o convert/.libs/libtexinfo_convert_la-convert_indices.o convert/.libs/libtexinfo_convert_la-cmd_converter.o convert/.libs/libtexinfo_convert_la-converters_options.o convert/.libs/libtexinfo_convert_la-convert_to_plaintext.o convert/.libs/libtexinfo_convert_la-convert_to_info.o convert/.libs/libtexinfo_convert_la-convert_html.o convert/.libs/libtexinfo_convert_la-format_html.o convert/.libs/libtexinfo_convert_la-html_converter_init_options.o convert/.libs/libtexinfo_convert_la-html_converter_finish.o convert/.libs/libtexinfo_convert_la-html_conversion_state.o convert/.libs/libtexinfo_convert_la-html_prepare_converter.o convert/.libs/libtexinfo_convert_la-html_converter_api.o convert/.libs/libtexinfo_convert_la-plaintexinfo_converter_api.o convert/.libs/libtexinfo_convert_la-plaintext_paragraph.o convert/.libs/libtexinfo_convert_la-rawtext_converter_api.o  -Wl,--whole-archive ./.libs/libcallperl_libtexinfo_convert.a -Wl,--no-whole-archive  ./.libs/libtexinfo.dll.a /cygdrive/d/a/ci-check/ci-check/texinfo-7.3.20261025dev/build/tta/C/.libs/libtexinfo.dll.a -liconv -lintl  -g -O2   -o .libs/cygtexinfo-convert-1.dll -Wl,--enable-auto-image-base -Xlinker --out-implib -Xlinker .libs/libtexinfo-convert.dll.a
-2026-10-25T10:38:56.1348171Z /usr/lib/gcc/i686-pc-cygwin/11/../../../../i686-pc-cygwin/bin/ld: convert/.libs/libtexinfo_convert_la-converter.o: in function `free_output_unit_files_file':
-2026-10-25T10:38:56.1348562Z /cygdrive/d/a/ci-check/ci-check/texinfo-7.3.20261025dev/build/tta/C/../../../tta/C/convert/converter.c:2345: undefined reference to `rpl_free'
-...
-2026-10-25T10:38:56.1351041Z /cygdrive/d/a/ci-check/ci-check/texinfo-7.3.20261025dev/build/tta/C/../../../tta/C/convert/converter.c:2202: undefined reference to `fatal'
+Without XS, on Cygwin32 linking leads to an empty library:
+ libtool: link: gcc -shared  main/.libs/libtexinfo_la-tree.o main/.libs/libtexinfo_la-text.o main/.libs/libtexinfo_la-base_utils.o main/.libs/libtexinfo_la-builtin_commands.o main/.libs/libtexinfo_la-types_data.o main/.libs/libtexinfo_la-debug.o main/.libs/libtexinfo_la-errors.o .... -Wl,--whole-archive ./.libs/libcallperl_libtexinfo.a -Wl,--no-whole-archive  -liconv -lintl  -g -O2   -o .libs/cygtexinfo-1.dll -Wl,--enable-auto-image-base -Xlinker --out-implib -Xlinker .libs/libtexinfo.dll.a
 
-The following link flags are in Perl flags and could explain why it does
-not fail with XS:
--Wl,--enable-auto-import -Wl,--export-all-symbols
+The following link flags are in Perl flags and are probably needed
+ -Wl,--enable-auto-import -Wl,--export-all-symbols
 
-The additional cflags are less likely to be relevant
--DPERL_USE_SAFE_PUTENV -U__STRICT_ANSI__ -D_GNU_SOURCE -ggdb -O2 -pipe -Wall -Werror=format-security -D_FORTIFY_SOURCE=2 -fstack-protector-strong --param=ssp-buffer-size=4 -fdebug-prefix-map=/mnt/share/cygpkgs/perl/perl.x86/build=/usr/src/debug/perl-5.32.1-2 -fdebug-prefix-map=/mnt/share/cygpkgs/perl/perl.x86/src/perl-5.32.1=/usr/src/debug/perl-5.32.1-2 -fwrapv -fno-strict-aliasing
+Reported here:
+https://savannah.gnu.org/support/index.php?111465
 
 
 Documentation

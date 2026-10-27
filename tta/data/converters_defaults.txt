@@ -22,16 +22,45 @@
 
 # This information is used to set up customization options for both C and
 # Perl.  For C, complex option types are not actually handled, only
-# strings and integers.
+# strings and integers/booleans.
 # The list of options, information about options types, defaults and
 # categories can be taken from the main options data source.
 
-# This information is only used for officially maintained converters
-# with more than one implementation language.  Any user-defined converters
-# should use their own way to store their defaults.
+# This information is only used for converters with more than one
+# implementation language.
 
-# FIXME although it's not a user-visible file, some comments explaining
-# the file format could be useful for maintenance purposes.
+#####################################################################
+# File format:
+#
+# Comments with leading # can appear anywhere on lines and are removed first,
+# empty lines are ignored.
+#
+# The file is organized in sections, corresponding, in general,
+# to a converter for an output format.  Each section contains a list of
+# customization variable with associated values.  A section can be empty.
+#
+# A section starts with -- followed by spaces and by a section name, which
+# should not contain any space:
+#
+# -- section_name
+#
+# The options values are set by specifying the option name, followed by
+# spaces, then followed by a value until the end of the line.  The value
+# may contain spaces.
+#
+# For example, the value on the following line is "{ a value with spaces }"
+# VARIABLE_SET_TO_A_VALUE               { a value with spaces }
+#
+# If there is no value, an empty string is assumed:
+# VARIABLE_SET_TO_AN_EMPTY_STRING  
+#
+# The value "undef" is a special value, meaning undefined or zero depending
+# on the type.  To set to undef:
+#
+# VARIABLE_NAME               undef
+#
+# The processor adds quotes to strings, but not for other types
+# of customization variables.
 
 
 # for Texinfo::Parser
