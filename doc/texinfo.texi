@@ -2013,6 +2013,8 @@ if there is one).  For example:
 This is a short sample Texinfo file.
 @end example
 
+The Top node must be named @samp{top} or @samp{Top}.
+
 Straight text before the Top node outside of any node should be avoided.
 Such text, if present, is not output for DocBook.
 
@@ -2042,35 +2044,33 @@ explicitly.
 @node Top Node Pointers
 @subsection Top Node Pointers
 
-Here is a description of the node pointers to be used in the Top node:
+Each node in a Texinfo file may have @dfn{pointers} to other nodes defined.
+These are used in some output formats for generating navigation links that
+readers can use to move around the document.  @xref{Writing a Node} and
+@ref{Texinfo Document Structure} for more information.
+
+If you start the Top node with the line @code{@@node Top}, then
+@code{texi2any} defines these pointers automatically as follows:
 
 @itemize @bullet
 @item
 @cindex Up node of Top node
 @cindex (dir) as Up node of Top node
-The Top node (which must be named @samp{top} or @samp{Top}) should have
-as its `Up' node the name of a node in another file, where there is a
-menu that leads to this file.  Specify the file name in parentheses.
+The `Up' pointer is a reference to the @samp{dir} manual.  In Info output,
+this is the main menu for the Info system as a whole.  @xref{Directory File}.
 
-Usually, all Info files are available through a single virtual Info
-tree, constructed from multiple directories.  In this case, use
-@samp{(dir)} as the parent of the Top node; this specifies the
-top-level node in the @file{dir} file, which contains the main menu
-for the Info system as a whole.  (Each directory with Info files is
-intended to contain a file named @file{dir}.)
-
-That's fine for Info, but for HTML output, one might well want the Up
-link from the Top node to go to some specific place.
-For example, for GNU the natural place would be
-@url{https://www.gnu.org/manual/} (a web page collecting links to most
-GNU manuals), better specified as just @code{/manual/} if the manual
-will be installed on @code{www.gnu.org}.  This can be specified with
-the @code{TOP_NODE_UP_URL} customization variable (@pxref{File Names
+For HTML output, you can specify where the link to @samp{dir} goes
+with the @code{TOP_NODE_UP_URL} customization variable (@pxref{File Names
 and Links Customization for HTML}), as in
 
 @example
 $ @kbd{texi2any --html -c TOP_NODE_UP_URL=/manual/} ...
 @end example
+
+For example, for GNU the natural place would be
+@url{https://www.gnu.org/manual/} (a web page collecting links to most
+GNU manuals), better specified as just @code{/manual/} if the manual
+will be installed on @code{www.gnu.org}.
 
 @c the following line is not true anymore
 @c All links to @code{(dir)} will be replaced by the given url.
@@ -2081,18 +2081,13 @@ The `Prev' node of the Top node is usually omitted.
 
 @item
 @cindex Next node of Top node
-The `Next' node of the Top node should be the first chapter in your
-document.
+The `Next' node of the Top node is the first chapter in the document.
 
 @end itemize
 
-It is usually best to leave the pointers off entirely and let the
-tools implicitly define them, with this simple result:
-
-@example
-@@node Top
-@end example
-
+It is possible for you specify these pointers explicitly using additional
+arguments to @code{@@node}.  For example, you might make the `Up' pointer
+a node in another file, where there is a menu that leads to this file.
 
 
 @node Master Menu Parts
@@ -17018,14 +17013,19 @@ Info.)
 @nodedescription The top-level menu for all Info files.
 @subsection The Directory File @file{dir}
 
-For Info to work, the @file{info} directory must contain a file that
-serves as a top-level directory for the Info system.  By convention,
-this file is called @file{dir}.  (You can find the location of this file
-within Emacs by typing @kbd{C-h i} to enter Info and then typing
-@kbd{C-x C-f} to see the location of the @file{info} directory.)
+The @file{dir} file is a special Info file which contains the top-level directory
+for the Info system as a whole.  Usually, the Info viewers construct a
+single virtual @file{dir} file from multiple directories.  Each directory
+with Info files is intended to contain a file named @file{dir}.
 
-The @file{dir} file is itself an Info file.  It contains the top-level
-menu for all the Info files in the system.  The menu looks like
+@ignore
+By convention, this file is called @file{dir}. (You can find the location of
+this file within Emacs by typing @kbd{C-h i} to enter Info and then typing
+@kbd{C-x C-f} to see the location of the @file{info} directory.)
+@end ignore
+
+Each @file{dir} file is itself an Info file.  It should contain the top-level
+menu for all the Info files located in that directory.  The menu looks like
 this:
 
 @example

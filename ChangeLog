@@ -1,3 +1,17 @@
+2026-10-27  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Revise documentation of @top
+
+	* doc/texinfo.texi (Top Node Pointers): Add introductory text
+	explaining what pointers are.  Focus on explaining what pointers
+	texi2any produces automatically, rather than saying what pointers
+	"are to be used" which left it vague who or what was specifying these
+	pointers.
+	(The Top Node): Add text extracted from "Top Node Pointers".
+	(Directory File): Add text extracted from "Top Node Pointers".  Explain
+	more about how the dir is usually a combination of dir files.  Place
+	explanation of how to find a dir file in Emacs inside an @ignore block.
+
 2026-10-27 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/t/input_files/character_and_spaces_in_refs_text.texi,
