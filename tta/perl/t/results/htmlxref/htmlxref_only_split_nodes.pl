@@ -178,23 +178,19 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
      {raw:(mtexinfo)Cross References}
    { }
    *@ref C1 test_refs.texi:l30
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{mtexinfo}
-    |node_content:{Cross References}
-     {(}
-     {mtexinfo}
-     {)}
-     {Cross References}
+    |node_content:{(mtexinfo)Cross References}
+    |normalized:{_0028mtexinfo_0029Cross-References}
+     {(mtexinfo)Cross References}
    {\\n}
   *@example C3 test_refs.texi:l31
    *arguments_line C1
     *block_line_arg C1
      {spaces_before_argument:\\n}
-   *preformatted C2
-    {mono: mtexinfo.html#Cross-References\\n}
-    {split: ../mtexinfo/Cross-References.html#Cross-References\\n}
-   *@end C1 test_refs.texi:l34
+   *preformatted C1
+    {target: #_0028mtexinfo_0029Cross-References\\n}
+   *@end C1 test_refs.texi:l33
    |EXTRA
    |text_arg:{example}
     *line_arg C3
@@ -202,7 +198,7 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
      {example}
      {spaces_after_argument:\\n}
   {empty_line:\\n}
-  *@subheading C1 test_refs.texi:l36
+  *@subheading C1 test_refs.texi:l35
   |EXTRA
   |global_command_number:{2}
   |heading_number:{2}
@@ -212,13 +208,13 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C5
-   *@verb C1 test_refs.texi:l38
+   *@verb C1 test_refs.texi:l37
    |INFO
    |delimiter:{:}
     *brace_container C1
      {raw:../manual/doc.texi}
    { }
-   *@ref C4 test_refs.texi:l38
+   *@ref C4 test_refs.texi:l37
     *brace_arg C1
     |EXTRA
     |node_content:{node}
@@ -230,14 +226,14 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
      {../manual/doc}
    *@*
    {\\n}
-  *@example C3 test_refs.texi:l39
+  *@example C3 test_refs.texi:l38
    *arguments_line C1
     *block_line_arg C1
      {spaces_before_argument:\\n}
    *preformatted C2
     {mono : doc.html#node\\n}
     {split: ../doc/node.html#node\\n}
-   *@end C1 test_refs.texi:l42
+   *@end C1 test_refs.texi:l41
    |EXTRA
    |text_arg:{example}
     *line_arg C3
@@ -245,7 +241,7 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
      {example}
      {spaces_after_argument:\\n}
   {empty_line:\\n}
-  *@subheading C1 test_refs.texi:l44
+  *@subheading C1 test_refs.texi:l43
   |EXTRA
   |global_command_number:{3}
   |heading_number:{3}
@@ -255,26 +251,26 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C4
-   *@verb C1 test_refs.texi:l46
+   *@verb C1 test_refs.texi:l45
    |INFO
    |delimiter:{:}
     *brace_container C1
      {raw:!_"#$%&\'()*+-.}
    { }
-   *@ref C1 test_refs.texi:l46
+   *@ref C1 test_refs.texi:l45
     *brace_arg C1
     |EXTRA
     |node_content:{!_"#$%&\'()*+-.}
     |normalized:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
      {!_"#$%&\'()*+-.}
    {\\n}
-  *@example C3 test_refs.texi:l47
+  *@example C3 test_refs.texi:l46
    *arguments_line C1
     *block_line_arg C1
      {spaces_before_argument:\\n}
    *preformatted C1
     {target: #_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e\\n}
-   *@end C1 test_refs.texi:l49
+   *@end C1 test_refs.texi:l48
    |EXTRA
    |text_arg:{example}
     *line_arg C3
@@ -283,13 +279,13 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C5
-   *@verb C1 test_refs.texi:l51
+   *@verb C1 test_refs.texi:l50
    |INFO
    |delimiter:{:}
     *brace_container C1
      {raw:/;<=>?[\\]^_`|~}
    { }
-   *@ref C1 test_refs.texi:l51
+   *@ref C1 test_refs.texi:l50
     *brace_arg C1
     |EXTRA
     |node_content:{/;<=>?[\\]^_`|~}
@@ -297,13 +293,13 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
      {/;<=>?[\\]^_`|~}
    *@*
    {\\n}
-  *@example C3 test_refs.texi:l52
+  *@example C3 test_refs.texi:l51
    *arguments_line C1
     *block_line_arg C1
      {spaces_before_argument:\\n}
    *preformatted C1
     {target: #_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e\\n}
-   *@end C1 test_refs.texi:l54
+   *@end C1 test_refs.texi:l53
    |EXTRA
    |text_arg:{example}
     *line_arg C3
@@ -312,13 +308,13 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C4
-   *@verb C1 test_refs.texi:l56
+   *@verb C1 test_refs.texi:l55
    |INFO
    |delimiter:{:}
     *brace_container C1
      {raw:Top}
    { }
-   *@ref C1 test_refs.texi:l56
+   *@ref C1 test_refs.texi:l55
     *brace_arg C2
     |EXTRA
     |node_content:{Top}
@@ -326,13 +322,13 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
      {spaces_before_argument: }
      {Top}
    {\\n}
-  *@example C3 test_refs.texi:l57
+  *@example C3 test_refs.texi:l56
    *arguments_line C1
     *block_line_arg C1
      {spaces_before_argument:\\n}
    *preformatted C1
     {target: #Top\\n}
-   *@end C1 test_refs.texi:l59
+   *@end C1 test_refs.texi:l58
    |EXTRA
    |text_arg:{example}
     *line_arg C3
@@ -341,13 +337,13 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C4
-   *@verb C1 test_refs.texi:l61
+   *@verb C1 test_refs.texi:l60
    |INFO
    |delimiter:{:}
     *brace_container C1
      {raw: local   node}
    { }
-   *@ref C1 test_refs.texi:l61
+   *@ref C1 test_refs.texi:l60
     *brace_arg C2
     |EXTRA
     |node_content:{local   node}
@@ -355,13 +351,13 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
      {spaces_before_argument:  }
      {local   node}
    {\\n}
-  *@example C3 test_refs.texi:l62
+  *@example C3 test_refs.texi:l61
    *arguments_line C1
     *block_line_arg C1
      {spaces_before_argument:\\n}
    *preformatted C1
     {target: #local-node\\n}
-   *@end C1 test_refs.texi:l64
+   *@end C1 test_refs.texi:l63
    |EXTRA
    |text_arg:{example}
     *line_arg C3
@@ -369,7 +365,7 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
      {example}
      {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 test_refs.texi:l66 {other nodes}
+ *@node C1 test_refs.texi:l65 {other nodes}
  |EXTRA
  |identifier:{other-nodes}
  |is_target:{1}
@@ -397,7 +393,7 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
     {spaces_before_argument: }
     {Top}
     {spaces_after_argument:\\n}
- *@chapter C9 test_refs.texi:l67 {Chapter with nodes}
+ *@chapter C9 test_refs.texi:l66 {Chapter with nodes}
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -408,13 +404,13 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
     {Chapter with nodes}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-  *@example C3 test_refs.texi:l69
+  *@example C3 test_refs.texi:l68
    *arguments_line C1
     *block_line_arg C1
      {spaces_before_argument:\\n}
    *preformatted C1
     {id: other-nodes\\n}
-   *@end C1 test_refs.texi:l71
+   *@end C1 test_refs.texi:l70
    |EXTRA
    |text_arg:{example}
     *line_arg C3
@@ -423,13 +419,13 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C4
-   *@verb C1 test_refs.texi:l73
+   *@verb C1 test_refs.texi:l72
    |INFO
    |delimiter:{:}
     *brace_container C1
      {raw:Top}
    { }
-   *@ref C1 test_refs.texi:l73
+   *@ref C1 test_refs.texi:l72
     *brace_arg C2
     |EXTRA
     |node_content:{Top}
@@ -437,13 +433,13 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
      {spaces_before_argument: }
      {Top}
    {\\n}
-  *@example C3 test_refs.texi:l74
+  *@example C3 test_refs.texi:l73
    *arguments_line C1
     *block_line_arg C1
      {spaces_before_argument:\\n}
    *preformatted C1
     {target: #Top\\n}
-   *@end C1 test_refs.texi:l76
+   *@end C1 test_refs.texi:l75
    |EXTRA
    |text_arg:{example}
     *line_arg C3
@@ -451,11 +447,11 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
      {example}
      {spaces_after_argument:\\n}
   {empty_line:\\n}
-  *@menu C5 test_refs.texi:l78
+  *@menu C5 test_refs.texi:l77
    *arguments_line C1
     *block_line_arg C1
      {spaces_before_argument:\\n}
-   *menu_entry C4 test_refs.texi:l79
+   *menu_entry C4 test_refs.texi:l78
     {menu_entry_leading_text:* }
     *menu_entry_node C1
     |EXTRA
@@ -466,7 +462,7 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
     *menu_entry_description C1
      *preformatted C1
       {\\n}
-   *menu_entry C4 test_refs.texi:l80
+   *menu_entry C4 test_refs.texi:l79
     {menu_entry_leading_text:* }
     *menu_entry_node C1
     |EXTRA
@@ -477,7 +473,7 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
     *menu_entry_description C1
      *preformatted C1
       {\\n}
-   *menu_entry C4 test_refs.texi:l81
+   *menu_entry C4 test_refs.texi:l80
     {menu_entry_leading_text:* }
     *menu_entry_node C1
     |EXTRA
@@ -488,7 +484,7 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
     *menu_entry_description C1
      *preformatted C1
       {\\n}
-   *@end C1 test_refs.texi:l82
+   *@end C1 test_refs.texi:l81
    |EXTRA
    |text_arg:{menu}
     *line_arg C3
@@ -496,7 +492,7 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
      {menu}
      {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C3 test_refs.texi:l84 {!_"#$%&\'()*+-.}
+ *@node C3 test_refs.texi:l83 {!_"#$%&\'()*+-.}
  |EXTRA
  |identifier:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
  |is_target:{1}
@@ -524,13 +520,13 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
     {spaces_before_argument: }
     {other nodes}
     {spaces_after_argument:\\n}
-  *@example C3 test_refs.texi:l85
+  *@example C3 test_refs.texi:l84
    *arguments_line C1
     *block_line_arg C1
      {spaces_before_argument:\\n}
    *preformatted C1
     {id: _0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e\\n}
-   *@end C1 test_refs.texi:l87
+   *@end C1 test_refs.texi:l86
    |EXTRA
    |text_arg:{example}
     *line_arg C3
@@ -538,7 +534,7 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
      {example}
      {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C3 test_refs.texi:l89 {/;<=>?[\\]^_`|~}
+ *@node C3 test_refs.texi:l88 {/;<=>?[\\]^_`|~}
  |EXTRA
  |identifier:{_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}
  |is_target:{1}
@@ -564,13 +560,13 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
     {spaces_before_argument: }
     {other nodes}
     {spaces_after_argument:\\n}
-  *@example C3 test_refs.texi:l90
+  *@example C3 test_refs.texi:l89
    *arguments_line C1
     *block_line_arg C1
      {spaces_before_argument:\\n}
    *preformatted C1
     {id: 002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e\\n}
-   *@end C1 test_refs.texi:l92
+   *@end C1 test_refs.texi:l91
    |EXTRA
    |text_arg:{example}
     *line_arg C3
@@ -578,7 +574,7 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
      {example}
      {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C3 test_refs.texi:l94 {local   node}
+ *@node C3 test_refs.texi:l93 {local   node}
  |EXTRA
  |identifier:{local-node}
  |is_target:{1}
@@ -599,13 +595,13 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
    |normalized:{other-nodes}
     {other nodes}
     {spaces_after_argument:\\n}
-  *@example C3 test_refs.texi:l95
+  *@example C3 test_refs.texi:l94
    *arguments_line C1
     *block_line_arg C1
      {spaces_before_argument:\\n}
    *preformatted C1
     {id: local-node\\n}
-   *@end C1 test_refs.texi:l97
+   *@end C1 test_refs.texi:l96
    |EXTRA
    |text_arg:{example}
     *line_arg C3
@@ -650,8 +646,7 @@ split: ../manual/index.html#Top
 
 @verb{:(mtexinfo)Cross References:} @ref{(mtexinfo)Cross References}
 @example
-mono: mtexinfo.html#Cross-References
-split: ../mtexinfo/Cross-References.html#Cross-References
+target: #_0028mtexinfo_0029Cross-References
 @end example
 
 @subheading Testing manual name
@@ -744,8 +739,7 @@ mono : manual.html#Top
 split: ../manual/index.html#Top
 
 (mtexinfo)Cross References (mtexinfo)Cross References
-mono: mtexinfo.html#Cross-References
-split: ../mtexinfo/Cross-References.html#Cross-References
+target: #_0028mtexinfo_0029Cross-References
 
 Testing manual name
 -------------------
@@ -791,7 +785,10 @@ id: local-node
 
 ';
 
-$result_errors{'htmlxref_only_split_nodes'} = '';
+$result_errors{'htmlxref_only_split_nodes'} = '* E test_refs.texi:l30|@ref reference to nonexistent node `(mtexinfo)Cross References\'
+ @ref reference to nonexistent node `(mtexinfo)Cross References\'
+
+';
 
 $result_nodes_list{'htmlxref_only_split_nodes'} = '1|Top
  associated_section: Test refs

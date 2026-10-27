@@ -155,14 +155,11 @@ NodeBack: [U0]
      {manual}
    {\\n}
    *@ref C1 character_and_spaces_in_refs_text.texi:l17
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{texinfo}
-    |node_content:{Cross References}
-     {(}
-     {texinfo}
-     {)}
-     {Cross References}
+    |node_content:{(texinfo)Cross References}
+    |normalized:{_0028texinfo_0029Cross-References}
+     {(texinfo)Cross References}
    {\\n}
    *@ref C4 character_and_spaces_in_refs_text.texi:l18
     *brace_arg C1
@@ -516,7 +513,10 @@ local   node
 
 ';
 
-$result_errors{'character_and_spaces_in_refs_out'} = '';
+$result_errors{'character_and_spaces_in_refs_out'} = '* E character_and_spaces_in_refs_text.texi:l17|@ref reference to nonexistent node `(texinfo)Cross References\'
+ @ref reference to nonexistent node `(texinfo)Cross References\'
+
+';
 
 $result_nodes_list{'character_and_spaces_in_refs_out'} = '1|Top
  associated_section: Test refs

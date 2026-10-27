@@ -322,14 +322,11 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      *@}
    { }
    *@ref C2 l19
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{anode}
-     {(}
-     {pman}
-     {)}
-     {anode}
+    |node_content:{(pman)anode}
+    |normalized:{_0028pman_0029anode}
+     {(pman)anode}
     *brace_arg C1
      {cross ref name}
    {\\n}
@@ -342,14 +339,11 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      *@}
    { }
    *@ref C3 l20
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{anode}
-     {(}
-     {pman}
-     {)}
-     {anode}
+    |node_content:{(pman)anode}
+    |normalized:{_0028pman_0029anode}
+     {(pman)anode}
     *brace_arg
     *brace_arg C1
      {title}
@@ -363,14 +357,10 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      *@}
    { }
    *@ref C4 l21
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{anode}
-     {(}
-     {pman}
-     {)}
-     {anode}
+    |node_content:{(pman)anode}
+     {(pman)anode}
     *brace_arg
     *brace_arg
     *brace_arg C1
@@ -385,14 +375,10 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      *@}
    { }
    *@ref C5 l22
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{anode}
-     {(}
-     {pman}
-     {)}
-     {anode}
+    |node_content:{(pman)anode}
+     {(pman)anode}
     *brace_arg
     *brace_arg
     *brace_arg
@@ -408,14 +394,11 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      *@}
    { }
    *@ref C4 l23
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{anode}
-     {(}
-     {pman}
-     {)}
-     {anode}
+    |node_content:{(pman)anode}
+    |normalized:{_0028pman_0029anode}
+     {(pman)anode}
     *brace_arg C1
      {cross ref name}
     *brace_arg C1
@@ -431,14 +414,10 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      *@}
    { }
    *@ref C4 l24
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{anode}
-     {(}
-     {pman}
-     {)}
-     {anode}
+    |node_content:{(pman)anode}
+     {(pman)anode}
     *brace_arg C1
      {cross ref name}
     *brace_arg
@@ -454,14 +433,10 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      *@}
    { }
    *@ref C5 l25
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{anode}
-     {(}
-     {pman}
-     {)}
-     {anode}
+    |node_content:{(pman)anode}
+     {(pman)anode}
     *brace_arg C1
      {cross ref name}
     *brace_arg
@@ -478,14 +453,10 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      *@}
    { }
    *@ref C4 l26
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{anode}
-     {(}
-     {pman}
-     {)}
-     {anode}
+    |node_content:{(pman)anode}
+     {(pman)anode}
     *brace_arg C1
      {cross ref name}
     *brace_arg C1
@@ -502,14 +473,10 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      *@}
    { }
    *@ref C5 l27
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{anode}
-     {(}
-     {pman}
-     {)}
-     {anode}
+    |node_content:{(pman)anode}
+     {(pman)anode}
     *brace_arg C1
      {cross ref name}
     *brace_arg C1
@@ -527,14 +494,10 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      *@}
    { }
    *@ref C5 l28
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{anode}
-     {(}
-     {pman}
-     {)}
-     {anode}
+    |node_content:{(pman)anode}
+     {(pman)anode}
     *brace_arg C1
      {cross ref name}
     *brace_arg C1
@@ -555,14 +518,10 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      *@}
    { }
    *@ref C4 l29
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{anode}
-     {(}
-     {pman}
-     {)}
-     {anode}
+    |node_content:{(pman)anode}
+     {(pman)anode}
     *brace_arg
     *brace_arg C1
      {title}
@@ -578,14 +537,10 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      *@}
    { }
    *@ref C5 l30
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{anode}
-     {(}
-     {pman}
-     {)}
-     {anode}
+    |node_content:{(pman)anode}
+     {(pman)anode}
     *brace_arg
     *brace_arg C1
      {title}
@@ -602,14 +557,10 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      *@}
    { }
    *@ref C5 l31
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{anode}
-     {(}
-     {pman}
-     {)}
-     {anode}
+    |node_content:{(pman)anode}
+     {(pman)anode}
     *brace_arg
     *brace_arg C1
      {title}
@@ -629,14 +580,10 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      *@}
    { }
    *@ref C5 l32
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{anode}
-     {(}
-     {pman}
-     {)}
-     {anode}
+    |node_content:{(pman)anode}
+     {(pman)anode}
     *brace_arg
     *brace_arg
     *brace_arg C1
@@ -810,6 +757,15 @@ $result_errors{'refs_formatting'} = '* W l34|@inforef is obsolete
 * W l37|@inforef is obsolete
  warning: @inforef is obsolete
 
+* E l19|@ref reference to nonexistent node `(pman)anode\'
+ @ref reference to nonexistent node `(pman)anode\'
+
+* E l20|@ref reference to nonexistent node `(pman)anode\'
+ @ref reference to nonexistent node `(pman)anode\'
+
+* E l23|@ref reference to nonexistent node `(pman)anode\'
+ @ref reference to nonexistent node `(pman)anode\'
+
 ';
 
 $result_nodes_list{'refs_formatting'} = '1|chapter
@@ -890,20 +846,20 @@ $result_converted{'html_text'}->{'refs_formatting'} = '<div class="chapter-level
 <code class="code">@ref{chapter,,title, file name, manual}</code> <a data-manual="file name" href="file%20name.html#chapter">title</a> in <cite class="cite">manual</cite>
 <code class="code">@ref{chapter,,,file name,manual}</code> <a data-manual="file name" href="file%20name.html#chapter">chapter</a> in <cite class="cite">manual</cite>
 </p>
-<p><code class="code">@ref{(pman)anode,cross ref name}</code> <a data-manual="pman" href="pman.html#anode">cross ref name</a>
-<code class="code">@ref{(pman)anode,,title}</code> <a data-manual="pman" href="pman.html#anode">title</a>
-<code class="code">@ref{(pman)anode,,,file name}</code> <a data-manual="file name" href="file%20name.html#anode">(file name)anode</a>
-<code class="code">@ref{(pman)anode,,,,manual}</code> <a data-manual="pman" href="pman.html#anode">anode</a> in <cite class="cite">manual</cite>
-<code class="code">@ref{(pman)anode,cross ref name,title,}</code> <a data-manual="pman" href="pman.html#anode">title</a>
-<code class="code">@ref{(pman)anode,cross ref name,,file name}</code> <a data-manual="file name" href="file%20name.html#anode">cross ref name</a>
-<code class="code">@ref{(pman)anode,cross ref name,,,manual}</code> <a data-manual="pman" href="pman.html#anode">cross ref name</a> in <cite class="cite">manual</cite>
-<code class="code">@ref{(pman)anode,cross ref name,title,file name}</code> <a data-manual="file name" href="file%20name.html#anode">title</a>
-<code class="code">@ref{(pman)anode,cross ref name,title,,manual}</code> <a data-manual="pman" href="pman.html#anode">title</a> in <cite class="cite">manual</cite>
-<code class="code">@ref{(pman)anode,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="file%20name.html#anode">title</a> in <cite class="cite">manual</cite>
-<code class="code">@ref{(pman)anode,,title,file name}</code> <a data-manual="file name" href="file%20name.html#anode">title</a>
-<code class="code">@ref{(pman)anode,,title,,manual}</code> <a data-manual="pman" href="pman.html#anode">title</a> in <cite class="cite">manual</cite>
-<code class="code">@ref{(pman)anode,,title, file name, manual}</code> <a data-manual="file name" href="file%20name.html#anode">title</a> in <cite class="cite">manual</cite>
-<code class="code">@ref{(pman)anode,,,file name,manual}</code> <a data-manual="file name" href="file%20name.html#anode">anode</a> in <cite class="cite">manual</cite>
+<p><code class="code">@ref{(pman)anode,cross ref name}</code> &lsquo;cross ref name&rsquo;
+<code class="code">@ref{(pman)anode,,title}</code> &lsquo;title&rsquo;
+<code class="code">@ref{(pman)anode,,,file name}</code> <a data-manual="file name" href="file%20name.html#g_t_0028pman_0029anode">(file name)(pman)anode</a>
+<code class="code">@ref{(pman)anode,,,,manual}</code> &lsquo;(pman)anode&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,cross ref name,title,}</code> &lsquo;title&rsquo;
+<code class="code">@ref{(pman)anode,cross ref name,,file name}</code> <a data-manual="file name" href="file%20name.html#g_t_0028pman_0029anode">cross ref name</a>
+<code class="code">@ref{(pman)anode,cross ref name,,,manual}</code> &lsquo;cross ref name&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,cross ref name,title,file name}</code> <a data-manual="file name" href="file%20name.html#g_t_0028pman_0029anode">title</a>
+<code class="code">@ref{(pman)anode,cross ref name,title,,manual}</code> &lsquo;title&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="file%20name.html#g_t_0028pman_0029anode">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,,title,file name}</code> <a data-manual="file name" href="file%20name.html#g_t_0028pman_0029anode">title</a>
+<code class="code">@ref{(pman)anode,,title,,manual}</code> &lsquo;title&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,,title, file name, manual}</code> <a data-manual="file name" href="file%20name.html#g_t_0028pman_0029anode">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,,,file name,manual}</code> <a data-manual="file name" href="file%20name.html#g_t_0028pman_0029anode">(pman)anode</a> in <cite class="cite">manual</cite>
 </p>
 <p><code class="code">@inforef{chapter, cross ref name, file name}</code> See <a data-manual="file name" href="file%20name.html#chapter">cross ref name</a>
 <code class="code">@inforef{chapter}</code> See &lsquo;chapter&rsquo;
@@ -931,20 +887,20 @@ $result_converted{'xml'}->{'refs_formatting'} = '<node identifier="chapter"><nod
 <code>&arobase;ref&lbrace;chapter,,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;chapter,,,file name,manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 </para>
-<para><code>&arobase;ref&lbrace;(pman)anode,cross ref name&rbrace;</code> <ref label="anode" manual="pman"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname></ref>
-<code>&arobase;ref&lbrace;(pman)anode,,title&rbrace;</code> <ref label="anode" manual="pman"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc></ref>
-<code>&arobase;ref&lbrace;(pman)anode,,,file name&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfofile>file name</xrefinfofile></ref>
-<code>&arobase;ref&lbrace;(pman)anode,,,,manual&rbrace;</code> <ref label="anode" manual="pman"><xrefnodename>(pman)anode</xrefnodename><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)anode,cross ref name,title,&rbrace;</code> <ref label="anode" manual="pman"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile></xrefinfofile></ref>
-<code>&arobase;ref&lbrace;(pman)anode,cross ref name,,file name&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefinfofile>file name</xrefinfofile></ref>
-<code>&arobase;ref&lbrace;(pman)anode,cross ref name,,,manual&rbrace;</code> <ref label="anode" manual="pman"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)anode,cross ref name,title,file name&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
-<code>&arobase;ref&lbrace;(pman)anode,cross ref name,title,,manual&rbrace;</code> <ref label="anode" manual="pman"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)anode,cross ref name,title, file name, manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)anode,,title,file name&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
-<code>&arobase;ref&lbrace;(pman)anode,,title,,manual&rbrace;</code> <ref label="anode" manual="pman"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)anode,,title, file name, manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)anode,,,file name,manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
+<para><code>&arobase;ref&lbrace;(pman)anode,cross ref name&rbrace;</code> <ref label="_0028pman_0029anode"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname></ref>
+<code>&arobase;ref&lbrace;(pman)anode,,title&rbrace;</code> <ref label="_0028pman_0029anode"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc></ref>
+<code>&arobase;ref&lbrace;(pman)anode,,,file name&rbrace;</code> <ref label="_0028pman_0029anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfofile>file name</xrefinfofile></ref>
+<code>&arobase;ref&lbrace;(pman)anode,,,,manual&rbrace;</code> <ref label="_0028pman_0029anode"><xrefnodename>(pman)anode</xrefnodename><xrefprintedname>manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)anode,cross ref name,title,&rbrace;</code> <ref label="_0028pman_0029anode"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile></xrefinfofile></ref>
+<code>&arobase;ref&lbrace;(pman)anode,cross ref name,,file name&rbrace;</code> <ref label="_0028pman_0029anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefinfofile>file name</xrefinfofile></ref>
+<code>&arobase;ref&lbrace;(pman)anode,cross ref name,,,manual&rbrace;</code> <ref label="_0028pman_0029anode"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)anode,cross ref name,title,file name&rbrace;</code> <ref label="_0028pman_0029anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
+<code>&arobase;ref&lbrace;(pman)anode,cross ref name,title,,manual&rbrace;</code> <ref label="_0028pman_0029anode"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)anode,cross ref name,title, file name, manual&rbrace;</code> <ref label="_0028pman_0029anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)anode,,title,file name&rbrace;</code> <ref label="_0028pman_0029anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
+<code>&arobase;ref&lbrace;(pman)anode,,title,,manual&rbrace;</code> <ref label="_0028pman_0029anode"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)anode,,title, file name, manual&rbrace;</code> <ref label="_0028pman_0029anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)anode,,,file name,manual&rbrace;</code> <ref label="_0028pman_0029anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 </para>
 <para><code>&arobase;inforef&lbrace;chapter, cross ref name, file name&rbrace;</code> <inforef label="chapter" manual="file name"><inforefnodename>chapter</inforefnodename><inforefrefname> cross ref name</inforefrefname><inforefinfoname> file name</inforefinfoname></inforef>
 <code>&arobase;inforef&lbrace;chapter&rbrace;</code> <inforef label="chapter"><inforefnodename>chapter</inforefnodename></inforef>
@@ -972,11 +928,11 @@ $result_converted{'docbook'}->{'refs_formatting'} = '<chapter label="1" id="chap
 <literal>@ref{chapter,,title, file name, manual}</literal> section &#8220;title&#8221; in <citetitle>manual</citetitle>
 <literal>@ref{chapter,,,file name,manual}</literal> &#8220;chapter&#8221; in <citetitle>manual</citetitle>
 </para>
-<para><literal>@ref{(pman)anode,cross ref name}</literal> <link>cross ref name</link>
-<literal>@ref{(pman)anode,,title}</literal> <link>title</link>
+<para><literal>@ref{(pman)anode,cross ref name}</literal> <link linkend="_0028pman_0029anode">cross ref name</link>
+<literal>@ref{(pman)anode,,title}</literal> <link linkend="_0028pman_0029anode">title</link>
 <literal>@ref{(pman)anode,,,file name}</literal> &#8220;(pman)anode&#8221; in <filename>file name</filename>
 <literal>@ref{(pman)anode,,,,manual}</literal> &#8220;(pman)anode&#8221; in <citetitle>manual</citetitle>
-<literal>@ref{(pman)anode,cross ref name,title,}</literal> <link>title</link>
+<literal>@ref{(pman)anode,cross ref name,title,}</literal> <link linkend="_0028pman_0029anode">title</link>
 <literal>@ref{(pman)anode,cross ref name,,file name}</literal> section &#8220;cross ref name&#8221; in <filename>file name</filename>
 <literal>@ref{(pman)anode,cross ref name,,,manual}</literal> section &#8220;cross ref name&#8221; in <citetitle>manual</citetitle>
 <literal>@ref{(pman)anode,cross ref name,title,file name}</literal> section &#8220;title&#8221; in <filename>file name</filename>

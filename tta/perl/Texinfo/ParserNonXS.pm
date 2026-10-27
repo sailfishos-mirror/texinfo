@@ -6843,17 +6843,16 @@ sub _handle_close_brace($$$) {
                               $closed_cmdname), $source_info);
       } else {
         my $arg_label = $ref->{'contents'}->[0];
-        my $ref_label_info
-          = Texinfo::Common::parse_node_manual($arg_label, 1);
-        if (defined($ref_label_info)) {
-          foreach my $label_info (keys(%$ref_label_info)) {
-            $arg_label->{'extra'} = {} if (!exists($arg_label->{'extra'}));
-            $arg_label->{'extra'}->{$label_info}
-              = $ref_label_info->{$label_info};
-          }
+        my ($first_idx, $end_idx)
+         = Texinfo::Common::non_leading_trailing_indices($arg_label);
+
+        if (defined($first_idx)) {
+          $arg_label->{'extra'} = {} if (!exists($arg_label->{'extra'}));
+          $arg_label->{'extra'}->{'node_content'}
+            = Texinfo::TreeElement::new({'contents'
+               => [@{$arg_label->{'contents'}}[$first_idx .. $end_idx]]});
           if (!$link_or_inforef
                 and !defined($args[3]) and !defined($args[4])
-                and !exists($ref_label_info->{'manual_content'})
               or $link_or_inforef and !defined($args[2])) {
             # we use the @*ref command here and not the label command
             # to have more information for messages

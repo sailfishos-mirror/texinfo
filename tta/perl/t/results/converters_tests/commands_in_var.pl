@@ -80,14 +80,11 @@ $result_tree_text{'commands_in_var'} = '*document_root C5
        {chap}
      { }
      *@xref C1 l7
-      *brace_arg C4
+      *brace_arg C1
       |EXTRA
-      |manual_content:{f}
-      |node_content:{node}
-       {(}
-       {f}
-       {)}
-       {node}
+      |node_content:{(f)node}
+      |normalized:{_0028f_0029node}
+       {(f)node}
      {\\n}
      *@ref C4 l8
       *brace_arg C1
@@ -205,7 +202,10 @@ a n~ aa TeX myimage chap (f)node
 ext inverb U+00ff ma+th  la a (b)  (lb)
 c e ab (d)';
 
-$result_errors{'commands_in_var'} = '';
+$result_errors{'commands_in_var'} = '* E l7|@xref reference to nonexistent node `(f)node\'
+ @xref reference to nonexistent node `(f)node\'
+
+';
 
 $result_nodes_list{'commands_in_var'} = '1|Top
  associated_section: commands in var
@@ -276,7 +276,7 @@ $result_converted{'html_text'}->{'commands_in_var'} = '<div class="top-level-ext
 <div class="chapter-level-extent" id="chap">
 <h2 class="chapter" id="chap-1"><span>1 chap<a class="copiable-link" href="#chap-1"> &para;</a></span></h2>
 
-<p><var class="var">a &ntilde; &aring; TeX <img class="image" src="myimage.jpg" alt="myimage"> <a class="ref" href="#chap">chap</a> See <a data-manual="f" href="f.html#node">(f)node</a>
+<p><var class="var">a &ntilde; &aring; TeX <img class="image" src="myimage.jpg" alt="myimage"> <a class="ref" href="#chap">chap</a> See &lsquo;(f)node&rsquo;
 <a data-manual="argf" href="argf.html#ext">name</a> <code class="verb">inverb</code> <a class="anchor" id="inanchor"></a>&#x00ff; <em class="math">ma+th</em> <a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a> <a class="url" href="la">la</a> <a class="url" href="a">b</a> lb
 c <a class="email" href="mailto:a@c">e</a> <abbr class="abbr" title="d">ab</abbr> (d)</var></p></div>
 </div>
@@ -302,7 +302,7 @@ $result_converted{'xml'}->{'commands_in_var'} = '<node identifier="Top"><nodenam
 <node identifier="chap"><nodename> chap</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
 <chapter><sectiontitle> chap</sectiontitle>
 
-<para><var>a <accent type="tilde" bracketed="off">n</accent> &aring; &tex; <image where="inline"><imagefile>myimage</imagefile></image> <ref label="chap"><xrefnodename>chap</xrefnodename></ref> <xref label="node" manual="f"><xrefnodename>(f)node</xrefnodename></xref>
+<para><var>a <accent type="tilde" bracketed="off">n</accent> &aring; &tex; <image where="inline"><imagefile>myimage</imagefile></image> <ref label="chap"><xrefnodename>chap</xrefnodename></ref> <xref label="_0028f_0029node"><xrefnodename>(f)node</xrefnodename></xref>
 <ref label="ext" manual="argf"><xrefnodename>ext</xrefnodename><xrefprinteddesc>name</xrefprinteddesc><xrefinfofile>argf</xrefinfofile></ref> <inlinefmtifelse><inlinefmtifelseformat>latex</inlinefmtifelseformat><inlinefmtifelsecontentelse><verb delimiter="!">inverb</verb></inlinefmtifelsecontentelse></inlinefmtifelse> <anchor identifier="inanchor">inanchor</anchor> <hyphenation>hyphena-te</hyphenation>
 <U>00ff</U> <math>ma+th</math> <footnote><para>infootnote</para></footnote> <url><urefurl>la</urefurl></url> <url><urefurl>a</urefurl><urefdesc>b</urefdesc></url> <url><urefurl> </urefurl><urefdesc>lb</urefdesc></url>
 <url><urefreplacement>c</urefreplacement></url> <email><emailaddress>a&arobase;c</emailaddress><emailname> e</emailname></email> <abbr><abbrword>ab</abbrword><abbrdesc> d</abbrdesc></abbr></var></para></chapter>
@@ -312,7 +312,7 @@ $result_converted{'xml'}->{'commands_in_var'} = '<node identifier="Top"><nodenam
 $result_converted{'docbook'}->{'commands_in_var'} = '<chapter label="1" id="chap">
 <title>chap</title>
 
-<para><replaceable>a &#241; &#229; &tex; <inlinemediaobject><imageobject><imagedata fileref="myimage.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject> <link linkend="chap">chap</link> See <link>(f)node</link>
+<para><replaceable>a &#241; &#229; &tex; <inlinemediaobject><imageobject><imagedata fileref="myimage.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject> <link linkend="chap">chap</link> See <link linkend="_0028f_0029node">(f)node</link>
 section &#8220;name&#8221; in <filename>argf</filename> <literal>inverb</literal> <anchor id="inanchor"/>&#x00ff; <inlineequation><mathphrase>ma+th</mathphrase></inlineequation> <footnote><para>infootnote</para></footnote> <ulink url="la">la</ulink> <ulink url="a">b</ulink> <ulink url="">lb</ulink>
 <ulink url="">c</ulink> <ulink url="mailto:a@c">e</ulink> <abbrev>ab</abbrev> (d)</replaceable></para></chapter>
 ';

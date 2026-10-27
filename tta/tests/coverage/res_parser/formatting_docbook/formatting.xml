@@ -633,11 +633,11 @@ section &#8220;a comma&#44; in title&#8221; in <citetitle>a &#44; in manual name
 <literal>@ref{chapter,,,file name,manual}</literal> &#8220;chapter&#8221; in <citetitle>manual</citetitle>
 </para>
 
-<para><literal>@ref{(pman)anode,cross ref name}</literal> <link>cross ref name</link>
-<literal>@ref{(pman)anode,,title}</literal> <link>title</link>
+<para><literal>@ref{(pman)anode,cross ref name}</literal> <link linkend="_0028pman_0029anode">cross ref name</link>
+<literal>@ref{(pman)anode,,title}</literal> <link linkend="_0028pman_0029anode">title</link>
 <literal>@ref{(pman)anode,,,file name}</literal> &#8220;(pman)anode&#8221; in <filename>file name</filename>
 <literal>@ref{(pman)anode,,,,manual}</literal> &#8220;(pman)anode&#8221; in <citetitle>manual</citetitle>
-<literal>@ref{(pman)anode,cross ref name,title,}</literal> <link>title</link>
+<literal>@ref{(pman)anode,cross ref name,title,}</literal> <link linkend="_0028pman_0029anode">title</link>
 <literal>@ref{(pman)anode,cross ref name,,file name}</literal> section &#8220;cross ref name&#8221; in <filename>file name</filename>
 <literal>@ref{(pman)anode,cross ref name,,,manual}</literal> section &#8220;cross ref name&#8221; in <citetitle>manual</citetitle>
 <literal>@ref{(pman)anode,cross ref name,title,file name}</literal> section &#8220;title&#8221; in <filename>file name</filename>
@@ -1577,11 +1577,11 @@ section &#8220;a comma&#44; in title&#8221; in <citetitle>a &#44; in manual name
 <literal>@ref{chapter,,,file name,manual}</literal> &#8220;chapter&#8221; in <citetitle>manual</citetitle>
 </para>
 
-<para><literal>@ref{(pman)anode,cross ref name}</literal> <link>cross ref name</link>
-<literal>@ref{(pman)anode,,title}</literal> <link>title</link>
+<para><literal>@ref{(pman)anode,cross ref name}</literal> <link linkend="_0028pman_0029anode">cross ref name</link>
+<literal>@ref{(pman)anode,,title}</literal> <link linkend="_0028pman_0029anode">title</link>
 <literal>@ref{(pman)anode,,,file name}</literal> &#8220;(pman)anode&#8221; in <filename>file name</filename>
 <literal>@ref{(pman)anode,,,,manual}</literal> &#8220;(pman)anode&#8221; in <citetitle>manual</citetitle>
-<literal>@ref{(pman)anode,cross ref name,title,}</literal> <link>title</link>
+<literal>@ref{(pman)anode,cross ref name,title,}</literal> <link linkend="_0028pman_0029anode">title</link>
 <literal>@ref{(pman)anode,cross ref name,,file name}</literal> section &#8220;cross ref name&#8221; in <filename>file name</filename>
 <literal>@ref{(pman)anode,cross ref name,,,manual}</literal> section &#8220;cross ref name&#8221; in <citetitle>manual</citetitle>
 <literal>@ref{(pman)anode,cross ref name,title,file name}</literal> section &#8220;title&#8221; in <filename>file name</filename>
@@ -2508,11 +2508,11 @@ section &#8220;a comma&#44; in title&#8221; in <citetitle>a &#44; in manual name
 <literal>@ref{chapter,,,file name,manual}</literal> &#8220;chapter&#8221; in <citetitle>manual</citetitle>
 </para>
 
-<para><literal>@ref{(pman)anode,cross ref name}</literal> <link>cross ref name</link>
-<literal>@ref{(pman)anode,,title}</literal> <link>title</link>
+<para><literal>@ref{(pman)anode,cross ref name}</literal> <link linkend="_0028pman_0029anode">cross ref name</link>
+<literal>@ref{(pman)anode,,title}</literal> <link linkend="_0028pman_0029anode">title</link>
 <literal>@ref{(pman)anode,,,file name}</literal> &#8220;(pman)anode&#8221; in <filename>file name</filename>
 <literal>@ref{(pman)anode,,,,manual}</literal> &#8220;(pman)anode&#8221; in <citetitle>manual</citetitle>
-<literal>@ref{(pman)anode,cross ref name,title,}</literal> <link>title</link>
+<literal>@ref{(pman)anode,cross ref name,title,}</literal> <link linkend="_0028pman_0029anode">title</link>
 <literal>@ref{(pman)anode,cross ref name,,file name}</literal> section &#8220;cross ref name&#8221; in <filename>file name</filename>
 <literal>@ref{(pman)anode,cross ref name,,,manual}</literal> section &#8220;cross ref name&#8221; in <citetitle>manual</citetitle>
 <literal>@ref{(pman)anode,cross ref name,title,file name}</literal> section &#8220;title&#8221; in <filename>file name</filename>
@@ -3432,11 +3432,11 @@ section ``a comma&#44; in title'' in <citetitle>a &#44; in manual name</citetitl
 <literal>@ref{chapter,,,file name,manual}</literal> ``chapter'' in <citetitle>manual</citetitle>
 
 
-<literal>@ref{(pman)anode,cross ref name}</literal> <link>cross ref name</link>
-<literal>@ref{(pman)anode,,title}</literal> <link>title</link>
+<literal>@ref{(pman)anode,cross ref name}</literal> <link linkend="_0028pman_0029anode">cross ref name</link>
+<literal>@ref{(pman)anode,,title}</literal> <link linkend="_0028pman_0029anode">title</link>
 <literal>@ref{(pman)anode,,,file name}</literal> ``(pman)anode'' in <filename>file name</filename>
 <literal>@ref{(pman)anode,,,,manual}</literal> ``(pman)anode'' in <citetitle>manual</citetitle>
-<literal>@ref{(pman)anode,cross ref name,title,}</literal> <link>title</link>
+<literal>@ref{(pman)anode,cross ref name,title,}</literal> <link linkend="_0028pman_0029anode">title</link>
 <literal>@ref{(pman)anode,cross ref name,,file name}</literal> section ``cross ref name'' in <filename>file name</filename>
 <literal>@ref{(pman)anode,cross ref name,,,manual}</literal> section ``cross ref name'' in <citetitle>manual</citetitle>
 <literal>@ref{(pman)anode,cross ref name,title,file name}</literal> section ``title'' in <filename>file name</filename>

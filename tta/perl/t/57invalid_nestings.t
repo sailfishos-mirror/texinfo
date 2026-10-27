@@ -521,7 +521,7 @@ Text. @errormsg{@anchor{in anchor} @ref{in ref}}
 
 my @formatted_cases = (
 ['on_node_line',
-'@node @ref{a, b, c, filename}, (@pxref{(somemanual)Top}) @anchor{in anchor}@footnote{footnote} @exdent exdent
+'@node @ref{a, b, c, filename}, (@pxref{Top,,, somemanual}) @anchor{in anchor}@footnote{footnote} @exdent exdent
 '],
 ['table_in_code',
 '@code{

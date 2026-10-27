@@ -133,14 +133,11 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
      {manual}
    {\\n}
    *@ref C1 character_and_spaces_in_refs_text.texi:l17
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{texinfo}
-    |node_content:{Cross References}
-     {(}
-     {texinfo}
-     {)}
-     {Cross References}
+    |node_content:{(texinfo)Cross References}
+    |normalized:{_0028texinfo_0029Cross-References}
+     {(texinfo)Cross References}
    {\\n}
    *@ref C4 character_and_spaces_in_refs_text.texi:l18
     *brace_arg C1
@@ -446,7 +443,10 @@ local   node
 
 ';
 
-$result_errors{'character_and_spaces_in_refs'} = '';
+$result_errors{'character_and_spaces_in_refs'} = '* E character_and_spaces_in_refs_text.texi:l17|@ref reference to nonexistent node `(texinfo)Cross References\'
+ @ref reference to nonexistent node `(texinfo)Cross References\'
+
+';
 
 $result_nodes_list{'character_and_spaces_in_refs'} = '1|Top
  associated_section: Test refs
@@ -648,7 +648,7 @@ span:hover a.copiable-link {visibility: visible}
 <p><a data-manual="manual" href="manual.html#a-node">(manual)a  node</a>
 <a data-manual="manual" href="manual.html#g_t_003a">(manual):</a>
 <a data-manual="manual" href="manual.html#Top">(manual)top</a>
-<a data-manual="texinfo" href="texinfo.html#Cross-References">(texinfo)Cross References</a>
+&lsquo;(texinfo)Cross References&rsquo;
 <a data-manual="../manual/doc" href="doc.html#node">(../manual/doc)node</a>
 </p>
 <h4 class="subheading" id="Testing-local-nodes"><span>Testing local nodes<a class="copiable-link" href="#Testing-local-nodes"> &para;</a></span></h4>
@@ -699,7 +699,7 @@ $result_converted{'docbook'}->{'character_and_spaces_in_refs'} = '<chapter label
 <para>&#8220;a  node&#8221; in <filename>manual</filename>
 &#8220;:&#8221; in <filename>manual</filename>
 &#8220;top&#8221; in <filename>manual</filename>
-<link>(texinfo)Cross References</link>
+<link linkend="_0028texinfo_0029Cross-References">(texinfo)Cross References</link>
 &#8220;node&#8221; in <filename>../manual/doc</filename>
 </para>
 <bridgehead renderas="sect2">Testing local nodes</bridgehead>

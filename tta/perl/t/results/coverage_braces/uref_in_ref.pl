@@ -13,14 +13,10 @@ $result_tree_text{'uref_in_ref'} = '*document_root C1
   *preamble_before_content
   *paragraph C2
    *@ref C5 l1
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{file}
-    |node_content:{node}
-     {(}
-     {file}
-     {)}
-     {node}
+    |node_content:{(file)node}
+     {(file)node}
     *brace_arg C3
      {spaces_before_argument: }
      {cross ref with uref }
@@ -80,7 +76,7 @@ file with uref3 uref3 (href://http/myhost.com/index3.html))(file)node
 ';
 
 
-$result_converted{'html_text'}->{'uref_in_ref'} = '<p><a data-manual="info file with uref3 href://http/myhost.com/index3.html (uref3)" href="index3.html%20%28uref3%29.html#node">title with uref2 <a class="uref" href="href://http/myhost.com/index2.html">uref2</a></a> in <cite class="cite">printed manual with uref4 <a class="uref" href="href://http/myhost.com/index4.html">uref4</a></cite>
+$result_converted{'html_text'}->{'uref_in_ref'} = '<p><a data-manual="info file with uref3 href://http/myhost.com/index3.html (uref3)" href="index3.html%20%28uref3%29.html#g_t_0028file_0029node">title with uref2 <a class="uref" href="href://http/myhost.com/index2.html">uref2</a></a> in <cite class="cite">printed manual with uref4 <a class="uref" href="href://http/myhost.com/index4.html">uref4</a></cite>
 </p>';
 
 

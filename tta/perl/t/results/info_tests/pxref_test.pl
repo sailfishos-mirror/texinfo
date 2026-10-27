@@ -24,69 +24,67 @@ $result_tree_text{'pxref_test'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C9
    {Hey (}
-   *@pxref C1 l3
-    *brace_arg C5
+   *@pxref C4 l3
+    *brace_arg C1
     |EXTRA
-    |manual_content:{m}
     |node_content:{in pxref}
-     {(}
-     {m}
-     {)}
-     { }
      {in pxref}
+    *brace_arg
+    *brace_arg
+    *brace_arg C2
+     {spaces_before_argument: }
+     {m}
    {) and continue (}
-   *@pxref C2 l3
-    *brace_arg C5
+   *@pxref C4 l3
+    *brace_arg C1
     |EXTRA
-    |manual_content:{m}
     |node_content:{in pxref}
-     {(}
-     {m}
-     {)}
-     { }
      {in pxref}
     *brace_arg C2
      {spaces_before_argument: }
      {name}
+    *brace_arg
+    *brace_arg C2
+     {spaces_before_argument: }
+     {m}
    {) and end.\\n}
-   *@pxref C1 l4
-    *brace_arg C5
+   *@pxref C4 l4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{m}
     |node_content:{n}
-     {(}
-     {m}
-     {)}
-     { }
      {n}
-   {. }
-   *@pxref C2 l4
-    *brace_arg C5
-    |EXTRA
-    |manual_content:{m}
-    |node_content:{n}
-     {(}
+    *brace_arg
+    *brace_arg
+    *brace_arg C2
+     {spaces_before_argument: }
      {m}
-     {)}
-     { }
+   {. }
+   *@pxref C4 l4
+    *brace_arg C1
+    |EXTRA
+    |node_content:{n}
      {n}
     *brace_arg C2
      {spaces_before_argument: }
      {name}
+    *brace_arg
+    *brace_arg C2
+     {spaces_before_argument: }
+     {m}
    {.\\n}
 ';
 
 
 $result_texis{'pxref_test'} = '@node Top
 
-Hey (@pxref{(m) in pxref}) and continue (@pxref{(m) in pxref, name}) and end.
-@pxref{(m) n}. @pxref{(m) n, name}.
+Hey (@pxref{in pxref,,, m}) and continue (@pxref{in pxref, name,, m}) and end.
+@pxref{n,,, m}. @pxref{n, name,, m}.
 ';
 
 
 $result_texts{'pxref_test'} = '
-Hey ((m) in pxref) and continue ((m) in pxref) and end.
-(m) n. (m) n.
+Hey (in pxref) and continue (in pxref) and end.
+n. n.
 ';
 
 $result_errors{'pxref_test'} = '';
@@ -106,8 +104,8 @@ $result_converted{'info'}->{'pxref_test'} = Encode::encode('utf-8', 'This is , p
 
 File: ,  Node: Top,  Up: (dir)
 
-Hey (*note (m) in pxref::) and continue (*note name: (m) in pxref.) and
-end.  *note (m) n::.  *note name: (m) n.
+Hey (*note (m)in pxref::) and continue (*note name: (m)in pxref.) and
+end.  *note (m)n::.  *note name: (m)n.
 
 
 Tag Table:

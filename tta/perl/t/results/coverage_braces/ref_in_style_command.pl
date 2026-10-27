@@ -14,25 +14,29 @@ $result_tree_text{'ref_in_style_command'} = '*document_root C1
   *paragraph C2
    *@samp C1 l1
     *brace_container C1
-     *@ref C1 l1
-      *brace_arg C4
+     *@ref C3 l1
+      *brace_arg C1
       |EXTRA
-      |manual_content:{manula}
       |node_content:{other node}
-       {(}
-       {manula}
-       {)}
+      |normalized:{other-node}
        {other node}
+      *brace_arg
+      *brace_arg C2
+       {spaces_before_argument: }
+       {manula}
    {.}
 ';
 
 
-$result_texis{'ref_in_style_command'} = '@samp{@ref{(manula)other node}}.';
+$result_texis{'ref_in_style_command'} = '@samp{@ref{other node,, manula}}.';
 
 
-$result_texts{'ref_in_style_command'} = '(manula)other node.';
+$result_texts{'ref_in_style_command'} = 'other node.';
 
-$result_errors{'ref_in_style_command'} = '';
+$result_errors{'ref_in_style_command'} = '* E l1|@ref reference to nonexistent node `other node\'
+ @ref reference to nonexistent node `other node\'
+
+';
 
 $result_nodes_list{'ref_in_style_command'} = '';
 
@@ -43,17 +47,17 @@ $result_sectioning_root{'ref_in_style_command'} = '';
 $result_headings_list{'ref_in_style_command'} = '';
 
 
-$result_converted{'plaintext'}->{'ref_in_style_command'} = '‘(manula)other node’.
+$result_converted{'plaintext'}->{'ref_in_style_command'} = '‘manula: other node’.
 ';
 
 
-$result_converted{'html_text'}->{'ref_in_style_command'} = '<p>&lsquo;<samp class="samp"><a data-manual="manula" href="manula.html#other-node">(manula)other node</a></samp>&rsquo;.</p>';
+$result_converted{'html_text'}->{'ref_in_style_command'} = '<p>&lsquo;<samp class="samp">`manula\'</samp>&rsquo;.</p>';
 
 
 $result_converted{'latex_text'}->{'ref_in_style_command'} = '\\begin{document}
-`\\texttt{(manula)other node}\'.';
+`\\texttt{manula}\'.';
 
 
-$result_converted{'docbook'}->{'ref_in_style_command'} = '<para>&#8216;<literal><link>(manula)other node</link></literal>&#8217;.</para>';
+$result_converted{'docbook'}->{'ref_in_style_command'} = '<para>&#8216;<literal><link linkend="other-node">manula</link></literal>&#8217;.</para>';
 
 1;

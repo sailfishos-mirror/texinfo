@@ -323,14 +323,11 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
      *@}
    { }
    *@ref C2 l20
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{Top}
-     {(}
-     {pman}
-     {)}
-     {Top}
+    |node_content:{(pman)Top}
+    |normalized:{_0028pman_0029Top}
+     {(pman)Top}
     *brace_arg C1
      {cross ref name}
    {\\n}
@@ -343,14 +340,11 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
      *@}
    { }
    *@ref C3 l21
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{Top}
-     {(}
-     {pman}
-     {)}
-     {Top}
+    |node_content:{(pman)Top}
+    |normalized:{_0028pman_0029Top}
+     {(pman)Top}
     *brace_arg
     *brace_arg C1
      {title}
@@ -364,14 +358,10 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
      *@}
    { }
    *@ref C4 l22
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{Top}
-     {(}
-     {pman}
-     {)}
-     {Top}
+    |node_content:{(pman)Top}
+     {(pman)Top}
     *brace_arg
     *brace_arg
     *brace_arg C1
@@ -386,14 +376,10 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
      *@}
    { }
    *@ref C5 l23
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{Top}
-     {(}
-     {pman}
-     {)}
-     {Top}
+    |node_content:{(pman)Top}
+     {(pman)Top}
     *brace_arg
     *brace_arg
     *brace_arg
@@ -409,14 +395,11 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
      *@}
    { }
    *@ref C4 l24
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{Top}
-     {(}
-     {pman}
-     {)}
-     {Top}
+    |node_content:{(pman)Top}
+    |normalized:{_0028pman_0029Top}
+     {(pman)Top}
     *brace_arg C1
      {cross ref name}
     *brace_arg C1
@@ -432,14 +415,10 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
      *@}
    { }
    *@ref C4 l25
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{Top}
-     {(}
-     {pman}
-     {)}
-     {Top}
+    |node_content:{(pman)Top}
+     {(pman)Top}
     *brace_arg C1
      {cross ref name}
     *brace_arg
@@ -455,14 +434,10 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
      *@}
    { }
    *@ref C5 l26
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{Top}
-     {(}
-     {pman}
-     {)}
-     {Top}
+    |node_content:{(pman)Top}
+     {(pman)Top}
     *brace_arg C1
      {cross ref name}
     *brace_arg
@@ -479,14 +454,10 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
      *@}
    { }
    *@ref C4 l27
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{Top}
-     {(}
-     {pman}
-     {)}
-     {Top}
+    |node_content:{(pman)Top}
+     {(pman)Top}
     *brace_arg C1
      {cross ref name}
     *brace_arg C1
@@ -503,14 +474,10 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
      *@}
    { }
    *@ref C5 l28
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{Top}
-     {(}
-     {pman}
-     {)}
-     {Top}
+    |node_content:{(pman)Top}
+     {(pman)Top}
     *brace_arg C1
      {cross ref name}
     *brace_arg C1
@@ -528,14 +495,10 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
      *@}
    { }
    *@ref C5 l29
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{Top}
-     {(}
-     {pman}
-     {)}
-     {Top}
+    |node_content:{(pman)Top}
+     {(pman)Top}
     *brace_arg C1
      {cross ref name}
     *brace_arg C1
@@ -556,14 +519,10 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
      *@}
    { }
    *@ref C4 l30
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{Top}
-     {(}
-     {pman}
-     {)}
-     {Top}
+    |node_content:{(pman)Top}
+     {(pman)Top}
     *brace_arg
     *brace_arg C1
      {title}
@@ -579,14 +538,10 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
      *@}
    { }
    *@ref C5 l31
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{Top}
-     {(}
-     {pman}
-     {)}
-     {Top}
+    |node_content:{(pman)Top}
+     {(pman)Top}
     *brace_arg
     *brace_arg C1
      {title}
@@ -603,14 +558,10 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
      *@}
    { }
    *@ref C5 l32
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{Top}
-     {(}
-     {pman}
-     {)}
-     {Top}
+    |node_content:{(pman)Top}
+     {(pman)Top}
     *brace_arg
     *brace_arg C1
      {title}
@@ -630,14 +581,10 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
      *@}
    { }
    *@ref C5 l33
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{pman}
-    |node_content:{Top}
-     {(}
-     {pman}
-     {)}
-     {Top}
+    |node_content:{(pman)Top}
+     {(pman)Top}
     *brace_arg
     *brace_arg
     *brace_arg C1
@@ -811,6 +758,15 @@ $result_errors{'top_in_ref'} = '* W l35|@inforef is obsolete
 * W l38|@inforef is obsolete
  warning: @inforef is obsolete
 
+* E l20|@ref reference to nonexistent node `(pman)Top\'
+ @ref reference to nonexistent node `(pman)Top\'
+
+* E l21|@ref reference to nonexistent node `(pman)Top\'
+ @ref reference to nonexistent node `(pman)Top\'
+
+* E l24|@ref reference to nonexistent node `(pman)Top\'
+ @ref reference to nonexistent node `(pman)Top\'
+
 * W l3|node `chap refs node\' not in menu
  warning: node `chap refs node\' not in menu
 
@@ -885,20 +841,20 @@ $result_converted{'html_text'}->{'top_in_ref'} = '<h1 class="node" id="Top"><spa
 <code class="code">@ref{Top,,title, file name, manual}</code> <a data-manual="file name" href="file%20name.html#Top">title</a> in <cite class="cite">manual</cite>
 <code class="code">@ref{Top,,,file name,manual}</code> <cite class="cite"><a data-manual="file name" href="file%20name.html#Top">manual</a></cite>
 </p>
-<p><code class="code">@ref{(pman)Top,cross ref name}</code> <a data-manual="pman" href="pman.html#Top">cross ref name</a>
-<code class="code">@ref{(pman)Top,,title}</code> <a data-manual="pman" href="pman.html#Top">title</a>
-<code class="code">@ref{(pman)Top,,,file name}</code> <a data-manual="file name" href="file%20name.html#Top">(file name)Top</a>
-<code class="code">@ref{(pman)Top,,,,manual}</code> <cite class="cite"><a data-manual="pman" href="pman.html#Top">manual</a></cite>
-<code class="code">@ref{(pman)Top,cross ref name,title,}</code> <a data-manual="pman" href="pman.html#Top">title</a>
-<code class="code">@ref{(pman)Top,cross ref name,,file name}</code> <a data-manual="file name" href="file%20name.html#Top">cross ref name</a>
-<code class="code">@ref{(pman)Top,cross ref name,,,manual}</code> <a data-manual="pman" href="pman.html#Top">cross ref name</a> in <cite class="cite">manual</cite>
-<code class="code">@ref{(pman)Top,cross ref name,title,file name}</code> <a data-manual="file name" href="file%20name.html#Top">title</a>
-<code class="code">@ref{(pman)Top,cross ref name,title,,manual}</code> <a data-manual="pman" href="pman.html#Top">title</a> in <cite class="cite">manual</cite>
-<code class="code">@ref{(pman)Top,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="file%20name.html#Top">title</a> in <cite class="cite">manual</cite>
-<code class="code">@ref{(pman)Top,,title,file name}</code> <a data-manual="file name" href="file%20name.html#Top">title</a>
-<code class="code">@ref{(pman)Top,,title,,manual}</code> <a data-manual="pman" href="pman.html#Top">title</a> in <cite class="cite">manual</cite>
-<code class="code">@ref{(pman)Top,,title, file name, manual}</code> <a data-manual="file name" href="file%20name.html#Top">title</a> in <cite class="cite">manual</cite>
-<code class="code">@ref{(pman)Top,,,file name,manual}</code> <cite class="cite"><a data-manual="file name" href="file%20name.html#Top">manual</a></cite>
+<p><code class="code">@ref{(pman)Top,cross ref name}</code> &lsquo;cross ref name&rsquo;
+<code class="code">@ref{(pman)Top,,title}</code> &lsquo;title&rsquo;
+<code class="code">@ref{(pman)Top,,,file name}</code> <a data-manual="file name" href="file%20name.html#g_t_0028pman_0029Top">(file name)(pman)Top</a>
+<code class="code">@ref{(pman)Top,,,,manual}</code> &lsquo;(pman)Top&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)Top,cross ref name,title,}</code> &lsquo;title&rsquo;
+<code class="code">@ref{(pman)Top,cross ref name,,file name}</code> <a data-manual="file name" href="file%20name.html#g_t_0028pman_0029Top">cross ref name</a>
+<code class="code">@ref{(pman)Top,cross ref name,,,manual}</code> &lsquo;cross ref name&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)Top,cross ref name,title,file name}</code> <a data-manual="file name" href="file%20name.html#g_t_0028pman_0029Top">title</a>
+<code class="code">@ref{(pman)Top,cross ref name,title,,manual}</code> &lsquo;title&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)Top,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="file%20name.html#g_t_0028pman_0029Top">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)Top,,title,file name}</code> <a data-manual="file name" href="file%20name.html#g_t_0028pman_0029Top">title</a>
+<code class="code">@ref{(pman)Top,,title,,manual}</code> &lsquo;title&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)Top,,title, file name, manual}</code> <a data-manual="file name" href="file%20name.html#g_t_0028pman_0029Top">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)Top,,,file name,manual}</code> <a data-manual="file name" href="file%20name.html#g_t_0028pman_0029Top">(pman)Top</a> in <cite class="cite">manual</cite>
 </p>
 <p><code class="code">@inforef{Top, cross ref name, file name}</code> See <a data-manual="file name" href="file%20name.html#Top">cross ref name</a>
 <code class="code">@inforef{Top}</code> 
@@ -926,20 +882,20 @@ $result_converted{'xml'}->{'top_in_ref'} = '<node identifier="Top"><nodename> To
 <code>&arobase;ref&lbrace;Top,,title, file name, manual&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>Top</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;Top,,,file name,manual&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>Top</xrefnodename><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 </para>
-<para><code>&arobase;ref&lbrace;(pman)Top,cross ref name&rbrace;</code> <ref label="Top" manual="pman"><xrefnodename>(pman)Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname></ref>
-<code>&arobase;ref&lbrace;(pman)Top,,title&rbrace;</code> <ref label="Top" manual="pman"><xrefnodename>(pman)Top</xrefnodename><xrefprinteddesc>title</xrefprinteddesc></ref>
-<code>&arobase;ref&lbrace;(pman)Top,,,file name&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>(pman)Top</xrefnodename><xrefinfofile>file name</xrefinfofile></ref>
-<code>&arobase;ref&lbrace;(pman)Top,,,,manual&rbrace;</code> <ref label="Top" manual="pman"><xrefnodename>(pman)Top</xrefnodename><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)Top,cross ref name,title,&rbrace;</code> <ref label="Top" manual="pman"><xrefnodename>(pman)Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile></xrefinfofile></ref>
-<code>&arobase;ref&lbrace;(pman)Top,cross ref name,,file name&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>(pman)Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefinfofile>file name</xrefinfofile></ref>
-<code>&arobase;ref&lbrace;(pman)Top,cross ref name,,,manual&rbrace;</code> <ref label="Top" manual="pman"><xrefnodename>(pman)Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)Top,cross ref name,title,file name&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>(pman)Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
-<code>&arobase;ref&lbrace;(pman)Top,cross ref name,title,,manual&rbrace;</code> <ref label="Top" manual="pman"><xrefnodename>(pman)Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)Top,cross ref name,title, file name, manual&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>(pman)Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)Top,,title,file name&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>(pman)Top</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
-<code>&arobase;ref&lbrace;(pman)Top,,title,,manual&rbrace;</code> <ref label="Top" manual="pman"><xrefnodename>(pman)Top</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)Top,,title, file name, manual&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>(pman)Top</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)Top,,,file name,manual&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>(pman)Top</xrefnodename><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
+<para><code>&arobase;ref&lbrace;(pman)Top,cross ref name&rbrace;</code> <ref label="_0028pman_0029Top"><xrefnodename>(pman)Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname></ref>
+<code>&arobase;ref&lbrace;(pman)Top,,title&rbrace;</code> <ref label="_0028pman_0029Top"><xrefnodename>(pman)Top</xrefnodename><xrefprinteddesc>title</xrefprinteddesc></ref>
+<code>&arobase;ref&lbrace;(pman)Top,,,file name&rbrace;</code> <ref label="_0028pman_0029Top" manual="file name"><xrefnodename>(pman)Top</xrefnodename><xrefinfofile>file name</xrefinfofile></ref>
+<code>&arobase;ref&lbrace;(pman)Top,,,,manual&rbrace;</code> <ref label="_0028pman_0029Top"><xrefnodename>(pman)Top</xrefnodename><xrefprintedname>manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)Top,cross ref name,title,&rbrace;</code> <ref label="_0028pman_0029Top"><xrefnodename>(pman)Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile></xrefinfofile></ref>
+<code>&arobase;ref&lbrace;(pman)Top,cross ref name,,file name&rbrace;</code> <ref label="_0028pman_0029Top" manual="file name"><xrefnodename>(pman)Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefinfofile>file name</xrefinfofile></ref>
+<code>&arobase;ref&lbrace;(pman)Top,cross ref name,,,manual&rbrace;</code> <ref label="_0028pman_0029Top"><xrefnodename>(pman)Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)Top,cross ref name,title,file name&rbrace;</code> <ref label="_0028pman_0029Top" manual="file name"><xrefnodename>(pman)Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
+<code>&arobase;ref&lbrace;(pman)Top,cross ref name,title,,manual&rbrace;</code> <ref label="_0028pman_0029Top"><xrefnodename>(pman)Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)Top,cross ref name,title, file name, manual&rbrace;</code> <ref label="_0028pman_0029Top" manual="file name"><xrefnodename>(pman)Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)Top,,title,file name&rbrace;</code> <ref label="_0028pman_0029Top" manual="file name"><xrefnodename>(pman)Top</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
+<code>&arobase;ref&lbrace;(pman)Top,,title,,manual&rbrace;</code> <ref label="_0028pman_0029Top"><xrefnodename>(pman)Top</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)Top,,title, file name, manual&rbrace;</code> <ref label="_0028pman_0029Top" manual="file name"><xrefnodename>(pman)Top</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)Top,,,file name,manual&rbrace;</code> <ref label="_0028pman_0029Top" manual="file name"><xrefnodename>(pman)Top</xrefnodename><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 </para>
 <para><code>&arobase;inforef&lbrace;Top, cross ref name, file name&rbrace;</code> <inforef label="Top" manual="file name"><inforefnodename>Top</inforefnodename><inforefrefname> cross ref name</inforefrefname><inforefinfoname> file name</inforefinfoname></inforef>
 <code>&arobase;inforef&lbrace;Top&rbrace;</code> <inforef label="Top"><inforefnodename>Top</inforefnodename></inforef>
@@ -965,11 +921,11 @@ $result_converted{'docbook'}->{'top_in_ref'} = '<anchor id="chap-refs-node"/>
 <literal>@ref{Top,,title, file name, manual}</literal> section &#8220;title&#8221; in <citetitle>manual</citetitle>
 <literal>@ref{Top,,,file name,manual}</literal> <citetitle>manual</citetitle>
 </para>
-<para><literal>@ref{(pman)Top,cross ref name}</literal> <link>cross ref name</link>
-<literal>@ref{(pman)Top,,title}</literal> <link>title</link>
+<para><literal>@ref{(pman)Top,cross ref name}</literal> <link linkend="_0028pman_0029Top">cross ref name</link>
+<literal>@ref{(pman)Top,,title}</literal> <link linkend="_0028pman_0029Top">title</link>
 <literal>@ref{(pman)Top,,,file name}</literal> &#8220;(pman)Top&#8221; in <filename>file name</filename>
 <literal>@ref{(pman)Top,,,,manual}</literal> &#8220;(pman)Top&#8221; in <citetitle>manual</citetitle>
-<literal>@ref{(pman)Top,cross ref name,title,}</literal> <link>title</link>
+<literal>@ref{(pman)Top,cross ref name,title,}</literal> <link linkend="_0028pman_0029Top">title</link>
 <literal>@ref{(pman)Top,cross ref name,,file name}</literal> section &#8220;cross ref name&#8221; in <filename>file name</filename>
 <literal>@ref{(pman)Top,cross ref name,,,manual}</literal> section &#8220;cross ref name&#8221; in <citetitle>manual</citetitle>
 <literal>@ref{(pman)Top,cross ref name,title,file name}</literal> section &#8220;title&#8221; in <filename>file name</filename>

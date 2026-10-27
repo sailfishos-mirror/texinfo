@@ -211,31 +211,31 @@ text.
 '
 @node Top
 
-@ref{(m)in ref followed by comma}, 
-@ref{(m)in ref not followed by comma} after ref.
-@code{@ref{(m)in ref followed by end command}}.
+@ref{in ref followed by comma,,, m}, 
+@ref{in ref not followed by comma,,, m} after ref.
+@code{@ref{in ref followed by end command,,, m}}.
 
 
-@ref{(m)in ref followed by comma, name},
-@ref{(m)in ref not followed by comma, name} after ref.
-@code{@ref{(m)in ref followed by end command, name}}.
-@ref{(m)in ref ending with a dot., name} after ref.
+@ref{in ref followed by comma, name,, m},
+@ref{in ref not followed by comma, name,, m} after ref.
+@code{@ref{in ref followed by end command, name,, m}}.
+@ref{in ref ending with a dot., name,, m} after ref.
 
 '],
 ['xref_test',
 '
 @node Top
 
-@xref{(m)in xref}. @xref{(m)bad xref} after xref.
-@code{@xref{(m)bad nested xref}}.
-@xref{(m)in ref ending with a dot., name} ! after xref and dot inside.
-@xref{(m)in ref followed by symbol}# g.
+@xref{in xref,,, m}. @xref{bad xref,,, m} after xref.
+@code{@xref{bad nested xref,,, m}}.
+@xref{in ref ending with a dot., name,, m} ! after xref and dot inside.
+@xref{in ref followed by symbol,, m}# g.
 '],
 ['pxref_test',
 '@node Top
 
-Hey (@pxref{(m) in pxref}) and continue (@pxref{(m) in pxref, name}) and end.
-@pxref{(m) n}. @pxref{(m) n, name}.
+Hey (@pxref{in pxref,,, m}) and continue (@pxref{in pxref, name,, m}) and end.
+@pxref{n,,, m}. @pxref{n, name,, m}.
 '],
 ['del_quote_linebreaking',
 'first para

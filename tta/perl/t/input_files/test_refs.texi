@@ -29,8 +29,7 @@ split: ../manual/index.html#Top
 
 @verb{:(mtexinfo)Cross References:} @ref{(mtexinfo)Cross References}
 @example
-mono: mtexinfo.html#Cross-References
-split: ../mtexinfo/Cross-References.html#Cross-References
+target: #_0028mtexinfo_0029Cross-References
 @end example
 
 @subheading Testing manual name

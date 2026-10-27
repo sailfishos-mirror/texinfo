@@ -25,60 +25,64 @@ $result_tree_text{'xref_test'} = '*document_root C2
     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C10
-   *@xref C1 l4
-    *brace_arg C4
+   *@xref C4 l4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{m}
     |node_content:{in xref}
-     {(}
-     {m}
-     {)}
      {in xref}
-   {. }
-   *@xref C1 l4
-    *brace_arg C4
-    |EXTRA
-    |manual_content:{m}
-    |node_content:{bad xref}
-     {(}
+    *brace_arg
+    *brace_arg
+    *brace_arg C2
+     {spaces_before_argument: }
      {m}
-     {)}
+   {. }
+   *@xref C4 l4
+    *brace_arg C1
+    |EXTRA
+    |node_content:{bad xref}
      {bad xref}
+    *brace_arg
+    *brace_arg
+    *brace_arg C2
+     {spaces_before_argument: }
+     {m}
    { after xref.\\n}
    *@code C1 l5
     *brace_container C1
-     *@xref C1 l5
-      *brace_arg C4
+     *@xref C4 l5
+      *brace_arg C1
       |EXTRA
-      |manual_content:{m}
       |node_content:{bad nested xref}
-       {(}
-       {m}
-       {)}
        {bad nested xref}
+      *brace_arg
+      *brace_arg
+      *brace_arg C2
+       {spaces_before_argument: }
+       {m}
    {.\\n}
-   *@xref C2 l6
-    *brace_arg C4
+   *@xref C4 l6
+    *brace_arg C1
     |EXTRA
-    |manual_content:{m}
     |node_content:{in ref ending with a dot.}
-     {(}
-     {m}
-     {)}
      {in ref ending with a dot.}
     *brace_arg C2
      {spaces_before_argument: }
      {name}
-   { ! after xref and dot inside.\\n}
-   *@xref C1 l7
-    *brace_arg C4
-    |EXTRA
-    |manual_content:{m}
-    |node_content:{in ref followed by symbol}
-     {(}
+    *brace_arg
+    *brace_arg C2
+     {spaces_before_argument: }
      {m}
-     {)}
+   { ! after xref and dot inside.\\n}
+   *@xref C3 l7
+    *brace_arg C1
+    |EXTRA
+    |node_content:{in ref followed by symbol}
+    |normalized:{in-ref-followed-by-symbol}
      {in ref followed by symbol}
+    *brace_arg
+    *brace_arg C2
+     {spaces_before_argument: }
+     {m}
    {# g.\\n}
 ';
 
@@ -86,21 +90,24 @@ $result_tree_text{'xref_test'} = '*document_root C2
 $result_texis{'xref_test'} = '
 @node Top
 
-@xref{(m)in xref}. @xref{(m)bad xref} after xref.
-@code{@xref{(m)bad nested xref}}.
-@xref{(m)in ref ending with a dot., name} ! after xref and dot inside.
-@xref{(m)in ref followed by symbol}# g.
+@xref{in xref,,, m}. @xref{bad xref,,, m} after xref.
+@code{@xref{bad nested xref,,, m}}.
+@xref{in ref ending with a dot., name,, m} ! after xref and dot inside.
+@xref{in ref followed by symbol,, m}# g.
 ';
 
 
 $result_texts{'xref_test'} = '
-(m)in xref. (m)bad xref after xref.
-(m)bad nested xref.
-(m)in ref ending with a dot. ! after xref and dot inside.
-(m)in ref followed by symbol# g.
+in xref. bad xref after xref.
+bad nested xref.
+in ref ending with a dot. ! after xref and dot inside.
+in ref followed by symbol# g.
 ';
 
-$result_errors{'xref_test'} = '';
+$result_errors{'xref_test'} = '* E l7|@xref reference to nonexistent node `in ref followed by symbol\'
+ @xref reference to nonexistent node `in ref followed by symbol\'
+
+';
 
 $result_nodes_list{'xref_test'} = '1|Top
 ';
@@ -118,8 +125,8 @@ $result_converted{'info'}->{'xref_test'} = Encode::encode('utf-8', 'This is , pr
 File: ,  Node: Top,  Up: (dir)
 
 *Note (m)in xref::.  *Note (m)bad xref:: after xref.  ‘*Note (m)bad
-nested xref::’.  *Note name: (m)in ref ending with a dot.. !  after xref
-and dot inside.  *Note (m)in ref followed by symbol::# g.
+nested xref::’.  *Note name: (m)in ref ending with a dot.. !  after xref
+and dot inside.  *Note m: in ref followed by symbol.# g.
 
 
 Tag Table:
@@ -138,6 +145,9 @@ $result_converted_errors{'info'}->{'xref_test'} = '* W l6|@xref node name should
 
 * W l6|`.\' or `,\' must follow @xref, not !
  warning: `.\' or `,\' must follow @xref, not !
+
+* W l7|`.\' or `,\' must follow @xref, not #
+ warning: `.\' or `,\' must follow @xref, not #
 
 ';
 

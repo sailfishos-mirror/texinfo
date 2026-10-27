@@ -185,7 +185,7 @@ my $check_htmlxref_text = '
 @node chapter, (chap_not_existing), (dir)node in dir
 @chapter Chapter
 
-@xref{(some_name_inf.inf)aa}.
+@xref{aa,,, some_name_inf.inf}.
 ';
 
 my $top_node_up_implicit_text = '@node Top

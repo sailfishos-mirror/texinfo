@@ -35,20 +35,21 @@ $result_tree_text{'on_node_line'} = '*document_root C2
       {filename}
    *line_arg C9
    |EXTRA
-   |manual_content:{@pxref{(somemanual)Top}}
+   |manual_content:{@pxref{Top,,, somemanual}}
    |node_content:{@anchor{in anchor}@footnote{footnote} @exdent exdent\\n}
    |normalized:{-}
     {spaces_before_argument: }
     {(}
-    *@pxref C1 l1
-     *brace_arg C4
+    *@pxref C4 l1
+     *brace_arg C1
      |EXTRA
-     |manual_content:{somemanual}
      |node_content:{Top}
-      {(}
-      {somemanual}
-      {)}
       {Top}
+     *brace_arg
+     *brace_arg
+     *brace_arg C2
+      {spaces_before_argument: }
+      {somemanual}
     {)}
     { }
     *@anchor C1 l1
@@ -72,7 +73,7 @@ $result_tree_text{'on_node_line'} = '*document_root C2
 ';
 
 
-$result_texis{'on_node_line'} = '@node @ref{a, b, c, filename}, (@pxref{(somemanual)Top}) @anchor{in anchor}@footnote{footnote} @exdent exdent
+$result_texis{'on_node_line'} = '@node @ref{a, b, c, filename}, (@pxref{Top,,, somemanual}) @anchor{in anchor}@footnote{footnote} @exdent exdent
 ';
 
 
@@ -100,7 +101,7 @@ $result_errors{'on_node_line'} = '* W l1|@ref should not appear on @node line
 
 $result_nodes_list{'on_node_line'} = '1|@ref{a, b, c, filename}
  node_directions:
-  next-> (@pxref{(somemanual)Top}) @anchor{in anchor}@footnote{footnote} @exdent exdent
+  next-> (@pxref{Top,,, somemanual}) @anchor{in anchor}@footnote{footnote} @exdent exdent
 
 ';
 
@@ -114,7 +115,7 @@ $result_headings_list{'on_node_line'} = '';
 $result_converted{'plaintext'}->{'on_node_line'} = '';
 
 
-$result_converted{'xml'}->{'on_node_line'} = '<node identifier="a"><nodename> <ref label="a" manual="filename"><xrefnodename>a</xrefnodename><xrefinfoname> b</xrefinfoname><xrefprinteddesc> c</xrefprinteddesc><xrefinfofile> filename</xrefinfofile></ref></nodename><nodenext> (<pxref label="Top" manual="somemanual"><xrefnodename>(somemanual)Top</xrefnodename></pxref>) <anchor identifier="in-anchor">in anchor</anchor><footnote><para>footnote</para></footnote> <exdent> exdent</exdent>
+$result_converted{'xml'}->{'on_node_line'} = '<node identifier="a"><nodename> <ref label="a" manual="filename"><xrefnodename>a</xrefnodename><xrefinfoname> b</xrefinfoname><xrefprinteddesc> c</xrefprinteddesc><xrefinfofile> filename</xrefinfofile></ref></nodename><nodenext> (<pxref label="Top" manual="somemanual"><xrefnodename>Top</xrefnodename><xrefinfofile> somemanual</xrefinfofile></pxref>) <anchor identifier="in-anchor">in anchor</anchor><footnote><para>footnote</para></footnote> <exdent> exdent</exdent>
 </nodenext></node>';
 
 1;

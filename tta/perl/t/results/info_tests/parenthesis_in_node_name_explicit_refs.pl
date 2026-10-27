@@ -143,12 +143,11 @@ $result_tree_text{'parenthesis_in_node_name_explicit_refs'} = '*document_root C7
   {empty_line:\\n}
   *paragraph C2
    *@xref C1 l20
-    *brace_arg C3
+    *brace_arg C1
     |EXTRA
-    |manual_content:{Two}
-     {(}
-     {Two}
-     {)}
+    |node_content:{(Two)}
+    |normalized:{_0028Two_0029}
+     {(Two)}
    {.\\n}
 ';
 
@@ -196,14 +195,14 @@ AA.
 (Two).
 ';
 
-$result_errors{'parenthesis_in_node_name_explicit_refs'} = '* W l1|node `Top\' lacks menu item for `@asis{(}Two)\' but is above it in sectioning
+$result_errors{'parenthesis_in_node_name_explicit_refs'} = '* W l20|@xref to `(Two)\', different from node name `@asis{(}Two)\'
+ warning: @xref to `(Two)\', different from node name `@asis{(}Two)\'
+
+* W l1|node `Top\' lacks menu item for `@asis{(}Two)\' but is above it in sectioning
  warning: node `Top\' lacks menu item for `@asis{(}Two)\' but is above it in sectioning
 
 * W l7|@menu entry node name `One@asis{:}\' different from node name `One:\'
  warning: @menu entry node name `One@asis{:}\' different from node name `One:\'
-
-* W l16|node `@asis{(}Two)\' unreferenced
- warning: node `@asis{(}Two)\' unreferenced
 
 ';
 
@@ -293,7 +292,7 @@ File: ,  Node: (Two),  Prev: One:,  Up: Top
 
 AA.
 
-   *Note (Two)::.
+   *Note (Two)::.
 
 
 Tag Table:

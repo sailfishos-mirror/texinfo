@@ -188,15 +188,16 @@ $result_tree_text{'check_htmlxref'} = '*document_root C6
     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@xref C1 l19
-    *brace_arg C4
+   *@xref C4 l19
+    *brace_arg C1
     |EXTRA
-    |manual_content:{some_name_inf.inf}
     |node_content:{aa}
-     {(}
-     {some_name_inf.inf}
-     {)}
      {aa}
+    *brace_arg
+    *brace_arg
+    *brace_arg C2
+     {spaces_before_argument: }
+     {some_name_inf.inf}
    {.\\n}
 ';
 
@@ -219,7 +220,7 @@ $result_texis{'check_htmlxref'} = '
 @node chapter, (chap_not_existing), (dir)node in dir
 @chapter Chapter
 
-@xref{(some_name_inf.inf)aa}.
+@xref{aa,,, some_name_inf.inf}.
 ';
 
 
@@ -237,7 +238,7 @@ a
 1 Chapter
 *********
 
-(some_name_inf.inf)aa.
+aa.
 ';
 
 $result_errors{'check_htmlxref'} = '* W l9|node `first\' in menu where `chapter\' expected

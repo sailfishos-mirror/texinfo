@@ -331,32 +331,25 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
           else
             {
               ELEMENT *arg_label = ref->e.c->contents.list[0];
-              NODE_SPEC_EXTRA *ref_label_info = parse_node_manual (arg_label, 1);
+              ARG_INDICES arg_indices;
 
-              if (ref_label_info && (ref_label_info->manual_content
-                                     || ref_label_info->node_content))
+              int non_empty = non_leading_trailing_indices (arg_label,
+                                                            &arg_indices);
+
+              if (non_empty)
                 {
-                  if (ref_label_info->node_content)
-                    add_extra_container (arg_label, AI_key_node_content,
-                                        ref_label_info->node_content);
-                  if (ref_label_info->manual_content)
-                    add_extra_container (arg_label, AI_key_manual_content,
-                                        ref_label_info->manual_content);
-                }
-              else
-                {
-                  if (ref_label_info->manual_content)
-                    destroy_element (ref_label_info->manual_content);
-                  if (ref_label_info->node_content)
-                    destroy_element (ref_label_info->node_content);
+                  ELEMENT *node_content = new_element (ET_NONE);
+                  insert_slice_into_contents (node_content, 0, arg_label,
+                                      arg_indices.start, arg_indices.end +1);
+                  add_extra_container (arg_label, AI_key_node_content,
+                                       node_content);
                 }
               if ((!link_or_inforef
                    && (ref->e.c->contents.number <= 3
                        || (ref->e.c->contents.number <= 4
                          && empty_spaces_argument (ref->e.c->contents.list[3]))
                        || (empty_spaces_argument (ref->e.c->contents.list[3])
-                         && empty_spaces_argument (ref->e.c->contents.list[4])))
-                   && !ref_label_info->manual_content)
+                      && empty_spaces_argument (ref->e.c->contents.list[4]))))
                   || (link_or_inforef
                       && (ref->e.c->contents.number <= 2
                    || empty_spaces_argument (ref->e.c->contents.list[2]))))
@@ -366,7 +359,6 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                   add_to_element_list (
                           &parsed_document->internal_references, ref);
                 }
-              free (ref_label_info);
             }
 
           if (ref->e.c->contents.number > 1

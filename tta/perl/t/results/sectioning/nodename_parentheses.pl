@@ -138,14 +138,11 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
   *paragraph C3
    {Dummy link to }
    *@ref C1 l20
-    *brace_arg C4
+    *brace_arg C1
     |EXTRA
-    |manual_content:{manual}
-    |node_content:{node}
-     {(}
-     {manual}
-     {)}
-     {node}
+    |node_content:{(manual)node}
+    |normalized:{_0028manual_0029node}
+     {(manual)node}
    {.\\n}
   {empty_line:\\n}
  *@node C1 l22 {(manual)node}
