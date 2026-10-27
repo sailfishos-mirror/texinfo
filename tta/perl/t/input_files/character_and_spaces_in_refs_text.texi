@@ -14,7 +14,6 @@
 @ref{ a  node ,,, manual}
 @ref{:,,,manual}
 @ref{ top ,,, manual}
-@ref{(texinfo)Cross References}
 @ref{node,,, ../manual/doc}
 
 @subheading Testing local nodes
@@ -23,6 +22,9 @@
 @ref{/;<=>?[\]^_`|~}
 @ref{ Top}
 @ref{  local   node}
+@ref{(texinfo)Cross References}
+
+@anchor{(texinfo)Cross References}
 
 @node other nodes, !_"#$%&'()*+-., node to avoid DocBook or LaTeX ignored, Top
 @chapter Chapter with nodes

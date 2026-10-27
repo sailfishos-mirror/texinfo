@@ -97,7 +97,7 @@ NodeBack: [U0]
     {spaces_before_argument: }
     {node to avoid DocBook or LaTeX ignored}
     {spaces_after_argument:\\n}
- *@chapter C10 character_and_spaces_in_refs_text.texi:l10 {first chapter}
+ *@chapter C13 character_and_spaces_in_refs_text.texi:l10 {first chapter}
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -117,7 +117,7 @@ NodeBack: [U0]
     {Testing distant nodes}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-  *paragraph C10
+  *paragraph C8
    *@ref C4 character_and_spaces_in_refs_text.texi:l14
     *brace_arg C3
     |EXTRA
@@ -154,14 +154,7 @@ NodeBack: [U0]
      {spaces_before_argument: }
      {manual}
    {\\n}
-   *@ref C1 character_and_spaces_in_refs_text.texi:l17
-    *brace_arg C1
-    |EXTRA
-    |node_content:{(texinfo)Cross References}
-    |normalized:{_0028texinfo_0029Cross-References}
-     {(texinfo)Cross References}
-   {\\n}
-   *@ref C4 character_and_spaces_in_refs_text.texi:l18
+   *@ref C4 character_and_spaces_in_refs_text.texi:l17
     *brace_arg C1
     |EXTRA
     |node_content:{node}
@@ -173,7 +166,7 @@ NodeBack: [U0]
      {../manual/doc}
    {\\n}
   {empty_line:\\n}
-  *@subheading C1 character_and_spaces_in_refs_text.texi:l20
+  *@subheading C1 character_and_spaces_in_refs_text.texi:l19
   |EXTRA
   |global_command_number:{2}
   |heading_number:{2}
@@ -182,22 +175,22 @@ NodeBack: [U0]
     {Testing local nodes}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-  *paragraph C8
-   *@ref C1 character_and_spaces_in_refs_text.texi:l22
+  *paragraph C10
+   *@ref C1 character_and_spaces_in_refs_text.texi:l21
     *brace_arg C1
     |EXTRA
     |node_content:{!_"#$%&\'()*+-.}
     |normalized:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
      {!_"#$%&\'()*+-.}
    {\\n}
-   *@ref C1 character_and_spaces_in_refs_text.texi:l23
+   *@ref C1 character_and_spaces_in_refs_text.texi:l22
     *brace_arg C1
     |EXTRA
     |node_content:{/;<=>?[\\]^_`|~}
     |normalized:{_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}
      {/;<=>?[\\]^_`|~}
    {\\n}
-   *@ref C1 character_and_spaces_in_refs_text.texi:l24
+   *@ref C1 character_and_spaces_in_refs_text.texi:l23
     *brace_arg C2
     |EXTRA
     |node_content:{Top}
@@ -205,7 +198,7 @@ NodeBack: [U0]
      {spaces_before_argument: }
      {Top}
    {\\n}
-   *@ref C1 character_and_spaces_in_refs_text.texi:l25
+   *@ref C1 character_and_spaces_in_refs_text.texi:l24
     *brace_arg C2
     |EXTRA
     |node_content:{local   node}
@@ -213,6 +206,21 @@ NodeBack: [U0]
      {spaces_before_argument:  }
      {local   node}
    {\\n}
+   *@ref C1 character_and_spaces_in_refs_text.texi:l25
+    *brace_arg C1
+    |EXTRA
+    |node_content:{(texinfo)Cross References}
+    |normalized:{_0028texinfo_0029Cross-References}
+     {(texinfo)Cross References}
+   {\\n}
+  {empty_line:\\n}
+  *@anchor C1 character_and_spaces_in_refs_text.texi:l27
+  |EXTRA
+  |identifier:{_0028texinfo_0029Cross-References}
+  |is_target:{1}
+   *brace_arg C1
+    {(texinfo)Cross References}
+  {spaces_after_close_brace:\\n}
   {empty_line:\\n}
 U2 unit{C2}{N:other nodes}{s:@chapter 2 Chapter with nodes}
 unit_directions:D[next->[U3]|prev->[U1]]
@@ -228,7 +236,7 @@ NodePrev: [U1]
 NodeUp: [U0]
 NodeForward: [U3]
 NodeBack: [U1]
- *@node C1 character_and_spaces_in_refs_text.texi:l27 {other nodes}
+ *@node C1 character_and_spaces_in_refs_text.texi:l29 {other nodes}
  |EXTRA
  |identifier:{other-nodes}
  |is_target:{1}
@@ -256,7 +264,7 @@ NodeBack: [U1]
     {spaces_before_argument: }
     {Top}
     {spaces_after_argument:\\n}
- *@chapter C4 character_and_spaces_in_refs_text.texi:l28 {Chapter with nodes}
+ *@chapter C4 character_and_spaces_in_refs_text.texi:l30 {Chapter with nodes}
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -267,11 +275,11 @@ NodeBack: [U1]
     {Chapter with nodes}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-  *@menu C5 character_and_spaces_in_refs_text.texi:l30
+  *@menu C5 character_and_spaces_in_refs_text.texi:l32
    *arguments_line C1
     *block_line_arg C1
      {spaces_before_argument:\\n}
-   *menu_entry C4 character_and_spaces_in_refs_text.texi:l31
+   *menu_entry C4 character_and_spaces_in_refs_text.texi:l33
     {menu_entry_leading_text:* }
     *menu_entry_node C1
     |EXTRA
@@ -282,7 +290,7 @@ NodeBack: [U1]
     *menu_entry_description C1
      *preformatted C1
       {\\n}
-   *menu_entry C4 character_and_spaces_in_refs_text.texi:l32
+   *menu_entry C4 character_and_spaces_in_refs_text.texi:l34
     {menu_entry_leading_text:* }
     *menu_entry_node C1
     |EXTRA
@@ -293,7 +301,7 @@ NodeBack: [U1]
     *menu_entry_description C1
      *preformatted C1
       {\\n}
-   *menu_entry C4 character_and_spaces_in_refs_text.texi:l33
+   *menu_entry C4 character_and_spaces_in_refs_text.texi:l35
     {menu_entry_leading_text:* }
     *menu_entry_node C1
     |EXTRA
@@ -304,7 +312,7 @@ NodeBack: [U1]
     *menu_entry_description C1
      *preformatted C1
       {\\n}
-   *@end C1 character_and_spaces_in_refs_text.texi:l34
+   *@end C1 character_and_spaces_in_refs_text.texi:l36
    |EXTRA
    |text_arg:{menu}
     *line_arg C3
@@ -324,7 +332,7 @@ NodePrev: [U2]
 NodeUp: [U2]
 NodeForward: [U4]
 NodeBack: [U2]
- *@node C2 character_and_spaces_in_refs_text.texi:l36 {!_"#$%&\'()*+-.}
+ *@node C2 character_and_spaces_in_refs_text.texi:l38 {!_"#$%&\'()*+-.}
  |EXTRA
  |identifier:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
  |is_target:{1}
@@ -365,7 +373,7 @@ NodePrev: [U3]
 NodeUp: [U2]
 NodeForward: [U5]
 NodeBack: [U3]
- *@node C2 character_and_spaces_in_refs_text.texi:l38 {/;<=>?[\\]^_`|~}
+ *@node C2 character_and_spaces_in_refs_text.texi:l40 {/;<=>?[\\]^_`|~}
  |EXTRA
  |identifier:{_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}
  |is_target:{1}
@@ -402,7 +410,7 @@ NodePrev: [U4]
 NodeUp: [U2]
 NodeForward: [U3]
 NodeBack: [U4]
- *@node C2 character_and_spaces_in_refs_text.texi:l40 {local   node}
+ *@node C2 character_and_spaces_in_refs_text.texi:l42 {local   node}
  |EXTRA
  |identifier:{local-node}
  |is_target:{1}
@@ -446,7 +454,6 @@ $result_texis{'character_and_spaces_in_refs_out'} = '@node Top
 @ref{ a  node ,,, manual}
 @ref{:,,,manual}
 @ref{ top ,,, manual}
-@ref{(texinfo)Cross References}
 @ref{node,,, ../manual/doc}
 
 @subheading Testing local nodes
@@ -455,6 +462,9 @@ $result_texis{'character_and_spaces_in_refs_out'} = '@node Top
 @ref{/;<=>?[\\]^_`|~}
 @ref{ Top}
 @ref{  local   node}
+@ref{(texinfo)Cross References}
+
+@anchor{(texinfo)Cross References}
 
 @node other nodes, !_"#$%&\'()*+-., node to avoid DocBook or LaTeX ignored, Top
 @chapter Chapter with nodes
@@ -490,7 +500,6 @@ Testing distant nodes
 a  node
 :
 top
-(texinfo)Cross References
 node
 
 Testing local nodes
@@ -500,6 +509,8 @@ Testing local nodes
 /;<=>?[\\]^_`|~
 Top
 local   node
+(texinfo)Cross References
+
 
 2 Chapter with nodes
 ********************
@@ -513,8 +524,8 @@ local   node
 
 ';
 
-$result_errors{'character_and_spaces_in_refs_out'} = '* E character_and_spaces_in_refs_text.texi:l17|@ref reference to nonexistent node `(texinfo)Cross References\'
- @ref reference to nonexistent node `(texinfo)Cross References\'
+$result_errors{'character_and_spaces_in_refs_out'} = '* E character_and_spaces_in_refs_text.texi:l27|syntax for an external node used for `(texinfo)Cross References\'
+ syntax for an external node used for `(texinfo)Cross References\'
 
 ';
 

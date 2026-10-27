@@ -27,11 +27,6 @@ mono : manual.html#Top
 split: ../manual/index.html#Top
 @end example
 
-@verb{:(mtexinfo)Cross References:} @ref{(mtexinfo)Cross References}
-@example
-target: #_0028mtexinfo_0029Cross-References
-@end example
-
 @subheading Testing manual name
 
 @verb{:../manual/doc.texi:} @ref{node,,, ../manual/doc}@*
@@ -61,6 +56,14 @@ target: #Top
 @example
 target: #local-node
 @end example
+
+@c before 2026 was a reference to the mtexinfo external manual
+@verb{:(mtexinfo)Cross References:} @ref{(mtexinfo)Cross References}
+@example
+target: #_0028mtexinfo_0029Cross-References
+@end example
+
+@anchor{(mtexinfo)Cross References}
 
 @node other nodes, !_"#$%&'()*+-., Top, Top
 @chapter Chapter with nodes
