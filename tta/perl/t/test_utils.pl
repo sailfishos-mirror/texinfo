@@ -603,15 +603,15 @@ sub test($$) {
 
   my $debug = $self->{'DEBUG'};
 
-  if (!defined($converter_options->{'XS_EXTERNAL_CONVERSION'})
+  if (!defined($converter_options->{'_XS_EXTERNAL_CONVERSION'})
       and defined($ENV{TEXINFO_XS_EXTERNAL_CONVERSION})
       and $ENV{TEXINFO_XS_EXTERNAL_CONVERSION}) {
-    $converter_options->{'XS_EXTERNAL_CONVERSION'} = 1;
+    $converter_options->{'_XS_EXTERNAL_CONVERSION'} = 1;
   }
-  if (!defined($converter_options->{'XS_EXTERNAL_FORMATTING'})
+  if (!defined($converter_options->{'_XS_EXTERNAL_FORMATTING'})
       and defined($ENV{TEXINFO_XS_EXTERNAL_FORMATTING})
       and $ENV{TEXINFO_XS_EXTERNAL_FORMATTING}) {
-    $converter_options->{'XS_EXTERNAL_FORMATTING'} = 1;
+    $converter_options->{'_XS_EXTERNAL_FORMATTING'} = 1;
   }
 
   if (!$self->{'generate'}) {

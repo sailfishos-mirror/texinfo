@@ -3063,7 +3063,7 @@ html_converter_customize (CONVERTER *self)
          sizeof (HTMLXREF_MANUAL), compare_htmlxref_manual);
 
   /* set to customization such that it is not replaced by C functions */
-  if (self->conf->XS_EXTERNAL_FORMATTING.o.integer > 0)
+  if (self->conf->_XS_EXTERNAL_FORMATTING.o.integer > 0)
     {
       for (l = 0; l < FR_format_translate_message+1; l++)
         if (self_html->formatting_references[l].status == FRS_status_default_set)
@@ -3084,7 +3084,7 @@ html_converter_customize (CONVERTER *self)
   /* remaining of the file is for the replacement of call to external
      functions by internal functions in C.
    */
-  if (self->conf->XS_EXTERNAL_CONVERSION.o.integer > 0)
+  if (self->conf->_XS_EXTERNAL_CONVERSION.o.integer > 0)
     goto out;
 
   for (i = 0; types_internal_conversion_table[i].type_conversion; i++)

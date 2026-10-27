@@ -175,7 +175,7 @@ sub read_vars {
     my $var = $_;
     # not for users
     next if ($var =~ /^XS_/
-             # internal customization variables
+             # internal/development/tests customization variables
              or $var =~ /^_/
              # not interesting to document/classify
              or $var eq 'SILENT'

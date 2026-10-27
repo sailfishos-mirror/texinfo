@@ -1644,13 +1644,14 @@ die _encode_message(
    .sprintf(__("Try `%s --help' for more information.")."\n", $real_command_name))
      unless ($input_files_nr >= 1);
 
+# for tests of HTML XS interfaces only
 if (defined($ENV{TEXINFO_XS_EXTERNAL_CONVERSION})
     and $ENV{TEXINFO_XS_EXTERNAL_CONVERSION}) {
-  set_from_cmdline('XS_EXTERNAL_CONVERSION', 1);
+  set_from_cmdline('_XS_EXTERNAL_CONVERSION', 1);
 }
 if (defined($ENV{TEXINFO_XS_EXTERNAL_FORMATTING})
     and $ENV{TEXINFO_XS_EXTERNAL_FORMATTING}) {
-  set_from_cmdline('XS_EXTERNAL_FORMATTING', 1);
+  set_from_cmdline('_XS_EXTERNAL_FORMATTING', 1);
 }
 
 

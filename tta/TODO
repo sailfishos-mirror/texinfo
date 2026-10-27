@@ -92,8 +92,6 @@ Document the "language" used for the tta/perl/t/*.t tests results for the tree,
 node and sectioning relations, output units, floats, indices and error
 messages?
 
-Document *XS_EXTERNAL_FORMATTING *XS_EXTERNAL_CONVERSION?
-
 No documentation of Texinfo::Options hashes used in converters:
 multiple_at_command_options, converter_cmdline_options,
 converter_customization_options, unique_at_command_options.

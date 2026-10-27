@@ -172,8 +172,8 @@ initialize_options (OPTIONS *options)
   initialize_option (&options->WORDS_IN_PAGE, GOT_integer, "WORDS_IN_PAGE", 0);
   initialize_option (&options->XREF_USE_FLOAT_LABEL, GOT_boolean, "XREF_USE_FLOAT_LABEL", 0);
   initialize_option (&options->XREF_USE_NODE_NAME_ARG, GOT_boolean, "XREF_USE_NODE_NAME_ARG", 0);
-  initialize_option (&options->XS_EXTERNAL_CONVERSION, GOT_boolean, "XS_EXTERNAL_CONVERSION", 0);
-  initialize_option (&options->XS_EXTERNAL_FORMATTING, GOT_boolean, "XS_EXTERNAL_FORMATTING", 0);
+  initialize_option (&options->_XS_EXTERNAL_CONVERSION, GOT_boolean, "_XS_EXTERNAL_CONVERSION", 0);
+  initialize_option (&options->_XS_EXTERNAL_FORMATTING, GOT_boolean, "_XS_EXTERNAL_FORMATTING", 0);
   initialize_option (&options->XS_STRXFRM_COLLATION_LOCALE, GOT_char, "XS_STRXFRM_COLLATION_LOCALE", 0);
   initialize_option (&options->_INLINE_STYLE_WIDTH, GOT_boolean, "_INLINE_STYLE_WIDTH", 0);
   initialize_option (&options->_USE_NEW_INFO_TAGS, GOT_boolean, "_USE_NEW_INFO_TAGS", 0);
@@ -466,12 +466,12 @@ setup_sortable_options (OPTION **to_sort, OPTIONS *options)
   to_sort[184] = &options->WORDS_IN_PAGE;   /* converter_customization */
   to_sort[185] = &options->XREF_USE_FLOAT_LABEL;   /* converter_customization */
   to_sort[186] = &options->XREF_USE_NODE_NAME_ARG;   /* converter_customization */
-  to_sort[187] = &options->XS_EXTERNAL_CONVERSION;   /* converter_customization */
-  to_sort[188] = &options->XS_EXTERNAL_FORMATTING;   /* converter_customization */
-  to_sort[189] = &options->XS_STRXFRM_COLLATION_LOCALE;   /* converter_customization */
-  to_sort[190] = &options->_DOCBOOK_PIECE;   /* converter_customization */
-  to_sort[191] = &options->_INLINE_STYLE_WIDTH;   /* converter_customization */
-  to_sort[192] = &options->_USE_NEW_INFO_TAGS;   /* converter_customization */
+  to_sort[187] = &options->XS_STRXFRM_COLLATION_LOCALE;   /* converter_customization */
+  to_sort[188] = &options->_DOCBOOK_PIECE;   /* converter_customization */
+  to_sort[189] = &options->_INLINE_STYLE_WIDTH;   /* converter_customization */
+  to_sort[190] = &options->_USE_NEW_INFO_TAGS;   /* converter_customization */
+  to_sort[191] = &options->_XS_EXTERNAL_CONVERSION;   /* converter_customization */
+  to_sort[192] = &options->_XS_EXTERNAL_FORMATTING;   /* converter_customization */
   to_sort[193] = &options->afivepaper;   /* unique_at_command */
   to_sort[194] = &options->afourlatex;   /* unique_at_command */
   to_sort[195] = &options->afourpaper;   /* unique_at_command */

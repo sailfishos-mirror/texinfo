@@ -2676,19 +2676,20 @@ main (int argc, char *argv[], char *env[])
       exit (EXIT_FAILURE);
     }
 
+  /* for tests of HTML XS interfaces only */
   txi_xs_external_conversion = getenv ("TEXINFO_XS_EXTERNAL_CONVERSION");
   if (txi_xs_external_conversion && strlen (txi_xs_external_conversion)
       && strcmp (txi_xs_external_conversion, "0"))
     {
       GNUT_set_from_cmdline (&cmdline_options,
-        program_options.options->XS_EXTERNAL_CONVERSION.number, "1");
+        program_options.options->_XS_EXTERNAL_CONVERSION.number, "1");
     }
 
   txi_xs_external_formatting = getenv ("TEXINFO_XS_EXTERNAL_FORMATTING");
   if (txi_xs_external_formatting && strlen (txi_xs_external_formatting)
       && strcmp (txi_xs_external_formatting, "0"))
     GNUT_set_from_cmdline (&cmdline_options,
-        program_options.options->XS_EXTERNAL_FORMATTING.number, "1");
+        program_options.options->_XS_EXTERNAL_FORMATTING.number, "1");
 
   converter_format = find_format_name_converter_format (converted_format);
 
@@ -2701,10 +2702,10 @@ main (int argc, char *argv[], char *env[])
         {
           OPTION *xs_external_formatting_option
             = GNUT_get_conf (
-                 program_options.options->XS_EXTERNAL_FORMATTING.number);
+                 program_options.options->_XS_EXTERNAL_FORMATTING.number);
           OPTION *xs_external_conversion_option
             = GNUT_get_conf (
-                 program_options.options->XS_EXTERNAL_CONVERSION.number);
+                 program_options.options->_XS_EXTERNAL_CONVERSION.number);
 
           /* setup of need_latex to be kept in sync with setup of
              CONVERT_TO_LATEX_IN_MATH in html_conversion_initialization

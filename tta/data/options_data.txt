@@ -349,12 +349,14 @@ WORDS_IN_PAGE                      converter_customization 200   integer
 XREF_USE_FLOAT_LABEL               converter_customization undef   boolean
 XREF_USE_NODE_NAME_ARG             converter_customization undef   boolean
 
-# TODO Not documented for now.
 # If set, conversion/formatting not in C.
-XS_EXTERNAL_CONVERSION             converter_customization undef   boolean
-XS_EXTERNAL_FORMATTING             converter_customization undef   boolean
+# Useful for tests of HTML XS interfaces only, not as user customization.
+# In general it is simpler to set them through environment variables
+# named with TEXINFO prepended, like TEXINFO_XS_EXTERNAL_CONVERSION.
+_XS_EXTERNAL_CONVERSION             converter_customization undef   boolean
+_XS_EXTERNAL_FORMATTING             converter_customization undef   boolean
 
-# used for development tests, not sure that it will stay in the long term
+# used for development tests, will most likely be removed
 XS_STRXFRM_COLLATION_LOCALE        converter_customization undef   char
 
 # used internally for EPUB

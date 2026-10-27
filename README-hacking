@@ -245,6 +245,18 @@ downloadable at http://www.adobe.com/devnet/pdf/pdf_reference_archive.html
 
 
 
+Environment variables useful for testing in tta directory
+
+To test the pure Perl code, set TEXINFO_XS=omit before running the tests.
+
+To test the XS interface to Perl for HTML, by using Perl functions instead
+of C for formatting/conversion, set TEXINFO_XS_EXTERNAL_FORMATTING
+and TEXINFO_XS_EXTERNAL_CONVERSION to 1 before running the tests:
+export TEXINFO_XS_EXTERNAL_FORMATTING=1
+export TEXINFO_XS_EXTERNAL_CONVERSION=1
+
+
+
 - Updating copyright years in files
 
 We try to handle updating years in copyright notices automatically to
