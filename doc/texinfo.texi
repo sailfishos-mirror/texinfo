@@ -3429,9 +3429,10 @@ select this option instead of the default.  See @code{AUTO_SECTION_NODE} in
 
 @findex nodedescription
 You can provide a short description of the purpose of a node by using
-the @code{@@nodedescription} command following the @code{@@node} line.
-Such a description might elaborate on or extend the information in the
-node name itself.
+the @code{@@nodedescription} command following the @code{@@node} or
+sectioning command (such as @code{@@chapter} or @code{@@section}))
+beginning the node.  Such a description might elaborate on or extend
+the information in the node name itself.
 
 @findex nodedescriptionblock
 You can also use a @code{@@nodedescriptionblock} environment to
@@ -3447,14 +3448,12 @@ if no description for the menu entry was provided in an explicit
 Here is an example of using these commands:
 
 @example
-@@node Tools
 @@chapter Tools
 
 This chapter is on different tools you can use.
 
-@@node Screwdrivers
-@@nodedescription Flathead and Phillips.
 @@section Screwdrivers
+@@nodedescription Flathead and Phillips.
 
 This section is about screwdrivers.
 
@@ -3463,7 +3462,7 @@ This section is about screwdrivers.
 Making holes in things with power screwdrivers, drill drivers, combi
 drills, impact drivers, hammer drills, breakers and demolition drills.
 @@end nodedescriptionblock
-@@section Drills
+@@section Drills: Making Holes
 
 This section is about drills.
 @end example

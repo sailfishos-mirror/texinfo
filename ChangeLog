@@ -1,5 +1,11 @@
 2026-10-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Node Descriptions):  Explain that a node
+	description command can follow either @node or a sectioning
+	command.  Remove @node line from one of the examples.
+
+2026-10-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Short Sample Texinfo File, Ending a File)
 	(GNU Sample Texts): Remove @node commands when they duplicate
 	a sectioning command, and move @nodedescription after sectioning
