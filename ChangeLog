@@ -1,3 +1,7 @@
+2026-10-28  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (The Body of the Document): add missing word.
+
 2026-10-28 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/structuring_transfo/transformations.c

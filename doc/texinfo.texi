@@ -2164,8 +2164,8 @@ Beginning a Texinfo File
 @section The Body of the Document
 
 @cindex Frontmatter, text in
-The body segment contains all the text of the document.
-A manual is divided one or more nodes using chapter structuring commands
+The body segment contains all the text of the document.  A manual is
+divided into one or more nodes using chapter structuring commands
 (@pxref{Chapter Structuring}).
 
 The example illustrates a chapter made of three nodes, one for
