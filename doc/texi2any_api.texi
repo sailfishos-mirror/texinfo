@@ -228,8 +228,8 @@ the current user's home directory;
 @item @file{@var{datadir}/texi2any/ext/} with @var{datadir} as above.
 @end enumerate
 
-The @file{@var{datadir}/texi2any/init/} contains init files shipped with
-@command{texi2any}.  These initialization files are not considered important
+The @file{@var{datadir}/texi2any/init/} directory contains init files shipped
+with @command{texi2any}.  These initialization files are not considered important
 enough to become part of @command{texi2any} and there is no commitment
 regarding their maintenance, but they should be up-to-date at the time of a
 release and can be used as example.
@@ -253,8 +253,8 @@ Additional directories may be prepended to the list with the
 @cindex Perl, language for init files
 
 Init files are written in Perl, and by convention have extension
-@file{.init} or @file{.pm}.  Several init files are included in the Texinfo
-distribution, and can serve as a good model for writing your own.  Another
+@file{.init} or @file{.pm}.  Init files included in the Texinfo
+distribution can serve as a good model for writing your own.  Another
 example is the @code{Texinfo::Convert::HTML} module which implements
 almost all the Texinfo HTML function described in this manual for the conversion
 to HTML@footnote{The @code{Texinfo::Convert::HTML} module also implements the
@@ -791,12 +791,8 @@ foreach my $context ('normal', 'preformatted') @{
 @cindex Accent commands, customizing HTML for
 @cindex Accent command named entities
 
-You can modify the formatting of accent commands such as @code{@@'},
-@code{@@ringaccent} or @code{@@dotless} by selecting HTML general features,
-to output numeric entities or characters (@pxref{HTML Features
-Customization,,, texinfo, Texinfo}).
-
-You can also change how accented commands are converted
+You can change how accented commands such as @code{@@'},
+@code{@@ringaccent} or @code{@@dotless} are converted
 to named entities.  The accent named entities are obtained by combining
 a letter to be accented, such as @samp{e} and a postfix based on the
 accent command name, for example @samp{acute} for the acute accent
@@ -908,11 +904,13 @@ The output units are:
 These are composed of normal sections and nodes.  Usually a node is associated
 with a following sectioning command, while a sectioning command is
 associated with a previous node; they both together make up the
-output unit.  Either the node or the sectioning command is considered to
+output unit.  If a sectioning command without preceding @code{@@node}
+is used, a @code{@@node} line is automatically generated in the default case.
+
+Either the node or the sectioning command is considered to
 be the main element component, depending on the values of the
 customization variables @code{USE_NODES}
 (@pxref{HTML Output Structure Customization,,, texinfo, Texinfo}).
-
 For example, when generating Info, the nodes are the main elements; when
 generating HTML, either case may happen (@pxref{Two Paths,,, texinfo,
 Texinfo}).
@@ -987,9 +985,8 @@ A last type of output units exist, ``virtual'' output units corresponding to
 directions to external manual nodes.  They are not part of the output, but can
 be used in directions.  They are often referred to as @dfn{external node units}
 or @dfn{external manual units}.  These units do not exist in the document
-output, therefore there are no functions called to format those output units.
-They can appear in directions formatting (@pxref{Navigation Panel Button
-Formatting}).
+output, but they can appear in directions formatting (@pxref{Navigation
+Panel Button Formatting}).
 
 
 @node Directions
@@ -1150,7 +1147,7 @@ Description of the direction.
 
 @item example
 Section number corresponding to the example used in the About special
-element text.
+output unit text.
 
 @item rel
 Direction @code{rel} attribute used in navigation.
@@ -1463,7 +1460,7 @@ of functions used to produce output.
 @cindex User defined functions, registering
 
 User defined functions are always passed as a code reference to a registering
-function, together with a string describing what the function formats.
+function, together with a string describing the registered function.
 In the following made up example, @code{my_formatting_function} is
 passed as a function reference @code{\&my_formatting_function} to the
 fictitious registering function @code{texinfo_register_some_formatting}, with
@@ -2398,7 +2395,8 @@ a Texinfo tree corresponding to the simpletitle, and @code{simpletitle_command_n
 is the @@-command name used for the simpletitle, without the leading @@.
 
 @item title_titlepage
-The formatted title, possibly based on @code{@@titlepage}, or on
+The formatted title, possibly based on @code{@@documentinfo}
+or @code{@@titlepage}, or on
 @code{simpletitle_tree} and similar information, depending on @code{SHOW_TITLE}
 and @code{USE_TITLEPAGE_FOR_TITLE} customization variables in the default case
 (@pxref{HTML Output Structure Customization,,, texinfo, Texinfo}).
@@ -2549,14 +2547,14 @@ To determine if in a specific multiple expanded context, use
 Return a string representing the multiple expanded context, or @code{undef} if
 not in a multiple expanded context.
 
+Multiple expanded context happens for example in automatically-generated menu
+description, captions in list of floats or printindex converted more than once.
+@end deftypefun
+
 A multiple expanded context implies to be in multiple conversions.  However,
 it is possible to be in multiple conversions without being in a multiple
 expanded context, as a multiple expanded context needs to be set explicitly,
 and is not always needed.
-
-Multiple expanded context happens for example in automatically-generated menu
-description, captions in list of floats or printindex converted more than once.
-@end deftypefun
 
 To get the current paragraph and preformatted number, use @code{paragraph_number}
 or @code{preformatted_number}:
@@ -2820,7 +2818,7 @@ for references to external manuals virtual units, points to the tree
 element corresponding to the external manual and node label.
 
 @item unit_contents
-Array reference on tree elements associated with the output unit.
+Array reference on tree elements in the output unit.
 
 @item unit_filename
 The associated file name.
