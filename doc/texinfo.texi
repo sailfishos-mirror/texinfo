@@ -919,9 +919,8 @@ Copyright @@copyright@{@} 2026 Free Software Foundation, Inc.
 This manual is for GNU Sample
 (version @@value@{VERSION@}, @@value@{UPDATED@}).
 
-@@node First Chapter
-@@nodedescription The first chapter is the only chapter in this sample.
 @@chapter First Chapter
+@@nodedescription The first chapter is the only chapter in this sample.
 
 @@cindex chapter, first
 This is the first chapter.
@@ -950,9 +949,8 @@ First section of first chapter.
 Second section of first chapter.
 
 
-@@node Index
-@@nodedescription Complete Index
 @@unnumbered Index
+@@nodedescription Complete Index
 
 @@printindex cp
 
@@ -2251,7 +2249,6 @@ The end of a Texinfo file should include commands to create indices
 the last line to be processed.  For example:
 
 @example
-@@node Index
 @@unnumbered Index
 
 @@printindex cp
@@ -22215,7 +22212,6 @@ Texts.  A copy of the license is included in the section entitled
 
 This manual is for GNU Sample (version @value{VERSION}, @value{UPDATED}).
 
-@node Invoking sample
 @chapter Invoking sample
 
 @pindex sample
@@ -22225,12 +22221,10 @@ This is a sample manual.  There is no sample program to
 invoke, but if there were, you could see its basic usage
 and command line options here.
 
-@node GNU Free Documentation License
 @appendix GNU Free Documentation License
 
 @include fdl.texi
 
-@node Index
 @unnumbered Index
 
 @printindex cp

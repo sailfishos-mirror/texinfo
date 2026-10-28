@@ -1,5 +1,12 @@
 2026-10-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Short Sample Texinfo File, Ending a File)
+	(GNU Sample Texts): Remove @node commands when they duplicate
+	a sectioning command, and move @nodedescription after sectioning
+	command.
+
+2026-10-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (The Body of the Document): add missing word.
 
 2026-10-28 Patrice Dumas  <pertusus@free.fr>
