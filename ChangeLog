@@ -1,5 +1,12 @@
 2026-10-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Nodes): Revise text to allow nodes to begin
+	other than with a @node line.  Explain what is included in a node
+	associated with a sectioning command.  Draw a distinction between a
+	node in the Texinfo source and a node in Info or HTML output.
+
+2026-10-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Node Descriptions):  Explain that a node
 	description command can follow either @node or a sectioning
 	command.  Remove @node line from one of the examples.
