@@ -1,5 +1,15 @@
 2026-10-28 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/structuring_transfo/transformations.c
+	(complete_transform_document),
+	tta/C/structuring_transfo/transformations.h
+	(STTF_warn_multiple_node_descriptions), tta/C/texi2any.c
+	(formats_table), tta/perl/texi2any.pl (%formats_table): warn for
+	multiple node description only for formats that add nodes for
+	sectioning commands.
+
+2026-10-28 Patrice Dumas  <pertusus@free.fr>
+
 	warn about multiple node descriptions after nodes have been added
 
 	* tta/C/main/build_perl_info.c (build_node_relations),

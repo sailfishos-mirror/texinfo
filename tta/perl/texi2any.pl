@@ -831,6 +831,7 @@ my %formats_table = (
              'nodes_tree' => 1,
              'floats' => 1,
              'auto_section_node' => 1,
+             'warn_multiple_node_descriptions' => 1,
              'no_warn_duplicate_section_target' => 1,
              'module' => 'Texinfo::Convert::Info'
            },
@@ -838,6 +839,7 @@ my %formats_table = (
              'nodes_tree' => 1,
              'floats' => 1,
              'auto_section_node' => 1,
+             'warn_multiple_node_descriptions' => 1,
              'no_warn_duplicate_section_target' => 1,
              'split' => 1,
              'module' => 'Texinfo::Convert::Plaintext'
@@ -850,8 +852,9 @@ my %formats_table = (
              'move_index_entries_after_items' => 1,
              'relate_index_entries_to_table_items' => 1,
              'no_warn_non_empty_parts' => 1,
-             'no_warn_duplicate_section_target' => 1,
              'auto_section_node' => 1,
+             'warn_multiple_node_descriptions' => 1,
+             'no_warn_duplicate_section_target' => 1,
              'module' => 'Texinfo::Convert::HTML'
            },
   'latex' => {
@@ -2009,7 +2012,9 @@ while (@input_files) {
                                              $warn_duplicate_section_target);
   }
 
-  Texinfo::Structuring::warn_multiple_node_descriptions($document);
+  if ($formats_table{$converted_format}->{'warn_multiple_node_descriptions'}) {
+    Texinfo::Structuring::warn_multiple_node_descriptions($document);
+  }
 
   # information obtained through Texinfo::Structuring
   # and useful in converters.

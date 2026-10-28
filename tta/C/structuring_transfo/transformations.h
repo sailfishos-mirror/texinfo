@@ -30,23 +30,24 @@
 #define STTF_auto_section_node                      0x0040
 #define STTF_floats                                 0x0080
 #define STTF_no_warn_non_empty_parts                0x0100
-#define STTF_nodes_tree                             0x0200
-#define STTF_no_warn_duplicate_section_target       0x0400
+#define STTF_warn_multiple_node_descriptions        0x0200
+#define STTF_nodes_tree                             0x0400
+#define STTF_no_warn_duplicate_section_target       0x0800
 
 /* for complete_tree_nodes_menus, complete_tree_nodes_missing_menu
    and regenerate_master_menu */
-#define STTF_complete_menus_use_sections            0x0800
+#define STTF_complete_menus_use_sections            0x1000
 
 /* not strictly a structuring and transformations selection flags */
 /* used to mark that splitting is possible for a format */
-#define STTF_split                                  0x1000
+#define STTF_split                                  0x2000
 /* used to mark that internal links can be output for that format */
-#define STTF_internal_links                         0x2000
+#define STTF_internal_links                         0x4000
 /* mark a format handled by texi2dvi */
-#define STTF_texi2dvi_format                        0x4000
+#define STTF_texi2dvi_format                        0x8000
 
 /* backward compatibility */
-#define STTF_insert_nodes_for_sectioning_commands   0x8000
+#define STTF_insert_nodes_for_sectioning_commands   0x00010000
 
 void fill_gaps_in_sectioning_in_document (DOCUMENT *document,
                                      const char *commands_heading_texi);

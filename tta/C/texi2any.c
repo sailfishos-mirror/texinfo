@@ -155,6 +155,7 @@ typedef struct FORMAT_SPECIFICATION {
 static FORMAT_SPECIFICATION formats_table[] = {
   {"info", STTF_nodes_tree | STTF_floats
            | STTF_auto_section_node
+           | STTF_warn_multiple_node_descriptions
            | STTF_no_warn_duplicate_section_target,
    NULL, "Texinfo::Convert::Info", NULL},
   {"html", STTF_relate_index_entries_to_table_items
@@ -163,10 +164,12 @@ static FORMAT_SPECIFICATION formats_table[] = {
            | STTF_nodes_tree | STTF_floats | STTF_split
            | STTF_internal_links
            | STTF_auto_section_node
+           | STTF_warn_multiple_node_descriptions
            | STTF_no_warn_duplicate_section_target,
    NULL, "Texinfo::Convert::HTML", NULL},
   {"plaintext", STTF_nodes_tree | STTF_floats
                 | STTF_auto_section_node
+                | STTF_warn_multiple_node_descriptions
                 | STTF_no_warn_duplicate_section_target | STTF_split,
    NULL, "Texinfo::Convert::Plaintext", NULL},
   {"latex", STTF_floats | STTF_move_index_entries_after_items

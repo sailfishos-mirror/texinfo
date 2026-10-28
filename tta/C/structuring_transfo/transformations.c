@@ -1896,7 +1896,8 @@ complete_transform_document (DOCUMENT *document, unsigned long flags,
     insert_nodes_for_sectioning_commands (document,
                                           warn_duplicate_section_target);
 
-  warn_multiple_node_descriptions (document);
+  if (flags & STTF_warn_multiple_node_descriptions)
+    warn_multiple_node_descriptions (document);
 
   sectioning_structure (document);
   sectioning_targets (document, warn_duplicate_section_target);
