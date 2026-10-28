@@ -1577,11 +1577,14 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
               const NODE_RELATIONS *node_relations
                 = self->document->nodes_list.list[node_number -1];
 
-              if (node_relations->node_description)
-                node_description = node_relations->node_description;
-              else if (node_relations->node_long_description)
+              if (node_relations->node_descriptions
+                  && node_relations->node_descriptions->number)
+                node_description = node_relations->node_descriptions->list[0];
+              else if (node_relations->node_long_descriptions
+                       && node_relations->node_long_descriptions->number)
                 {
-                  node_description = node_relations->node_long_description;
+                  node_description
+                    = node_relations->node_long_descriptions->list[0];
                   long_description = 1;
                 }
             }
@@ -12138,11 +12141,15 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
                   node_relations
                     = self->document->nodes_list.list[node_number -1];
 
-                  if (node_relations->node_description)
-                    node_description = node_relations->node_description;
-                  else if (node_relations->node_long_description)
+                  if (node_relations->node_descriptions
+                      && node_relations->node_descriptions->number)
+                    node_description
+                      = node_relations->node_descriptions->list[0];
+                  else if (node_relations->node_long_descriptions
+                           && node_relations->node_long_descriptions->number)
                     {
-                      node_description = node_relations->node_long_description;
+                      node_description
+                        = node_relations->node_long_descriptions->list[0];
                       long_description = 1;
                     }
                 }

@@ -359,7 +359,8 @@ $result_nodes_list{'commands_in_nodedescriptionblock'} = '1|Top
 2|node1
  associated_section: 1 chap1
  associated_title_command: 1 chap1
- node_long_description: @nodedescriptionblock
+ node_long_descriptions:
+  @nodedescriptionblock l14
  node_directions:
   next->node2
   prev->Top

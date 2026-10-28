@@ -530,6 +530,52 @@ warn_non_empty_parts (DOCUMENT *document)
 }
 
 void
+warn_multiple_node_descriptions (DOCUMENT *document)
+{
+  const NODE_RELATIONS_LIST *nodes_list = &document->nodes_list;
+  ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
+  OPTIONS *options = document->options;
+  size_t i;
+
+  if (nodes_list->number < 1)
+    return;
+
+  for (i = 0; i < nodes_list->number; i++)
+    {
+      const NODE_RELATIONS *node_relations = nodes_list->list[i];
+
+      if (node_relations->node_descriptions
+          && node_relations->node_descriptions->number > 1)
+        {
+          size_t j;
+          for (j = 1; j < node_relations->node_descriptions->number; j++)
+            {
+              const ELEMENT *description
+                = node_relations->node_descriptions->list[j];
+              message_list_command_warn (error_messages,
+                             (options && options->DEBUG.o.integer > 0),
+                             description, 0,
+                             "multiple node @nodedescription");
+            }
+        }
+      if (node_relations->node_long_descriptions
+          && node_relations->node_long_descriptions->number > 1)
+        {
+          size_t j;
+          for (j = 1; j < node_relations->node_long_descriptions->number; j++)
+            {
+              const ELEMENT *long_description
+                = node_relations->node_long_descriptions->list[j];
+              message_list_command_warn (error_messages,
+                             (options && options->DEBUG.o.integer > 0),
+                             long_description, 0,
+                             "multiple node @nodedescriptionblock");
+            }
+        }
+    }
+}
+
+void
 check_menu_entry (DOCUMENT *document, enum command_id cmd,
                   const ELEMENT *menu_content, const ELEMENT *menu_entry_node)
 {

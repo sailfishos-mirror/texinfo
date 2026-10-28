@@ -496,7 +496,8 @@ $result_nodes_list{'headings_after_lone_nodes'} = '1|Top
  associated_title_command: @subheading heading Qt
 4|Other
  associated_title_command: @subsubheading Finally!
- node_description: @nodedescription Describe Other
+ node_descriptions:
+  @nodedescription Describe Other
 5|Not associated
  associated_title_command: @heading should not be associated
 6|2 not

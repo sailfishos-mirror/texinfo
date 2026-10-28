@@ -16,6 +16,7 @@ void construct_nodes_tree (DOCUMENT *document);
 CONST_NODE_RELATIONS_LIST *get_node_node_childs_from_sectioning (
                                   const NODE_RELATIONS *node_relations);
 void warn_non_empty_parts (DOCUMENT *document);
+void warn_multiple_node_descriptions (DOCUMENT *document);
 void complete_node_tree_with_menus (DOCUMENT *document);
 void check_node_tree_menu_structure (DOCUMENT *document);
 void check_nodes_are_referenced (DOCUMENT *document);

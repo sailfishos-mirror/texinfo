@@ -277,8 +277,8 @@ typedef struct NODE_RELATIONS {
        would have been more consistent */
     const ELEMENT *associated_title_command;
     const struct SECTION_RELATIONS *node_preceding_part;
-    const ELEMENT *node_description;
-    const ELEMENT *node_long_description;
+    CONST_ELEMENT_LIST *node_descriptions;
+    CONST_ELEMENT_LIST *node_long_descriptions;
     CONST_ELEMENT_LIST *menus;
     const struct ELEMENT **node_directions;
 

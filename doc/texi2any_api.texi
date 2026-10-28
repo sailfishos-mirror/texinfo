@@ -2689,7 +2689,7 @@ The following keys of the @code{extra} node elements hash
 can be interesting in user-defined formatting and conversion functions:
 
 @table @code
-@item normalized
+@item identifier
 Normalized node name. @xref{HTML Xref,,, texinfo, Texinfo}.
 @end table
 
@@ -2734,13 +2734,12 @@ A list of menu tree elements found in the node.
 Hash reference with @code{up}, @code{next} and @code{prev} keys associated
 to the corresponding node relations directions.
 
-@item node_description
-Tree element holding a description of the node, either a
-@code{@@nodedescription} or a @code{@@nodedescriptionblock}.
+@item node_descriptions
+@code{@@nodedescription} tree elements holding a description of the node.
 
-@item node_long_description
-Tree element holding a long description of the node,
-corresponding to a @code{@@nodedescriptionblock} tree element.
+@item node_long_descriptions
+@code{@@nodedescriptionblock} tree elements holding a long description of the
+node.
 
 @end table
 

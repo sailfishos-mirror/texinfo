@@ -915,23 +915,61 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
         }
       else if (current->e.c->cmd == CM_nodedescription)
         {
-          if (!new_node_relations->node_description)
-            new_node_relations->node_description = current;
+          if (!new_node_relations->node_descriptions)
+            new_node_relations->node_descriptions
+              = new_const_element_list ();
+          add_to_const_element_list (new_node_relations->node_descriptions,
+                                     current);
 
           if (previous_node_relations
-              && previous_node_relations->node_description
-              && previous_node_relations->node_description == current)
-            previous_node_relations->node_description = 0;
+              && previous_node_relations->node_descriptions)
+            {
+              size_t j;
+              for (j = 0;
+                   j < previous_node_relations->node_descriptions->number;
+                   j++)
+                {
+                  if (previous_node_relations->node_descriptions->list[j]
+                         == current)
+                    remove_from_const_element_list (
+                             previous_node_relations->node_descriptions, j);
+                }
+              if (!previous_node_relations->node_descriptions->number)
+                {
+                  destroy_const_element_list (
+                    previous_node_relations->node_descriptions);
+                  previous_node_relations->node_descriptions = 0;
+                }
+            }
         }
       else if (current->e.c->cmd == CM_nodedescriptionblock)
         {
-          if (!new_node_relations->node_long_description)
-            new_node_relations->node_long_description = current;
+          if (!new_node_relations->node_long_descriptions)
+            new_node_relations->node_long_descriptions
+              = new_const_element_list ();
+          add_to_const_element_list (new_node_relations->node_long_descriptions,
+                                     current);
 
           if (previous_node_relations
-              && previous_node_relations->node_long_description
-              && previous_node_relations->node_long_description == current)
-            previous_node_relations->node_long_description = 0;
+              && previous_node_relations->node_long_descriptions)
+            {
+              size_t j;
+              for (j = 0;
+                   j < previous_node_relations->node_long_descriptions->number;
+                   j++)
+                {
+                  if (previous_node_relations->node_long_descriptions->list[j]
+                         == current)
+                    remove_from_const_element_list (
+                        previous_node_relations->node_long_descriptions, j);
+                }
+              if (!previous_node_relations->node_long_descriptions->number)
+                {
+                  destroy_const_element_list (
+                    previous_node_relations->node_long_descriptions);
+                  previous_node_relations->node_long_descriptions = 0;
+                }
+            }
         }
     }
   return 0;
@@ -1857,6 +1895,8 @@ complete_transform_document (DOCUMENT *document, unsigned long flags,
   if (auto_section_node > 0)
     insert_nodes_for_sectioning_commands (document,
                                           warn_duplicate_section_target);
+
+  warn_multiple_node_descriptions (document);
 
   sectioning_structure (document);
   sectioning_targets (document, warn_duplicate_section_target);

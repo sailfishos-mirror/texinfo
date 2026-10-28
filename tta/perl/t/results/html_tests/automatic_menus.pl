@@ -145,14 +145,16 @@ $result_nodes_list{'automatic_menus'} = '1|Top
 2|chap
  associated_section: 1 Chap
  associated_title_command: 1 Chap
- node_description: @nodedescription Here we begin
+ node_descriptions:
+  @nodedescription Here we begin
  node_directions:
   prev->Top
   up->Top
 3|sec
  associated_section: 1.1 A section
  associated_title_command: 1.1 A section
- node_description: @nodedescription Here in section
+ node_descriptions:
+  @nodedescription Here in section
  node_directions:
   next->sec after
   up->chap

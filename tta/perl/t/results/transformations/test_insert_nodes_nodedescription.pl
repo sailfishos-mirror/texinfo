@@ -148,20 +148,15 @@ $result_texts{'test_insert_nodes_nodedescription'} = 'top
 
 ';
 
-$result_errors{'test_insert_nodes_nodedescription'} = '* W l2|@nodedescription outside of any node
- warning: @nodedescription outside of any node
-
-* W l7|@nodedescription outside of any node
- warning: @nodedescription outside of any node
-
-* W l8|@nodedescription outside of any node
- warning: @nodedescription outside of any node
+$result_errors{'test_insert_nodes_nodedescription'} = '* W l8|multiple node @nodedescription
+ warning: multiple node @nodedescription
 
 ';
 
 $result_nodes_list{'test_insert_nodes_nodedescription'} = '1|Top
  associated_section: top
- node_description: @nodedescription D1
+ node_descriptions:
+  @nodedescription D1
  node_directions:
   next->Chap
 2|Chap
@@ -171,7 +166,9 @@ $result_nodes_list{'test_insert_nodes_nodedescription'} = '1|Top
   up->Top
 3|Sec
  associated_section: 1.1 Sec
- node_description: @nodedescription D2
+ node_descriptions:
+  @nodedescription D2
+  @nodedescription D3
  node_directions:
   up->Chap
 4|Subsec

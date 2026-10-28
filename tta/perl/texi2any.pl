@@ -2009,6 +2009,8 @@ while (@input_files) {
                                              $warn_duplicate_section_target);
   }
 
+  Texinfo::Structuring::warn_multiple_node_descriptions($document);
+
   # information obtained through Texinfo::Structuring
   # and useful in converters.
   # every format needs the sectioning structure

@@ -181,7 +181,9 @@ $result_nodes_list{'test_insert_nodes_reallocated_nodedescriptionblock'} = '1|To
   up->Top
 3|Sec
  associated_section: 1.1 Sec
- node_long_description: @nodedescriptionblock
+ node_long_descriptions:
+  @nodedescriptionblock l8
+  @nodedescriptionblock l12
  node_directions:
   up->chap
 4|Subsec

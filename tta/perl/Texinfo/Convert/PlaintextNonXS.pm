@@ -4268,10 +4268,11 @@ sub _convert($$) {
               my $nodes_list = $self->{'document'}->nodes_list();
               my $node_relations
                 = $nodes_list->[$node_element->{'extra'}->{'node_number'} -1];
-              if (exists($node_relations->{'node_description'})) {
-                $node_description = $node_relations->{'node_description'};
-              } elsif (exists($node_relations->{'node_long_description'})) {
-                $node_description = $node_relations->{'node_long_description'};
+              if (exists($node_relations->{'node_descriptions'})) {
+                $node_description = $node_relations->{'node_descriptions'}->[0];
+              } elsif (exists($node_relations->{'node_long_descriptions'})) {
+                $node_description
+                  = $node_relations->{'node_long_descriptions'}->[0];
                 $long_description = 1;
               }
             }

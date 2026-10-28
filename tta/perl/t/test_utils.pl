@@ -987,6 +987,8 @@ sub test($$) {
                            $document, $warn_duplicate_section_target);
   }
 
+  Texinfo::Structuring::warn_multiple_node_descriptions($document);
+
   Texinfo::Structuring::sectioning_structure($document);
   Texinfo::Structuring::sectioning_targets($document,
                                            $warn_duplicate_section_target);

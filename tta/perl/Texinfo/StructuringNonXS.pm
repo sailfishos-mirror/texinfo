@@ -374,8 +374,6 @@ sub _print_sectioning_tree($) {
 sub warn_non_empty_parts($) {
   my $document = shift;
 
-  my $customization_information = $document;
-
   my $global_commands = $document->global_commands_information();
 
   if (exists($global_commands->{'part'})) {
@@ -384,6 +382,39 @@ sub warn_non_empty_parts($) {
         $document->document_line_warn(
                      sprintf(__("\@%s not empty"), $part->{'cmdname'}),
                        $part->{'source_info'});
+      }
+    }
+  }
+}
+
+sub warn_multiple_node_descriptions($) {
+  my $document = shift;
+
+  my $nodes_list = $document->nodes_list();
+
+  return unless (defined($nodes_list) and scalar(@{$nodes_list}));
+
+  foreach my $node_relations (@{$nodes_list}) {
+    if (exists($node_relations->{'node_descriptions'})) {
+      my $description_nr = scalar(@{$node_relations->{'node_descriptions'}});
+      if ($description_nr > 1) {
+        foreach my $description
+         (@{$node_relations->{'node_descriptions'}}[1 .. $description_nr -1]) {
+          $document->document_line_warn(
+            __("multiple node \@nodedescription"),
+            $description->{'source_info'});
+        }
+      }
+    }
+    if (exists($node_relations->{'node_long_descriptions'})) {
+      my $description_nr = scalar(@{$node_relations->{'node_long_descriptions'}});
+      if ($description_nr > 1) {
+        foreach my $long_description
+         (@{$node_relations->{'node_long_descriptions'}}[1 .. $description_nr -1]) {
+          $document->document_line_warn(
+            __("multiple node \@nodedescriptionblock"),
+            $long_description->{'source_info'});
+        }
       }
     }
   }
@@ -1330,7 +1361,7 @@ sub print_sections_list($) {
     }
 
     foreach my $node_relations_key (('associated_anchor_command',
-                                      'associated_node',
+                                     'associated_node',
                                      'part_following_node')) {
       if (exists($section_relations->{$node_relations_key})) {
         $result .= " $node_relations_key: "
@@ -1475,18 +1506,35 @@ sub print_nodes_list($) {
                              $node_relations->{$section_key}->{'element'});
       }
     }
-    foreach my $line_cmd_key (('associated_title_command',
-                               'node_description')) {
+    foreach my $line_cmd_key (('associated_title_command')) {
       if (exists($node_relations->{$line_cmd_key})) {
         $result .= _print_line_command_key_element($line_cmd_key,
                                   $node_relations->{$line_cmd_key});
       }
     }
 
-    foreach my $command_key (('node_long_description')) {
+    foreach my $line_commands_key (('node_descriptions')) {
+      if (exists($node_relations->{$line_commands_key})) {
+        $result .= " $line_commands_key:\n";
+        foreach my $command_element (@{$node_relations->{$line_commands_key}}) {
+          $result .= "  "._print_line_command($command_element)."\n";
+        }
+      }
+    }
+
+    foreach my $command_key (('node_long_descriptions')) {
       if (exists($node_relations->{$command_key})) {
-        my $command_element = $node_relations->{$command_key};
-        $result .= " $command_key: @".$command_element->{'cmdname'}."\n";
+        $result .= " $command_key:\n";
+        foreach my $command_element (@{$node_relations->{$command_key}}) {
+          my $source_info = $command_element->{'source_info'};
+          # we do not call Texinfo::Report::print_source_info_details
+          # because we do not have all the arguments ready.
+          my $line_nr = '';
+          if (defined($source_info) and $source_info->{'line_nr'}) {
+            $line_nr = " l$source_info->{'line_nr'}";
+          }
+          $result .= "  @".$command_element->{'cmdname'}."$line_nr\n";
+        }
       }
     }
 

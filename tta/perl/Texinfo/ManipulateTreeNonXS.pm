@@ -366,23 +366,36 @@ sub _reassociate_to_node($$$) {
       = $new_node_relations->{'element'}->{'extra'}->{'identifier'};
   } elsif (exists($current->{'cmdname'})
            and $current->{'cmdname'} eq 'nodedescription') {
-    if (!exists($new_node_relations->{'node_description'})) {
-      $new_node_relations->{'node_description'} = $current;
+    if (!exists($new_node_relations->{'node_descriptions'})) {
+      $new_node_relations->{'node_descriptions'} = [];
     }
+    push @{$new_node_relations->{'node_descriptions'}}, $current;
     if (defined($previous_node_relations)
-        and exists($previous_node_relations->{'node_description'})
-        and $previous_node_relations->{'node_description'} eq $current) {
-      delete $previous_node_relations->{'node_description'};
+        and exists($previous_node_relations->{'node_descriptions'})) {
+      my $index = 0;
+      $index++ until ($previous_node_relations->{'node_descriptions'}->[$index]
+                         eq $current);
+      splice(@{$previous_node_relations->{'node_descriptions'}}, $index, 1);
+      if (scalar(@{$previous_node_relations->{'node_descriptions'}}) == 0) {
+        delete $previous_node_relations->{'node_descriptions'};
+      }
     }
   } elsif (exists($current->{'cmdname'})
            and $current->{'cmdname'} eq 'nodedescriptionblock') {
-    if (!exists($new_node_relations->{'node_long_description'})) {
-      $new_node_relations->{'node_long_description'} = $current;
+    if (!exists($new_node_relations->{'node_long_descriptions'})) {
+      $new_node_relations->{'node_long_descriptions'} = [];
     }
+    push @{$new_node_relations->{'node_long_descriptions'}}, $current;
     if (defined($previous_node_relations)
-        and exists($previous_node_relations->{'node_long_description'})
-        and $previous_node_relations->{'node_long_description'} eq $current) {
-      delete $previous_node_relations->{'node_long_description'};
+        and exists($previous_node_relations->{'node_long_descriptions'})) {
+      my $index = 0;
+      $index++
+       until ($previous_node_relations->{'node_long_descriptions'}->[$index]
+                         eq $current);
+      splice(@{$previous_node_relations->{'node_long_descriptions'}}, $index, 1);
+      if (scalar(@{$previous_node_relations->{'node_long_descriptions'}}) == 0) {
+        delete $previous_node_relations->{'node_long_descriptions'};
+      }
     }
   }
   return undef;

@@ -1171,12 +1171,22 @@ build_node_relations (NODE_RELATIONS *relations)
   STORE_RELS_INFO_SECTION_RELATIONS(associated_section)
   STORE_RELS_INFO_ELEMENT(associated_title_command)
   STORE_RELS_INFO_SECTION_RELATIONS(node_preceding_part)
-  STORE_RELS_INFO_ELEMENT(node_description)
-  STORE_RELS_INFO_ELEMENT(node_long_description)
   if (relations->menus)
     {
       sv = build_perl_const_element_array (relations->menus, 0);
       hv_store (relations_hv, "menus", strlen ("menus"), sv, 0);
+    }
+  if (relations->node_descriptions)
+    {
+      sv = build_perl_const_element_array (relations->node_descriptions, 0);
+      hv_store (relations_hv, "node_descriptions",
+                strlen ("node_descriptions"), sv, 0);
+    }
+  if (relations->node_long_descriptions)
+    {
+      sv = build_perl_const_element_array (relations->node_long_descriptions, 0);
+      hv_store (relations_hv, "node_long_descriptions",
+                strlen ("node_long_descriptions"), sv, 0);
     }
   if (relations->node_directions)
     {

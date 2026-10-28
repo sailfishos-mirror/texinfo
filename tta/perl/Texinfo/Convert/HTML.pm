@@ -6057,10 +6057,11 @@ sub _convert_menu_entry_type($$$) {
           $node_relations
             = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
 
-          if (exists($node_relations->{'node_description'})) {
-            $node_description = $node_relations->{'node_description'};
-          } elsif (exists($node_relations->{'node_long_description'})) {
-            $node_description = $node_relations->{'node_long_description'};
+          if (exists($node_relations->{'node_descriptions'})) {
+            $node_description = $node_relations->{'node_descriptions'}->[0];
+          } elsif (exists($node_relations->{'node_long_descriptions'})) {
+            $node_description
+              = $node_relations->{'node_long_descriptions'}->[0];
             $long_description = 1;
           }
         }

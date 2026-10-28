@@ -197,6 +197,10 @@ free_node_relations_list (NODE_RELATIONS_LIST *list)
       NODE_RELATIONS *node_relations = list->list[i];
       if (node_relations->menus)
         destroy_const_element_list (node_relations->menus);
+      if (node_relations->node_descriptions)
+        destroy_const_element_list (node_relations->node_descriptions);
+      if (node_relations->node_long_descriptions)
+        destroy_const_element_list (node_relations->node_long_descriptions);
       free (node_relations->node_directions);
       if (node_relations->hv)
         unregister_perl_data (node_relations->hv);
@@ -440,7 +444,7 @@ static void
 print_line_command_key_element (TEXT *result, const char *key,
                                 const ELEMENT *element)
 {
-  char *line_command_text = print_line_command(element);
+  char *line_command_text = print_line_command (element);
   if (!line_command_text)
     text_printf (result, " %s", key);
   else
@@ -512,19 +516,51 @@ print_node_relations_info_internal (const NODE_RELATIONS *relations,
                              relations->associated_title_command);
       text_append_n (result, "\n", 1);
     }
-  if (relations->node_description)
+  if (relations->node_descriptions && relations->node_descriptions->number)
     {
-      print_line_command_key_element (result, "node_description",
-                             relations->node_description);
-      text_append_n (result, "\n", 1);
+      size_t j;
+      const char *command_key = "node_descriptions";
+
+      text_append_n (result, " ", 1);
+      text_append_n (result, command_key, strlen (command_key));
+      text_append_n (result, ":\n", 2);
+      for (j = 0; j < relations->node_descriptions->number; j++)
+        {
+          const ELEMENT *command_element
+            = relations->node_descriptions->list[j];
+          char *line_command_text = print_line_command (command_element);
+          text_append_n (result, "  ", 2);
+          if (line_command_text)
+            {
+              text_append (result, line_command_text);
+              free (line_command_text);
+            }
+          else
+            text_printf (result, "@%s",
+                         builtin_command_name (command_element->e.c->cmd));
+          text_append_n (result, "\n", 1);
+        }
     }
-  if (relations->node_long_description)
+  if (relations->node_long_descriptions
+      && relations->node_long_descriptions->number)
     {
-      const char *command_key = "node_long_description";
-      const ELEMENT *command_element = relations->node_long_description;
-      text_printf (result, " %s: @%s", command_key,
-                   builtin_command_name (command_element->e.c->cmd));
-      text_append_n (result, "\n", 1);
+      const char *command_key = "node_long_descriptions";
+      size_t j;
+
+      text_append_n (result, " ", 1);
+      text_append_n (result, command_key, strlen (command_key));
+      text_append_n (result, ":\n", 2);
+      for (j = 0; j < relations->node_long_descriptions->number; j++)
+        {
+          const ELEMENT *command_element
+            = relations->node_long_descriptions->list[j];
+          SOURCE_INFO *source_info = &command_element->e.c->source_info;
+          text_printf (result, "  @%s",
+                       builtin_command_name (command_element->e.c->cmd));
+          if (source_info->line_nr > 0)
+            text_printf (result, " l%d", source_info->line_nr);
+          text_append_n (result, "\n", 1);
+        }
     }
 
   if (relations->menus && relations->menus->number)

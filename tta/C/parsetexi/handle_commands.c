@@ -953,15 +953,11 @@ handle_line_command (ELEMENT *current, const char **line_inout,
             {
               if (current_node)
                 {
-                  const ELEMENT *e_description
-                    = current_node->node_description;
-                  if (e_description)
-                    line_warn ("multiple node @nodedescription");
-                  else
-                    current_node->node_description = command_e;
+                  if (!current_node->node_descriptions)
+                    current_node->node_descriptions = new_const_element_list ();
+                  add_to_const_element_list (current_node->node_descriptions,
+                                             command_e);
                 }
-              else
-                line_warn ("@nodedescription outside of any node");
             }
           else if (cmd == CM_subentry)
             {
@@ -1296,15 +1292,12 @@ handle_block_command (ELEMENT *current, const char **line_inout,
         {
           if (current_node)
             {
-              const ELEMENT *node_long_description
-                = current_node->node_long_description;
-              if (node_long_description)
-                line_warn ("multiple node @nodedescriptionblock");
-              else
-                current_node->node_long_description = block;
+              if (!current_node->node_long_descriptions)
+                current_node->node_long_descriptions
+                                   = new_const_element_list ();
+              add_to_const_element_list (current_node->node_long_descriptions,
+                                         block);
             }
-          else
-            line_warn ("@nodedescriptionblock outside of any node");
         }
 
       block_line_e = block;

@@ -93,6 +93,16 @@ warn_non_empty_parts (SV *document_in)
           warn_non_empty_parts (document);
 
 void
+warn_multiple_node_descriptions (SV *document_in)
+    PREINIT:
+        DOCUMENT *document = 0;
+    CODE:
+        document = get_sv_document_document (document_in,
+                                             "warn_multiple_node_descriptions");
+        if (document)
+          warn_multiple_node_descriptions (document);
+
+void
 complete_node_tree_with_menus (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;

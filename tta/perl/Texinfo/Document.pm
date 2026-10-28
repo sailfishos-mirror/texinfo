@@ -156,7 +156,7 @@ sub _remove_node_relations_references($) {
   my $node_relations = shift;
 
   foreach my $relation ('element', 'associated_title_command',
-                        'node_description', 'node_long_description',
+                        'node_descriptions', 'node_long_descriptions',
                         'menus', 'node_directions') {
     delete $node_relations->{$relation};
   }

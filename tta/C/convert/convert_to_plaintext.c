@@ -6463,13 +6463,15 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                                {
                                  const NODE_RELATIONS *node_relations
                                    = nodes_list->list[node_number -1];
-                                 if (node_relations->node_description)
+                                 if (node_relations->node_descriptions
+                                  && node_relations->node_descriptions->number)
                                    node_description
-                                     = node_relations->node_description;
-                                 else if (node_relations->node_long_description)
+                                    = node_relations->node_descriptions->list[0];
+                                 else if (node_relations->node_long_descriptions
+                            && node_relations->node_long_descriptions->number)
                                    {
                                      node_description
-                                      = node_relations->node_long_description;
+                             = node_relations->node_long_descriptions->list[0];
                                      long_description = 1;
                                    }
                                }

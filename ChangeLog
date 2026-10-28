@@ -1,3 +1,46 @@
+2026-10-28 Patrice Dumas  <pertusus@free.fr>
+
+	warn about multiple node descriptions after nodes have been added
+
+	* tta/C/main/build_perl_info.c (build_node_relations),
+	tta/C/main/structure_list.c (free_node_relations_list),
+	tta/C/main/structure_list.c (print_node_relations_info_internal),
+	tta/C/main/tree_types.h (NODE_RELATIONS), tta/swig/texinfo.i
+	(NODE_RELATIONS), tta/C/parsetexi/handle_commands.c
+	(handle_line_command, handle_block_command),
+	tta/C/structuring_transfo/transformations.c (reassociate_to_node),
+	tta/perl/Texinfo/Document.pm (_remove_node_relations_references),
+	tta/perl/Texinfo/ManipulateTreeNonXS.pm (_reassociate_to_node),
+	tta/perl/Texinfo/ParserNonXS.pm (_handle_line_command)
+	(_handle_block_command), tta/perl/Texinfo/StructuringNonXS.pm
+	(print_nodes_list): gather all the node description commands
+	associated to a node when parsing and do not warn about multiple node
+	descriptions nor node descriptions before first node.  Update
+	reassociate_to_node, destruction and printing of node descriptions.
+	Print line numbers of node description blocks.
+
+	* tta/C/structuring_transfo/structuring.c
+	(warn_multiple_node_descriptions),
+	tta/C/structuring_transfo/transformations.c
+	(complete_transform_document), tta/perl/Texinfo/StructuringNonXS.pm
+	(warn_multiple_node_descriptions),
+	tta/perl/XSTexinfo/parser_document/StructuringXS.xs
+	(warn_multiple_node_descriptions), tta/perl/t/test_utils.pl (test),
+	tta/perl/texi2any.pl: add warn_multiple_node_descriptions to warn
+	about multiple node descriptions after nodes have been added for
+	sectioning commands.  Gavin report.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal), tta/C/convert/format_html.c
+	(html_command_description, html_convert_menu_entry_type),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_menu_entry_type),
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm (command_description),
+	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_convert): use the first
+	node description in the node descriptions lists.
+
+	* doc/texi2any_api.texi (Node Elements and Document Structure):
+	update.
+
 2026-10-27 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/data/options_data.txt (_XS_EXTERNAL_CONVERSION)

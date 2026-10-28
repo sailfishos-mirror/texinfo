@@ -6245,15 +6245,9 @@ sub _handle_line_command($$$$$$) {
       if ($command eq 'nodedescription') {
         if (exists($self->{'current_node'})) {
           my $node_relations = $self->{'current_node'};
-          if (exists($node_relations->{'node_description'})) {
-            _line_warn($self, __("multiple node \@nodedescription"),
-                                  $source_info);
-          } else {
-            $node_relations->{'node_description'} = $command_e;
-          }
-        } else {
-          _line_warn($self, __("\@nodedescription outside of any node"),
-                            $source_info);
+          $node_relations->{'node_descriptions'} = []
+            if (!exists($node_relations->{'node_descriptions'}));
+          push @{$node_relations->{'node_descriptions'}}, $command_e;
         }
       } elsif ($command eq 'subentry') {
         my $parent = $current->{'parent'};
@@ -6513,15 +6507,9 @@ sub _handle_block_command($$$$$) {
     } elsif ($command eq 'nodedescriptionblock') {
       if (exists($self->{'current_node'})) {
         my $node_relations = $self->{'current_node'};
-        if (exists($node_relations->{'node_long_description'})) {
-          _line_warn($self, __("multiple node \@nodedescriptionblock"),
-                            $source_info);
-        } else {
-          $node_relations->{'node_long_description'} = $block;
-        }
-      } else {
-        _line_warn($self, __("\@nodedescriptionblock outside of any node"),
-                          $source_info);
+        $node_relations->{'node_long_descriptions'} = []
+          if (!exists($node_relations->{'node_long_descriptions'}));
+        push @{$node_relations->{'node_long_descriptions'}}, $block;
       }
     }
 
