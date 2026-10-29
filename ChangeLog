@@ -1,5 +1,9 @@
 2026-10-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Nodes): Edit slightly.
+
+2026-10-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Nodes): Discuss concept of a "node name"
 	explicitly.  Give an example of @node with @subsection and state
 	what the node name is for this example.  Treat three cases

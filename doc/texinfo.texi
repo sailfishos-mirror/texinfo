@@ -2837,13 +2837,13 @@ name.  (If several sections share the same title, referencing this title will
 likely lead to the wrong node and @command{texi2any} may issue an error.)
 
 You can also use the @code{@@node} command to begin a node.  The node name is
-given as an argument to @code{@@node}.  When you use the @code{@@node}
-command, it is normal to put a line with a sectioning command---for
-example, @code{@@section} or @code{@@subsection}---immediately after
-each node (possibly with an intervening node description command).
-In this case, the section name is irrelevant for the node name.
+given as an argument to the command.  It is normal to put a line with
+a sectioning command---for example, @code{@@section} or
+@code{@@subsection}---immediately after the @code{@@node} line (possibly
+with an intervening node description command). In this case, the section
+name is irrelevant for the node name.
 
-For example, the following lines define a node called @samp{@@code@{@@table@}},
+For example, the following lines introduce a node called @samp{@@code@{@@table@}},
 associated with the `Using the @code{@@table} Command' subsection.
 
 @example
