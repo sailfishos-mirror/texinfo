@@ -2868,9 +2868,8 @@ Info readers display one node at a time, and provide commands for the
 user to move to related nodes.  The HTML output can be similarly navigated.
 
 @xref{Structuring With Nodes} for an alternative, where
-sectioning commands without nodes are with the preceding node.
-See @code{AUTO_SECTION_NODE} in @ref{Global Customization Variables} for
-more details.
+sectioning commands without @code{@@node} lines are output with the
+preceding node.
 
 
 @node Writing a Node
@@ -3383,15 +3382,19 @@ Topic@w{'}''.
 @node Structuring With Nodes
 @section Structuring With Nodes
 
-You can use nodes to separate the regions of the manual that hold
-sectioning command that are not associated to a @code{@@node}.  In that
-case, sectioning commands without nodes are associated to the preceding
-node.  This is different from the default case, where nodes
-for sectioning commands lacking a corresponding node are inserted.
-Note that the same Texinfo code can be interpreted according to these
-two possibilities for structuring.
+You can use @code{@@node} lines to separate regions of the manual that
+hold sectioning commands that are not associated with a @code{@@node}.  In this
+case, sectioning commands without @code{@@node} lines are output as part of a
+``node'' beginning with the preceding @code{@@node} command.  This is relevant
+for Info, plaintext and split HTML output---the formats for which the
+boundaries between nodes play a role in the structure of the output.
 
-When nodes are used to separate the regions of
+This is different from the default case, where sectioning commands not
+directly preceded by @code{@@node} are treated just as if such a command
+were present.  Note that the same Texinfo code can be interpreted
+according to these two possibilities for structuring.
+
+When explicit @code{@@node} lines are used to separate regions of
 the manual, you can split your manual at different levels in the chapter
 structuring hierarchy according to what you consider best for different parts
 of your manual.
@@ -3440,11 +3443,11 @@ using nodes for structuring: Info, HTML and plaintext.  Note that sectioning
 commands without a corresponding @code{@@node} line can be the target of
 cross-references in any case; see @ref{Cross Reference Targets}.
 
-Associating sectioning without node to the previous node is mainly relevant
-when split at node for HTML and plaintext (@pxref{HTML Splitting}).  You also
-need to set the customization variable @code{AUTO_SECTION_NODE} to 0 to
-select this option instead of the default.  See @code{AUTO_SECTION_NODE} in
-@ref{Global Customization Variables} for more details.
+This possibility is mainly relevant when splitting by node for HTML and
+plaintext (@pxref{HTML Splitting}).  You need to set the customization
+variable @code{AUTO_SECTION_NODE} to 0 to select this option instead of
+the default.  See @code{AUTO_SECTION_NODE} in @ref{Global Customization
+Variables} for more details.
 
 
 @node Node Descriptions

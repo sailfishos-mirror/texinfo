@@ -1,5 +1,12 @@
 2026-10-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Structuring With Nodes):
+	Refer to "@node lines" rather than nodes.  Edit.
+	(Nodes): Remove xref to "Globabl Customization Variables" - the
+	xref in "Structuring With Nodes" should be enough.
+
+2026-10-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Node Names): Move node after
 	"Node Line Requirements", as the contents of the latter node is
 	more important.  Remove xref to the said node.
