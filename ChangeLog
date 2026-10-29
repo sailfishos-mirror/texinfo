@@ -1,5 +1,13 @@
 2026-10-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Structuring With Nodes, Node Command Regions):
+	Tentative rename.  The word "structuring" is already overloaded in
+	the manual and "structuring with nodes" could be confused with the
+	node pointer and menu structure as described in the "Texinfo Document
+	Structure" node in this chapter.
+
+2026-10-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Structuring With Nodes):
 	Refer to "@node lines" rather than nodes.  Edit.
 	(Nodes): Remove xref to "Globabl Customization Variables" - the

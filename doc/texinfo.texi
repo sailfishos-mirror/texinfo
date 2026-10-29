@@ -2867,7 +2867,7 @@ correspond to the nodes in the Texinfo source as described above.
 Info readers display one node at a time, and provide commands for the
 user to move to related nodes.  The HTML output can be similarly navigated.
 
-@xref{Structuring With Nodes} for an alternative, where
+@xref{Node Command Regions} for an alternative, where
 sectioning commands without @code{@@node} lines are output with the
 preceding node.
 
@@ -3379,8 +3379,8 @@ the node when the @code{xrefautomaticsectiontitle} flag is on, so
 Topic@w{'}''.
 
 
-@node Structuring With Nodes
-@section Structuring With Nodes
+@node Node Command Regions
+@section Using @code{@@node} Commands to Separate Regions
 
 You can use @code{@@node} lines to separate regions of the manual that
 hold sectioning commands that are not associated with a @code{@@node}.  In this
@@ -3438,7 +3438,7 @@ Average length Section.
 @@unnumbered Addendum with little content
 @end example
 
-The structuring alternatives have an effect on the output only for formats
+This option has an effect on the output only for formats
 using nodes for structuring: Info, HTML and plaintext.  Note that sectioning
 commands without a corresponding @code{@@node} line can be the target of
 cross-references in any case; see @ref{Cross Reference Targets}.
