@@ -2888,9 +2888,29 @@ the node, like this:
 @@node @var{node-name}
 @end example
 
+Node names can contain @@-commands@footnote{Prior to the Texinfo 5
+release in 2013, this feature was supported in an ad hoc way (the
+@option{--commands-in-node-names} option to @command{makeinfo}).  Now it
+is part of the language.}.  For example, using @code{@@TeX@{@}} in a
+node name results in the @TeX{} logo being output, as it would be in
+normal text.  Cross-references should use @code{@@TeX@{@}} just as the
+node name does.
+
+Some commands do not make sense in node names; for instance,
+environments (e.g., @code{@@quotation}), commands that read a whole
+line as their argument (e.g., @code{@@sp}), and plenty of others.
+For the complete list of commands that are allowed, and their
+expansion for HTML identifiers and file names, @pxref{HTML Xref
+Command Expansion}.
+
 After you have inserted a @code{@@node} line, you should immediately
 write the @@-command for the associated chapter or section (if any)
 and insert its name.
+
+
+@node Node Pointers
+@nodedescription Additional arguments to @code{@@node}
+@subsection Node Pointer Arguments for @code{@@node}
 
 You may optionally follow the node name argument to @code{@@node}
 with up to three optional arguments on the rest of the same line,
@@ -3038,24 +3058,6 @@ sections are all different.
 
 Node names, anchor names (@pxref{@code{@@anchor}}),
 and float labels (@pxref{@code{@@float}}) must all be unique.
-
-@item
-@cindex Commands in node names
-@cindex @sortas{at} @@-commands @subentry in node names
-Node names can contain @@-commands@footnote{Prior to the Texinfo 5 release in 2013, this feature was supported in
-an ad hoc way (the @option{--commands-in-node-names} option to
-@command{makeinfo}).  Now it is part of the language.
-}.  For example, using
-@code{@@TeX@{@}} in a node name results in the @TeX{} logo being
-output, as it would be in normal text.  Cross-references should
-use @code{@@TeX@{@}} just as the node name does.
-
-Some commands do not make sense in node names; for instance,
-environments (e.g., @code{@@quotation}), commands that read a whole
-line as their argument (e.g., @code{@@sp}), and plenty of others.
-For the complete list of commands that are allowed, and their
-expansion for HTML identifiers and file names, @pxref{HTML Xref
-Command Expansion}.
 
 @item
 @cindex Parentheses in node name
