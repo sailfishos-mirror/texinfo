@@ -1,3 +1,13 @@
+2026-10-29  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Nodes): Discuss concept of a "node name"
+	explicitly.  Give an example of @node with @subsection and state
+	what the node name is for this example.  Treat three cases
+	separately: lone sectioning command, @node with sectioning
+	command, and unstructured node.  Place xref to "Structuring With
+	Nodes" next to discussion of Info nodes as a separate concept to
+	Texinfo nodes.
+
 2026-10-28 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi: update, revise.
