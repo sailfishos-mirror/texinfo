@@ -2937,10 +2937,10 @@ letting @code{texi2any} determine them.
 @cindex Implicit pointer creation with @code{texi2any}
 The @code{texi2any} program automatically determines node pointers
 for a hierarchically organized document.  For it to do this, each
-@code{@@node} command should be followed immediately by a sectioning
-command such as @code{@@chapter} or @code{@@section} (except that
-comment lines may intervene).  Finally, you must follow the `Top'
-@code{@@node} line with a line beginning with @code{@@top} to mark
+@code{@@node} command should be followed immediately by a sectioning command
+such as @code{@@chapter} or @code{@@section} (with possible intervening
+comment lines or ``node description'' commands).  Finally, you must follow the
+`Top' @code{@@node} line with a line beginning with @code{@@top} to mark
 the top-level node in the file.  @xref{@code{@@top} Command}.
 
 Even when you explicitly specify all pointers, you cannot write the

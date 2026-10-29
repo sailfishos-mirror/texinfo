@@ -1,5 +1,10 @@
 2026-10-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Node Pointers): Mention possibility of node
+	description command intervening between @node and sectioning command.
+
+2026-10-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Node Line Requirements, Writing a Node):
 	Move text in bullet point about "Commands in node names" to
 	"Writing a Node" as this is not a "requirement".
