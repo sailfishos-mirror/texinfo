@@ -1,5 +1,11 @@
 2026-10-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Node Names): Move node after
+	"Node Line Requirements", as the contents of the latter node is
+	more important.  Remove xref to the said node.
+
+2026-10-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Node Pointers): Mention possibility of node
 	description command intervening between @node and sectioning command.
 

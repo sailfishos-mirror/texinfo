@@ -2969,71 +2969,6 @@ pointers in their proper order.  The comment line helps you keep track
 of which arguments are for which pointers.
 
 
-@node Node Names
-@nodedescription How to choose node names.
-@section Choosing Node Names
-
-@cindex Node names, choosing
-The name of a node identifies the node.  For all the details of node
-names, @pxref{Node Line Requirements}).
-
-@anchor{Node Line Tips}@c previous node name
-Here are some suggestions for node names:
-
-@itemize @bullet
-@item
-Try to pick node names that are informative but short.
-
-In the Info file, the file name, node name, and pointer names are all
-inserted on one line, which may run into the right edge of the window.
-(This does not cause a problem with Info, but is ugly.)
-
-@item
-Try to pick node names that differ from each other near the beginnings
-of their names.  This way, it is easy to use automatic name completion in
-Info.
-
-@item
-Conventionally, node names are capitalized in the same way as section
-and chapter titles.  In this manual, initial and significant words are
-capitalized; others are not.  In other manuals, just initial words and
-proper nouns are capitalized.  Either way is fine; we recommend just
-being consistent.
-
-@item
-Node names should not contain user-defined macros.  @xref{Macro Details}
-for other constraints on the use of macros.
-
-@item
-In HTML output, any characters in the node name other than plain ASCII 
-letters, numbers or spaces will be changed in the file name.  
-(@xref{HTML Xref Node Name Expansion}.)
-This can make the URLs for the pages in your manual less user-friendly;
-for example, in this manual the @samp{@@dots} node is output as
-@file{__0040dots.html}.
-@end itemize
-
-Because node names are used in cross-references, it is not desirable to
-casually change them once published.  When you delete or rename a node, it is
-usually a good idea to define an @code{@@anchor} with the old name.
-That way, references from other manuals, from mail archives, and so on
-are not invalidated.  @xref{@code{@@anchor}}.
-
-The pointers from a given node enable you to reach other nodes and
-consist simply of the names of those nodes.
-
-Normally, a node's `Up' pointer contains the name of the node whose
-menu mentions that node.  The node's `Next' pointer contains the name
-of the node that follows the present node in that menu and its
-`Previous' pointer contains the name of the node that precedes it in
-that menu.  When a node's `Previous' node is the same as its `Up'
-node, both pointers name the same node.
-
-Usually, the first node of a Texinfo file is the `Top' node, and its
-`Up' pointer points to the @file{dir} file, which contains the main menu
-for all of Info.
-
-
 @node Node Line Requirements
 @nodedescription Keep names unique.
 @section @code{@@node} Line Requirements
@@ -3140,6 +3075,69 @@ single space.  For example:
 
 @noindent all define the same node, namely @samp{foo bar}.
 @end itemize
+
+
+@node Node Names
+@nodedescription How to choose node names.
+@section Choosing Node Names
+@anchor{Node Line Tips}@c previous node name
+
+@cindex Node names, choosing
+The name of a node identifies the node.  Here are some suggestions for
+node names:
+
+@itemize @bullet
+@item
+Try to pick node names that are informative but short.
+
+In the Info file, the file name, node name, and pointer names are all
+inserted on one line, which may run into the right edge of the window.
+(This does not cause a problem with Info, but is ugly.)
+
+@item
+Try to pick node names that differ from each other near the beginnings
+of their names.  This way, it is easy to use automatic name completion in
+Info.
+
+@item
+Conventionally, node names are capitalized in the same way as section
+and chapter titles.  In this manual, initial and significant words are
+capitalized; others are not.  In other manuals, just initial words and
+proper nouns are capitalized.  Either way is fine; we recommend just
+being consistent.
+
+@item
+Node names should not contain user-defined macros.  @xref{Macro Details}
+for other constraints on the use of macros.
+
+@item
+In HTML output, any characters in the node name other than plain ASCII
+letters, numbers or spaces will be changed in the file name.
+(@xref{HTML Xref Node Name Expansion}.)
+This can make the URLs for the pages in your manual less user-friendly;
+for example, in this manual the @samp{@@dots} node is output as
+@file{__0040dots.html}.
+@end itemize
+
+Because node names are used in cross-references, it is not desirable to
+casually change them once published.  When you delete or rename a node, it is
+usually a good idea to define an @code{@@anchor} with the old name.
+That way, references from other manuals, from mail archives, and so on
+are not invalidated.  @xref{@code{@@anchor}}.
+
+The pointers from a given node enable you to reach other nodes and
+consist simply of the names of those nodes.
+
+Normally, a node's `Up' pointer contains the name of the node whose
+menu mentions that node.  The node's `Next' pointer contains the name
+of the node that follows the present node in that menu and its
+`Previous' pointer contains the name of the node that precedes it in
+that menu.  When a node's `Previous' node is the same as its `Up'
+node, both pointers name the same node.
+
+Usually, the first node of a Texinfo file is the `Top' node, and its
+`Up' pointer points to the @file{dir} file, which contains the main menu
+for all of Info.
 
 
 @node Texinfo Document Structure
