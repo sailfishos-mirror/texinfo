@@ -1,3 +1,12 @@
+2026-10-28 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/ext/latex2html.pm (l2h_to_html): use COMMAND_LINE_ENCODING
+	to encode L2H_FILE, as it is the encoding used to encode the command
+	line where L2H_FILE is used.
+
+	* tta/perl/texi2any.pl: add comments on translations encoding and
+	COMMAND_LINE_ENCODING.
+
 2026-10-29  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Structuring With Nodes, Node Command Regions):

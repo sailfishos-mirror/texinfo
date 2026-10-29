@@ -424,16 +424,20 @@ sub l2h_to_html($$$) {
     return 0;
   }
 
+  my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
+
   # the final call is obtained by concatenating $call_start encoded
   # and strings based on already encoded file paths.
   my $call_start = $latex2html_command;
   # use init file, if specified
   my $init_file = $self->get_conf('L2H_FILE');
   if (defined($init_file) and $init_file ne '') {
-    # FIXME likely incorrect, should use the same encoding as
-    # the encoding used to encode call
-    my ($encoded_init_file, $init_path_encoding)
-      = $self->encoded_input_file_name($init_file);
+    # we use the encoding also used to encode $call_start below
+    if (defined($encoding)) {
+      $encoded_init_file = encode($encoding, $init_file);
+    } else {
+      $encoded_init_file = $init_file;
+    }
     $call_start .= " -init_file " . $init_file
       if -f $encoded_init_file and -r $encoded_init_file;
   }
@@ -456,10 +460,6 @@ sub l2h_to_html($$$) {
   # options we want to be sure of
   $call_start .= " -address 0 -info 0 -split 0 -no_navigation -no_auto_link";
 
-  # NOTE MESSAGE_ENCODING is the encoding generally used for the command line, it is
-  # a logical choice here.  However since we use a specific encoding for paths
-  # on the command line just below, it could be possible to also use it here
-  my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
   my $encoded_call_start;
   if (defined($encoding)) {
     $encoded_call_start = encode($encoding, $call_start);

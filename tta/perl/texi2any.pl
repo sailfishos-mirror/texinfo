@@ -368,6 +368,8 @@ my $main_program_set_options = {
     #  * decoding command-line, including file names
     #  * encoding command-line before executing a command
     #  * error and warning messages translations encoding
+    #    returned from Locale::Message before going through
+    #    a filter that decodes using that encoding.
     'COMMAND_LINE_ENCODING' => $locale_encoding,
     # Used for error and warning messages output encoding
     'MESSAGE_ENCODING' => $console_output_encoding,
@@ -701,6 +703,11 @@ sub remove_from_option_list($$) {
   return &Texinfo::Config::texinfo_remove_from_option_list(@_);
 }
 
+# This sets the encoding used by Locale::Messages to return the
+# translated messages, and also sets a filter that decodes the
+# translated messages.  The translated messages returned from
+# Locale::Messages::*gettext, mainly through __( are therefore
+# character strings.
 sub set_translations_encoding($) {
   my $translations_encoding = shift;
 
