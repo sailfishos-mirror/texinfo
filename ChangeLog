@@ -1,3 +1,12 @@
+2026-10-30  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Nodes): Add an introduction trying to explain
+	the importance of Nodes as a concept rather than jumping straight
+	in to a specification of what delimits nodes in the Texinfo source.
+	Mention node pointers and menus as structural relations of nodes
+	with a reference to "Texinfo Document Structure" for more information.
+	Give less detail about cross-reference commands.
+
 2026-10-30 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/t/init_files_tests.t

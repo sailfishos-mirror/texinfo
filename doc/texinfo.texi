@@ -2810,16 +2810,21 @@ on a line of its own.
 @anchor{node}@anchor{@@node} @c old names
 
 @cindex Node, defined
-A Texinfo file consists mainly of @dfn{nodes}.  These are regions of text
-that begin at a sectioning command (@xref{Chapter Structuring}), or at the
-@code{@@node} command of Texinfo.  Each node continues until the beginning
-of the next node, or the end of the document.  Each node has a @dfn{node name}
-which is used for cross-references to the node and may used in the output
-(for example for the file name for the node in HTML output).
+Nodes are the basic unit of output for Info files, multi-file HTML output,
+and other output formats.  Info readers display one node at a time,
+and provide commands for the user to move to related nodes.  The HTML
+output can be similarly navigated.  Each node has @dfn{pointers} and
+sometimes a @dfn{menu} relating it to other nodes; @pxref{Texinfo
+Document Structure} for more information.
 
-Nodes are used as the targets of cross-references.  Cross-references,
-such as the one at the end of this sentence, are made with @code{@@xref}
-and related commands; see @ref{Cross References}.
+Each node has a @dfn{node name} which is used for cross-references to
+the node (@pxref{Cross References}.  Node names may used in the output:
+for example, for the file name for the node in HTML output.
+
+In the Texinfo file, nodes consist of regions of text
+that begin at a sectioning command (@pxref{Chapter Structuring}), or at the
+@code{@@node} command of Texinfo.  Each node continues until the beginning
+of the next node, or the end of the document.
 
 In the simplest case, you use a sectioning command to begin a node.
 If the title of the section is unique in the document, the title is the node
@@ -2854,9 +2859,6 @@ of the document; see @ref{Unstructured Nodes}.
 
 By default, in Info output, the Info nodes output by @command{texi2any}
 correspond to the nodes in the Texinfo source as described above.
-Info readers display one node at a time, and provide commands for the
-user to move to related nodes.  The HTML output can be similarly navigated.
-
 @xref{Node Command Regions} for an alternative, where
 sectioning commands without @code{@@node} lines are output with the
 preceding node.
