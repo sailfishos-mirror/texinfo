@@ -1,5 +1,13 @@
 2026-10-30  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (@code{@@top} command): Edit and give less detail,
+	referring the reader to "The Top Node" for details of using @node.
+	Do not state the LaTeX command used for the output of the @top line
+	as we do not do this for the other sectioning or heading commands.
+	(The Top Node): Change @code to @samp in one place.
+
+2026-10-30  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi
 	(The Top Node): Say that the @top command can introduce the Top node.
 	Use this in our example.
