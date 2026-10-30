@@ -94,7 +94,6 @@ Cover art by Etienne Suvasa.
 @contents
 
 
-@node Top
 @top Texinfo
 
 This manual is for GNU Texinfo (version @value{VERSION}, @value{UPDATED}),
@@ -913,7 +912,6 @@ Copyright @@copyright@{@} 2026 Free Software Foundation, Inc.
 
 @@contents
 
-@@node Top
 @@top GNU Sample
 
 This manual is for GNU Sample
@@ -1992,26 +1990,23 @@ main text of the document.
 @anchor{First Node}@c merged node
 
 A Texinfo manual, following the preamble, consists of subdivisions called
-@dfn{nodes}.
-
-@c TODO: check with texinfo.tex and texi2any what exactly introduces
-@c the Top node - is @top on its own enough without "@node Top", and does this
-@c create a "Top" xref target?  What about "@node Top" without @top?
-
-The first node is the @dfn{Top} node.  The `Top' node is part of
-the file that you can use to introduce the manual.  It should contain
+@dfn{nodes}.  The first node is the @dfn{Top} node.  The `Top' node is part
+of the file that you can use to introduce the manual.  It should contain
 a very brief description of the manual (including the version number,
 if there is one).  For example:
 
 @cindex Top node example
 @example
-@@node Top
 @@top Short Sample
 
 This is a short sample Texinfo file.
 @end example
 
-The Top node must be named @samp{top} or @samp{Top}.
+The @code{@@top} command creates a node called @samp{Top}
+(@pxref{@code{@@top} Command}).  The argument to @code{@@top} is
+conventionally the title of the document, in this case @samp{Short Sample}.
+You can also start the Top node with the line @code{@@node Top}, in which
+case it is conventional to follow this immediately with a @code{@@top} line.
 
 Straight text before the Top node outside of any node should be avoided.
 Such text, if present, is not output for DocBook.
@@ -2021,10 +2016,6 @@ manual.  Likewise in HTML, the contents of the `Top' node appear before
 any of the chapters or sections in the document.  In certain output
 formats, including printed output and in DocBook output, the contents
 of the `Top' node do not appear.
-
-It is conventional to write a line with a @code{@@top} command
-containing the title of the document immediately after the
-@code{@@node Top} line (@pxref{@code{@@top} Command}).
 
 We repeat the short description from the beginning of
 the @samp{@@copying} text, but there's no need to repeat the copyright

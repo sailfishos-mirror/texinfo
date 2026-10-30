@@ -1,5 +1,13 @@
 2026-10-30  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi
+	(The Top Node): Say that the @top command can introduce the Top node.
+	Use this in our example.
+	(Short Sample Texinfo File): Remove "@node Top" from example.
+	(Top): Remove "@node Top" line from texinfo.texi itself.
+
+2026-10-30  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\top): Redefine so that the node following
 	@top is ignored even if "@node Top" is not given explicitly.
 
