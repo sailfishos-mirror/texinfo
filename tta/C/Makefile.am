@@ -45,6 +45,12 @@ AM_CFLAGS = $(perl_conf_LIB_CFLAGS)
 # This corresponds to part of ExtUtils::Embed ldopts corresponding to LDFLAGS
 AM_LDFLAGS = $(perl_conf_LDFLAGS)
 
+# used for libraries possibly built without Perl flags.  Not set in the
+# default case, can be added on the command-line, in particular to add
+# useful flags that libtool does not already add, when building without
+# Perl.
+# ADDED_LTLIB_LDFLAGS =
+
 librarydir = $(converterlibdir)/lib
 
 # path from libraries directory to bin directory such that libtool can
@@ -275,9 +281,9 @@ libtexinfo_la_LIBADD = libcallperl_libtexinfo.la $(platform_PERL_LIBADD)
 # is moved to another library it could be possible to use uchar-h although
 # it is probably better for future uses to have uchar-h-c23.
 C_libtexinfo_LIBS = $(HARD_LOCALE_LIB) $(LIBPTHREAD) $(LIBTHREAD) $(LTLIBC32CONV) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(MBRTOWC_LIB) $(PTHREAD_ONCE_LIB) $(SETLOCALE_NULL_LIB)
-libtexinfo_la_LDFLAGS = $(library_bindir) -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS) $(C_libtexinfo_LIBS)
+libtexinfo_la_LDFLAGS = $(library_bindir) -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS) $(ADDED_LTLIB_LDFLAGS) $(C_libtexinfo_LIBS)
 
-#libtexinfo_la_LDFLAGS = -version-info 1:0:0 -Wl,--no-undefined $(perl_conf_LIB_LDFLAGS) $(perl_conf_LIBS) $(C_libtexinfo_LIBS)
+#libtexinfo_la_LDFLAGS = -version-info 1:0:0 -Wl,--no-undefined $(perl_conf_LIB_LDFLAGS) $(ADDED_LTLIB_LDFLAGS) $(perl_conf_LIBS) $(C_libtexinfo_LIBS)
 
 # static internal library without Perl at all
 libtexinfo_static_la_SOURCES = $(libtexinfo_la_SOURCES)
@@ -556,9 +562,9 @@ libtexinfo_convert_la_SOURCES = \
 # locate include files under out-of-source builds.
 libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 libtexinfo_convert_la_LIBADD = $(libtexinfoxs_la_as_dependency) libtexinfo.la libcallperl_libtexinfo_convert.la $(platform_PERL_LIBADD)
-libtexinfo_convert_la_LDFLAGS = $(library_bindir) -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+libtexinfo_convert_la_LDFLAGS = $(library_bindir) -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS) $(ADDED_LTLIB_LDFLAGS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 # example to trigger errors associated with no undefined
-#libtexinfo_convert_la_LDFLAGS = -version-info 1:0:0 -Wl,--no-undefined $(perl_conf_LIB_LDFLAGS) $(perl_conf_LIBS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+#libtexinfo_convert_la_LDFLAGS = -version-info 1:0:0 -Wl,--no-undefined $(perl_conf_LIB_LDFLAGS) $(ADDED_LTLIB_LDFLAGS) $(perl_conf_LIBS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 # static internal library
 libtexinfo_convert_static_la_SOURCES = $(libtexinfo_convert_la_SOURCES)
@@ -673,9 +679,9 @@ if PERL_EMBEDDED
 libtexinfo_main_la_LIBADD += $(perl_conf_LIBS)
 endif
 # contains part of ExtUtils::Embed ldopts corresponding to LDFLAGS
-libtexinfo_main_la_LDFLAGS = $(library_bindir) -version-info 0:0:0 $(perl_conf_LIB_LDFLAGS) $(LTLIBINTL)
+libtexinfo_main_la_LDFLAGS = $(library_bindir) -version-info 0:0:0 $(perl_conf_LIB_LDFLAGS) $(ADDED_LTLIB_LDFLAGS) $(LTLIBINTL)
 # example to trigger errors associated with no undefined
-#libtexinfo_main_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LIB_LDFLAGS) $(LTLIBINTL) $(perl_conf_LIBS)
+#libtexinfo_main_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LIB_LDFLAGS) $(ADDED_LTLIB_LDFLAGS) $(perl_conf_LIBS) $(LTLIBINTL)
 
 # convenience static library
 libtexinfo_main_static_la_SOURCES = $(libtexinfo_main_la_SOURCES)
