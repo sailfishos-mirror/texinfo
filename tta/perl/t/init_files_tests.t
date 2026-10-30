@@ -436,7 +436,9 @@ $directions_buttons_text,
 @xref{section}.
 @xref{lowerc}.
 ', {'init_files' => ['lowercase_file_names_and_redirections.pm'],
-    'skip' => 'different output with case insensitive file names'}
+    #'skip' => 'different output with case insensitive file names',
+   },
+   {'CASE_INSENSITIVE_FILENAMES' => 1,},
 ],
 ['set_global_direction_for_relative_direction',
 $direction_strings_test_text,

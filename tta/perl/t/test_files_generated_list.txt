@@ -1679,7 +1679,6 @@ t/results/init_files_tests/access_tree_output_unit_in_handler.pl
 t/results/init_files_tests/access_tree_output_unit_in_handler/res_html/chap.html
 t/results/init_files_tests/access_tree_output_unit_in_handler/res_html/index.html
 t/results/init_files_tests/add_lower_case_redirection_file_names.pl
-t/results/init_files_tests/add_lower_case_redirection_file_names/res_html/Chap.html
 t/results/init_files_tests/add_lower_case_redirection_file_names/res_html/Up-and-Down.html
 t/results/init_files_tests/add_lower_case_redirection_file_names/res_html/chap.html
 t/results/init_files_tests/add_lower_case_redirection_file_names/res_html/index.html

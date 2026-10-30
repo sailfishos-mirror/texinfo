@@ -1,3 +1,13 @@
+2026-10-30 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/t/init_files_tests.t
+	(add_lower_case_redirection_file_names),
+	perl/t/test_files_generated_list.txt: instead of skipping, set
+	CASE_INSENSITIVE_FILENAMES to have the same result on every platform.
+
+	* tta/perl/t/init/lowercase_file_names_and_redirections.pm: minor
+	change in formatting of functions beginning.
+
 2026-10-30  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (@code{@@top} command, The Top Node): Move
